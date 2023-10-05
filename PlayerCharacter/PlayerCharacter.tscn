@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqsbkk55uw2f"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/CharacterMovement.gd" id="1_ulxk8"]
+[ext_resource type="Texture2D" uid="uid://dyiale1jrkaxh" path="res://PlayerCharacter/Sprites/PlayerSprite.png" id="2_qjwsv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
+radius = 50.01
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_ulxk8")
+accelerationPerSecond = 2000
+defaultMaxSpeed = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nxjry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjwsv")
+
+[node name="Camera2D" type="Camera2D" parent="."]

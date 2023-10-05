@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkix8gwtvv1ki"]
+
+[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://TransformationObjects/Sprites/transformObject.png" id="1_qk2ye"]
+[ext_resource type="Script" path="res://TransformationObjects/TriggerArea.gd" id="2_aq3f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(144, 144)
+
+[node name="TransformationObject" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3gx12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qk2ye")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+script = ExtResource("2_aq3f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]
