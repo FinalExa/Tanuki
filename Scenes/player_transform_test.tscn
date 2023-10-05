@@ -9,8 +9,8 @@
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_eiubd")
-accelerationPerSecond = 200
-maxSpeed = 350
+accelerationPerSecond = 300
+defaultMaxSpeed = 350
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_nxjry")
