@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var accelerationPerSecond = 20
+@export var accelerationPerSecond = 0
+@export var maxSpeed = 0
 var currentSpeed
-@export var maxSpeed = 2000
 var currentDirection = Vector2(0,0)
 var inputDirection
 
