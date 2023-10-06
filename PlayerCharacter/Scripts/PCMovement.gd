@@ -1,5 +1,6 @@
-extends CharacterBody2D
+extends Node2D
 
+var rigidbodyRef
 @export var accelerationPerSecond = 0
 @export var defaultMaxSpeed = 0
 var currentMaxSpeed
@@ -18,7 +19,7 @@ func set_current_speed(delta):
 		currentSpeed = 0
 	else: if(inputDirection!=Vector2.ZERO):
 		currentSpeed = clamp(currentSpeed+(accelerationPerSecond*delta),0,currentMaxSpeed)
-	velocity = inputDirection*currentSpeed
+	rigidbodyRef.velocity = inputDirection*currentSpeed
 	
 func reset_max_speed():
 	set_max_speed(defaultMaxSpeed)
@@ -29,4 +30,16 @@ func set_max_speed(newMaxSpeed):
 func _physics_process(delta):
 	get_input()
 	set_current_speed(delta)
-	move_and_slide()
+	rigidbodyRef.move_and_slide()
+
+
+func _on_player_character_set_body_ref(body):
+	rigidbodyRef = body
+
+
+func _on_transformation_change_change_speed(receivedSpeed):
+	set_max_speed(receivedSpeed)
+
+
+func _on_transformation_change_reset_speed():
+	reset_max_speed()

@@ -9,3 +9,14 @@
 
 [node name="TransformationObject" parent="." instance=ExtResource("2_67gti")]
 position = Vector2(205, 3)
+transformedMaxSpeed = 200
+
+[node name="TransformationObject2" parent="." instance=ExtResource("2_67gti")]
+position = Vector2(-376, 88)
+transformedName = "Poop"
+transformedMaxSpeed = 1000
+
+[connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
+[connection signal="set_trs_ready" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
+[connection signal="set_trs_notReady" from="TransformationObject2" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
+[connection signal="set_trs_ready" from="TransformationObject2" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
