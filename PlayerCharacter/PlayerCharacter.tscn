@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvqsbkk55uw2f"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
+[ext_resource type="Texture2D" uid="uid://dyiale1jrkaxh" path="res://PlayerCharacter/Sprites/PlayerSprite.png" id="2_qjwsv"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
+[ext_resource type="PackedScene" uid="uid://8kq357xda744" path="res://PlayerCharacter/tail.tscn" id="4_yivsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
+radius = 50.01
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_0akyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nxjry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjwsv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TransformationChange" type="Node2D" parent="."]
+script = ExtResource("3_bjmh7")
+transformationDuration = 10
+tailActivationTime = 7
+timeRefundOnReactivation = 2
+transformationLockDuration = 1
+
+[node name="Tail" parent="TransformationChange" instance=ExtResource("4_yivsb")]
+
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource("1_7j0ss")
+accelerationPerSecond = 700
+defaultMaxSpeed = 500
+
+[connection signal="set_body_ref" from="." to="Movement" method="_on_player_character_set_body_ref"]
+[connection signal="set_temp_trs" from="." to="TransformationChange" method="_on_player_character_set_temp_trs"]
+[connection signal="unset_temp_trs" from="." to="TransformationChange" method="_on_player_character_unset_temp_trs"]
+[connection signal="change_speed" from="TransformationChange" to="Movement" method="_on_transformation_change_change_speed"]
+[connection signal="reset_speed" from="TransformationChange" to="Movement" method="_on_transformation_change_reset_speed"]
