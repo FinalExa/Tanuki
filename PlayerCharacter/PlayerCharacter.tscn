@@ -24,6 +24,7 @@ texture = ExtResource("2_qjwsv")
 script = ExtResource("3_bjmh7")
 transformationDuration = 10
 tailActivationTime = 7
+timeRefundOnReactivation = 2
 transformationLockDuration = 1
 
 [node name="Movement" type="Node2D" parent="."]

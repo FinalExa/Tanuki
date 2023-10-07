@@ -16,11 +16,15 @@ var currentTransformationProperties
 var isTransformed
 @export var transformationDuration = 0
 @export var tailActivationTime = 0
+@export var timeRefundOnReactivation = 0
 var transformationTimer
 
 @export var transformationLockDuration = 0
 var transformationLockTimer
 var transformationLock = false
+
+func _ready():
+	transformationTimer = 0
 
 func _process(delta):
 	set_new_transformation()
@@ -49,7 +53,7 @@ func set_new_transformation():
 func activate_transformation():
 	if (Input.is_action_just_pressed("transformation") && currentTransformationSet && !isTransformed && !transformationLock):
 		print("IT'S MORBIN' TIME")
-		transformationTimer = 0
+		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
 		transformation_lock_activate()
@@ -67,11 +71,14 @@ func deactivate_transformation():
 func transformation_active(delta):
 	if (isTransformed):
 		if (transformationTimer<transformationDuration):
-			transformationTimer+=delta
-			# if(transformationTimer>=tailActivationTime):
+			transformationTimer=clamp(transformationTimer+delta,0,transformationDuration)
+			#if(transformationTimer>=tailActivationTime):
 				#activate tail
 		else:
 			deactivate_transformation()
+	else:
+		if (transformationTimer>0):
+			transformationTimer=clamp(transformationTimer-delta,0,transformationDuration)
 
 func transformation_lock_activate():
 	transformationLock = true
