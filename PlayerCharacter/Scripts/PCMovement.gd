@@ -1,5 +1,7 @@
 extends Node2D
 
+signal movement_direction
+
 var rigidbodyRef
 @export var accelerationPerSecond = 0
 @export var defaultMaxSpeed = 0
@@ -20,6 +22,7 @@ func set_current_speed(delta):
 	else: if(inputDirection!=Vector2.ZERO):
 		currentSpeed = clamp(currentSpeed+(accelerationPerSecond*delta),0,currentMaxSpeed)
 	rigidbodyRef.velocity = inputDirection*currentSpeed
+	emit_signal("movement_direction", inputDirection)
 	
 func reset_max_speed():
 	set_max_speed(defaultMaxSpeed)
