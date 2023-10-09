@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvqsbkk55uw2f"]
+[gd_scene load_steps=9 format=3 uid="uid://dvqsbkk55uw2f"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
+[ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Texture2D" uid="uid://dyiale1jrkaxh" path="res://PlayerCharacter/Sprites/PlayerSprite.png" id="2_qjwsv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="PackedScene" uid="uid://8kq357xda744" path="res://PlayerCharacter/tail.tscn" id="4_yivsb"]
@@ -13,6 +14,10 @@ radius = 50.01
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_0akyq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("2_d3p1y")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")
@@ -25,8 +30,6 @@ rightRad = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_qjwsv")
-
-[node name="Camera2D" type="Camera2D" parent="Rotator"]
 
 [node name="TransformationChange" type="Node2D" parent="Rotator"]
 script = ExtResource("3_bjmh7")
@@ -47,4 +50,6 @@ defaultMaxSpeed = 500
 [connection signal="unset_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_unset_temp_trs"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_reset_speed"]
+[connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
+[connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
