@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cek5x81rd0yiw"]
+
+[node name="UI" type="Node2D"]
+z_index = 1
+
+[node name="Commands" type="Label" parent="."]
+offset_left = 284.0
+offset_top = -283.0
+offset_right = 543.0
+offset_bottom = -205.0
+text = "WASD: movement
+Shift: get transformation
+E: transform/stop transformation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SavedTransformation" type="Label" parent="."]
+offset_left = 479.0
+offset_top = 261.0
+offset_right = 519.0
+offset_bottom = 287.0
+text = "CCC"
+
+[node name="Timer" type="Label" parent="."]
+offset_left = -474.0
+offset_top = -274.0
+offset_right = -434.0
+offset_bottom = -248.0
+text = "DDD"
