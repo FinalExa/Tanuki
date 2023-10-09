@@ -50,4 +50,6 @@ defaultMaxSpeed = 500
 [connection signal="unset_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_unset_temp_trs"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_reset_speed"]
+[connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
+[connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]

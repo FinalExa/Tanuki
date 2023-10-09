@@ -2,6 +2,8 @@ extends Node2D
 
 signal change_speed
 signal reset_speed
+signal send_transformation_name
+signal send_transformation_active_info
 
 var isInsidePossibleTransformationObject
 var tempTransformationName
@@ -53,11 +55,10 @@ func set_new_transformation():
 		currentTransformationName = tempTransformationName
 		currentTransformationSpeed = tempTransformationSpeed
 		currentTransformationProperties = tempTransformationProperties
-		print(currentTransformationName)
+		emit_signal("send_transformation_name", currentTransformationName)
 
 func activate_transformation():
 	if (Input.is_action_just_pressed("transformation") && currentTransformationSet && !isTransformed && !transformationLock):
-		print("IT'S MORBIN' TIME")
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
@@ -68,7 +69,6 @@ func manual_deactivate_transformation():
 		deactivate_transformation()
 
 func deactivate_transformation():
-	print("Morbin time over...")
 	emit_signal("reset_speed")
 	isTransformed = false
 	if (self.get_child_count()>0):
@@ -87,6 +87,7 @@ func transformation_active(delta):
 	else:
 		if (transformationTimer>0):
 			transformationTimer=clamp(transformationTimer-delta,0,transformationDuration)
+	emit_signal("send_transformation_active_info", isTransformed, transformationTimer, transformationDuration)
 
 func transformation_lock_activate():
 	transformationLock = true
@@ -96,5 +97,5 @@ func transformation_lock(delta):
 	if (transformationLock):
 		if (transformationLockTimer<transformationLockDuration):
 			transformationLockTimer+=delta
-		else: 
+		else:
 			transformationLock = false
