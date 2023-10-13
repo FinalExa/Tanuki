@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=5 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://dvqsbkk55uw2f" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
+[ext_resource type="PackedScene" uid="uid://dklyu63ryx73f" path="res://Enemies/guard.tscn" id="3_kj1fg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
+vertices = PackedVector2Array(576, 320, -576, 320, -576, -320, 576, -320)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(576, -320, -576, -320, -576, 320, 576, 320)])
 
 [node name="PlayerTransformTest" type="Node2D"]
 
@@ -15,6 +21,11 @@ transformedMaxSpeed = 200
 position = Vector2(-376, 88)
 transformedName = "Poop"
 transformedMaxSpeed = 1000
+
+[node name="Guard" parent="." instance=ExtResource("3_kj1fg")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_71oav")
 
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
 [connection signal="set_trs_ready" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]

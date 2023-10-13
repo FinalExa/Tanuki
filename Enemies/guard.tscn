@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dklyu63ryx73f"]
+
+[ext_resource type="Script" path="res://_Scenes/GuardMovement.gd" id="1_lv0fd"]
+[ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
+radius = 64.0
+
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("target")]
+position = Vector2(-168, -240)
+script = ExtResource("1_lv0fd")
+movement_speed = 200
+target = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2aaw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7u3uy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
