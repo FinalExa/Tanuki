@@ -1,14 +1,11 @@
 class_name BehaviorTree
 extends Node
 
-var _root: BT_Node = null
-
-func _ready():
-	SetupTree()
+@export var _root: BT_Node = null
 	
-func _process(delta):
+func _process(_delta):
+	ExecuteBehaviorTree()
+
+func ExecuteBehaviorTree():
 	if (_root!=null):
 		_root.Evaluate()
-
-func SetupTree():
-	pass

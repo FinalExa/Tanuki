@@ -10,19 +10,7 @@ enum NodeState
 
 var state: NodeState
 
-var parent: BT_Node
-var children = []
-
-func _setNullParent():
-	parent = null
-	
-func _setChildren(children):
-	for i in children.size():
-		_Attach(children[i])
-
-func _Attach(node: BT_Node):
-	node.parent = self
-	children.push_back(node)
+@export var children: Array[BT_Node]
 
 func Evaluate():
 	return NodeState.FAILURE
