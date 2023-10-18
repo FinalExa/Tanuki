@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dklyu63ryx73f"]
+[gd_scene load_steps=6 format=3 uid="uid://dklyu63ryx73f"]
 
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("target")]
+[node name="Guard" type="CharacterBody2D"]
 position = Vector2(-168, -240)
-script = ExtResource("1_lv0fd")
-movement_speed = 200
-target = NodePath("")
+script = ExtResource("1_loc1f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -19,3 +19,19 @@ shape = SubResource("CircleShape2D_2aaw5")
 texture = ExtResource("2_7u3uy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("bodyRef", "navigation_agent")]
+script = ExtResource("1_lv0fd")
+movement_speed = 200
+bodyRef = NodePath("..")
+pathDesiredDistance = 4
+targetDesiredDistance = 4
+navigation_agent = NodePath("../NavigationAgent2D")
+
+[node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardMovement")]
+script = ExtResource("4_amsnv")
+guardController = NodePath("..")
+guardMovement = NodePath("../GuardMovement")
+isInPatrol = true
+
+[connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
