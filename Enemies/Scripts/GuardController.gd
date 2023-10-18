@@ -15,8 +15,7 @@ enum LookDirections {
 	UP,
 	DOWN,
 	LEFT,
-	RIGHT,
-	CONTINUE
+	RIGHT
 }
 
 @export var patrolActions: Array[ActionTypes]

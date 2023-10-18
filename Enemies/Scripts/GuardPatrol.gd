@@ -2,9 +2,11 @@ extends Node
 
 @export var guardController: GuardController
 @export var guardMovement: GuardMovement
+@export var guardRotator: GuardRotator
 
 @export var isInPatrol: bool
 var isWaiting: bool
+var hasRotated: bool
 
 var waitTimer: float
 
@@ -20,7 +22,6 @@ func _process(delta):
 	wait_active(delta)
 
 func set_current_patrol_routine():
-	print("called")
 	var currentAction = guardController.patrolActions[patrolIndex]
 	if (currentAction == guardController.ActionTypes.WAIT):
 		wait_patrol_action(guardController.waitActions[patrolWaitIndex])
@@ -28,8 +29,12 @@ func set_current_patrol_routine():
 		if (currentAction == guardController.ActionTypes.MOVE):
 			move_patrol_action(guardController.moveActions[patrolMovementIndex])
 		else:
-			print("look around")
-	set_new_index(patrolIndex, guardController.patrolActions.size())
+			look_around_patrol_action(guardController.lookActions[patrolLookAroundIndex])
+			hasRotated = true
+	patrolIndex = set_new_index(patrolIndex, guardController.patrolActions.size())
+	if (hasRotated == true):
+		hasRotated = false
+		set_current_patrol_routine()
 
 func move_patrol_action(target):
 	guardMovement.set_new_target(target)
@@ -49,18 +54,22 @@ func wait_active(delta):
 			isWaiting = false
 			set_current_patrol_routine()
 
+func look_around_patrol_action(rotationPoint):
+	guardRotator.rotateTo(rotationPoint)
+	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, guardController.lookActions.size())
+
 func set_new_index(index, size):
 	index += 1
 	if(index>=size):
 		index = 0
 	return index
-
-func go_to_next_patrol_routine():
-	pass
 	
 func reset_patrol():
-	pass
+	patrolIndex = 0
+	patrolWaitIndex = 0
+	patrolMovementIndex = 0
+	patrolLookAroundIndex = 0
 
 func _on_guard_movement_reached_destination():
 	if(isInPatrol == true):
-		go_to_next_patrol_routine()
+		set_current_patrol_routine()

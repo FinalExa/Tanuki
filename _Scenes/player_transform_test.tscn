@@ -23,19 +23,19 @@ transformedName = "Poop"
 transformedMaxSpeed = 1000
 
 [node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("3_kj1fg")]
-patrolActions = Array[int]([1, 1, 0, 2, 1])
-waitActions = Array[float]([3.0])
+patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2])
+waitActions = Array[float]([3.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint")]
-lookActions = Array[int]([0, 1, 2, 3, 4])
+lookActions = Array[int]([1, 0])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_71oav")
 
 [node name="FirstCheckPoint" type="Node2D" parent="."]
-position = Vector2(-208, 192)
+position = Vector2(-192, 192)
 
 [node name="SecondCheckPoint" type="Node2D" parent="."]
-position = Vector2(408, 192)
+position = Vector2(448, 192)
 
 [connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
