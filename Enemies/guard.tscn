@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c052qian20ho8"]
+[gd_scene load_steps=9 format=3 uid="uid://bemukmxeqw8vh"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -33,13 +35,36 @@ guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 isInPatrol = true
 
-[node name="Rotator" type="Node2D" parent="."]
+[node name="AlertValue" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -96.0
+offset_right = 80.0
+offset_bottom = -73.0
+text = "ALERT VALUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_0sjol")
+
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("mainNodeRef")]
 script = ExtResource("4_lrldw")
-downRad = 180
 leftRad = 270
+downRad = 180
 rightRad = 90
+lookAtOffset = 90
+mainNodeRef = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
+
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardAlertValue")]
+position = Vector2(0, -16)
+rotation = 3.14159
+script = ExtResource("6_8v6qf")
+guardAlertValue = NodePath("../../AlertValue")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
+position = Vector2(8.00001, 40)
+scale = Vector2(1.73438, 5.75293)
+polygon = PackedVector2Array(23.0631, 0, -32.2883, 0, -64, 64, 64, 64)
 
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]

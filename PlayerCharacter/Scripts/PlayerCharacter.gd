@@ -14,6 +14,5 @@ func _on_transformation_object_set_trs_ready(trsName, speed, properties):
 func _on_transformation_object_set_trs_not_ready():
 	emit_signal("unset_temp_trs")
 
-
 func _on_guard_get_character_ref():
 	emit_signal("give_self_reference", self)
