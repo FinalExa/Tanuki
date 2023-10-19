@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvqsbkk55uw2f" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
-[ext_resource type="PackedScene" uid="uid://dklyu63ryx73f" path="res://Enemies/Guard.tscn" id="3_kj1fg"]
+[ext_resource type="PackedScene" path="res://Enemies/Guard.tscn" id="3_kj1fg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(576, 320, -576, 320, -576, -320, 576, -320)

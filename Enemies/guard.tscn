@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dklyu63ryx73f"]
+[gd_scene load_steps=7 format=3 uid="uid://c052qian20ho8"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
-[ext_resource type="Script" path="res://Enemies/GuardRotator.gd" id="4_x70p6"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -34,7 +34,7 @@ guardRotator = NodePath("../Rotator")
 isInPatrol = true
 
 [node name="Rotator" type="Node2D" parent="."]
-script = ExtResource("4_x70p6")
+script = ExtResource("4_lrldw")
 downRad = 180
 leftRad = 270
 rightRad = 90
