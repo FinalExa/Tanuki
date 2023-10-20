@@ -2,7 +2,7 @@ extends Node2D
 
 signal movement_direction
 
-var rigidbodyRef
+@export var rigidbodyRef: CharacterBody2D
 @export var accelerationPerSecond = 0
 @export var defaultMaxSpeed = 0
 var currentMaxSpeed
@@ -34,11 +34,6 @@ func _physics_process(delta):
 	get_input()
 	set_current_speed(delta)
 	rigidbodyRef.move_and_slide()
-
-
-func _on_player_character_set_body_ref(body):
-	rigidbodyRef = body
-
 
 func _on_transformation_change_change_speed(receivedSpeed):
 	set_max_speed(receivedSpeed)

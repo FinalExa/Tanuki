@@ -22,11 +22,11 @@ shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("bodyRef", "navigation_agent")]
 script = ExtResource("1_lv0fd")
-movement_speed = 400
 bodyRef = NodePath("..")
+navigation_agent = NodePath("../NavigationAgent2D")
+movement_speed = 200
 pathDesiredDistance = 4
 targetDesiredDistance = 4
-navigation_agent = NodePath("../NavigationAgent2D")
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardMovement", "guardRotator")]
 script = ExtResource("4_amsnv")

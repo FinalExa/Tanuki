@@ -3,14 +3,15 @@ extends Node
 
 signal reached_destination
 
+@export var bodyRef: CharacterBody2D
+@export var navigation_agent: NavigationAgent2D
+
 @export var movement_speed = 0
 var target: Node2D
-@export var bodyRef: CharacterBody2D
 @export var pathDesiredDistance = 0
 @export var targetDesiredDistance = 0
 var readyToMove: bool
 
-@export var navigation_agent: NavigationAgent2D
 
 func _ready():
 	navmeshStartup()

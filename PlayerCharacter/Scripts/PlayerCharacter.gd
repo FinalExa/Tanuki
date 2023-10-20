@@ -1,13 +1,12 @@
 class_name PlayerCharacter
 extends CharacterBody2D
 
-signal set_body_ref
 signal set_temp_trs
 signal unset_temp_trs
 signal give_self_reference
 
-func _ready():
-	emit_signal("set_body_ref", self)
+@export var tailRef: Node2D
+@export var transformationChangeRef: TransformationChange
 
 func _on_transformation_object_set_trs_ready(trsName, speed, properties):
 	emit_signal("set_temp_trs", trsName, speed, properties)

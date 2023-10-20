@@ -1,3 +1,4 @@
+class_name TransformationChange
 extends Node2D
 
 signal change_speed
@@ -15,7 +16,7 @@ var currentTransformationName
 var currentTransformationSpeed
 var currentTransformationProperties
 
-var isTransformed
+var isTransformed: bool = false
 @export var transformationDuration = 0
 @export var tailActivationTime = 0
 @export var timeRefundOnReactivation = 0

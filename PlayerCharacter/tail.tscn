@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://b5u0mmv35267g" path="res://PlayerCharacter/Sprites/tail.png" id="1_lcwc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqrom"]
+size = Vector2(20, 56)
 
 [node name="Tail" type="StaticBody2D"]
-position = Vector2(0, 75)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_oqrom")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
