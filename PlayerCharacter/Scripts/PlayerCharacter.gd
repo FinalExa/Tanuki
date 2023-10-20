@@ -5,8 +5,13 @@ signal set_temp_trs
 signal unset_temp_trs
 signal give_self_reference
 
+var sceneRef: Node2D
 @export var tailRef: Node2D
 @export var transformationChangeRef: TransformationChange
+
+func _ready():
+	sceneRef = self.get_parent()
+	transformationChangeRef.sceneRef = sceneRef
 
 func _on_transformation_object_set_trs_ready(trsName, speed, properties):
 	emit_signal("set_temp_trs", trsName, speed, properties)

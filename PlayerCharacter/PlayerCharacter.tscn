@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Texture2D" uid="uid://dyiale1jrkaxh" path="res://PlayerCharacter/Sprites/PlayerSprite.png" id="2_qjwsv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
-[ext_resource type="PackedScene" uid="uid://8kq357xda744" path="res://PlayerCharacter/tail.tscn" id="4_yivsb"]
+[ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/Tail.tscn" id="6_gubbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
@@ -33,15 +33,19 @@ rightRad = 90
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_qjwsv")
 
-[node name="TransformationChange" type="Node2D" parent="Rotator"]
+[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 10
 tailActivationTime = 3
 timeRefundOnReactivation = 2
+tailRef = NodePath("Tail")
+tailLocation = NodePath("TailLocation")
 transformationLockDuration = 1
 
-[node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("4_yivsb")]
-position = Vector2(0, 72)
+[node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
+position = Vector2(0, 75)
+
+[node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
 
 [node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef")]
 script = ExtResource("1_7j0ss")

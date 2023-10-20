@@ -34,7 +34,7 @@ func check_for_player_with_raycast(delta):
 			direction = direction.normalized()
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
-			if (result && result != { } && result.collider == controllerRef.characterRef):
+			if (result && result != { } && (result.collider == controllerRef.characterRef || result.collider == controllerRef.characterRef.tailRef)):
 				determine_suspicion_type(result.collider, delta)
 				break
 
@@ -55,11 +55,11 @@ func determine_suspicion_type(target, delta):
 		else:
 			print("no conditions fullfilled")
 
-
 func _on_body_entered(body):
-	if (body == controllerRef.characterRef):
+	print(body.name)
+	if (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef):
 		checkWithRayCast = true
 
 func _on_body_exited(body):
-	if (body == controllerRef.characterRef):
+	if (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef):
 		checkWithRayCast = false

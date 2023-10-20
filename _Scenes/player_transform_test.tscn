@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=5 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://dvqsbkk55uw2f" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
 [ext_resource type="PackedScene" uid="uid://bemukmxeqw8vh" path="res://Enemies/Guard.tscn" id="3_kj1fg"]
-[ext_resource type="PackedScene" uid="uid://8kq357xda744" path="res://PlayerCharacter/tail.tscn" id="4_b08f8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(576, 320, -576, 320, -576, -320, 576, -320)
@@ -26,9 +25,9 @@ transformedMaxSpeed = 1000
 [node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("3_kj1fg")]
 isInPatrol = true
 patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 1, 0])
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+waitActions = Array[float]([2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
-lookActions = Array[int]([1, 0])
+lookActions = Array[int]([1, 2])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_71oav")
@@ -41,9 +40,6 @@ position = Vector2(448, 192)
 
 [node name="ThirdCheckPoint" type="Node2D" parent="."]
 position = Vector2(-360, -200)
-
-[node name="Tail" parent="." instance=ExtResource("4_b08f8")]
-position = Vector2(-144, 91)
 
 [connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
