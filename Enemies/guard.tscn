@@ -22,7 +22,7 @@ shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("bodyRef", "navigation_agent")]
 script = ExtResource("1_lv0fd")
-movement_speed = 200
+movement_speed = 400
 bodyRef = NodePath("..")
 pathDesiredDistance = 4
 targetDesiredDistance = 4
@@ -33,7 +33,6 @@ script = ExtResource("4_amsnv")
 guardController = NodePath("..")
 guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
-isInPatrol = true
 
 [node name="AlertValue" type="Label" parent="."]
 offset_left = -80.0
@@ -56,15 +55,46 @@ mainNodeRef = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardAlertValue")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardAlertValue")]
 position = Vector2(0, -16)
 rotation = 3.14159
+collision_layer = 12
 script = ExtResource("6_8v6qf")
+controllerRef = NodePath("../..")
+maxAlertValue = 100.0
+playerOrTailIsSeenMultiplier = 2.0
+playerOrTailIsNotSeenMultiplier = 1.0
+distanceMultiplier = 3.0
+rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
 guardAlertValue = NodePath("../../AlertValue")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
-polygon = PackedVector2Array(23.0631, 0, -32.2883, 0, -64, 64, 64, 64)
+polygon = PackedVector2Array(23.0629, 2.67029e-05, -32.2883, -1.52588e-05, -64.577, 63.9674, 55.3506, 63.9675)
+
+[node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
+
+[node name="Target1" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-0.00100708, 408)
+rotation = -3.14159
+
+[node name="Target2" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-48.001, 408)
+rotation = -3.14159
+
+[node name="Target3" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(47.999, 408)
+rotation = -3.14159
+
+[node name="Target4" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-96.001, 408)
+rotation = -3.14159
+
+[node name="Target5" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(95.999, 408)
+rotation = -3.14159
 
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]

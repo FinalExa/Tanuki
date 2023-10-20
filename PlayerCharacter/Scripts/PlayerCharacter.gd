@@ -1,3 +1,4 @@
+class_name PlayerCharacter
 extends CharacterBody2D
 
 signal set_body_ref

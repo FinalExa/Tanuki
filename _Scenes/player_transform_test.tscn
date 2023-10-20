@@ -23,6 +23,7 @@ transformedName = "Poop"
 transformedMaxSpeed = 1000
 
 [node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("3_kj1fg")]
+isInPatrol = true
 patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 1, 0])
 waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]

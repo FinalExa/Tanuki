@@ -4,7 +4,7 @@ extends Node
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 
-@export var isInPatrol: bool
+
 var isWaiting: bool
 var hasRotated: bool
 
@@ -22,19 +22,20 @@ func _process(delta):
 	wait_active(delta)
 
 func set_current_patrol_routine():
-	var currentAction = guardController.patrolActions[patrolIndex]
-	if (currentAction == guardController.ActionTypes.WAIT):
-		wait_patrol_action(guardController.waitActions[patrolWaitIndex])
-	else:
-		if (currentAction == guardController.ActionTypes.MOVE):
-			move_patrol_action(guardController.moveActions[patrolMovementIndex])
+	if(guardController.isInPatrol == true):
+		var currentAction = guardController.patrolActions[patrolIndex]
+		if (currentAction == guardController.ActionTypes.WAIT):
+			wait_patrol_action(guardController.waitActions[patrolWaitIndex])
 		else:
-			look_around_patrol_action(guardController.lookActions[patrolLookAroundIndex])
-			hasRotated = true
-	patrolIndex = set_new_index(patrolIndex, guardController.patrolActions.size())
-	if (hasRotated == true):
-		hasRotated = false
-		set_current_patrol_routine()
+			if (currentAction == guardController.ActionTypes.MOVE):
+				move_patrol_action(guardController.moveActions[patrolMovementIndex])
+			else:
+				look_around_patrol_action(guardController.lookActions[patrolLookAroundIndex])
+				hasRotated = true
+		patrolIndex = set_new_index(patrolIndex, guardController.patrolActions.size())
+		if (hasRotated == true):
+			hasRotated = false
+			set_current_patrol_routine()
 
 func move_patrol_action(target):
 	guardMovement.set_new_target(target)
@@ -74,5 +75,4 @@ func reset_patrol():
 	patrolLookAroundIndex = 0
 
 func _on_guard_movement_reached_destination():
-	if(isInPatrol == true):
-		set_current_patrol_routine()
+	set_current_patrol_routine()

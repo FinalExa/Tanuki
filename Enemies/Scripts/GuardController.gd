@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 signal get_character_ref
 
+@export var isInPatrol: bool
+@export var isChecking: bool
 var characterRef
 
 enum ActionTypes {
@@ -25,7 +27,6 @@ enum LookDirections {
 
 func _ready():
 	emit_signal("get_character_ref")
-
 
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference
