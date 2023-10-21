@@ -48,9 +48,5 @@ func _on_player_character_give_self_reference(ref):
 func _on_transformation_object_confirm_to_be_sent(receivedObj: Node2D):
 	add_item_to_current_list(receivedObj)
 
-func _on_transformation_object_2_confirm_to_be_sent_exit(receivedObj: Node2D):
+func _on_transformation_object_confirm_to_be_sent_exit(receivedObj: Node2D):
 	remove_item_from_current_list(receivedObj)
-
-
-func _on_transformation_object_confirm_to_be_sent_exit():
-	pass # Replace with function body.
