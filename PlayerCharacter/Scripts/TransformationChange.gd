@@ -30,6 +30,7 @@ var transformationLockTimer
 var transformationLock = false
 
 var sceneRef: Node2D
+var localAllowedItemsRef: LocalAllowedItems
 
 func _ready():
 	transformationTimer = 0
@@ -106,3 +107,9 @@ func transformation_lock(delta):
 			transformationLockTimer+=delta
 		else:
 			transformationLock = false
+
+func set_local_zone(localRef: LocalAllowedItems):
+	localAllowedItemsRef = localRef
+
+func unset_local_zone():
+	localAllowedItemsRef = null

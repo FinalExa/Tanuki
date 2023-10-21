@@ -10,6 +10,8 @@ signal confirm_to_be_sent_exit
 @export var transformedMaxSpeed: float
 @export var transformedProperties: Array[String]
 
+var localAllowedItemsRef: LocalAllowedItems
+
 func _on_trigger_area_set_change_trs_available(status):
 	if (status == true):
 		emit_signal("set_trs_ready", transformedName, transformedMaxSpeed, transformedProperties)
@@ -25,3 +27,9 @@ func _on_local_allowed_items_check_if_object(body: Node2D):
 func _on_local_allowed_items_check_if_object_exit(body: Node2D):
 	if (body == self):
 		emit_signal("confirm_to_be_sent_exit", self)
+
+func set_local_zone(localRef: LocalAllowedItems):
+	localAllowedItemsRef = localRef
+
+func unset_local_zone():
+	localAllowedItemsRef = null

@@ -43,20 +43,19 @@ func determine_suspicion_type(target, delta):
 		if(target.transformationChangeRef.isTransformed == false):
 			print("visible player")
 		else:
-			print(str("player trasformed into ", target.transformationChangeRef.currentTransformationName))
 			if (target.velocity != Vector2.ZERO):
 				print("player transformed and moving")
 			else:
-				print ("player transformed and still")
-				# section for the check to see if the player is trasformed inside a "wrong" zone
+				var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
+				if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
+					print("transformed in the wrong zone")
+				else:
+					print ("transformed in the right zone")
 	else:
 		if (target == controllerRef.characterRef.tailRef):
 			print("visible tail")
-		else:
-			print("no conditions fullfilled")
 
 func _on_body_entered(body):
-	print(body.name)
 	if (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef):
 		checkWithRayCast = true
 
