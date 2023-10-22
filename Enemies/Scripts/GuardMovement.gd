@@ -6,7 +6,8 @@ signal reached_destination
 @export var bodyRef: CharacterBody2D
 @export var navigation_agent: NavigationAgent2D
 
-@export var movement_speed = 0
+@export var default_movement_speed = 0
+var current_movement_speed
 var target: Node2D
 @export var pathDesiredDistance = 0
 @export var targetDesiredDistance = 0
@@ -17,6 +18,7 @@ func _ready():
 	navmeshStartup()
 
 func navmeshStartup():
+	reset_movement_speed()
 	navigation_agent.path_desired_distance = pathDesiredDistance
 	navigation_agent.target_desired_distance = targetDesiredDistance
 	call_deferred("actor_setup")
@@ -49,7 +51,13 @@ func navigation():
 
 		var new_velocity: Vector2 = next_path_position - current_agent_position
 		new_velocity = new_velocity.normalized()
-		new_velocity = new_velocity * movement_speed
+		new_velocity = new_velocity * current_movement_speed
 		bodyRef.velocity = new_velocity
 	else:
 		bodyRef.velocity = Vector2.ZERO
+
+func set_movement_speed(newMovementSpeed: float):
+	current_movement_speed = newMovementSpeed
+
+func reset_movement_speed():
+	current_movement_speed = default_movement_speed

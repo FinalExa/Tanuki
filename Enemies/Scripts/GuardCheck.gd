@@ -6,11 +6,13 @@ extends Area2D
 @export var playerOrTailIsSeenMultiplier: float
 @export var playerOrTailIsNotSeenMultiplier: float
 @export var distanceMultiplier: float
+@export var preCheckTime: float
 @export var rayTargets: Array[Node2D]
 var currentAlertValue: float
 var checkWithRayCast: bool
 
 @export var guardAlertValue: GuardAlertValue
+@export var guardPatrol: GuardPatrol
 
 func _ready():
 	reset_alert_value()

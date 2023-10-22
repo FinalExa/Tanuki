@@ -1,9 +1,6 @@
 class_name LocalAllowedItems
 extends Area2D
 
-signal check_if_object
-signal check_if_object_exit
-
 @export var allowedObjects: Array[String]
 @export var assignedObjects: Array[Node2D]
 var playerRef: PlayerCharacter
@@ -13,17 +10,19 @@ func _process(delta):
 	player_inside_area_checks()
 
 func _on_body_entered(body):
-	if (body == playerRef):
+	if (body is PlayerCharacter):
 		playerIsIn = true
 	else:
-		emit_signal("check_if_object", body)
+		if (body is TransformationObjectData):
+			add_item_to_current_list(body)
 
 func _on_body_exited(body):
-	if (body == playerRef):
+	if (body is PlayerCharacter):
 		playerIsIn = false
 		remove_item_from_current_list(playerRef.transformationChangeRef)
 	else:
-		emit_signal("check_if_object_exit", body)
+		if (body is TransformationObjectData):
+			remove_item_from_current_list(body)
 
 func player_inside_area_checks():
 	if (playerIsIn == true):
@@ -47,9 +46,3 @@ func remove_item_from_current_list(item: Node2D):
 
 func _on_player_character_give_self_reference(ref):
 	playerRef = ref
-
-func _on_transformation_object_confirm_to_be_sent(receivedObj: Node2D):
-	add_item_to_current_list(receivedObj)
-
-func _on_transformation_object_confirm_to_be_sent_exit(receivedObj: Node2D):
-	remove_item_from_current_list(receivedObj)

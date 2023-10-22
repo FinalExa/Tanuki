@@ -1,3 +1,4 @@
+class_name GuardPatrol
 extends Node
 
 @export var guardController: GuardController
@@ -76,3 +77,7 @@ func reset_patrol():
 
 func _on_guard_movement_reached_destination():
 	set_current_patrol_routine()
+
+func stop_patrol():
+	guardController.isInPatrol = false
+	reset_patrol()
