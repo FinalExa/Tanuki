@@ -20,6 +20,8 @@ var reductionOverTimeActive: bool
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
+@export var guardResearch: GuardResearch
+@export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
 
 func _ready():
@@ -80,11 +82,11 @@ func determine_suspicion_type(target, delta):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
 
 func _on_body_entered(body):
-	if (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef):
+	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
 		checkWithRayCast = true
 
 func _on_body_exited(body):
-	if (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef):
+	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
 		determine_if_end_check()
 
 func suspicion_active(target: Node2D, delta, multiplier):
@@ -114,8 +116,12 @@ func determine_if_end_check():
 		checkWithRayCast = false
 		preCheckActive = false
 	else:
-		if (reductionOverTimeActive == false):
-			activate_reduction_over_time()
+		if (currentAlertValue >= researchValueThreshold):
+			stop_guardCheck()
+			guardResearch.initialize_guard_research(checkTarget)
+		else:
+			if (reductionOverTimeActive == false):
+				activate_reduction_over_time()
 
 func activate_reduction_over_time():
 	reductionOverTimeActive = true
@@ -133,9 +139,16 @@ func increase_suspicion_value(delta, multiplier):
 		currentAlertValue = clamp(currentAlertValue + (multValue * distanceMultiplier * multiplier * delta), 0, maxAlertValue)
 		send_alert_value()
 	else:
-		print("reached max alert value")
+		print("Go to alert behavior placeholder c:")
 
 func end_check():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
 	guardPatrol.resume_patrol()
+
+func stop_guardCheck():
+	checkActive = false
+	checkWithRayCast = false
+	reductionOverTimeActive = false
+	guardController.isChecking = false
+	preCheckActive = false

@@ -5,6 +5,7 @@ signal get_character_ref
 
 @export var isInPatrol: bool
 @export var isChecking: bool
+@export var isInResearch: bool
 var characterRef
 
 enum ActionTypes {
