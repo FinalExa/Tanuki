@@ -6,7 +6,7 @@ extends Area2D
 var playerRef: PlayerCharacter
 var playerIsIn: bool
 
-func _process(delta):
+func _process(_delta):
 	player_inside_area_checks()
 
 func _on_body_entered(body):

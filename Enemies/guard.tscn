@@ -55,18 +55,21 @@ mainNodeRef = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardAlertValue", "guardPatrol")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardPatrol")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
 script = ExtResource("6_8v6qf")
 controllerRef = NodePath("../..")
 maxAlertValue = 100.0
-playerOrTailIsSeenMultiplier = 2.0
-playerOrTailIsNotSeenMultiplier = 1.0
-distanceMultiplier = 3.0
-preCheckTime = 0.5
+researchValueThreshold = 65.0
+playerIsSeenMultiplier = 1.0
+playerIsNotSeenMultiplier = 0.5
+reductionOverTimeValue = 7.0
+distanceMultiplier = 0.2
+preCheckDuration = 0.5
 rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
+guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
 guardPatrol = NodePath("../../GuardPatrol")
 

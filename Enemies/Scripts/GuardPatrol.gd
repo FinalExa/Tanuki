@@ -8,6 +8,7 @@ extends Node
 
 var isWaiting: bool
 var hasRotated: bool
+var patrolStopped: bool
 
 var waitTimer: float
 
@@ -51,7 +52,7 @@ func wait_patrol_action(timer):
 	patrolWaitIndex = set_new_index(patrolWaitIndex, guardController.waitActions.size())
 
 func wait_active(delta):
-	if (isWaiting == true):
+	if (isWaiting == true && patrolStopped == false):
 		if (waitTimer>0):
 			waitTimer-=delta
 		else:
@@ -80,4 +81,17 @@ func _on_guard_movement_reached_destination():
 
 func stop_patrol():
 	guardController.isInPatrol = false
+	patrolStopped = true
+	guardMovement.set_movement_speed(0)
+
+func restart_patrol():
+	guardController.isInPatrol = true
+	patrolStopped = false
+	guardMovement.reset_movement_speed()
 	reset_patrol()
+	set_current_patrol_routine()
+
+func resume_patrol():
+	guardController.isInPatrol = true
+	patrolStopped = false
+	guardMovement.reset_movement_speed()
