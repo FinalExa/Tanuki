@@ -41,7 +41,7 @@ func set_current_patrol_routine():
 
 func move_patrol_action(target):
 	guardMovement.set_new_target(target)
-	guardRotator.setLookingAtSomething(target)
+	guardRotator.setLookingAtNode(target)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, guardController.moveActions.size())
 
 func wait_patrol_action(timer):

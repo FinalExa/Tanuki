@@ -51,7 +51,7 @@ func reduction_over_time(delta):
 			end_check()
 
 func check_with_raycast(delta):
-	if (checkWithRayCast == true):
+	if (checkActive == true && checkWithRayCast == true):
 		var space_state = get_world_2d().direct_space_state
 		for i in rayTargets.size():
 			var direction: Vector2 = rayTargets[i].position - controllerRef.position
@@ -87,7 +87,7 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
-		determine_if_end_check()
+		determine_if_end_check(body)
 
 func suspicion_active(target: Node2D, delta, multiplier):
 	if (reductionOverTimeActive == true):
@@ -111,14 +111,14 @@ func execute_precheck(target: Node2D, delta):
 	else:
 		activate_check(target)
 
-func determine_if_end_check():
+func determine_if_end_check(body):
 	if (guardController.isChecking == false):
 		checkWithRayCast = false
 		preCheckActive = false
 	else:
 		if (currentAlertValue >= researchValueThreshold):
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget)
+			guardResearch.initialize_guard_research(checkTarget, body is CharacterBody2D)
 		else:
 			if (reductionOverTimeActive == false):
 				activate_reduction_over_time()
@@ -152,3 +152,8 @@ func stop_guardCheck():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
 	preCheckActive = false
+
+func resume_check():
+	checkActive = true
+	guardController.isChecking = true
+	activate_reduction_over_time()

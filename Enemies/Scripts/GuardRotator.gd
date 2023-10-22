@@ -7,8 +7,10 @@ extends Node2D
 @export var rightRad = 0
 @export var lookAtOffset = 0
 
-var isLookingAtSomething: bool
+var isLookingAtNode: bool
+var isLookingAtPosition: bool
 var target: Node2D
+var vectorTarget: Vector2
 
 @export var mainNodeRef: Node2D
 
@@ -27,14 +29,25 @@ func rotateTo(givenPoint):
 			else:
 				self.rotation_degrees = rightRad
 
-func setLookingAtSomething(receivedTarget):
+func setLookingAtNode(receivedTarget: Node2D):
 	target = receivedTarget
-	isLookingAtSomething = true
+	isLookingAtNode = true
+	isLookingAtPosition = false
+	
+func setLookingAtPosition(receivedPosition: Vector2):
+	vectorTarget = receivedPosition
+	isLookingAtPosition = true
+	isLookingAtNode = false
 
 func stopLooking():
-	isLookingAtSomething = false
+	isLookingAtNode = false
+	isLookingAtPosition = false
 
 func lookAtTarget():
-	if(isLookingAtSomething == true):
+	if (isLookingAtNode == true):
 		self.look_at(target.position)
 		self.rotation_degrees += lookAtOffset
+	else:
+		if (isLookingAtPosition == true):
+			self.look_at(vectorTarget)
+			self.rotation_degrees += lookAtOffset

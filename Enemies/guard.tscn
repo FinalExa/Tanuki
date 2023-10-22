@@ -29,6 +29,7 @@ navigation_agent = NodePath("../NavigationAgent2D")
 default_movement_speed = 200
 pathDesiredDistance = 4
 targetDesiredDistance = 4
+destinationDistanceThreshold = 5
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardMovement", "guardRotator")]
 script = ExtResource("4_amsnv")
@@ -36,13 +37,19 @@ guardController = NodePath("..")
 guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 
-[node name="GuardResearch" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardAlertValue", "guardMovement", "guardRotator")]
+[node name="GuardResearch" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardAlertValue", "guardPatrol", "guardMovement", "guardRotator", "guardCheck")]
 script = ExtResource("4_0ufy6")
+researchSpotThreshold = 200.0
+researchFollowThreshold = 700.0
+buildUpDuration = 2.0
+onReturnToCheckAlertValue = 35.0
 researchActiveText = "RESEARCHING"
 guardController = NodePath("..")
 guardAlertValue = NodePath("../AlertValue")
+guardPatrol = NodePath("../GuardPatrol")
 guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
+guardCheck = NodePath("../Rotator/GuardCheck")
 
 [node name="GuardAlert" type="Node" parent="."]
 script = ExtResource("5_utvhj")
@@ -75,12 +82,12 @@ collision_layer = 12
 script = ExtResource("6_8v6qf")
 controllerRef = NodePath("../..")
 maxAlertValue = 100.0
-researchValueThreshold = 65.0
+researchValueThreshold = 40.0
 playerIsSeenMultiplier = 1.0
 playerIsNotSeenMultiplier = 0.5
 reductionOverTimeValue = 7.0
 distanceMultiplier = 0.2
-preCheckDuration = 0.5
+preCheckDuration = 0.1
 rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
 guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
@@ -116,5 +123,6 @@ position = Vector2(95.999, 408)
 rotation = -3.14159
 
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="reached_destination" from="GuardMovement" to="GuardResearch" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
