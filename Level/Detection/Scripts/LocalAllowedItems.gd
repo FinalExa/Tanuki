@@ -36,13 +36,11 @@ func add_item_to_current_list(item: Node2D):
 	if (!assignedObjects.has(item)):
 		assignedObjects.push_back(item)
 		item.set_local_zone(self)
-		print(str("Added: ", item.name))
 
 func remove_item_from_current_list(item: Node2D):
 	if (assignedObjects.has(item)):
 		assignedObjects.erase(item)
 		item.unset_local_zone()
-		print(str("Removed: ", item.name))
 
 func _on_player_character_give_self_reference(ref):
 	playerRef = ref

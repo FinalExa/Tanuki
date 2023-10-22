@@ -10,6 +10,7 @@ extends Area2D
 @export var distanceMultiplier: float
 @export var preCheckDuration: float
 @export var rayTargets: Array[Node2D]
+var checkActive: bool
 var checkTarget: Node2D
 var currentAlertValue: float
 var checkWithRayCast: bool
@@ -24,12 +25,13 @@ var reductionOverTimeActive: bool
 func _ready():
 	reset_alert_value()
 	send_alert_value()
+	checkActive = true
 
 func _process(delta):
 	reduction_over_time(delta)
 
 func _physics_process(delta):
-	check_for_player_with_raycast(delta)
+	check_with_raycast(delta)
 
 func reset_alert_value():
 	currentAlertValue = 0
@@ -46,7 +48,7 @@ func reduction_over_time(delta):
 		else:
 			end_check()
 
-func check_for_player_with_raycast(delta):
+func check_with_raycast(delta):
 	if (checkWithRayCast == true):
 		var space_state = get_world_2d().direct_space_state
 		for i in rayTargets.size():
@@ -55,13 +57,14 @@ func check_for_player_with_raycast(delta):
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && (result.collider == controllerRef.characterRef || result.collider == controllerRef.characterRef.tailRef)):
-				determine_suspicion_type(result.collider, delta)
+				determine_suspicion_type_with_conditions(result.collider, delta)
 				break
 
-func determine_suspicion_type(target, delta):
-	player_or_tail_suspicion_type(target, delta)
+func determine_suspicion_type_with_conditions(target, delta):
+	if(checkActive == true):
+		determine_suspicion_type(target, delta)
 
-func player_or_tail_suspicion_type(target, delta):
+func determine_suspicion_type(target, delta):
 	if (target == controllerRef.characterRef):
 		if(target.transformationChangeRef.isTransformed == false):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
