@@ -5,6 +5,7 @@ extends Node
 @export var researchFollowThreshold: float
 @export var buildUpDuration: float
 @export var onReturnToCheckAlertValue: float
+@export var objectInterationDistanceThreshold: float
 @export var researchActiveText: String
 var buildUpTimer: float
 var buildUpId: int
@@ -30,10 +31,9 @@ func initialize_guard_research(target: Node2D, isMovable: bool):
 	guardController.isInResearch = true
 	guardAlertValue.updateText(researchActiveText)
 	isTrackingAMovable = isMovable
-	if (isTrackingAMovable == true):
-		research_movable()
+	research_setup()
 
-func research_movable():
+func research_setup():
 	save_target_info()
 	set_research_target(researchLastPosition)
 
@@ -48,11 +48,26 @@ func set_research_target(researchTarget: Vector2):
 
 func research_active(delta):
 	if (guardController.isInResearch):
-		var space_state = guardController.get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(guardController.position, researchTarget.global_position)
-		var result = space_state.intersect_ray(query)
-		if (result && result != { }):
-			spotting_operations(result.collider, delta)
+		if (isTrackingAMovable):
+			follow_movable(delta)
+		else:
+			follow_not_movable(delta)
+
+func follow_movable(delta):
+	var space_state = guardController.get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(guardController.position, researchTarget.global_position)
+	var result = space_state.intersect_ray(query)
+	if (result && result != { }):
+		spotting_operations(result.collider, delta)
+
+func follow_not_movable(delta):
+	if (guardController.position.distance_to(researchTarget.position) > objectInterationDistanceThreshold):
+		guardMovement.set_location_target(researchTarget.position)
+	else:
+		if (researchTarget is PlayerCharacter):
+			print("Touched Player -> Alert!")
+		else:
+			print("Removed wrong item from zone")
 
 func spotting_operations(trackedObject: Node2D, delta):
 	if (trackedObject != researchTarget):

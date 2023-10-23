@@ -1,3 +1,4 @@
+class_name TailFollow
 extends StaticBody2D
 
 var objectToTrack: Node2D

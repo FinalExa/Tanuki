@@ -17,6 +17,7 @@ var checkWithRayCast: bool
 var preCheckActive: bool
 var preCheckTimer: float
 var reductionOverTimeActive: bool
+var researchOutcome: bool
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
@@ -70,16 +71,20 @@ func determine_suspicion_type(target, delta):
 	if (target == controllerRef.characterRef):
 		if(target.transformationChangeRef.isTransformed == false):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
+			researchOutcome = true
 		else:
 			if (target.velocity != Vector2.ZERO):
 				suspicion_active(target, delta, playerIsNotSeenMultiplier)
+				researchOutcome = false
 			else:
 				var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
 				if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
 					suspicion_active(target, delta, playerIsNotSeenMultiplier)
+					researchOutcome = false
 	else:
 		if (target == controllerRef.characterRef.tailRef):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
+			researchOutcome = true
 
 func _on_body_entered(body):
 	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
@@ -118,7 +123,7 @@ func determine_if_end_check(body):
 	else:
 		if (currentAlertValue >= researchValueThreshold):
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget, body is CharacterBody2D)
+			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
 		else:
 			if (reductionOverTimeActive == false):
 				activate_reduction_over_time()
@@ -139,7 +144,11 @@ func increase_suspicion_value(delta, multiplier):
 		currentAlertValue = clamp(currentAlertValue + (multValue * distanceMultiplier * multiplier * delta), 0, maxAlertValue)
 		send_alert_value()
 	else:
-		print("Go to alert behavior placeholder c:")
+		if (researchOutcome == true):
+			print("Go to alert behavior placeholder c:")
+		else:
+			stop_guardCheck()
+			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
 
 func end_check():
 	reductionOverTimeActive = false
