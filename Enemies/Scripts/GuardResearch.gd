@@ -17,6 +17,7 @@ var isTrackingAMovable: bool
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
+@export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
@@ -65,7 +66,8 @@ func follow_not_movable(delta):
 		guardMovement.set_location_target(researchTarget.position)
 	else:
 		if (researchTarget is PlayerCharacter):
-			print("Touched Player -> Alert!")
+			stop_research()
+			guardAlert.start_alert(researchTarget)
 		else:
 			print("Removed wrong item from zone")
 

@@ -26,6 +26,9 @@ script = ExtResource("3_k167w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("RectangleShape2D_10nd7")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 100.0
+
 [connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]
 [connection signal="set_changeTrs_available" from="TriggerArea" to="." method="_on_trigger_area_set_change_trs_available"]

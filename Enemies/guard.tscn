@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bemukmxeqw8vh"]
+[gd_scene load_steps=11 format=3 uid="uid://datgliqrf70oo"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
-[ext_resource type="Script" path="res://Enemies/GuardResearch.gd" id="4_0ufy6"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
-[ext_resource type="Script" path="res://Enemies/GuardAlert.gd" id="5_utvhj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
@@ -16,6 +16,7 @@ radius = 64.0
 [node name="Guard" type="CharacterBody2D"]
 position = Vector2(-168, -240)
 script = ExtResource("1_loc1f")
+isInPatrol = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -27,8 +28,8 @@ script = ExtResource("1_lv0fd")
 bodyRef = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
 default_movement_speed = 200
-pathDesiredDistance = 4
-targetDesiredDistance = 4
+pathDesiredDistance = 20
+targetDesiredDistance = 10
 destinationDistanceThreshold = 5
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardMovement", "guardRotator")]
@@ -38,7 +39,7 @@ guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 
 [node name="GuardResearch" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardAlertValue", "guardPatrol", "guardMovement", "guardRotator", "guardCheck")]
-script = ExtResource("4_0ufy6")
+script = ExtResource("4_j1yk0")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
 buildUpDuration = 2.0
@@ -52,8 +53,19 @@ guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 guardCheck = NodePath("../Rotator/GuardCheck")
 
-[node name="GuardAlert" type="Node" parent="."]
-script = ExtResource("5_utvhj")
+[node name="GuardAlert" type="Node" parent="." node_paths=PackedStringArray("guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch")]
+script = ExtResource("5_t7kgq")
+alertMovementSpeed = 400.0
+catchDistanceThreshold = 300.0
+catchPreparationDuration = 1.0
+targetNotSeenDuration = 5.0
+targetNotSeenLastLocationThreshold = 100.0
+preChaseDuration = 1.0
+guardAlertValue = NodePath("../AlertValue")
+guardController = NodePath("..")
+guardMovement = NodePath("../GuardMovement")
+guardRotator = NodePath("../Rotator")
+guardResearch = NodePath("../GuardResearch")
 
 [node name="AlertValue" type="Label" parent="."]
 offset_left = -80.0

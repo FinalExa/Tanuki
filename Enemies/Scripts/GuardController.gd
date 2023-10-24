@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal get_character_ref
 
+@export var isInAlert: bool
 @export var isInPatrol: bool
 @export var isChecking: bool
 @export var isInResearch: bool

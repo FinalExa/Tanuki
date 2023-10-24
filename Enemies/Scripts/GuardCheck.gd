@@ -145,7 +145,8 @@ func increase_suspicion_value(delta, multiplier):
 		send_alert_value()
 	else:
 		if (researchOutcome == true):
-			print("Go to alert behavior placeholder c:")
+			stop_guardCheck()
+			guardAlert.start_alert(checkTarget)
 		else:
 			stop_guardCheck()
 			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
