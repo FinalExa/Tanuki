@@ -26,6 +26,7 @@ func start_alert(target):
 	guardAlertValue.updateText("ALERT")
 	alertTarget = target
 	preChaseTimer = preChaseDuration
+	chaseStart = false
 	guardMovement.set_movement_speed(alertMovementSpeed)
 	guardRotator.setLookingAtNode(alertTarget)
 	guardController.isInAlert = true
@@ -35,7 +36,6 @@ func _process(delta):
 
 func alert_timer_checks(delta):
 	if(guardController.isInAlert == true):
-		chase_start(delta)
 		catch_preparation(delta)
 		target_not_seen(delta)
 
@@ -64,10 +64,12 @@ func track_target(receivedTarget: Node2D, delta):
 			guardMovement.set_location_target(receivedTarget.global_position)
 		else:
 			guardMovement.set_movement_speed(0)
+			guardMovement.set_location_target(guardController.global_position)
 			if (catchPreparationActive == false):
 				start_catch_preparation()
 		lastTargetPosition = receivedTarget.global_position
 	else:
+		guardMovement.reset_movement_speed()
 		if (guardController.position.distance_to(receivedTarget.global_position) > targetNotSeenLastLocationThreshold):
 			guardMovement.set_location_target(lastTargetPosition)
 			guardRotator.setLookingAtPosition(lastTargetPosition)
@@ -97,17 +99,11 @@ func target_not_seen(delta):
 		else:
 			end_alert()
 
-func chase_start(delta):
-	if (chaseStart == false):
-		if (preChaseTimer > 0):
-			preChaseTimer -= delta
-		else:
-			chaseStart = true
-
 func capture_player():
 	print("PLAYER CAPTURED")
 
 func end_alert():
 	guardController.isInAlert = false
 	chaseStart = false
+	guardMovement.reset_movement_speed()
 	guardResearch.initialize_guard_research(alertTarget, true)
