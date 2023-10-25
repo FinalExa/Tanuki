@@ -30,9 +30,6 @@ func _ready():
 	send_alert_value()
 	checkActive = true
 
-func _process(delta):
-	reduction_over_time(delta)
-
 func _physics_process(delta):
 	check_with_raycast(delta)
 
@@ -42,14 +39,6 @@ func reset_alert_value():
 
 func send_alert_value():
 	guardAlertValue.updateValue(currentAlertValue, maxAlertValue)
-
-func reduction_over_time(delta):
-	if (reductionOverTimeActive == true):
-		if (currentAlertValue > 0):
-			currentAlertValue = clamp(currentAlertValue - (delta * reductionOverTimeValue), 0, maxAlertValue)
-			send_alert_value()
-		else:
-			end_check()
 
 func check_with_raycast(delta):
 	if (checkActive == true && checkWithRayCast == true):
