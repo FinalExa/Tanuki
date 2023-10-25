@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_u1lvf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(1408, 1928, -1728, 1928, -1728, -1344, 1408, -1344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1344, -1728, -1344, -1728, 1928, 1408, 1928)])
+vertices = PackedVector2Array(-1728, 1928, -1728, -1344, -480, 24, -480, 136, 1408, -1344, -368, 24, 1408, 1928, -368, 136)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1344, -1728, -1344, -480, 24, -368, 24, -368, 136, -480, 136, -480, 24, -1728, -1344, -1728, 1928, 1408, 1928)])
 
 [node name="PlayerTransformTest" type="Node2D"]
 

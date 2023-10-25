@@ -27,25 +27,15 @@ func start_alert(target):
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	chaseStart = false
-	guardMovement.set_movement_speed(alertMovementSpeed)
-	guardRotator.setLookingAtNode(alertTarget)
+	guardMovement.set_movement_speed(0)
 	guardController.isInAlert = true
-
-func _process(delta):
-	alert_timer_checks(delta)
-
-func alert_timer_checks(delta):
-	if(guardController.isInAlert == true):
-		catch_preparation(delta)
-		target_not_seen(delta)
 
 func _physics_process(delta):
 	target_tracker_operations(delta)
 
 func target_tracker_operations(delta):
-	if (guardController.isInAlert == true):
-		if (chaseStart == true):
-			tracker_ray(delta)
+	if (guardController.isInAlert == true && chaseStart == true):
+		tracker_ray(delta)
 
 func tracker_ray(delta):
 	var space_state = guardController.get_world_2d().direct_space_state
@@ -70,9 +60,12 @@ func track_target(receivedTarget: Node2D, delta):
 		lastTargetPosition = receivedTarget.global_position
 	else:
 		guardMovement.reset_movement_speed()
-		if (guardController.position.distance_to(receivedTarget.global_position) > targetNotSeenLastLocationThreshold):
+		catchPreparationActive = false
+		var distance: float = guardController.global_position.distance_to(lastTargetPosition)
+		if (distance > targetNotSeenLastLocationThreshold):
 			guardMovement.set_location_target(lastTargetPosition)
 			guardRotator.setLookingAtPosition(lastTargetPosition)
+			print(distance)
 		else:
 			if (targetNotSeenActive == false):
 				start_not_seen_timer()
@@ -84,20 +77,6 @@ func start_not_seen_timer():
 func start_catch_preparation():
 	catchPreparationTimer = catchPreparationDuration
 	catchPreparationActive = true
-
-func catch_preparation(delta):
-	if (catchPreparationActive == true):
-		if(catchPreparationTimer > 0):
-			catchPreparationTimer -= delta
-		else:
-			capture_player()
-
-func target_not_seen(delta):
-	if (targetNotSeenActive == true):
-		if(targetNotSeenTimer > 0):
-			targetNotSeenActive -= delta
-		else:
-			end_alert()
 
 func capture_player():
 	print("PLAYER CAPTURED")
