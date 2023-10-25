@@ -65,7 +65,6 @@ func track_target(receivedTarget: Node2D, delta):
 		if (distance > targetNotSeenLastLocationThreshold):
 			guardMovement.set_location_target(lastTargetPosition)
 			guardRotator.setLookingAtPosition(lastTargetPosition)
-			print(distance)
 		else:
 			if (targetNotSeenActive == false):
 				start_not_seen_timer()

@@ -24,14 +24,14 @@ var isTrackingAMovable: bool
 @export var guardCheck: GuardCheck
 
 func  _physics_process(delta):
-	research_active(delta)
-	pass
+	research_active()
 
 func initialize_guard_research(target: Node2D, isMovable: bool):
 	researchTarget = target
 	guardController.isInResearch = true
 	guardAlertValue.updateText(researchActiveText)
 	isTrackingAMovable = isMovable
+	buildUpTimer = buildUpDuration
 	research_setup()
 
 func research_setup():
@@ -47,21 +47,21 @@ func set_research_target(researchTarget: Vector2):
 	guardMovement.reset_movement_speed()
 	guardRotator.setLookingAtPosition(researchTarget)
 
-func research_active(delta):
+func research_active():
 	if (guardController.isInResearch):
 		if (isTrackingAMovable):
-			follow_movable(delta)
+			follow_movable()
 		else:
-			follow_not_movable(delta)
+			follow_not_movable()
 
-func follow_movable(delta):
+func follow_movable():
 	var space_state = guardController.get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(guardController.position, researchTarget.global_position)
 	var result = space_state.intersect_ray(query)
 	if (result && result != { }):
-		spotting_operations(result.collider, delta)
+		spotting_operations(result.collider)
 
-func follow_not_movable(delta):
+func follow_not_movable():
 	if (guardController.position.distance_to(researchTarget.position) > objectInterationDistanceThreshold):
 		guardMovement.set_location_target(researchTarget.position)
 	else:
@@ -71,37 +71,26 @@ func follow_not_movable(delta):
 		else:
 			print("Removed wrong item from zone")
 
-func spotting_operations(trackedObject: Node2D, delta):
+func spotting_operations(trackedObject: Node2D):
 	if (trackedObject != researchTarget):
-		buildup(2, delta)
+		set_buildup(2)
 	else:
-		var distance = guardController.position.distance_to(trackedObject.position)
+		var distance = guardController.global_position.distance_to(trackedObject.global_position)
 		if (distance >= 0 && distance < researchSpotThreshold):
-			buildup(0, delta)
+			set_buildup(0)
 		else:
 			if (distance >= researchSpotThreshold && distance < researchFollowThreshold):
-				buildup(1, delta)
+				set_buildup(1)
 			else:
-				buildup(2, delta)
-
-func buildup(id: int, delta):
-	if (buildUpActive == false || (buildUpActive == true && id != buildUpId)):
-		set_buildup(id)
-	if (buildUpActive == true):
-		buildup_timer(delta)
+				if (distance > researchFollowThreshold):
+					set_buildup(2)
 
 func set_buildup(id: int):
-	if(buildUpActive == true && id >= buildUpId && id != 0):
-		buildUpTimer = buildUpDuration
-	buildUpId = id
-	buildUpActive = true
-
-func buildup_timer(delta):
-	if (buildUpTimer > 0):
-		buildUpTimer-=delta
-	else:
-		buildUpActive = false
-		buildup_results()
+	if (buildUpActive == false || (buildUpActive == true && id != buildUpId)):
+		if((buildUpActive == true && id >= buildUpId && id != 0) || buildUpActive == false):
+			buildUpTimer = buildUpDuration
+		buildUpId = id
+		buildUpActive = true
 
 func buildup_results():
 	if (buildUpId == 2):
@@ -111,7 +100,8 @@ func buildup_results():
 			save_target_info()
 			set_research_target(researchLastPosition)
 		else:
-			print("ALERT")
+			stop_research()
+			guardAlert.start_alert(researchTarget)
 
 func research_to_check():
 	guardPatrol.reset_patrol()
