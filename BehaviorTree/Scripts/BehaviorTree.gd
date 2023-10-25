@@ -4,8 +4,8 @@ extends Node
 @export var _root: BT_Node = null
 	
 func _process(_delta):
-	ExecuteBehaviorTree()
+	ExecuteBehaviorTree(delta)
 
-func ExecuteBehaviorTree():
+func ExecuteBehaviorTree(delta):
 	if (_root!=null):
-		_root.Evaluate()
+		_root.Evaluate(delta)
