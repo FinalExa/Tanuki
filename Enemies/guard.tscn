@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://datgliqrf70oo"]
+[gd_scene load_steps=15 format=3 uid="uid://datgliqrf70oo"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="12_6su2y"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInAlert.gd" id="13_ymqa5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -134,6 +138,21 @@ rotation = -3.14159
 [node name="Target5" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(95.999, 408)
 rotation = -3.14159
+
+[node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("10_ixflf")
+root = NodePath("Sequence")
+
+[node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
+script = ExtResource("11_hsu07")
+children = [NodePath("Selector")]
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence"]
+script = ExtResource("12_6su2y")
+
+[node name="GuardIsInAlert" type="Node" parent="BehaviorTree/Sequence/Selector" node_paths=PackedStringArray("guardController")]
+script = ExtResource("13_ymqa5")
+guardController = NodePath("../../../..")
 
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="reached_destination" from="GuardMovement" to="GuardResearch" method="_on_guard_movement_reached_destination"]
