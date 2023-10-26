@@ -22,6 +22,7 @@ var isTrackingAMovable: bool
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardCheck: GuardCheck
+@export var guardStunned: GuardStunned
 
 func  _physics_process(delta):
 	research_active()
@@ -115,3 +116,9 @@ func stop_research():
 func _on_guard_movement_reached_destination():
 	if (guardController.isInResearch == true):
 		guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
+
+
+func _on_guard_damaged():
+	if (guardController.isInResearch == true):
+		stop_research()
+		guardStunned.start_stun()

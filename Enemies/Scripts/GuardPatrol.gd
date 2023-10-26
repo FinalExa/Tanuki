@@ -4,6 +4,7 @@ extends Node
 @export var guardController: GuardController
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
+@export var guardStunned: GuardStunned
 
 
 var isWaiting: bool
@@ -95,3 +96,9 @@ func resume_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
+
+
+func _on_guard_damaged():
+	if (guardController.isInPatrol == true):
+		stop_patrol()
+		guardStunned.start_stun()

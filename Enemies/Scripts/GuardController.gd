@@ -2,6 +2,7 @@ class_name GuardController
 extends CharacterBody2D
 
 signal get_character_ref
+signal damaged
 
 var isInPatrol: bool = true
 var isInAlert: bool
@@ -33,3 +34,6 @@ func _ready():
 
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference
+
+func is_damaged():
+	emit_signal("damaged")

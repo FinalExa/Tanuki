@@ -21,6 +21,7 @@ var lastTargetPosition: Vector2
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardResearch: GuardResearch
+@export var guardStunned: GuardStunned
 
 func start_alert(target):
 	guardAlertValue.updateText("ALERT")
@@ -80,8 +81,16 @@ func start_catch_preparation():
 func capture_player():
 	print("PLAYER CAPTURED")
 
-func end_alert():
+func stop_alert():
 	guardController.isInAlert = false
 	chaseStart = false
 	guardMovement.reset_movement_speed()
+
+func end_alert():
+	stop_alert()
 	guardResearch.initialize_guard_research(alertTarget, true)
+
+func _on_guard_damaged():
+	if (guardController.isInAlert == true):
+		stop_alert()
+		guardStunned.start_stun()

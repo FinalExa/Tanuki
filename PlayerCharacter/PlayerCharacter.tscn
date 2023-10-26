@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvqsbkk55uw2f"]
+[gd_scene load_steps=11 format=3 uid="uid://dvqsbkk55uw2f"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dyiale1jrkaxh" path="res://PlayerCharacter/Sprites/PlayerSprite.png" id="2_qjwsv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/Tail.tscn" id="6_gubbw"]
+[ext_resource type="Script" path="res://PlayerCharacter/PlayerAttack.gd" id="8_05jaa"]
+[ext_resource type="Script" path="res://PlayerCharacter/AttackHitbox.gd" id="9_wygex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
@@ -53,6 +55,20 @@ rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700
 defaultMaxSpeed = 500
 
+[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "playerCharacter")]
+script = ExtResource("8_05jaa")
+attackPhasesDuration = Array[float]([0.5, 1.0, 1.0])
+attackPhasesActivation = Array[bool]([false, true, false])
+attackHitbox = NodePath("AttackHitbox")
+playerCharacter = NodePath("../..")
+
+[node name="AttackHitbox" type="Area2D" parent="Rotator/PlayerAttack"]
+position = Vector2(0, -128)
+script = ExtResource("9_wygex")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/PlayerAttack/AttackHitbox"]
+polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
+
 [connection signal="set_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_set_temp_trs"]
 [connection signal="unset_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_unset_temp_trs"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
@@ -60,3 +76,4 @@ defaultMaxSpeed = 500
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
 [connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
+[connection signal="body_entered" from="Rotator/PlayerAttack/AttackHitbox" to="Rotator/PlayerAttack/AttackHitbox" method="_on_body_entered"]

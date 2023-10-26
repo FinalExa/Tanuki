@@ -24,6 +24,7 @@ var researchOutcome: bool
 @export var guardResearch: GuardResearch
 @export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
+@export var guardStunned: GuardStunned
 
 func _ready():
 	reset_alert_value()
@@ -156,3 +157,9 @@ func resume_check():
 	checkActive = true
 	guardController.isChecking = true
 	activate_reduction_over_time()
+
+
+func _on_guard_damaged():
+	if (guardController.isChecking == true || checkActive == true):
+		stop_guardCheck()
+		guardStunned.start_stun()
