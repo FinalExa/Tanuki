@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://datgliqrf70oo"]
+[gd_scene load_steps=25 format=3 uid="uid://dvrh8nj8aokk1"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
-[ext_resource type="Script" path="res://Enemies/GuardStunned.gd" id="6_8pe6f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="12_6su2y"]
@@ -82,7 +82,7 @@ guardRotator = NodePath("../Rotator")
 guardResearch = NodePath("../GuardResearch")
 
 [node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardCheck", "guardMovement")]
-script = ExtResource("6_8pe6f")
+script = ExtResource("6_8wc3c")
 stunDuration = 5.0
 stunEndAlertValue = 35.0
 guardController = NodePath("..")

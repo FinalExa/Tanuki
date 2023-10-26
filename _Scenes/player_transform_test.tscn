@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvqsbkk55uw2f" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
-[ext_resource type="PackedScene" uid="uid://datgliqrf70oo" path="res://Enemies/guard.tscn" id="3_kj1fg"]
+[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_u1lvf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
