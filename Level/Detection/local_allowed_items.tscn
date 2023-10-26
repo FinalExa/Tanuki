@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5orbkqm40yjl"]
+
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="1_8nvol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8kly"]
+
+[node name="LocalAllowedItems" type="Area2D"]
+position = Vector2(-272, 72)
+script = ExtResource("1_8nvol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x8kly")
+debug_color = Color(0.372549, 0.603922, 0.317647, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

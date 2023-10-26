@@ -1,3 +1,4 @@
+class_name TransformationChange
 extends Node2D
 
 signal change_speed
@@ -15,11 +16,12 @@ var currentTransformationName
 var currentTransformationSpeed
 var currentTransformationProperties
 
-var isTransformed
+var isTransformed: bool = false
 @export var transformationDuration = 0
 @export var tailActivationTime = 0
 @export var timeRefundOnReactivation = 0
-var tailReference
+@export var tailRef: Node2D
+@export var tailLocation: Node2D
 var tailInstance
 var transformationTimer
 
@@ -27,11 +29,12 @@ var transformationTimer
 var transformationLockTimer
 var transformationLock = false
 
+var sceneRef: Node2D
+var localAllowedItemsRef: LocalAllowedItems
+
 func _ready():
 	transformationTimer = 0
-	tailReference = self.get_child(0)
-	tailInstance = self.get_child(0)
-	self.remove_child(tailInstance)
+	self.remove_child(tailRef)
 
 func _process(delta):
 	set_new_transformation()
@@ -71,17 +74,22 @@ func manual_deactivate_transformation():
 func deactivate_transformation():
 	emit_signal("reset_speed")
 	isTransformed = false
-	if (self.get_child_count()>0):
-		self.remove_child(tailInstance)
+	if (tailInstance != null):
+		sceneRef.remove_child(tailInstance)
+		tailInstance = null
 	transformation_lock_activate()
 
 func transformation_active(delta):
 	if (isTransformed):
 		if (transformationTimer<transformationDuration):
 			transformationTimer=clamp(transformationTimer+delta,0,transformationDuration)
-			if(transformationTimer>=tailActivationTime && self.get_child_count() == 0):
-				add_child(tailReference)
-				tailInstance = self.get_child(0)
+			if(transformationTimer>=tailActivationTime && tailInstance == null):
+				sceneRef.add_child(tailRef)
+				for i in sceneRef.get_child_count():
+					if (sceneRef.get_child(i) == tailRef):
+						tailInstance = sceneRef.get_child(i)
+						tailInstance.objectToTrack = tailLocation
+						break
 		else:
 			deactivate_transformation()
 	else:
@@ -99,3 +107,9 @@ func transformation_lock(delta):
 			transformationLockTimer+=delta
 		else:
 			transformationLock = false
+
+func set_local_zone(localRef: LocalAllowedItems):
+	localAllowedItemsRef = localRef
+
+func unset_local_zone():
+	localAllowedItemsRef = null

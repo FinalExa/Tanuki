@@ -1,0 +1,81 @@
+class_name GuardMovement
+extends Node
+
+signal reached_destination
+
+@export var bodyRef: CharacterBody2D
+@export var navigation_agent: NavigationAgent2D
+
+@export var default_movement_speed = 0
+var current_movement_speed
+var target: Node2D
+var locationTarget: Vector2
+var locationTargetEnabled: bool
+@export var pathDesiredDistance = 0
+@export var targetDesiredDistance = 0
+@export var destinationDistanceThreshold = 0
+var readyToMove: bool
+var locationReached: bool
+
+
+func _ready():
+	navmeshStartup()
+
+func navmeshStartup():
+	reset_movement_speed()
+	navigation_agent.path_desired_distance = pathDesiredDistance
+	navigation_agent.target_desired_distance = targetDesiredDistance
+	call_deferred("actor_setup")
+
+
+func actor_setup():
+	await get_tree().physics_frame
+	readyToMove = true
+
+func set_new_target(newTarget):
+	target = newTarget
+	locationTarget = Vector2.ZERO
+	locationTargetEnabled = false
+
+func set_location_target(locTarget: Vector2):
+	locationTarget = locTarget
+	target = null
+	locationTargetEnabled = true
+
+func set_movement_target(movementTarget: Vector2):
+	navigation_agent.target_position = movementTarget
+
+func _physics_process(_delta):
+	if((target != null || locationTargetEnabled == true) && readyToMove == true):
+		navigation()
+		bodyRef.move_and_slide()
+
+func navigation():
+	if(target != null):
+		navigate(target.position)
+	else:
+		if (locationTargetEnabled == true):
+			navigate(locationTarget)
+		else:
+			bodyRef.velocity = Vector2.ZERO
+
+func navigate(finalLocation: Vector2):
+	if (bodyRef.position.distance_to(finalLocation) > destinationDistanceThreshold):
+		set_movement_target(finalLocation)
+
+		var current_agent_position: Vector2 = bodyRef.global_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+
+		var new_velocity: Vector2 = next_path_position - current_agent_position
+		new_velocity = new_velocity.normalized()
+		new_velocity = new_velocity * current_movement_speed
+		bodyRef.velocity = new_velocity
+	else:
+		emit_signal("reached_destination")
+		bodyRef.velocity = Vector2.ZERO
+
+func set_movement_speed(newMovementSpeed: float):
+	current_movement_speed = newMovementSpeed
+
+func reset_movement_speed():
+	current_movement_speed = default_movement_speed

@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://8kq357xda744"]
+[gd_scene load_steps=4 format=3 uid="uid://bqguar4cro7y5"]
 
-[ext_resource type="Texture2D" uid="uid://b5u0mmv35267g" path="res://PlayerCharacter/Sprites/tail.png" id="1_lcwc3"]
+[ext_resource type="Texture2D" uid="uid://b5u0mmv35267g" path="res://PlayerCharacter/Sprites/tail.png" id="1_fayqy"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/TailFollow.gd" id="1_iym6t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqrom"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfj45"]
+size = Vector2(48, 49)
 
 [node name="Tail" type="StaticBody2D"]
 position = Vector2(0, 75)
-collision_layer = 4
+collision_layer = 11
+script = ExtResource("1_iym6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_oqrom")
+shape = SubResource("RectangleShape2D_qfj45")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lcwc3")
+texture = ExtResource("1_fayqy")
