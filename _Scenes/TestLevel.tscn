@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bka5do4pyuclb"]
+
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_nvxq0"]
+[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_fmwiu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e5pon"]
+vertices = PackedVector2Array(1152, 192, 1472, -384, 1472, 192, 1152, 576, 64, -384, 384, 192, 64, 1152, 384, 576, 1472, 1152)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(8, 6, 7, 3), PackedInt32Array(2, 8, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1472, -384, 64, -384, 64, 1152, 1472, 1152, 1472, 192, 1152, 192, 1152, 576, 384, 576, 384, 192, 1152, 192, 1472, 192)])
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_e5pon")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(604, 285)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-3.47815, -1.07344)
+scale = Vector2(0.988281, 1.00781)
+polygon = PackedVector2Array(558.017, 289.809, 558.017, -91.214, -219.089, -91.214, -219.089, 289.809)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_nvxq0")]
+position = Vector2(280, 280.999)
+
+[node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("2_fmwiu")]
+position = Vector2(1277.78, 280.999)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="NavigationPoint1" type="Node2D" parent="."]
+position = Vector2(1280, 768)
+
+[node name="NavigationPoint2" type="Node2D" parent="."]
+position = Vector2(256, 768)
+
+[node name="NavigationPoint3" type="Node2D" parent="."]
+position = Vector2(256, 0)
+
+[node name="NavigationPoint4" type="Node2D" parent="."]
+position = Vector2(1280, 0)
