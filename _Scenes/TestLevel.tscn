@@ -16,135 +16,137 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(816, -464, 368, -464, 3
 position = Vector2(976, 144)
 navigation_polygon = SubResource("NavigationPolygon_8ts56")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 position = Vector2(-3.47815, -1.07344)
 scale = Vector2(0.988281, 1.00781)
 polygon = PackedVector2Array(558.017, 289.809, 558.017, -91.214, -219.089, -91.214, -219.089, 289.809)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D"]
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+[node name="StaticBody2D6" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D6"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D6"]
 position = Vector2(508, -781)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(1019.3, 249.342, 1019.3, -415.57, -235.223, -415.57, -235.223, 249.342)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D6"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D6"]
 
-[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+[node name="StaticBody2D14" type="StaticBody2D" parent="Walls"]
 position = Vector2(-880, 984)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D14"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D14"]
 position = Vector2(508, -781)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(1136.91, 275.315, 1136.91, -2716.78, -1999.39, 275.315, -1999.39, 1605.14, 1136.91, 4597.24, 1136.91, 1605.14, -1372.13, 1605.14, -1372.13, 275.315)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D14"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D14"]
 
-[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+[node name="StaticBody2D13" type="StaticBody2D" parent="Walls"]
 position = Vector2(1312, 984)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D13"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D13"]
 position = Vector2(508, -781)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(-274.426, 4597.24, 2861.88, 1605.14, 2861.88, 275.315, -274.426, -2716.78, -274.426, 275.315, 2234.62, 275.315, 2234.62, 1605.14, -274.426, 1605.14)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D13"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D13"]
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+[node name="StaticBody2D7" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D7"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D7"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(2117, 872.695, 2117, -1122.04, 5880.57, -1122.04, 5880.57, -1454.49, -4155.6, -1454.49, -4155.6, -1122.04, -392.038, -1122.04, -392.038, 872.695)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D7"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D7"]
 
-[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+[node name="StaticBody2D12" type="StaticBody2D" parent="Walls"]
 position = Vector2(600, 2080)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D12"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D12"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(2156.21, -1137.62, 2156.21, 857.111, 5919.77, 857.111, 5919.77, 1189.57, -4116.4, 1189.57, -4116.4, 857.111, -352.834, 857.111, -352.834, -1137.62)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D12"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D12"]
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+[node name="StaticBody2D8" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D8"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D8"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(-4155.6, -1122.04, -4155.6, 872.695, -9800.94, 872.695)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D8"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D8"]
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+[node name="StaticBody2D9" type="StaticBody2D" parent="Walls"]
 position = Vector2(2208, 285)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D9"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D9"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(-9840.15, -1122.04, -5449.32, 872.695, -9840.15, 872.695)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D9"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D9"]
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+[node name="StaticBody2D10" type="StaticBody2D" parent="Walls"]
 position = Vector2(2208, 2080)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D10"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D10"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(-9840.15, -1137.62, -5449.32, -1137.62, -9840.15, 857.111)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D10"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D10"]
 
-[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+[node name="StaticBody2D11" type="StaticBody2D" parent="Walls"]
 position = Vector2(736, 2080)
 
-[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D11"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D11"]
 position = Vector2(140, -773)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(-11094.7, -1137.62, -5449.32, -1137.62, -5449.32, 857.111)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D11"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D11"]
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D5" type="CollisionPolygon2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D5"]
 position = Vector2(508, 1011)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(1019.3, 249.342, 1019.3, -415.57, -235.222, -415.57, -235.222, 249.342)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D5"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D5"]
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
 position = Vector2(600, 280)
 
-[node name="CollisionShape2D4" type="CollisionPolygon2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D4" type="CollisionPolygon2D" parent="Walls/StaticBody2D4"]
 position = Vector2(-130, 1011)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(1038.9, 275.315, 1038.9, -389.596, -215.621, -389.596, -215.621, 275.315)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D4"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D4"]
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 position = Vector2(604, 285)
 
-[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D3"]
 position = Vector2(-132, -781)
 scale = Vector2(0.102031, 0.192507)
 polygon = PackedVector2Array(1019.3, 249.342, 1019.3, -415.57, -235.222, -415.57, -235.222, 249.342)
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D3"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Walls/StaticBody2D3"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_nvxq0")]
 position = Vector2(-392, 384)
