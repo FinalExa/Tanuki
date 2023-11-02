@@ -18,9 +18,6 @@ var patrolWaitIndex = 0
 var patrolMovementIndex = 0
 var patrolLookAroundIndex = 0
 
-func _ready():
-	set_current_patrol_routine()
-
 func _process(delta):
 	wait_active(delta)
 
