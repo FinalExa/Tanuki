@@ -11,6 +11,7 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
+		playerRef = body
 		playerIsIn = true
 	else:
 		if (body is TransformationObjectData):

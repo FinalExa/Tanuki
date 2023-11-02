@@ -13,10 +13,10 @@ func _ready():
 	sceneRef = self.get_parent()
 	transformationChangeRef.sceneRef = sceneRef
 
-func _on_transformation_object_set_trs_ready(trsName, speed, properties):
+func set_trs_ready(trsName, speed, properties):
 	emit_signal("set_temp_trs", trsName, speed, properties)
 
-func _on_transformation_object_set_trs_not_ready():
+func set_trs_not_ready():
 	emit_signal("unset_temp_trs")
 
 func _on_guard_get_character_ref():

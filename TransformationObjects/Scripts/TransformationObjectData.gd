@@ -10,11 +10,11 @@ signal set_trs_notReady
 
 var localAllowedItemsRef: LocalAllowedItems
 
-func _on_trigger_area_set_change_trs_available(status):
+func set_change_trs_available(status, body):
 	if (status == true):
-		emit_signal("set_trs_ready", transformedName, transformedMaxSpeed, transformedProperties)
+		body.set_trs_ready(transformedName, transformedMaxSpeed, transformedProperties)
 	else:
-		emit_signal("set_trs_notReady")
+		body.set_trs_not_ready()
 
 func set_local_zone(localRef: LocalAllowedItems):
 	localAllowedItemsRef = localRef

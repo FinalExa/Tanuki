@@ -20,8 +20,9 @@ shape = SubResource("RectangleShape2D_3gx12")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qk2ye")
 
-[node name="TriggerArea" type="Area2D" parent="."]
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformation_object_data")]
 script = ExtResource("3_k167w")
+transformation_object_data = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("RectangleShape2D_10nd7")
@@ -31,4 +32,3 @@ radius = 100.0
 
 [connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]
-[connection signal="set_changeTrs_available" from="TriggerArea" to="." method="_on_trigger_area_set_change_trs_available"]

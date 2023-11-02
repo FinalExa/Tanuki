@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bka5do4pyuclb"]
+[gd_scene load_steps=6 format=3 uid="uid://bka5do4pyuclb"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_nvxq0"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_fmwiu"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="3_cv1i0"]
+[ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_xdw7q"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8ts56"]
 vertices = PackedVector2Array(-272, -848, -272.454, -464, -400, -592, -400, -720, 368, 944, 368, 1328, 240, 1200, 240, 1072, -16, 1328, 112, 1200, -272, 944, -272, 1328, -400, 1200, -400, 1072, -656, 1328, -528, 1200, -655.54, 944, -528, 1072, -656, -848, -528, -720, -656, -464, -528, -592, 368, -848, 368, -464, 240, -592, 240, -720, -16, -848, 112, -720, -16, -464, 112, -592, -17.6563, 944, 112, 1072, 176, 432, 176, 48, 816, 368.557, 816, 944, -1232, 944, -1232, 368, 816, 112, 1072, 112, 1072, 368, 816, -464, -1488, 368, -1488, 112, -1232, 112, -1232, -464, -592, 48, -592, 432)
@@ -194,3 +195,10 @@ transformedMaxSpeed = 100.0
 [node name="TransformationObject3" parent="." instance=ExtResource("3_cv1i0")]
 position = Vector2(-184, 184)
 transformedName = "Statue"
+transformedMaxSpeed = 100.0
+
+[node name="LocalAllowedItems" parent="." node_paths=PackedStringArray("assignedObjects") instance=ExtResource("4_xdw7q")]
+position = Vector2(776, 384)
+scale = Vector2(135, 115)
+allowedObjects = Array[String](["Statue"])
+assignedObjects = [NodePath("../TransformationObject"), NodePath("../TransformationObject2"), NodePath("../TransformationObject3")]
