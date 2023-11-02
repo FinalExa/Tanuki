@@ -16,8 +16,6 @@ var current_movement_speed
 var target: Node2D
 var locationTarget: Vector2
 var locationTargetEnabled: bool
-var readyToMove: bool
-var locationReached: bool
 var lastPosition: Vector2
 
 func _ready():
@@ -38,13 +36,10 @@ func setup_navserver():
 	guardPatrol.set_current_patrol_routine()
 
 func _update_navigation_path(start_position, end_position):
-	if (end_position != lastPosition):
-		path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
-		path.remove_at(0)
-		lastPosition = end_position
-		set_process(true)
-	else:
-		set_process(false)
+	path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
+	path.remove_at(0)
+	lastPosition = end_position
+	set_process(true)
 
 func _process(delta):
 	if((target != null || locationTargetEnabled == true)):
@@ -67,17 +62,18 @@ func move_along_path(distance):
 		path.remove_at(0)
 	bodyRef.position = last_point
 	emit_signal("reached_destination")
-	set_process(false)
 
 func set_new_target(newTarget):
 	target = newTarget
 	locationTarget = Vector2.ZERO
 	locationTargetEnabled = false
+	navigation()
 
 func set_location_target(locTarget: Vector2):
 	locationTarget = locTarget
 	target = null
 	locationTargetEnabled = true
+	navigation()
 
 func navigation():
 	if(target != null):
