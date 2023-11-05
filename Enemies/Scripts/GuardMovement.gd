@@ -31,7 +31,7 @@ func setup_navserver():
 	NavigationServer2D.region_set_map(region, map)
 	
 	var navigation_poly = NavigationMesh.new()
-	navigation_poly = $"../../NavigationRegion2D".navigation_polygon
+	navigation_poly = navReg.navigation_polygon
 	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
 	guardPatrol.set_current_patrol_routine()
 	set_process(true)
