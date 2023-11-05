@@ -49,6 +49,7 @@ guardController = NodePath("..")
 guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 guardStunned = NodePath("../GuardStunned")
+startupDuration = 0.1
 
 [node name="GuardResearch" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
 script = ExtResource("4_j1yk0")

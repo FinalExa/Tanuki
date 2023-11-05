@@ -5,7 +5,9 @@ extends Node
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardStunned: GuardStunned
-
+@export var startupDuration: float
+var startupTimer: float
+var startupActive: bool
 
 var isWaiting: bool
 var hasRotated: bool
@@ -19,6 +21,7 @@ var patrolMovementIndex = 0
 var patrolLookAroundIndex = 0
 
 func _process(delta):
+	startup(delta)
 	wait_active(delta)
 
 func set_current_patrol_routine():
@@ -64,8 +67,11 @@ func look_around_patrol_action(rotationPoint):
 
 func set_new_index(index, size):
 	index += 1
-	if(index>=size):
+	if(index >= size):
 		index = 0
+	else:
+		if (index < 0):
+			index = size
 	return index
 	
 func reset_patrol():
@@ -90,6 +96,7 @@ func restart_patrol():
 	set_current_patrol_routine()
 
 func resume_patrol():
+	set_new_index(-1, guardController.patrolActions.size())
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
@@ -98,3 +105,15 @@ func _on_guard_damaged():
 	if (guardController.isInPatrol == true):
 		stop_patrol()
 		guardStunned.start_stun()
+
+func initialize_startup():
+	startupTimer = startupDuration
+	startupActive = true
+
+func startup(delta):
+	if (startupActive == true):
+		if (startupTimer>0):
+			startupTimer-=delta
+		else:
+			set_current_patrol_routine()
+			startupActive = false

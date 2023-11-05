@@ -33,14 +33,13 @@ func setup_navserver():
 	var navigation_poly = NavigationMesh.new()
 	navigation_poly = navReg.navigation_polygon
 	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
-	guardPatrol.set_current_patrol_routine()
+	guardPatrol.initialize_startup()
 	set_process(true)
 
 func _update_navigation_path(start_position, end_position):
 	if(lastPosition == null || lastPosition != end_position):
 		path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
-		if(path.size() > 0):
-			path.remove_at(0)
+		path.remove_at(0)
 		lastPosition = end_position
 
 func _process(delta):
@@ -79,12 +78,12 @@ func set_location_target(locTarget: Vector2):
 
 func navigation():
 	if(target != null):
-		_update_navigation_path(bodyRef.position, target.position)
+		_update_navigation_path(bodyRef.global_position, target.global_position)
 	else:
 		if (locationTargetEnabled == true):
-			_update_navigation_path(bodyRef.position, locationTarget)
+			_update_navigation_path(bodyRef.global_position, locationTarget)
 		else:
-			_update_navigation_path(bodyRef.position, bodyRef.position)
+			_update_navigation_path(bodyRef.global_position, bodyRef.global_position)
 
 func set_movement_speed(newMovementSpeed: float):
 	current_movement_speed = newMovementSpeed
