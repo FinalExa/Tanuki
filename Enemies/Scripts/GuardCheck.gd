@@ -106,7 +106,7 @@ func execute_precheck(target: Node2D, delta):
 	else:
 		activate_check(target)
 
-func determine_if_end_check(body):
+func determine_if_end_check(_body):
 	if (guardController.isChecking == false):
 		checkWithRayCast = false
 		preCheckActive = false

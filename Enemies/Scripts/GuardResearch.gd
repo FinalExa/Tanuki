@@ -24,7 +24,7 @@ var isTrackingAMovable: bool
 @export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
 
-func  _physics_process(delta):
+func  _physics_process(_delta):
 	research_active()
 
 func initialize_guard_research(target: Node2D, isMovable: bool):
@@ -43,10 +43,10 @@ func save_target_info():
 	researchLastPosition = researchTarget.position
 	researchLastDirection = researchTarget.velocity.normalized()
 
-func set_research_target(researchTarget: Vector2):
-	guardMovement.set_location_target(researchTarget)
+func set_research_target(target: Vector2):
+	guardMovement.set_location_target(target)
 	guardMovement.reset_movement_speed()
-	guardRotator.setLookingAtPosition(researchTarget)
+	guardRotator.setLookingAtPosition(target)
 
 func research_active():
 	if (guardController.isInResearch):

@@ -34,12 +34,14 @@ func setup_navserver():
 	navigation_poly = $"../../NavigationRegion2D".navigation_polygon
 	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
 	guardPatrol.set_current_patrol_routine()
+	set_process(true)
 
 func _update_navigation_path(start_position, end_position):
-	path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
-	path.remove_at(0)
-	lastPosition = end_position
-	set_process(true)
+	if(lastPosition == null || lastPosition != end_position):
+		path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
+		if(path.size() > 0):
+			path.remove_at(0)
+		lastPosition = end_position
 
 func _process(delta):
 	if((target != null || locationTargetEnabled == true)):

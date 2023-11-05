@@ -94,7 +94,6 @@ func resume_patrol():
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
 
-
 func _on_guard_damaged():
 	if (guardController.isInPatrol == true):
 		stop_patrol()
