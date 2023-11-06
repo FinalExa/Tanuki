@@ -30,14 +30,16 @@ func rotateTo(givenPoint):
 				self.rotation_degrees = rightRad
 
 func setLookingAtNode(receivedTarget: Node2D):
-	target = receivedTarget
-	isLookingAtNode = true
-	isLookingAtPosition = false
+	if (receivedTarget != null):
+		target = receivedTarget
+		isLookingAtNode = true
+		isLookingAtPosition = false
 	
 func setLookingAtPosition(receivedPosition: Vector2):
-	vectorTarget = receivedPosition
-	isLookingAtPosition = true
-	isLookingAtNode = false
+	if (receivedPosition != null):
+		vectorTarget = receivedPosition
+		isLookingAtPosition = true
+		isLookingAtNode = false
 
 func stopLooking():
 	isLookingAtNode = false

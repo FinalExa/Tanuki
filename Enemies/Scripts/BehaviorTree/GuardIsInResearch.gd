@@ -1,6 +1,6 @@
 extends GuardNode
 
-func Evaluate(delta):
+func Evaluate(_delta):
 	if (guardController.isInResearch == true):
 		return NodeState.FAILURE
 	return NodeState.SUCCESS

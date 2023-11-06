@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://d34wwl7yqbe5r"]
 
-[ext_resource type="PackedScene" uid="uid://dvqsbkk55uw2f" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_u1lvf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(1408, 1928, -1728, 1928, -1728, -1344, 1408, -1344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1344, -1728, -1344, -1728, -1344, -1728, 1928, 1408, 1928)])
+vertices = PackedVector2Array(-64, 184, 1888, 1536, -2224, 1896, -536, 232, -2320, -2272, -560, -40, 2120, -1840, -80, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-560, -40, -80, -128, -64, 184, -536, 232), PackedVector2Array(-2224, 1896, -2320, -2272, 2120, -1840, 1888, 1536)])
 
 [node name="PlayerTransformTest" type="Node2D"]
 
@@ -33,6 +33,7 @@ moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), 
 lookActions = Array[int]([1, 2])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, -24)
 navigation_polygon = SubResource("NavigationPolygon_71oav")
 
 [node name="FirstCheckPoint" type="Node2D" parent="."]

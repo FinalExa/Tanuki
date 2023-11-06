@@ -4,7 +4,6 @@ extends GuardNode
 
 func Evaluate(delta):
 	if (guardAlert.chaseStart == false):
-		print("prechase")
 		if (guardAlert.preChaseTimer > 0):
 			guardAlert.preChaseTimer -= delta
 			return NodeState.FAILURE

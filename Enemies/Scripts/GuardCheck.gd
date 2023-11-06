@@ -49,7 +49,7 @@ func check_with_raycast(delta):
 			direction = direction.normalized()
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
-			if (result && result != { } && (result.collider == controllerRef.characterRef || result.collider == controllerRef.characterRef.tailRef)):
+			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)):
 				determine_suspicion_type_with_conditions(result.collider, delta)
 				break
 
@@ -58,7 +58,7 @@ func determine_suspicion_type_with_conditions(target, delta):
 		determine_suspicion_type(target, delta)
 
 func determine_suspicion_type(target, delta):
-	if (target == controllerRef.characterRef):
+	if (target is PlayerCharacter):
 		if(target.transformationChangeRef.isTransformed == false):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
 			researchOutcome = true
@@ -72,16 +72,16 @@ func determine_suspicion_type(target, delta):
 					suspicion_active(target, delta, playerIsNotSeenMultiplier)
 					researchOutcome = false
 	else:
-		if (target == controllerRef.characterRef.tailRef):
+		if (target is TailFollow):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
 			researchOutcome = true
 
 func _on_body_entered(body):
-	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
+	if (checkActive == true && (body is PlayerCharacter || body is TailFollow )):
 		checkWithRayCast = true
 
 func _on_body_exited(body):
-	if (checkActive == true && (body == controllerRef.characterRef || body == controllerRef.characterRef.tailRef)):
+	if (checkActive == true && (body is PlayerCharacter || body is TailFollow)):
 		determine_if_end_check(body)
 
 func suspicion_active(target: Node2D, delta, multiplier):
@@ -106,7 +106,7 @@ func execute_precheck(target: Node2D, delta):
 	else:
 		activate_check(target)
 
-func determine_if_end_check(body):
+func determine_if_end_check(_body):
 	if (guardController.isChecking == false):
 		checkWithRayCast = false
 		preCheckActive = false

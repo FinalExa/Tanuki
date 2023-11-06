@@ -12,5 +12,5 @@ var state: NodeState
 
 @export var children: Array[BT_Node]
 
-func Evaluate(delta):
+func Evaluate(_delta):
 	return NodeState.FAILURE
