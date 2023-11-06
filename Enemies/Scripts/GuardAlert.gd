@@ -54,7 +54,6 @@ func track_target(receivedTarget: Node2D):
 			guardMovement.set_movement_speed(alertMovementSpeed)
 			guardMovement.set_location_target(receivedTarget.global_position)
 		else:
-			guardMovement.set_movement_speed(0)
 			guardMovement.set_location_target(guardController.global_position)
 			if (catchPreparationActive == false):
 				start_catch_preparation()
