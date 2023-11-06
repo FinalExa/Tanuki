@@ -15,7 +15,6 @@ var vectorTarget: Vector2
 @export var mainNodeRef: Node2D
 
 func _process(_delta):
-	stayAttached()
 	lookAtTarget()
 
 func rotateTo(givenPoint):
@@ -52,7 +51,3 @@ func lookAtTarget():
 		if (isLookingAtPosition == true):
 			self.look_at(vectorTarget)
 			self.rotation_degrees += lookAtOffset
-
-func stayAttached():
-	if (self.position != Vector2.ZERO):
-		self.position = Vector2.ZERO
