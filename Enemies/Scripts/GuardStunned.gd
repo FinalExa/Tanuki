@@ -13,7 +13,6 @@ var stunTimer: float
 
 func start_stun():
 	stunTimer = stunDuration
-	guardMovement.set_movement_speed(0)
 	guardMovement.set_location_target(guardController.global_position)
 	guardRotator.setLookingAtPosition((guardController.up_direction * 10) + guardController.global_position)
 	guardAlertValue.updateText("STUNNED")
