@@ -82,7 +82,7 @@ mainNodeRef = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardResearch", "guardPatrol", "guardStunned")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -99,6 +99,7 @@ rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), No
 guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
 guardResearch = NodePath("../GuardResearch")
+guardAlert = NodePath("../GuardAlert")
 guardPatrol = NodePath("../../GuardPatrol")
 guardStunned = NodePath("../../GuardStunned")
 
@@ -129,7 +130,7 @@ rotation = -3.14159
 position = Vector2(95.999, 408)
 rotation = -3.14159
 
-[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "guardController", "guardAlertValue", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
+[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
 script = ExtResource("4_j1yk0")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
@@ -140,6 +141,7 @@ rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), Node
 researchActiveText = "RESEARCHING"
 guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
+guardAlert = NodePath("../GuardAlert")
 guardPatrol = NodePath("../../GuardPatrol")
 guardMovement = NodePath("../../GuardMovement")
 guardRotator = NodePath("..")
@@ -235,16 +237,19 @@ guardController = NodePath("../../../..")
 script = ExtResource("11_hsu07")
 children = [NodePath("GuardAlertPreChase"), NodePath("GuardAlertTargetNotSeen"), NodePath("GuardAlertCatchPreparation")]
 
-[node name="GuardAlertPreChase" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardController")]
+[node name="GuardAlertPreChase" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardAlert", "guardController")]
 script = ExtResource("14_upctj")
+guardAlert = NodePath("../../../../../Rotator/GuardAlert")
 guardController = NodePath("../../../../..")
 
-[node name="GuardAlertTargetNotSeen" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardController")]
+[node name="GuardAlertTargetNotSeen" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardAlert", "guardController")]
 script = ExtResource("15_smfg7")
+guardAlert = NodePath("../../../../../Rotator/GuardAlert")
 guardController = NodePath("../../../../..")
 
-[node name="GuardAlertCatchPreparation" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardController")]
+[node name="GuardAlertCatchPreparation" type="Node" parent="BehaviorTree/Sequence/SelectorAlert/Sequence" node_paths=PackedStringArray("guardAlert", "guardController")]
 script = ExtResource("16_8kh41")
+guardAlert = NodePath("../../../../../Rotator/GuardAlert")
 guardController = NodePath("../../../../..")
 
 [node name="SelectorResearch" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
