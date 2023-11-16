@@ -48,11 +48,11 @@ func tracker_ray():
 		if (result && result != { }):
 			if (result.collider == alertTarget):
 				track_target(result.collider)
-			return
+				return
 	target_not_seen()
 
 func track_target(receivedTarget: Node2D):
-	guardRotator.setLookingAtNode(receivedTarget)
+	guardRotator.setLookingAtPosition(receivedTarget.global_position)
 	targetNotSeenActive = false
 	if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
 		catchPreparationActive = false
