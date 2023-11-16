@@ -1,11 +1,12 @@
 class_name GuardResearch
-extends Node
+extends Node2D
 
 @export var researchSpotThreshold: float
 @export var researchFollowThreshold: float
 @export var buildUpDuration: float
 @export var onReturnToCheckAlertValue: float
 @export var objectInterationDistanceThreshold: float
+@export var raycastTargets: Array[Node2D]
 @export var researchActiveText: String
 var buildUpTimer: float
 var buildUpId: int

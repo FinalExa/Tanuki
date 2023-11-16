@@ -51,13 +51,14 @@ guardRotator = NodePath("../Rotator")
 guardStunned = NodePath("../GuardStunned")
 startupDuration = 0.1
 
-[node name="GuardResearch" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
+[node name="GuardResearch" type="Node2D" parent="." node_paths=PackedStringArray("raycastTargets", "guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
 script = ExtResource("4_j1yk0")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
 buildUpDuration = 2.0
 onReturnToCheckAlertValue = 35.0
 objectInterationDistanceThreshold = 200.0
+raycastTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5")]
 researchActiveText = "RESEARCHING"
 guardController = NodePath("..")
 guardAlertValue = NodePath("../AlertValue")
@@ -67,6 +68,16 @@ guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
 guardCheck = NodePath("../Rotator/GuardCheck")
 guardStunned = NodePath("../GuardStunned")
+
+[node name="Target" type="Node2D" parent="GuardResearch"]
+
+[node name="Target2" type="Node2D" parent="GuardResearch"]
+
+[node name="Target3" type="Node2D" parent="GuardResearch"]
+
+[node name="Target4" type="Node2D" parent="GuardResearch"]
+
+[node name="Target5" type="Node2D" parent="GuardResearch"]
 
 [node name="GuardAlert" type="Node" parent="." node_paths=PackedStringArray("guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardStunned")]
 script = ExtResource("5_t7kgq")
@@ -220,7 +231,7 @@ guardController = NodePath("../../../..")
 
 [node name="GuardResearchBuildup" type="Node" parent="BehaviorTree/Sequence/Selector3" node_paths=PackedStringArray("guardResearch", "guardController")]
 script = ExtResource("18_f81km")
-guardResearch = NodePath("../../../../GuardResearch")
+guardResearch = NodePath("")
 guardController = NodePath("../../../..")
 
 [node name="Selector4" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
@@ -237,10 +248,8 @@ guardCheck = NodePath("../../../../Rotator/GuardCheck")
 guardController = NodePath("../../../..")
 
 [connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
-[connection signal="damaged" from="." to="GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="GuardAlert" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
-[connection signal="reached_destination" from="GuardMovement" to="GuardResearch" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
