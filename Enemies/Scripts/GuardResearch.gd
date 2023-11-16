@@ -6,7 +6,7 @@ extends Node2D
 @export var buildUpDuration: float
 @export var onReturnToCheckAlertValue: float
 @export var objectInterationDistanceThreshold: float
-@export var raycastTargets: Array[Node2D]
+@export var rayTargets: Array[Node2D]
 @export var researchActiveText: String
 var buildUpTimer: float
 var buildUpId: int
@@ -58,10 +58,14 @@ func research_active():
 
 func follow_movable():
 	var space_state = guardController.get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(guardController.position, researchTarget.global_position)
-	var result = space_state.intersect_ray(query)
-	if (result && result != { }):
-		spotting_operations(result.collider)
+	for i in rayTargets.size():
+		var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
+		var result = space_state.intersect_ray(query)
+		if (result && result != { }):
+			if (result.collider == researchTarget):
+				spotting_operations(result.collider)
+				return
+	set_buildup(2)
 
 func follow_not_movable():
 	if (guardController.position.distance_to(researchTarget.position) > objectInterationDistanceThreshold):
@@ -74,18 +78,16 @@ func follow_not_movable():
 			print("Removed wrong item from zone")
 
 func spotting_operations(trackedObject: Node2D):
-	if (trackedObject != researchTarget):
-		set_buildup(2)
+	guardRotator.setLookingAtPosition(trackedObject.global_position)
+	var distance = guardController.global_position.distance_to(trackedObject.global_position)
+	if (distance >= 0 && distance < researchSpotThreshold):
+		set_buildup(0)
 	else:
-		var distance = guardController.global_position.distance_to(trackedObject.global_position)
-		if (distance >= 0 && distance < researchSpotThreshold):
-			set_buildup(0)
+		if (distance >= researchSpotThreshold && distance < researchFollowThreshold):
+			set_buildup(1)
 		else:
-			if (distance >= researchSpotThreshold && distance < researchFollowThreshold):
-				set_buildup(1)
-			else:
-				if (distance > researchFollowThreshold):
-					set_buildup(2)
+			if (distance > researchFollowThreshold):
+				set_buildup(2)
 
 func set_buildup(id: int):
 	if (buildUpActive == false || (buildUpActive == true && id != buildUpId)):
@@ -117,7 +119,6 @@ func stop_research():
 func _on_guard_movement_reached_destination():
 	if (guardController.isInResearch == true):
 		guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
-
 
 func _on_guard_damaged():
 	if (guardController.isInResearch == true):
