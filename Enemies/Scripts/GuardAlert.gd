@@ -28,7 +28,7 @@ func start_alert(target):
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	chaseStart = false
-	guardMovement.set_movement_speed(0)
+	guardMovement.set_location_target(guardController.global_position)
 	guardController.isInAlert = true
 
 func _physics_process(_delta):
