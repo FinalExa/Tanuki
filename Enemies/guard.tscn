@@ -59,6 +59,7 @@ catchPreparationDuration = 1.0
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
+alertText = "ALERT"
 guardAlertValue = NodePath("../AlertValue")
 guardController = NodePath("..")
 guardMovement = NodePath("../GuardMovement")

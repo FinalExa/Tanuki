@@ -7,6 +7,8 @@ extends Node
 @export var targetNotSeenDuration: float
 @export var targetNotSeenLastLocationThreshold: float
 @export var preChaseDuration: float
+@export var rayTargets: Array[Node2D]
+@export var alertText: String
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
 var preChaseTimer: float
@@ -24,7 +26,7 @@ var lastTargetPosition: Vector2
 @export var guardStunned: GuardStunned
 
 func start_alert(target):
-	guardAlertValue.updateText("ALERT")
+	guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	chaseStart = false
