@@ -1,5 +1,5 @@
 class_name GuardAlert
-extends Node
+extends Node2D
 
 @export var alertMovementSpeed: float
 @export var catchDistanceThreshold: float
@@ -42,34 +42,38 @@ func target_tracker_operations():
 
 func tracker_ray():
 	var space_state = guardController.get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(guardController.position, alertTarget.global_position)
-	var result = space_state.intersect_ray(query)
-	if (result && result != { }):
-		track_target(result.collider)
+	for i in rayTargets.size():
+		var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
+		var result = space_state.intersect_ray(query)
+		if (result && result != { }):
+			if (result.collider == alertTarget):
+				track_target(result.collider)
+			return
+	target_not_seen()
 
 func track_target(receivedTarget: Node2D):
-	if (receivedTarget == alertTarget):
-		guardRotator.setLookingAtNode(receivedTarget)
-		targetNotSeenActive = false
-		if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
-			catchPreparationActive = false
-			guardMovement.set_movement_speed(alertMovementSpeed)
-			guardMovement.set_location_target(receivedTarget.global_position)
-		else:
-			guardMovement.set_location_target(guardController.global_position)
-			if (catchPreparationActive == false):
-				start_catch_preparation()
-		lastTargetPosition = receivedTarget.global_position
-	else:
-		guardMovement.reset_movement_speed()
+	guardRotator.setLookingAtNode(receivedTarget)
+	targetNotSeenActive = false
+	if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
 		catchPreparationActive = false
-		var distance: float = guardController.global_position.distance_to(lastTargetPosition)
-		if (distance > targetNotSeenLastLocationThreshold):
-			guardMovement.set_location_target(lastTargetPosition)
-			guardRotator.setLookingAtPosition(lastTargetPosition)
-		else:
-			if (targetNotSeenActive == false):
-				start_not_seen_timer()
+		guardMovement.set_movement_speed(alertMovementSpeed)
+		guardMovement.set_location_target(receivedTarget.global_position)
+	else:
+		guardMovement.set_location_target(guardController.global_position)
+		if (catchPreparationActive == false):
+			start_catch_preparation()
+	lastTargetPosition = receivedTarget.global_position
+
+func target_not_seen():
+	guardMovement.reset_movement_speed()
+	catchPreparationActive = false
+	var distance: float = guardController.global_position.distance_to(lastTargetPosition)
+	if (distance > targetNotSeenLastLocationThreshold):
+		guardMovement.set_location_target(lastTargetPosition)
+		guardRotator.setLookingAtPosition(lastTargetPosition)
+	else:
+		if (targetNotSeenActive == false):
+			start_not_seen_timer()
 
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
