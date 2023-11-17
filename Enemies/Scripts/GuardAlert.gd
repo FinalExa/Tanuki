@@ -19,6 +19,7 @@ var chaseStart: bool
 var firstLocationReached: bool
 var secondLocationReached: bool
 var secondLocationTargetCheckLaunched: bool
+var lostSightOfPlayer: bool
 var alertTarget: Node2D
 var lastTargetPosition: Vector2
 var lastTargetDirection: Vector2
@@ -57,8 +58,9 @@ func tracker_ray():
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			if (result.collider == alertTarget):
-				track_target(result.collider)
-				return
+				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == true)):
+					track_target(result.collider)
+					return
 	target_not_seen(space_state)
 
 func track_target(receivedTarget: Node2D):
@@ -66,6 +68,7 @@ func track_target(receivedTarget: Node2D):
 	firstLocationReached = false
 	secondLocationReached = false
 	secondLocationTargetCheckLaunched = false
+	lostSightOfPlayer = false
 	if (chaseStart == true):
 		targetNotSeenActive = false
 		if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
@@ -82,6 +85,7 @@ func track_target(receivedTarget: Node2D):
 
 func target_not_seen(space_state):
 	catchPreparationActive = false
+	lostSightOfPlayer = true
 	if (firstLocationReached == false):
 		var distance: float = guardController.global_position.distance_to(lastTargetPosition)
 		if (distance > targetNotSeenLastLocationThreshold && chaseStart == true):
@@ -114,6 +118,13 @@ func second_location_target_check(space_state):
 			return result.collider.global_position
 	return searchPosition
 
+func check_if_player_transformation_status(playerRef: PlayerCharacter):
+	if (playerRef.transformationChangeRef.isTransformed == true):
+		if (playerRef.transformationChangeRef.localAllowedItemsRef != null):
+			if (playerRef.transformationChangeRef.localAllowedItemsRef.allowedObjects.has(playerRef.transformationChangeRef.currentTransformationName)):
+				return false
+	return true
+
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
 	targetNotSeenActive = true
@@ -123,6 +134,7 @@ func start_catch_preparation():
 	catchPreparationActive = true
 
 func capture_player():
+	print("CAPTURED PLAYER")
 	pass
 
 func stop_alert():
