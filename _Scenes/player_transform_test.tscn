@@ -51,6 +51,9 @@ scale = Vector2(21.735, 13.925)
 allowedObjects = Array[String](["Poop"])
 assignedObjects = [null]
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-169, 525)
+
 [connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
 [connection signal="give_self_reference" from="PlayerCharacter" to="LocalAllowedItems" method="_on_player_character_give_self_reference"]
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]

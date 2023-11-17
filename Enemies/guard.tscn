@@ -170,8 +170,9 @@ catchDistanceThreshold = 200.0
 catchPreparationDuration = 1.0
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
-preChaseDuration = 0.5
-rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8")]
+preChaseDuration = 1.0
+searchForMissingTargetDistance = 600.0
+rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8"), NodePath("Target9"), NodePath("Target10"), NodePath("Target11"), NodePath("Target12"), NodePath("Target13"), NodePath("Target14"), NodePath("Target15"), NodePath("Target16"), NodePath("Target17"), NodePath("Target18"), NodePath("Target19"), NodePath("Target20"), NodePath("Target21")]
 alertText = "ALERT"
 guardAlertValue = NodePath("../../AlertValue")
 guardController = NodePath("../..")
@@ -181,28 +182,67 @@ guardResearch = NodePath("../GuardResearch")
 guardStunned = NodePath("../../GuardStunned")
 
 [node name="Target" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(104, 32)
+position = Vector2(232, -16)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(-104, 32)
+position = Vector2(-216, -16)
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(-128, -272)
-
-[node name="Target6" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(120, -272)
+position = Vector2(-248, -144)
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(-176, -592)
-
-[node name="Target7" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(168, -592)
+position = Vector2(264, -144)
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(-152, -464)
+position = Vector2(-280, -272)
+
+[node name="Target6" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(296, -272)
+
+[node name="Target7" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-312, -400)
 
 [node name="Target8" type="Node2D" parent="Rotator/GuardAlert"]
-position = Vector2(168, -464)
+position = Vector2(328, -400)
+
+[node name="Target9" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-344, -528)
+
+[node name="Target10" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(360, -528)
+
+[node name="Target11" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-280, -592)
+
+[node name="Target12" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(296, -592)
+
+[node name="Target13" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-184, -656)
+
+[node name="Target14" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(200, -656)
+
+[node name="Target15" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-120, -656)
+
+[node name="Target16" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(136, -656)
+
+[node name="Target17" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-56, -656)
+
+[node name="Target18" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(72, -656)
+
+[node name="Target19" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(8, -656)
+
+[node name="Target20" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(-232, -624)
+
+[node name="Target21" type="Node2D" parent="Rotator/GuardAlert"]
+position = Vector2(248, -624)
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("10_ixflf")
