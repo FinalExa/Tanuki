@@ -171,6 +171,7 @@ catchPreparationDuration = 1.0
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
+searchForMissingTargetDistance = 600.0
 rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8"), NodePath("Target9"), NodePath("Target10"), NodePath("Target11"), NodePath("Target12"), NodePath("Target13"), NodePath("Target14"), NodePath("Target15"), NodePath("Target16"), NodePath("Target17"), NodePath("Target18"), NodePath("Target19"), NodePath("Target20"), NodePath("Target21")]
 alertText = "ALERT"
 guardAlertValue = NodePath("../../AlertValue")
