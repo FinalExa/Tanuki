@@ -37,7 +37,7 @@ func _physics_process(_delta):
 	target_tracker_operations()
 
 func target_tracker_operations():
-	if (guardController.isInAlert == true && chaseStart == true):
+	if (guardController.isInAlert == true):
 		tracker_ray()
 
 func tracker_ray():
@@ -53,24 +53,26 @@ func tracker_ray():
 
 func track_target(receivedTarget: Node2D):
 	guardRotator.setLookingAtPosition(receivedTarget.global_position)
-	targetNotSeenActive = false
-	if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
-		catchPreparationActive = false
-		guardMovement.set_movement_speed(alertMovementSpeed)
-		guardMovement.set_location_target(receivedTarget.global_position)
-	else:
-		guardMovement.set_location_target(guardController.global_position)
-		if (catchPreparationActive == false):
-			start_catch_preparation()
+	if (chaseStart == true):
+		targetNotSeenActive = false
+		if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
+			catchPreparationActive = false
+			guardMovement.set_movement_speed(alertMovementSpeed)
+			guardMovement.set_location_target(receivedTarget.global_position)
+		else:
+			guardMovement.set_location_target(guardController.global_position)
+			if (catchPreparationActive == false):
+				start_catch_preparation()
 	lastTargetPosition = receivedTarget.global_position
 
 func target_not_seen():
-	guardMovement.reset_movement_speed()
 	catchPreparationActive = false
 	var distance: float = guardController.global_position.distance_to(lastTargetPosition)
 	if (distance > targetNotSeenLastLocationThreshold):
-		guardMovement.set_location_target(lastTargetPosition)
-		guardRotator.setLookingAtPosition(lastTargetPosition)
+		if (chaseStart == true):
+			guardMovement.reset_movement_speed()
+			guardMovement.set_location_target(lastTargetPosition)
+			guardRotator.setLookingAtPosition(lastTargetPosition)
 	else:
 		if (targetNotSeenActive == false):
 			start_not_seen_timer()
