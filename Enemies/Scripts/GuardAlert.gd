@@ -68,11 +68,11 @@ func tracker_ray():
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			if (result.collider == alertTarget):
-				if (lostSightOfPlayer == false):
+				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 0)):
 					track_target(result.collider)
 					return
 				else:
-					if (check_if_player_transformation_status(result.collider) == true):
+					if (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 1):
 						stop_alert()
 						guardResearch.initialize_guard_research(alertTarget, true)
 						return
@@ -137,8 +137,13 @@ func check_if_player_transformation_status(playerRef: PlayerCharacter):
 	if (playerRef.transformationChangeRef.isTransformed == true):
 		if (playerRef.transformationChangeRef.localAllowedItemsRef != null):
 			if (playerRef.transformationChangeRef.localAllowedItemsRef.allowedObjects.has(playerRef.transformationChangeRef.currentTransformationName)):
-				return false
-	return true
+				return 2
+			else:
+				return 1
+		else:
+			return 1
+	else:
+		return 0
 
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
