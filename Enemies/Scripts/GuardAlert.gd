@@ -149,7 +149,7 @@ func start_catch_preparation():
 	catchPreparationActive = true
 
 func capture_player():
-	print("CAPTURED PLAYER")
+	get_tree().reload_current_scene()
 	pass
 
 func stop_alert():
