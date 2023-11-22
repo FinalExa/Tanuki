@@ -11,6 +11,7 @@ extends Node2D
 @export var rayTargets: Array[Node2D]
 @export var alertText: String
 @export var screamArea: ScreamArea
+@export var returnToCheckAlertValue: float
 var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
@@ -32,6 +33,7 @@ var extraTargetLocation: Vector2
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardResearch: GuardResearch
+@export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
 
 func _ready():
@@ -109,7 +111,7 @@ func target_not_seen(space_state):
 		else:
 			secondLocationReached = true
 	else:
-		if (firstLocationReached == true && firstLocationReached == true && targetNotSeenActive == false):
+		if (firstLocationReached == true && secondLocationReached == true && targetNotSeenActive == false):
 			start_not_seen_timer()
 
 func set_movement_destination(destination: Vector2):
@@ -149,10 +151,6 @@ func stop_alert():
 	guardController.isInAlert = false
 	chaseStart = false
 	guardMovement.reset_movement_speed()
-
-func end_alert():
-	stop_alert()
-	guardResearch.initialize_guard_research(alertTarget, true)
 
 func _on_guard_damaged():
 	if (guardController.isInAlert == true):
