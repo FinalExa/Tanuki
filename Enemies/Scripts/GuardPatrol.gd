@@ -71,7 +71,7 @@ func set_new_index(index, size):
 		index = 0
 	else:
 		if (index < 0):
-			index = size
+			index = size - 1
 	return index
 	
 func reset_patrol():
