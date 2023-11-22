@@ -29,6 +29,8 @@ enum LookDirections {
 @export var moveActions: Array[Node2D]
 @export var lookActions: Array[LookDirections]
 
+@export var guardResearch: GuardResearch
+
 func _ready():
 	emit_signal("get_character_ref")
 
