@@ -68,9 +68,14 @@ func tracker_ray():
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			if (result.collider == alertTarget):
-				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == true)):
+				if (lostSightOfPlayer == false):
 					track_target(result.collider)
 					return
+				else:
+					if (check_if_player_transformation_status(result.collider) == true):
+						stop_alert()
+						guardResearch.initialize_guard_research(alertTarget, false)
+						return
 	target_not_seen(space_state)
 
 func track_target(receivedTarget: Node2D):
