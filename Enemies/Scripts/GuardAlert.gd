@@ -10,6 +10,8 @@ extends Node2D
 @export var searchForMissingTargetDistance: float
 @export var rayTargets: Array[Node2D]
 @export var alertText: String
+@export var screamArea: ScreamArea
+var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
 var preChaseTimer: float
@@ -32,10 +34,15 @@ var extraTargetLocation: Vector2
 @export var guardResearch: GuardResearch
 @export var guardStunned: GuardStunned
 
+func _ready():
+	screamAreaInstance = screamArea
+	remove_area()
+
 func start_alert(target):
 	guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
+	add_area()
 	chaseStart = false
 	guardMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
@@ -49,6 +56,7 @@ func _physics_process(_delta):
 
 func target_tracker_operations():
 	if (guardController.isInAlert == true):
+		if (chaseStart == true && screamAreaInstance != null): remove_area()
 		tracker_ray()
 
 func tracker_ray():
@@ -150,3 +158,15 @@ func _on_guard_damaged():
 	if (guardController.isInAlert == true):
 		stop_alert()
 		guardStunned.start_stun()
+
+func remove_area():
+	remove_child(screamAreaInstance)
+	screamAreaInstance = null
+
+func add_area():
+	add_child(screamArea)
+	for i in get_child_count():
+		if (get_child(i) == screamArea):
+			screamAreaInstance = get_child(i)
+			break
+	screamAreaInstance.set_controller_ref(guardController)
