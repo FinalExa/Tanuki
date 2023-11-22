@@ -108,7 +108,6 @@ func buildup_results():
 			guardAlert.start_alert(researchTarget)
 
 func research_to_check():
-	guardPatrol.reset_patrol()
 	guardCheck.currentAlertValue = onReturnToCheckAlertValue
 	stop_research()
 	guardCheck.resume_check()
