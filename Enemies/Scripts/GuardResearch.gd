@@ -6,15 +6,16 @@ extends Node2D
 @export var buildUpDuration: float
 @export var onReturnToCheckAlertValue: float
 @export var objectInterationDistanceThreshold: float
+@export var researchEndDuration: float
 @export var rayTargets: Array[Node2D]
 @export var researchActiveText: String
-var buildUpTimer: float
-var buildUpId: int
-var buildUpActive: bool
+var researchEndTimer: float
 var researchTarget: Node2D
 var researchLastPosition: Vector2
 var researchLastDirection: Vector2
-var isTrackingAMovable: bool
+var suspiciousItemsList: Array[Node2D]
+var stunnedGuardsList: Array[GuardController]
+var researchHasFoundSomething: bool
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
@@ -25,15 +26,13 @@ var isTrackingAMovable: bool
 @export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
 
-func  _physics_process(_delta):
-	research_active()
+func  _physics_process(delta):
+	research_active(delta)
 
-func initialize_guard_research(target: Node2D, isMovable: bool):
+func initialize_guard_research(target: Node2D):
 	researchTarget = target
 	guardController.isInResearch = true
 	guardAlertValue.updateText(researchActiveText)
-	isTrackingAMovable = isMovable
-	buildUpTimer = buildUpDuration
 	research_setup()
 
 func research_setup():
@@ -49,63 +48,45 @@ func set_research_target(target: Vector2):
 	guardMovement.reset_movement_speed()
 	guardRotator.setLookingAtPosition(target)
 
-func research_active():
+func research_active(delta):
 	if (guardController.isInResearch):
-		if (isTrackingAMovable):
-			follow_movable()
+		researchHasFoundSomething = false
+		var space_state = guardController.get_world_2d().direct_space_state
+		for i in rayTargets.size():
+			var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }):
+				researchHasFoundSomething = spotting_operations(result.collider)
+				if (guardController.isInAlert):
+					return
+		if (researchHasFoundSomething == false):
+			research_end_timer(delta)
 		else:
-			follow_not_movable()
-
-func follow_movable():
-	var space_state = guardController.get_world_2d().direct_space_state
-	for i in rayTargets.size():
-		var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
-		var result = space_state.intersect_ray(query)
-		if (result && result != { }):
-			if (result.collider == researchTarget):
-				spotting_operations(result.collider)
-				return
-	set_buildup(2)
-
-func follow_not_movable():
-	if (guardController.position.distance_to(researchTarget.position) > objectInterationDistanceThreshold):
-		guardMovement.set_location_target(researchTarget.position)
-	else:
-		if (researchTarget is PlayerCharacter):
-			stop_research()
-			guardAlert.start_alert(researchTarget)
-		else:
-			print("Removed wrong item from zone")
+			reset_research_end_timer()
 
 func spotting_operations(trackedObject: Node2D):
-	guardRotator.setLookingAtPosition(trackedObject.global_position)
-	var distance = guardController.global_position.distance_to(trackedObject.global_position)
-	if (distance >= 0 && distance < researchSpotThreshold):
-		set_buildup(0)
-	else:
-		if (distance >= researchSpotThreshold && distance < researchFollowThreshold):
-			set_buildup(1)
+	if ((trackedObject is PlayerCharacter &&
+	trackedObject.transformationChangeRef.isTransformed == false) ||
+	trackedObject is TailFollow):
+		stop_research()
+		if (trackedObject is PlayerAttack):
+			guardAlert.start_alert(trackedObject)
 		else:
-			if (distance > researchFollowThreshold):
-				set_buildup(2)
-
-func set_buildup(id: int):
-	if (buildUpActive == false || (buildUpActive == true && id != buildUpId)):
-		if((buildUpActive == true && id >= buildUpId && id != 0) || buildUpActive == false):
-			buildUpTimer = buildUpDuration
-		buildUpId = id
-		buildUpActive = true
-
-func buildup_results():
-	if (buildUpId == 2):
-		research_to_check()
-	else:
-		if (buildUpId == 1):
-			save_target_info()
-			set_research_target(researchLastPosition)
-		else:
-			stop_research()
-			guardAlert.start_alert(researchTarget)
+			guardAlert.start_alert(trackedObject.playerRef)
+		return true
+	if (!suspiciousItemsList.find(trackedObject) &&
+	(trackedObject is PlayerCharacter &&
+	trackedObject.tranformationChangeRef.isTransformed == true &&
+	(trackedObject.tranformationChangeRef.localAllowedItemsRef == null ||
+	!trackedObject.tranformationChangeRef.localAllowedItemsRef.find(trackedObject.transformationChangeRef.currentTransformationName)))):
+		suspiciousItemsList.push_back(trackedObject)
+		return true
+	if (!stunnedGuardsList.find(trackedObject) &&
+		(trackedObject is GuardController &&
+		trackedObject.isStunned &&
+		trackedObject != guardController)):
+			stunnedGuardsList.push_back(trackedObject)
+			return true
 
 func research_to_check():
 	guardCheck.currentAlertValue = onReturnToCheckAlertValue
@@ -123,3 +104,12 @@ func _on_guard_damaged():
 	if (guardController.isInResearch == true):
 		stop_research()
 		guardStunned.start_stun()
+
+func research_end_timer(delta):
+	if (researchEndTimer>0):
+		researchEndTimer-=delta
+	else:
+		research_to_check()
+
+func reset_research_end_timer():
+	researchEndTimer = researchEndDuration

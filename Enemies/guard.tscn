@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvrh8nj8aokk1"]
+[gd_scene load_steps=26 format=3 uid="uid://dvrh8nj8aokk1"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertTargetNotSeen.gd" id="15_smfg7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertCatchPreparation.gd" id="16_8kh41"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInResearch.gd" id="17_5me30"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardResearchBuildup.gd" id="18_f81km"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInCheck.gd" id="19_fuxqg"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardCheckReduction.gd" id="20_n2nbb"]
 
@@ -31,10 +30,11 @@ radius = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
 radius = 1000.51
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardResearch")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardResearch", "guardStunned")]
 position = Vector2(-168, -240)
 script = ExtResource("1_loc1f")
 guardResearch = NodePath("Rotator/GuardResearch")
+guardStunned = NodePath("GuardStunned")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -311,15 +311,10 @@ guardController = NodePath("../../../../..")
 
 [node name="SelectorResearch" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("12_6su2y")
-children = [NodePath("GuardIsInResearch"), NodePath("GuardResearchBuildup")]
+children = [NodePath("GuardIsInResearch")]
 
 [node name="GuardIsInResearch" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("guardController")]
 script = ExtResource("17_5me30")
-guardController = NodePath("../../../..")
-
-[node name="GuardResearchBuildup" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("guardResearch", "guardController")]
-script = ExtResource("18_f81km")
-guardResearch = NodePath("../../../../Rotator/GuardResearch")
 guardController = NodePath("../../../..")
 
 [node name="SelectorCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]

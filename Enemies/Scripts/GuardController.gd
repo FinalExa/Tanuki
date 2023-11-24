@@ -30,6 +30,7 @@ enum LookDirections {
 @export var lookActions: Array[LookDirections]
 
 @export var guardResearch: GuardResearch
+@export var guardStunned: GuardStunned
 
 func _ready():
 	emit_signal("get_character_ref")

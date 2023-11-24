@@ -22,6 +22,7 @@ var isTransformed: bool = false
 @export var timeRefundOnReactivation = 0
 @export var tailRef: Node2D
 @export var tailLocation: Node2D
+@export var playerRef: PlayerCharacter
 var tailInstance
 var transformationTimer
 
@@ -88,6 +89,7 @@ func transformation_active(delta):
 				for i in sceneRef.get_child_count():
 					if (sceneRef.get_child(i) == tailRef):
 						tailInstance = sceneRef.get_child(i)
+						tailInstance.playerRef = playerRef
 						tailInstance.objectToTrack = tailLocation
 						break
 		else:
