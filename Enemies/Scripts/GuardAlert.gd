@@ -74,7 +74,7 @@ func tracker_ray():
 				else:
 					if (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 1):
 						stop_alert()
-						guardResearch.initialize_guard_research(alertTarget, true)
+						guardResearch.initialize_guard_research(alertTarget)
 						return
 	target_not_seen(space_state)
 

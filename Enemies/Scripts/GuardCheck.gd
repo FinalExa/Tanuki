@@ -113,7 +113,7 @@ func determine_if_end_check(_body):
 	else:
 		if (currentAlertValue >= researchValueThreshold):
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
+			guardResearch.initialize_guard_research(checkTarget)
 		else:
 			if (reductionOverTimeActive == false):
 				activate_reduction_over_time()
@@ -139,7 +139,7 @@ func increase_suspicion_value(delta, multiplier):
 			guardAlert.start_alert(checkTarget)
 		else:
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
+			guardResearch.initialize_guard_research(checkTarget)
 
 func end_check():
 	reductionOverTimeActive = false
