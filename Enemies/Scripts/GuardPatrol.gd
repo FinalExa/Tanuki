@@ -71,7 +71,7 @@ func set_new_index(index, size):
 		index = 0
 	else:
 		if (index < 0):
-			index = size
+			index = size - 1
 	return index
 	
 func reset_patrol():
@@ -96,7 +96,7 @@ func restart_patrol():
 	set_current_patrol_routine()
 
 func resume_patrol():
-	set_new_index(-1, guardController.patrolActions.size())
+	patrolIndex = set_new_index(-1, guardController.patrolActions.size())
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()

@@ -7,6 +7,8 @@ func Evaluate(delta):
 		if(guardAlert.targetNotSeenTimer > 0):
 			guardAlert.targetNotSeenTimer -= delta
 		else:
-			guardAlert.end_alert()
+			guardAlert.stop_alert()
+			guardAlert.guardCheck.currentAlertValue = guardAlert.returnToCheckAlertValue
+			guardAlert.guardCheck.resume_check()
 		return NodeState.FAILURE
 	return NodeState.SUCCESS

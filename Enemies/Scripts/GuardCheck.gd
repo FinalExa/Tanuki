@@ -25,6 +25,7 @@ var researchOutcome: bool
 @export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
 @export var guardStunned: GuardStunned
+@export var guardMovement: GuardMovement
 
 func _ready():
 	reset_alert_value()
@@ -113,7 +114,7 @@ func determine_if_end_check(_body):
 	else:
 		if (currentAlertValue >= researchValueThreshold):
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
+			guardResearch.initialize_guard_research(checkTarget)
 		else:
 			if (reductionOverTimeActive == false):
 				activate_reduction_over_time()
@@ -139,7 +140,7 @@ func increase_suspicion_value(delta, multiplier):
 			guardAlert.start_alert(checkTarget)
 		else:
 			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget, researchOutcome)
+			guardResearch.initialize_guard_research(checkTarget)
 
 func end_check():
 	reductionOverTimeActive = false

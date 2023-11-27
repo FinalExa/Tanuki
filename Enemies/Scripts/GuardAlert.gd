@@ -10,6 +10,9 @@ extends Node2D
 @export var searchForMissingTargetDistance: float
 @export var rayTargets: Array[Node2D]
 @export var alertText: String
+@export var screamArea: ScreamArea
+@export var returnToCheckAlertValue: float
+var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
 var preChaseTimer: float
@@ -30,18 +33,25 @@ var extraTargetLocation: Vector2
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardResearch: GuardResearch
+@export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
+
+func _ready():
+	screamAreaInstance = screamArea
+	remove_area()
 
 func start_alert(target):
 	guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
+	add_area()
 	chaseStart = false
 	guardMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
 	secondLocationTargetCheckLaunched = false
+	lostSightOfPlayer = false
 	guardController.isInAlert = true
 
 func _physics_process(_delta):
@@ -49,6 +59,7 @@ func _physics_process(_delta):
 
 func target_tracker_operations():
 	if (guardController.isInAlert == true):
+		if (chaseStart == true && screamAreaInstance != null): remove_area()
 		tracker_ray()
 
 func tracker_ray():
@@ -58,9 +69,14 @@ func tracker_ray():
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			if (result.collider == alertTarget):
-				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == true)):
+				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 0)):
 					track_target(result.collider)
 					return
+				else:
+					if (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 1):
+						stop_alert()
+						guardResearch.initialize_guard_research(alertTarget)
+						return
 	target_not_seen(space_state)
 
 func track_target(receivedTarget: Node2D):
@@ -101,7 +117,7 @@ func target_not_seen(space_state):
 		else:
 			secondLocationReached = true
 	else:
-		if (firstLocationReached == true && firstLocationReached == true && targetNotSeenActive == false):
+		if (firstLocationReached == true && secondLocationReached == true && targetNotSeenActive == false):
 			start_not_seen_timer()
 
 func set_movement_destination(destination: Vector2):
@@ -122,8 +138,13 @@ func check_if_player_transformation_status(playerRef: PlayerCharacter):
 	if (playerRef.transformationChangeRef.isTransformed == true):
 		if (playerRef.transformationChangeRef.localAllowedItemsRef != null):
 			if (playerRef.transformationChangeRef.localAllowedItemsRef.allowedObjects.has(playerRef.transformationChangeRef.currentTransformationName)):
-				return false
-	return true
+				return 2
+			else:
+				return 1
+		else:
+			return 1
+	else:
+		return 0
 
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
@@ -134,7 +155,7 @@ func start_catch_preparation():
 	catchPreparationActive = true
 
 func capture_player():
-	print("CAPTURED PLAYER")
+	get_tree().reload_current_scene()
 	pass
 
 func stop_alert():
@@ -142,11 +163,19 @@ func stop_alert():
 	chaseStart = false
 	guardMovement.reset_movement_speed()
 
-func end_alert():
-	stop_alert()
-	guardResearch.initialize_guard_research(alertTarget, true)
-
 func _on_guard_damaged():
 	if (guardController.isInAlert == true):
 		stop_alert()
 		guardStunned.start_stun()
+
+func remove_area():
+	remove_child(screamAreaInstance)
+	screamAreaInstance = null
+
+func add_area():
+	add_child(screamArea)
+	for i in get_child_count():
+		if (get_child(i) == screamArea):
+			screamAreaInstance = get_child(i)
+			break
+	screamAreaInstance.set_controller_ref(guardController)
