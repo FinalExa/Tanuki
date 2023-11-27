@@ -87,7 +87,7 @@ mainNodeRef = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -100,6 +100,7 @@ playerIsNotSeenMultiplier = 0.5
 reductionOverTimeValue = 15.0
 distanceMultiplier = 0.2
 preCheckDuration = 0.1
+rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
 guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
 guardResearch = NodePath("../GuardResearch")
@@ -317,16 +318,20 @@ guardController = NodePath("../../../..")
 
 [node name="SelectorCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("12_6su2y")
-children = [NodePath("GuardIsInCheck"), NodePath("GuardCheckReduction")]
+children = [NodePath("GuardIsInCheck"), NodePath("Sequence")]
 
 [node name="GuardIsInCheck" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardController")]
 script = ExtResource("19_fuxqg")
 guardController = NodePath("../../../..")
 
-[node name="GuardCheckReduction" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardCheck", "guardController")]
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("children")]
+script = ExtResource("11_hsu07")
+children = [NodePath("GuardCheckReduction")]
+
+[node name="GuardCheckReduction" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence" node_paths=PackedStringArray("guardCheck", "guardController")]
 script = ExtResource("20_n2nbb")
-guardCheck = NodePath("../../../../Rotator/GuardCheck")
-guardController = NodePath("../../../..")
+guardCheck = NodePath("../../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../../..")
 
 [connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]

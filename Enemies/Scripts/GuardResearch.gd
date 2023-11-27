@@ -33,7 +33,11 @@ func  _physics_process(delta):
 	research_active(delta)
 
 func initialize_guard_research(target: Node2D):
-	spotting_operations(target, true)
+	if (target is PlayerCharacter):
+		researchTarget = target
+		save_target_info()
+	else:
+		spotting_operations(target, true)
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.isInResearch = true
@@ -82,7 +86,7 @@ func spotting_operations(trackedObject: Node2D, launch: bool):
 	trackedObject.transformationChangeRef.isTransformed == false) ||
 	trackedObject is TailFollow)):
 		stop_research()
-		if (trackedObject is PlayerAttack):
+		if (trackedObject is PlayerCharacter):
 			guardAlert.start_alert(trackedObject)
 		else:
 			guardAlert.start_alert(trackedObject.playerRef)
@@ -100,6 +104,7 @@ func spotting_operations(trackedObject: Node2D, launch: bool):
 		trackedObject != guardController)):
 			stunnedGuardsList.push_back(trackedObject)
 			return true
+	return false
 
 func priority_actions():
 	var check: bool = false
