@@ -25,6 +25,7 @@ var researchOutcome: bool
 @export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
 @export var guardStunned: GuardStunned
+@export var guardMovement: GuardMovement
 
 func _ready():
 	reset_alert_value()

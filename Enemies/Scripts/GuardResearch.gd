@@ -9,6 +9,9 @@ extends Node2D
 @export var researchEndDuration: float
 @export var rayTargets: Array[Node2D]
 @export var researchActiveText: String
+@export var researchLaunchDuration: float
+var researchLaunched: bool
+var researchLaunchTimer: float
 var researchEndTimer: float
 var researchTarget: Node2D
 var researchLastPosition: Vector2
@@ -32,21 +35,22 @@ var isDoingResearchAction: bool
 func  _physics_process(delta):
 	research_active(delta)
 
+func _process(delta):
+	research_launch_timer(delta)
+
 func initialize_guard_research(target: Node2D):
+	stunnedGuardsList.clear()
+	suspiciousItemsList.clear()
+	guardAlertValue.updateText(researchActiveText)
+	reset_research_end_timer()
 	if (target is PlayerCharacter):
 		researchTarget = target
 		save_target_info()
 	else:
-		spotting_operations(target, true)
-	stunnedGuardsList.clear()
-	suspiciousItemsList.clear()
+		spotting_operations(target)
 	guardController.isInResearch = true
-	guardAlertValue.updateText(researchActiveText)
-	research_setup()
-
-func research_setup():
-	save_target_info()
-	set_research_target(researchLastPosition)
+	researchLaunchTimer = researchLaunchDuration
+	researchLaunched = false
 
 func save_target_info():
 	researchLastPosition = researchTarget.position
@@ -63,7 +67,8 @@ func research_active(delta):
 		priority_actions()
 
 func research_raycasts(delta):
-	research_main_raycast(delta)
+	if(researchLaunched):
+		research_main_raycast(delta)
 
 func research_main_raycast(delta):
 	researchHasFoundSomething = false
@@ -72,7 +77,7 @@ func research_main_raycast(delta):
 		var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
-			researchHasFoundSomething = spotting_operations(result.collider, false)
+			researchHasFoundSomething = spotting_operations(result.collider)
 			if (guardController.isInAlert):
 				return
 	if (researchHasFoundSomething == false && stunnedGuardsList.size() == 0 && suspiciousItemsList.size() == 0):
@@ -80,29 +85,48 @@ func research_main_raycast(delta):
 	else:
 		reset_research_end_timer()
 
-func spotting_operations(trackedObject: Node2D, launch: bool):
-	if (!launch &&
-	((trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.isTransformed == false) ||
-	trackedObject is TailFollow)):
+func spotting_operations(trackedObject: Node2D):
+	var spotting_result: bool = false
+	spotting_result = player_detection(trackedObject)
+	if (spotting_result):
 		stop_research()
+		return spotting_result
+	spotting_result = stunned_guards_detection(trackedObject)
+	if (spotting_result):
+		return spotting_result
+	spotting_result = suspicious_objects_detection(trackedObject)
+	return spotting_result
+
+func player_detection(trackedObject: Node2D):
+	if ((trackedObject is PlayerCharacter &&
+	trackedObject.transformationChangeRef.isTransformed == false) ||
+	trackedObject is TailFollow):
+		print("found player")
 		if (trackedObject is PlayerCharacter):
 			guardAlert.start_alert(trackedObject)
 		else:
 			guardAlert.start_alert(trackedObject.playerRef)
 		return true
-	if (!suspiciousItemsList.find(trackedObject) &&
-	(trackedObject is PlayerCharacter &&
+	return false
+
+func suspicious_objects_detection(trackedObject: Node2D):
+	if (trackedObject is PlayerCharacter &&
 	trackedObject.tranformationChangeRef.isTransformed == true &&
 	(trackedObject.tranformationChangeRef.localAllowedItemsRef == null ||
-	!trackedObject.tranformationChangeRef.localAllowedItemsRef.find(trackedObject.transformationChangeRef.currentTransformationName)))):
-		suspiciousItemsList.push_back(trackedObject)
+	!trackedObject.tranformationChangeRef.localAllowedItemsRef.find(trackedObject.transformationChangeRef.currentTransformationName))):
+		print("found suspicious item")
+		if (!suspiciousItemsList.find(trackedObject)):
+			suspiciousItemsList.push_back(trackedObject)
 		return true
-	if (!stunnedGuardsList.find(trackedObject) &&
-		(trackedObject is GuardController &&
+	return false
+
+func stunned_guards_detection(trackedObject: Node2D):
+	if (trackedObject is GuardController &&
 		trackedObject.isStunned &&
-		trackedObject != guardController)):
-			stunnedGuardsList.push_back(trackedObject)
+		trackedObject != guardController):
+			print("found stunned guard")
+			if (!stunnedGuardsList.find(trackedObject)):
+				stunnedGuardsList.push_back(trackedObject)
 			return true
 	return false
 
@@ -167,3 +191,12 @@ func research_end_timer(delta):
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration
+
+func research_launch_timer(delta):
+	if (!researchLaunched):
+		if (researchLaunchTimer>0):
+			researchLaunchTimer-=delta
+		else:
+			if (researchTarget is PlayerCharacter):
+				set_research_target(researchLastPosition)
+			researchLaunched = true

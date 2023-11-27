@@ -51,6 +51,7 @@ func start_alert(target):
 	firstLocationReached = false
 	secondLocationReached = false
 	secondLocationTargetCheckLaunched = false
+	lostSightOfPlayer = false
 	guardController.isInAlert = true
 
 func _physics_process(_delta):

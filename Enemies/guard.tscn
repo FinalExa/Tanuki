@@ -87,7 +87,7 @@ mainNodeRef = NodePath("..")
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned", "guardMovement")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -107,6 +107,7 @@ guardResearch = NodePath("../GuardResearch")
 guardAlert = NodePath("../GuardAlert")
 guardPatrol = NodePath("../../GuardPatrol")
 guardStunned = NodePath("../../GuardStunned")
+guardMovement = NodePath("../../GuardMovement")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
@@ -142,8 +143,12 @@ researchFollowThreshold = 700.0
 buildUpDuration = 2.0
 onReturnToCheckAlertValue = 35.0
 objectInterationDistanceThreshold = 200.0
+researchEndDuration = 5.0
 rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5")]
 researchActiveText = "RESEARCHING"
+researchLaunchDuration = 2.0
+suspiciousItemsThresholdDistance = 100.0
+stunnedGuardsThresholdDistance = 100.0
 guardController = NodePath("../..")
 guardAlertValue = NodePath("../../AlertValue")
 guardAlert = NodePath("../GuardAlert")
