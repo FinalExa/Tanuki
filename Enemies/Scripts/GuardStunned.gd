@@ -20,5 +20,14 @@ func start_stun():
 
 func end_stun():
 	guardCheck.currentAlertValue = stunEndAlertValue
+	clear_guards_looking_for_me()
 	guardController.isStunned = false
 	guardCheck.resume_check()
+
+func clear_guards_looking_for_me():
+	for i in guardController.guardsLookingForMe.size():
+		for y in guardController.guardsLookingForMe[i].stunnedGuardsList.size():
+			if (guardController.guardsLookingForMe[i].stunnedGuardsList[y] == guardController):
+				guardController.guardsLookingForMe[i].stunnedGuardsList.remove_at(y)
+				break
+	guardController.guardsLookingForMe.clear()

@@ -8,6 +8,7 @@ extends Node2D
 @export var objectInterationDistanceThreshold: float
 @export var researchEndDuration: float
 @export var rayTargets: Array[Node2D]
+@export var secondaryRayTargets: Array[Node2D]
 @export var researchActiveText: String
 @export var researchLaunchDuration: float
 var researchLaunched: bool
@@ -22,6 +23,7 @@ var suspiciousItemsList: Array[Node2D]
 var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
+var isTrackingPriorityTarget: bool
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
@@ -43,18 +45,17 @@ func initialize_guard_research(target: Node2D):
 	suspiciousItemsList.clear()
 	guardAlertValue.updateText(researchActiveText)
 	reset_research_end_timer()
-	if (target is PlayerCharacter):
-		researchTarget = target
-		save_target_info()
-	else:
-		spotting_operations(target)
+	if (target is PlayerCharacter || target is GuardController):
+		save_target_info(target)
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
 
-func save_target_info():
+func save_target_info(target):
+	researchTarget = target
 	researchLastPosition = researchTarget.position
 	researchLastDirection = researchTarget.velocity.normalized()
+	isTrackingPriorityTarget = true
 
 func set_research_target(target: Vector2):
 	guardMovement.set_location_target(target)
@@ -64,18 +65,20 @@ func set_research_target(target: Vector2):
 func research_active(delta):
 	if (guardController.isInResearch):
 		research_raycasts(delta)
-		priority_actions()
+		if (researchLaunched):
+			priority_actions()
 
 func research_raycasts(delta):
-	if(researchLaunched):
-		research_main_raycast(delta)
-
-func research_main_raycast(delta):
 	researchHasFoundSomething = false
-	var space_state = guardController.get_world_2d().direct_space_state
+	var spaceState = guardController.get_world_2d().direct_space_state
+	research_secondary_raycast(spaceState)
+	if(researchLaunched):
+		research_main_raycast(spaceState, delta)
+
+func research_main_raycast(spaceState, delta):
 	for i in rayTargets.size():
-		var query = PhysicsRayQueryParameters2D.create(guardController.position, rayTargets[i].global_position)
-		var result = space_state.intersect_ray(query)
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+		var result = spaceState.intersect_ray(query)
 		if (result && result != { }):
 			researchHasFoundSomething = spotting_operations(result.collider)
 			if (guardController.isInAlert):
@@ -84,6 +87,14 @@ func research_main_raycast(delta):
 		research_end_timer(delta)
 	else:
 		reset_research_end_timer()
+
+func research_secondary_raycast(spaceState):
+	pass
+	for i in secondaryRayTargets.size():
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, secondaryRayTargets[i].global_position)
+		var result = spaceState.intersect_ray(query)
+		if (result && result != { }):
+			researchHasFoundSomething = spot_player_from_afar(result.collider)
 
 func spotting_operations(trackedObject: Node2D):
 	var spotting_result: bool = false
@@ -127,7 +138,16 @@ func stunned_guards_detection(trackedObject: Node2D):
 			print("found stunned guard")
 			if (!stunnedGuardsList.find(trackedObject)):
 				stunnedGuardsList.push_back(trackedObject)
+				if (!trackedObject.guardsLookingForMe.find(self)):
+					trackedObject.guardsLookingForMe.push_back(self)
 			return true
+	return false
+
+func spot_player_from_afar(target):
+	if (target is PlayerCharacter):
+		var playerRef: PlayerCharacter = target
+		if (!playerRef.transformationChangeRef.isTransformed):
+			save_target_info(target)
 	return false
 
 func priority_actions():
@@ -145,6 +165,12 @@ func help_guards():
 			set_research_target(researchTarget.global_position)
 		if (guardController.global_position.distance_to(researchLastPosition) <= stunnedGuardsThresholdDistance):
 			guardMovement.set_location_target(guardController.global_position)
+			var id: int = 0
+			for i in stunnedGuardsList[0].guardsLookingForMe.size():
+				if (stunnedGuardsList[0].guardsLookingForMe[i] == self):
+					id = i
+					break
+			stunnedGuardsList[0].guardsLookingForMe.remove_at(id)
 			stunnedGuardsList[0].guardStunned.end_stun()
 			stunnedGuardsList.remove_at(0)
 		return true

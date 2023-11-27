@@ -31,6 +31,7 @@ enum LookDirections {
 
 @export var guardResearch: GuardResearch
 @export var guardStunned: GuardStunned
+var guardsLookingForMe: Array[GuardResearch]
 
 func _ready():
 	emit_signal("get_character_ref")

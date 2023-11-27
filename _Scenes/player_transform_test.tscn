@@ -22,7 +22,6 @@ transformedProperties = Array[String](["Sturdy"])
 
 [node name="TransformationObject2" parent="." instance=ExtResource("2_67gti")]
 position = Vector2(-424, 80)
-scale = Vector2(1, 6.985)
 transformedName = "Poop"
 transformedMaxSpeed = 1000.0
 transformedProperties = Array[String](["Stinky"])
