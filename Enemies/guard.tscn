@@ -136,7 +136,7 @@ rotation = -3.14159
 position = Vector2(95.999, 408)
 rotation = -3.14159
 
-[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
+[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
 script = ExtResource("4_j1yk0")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
@@ -144,7 +144,8 @@ buildUpDuration = 2.0
 onReturnToCheckAlertValue = 35.0
 objectInterationDistanceThreshold = 200.0
 researchEndDuration = 5.0
-rayTargets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5")]
+rayTargets = [NodePath("MainTargets/Target"), NodePath("MainTargets/Target2"), NodePath("MainTargets/Target3"), NodePath("MainTargets/Target4"), NodePath("MainTargets/Target5")]
+secondaryRayTargets = [NodePath("SecondaryTargets/Target"), NodePath("SecondaryTargets/Target2"), NodePath("SecondaryTargets/Target3"), NodePath("SecondaryTargets/Target4"), NodePath("SecondaryTargets/Target5"), NodePath("SecondaryTargets/Target6"), NodePath("SecondaryTargets/Target7"), NodePath("SecondaryTargets/Target8"), NodePath("SecondaryTargets/Target9"), NodePath("SecondaryTargets/Target10"), NodePath("SecondaryTargets/Target11"), NodePath("SecondaryTargets/Target12"), NodePath("SecondaryTargets/Target13")]
 researchActiveText = "RESEARCHING"
 researchLaunchDuration = 2.0
 suspiciousItemsThresholdDistance = 100.0
@@ -158,20 +159,63 @@ guardRotator = NodePath("..")
 guardCheck = NodePath("../GuardCheck")
 guardStunned = NodePath("../../GuardStunned")
 
-[node name="Target" type="Node2D" parent="Rotator/GuardResearch"]
+[node name="MainTargets" type="Node2D" parent="Rotator/GuardResearch"]
+
+[node name="Target" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
 position = Vector2(-152, -592)
 
-[node name="Target2" type="Node2D" parent="Rotator/GuardResearch"]
+[node name="Target2" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
 position = Vector2(168, -592)
 
-[node name="Target3" type="Node2D" parent="Rotator/GuardResearch"]
+[node name="Target3" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
 position = Vector2(-72, -592)
 
-[node name="Target4" type="Node2D" parent="Rotator/GuardResearch"]
+[node name="Target4" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
 position = Vector2(88, -592)
 
-[node name="Target5" type="Node2D" parent="Rotator/GuardResearch"]
+[node name="Target5" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
 position = Vector2(8, -592)
+
+[node name="SecondaryTargets" type="Node2D" parent="Rotator/GuardResearch"]
+
+[node name="Target" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-152, -208)
+
+[node name="Target2" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(168, -208)
+
+[node name="Target3" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-184, -336)
+
+[node name="Target4" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(200, -336)
+
+[node name="Target5" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-216, -464)
+
+[node name="Target6" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(232, -464)
+
+[node name="Target7" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-248, -592)
+
+[node name="Target8" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(264, -592)
+
+[node name="Target9" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-184, -656)
+
+[node name="Target10" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(200, -656)
+
+[node name="Target11" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-88, -720)
+
+[node name="Target12" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(104, -720)
+
+[node name="Target13" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(8, -720)
 
 [node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardCheck", "guardStunned")]
 script = ExtResource("5_t7kgq")

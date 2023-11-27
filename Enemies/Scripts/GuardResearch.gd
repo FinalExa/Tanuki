@@ -24,6 +24,7 @@ var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
+@export var priorityTargetThresholdDistance: float
 
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
@@ -151,12 +152,15 @@ func spot_player_from_afar(target):
 	return false
 
 func priority_actions():
-	var check: bool = false
-	check = help_guards()
-	if (!check):
-		check = investigate_objects()
-		if (check):
-			return
+	if (isTrackingPriorityTarget):
+		track_priority_target()
+	else:
+		var check: bool = false
+		check = help_guards()
+		if (!check):
+			check = investigate_objects()
+			if (check):
+				return
 
 func help_guards():
 	if (stunnedGuardsList.size()>0):
@@ -191,6 +195,12 @@ func investigate_objects():
 				suspiciousItemsList.remove_at(0)
 				return true
 	return false
+
+func track_priority_target():
+	if (guardController.global_position.distance_to(researchLastPosition) > priorityTargetThresholdDistance):
+		set_research_target(researchLastPosition)
+	else:
+		isTrackingPriorityTarget = false
 
 func research_to_check():
 	guardCheck.currentAlertValue = onReturnToCheckAlertValue
