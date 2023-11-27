@@ -113,7 +113,6 @@ func player_detection(trackedObject: Node2D):
 	if ((trackedObject is PlayerCharacter &&
 	trackedObject.transformationChangeRef.isTransformed == false) ||
 	trackedObject is TailFollow):
-		print("found player")
 		if (trackedObject is PlayerCharacter):
 			guardAlert.start_alert(trackedObject)
 		else:
@@ -126,9 +125,10 @@ func suspicious_objects_detection(trackedObject: Node2D):
 	trackedObject.tranformationChangeRef.isTransformed == true &&
 	(trackedObject.tranformationChangeRef.localAllowedItemsRef == null ||
 	!trackedObject.tranformationChangeRef.localAllowedItemsRef.find(trackedObject.transformationChangeRef.currentTransformationName))):
-		print("found suspicious item")
 		if (!suspiciousItemsList.find(trackedObject)):
 			suspiciousItemsList.push_back(trackedObject)
+			if (!trackedObject.tranformationChangeRef.guardsLookingForMe.find(self)):
+				trackedObject.tranformationChangeRef.guardsLookingForMe.push_back(self)
 		return true
 	return false
 
@@ -136,7 +136,6 @@ func stunned_guards_detection(trackedObject: Node2D):
 	if (trackedObject is GuardController &&
 		trackedObject.isStunned &&
 		trackedObject != guardController):
-			print("found stunned guard")
 			if (!stunnedGuardsList.find(trackedObject)):
 				stunnedGuardsList.push_back(trackedObject)
 				if (!trackedObject.guardsLookingForMe.find(self)):
@@ -189,10 +188,10 @@ func investigate_objects():
 			guardMovement.set_location_target(guardController.global_position)
 			if (researchTarget is PlayerCharacter):
 				var tempPlayerReference: PlayerCharacter = researchTarget
+				suspiciousItemsList.remove_at(0)
 				tempPlayerReference.transformationChangeRef.deactivate_transformation()
 				stop_research()
 				guardAlert.start_alert(tempPlayerReference)
-				suspiciousItemsList.remove_at(0)
 				return true
 	return false
 

@@ -16,6 +16,8 @@ var currentTransformationName
 var currentTransformationSpeed
 var currentTransformationProperties
 
+var guardsLookingForMe: Array[GuardResearch]
+
 var isTransformed: bool = false
 @export var transformationDuration = 0
 @export var tailActivationTime = 0
@@ -78,6 +80,7 @@ func deactivate_transformation():
 	if (tailInstance != null):
 		sceneRef.remove_child(tailInstance)
 		tailInstance = null
+	clear_guards_looking_for_me()
 	transformation_lock_activate()
 
 func transformation_active(delta):
@@ -115,3 +118,11 @@ func set_local_zone(localRef: LocalAllowedItems):
 
 func unset_local_zone():
 	localAllowedItemsRef = null
+
+func clear_guards_looking_for_me():
+	for i in guardsLookingForMe.size():
+		for y in guardsLookingForMe[i].stunnedGuardsList.size():
+			if (guardsLookingForMe[i].stunnedGuardsList[y] == playerRef):
+				guardsLookingForMe[i].stunnedGuardsList.remove_at(y)
+				break
+	guardsLookingForMe.clear()
