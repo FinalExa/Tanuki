@@ -19,6 +19,7 @@ var preCheckTimer: float
 var reductionOverTimeActive: bool
 var researchOutcome: bool
 
+@export var guardRotator: GuardRotator
 @export var guardController: GuardController
 @export var guardAlertValue: GuardAlertValue
 @export var guardResearch: GuardResearch
@@ -158,7 +159,6 @@ func resume_check():
 	checkActive = true
 	guardController.isChecking = true
 	activate_reduction_over_time()
-
 
 func _on_guard_damaged():
 	if (guardController.isChecking == true || checkActive == true):

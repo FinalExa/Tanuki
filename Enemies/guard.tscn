@@ -76,13 +76,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_0sjol")
 
-[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("mainNodeRef")]
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
 script = ExtResource("4_lrldw")
-leftRad = 270
-downRad = 180
-rightRad = 90
+upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
+downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
+leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
+rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90
 mainNodeRef = NodePath("..")
+rotationSpeed = 100.0
+rotationWeight = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
@@ -309,6 +312,20 @@ script = ExtResource("11_d8wcc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardAlert/ScreamArea"]
 shape = SubResource("CircleShape2D_8ttp4")
 debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
+
+[node name="RotationPoints" type="Node2D" parent="."]
+
+[node name="UpRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, -112)
+
+[node name="DownRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, 112)
+
+[node name="LeftRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(-112, 0)
+
+[node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(112, 0)
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("10_ixflf")

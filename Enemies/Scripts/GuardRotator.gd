@@ -1,10 +1,10 @@
 class_name GuardRotator
 extends Node2D
 
-@export var upRad = 0
-@export var leftRad = 0
-@export var downRad = 0
-@export var rightRad = 0
+@export var upRotationPoint: Node2D
+@export var downRotationPoint: Node2D
+@export var leftRotationPoint: Node2D
+@export var rightRotationPoint: Node2D
 @export var lookAtOffset = 0
 
 var isLookingAtNode: bool
@@ -13,30 +13,33 @@ var target: Node2D
 var vectorTarget: Vector2
 
 @export var mainNodeRef: Node2D
+@export var rotationSpeed: float
+@export var rotationWeight: float
+@export var rotationDegreesOffset: float
 
-func _process(_delta):
-	lookAtTarget()
+func _physics_process(delta):
+	lookAtTarget(delta)
 
 func rotateTo(givenPoint):
 	if (givenPoint == GuardController.LookDirections.UP):
-		self.rotation_degrees = upRad
+		setLookingAtNode(upRotationPoint)
 	else:
 		if (givenPoint == GuardController.LookDirections.DOWN):
-			self.rotation_degrees = downRad
+			setLookingAtNode(downRotationPoint)
 		else:
 			if (givenPoint == GuardController.LookDirections.LEFT):
-				self.rotation_degrees = leftRad
+				setLookingAtNode(leftRotationPoint)
 			else:
-				self.rotation_degrees = rightRad
+				setLookingAtNode(rightRotationPoint)
 
 func setLookingAtNode(receivedTarget: Node2D):
-	if (receivedTarget != null):
+	if (receivedTarget != null && ((receivedTarget != target && isLookingAtNode) || (!isLookingAtNode))):
 		target = receivedTarget
 		isLookingAtNode = true
 		isLookingAtPosition = false
 	
 func setLookingAtPosition(receivedPosition: Vector2):
-	if (receivedPosition != null):
+	if (receivedPosition != null && ((receivedPosition != vectorTarget && isLookingAtPosition) || (!isLookingAtPosition))):
 		vectorTarget = receivedPosition
 		isLookingAtPosition = true
 		isLookingAtNode = false
@@ -45,11 +48,18 @@ func stopLooking():
 	isLookingAtNode = false
 	isLookingAtPosition = false
 
-func lookAtTarget():
+func lookAtTarget(delta):
 	if (isLookingAtNode == true):
-		self.look_at(target.position)
-		self.rotation_degrees += lookAtOffset
+		execute_rotation(target.global_position, delta)
 	else:
 		if (isLookingAtPosition == true):
-			self.look_at(vectorTarget)
-			self.rotation_degrees += lookAtOffset
+			execute_rotation(vectorTarget, delta)
+
+func execute_rotation(rotationDestination: Vector2, delta):
+	var angle = (rotationDestination - mainNodeRef.global_position).angle() + lookAtOffset
+	if (angle < rotation_degrees - rotationDegreesOffset || angle > rotation_degrees + rotationDegreesOffset):
+		var glb_rotation = global_rotation
+		var angle_delta = rotationSpeed * delta
+		angle = lerp_angle(glb_rotation, angle, rotationWeight)
+		angle = clamp(angle, glb_rotation - angle_delta, glb_rotation + angle_delta)
+		global_rotation = angle
