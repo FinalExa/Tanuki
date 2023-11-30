@@ -11,6 +11,10 @@ extends Node2D
 @export var secondaryRayTargets: Array[Node2D]
 @export var researchActiveText: String
 @export var researchLaunchDuration: float
+@export var mainAreaFeedback: Node2D
+@export var secondaryAreaFeedback: Node2D
+var mainAreaFeedbackInstance: Node2D
+var secondaryAreaFeedbackInstance: Node2D
 var researchLaunched: bool
 var researchLaunchTimer: float
 var researchEndTimer: float
@@ -35,6 +39,12 @@ var isTrackingPriorityTarget: bool
 @export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
 
+func _ready():
+	mainAreaFeedbackInstance = mainAreaFeedback
+	remove_feedback(mainAreaFeedbackInstance)
+	secondaryAreaFeedbackInstance = secondaryAreaFeedback
+	remove_feedback(secondaryAreaFeedbackInstance)
+
 func  _physics_process(delta):
 	research_active(delta)
 
@@ -45,6 +55,8 @@ func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardAlertValue.updateText(researchActiveText)
+	mainAreaFeedbackInstance = add_feedback(mainAreaFeedback)
+	secondaryAreaFeedbackInstance = add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
 	if (target is PlayerCharacter || target is GuardController):
 		save_target_info(target)
@@ -207,6 +219,8 @@ func research_to_check():
 	guardCheck.resume_check()
 
 func stop_research():
+	remove_feedback(mainAreaFeedbackInstance)
+	remove_feedback(secondaryAreaFeedbackInstance)
 	guardController.isInResearch = false
 
 func _on_guard_movement_reached_destination():
@@ -235,3 +249,13 @@ func research_launch_timer(delta):
 			if (researchTarget is PlayerCharacter):
 				set_research_target(researchLastPosition)
 			researchLaunched = true
+
+func add_feedback(feedbackToAdd):
+	add_child(feedbackToAdd)
+	for i in get_child_count():
+		if (get_child(i) == feedbackToAdd):
+			return get_child(i)
+
+func remove_feedback(feedbackToRemove: Node2D):
+	remove_child(feedbackToRemove)
+	feedbackToRemove = null
