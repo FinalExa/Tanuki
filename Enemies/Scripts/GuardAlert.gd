@@ -12,6 +12,8 @@ extends Node2D
 @export var alertText: String
 @export var screamArea: ScreamArea
 @export var returnToCheckAlertValue: float
+@export var alertAreaFeedback: Node2D
+var alertAreaFeedbackInstance: Node2D
 var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
@@ -39,12 +41,15 @@ var extraTargetLocation: Vector2
 func _ready():
 	screamAreaInstance = screamArea
 	remove_area()
+	alertAreaFeedbackInstance = alertAreaFeedback
+	remove_feedback()
 
 func start_alert(target):
 	guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	add_area()
+	add_feedback()
 	chaseStart = false
 	guardMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
@@ -161,6 +166,7 @@ func capture_player():
 func stop_alert():
 	guardController.isInAlert = false
 	chaseStart = false
+	remove_feedback()
 	guardMovement.reset_movement_speed()
 
 func _on_guard_damaged():
@@ -172,6 +178,10 @@ func remove_area():
 	remove_child(screamAreaInstance)
 	screamAreaInstance = null
 
+func remove_feedback():
+	remove_child(alertAreaFeedbackInstance)
+	alertAreaFeedbackInstance = null
+
 func add_area():
 	add_child(screamArea)
 	for i in get_child_count():
@@ -179,3 +189,10 @@ func add_area():
 			screamAreaInstance = get_child(i)
 			break
 	screamAreaInstance.set_controller_ref(guardController)
+
+func add_feedback():
+	add_child(alertAreaFeedback)
+	for i in get_child_count():
+		if (get_child(i) == alertAreaFeedback):
+			alertAreaFeedbackInstance = get_child(i)
+			break
