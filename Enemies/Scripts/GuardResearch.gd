@@ -136,7 +136,7 @@ func suspicious_objects_detection(trackedObject: Node2D):
 	if (trackedObject is PlayerCharacter &&
 	trackedObject.transformationChangeRef.isTransformed == true &&
 	(trackedObject.transformationChangeRef.localAllowedItemsRef == null ||
-	!trackedObject.transformationChangeRef.localAllowedItemsRef.find(trackedObject.transformationChangeRef.currentTransformationName))):
+	!trackedObject.transformationChangeRef.localAllowedItemsRef.allowedObjects.find(trackedObject.transformationChangeRef.currentTransformationName))):
 		if (!suspiciousItemsList.find(trackedObject)):
 			suspiciousItemsList.push_back(trackedObject)
 			if (!trackedObject.transformationChangeRef.guardsLookingForMe.find(self)):
