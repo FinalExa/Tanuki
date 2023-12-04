@@ -172,6 +172,7 @@ func capture_player():
 func stop_alert():
 	guardController.isInAlert = false
 	chaseStart = false
+	remove_area()
 	remove_feedback()
 	guardMovement.reset_movement_speed()
 
@@ -181,12 +182,14 @@ func _on_guard_damaged():
 		guardStunned.start_stun()
 
 func remove_area():
-	remove_child(screamAreaInstance)
-	screamAreaInstance = null
+	if(screamAreaInstance != null):
+		remove_child(screamAreaInstance)
+		screamAreaInstance = null
 
 func remove_feedback():
-	remove_child(alertAreaFeedbackInstance)
-	alertAreaFeedbackInstance = null
+	if (alertAreaFeedbackInstance != null):
+		remove_child(alertAreaFeedbackInstance)
+		alertAreaFeedbackInstance = null
 
 func add_area():
 	add_child(screamArea)

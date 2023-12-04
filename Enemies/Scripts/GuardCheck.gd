@@ -95,8 +95,8 @@ func body_checks():
 	if (checkActive):
 		if (playerInsideCheckHitbox && !checkWithRayCast):
 			checkWithRayCast = true
-		else:
-			if (!playerInsideCheckHitbox):
+			return
+		if (!playerInsideCheckHitbox):
 				determine_if_end_check(bodySave)
 
 func suspicion_active(target: Node2D, delta, multiplier):
