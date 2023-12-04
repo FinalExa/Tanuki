@@ -48,7 +48,6 @@ func check_with_raycast(delta):
 		var space_state = get_world_2d().direct_space_state
 		for i in rayTargets.size():
 			var direction: Vector2 = rayTargets[i].position - controllerRef.position
-			direction = direction.normalized()
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)):

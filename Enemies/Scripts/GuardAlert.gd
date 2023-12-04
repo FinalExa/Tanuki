@@ -109,7 +109,6 @@ func track_target(receivedTarget: Node2D):
 func set_last_target_info(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
-	lastTargetDirection = lastTargetDirection.normalized()
 
 func target_not_seen(space_state):
 	catchPreparationActive = false

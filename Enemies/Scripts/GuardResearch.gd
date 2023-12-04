@@ -67,7 +67,7 @@ func initialize_guard_research(target: Node2D):
 func save_target_info(target):
 	researchTarget = target
 	researchLastPosition = researchTarget.position
-	researchLastDirection = researchTarget.velocity.normalized()
+	researchLastDirection = researchTarget.velocity
 	isTrackingPriorityTarget = true
 
 func set_research_target(target: Vector2):
