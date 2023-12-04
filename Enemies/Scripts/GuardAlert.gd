@@ -100,6 +100,13 @@ func track_target(receivedTarget: Node2D):
 			guardMovement.set_location_target(guardController.global_position)
 			if (catchPreparationActive == false):
 				start_catch_preparation()
+	if (receivedTarget is PlayerCharacter):
+		set_last_target_info(receivedTarget)
+	else:
+		if (receivedTarget is TailFollow):
+			set_last_target_info(receivedTarget.playerRef)
+
+func set_last_target_info(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
 	lastTargetDirection = lastTargetDirection.normalized()

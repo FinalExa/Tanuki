@@ -40,6 +40,8 @@ guardStunned = NodePath("GuardStunned")
 shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 100.0
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardPatrol", "bodyRef", "navigation_agent")]
 script = ExtResource("1_lv0fd")
