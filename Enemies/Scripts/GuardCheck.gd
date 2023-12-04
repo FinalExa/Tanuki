@@ -129,18 +129,19 @@ func activate_check(target: Node2D):
 	checkTarget = target
 
 func increase_suspicion_value(delta, multiplier):
-	var distance: float = guardController.position.distance_to(checkTarget.position)
-	var multValue: float = (abs(distance-(rayTargets[0].global_position.distance_to(guardController.position))))
-	if (currentAlertValue < maxAlertValue):
-		currentAlertValue = clamp(currentAlertValue + (multValue * distanceMultiplier * multiplier * delta), 0, maxAlertValue)
-		send_alert_value()
-	else:
-		if (researchOutcome == true):
-			stop_guardCheck()
-			guardAlert.start_alert(checkTarget)
+	if (checkTarget != null):
+		var distance: float = guardController.position.distance_to(checkTarget.position)
+		var multValue: float = (abs(distance-(rayTargets[0].global_position.distance_to(guardController.position))))
+		if (currentAlertValue < maxAlertValue):
+			currentAlertValue = clamp(currentAlertValue + (multValue * distanceMultiplier * multiplier * delta), 0, maxAlertValue)
+			send_alert_value()
 		else:
-			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget)
+			if (researchOutcome == true):
+				stop_guardCheck()
+				guardAlert.start_alert(checkTarget)
+			else:
+				stop_guardCheck()
+				guardResearch.initialize_guard_research(checkTarget)
 
 func end_check():
 	reductionOverTimeActive = false
