@@ -126,3 +126,11 @@ func clear_guards_looking_for_me():
 				guardsLookingForMe[i].stunnedGuardsList.remove_at(y)
 				break
 	guardsLookingForMe.clear()
+
+func get_if_transformed_in_right_zone():
+	if (isTransformed):
+		if (localAllowedItemsRef != null):
+			if (localAllowedItemsRef.allowedObjects.has(currentTransformationName)):
+				return 1
+		return 2
+	return 0

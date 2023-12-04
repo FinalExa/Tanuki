@@ -49,7 +49,7 @@ position = Vector2(-360, -200)
 position = Vector2(-344, 88)
 scale = Vector2(21.735, 13.925)
 allowedObjects = Array[String](["Poop"])
-assignedObjects = [null]
+assignedObjects = [NodePath("../TransformationObject2")]
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-169, 525)

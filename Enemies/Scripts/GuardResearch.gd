@@ -134,12 +134,10 @@ func player_detection(trackedObject: Node2D):
 
 func suspicious_objects_detection(trackedObject: Node2D):
 	if (trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.isTransformed == true &&
-	(trackedObject.transformationChangeRef.localAllowedItemsRef == null ||
-	!trackedObject.transformationChangeRef.localAllowedItemsRef.allowedObjects.find(trackedObject.transformationChangeRef.currentTransformationName))):
-		if (!suspiciousItemsList.find(trackedObject)):
+		trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+		if (!suspiciousItemsList.has(trackedObject)):
 			suspiciousItemsList.push_back(trackedObject)
-			if (!trackedObject.transformationChangeRef.guardsLookingForMe.find(self)):
+			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(self)):
 				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(self)
 		return true
 	return false
@@ -148,9 +146,9 @@ func stunned_guards_detection(trackedObject: Node2D):
 	if (trackedObject is GuardController &&
 		trackedObject.isStunned &&
 		trackedObject != guardController):
-			if (!stunnedGuardsList.find(trackedObject)):
+			if (!stunnedGuardsList.has(trackedObject)):
 				stunnedGuardsList.push_back(trackedObject)
-				if (!trackedObject.guardsLookingForMe.find(self)):
+				if (!trackedObject.guardsLookingForMe.has(self)):
 					trackedObject.guardsLookingForMe.push_back(self)
 			return true
 	return false

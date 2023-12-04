@@ -21,6 +21,7 @@ func _on_body_exited(body):
 	if (body is PlayerCharacter):
 		playerIsIn = false
 		remove_item_from_current_list(playerRef.transformationChangeRef)
+		
 	else:
 		if (body is TransformationObjectData):
 			remove_item_from_current_list(body)
