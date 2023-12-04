@@ -74,6 +74,8 @@ func tracker_ray():
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			if (result.collider == alertTarget):
+				if (alertTarget is TailFollow):
+					alertTarget = alertTarget.playerRef
 				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 0)):
 					track_target(result.collider)
 					return
