@@ -207,7 +207,7 @@ func investigate_objects():
 
 func track_priority_target():
 	if (guardController.global_position.distance_to(researchLastPosition) > priorityTargetThresholdDistance):
-		if (!researchTarget.transformationChangeRef.isTransformed):
+		if (researchTarget is PlayerCharacter && !researchTarget.transformationChangeRef.isTransformed):
 			set_research_target(researchLastPosition)
 		else: isTrackingPriorityTarget = false
 	else:
