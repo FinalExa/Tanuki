@@ -18,6 +18,8 @@ var preCheckActive: bool
 var preCheckTimer: float
 var reductionOverTimeActive: bool
 var researchOutcome: bool
+var bodySave: Node2D
+var playerInsideCheckHitbox: bool
 
 @export var guardRotator: GuardRotator
 @export var guardController: GuardController
@@ -32,6 +34,9 @@ func _ready():
 	reset_alert_value()
 	send_alert_value()
 	checkActive = true
+
+func _process(delta):
+	body_checks()
 
 func _physics_process(delta):
 	check_with_raycast(delta)
@@ -78,12 +83,21 @@ func determine_suspicion_type(target, delta):
 			researchOutcome = true
 
 func _on_body_entered(body):
-	if (checkActive == true && (body is PlayerCharacter || body is TailFollow )):
-		checkWithRayCast = true
+	if (body is PlayerCharacter || body is TailFollow):
+		playerInsideCheckHitbox = true
+		bodySave = body
 
 func _on_body_exited(body):
-	if (checkActive == true && (body is PlayerCharacter || body is TailFollow)):
-		determine_if_end_check(body)
+	if (body is PlayerCharacter || body is TailFollow):
+		playerInsideCheckHitbox = false
+
+func body_checks():
+	if (checkActive):
+		if (playerInsideCheckHitbox && !checkWithRayCast):
+			checkWithRayCast = true
+		else:
+			if (!playerInsideCheckHitbox):
+				determine_if_end_check(bodySave)
 
 func suspicion_active(target: Node2D, delta, multiplier):
 	if (reductionOverTimeActive == true):
