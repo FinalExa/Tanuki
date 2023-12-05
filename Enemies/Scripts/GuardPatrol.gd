@@ -100,7 +100,6 @@ func resume_patrol():
 	backToMove = resume_patrol_operation()
 	while (!backToMove):
 		backToMove = resume_patrol_operation()
-	print(patrolMovementIndex)
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
