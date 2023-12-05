@@ -52,17 +52,13 @@ func send_alert_value():
 func check_with_raycast(delta):
 	if (checkActive == true && checkWithRayCast == true):
 		var space_state = get_world_2d().direct_space_state
-		var seenPlayer: bool = false
 		for i in rayTargets.size():
 			var direction: Vector2 = rayTargets[i].position - controllerRef.position
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
-			if (result && result != { }):
-				if(result.collider is PlayerCharacter || result.collider is TailFollow): 
-					determine_suspicion_type_with_conditions(result.collider, delta)
-					seenPlayer = true
+			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
+				determine_suspicion_type_with_conditions(result.collider, delta)
 				break
-		playerSeen = seenPlayer
 
 func determine_suspicion_type_with_conditions(target, delta):
 	if(checkActive == true):
@@ -74,35 +70,34 @@ func determine_suspicion_type(target, delta):
 			playerSeen = true
 			suspicion_active(target, delta, playerIsSeenMultiplier)
 			researchOutcome = true
-		else:
-			if (target.velocity != Vector2.ZERO):
-				playerSeen = true
-				suspicion_active(target, delta, playerIsNotSeenMultiplier)
-				researchOutcome = false
-			else:
-				var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
-				if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
-					playerSeen = true
-					suspicion_active(target, delta, playerIsNotSeenMultiplier)
-					researchOutcome = false
-				else:
-					if (playerSeen):
-						suspicion_active(target, delta, playerIsNotSeenMultiplier)
-						researchOutcome = false
-	else:
-		if (target is TailFollow):
+			return
+		if (target.velocity != Vector2.ZERO):
 			playerSeen = true
-			suspicion_active(target, delta, playerIsSeenMultiplier)
-			researchOutcome = true
+			suspicion_active(target, delta, playerIsNotSeenMultiplier)
+			researchOutcome = false
+			return
+		var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
+		if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
+			playerSeen = true
+			suspicion_active(target, delta, playerIsNotSeenMultiplier)
+			researchOutcome = false
+			return
+		if (playerSeen):
+			suspicion_active(target, delta, playerIsNotSeenMultiplier)
+			researchOutcome = false
+			return
+	if (target is TailFollow):
+		playerSeen = true
+		suspicion_active(target, delta, playerIsSeenMultiplier)
+		researchOutcome = true
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter):
+	if (body is PlayerCharacter || body is TailFollow):
 		playerInsideCheckHitbox = true
 		bodySave = body
 
 func _on_body_exited(body):
-	if (body is PlayerCharacter):
-		playerSeen = false
+	if (body is PlayerCharacter || body is TailFollow):
 		playerInsideCheckHitbox = false
 
 func body_checks():
