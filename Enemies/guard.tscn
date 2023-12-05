@@ -30,9 +30,10 @@ radius = 64.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
 radius = 1000.51
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardResearch", "guardStunned")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned")]
 position = Vector2(-168, -240)
 script = ExtResource("1_loc1f")
+guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardStunned = NodePath("GuardStunned")
 

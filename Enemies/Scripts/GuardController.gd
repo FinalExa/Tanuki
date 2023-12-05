@@ -29,6 +29,7 @@ enum LookDirections {
 @export var moveActions: Array[Node2D]
 @export var lookActions: Array[LookDirections]
 
+@export var guardCheck: GuardCheck
 @export var guardResearch: GuardResearch
 @export var guardStunned: GuardStunned
 var guardsLookingForMe: Array[GuardResearch]
