@@ -5,7 +5,7 @@ extends Node2D
 @export var downRotationPoint: Node2D
 @export var leftRotationPoint: Node2D
 @export var rightRotationPoint: Node2D
-@export var lookAtOffset = 0
+@export var lookAtOffset: float
 
 var isLookingAtNode: bool
 var isLookingAtPosition: bool
@@ -56,7 +56,7 @@ func lookAtTarget(delta):
 			execute_rotation(vectorTarget, delta)
 
 func execute_rotation(rotationDestination: Vector2, delta):
-	var angle = (rotationDestination - mainNodeRef.global_position).angle() + lookAtOffset
+	var angle = (rotationDestination - mainNodeRef.global_position).angle() + deg_to_rad(lookAtOffset)
 	if (angle < rotation_degrees - rotationDegreesOffset || angle > rotation_degrees + rotationDegreesOffset):
 		var glb_rotation = global_rotation
 		var angle_delta = rotationSpeed * delta

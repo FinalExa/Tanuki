@@ -85,10 +85,11 @@ upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
 downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
 leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
-lookAtOffset = 90
+lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
 rotationSpeed = 100.0
 rotationWeight = 0.1
+rotationDegreesOffset = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
