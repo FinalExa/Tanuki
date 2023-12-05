@@ -97,14 +97,26 @@ func restart_patrol():
 
 func resume_patrol():
 	var backToMove: bool = false
+	backToMove = resume_patrol_operation()
 	while (!backToMove):
-		patrolIndex = set_new_index(patrolIndex, -1, guardController.patrolActions.size())
-		print(patrolIndex)
-		if (guardController.patrolActions[patrolIndex] == guardController.ActionTypes.MOVE):
-			backToMove = true
+		backToMove = resume_patrol_operation()
+	print(patrolMovementIndex)
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
+	set_current_patrol_routine()
+
+func resume_patrol_operation():
+	patrolIndex = set_new_index(patrolIndex, -1, guardController.patrolActions.size())
+	if (guardController.patrolActions[patrolIndex] == guardController.ActionTypes.MOVE):
+		patrolMovementIndex = set_new_index(patrolMovementIndex, -1, guardController.moveActions.size())
+		return true
+	else:
+		if (guardController.patrolActions[patrolIndex] == guardController.ActionTypes.WAIT):
+			patrolWaitIndex = set_new_index(patrolWaitIndex, -1, guardController.waitActions.size())
+		else:
+			patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, -1, guardController.lookActions.size())
+	return false
 
 func _on_guard_damaged():
 	if (guardController.isInPatrol == true):
