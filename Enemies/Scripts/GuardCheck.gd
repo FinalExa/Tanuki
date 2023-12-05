@@ -20,6 +20,7 @@ var reductionOverTimeActive: bool
 var researchOutcome: bool
 var bodySave: Node2D
 var playerInsideCheckHitbox: bool
+var playerSeen: bool
 
 @export var guardRotator: GuardRotator
 @export var guardController: GuardController
@@ -51,13 +52,17 @@ func send_alert_value():
 func check_with_raycast(delta):
 	if (checkActive == true && checkWithRayCast == true):
 		var space_state = get_world_2d().direct_space_state
+		var seenPlayer: bool = false
 		for i in rayTargets.size():
 			var direction: Vector2 = rayTargets[i].position - controllerRef.position
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
-			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)):
-				determine_suspicion_type_with_conditions(result.collider, delta)
+			if (result && result != { }):
+				if(result.collider is PlayerCharacter || result.collider is TailFollow): 
+					determine_suspicion_type_with_conditions(result.collider, delta)
+					seenPlayer = true
 				break
+		playerSeen = seenPlayer
 
 func determine_suspicion_type_with_conditions(target, delta):
 	if(checkActive == true):
@@ -66,6 +71,7 @@ func determine_suspicion_type_with_conditions(target, delta):
 func determine_suspicion_type(target, delta):
 	if (target is PlayerCharacter):
 		if(target.transformationChangeRef.isTransformed == false):
+			playerSeen = true
 			suspicion_active(target, delta, playerIsSeenMultiplier)
 			researchOutcome = true
 		else:
@@ -77,6 +83,10 @@ func determine_suspicion_type(target, delta):
 				if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
 					suspicion_active(target, delta, playerIsNotSeenMultiplier)
 					researchOutcome = false
+				else:
+					if (playerSeen):
+						suspicion_active(target, delta, playerIsNotSeenMultiplier)
+						researchOutcome = false
 	else:
 		if (target is TailFollow):
 			suspicion_active(target, delta, playerIsSeenMultiplier)
