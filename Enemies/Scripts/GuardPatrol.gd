@@ -35,7 +35,7 @@ func set_current_patrol_routine():
 			else:
 				look_around_patrol_action(guardController.lookActions[patrolLookAroundIndex])
 				hasRotated = true
-		patrolIndex = set_new_index(patrolIndex, guardController.patrolActions.size())
+		patrolIndex = set_new_index(patrolIndex, 1, guardController.patrolActions.size())
 		if (hasRotated == true):
 			hasRotated = false
 			set_current_patrol_routine()
@@ -43,14 +43,14 @@ func set_current_patrol_routine():
 func move_patrol_action(target):
 	guardMovement.set_new_target(target)
 	guardRotator.setLookingAtNode(target)
-	patrolMovementIndex = set_new_index(patrolMovementIndex, guardController.moveActions.size())
+	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, guardController.moveActions.size())
 
 func wait_patrol_action(timer):
 	waitTimer = timer
 	guardMovement.set_new_target(null)
 	guardRotator.stopLooking()
 	isWaiting = true
-	patrolWaitIndex = set_new_index(patrolWaitIndex, guardController.waitActions.size())
+	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, guardController.waitActions.size())
 
 func wait_active(delta):
 	if (isWaiting == true && patrolStopped == false):
@@ -63,16 +63,16 @@ func wait_active(delta):
 func look_around_patrol_action(rotationPoint):
 	guardRotator.stopLooking()
 	guardRotator.rotateTo(rotationPoint)
-	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, guardController.lookActions.size())
+	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, guardController.lookActions.size())
 
-func set_new_index(index, size):
-	index += 1
-	if(index >= size):
-		index = 0
+func set_new_index(currentIndex: int, valueChange:int , size:int):
+	currentIndex += valueChange
+	if(currentIndex >= size):
+		currentIndex = 0
 	else:
-		if (index < 0):
-			index = size - 1
-	return index
+		if (currentIndex < 0):
+			currentIndex = size - 1
+	return currentIndex
 	
 func reset_patrol():
 	patrolIndex = 0
@@ -96,7 +96,12 @@ func restart_patrol():
 	set_current_patrol_routine()
 
 func resume_patrol():
-	patrolIndex = set_new_index(-1, guardController.patrolActions.size())
+	var backToMove: bool = false
+	while (!backToMove):
+		patrolIndex = set_new_index(patrolIndex, -1, guardController.patrolActions.size())
+		print(patrolIndex)
+		if (guardController.patrolActions[patrolIndex] == guardController.ActionTypes.MOVE):
+			backToMove = true
 	guardController.isInPatrol = true
 	patrolStopped = false
 	guardMovement.reset_movement_speed()
