@@ -29,7 +29,6 @@ var playerSeen: bool
 @export var guardAlert: GuardAlert
 @export var guardPatrol: GuardPatrol
 @export var guardStunned: GuardStunned
-@export var guardMovement: GuardMovement
 
 func _ready():
 	reset_alert_value()
@@ -155,8 +154,11 @@ func increase_suspicion_value(delta, multiplier):
 	if (checkTarget != null):
 		var distance: float = guardController.position.distance_to(checkTarget.position)
 		var multValue: float = (abs(distance-(rayTargets[0].global_position.distance_to(guardController.position))))
+		multValue = multValue * distanceMultiplier * multiplier * delta
 		if (currentAlertValue < maxAlertValue):
-			currentAlertValue = clamp(currentAlertValue + (multValue * distanceMultiplier * multiplier * delta), 0, maxAlertValue)
+			if (multValue<=0):
+				multValue = 0.01
+			currentAlertValue = clamp(currentAlertValue + multValue, 0, maxAlertValue)
 			send_alert_value()
 		else:
 			if (researchOutcome == true):

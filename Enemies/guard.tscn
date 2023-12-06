@@ -94,7 +94,7 @@ rotationDegreesOffset = 0.5
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardRotator", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned", "guardMovement")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardRotator", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -115,7 +115,6 @@ guardResearch = NodePath("../GuardResearch")
 guardAlert = NodePath("../GuardAlert")
 guardPatrol = NodePath("../../GuardPatrol")
 guardStunned = NodePath("../../GuardStunned")
-guardMovement = NodePath("../../GuardMovement")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
