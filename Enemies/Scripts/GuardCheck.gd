@@ -143,6 +143,7 @@ func determine_if_end_check(_body):
 
 func activate_reduction_over_time():
 	reductionOverTimeActive = true
+	playerSeen = false
 
 func activate_check(target: Node2D):
 	preCheckActive = false
