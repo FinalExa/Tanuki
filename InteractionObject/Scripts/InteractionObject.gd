@@ -5,6 +5,9 @@ extends Area2D
 @export var effect: InteractionObjectEffect
 var objectsInArea: Array[Node2D]
 
+func _ready():
+	self.add_child(effect)
+
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is GuardController):
 		if(!objectsInArea.has(body)):
