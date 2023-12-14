@@ -5,9 +5,6 @@ extends Area2D
 @export var effect: InteractionObjectEffect
 var objectsInArea: Array[Node2D]
 
-func _ready():
-	self.add_child(effect)
-
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is GuardController):
 		if(!objectsInArea.has(body)):
@@ -19,24 +16,24 @@ func _on_body_exited(body):
 			objectsInArea.erase(body)
 
 func _physics_process(delta):
-	execute_effects()
+	execute_effects(delta)
 
-func execute_effects():
+func execute_effects(delta):
 	if (objectsInArea.size()>0):
 		for i in objectsInArea.size():
 			if (objectsInArea[i] is PlayerCharacter):
-				execute_effect_on_player(objectsInArea[i])
+				execute_effect_on_player(objectsInArea[i], delta)
 			else:
-				execute_effect_on_guard(objectsInArea[i])
+				execute_effect_on_guard(objectsInArea[i], delta)
 
-func execute_effect_on_player(playerRef: PlayerCharacter):
+func execute_effect_on_player(playerRef: PlayerCharacter, delta):
 	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationProperties.has(effectNegateProperty)):
-		effect.execute_negated_effect(playerRef)
+		effect.execute_negated_effect(playerRef, delta)
 		return
-	effect.execute_effect_normally(playerRef)
+	effect.execute_effect_normally(playerRef, delta)
 
-func execute_effect_on_guard(guardRef: GuardController):
+func execute_effect_on_guard(guardRef: GuardController, delta):
 	if (guardRef.guardProperties.has(effectNegateProperty)):
-		effect.execute_negated_effect(guardRef)
+		effect.execute_negated_effect(guardRef, delta)
 		return
-	effect.execute_effect_normally(guardRef)
+	effect.execute_effect_normally(guardRef, delta)
