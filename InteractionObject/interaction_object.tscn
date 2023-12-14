@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://de327ahrn6hd2"]
+
+[ext_resource type="Script" path="res://InteractionObject/Scripts/InteractionObject.gd" id="1_i30ml"]
+
+[node name="InteractionObject" type="Area2D"]
+position = Vector2(192, 448)
+script = ExtResource("1_i30ml")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 64, -64, -64, 64, -64, 64, 64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

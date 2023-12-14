@@ -28,6 +28,7 @@ enum LookDirections {
 @export var waitActions: Array[float]
 @export var moveActions: Array[Node2D]
 @export var lookActions: Array[LookDirections]
+@export var guardProperties: Array[String]
 
 @export var guardCheck: GuardCheck
 @export var guardResearch: GuardResearch
