@@ -13,11 +13,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
+movementRef = NodePath("Rotator/Movement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

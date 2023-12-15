@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_u1lvf"]
+[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="5_jj61p"]
+[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_dm8nm"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_0unoy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(-64, 184, 1888, 1536, -2224, 1896, -536, 232, -2320, -2272, -560, -40, 2120, -1840, -80, -128)
@@ -18,13 +21,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-560, -40, -80, -128, -
 position = Vector2(205, 3)
 transformedName = "Statue"
 transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Sturdy"])
+transformedProperties = Array[String](["Sturdy", "Heavy"])
 
 [node name="TransformationObject2" parent="." instance=ExtResource("2_67gti")]
 position = Vector2(-424, 80)
 transformedName = "Poop"
 transformedMaxSpeed = 1000.0
-transformedProperties = Array[String](["Stinky"])
+transformedProperties = Array[String](["Slippery", "Frosted"])
 
 [node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("3_kj1fg")]
 patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
@@ -53,6 +56,15 @@ assignedObjects = [NodePath("../TransformationObject2")]
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-169, 525)
+
+[node name="MoveInteractionObject" parent="." instance=ExtResource("5_jj61p")]
+position = Vector2(192, 448)
+
+[node name="DeathTrapInteractionObject" parent="." instance=ExtResource("6_dm8nm")]
+position = Vector2(-384, 384)
+
+[node name="MovementImpairInteractionObject" parent="." instance=ExtResource("7_0unoy")]
+position = Vector2(-384, 640)
 
 [connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
 [connection signal="give_self_reference" from="PlayerCharacter" to="LocalAllowedItems" method="_on_player_character_give_self_reference"]
