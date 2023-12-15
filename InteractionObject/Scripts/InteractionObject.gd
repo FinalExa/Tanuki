@@ -13,6 +13,7 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if (body is PlayerCharacter || body is GuardController):
 		if(objectsInArea.has(body)):
+			effect.execute_leave_effect(body)
 			objectsInArea.erase(body)
 
 func _physics_process(delta):

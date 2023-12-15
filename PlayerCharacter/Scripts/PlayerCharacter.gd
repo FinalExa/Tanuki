@@ -8,6 +8,7 @@ signal give_self_reference
 var sceneRef: Node2D
 @export var tailRef: Node2D
 @export var transformationChangeRef: TransformationChange
+@export var movementRef: PCMovement
 
 func _ready():
 	sceneRef = self.get_parent()

@@ -1,3 +1,4 @@
+class_name PCMovement
 extends Node2D
 
 signal movement_direction
@@ -37,7 +38,6 @@ func _physics_process(delta):
 
 func _on_transformation_change_change_speed(receivedSpeed):
 	set_max_speed(receivedSpeed)
-
 
 func _on_transformation_change_reset_speed():
 	reset_max_speed()
