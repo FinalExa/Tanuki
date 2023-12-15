@@ -169,7 +169,6 @@ func start_catch_preparation():
 
 func capture_player():
 	get_tree().reload_current_scene()
-	pass
 
 func stop_alert():
 	guardController.isInAlert = false

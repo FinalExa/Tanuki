@@ -33,6 +33,7 @@ enum LookDirections {
 @export var guardCheck: GuardCheck
 @export var guardResearch: GuardResearch
 @export var guardStunned: GuardStunned
+@export var guardMovement: GuardMovement
 var guardsLookingForMe: Array[GuardResearch]
 
 func _ready():
