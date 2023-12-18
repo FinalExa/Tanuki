@@ -6,6 +6,7 @@ extends Node
 var stunTimer: float
 
 @export var guardController: GuardController
+@export var guardPatrol: GuardPatrol
 @export var guardCheck: GuardCheck
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
@@ -17,6 +18,7 @@ func start_stun():
 	guardRotator.setLookingAtPosition((guardController.up_direction * 10) + guardController.global_position)
 	guardAlertValue.updateText("STUNNED")
 	guardController.isStunned = true
+	guardPatrol.select_new_patrol_indicator()
 
 func end_stun():
 	guardCheck.currentAlertValue = stunEndAlertValue

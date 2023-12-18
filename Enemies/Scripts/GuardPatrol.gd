@@ -151,4 +151,5 @@ func select_new_patrol_indicator():
 					storedDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
 					storedIndex = i
 		loadedPatrolIndicator = guardController.patrolIndicators[storedIndex]
+		print(storedIndex)
 		reset_patrol()
