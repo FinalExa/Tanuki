@@ -17,4 +17,4 @@ func execute_effect_normally(receivedBody: CharacterBody2D, delta):
 func execute_negated_effect(receivedBody: CharacterBody2D, delta):
 	if (receivedBody is PlayerCharacter):
 		var playerRef: PlayerCharacter = receivedBody
-		playerRef.transformationChangeRef.transformationTimer=clamp(playerRef.transformationChangeRef.transformationTimer - cooldownExtraReductionPerTick*delta, 0, playerRef.transformationChangeRef.transformationDuration)
+		playerRef.transformationChangeRef.transformationTimer=clamp(playerRef.transformationChangeRef.transformationTimer + cooldownExtraReductionPerTick*delta, 0, playerRef.transformationChangeRef.transformationDuration)
