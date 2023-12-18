@@ -11,23 +11,7 @@ var isInResearch: bool
 var isStunned: bool
 var characterRef
 
-enum ActionTypes {
-	WAIT,
-	MOVE,
-	LOOK_AROUND
-}
-
-enum LookDirections {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT
-}
-
-@export var patrolActions: Array[ActionTypes]
-@export var waitActions: Array[float]
-@export var moveActions: Array[Node2D]
-@export var lookActions: Array[LookDirections]
+@export var patrolIndicators: Array[PatrolIndicator]
 @export var guardProperties: Array[String]
 
 @export var guardCheck: GuardCheck

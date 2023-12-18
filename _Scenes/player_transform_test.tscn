@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="5_jj61p"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_dm8nm"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_0unoy"]
+[ext_resource type="Script" path="res://_Scenes/PatrolIndicator.gd" id="8_ums7y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(-64, 184, 1888, 1536, -2224, 1896, -536, 232, -2320, -2272, -560, -40, 2120, -1840, -80, -128)
@@ -29,11 +30,8 @@ transformedName = "Poop"
 transformedMaxSpeed = 1000.0
 transformedProperties = Array[String](["Slippery", "Frosted"])
 
-[node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("3_kj1fg")]
-patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
-waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
-moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
-lookActions = Array[int]([1, 2, 0])
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_kj1fg")]
+patrolIndicators = [NodePath("../PatrolIndicator")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(0, -24)
@@ -65,6 +63,13 @@ position = Vector2(-384, 384)
 
 [node name="MovementImpairInteractionObject" parent="." instance=ExtResource("7_0unoy")]
 position = Vector2(-384, 640)
+
+[node name="PatrolIndicator" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
+script = ExtResource("8_ums7y")
+patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
+moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
+lookActions = Array[int]([1, 2, 0])
 
 [connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
 [connection signal="give_self_reference" from="PlayerCharacter" to="LocalAllowedItems" method="_on_player_character_give_self_reference"]

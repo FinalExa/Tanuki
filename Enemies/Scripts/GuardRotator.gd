@@ -21,13 +21,13 @@ func _physics_process(delta):
 	lookAtTarget(delta)
 
 func rotateTo(givenPoint):
-	if (givenPoint == GuardController.LookDirections.UP):
+	if (givenPoint == PatrolIndicator.LookDirections.UP):
 		setLookingAtNode(upRotationPoint)
 	else:
-		if (givenPoint == GuardController.LookDirections.DOWN):
+		if (givenPoint == PatrolIndicator.LookDirections.DOWN):
 			setLookingAtNode(downRotationPoint)
 		else:
-			if (givenPoint == GuardController.LookDirections.LEFT):
+			if (givenPoint == PatrolIndicator.LookDirections.LEFT):
 				setLookingAtNode(leftRotationPoint)
 			else:
 				setLookingAtNode(rightRotationPoint)

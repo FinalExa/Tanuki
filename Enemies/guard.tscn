@@ -237,7 +237,7 @@ polygon = PackedVector2Array(0, 0, 168, -592, -152, -592)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/SecondaryAreaFeedback"]
 polygon = PackedVector2Array(0, 0, 168, -208, 264, -592, 200, -656, 104, -720, -88, -720, -184, -656, -248, -592, -152, -208)
 
-[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardCheck", "guardStunned")]
+[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardPatrol", "guardCheck", "guardStunned")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 350.0
 catchDistanceThreshold = 200.0
@@ -256,6 +256,7 @@ guardController = NodePath("../..")
 guardMovement = NodePath("../../GuardMovement")
 guardRotator = NodePath("..")
 guardResearch = NodePath("../GuardResearch")
+guardPatrol = NodePath("../../GuardPatrol")
 guardCheck = NodePath("../GuardCheck")
 guardStunned = NodePath("../../GuardStunned")
 
