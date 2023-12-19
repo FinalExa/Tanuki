@@ -9,6 +9,6 @@ func set_controller_ref(receivedRef: GuardController):
 func _on_body_entered(body):
 	if (controllerRef != null && body != controllerRef && body is GuardController):
 		var controller: GuardController = body
-		if (!controller.isInAlert && !controller.isInResearch):
+		if (!controller.isInAlert && !controller.isInResearch && !controller.isStunned):
 			controller.guardCheck.stop_guardCheck()
 			controller.guardResearch.initialize_guard_research(controllerRef)
