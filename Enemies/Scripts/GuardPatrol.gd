@@ -140,16 +140,16 @@ func startup(delta):
 
 func select_new_patrol_indicator():
 	if (guardController.patrolIndicators.size() > 1):
-		var storedIndex: int
+		var storedIndex: int = 0
 		var storedDistance: float
+		var tempDistance: float
 		for i in guardController.patrolIndicators.size():
 			if (i == 0):
 				storedDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
-				storedIndex = i
 			else:
-				if (storedDistance < guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)):
-					storedDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
+				tempDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
+				if (tempDistance < storedDistance):
+					storedDistance = tempDistance
 					storedIndex = i
 		loadedPatrolIndicator = guardController.patrolIndicators[storedIndex]
-		print(storedIndex)
 		reset_patrol()
