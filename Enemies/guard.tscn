@@ -60,11 +60,12 @@ guardRotator = NodePath("../Rotator")
 guardStunned = NodePath("../GuardStunned")
 startupDuration = 0.1
 
-[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardCheck", "guardMovement", "guardRotator", "guardAlertValue")]
+[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardPatrol", "guardCheck", "guardMovement", "guardRotator", "guardAlertValue")]
 script = ExtResource("6_8wc3c")
 stunDuration = 5.0
 stunEndAlertValue = 35.0
 guardController = NodePath("..")
+guardPatrol = NodePath("../GuardPatrol")
 guardCheck = NodePath("../Rotator/GuardCheck")
 guardMovement = NodePath("../GuardMovement")
 guardRotator = NodePath("../Rotator")
@@ -237,7 +238,7 @@ polygon = PackedVector2Array(0, 0, 168, -592, -152, -592)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/SecondaryAreaFeedback"]
 polygon = PackedVector2Array(0, 0, 168, -208, 264, -592, 200, -656, 104, -720, -88, -720, -184, -656, -248, -592, -152, -208)
 
-[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardCheck", "guardStunned")]
+[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardPatrol", "guardCheck", "guardStunned")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 350.0
 catchDistanceThreshold = 200.0
@@ -245,7 +246,7 @@ catchPreparationDuration = 1.0
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.5
-searchForMissingTargetDistance = 600.0
+searchForMissingTargetDistance = 200.0
 rayTargets = [NodePath("Targets/Target"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21")]
 alertText = "ALERT"
 screamArea = NodePath("ScreamArea")
@@ -256,6 +257,7 @@ guardController = NodePath("../..")
 guardMovement = NodePath("../../GuardMovement")
 guardRotator = NodePath("..")
 guardResearch = NodePath("../GuardResearch")
+guardPatrol = NodePath("../../GuardPatrol")
 guardCheck = NodePath("../GuardCheck")
 guardStunned = NodePath("../../GuardStunned")
 

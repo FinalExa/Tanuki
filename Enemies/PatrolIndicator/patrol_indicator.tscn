@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brruc8gd481hv"]
+
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="1_oot8p"]
+
+[node name="PatrolIndicator" type="Node2D"]
+script = ExtResource("1_oot8p")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bka5do4pyuclb"]
+[gd_scene load_steps=7 format=3 uid="uid://bka5do4pyuclb"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_nvxq0"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_fmwiu"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="3_cv1i0"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_xdw7q"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="5_ajqyv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8ts56"]
 vertices = PackedVector2Array(1792, -320, 1792, 1088, 1342.69, 1088, 1152, 576, 1152, 192, 1344, -320, 1344, 1472, 1216, 1344, 1216, 1216, 960, 1472, 1088, 1344, 960, 1088, 1088, 1216, 576, 1344, 704, 1472, 320, 1472, 448, 1344, 448, 1216, 320, 1088, 384, 576, 576, -448, 704, -704, 704, -320, 384, 192, 576, -576, 320, -704, 448, -576, 320, -320, 448, -448, 1344, -704, 1216, -448, 1216, -576, 960, -704, 1088, -576, 962.116, -320, 1088, -448, 704.407, 1088, 576, 1216, -256, 1088, -256, -320)
@@ -172,26 +173,17 @@ polygon = PackedVector2Array(1019.3, 249.342, 1019.3, -415.57, -235.222, -415.57
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_nvxq0")]
 position = Vector2(-392, 384)
 
-[node name="Guard" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("2_fmwiu")]
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
 position = Vector2(1328, 248)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1")]
-lookActions = Array[int]([2, 0, 3, 1])
+patrolIndicators = [NodePath("../PatrolIndicator"), NodePath("../PatrolIndicatorSecondZone")]
 
-[node name="Guard2" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("2_fmwiu")]
+[node name="Guard2" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
 position = Vector2(832, 768)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2")]
-lookActions = Array[int]([0, 3, 1, 2])
+patrolIndicators = [NodePath("../PatrolIndicator2"), NodePath("../PatrolIndicatorSecondZone")]
 
-[node name="Guard3" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("2_fmwiu")]
+[node name="Guard3" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
 position = Vector2(512, 0)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4")]
-lookActions = Array[int]([1, 2, 0, 3])
+patrolIndicators = [NodePath("../PatrolIndicator3"), NodePath("../PatrolIndicatorSecondZone")]
 
 [node name="NavigationPoint1" type="Node2D" parent="."]
 position = Vector2(1280, 768)
@@ -204,6 +196,18 @@ position = Vector2(256, 0)
 
 [node name="NavigationPoint4" type="Node2D" parent="."]
 position = Vector2(1280, 0)
+
+[node name="NavigationPointSecondZone1" type="Node2D" parent="."]
+position = Vector2(1152, 1088)
+
+[node name="NavigationPointSecondZone2" type="Node2D" parent="."]
+position = Vector2(1152, 896)
+
+[node name="NavigationPointSecondZone3" type="Node2D" parent="."]
+position = Vector2(512, 896)
+
+[node name="NavigationPointSecondZone4" type="Node2D" parent="."]
+position = Vector2(512, 1088)
 
 [node name="TransformationObject" parent="." instance=ExtResource("3_cv1i0")]
 position = Vector2(832, 1016)
@@ -225,3 +229,30 @@ position = Vector2(776, 384)
 scale = Vector2(135, 115)
 allowedObjects = Array[String](["Statue"])
 assignedObjects = [NodePath("../TransformationObject"), NodePath("../TransformationObject2"), NodePath("../TransformationObject3")]
+
+[node name="PatrolIndicator" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("5_ajqyv")]
+position = Vector2(768, 384)
+patrolActions = Array[int]([1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="PatrolIndicator2" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("5_ajqyv")]
+position = Vector2(768, 384)
+patrolActions = Array[int]([1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3"), NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="PatrolIndicator3" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("5_ajqyv")]
+position = Vector2(768, 384)
+patrolActions = Array[int]([1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("../NavigationPoint4"), NodePath("../NavigationPoint1"), NodePath("../NavigationPoint2"), NodePath("../NavigationPoint3")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="PatrolIndicatorSecondZone" parent="." node_paths=PackedStringArray("moveActions") instance=ExtResource("5_ajqyv")]
+position = Vector2(832, 1088)
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("../NavigationPointSecondZone1"), NodePath("../NavigationPointSecondZone2"), NodePath("../NavigationPointSecondZone3"), NodePath("../NavigationPointSecondZone4"), NodePath("../NavigationPointSecondZone3"), NodePath("../NavigationPointSecondZone2")]

@@ -35,6 +35,7 @@ var extraTargetLocation: Vector2
 @export var guardMovement: GuardMovement
 @export var guardRotator: GuardRotator
 @export var guardResearch: GuardResearch
+@export var guardPatrol: GuardPatrol
 @export var guardCheck: GuardCheck
 @export var guardStunned: GuardStunned
 
