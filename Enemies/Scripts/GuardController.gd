@@ -26,7 +26,7 @@ func _ready():
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference
 
-func is_damaged():
+func is_damaged(direction: Vector2):
 	if (isInAlert):
 		guardStunned.stunnedFromAlert = true
-	emit_signal("damaged")
+	emit_signal("damaged", direction)

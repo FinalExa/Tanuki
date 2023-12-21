@@ -63,3 +63,11 @@ func execute_rotation(rotationDestination: Vector2, delta):
 		angle = lerp_angle(glb_rotation, angle, rotationWeight)
 		angle = clamp(angle, glb_rotation - angle_delta, glb_rotation + angle_delta)
 		global_rotation = angle
+
+func get_current_look_direction():
+	var direction: Vector2
+	if (isLookingAtNode):
+		direction = mainNodeRef.global_position.direction_to(target.global_position)
+	else:
+		direction = mainNodeRef.global_position.direction_to(vectorTarget)
+	return direction

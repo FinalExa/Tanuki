@@ -186,7 +186,7 @@ func resume_check():
 	guardController.isChecking = true
 	activate_reduction_over_time()
 
-func _on_guard_damaged():
+func _on_guard_damaged(direction: Vector2):
 	if (guardController.isChecking == true || checkActive == true):
 		stop_guardCheck()
-		guardStunned.start_stun()
+		guardStunned.start_stun(direction)

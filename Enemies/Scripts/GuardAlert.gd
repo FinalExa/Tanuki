@@ -178,10 +178,10 @@ func stop_alert():
 	remove_feedback()
 	guardMovement.reset_movement_speed()
 
-func _on_guard_damaged():
+func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInAlert == true):
 		stop_alert()
-		guardStunned.start_stun()
+		guardStunned.start_stun(direction)
 
 func remove_area():
 	if(screamAreaInstance != null):

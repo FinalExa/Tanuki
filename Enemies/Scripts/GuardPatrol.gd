@@ -124,10 +124,10 @@ func resume_patrol_operation():
 			patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, -1, loadedPatrolIndicator.lookActions.size())
 	return false
 
-func _on_guard_damaged():
+func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInPatrol == true):
 		stop_patrol()
-		guardStunned.start_stun()
+		guardStunned.start_stun(direction)
 
 func initialize_startup():
 	startupTimer = startupDuration

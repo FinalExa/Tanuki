@@ -3,8 +3,8 @@ extends Node2D
 
 @export var attackPhasesDuration: Array[float]
 @export var attackPhasesActivation: Array[bool]
-@export var attackHitbox: Node2D
-var attackHitboxInstance: Node2D
+@export var attackHitbox: AttackHitbox
+var attackHitboxInstance: AttackHitbox
 
 var attackLaunched: bool
 var attackTimer: float
@@ -22,6 +22,7 @@ func _process(delta):
 func add_attack_hitbox():
 	self.add_child(attackHitbox)
 	attackHitboxInstance = self.get_child(0)
+	attackHitboxInstance.characterRef = playerCharacter
 
 func remove_attack_hitbox():
 	attackHitboxInstance = attackHitbox

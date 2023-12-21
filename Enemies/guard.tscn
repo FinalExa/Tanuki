@@ -428,6 +428,7 @@ guardController = NodePath("../../../../..")
 
 [connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
+[connection signal="damaged" from="." to="Rotator/GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]

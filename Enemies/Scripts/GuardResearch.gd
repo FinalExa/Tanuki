@@ -227,10 +227,10 @@ func _on_guard_movement_reached_destination():
 	if (guardController.isInResearch == true):
 		guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
 
-func _on_guard_damaged():
+func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInResearch == true):
 		stop_research()
-		guardStunned.start_stun()
+		guardStunned.start_stun(direction)
 
 func research_end_timer(delta):
 	if (researchEndTimer>0):

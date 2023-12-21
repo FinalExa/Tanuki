@@ -13,10 +13,12 @@ var stunnedFromAlert: bool = false
 @export var guardRotator: GuardRotator
 @export var guardAlertValue: GuardAlertValue
 
-func start_stun():
+var lookDirectionAfterStun: Vector2
+
+func start_stun(direction: Vector2):
 	stunTimer = stunDuration
+	lookDirectionAfterStun = direction
 	guardMovement.set_location_target(guardController.global_position)
-	guardRotator.setLookingAtPosition((guardController.up_direction * 10) + guardController.global_position)
 	guardAlertValue.updateText("STUNNED")
 	guardController.isStunned = true
 	if (stunnedFromAlert):
@@ -24,9 +26,10 @@ func start_stun():
 		stunnedFromAlert = false
 
 func end_stun():
-	guardCheck.currentAlertValue = stunEndAlertValue
 	clear_guards_looking_for_me()
+	guardRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + guardController.global_position)
 	guardController.isStunned = false
+	guardCheck.currentAlertValue = stunEndAlertValue
 	guardCheck.resume_check()
 
 func clear_guards_looking_for_me():
