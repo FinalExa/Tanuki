@@ -6,6 +6,8 @@ extends Node
 @export var guardRotator: GuardRotator
 @export var guardStunned: GuardStunned
 @export var startupDuration: float
+@export var timeSpentDoingExtraPatrol: float
+var extraPatrolTimer: float
 var startupTimer: float
 var startupActive: bool
 
@@ -27,6 +29,7 @@ func _ready():
 func _process(delta):
 	startup(delta)
 	wait_active(delta)
+	extra_patrol_timer(delta)
 
 func set_current_patrol_routine():
 	if(guardController.isInPatrol == true):
@@ -151,5 +154,16 @@ func select_new_patrol_indicator():
 				if (tempDistance < storedDistance):
 					storedDistance = tempDistance
 					storedIndex = i
-		loadedPatrolIndicator = guardController.patrolIndicators[storedIndex]
-		reset_patrol()
+		if (loadedPatrolIndicator != guardController.patrolIndicators[storedIndex]):
+			loadedPatrolIndicator = guardController.patrolIndicators[storedIndex]
+			reset_patrol()
+		if (storedIndex != 0):
+			extraPatrolTimer = timeSpentDoingExtraPatrol
+
+func extra_patrol_timer(delta):
+	if (guardController.patrolIndicators.size() > 1 && loadedPatrolIndicator != guardController.patrolIndicators[0]):
+		if (extraPatrolTimer > 0):
+			extraPatrolTimer-=delta
+		else:
+			loadedPatrolIndicator = guardController.patrolIndicators[0]
+			reset_patrol()
