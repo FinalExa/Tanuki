@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvrh8nj8aokk1"]
+[gd_scene load_steps=28 format=3 uid="uid://dvrh8nj8aokk1"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
+[ext_resource type="Script" path="res://Enemies/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
@@ -27,16 +28,20 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
+size = Vector2(144, 144)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
 radius = 1000.51
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol")]
 position = Vector2(-168, -240)
 script = ExtResource("1_loc1f")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardStunned = NodePath("GuardStunned")
 guardMovement = NodePath("GuardMovement")
+guardPatrol = NodePath("GuardPatrol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -96,6 +101,14 @@ rotationDegreesOffset = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("2_7u3uy")
+
+[node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardRotator")]
+script = ExtResource("2_n1dev")
+guardController = NodePath("../..")
+guardRotator = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardContact"]
+shape = SubResource("RectangleShape2D_fbjn8")
 
 [node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("controllerRef", "rayTargets", "guardRotator", "guardController", "guardAlertValue", "guardResearch", "guardAlert", "guardPatrol", "guardStunned")]
 position = Vector2(0, -16)
@@ -431,6 +444,7 @@ guardController = NodePath("../../../../..")
 [connection signal="damaged" from="." to="Rotator/GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="body_entered" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_entered"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardAlert/ScreamArea" to="Rotator/GuardAlert/ScreamArea" method="_on_body_entered"]
