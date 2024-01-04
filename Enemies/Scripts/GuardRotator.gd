@@ -11,6 +11,7 @@ var isLookingAtNode: bool
 var isLookingAtPosition: bool
 var target: Node2D
 var vectorTarget: Vector2
+var isDoneRotating: bool
 
 @export var mainNodeRef: Node2D
 @export var rotationSpeed: float
@@ -37,16 +38,19 @@ func setLookingAtNode(receivedTarget: Node2D):
 		target = receivedTarget
 		isLookingAtNode = true
 		isLookingAtPosition = false
+		isDoneRotating = false
 	
 func setLookingAtPosition(receivedPosition: Vector2):
 	if (receivedPosition != null && ((receivedPosition != vectorTarget && isLookingAtPosition) || (!isLookingAtPosition))):
 		vectorTarget = receivedPosition
 		isLookingAtPosition = true
 		isLookingAtNode = false
+		isDoneRotating = false
 
 func stopLooking():
 	isLookingAtNode = false
 	isLookingAtPosition = false
+	isDoneRotating = true
 
 func lookAtTarget(delta):
 	if (isLookingAtNode == true):
@@ -57,12 +61,15 @@ func lookAtTarget(delta):
 
 func execute_rotation(rotationDestination: Vector2, delta):
 	var angle = (rotationDestination - mainNodeRef.global_position).angle() + deg_to_rad(lookAtOffset)
-	if (angle < rotation_degrees - rotationDegreesOffset || angle > rotation_degrees + rotationDegreesOffset):
+	if (angle < deg_to_rad(rotation_degrees - rotationDegreesOffset) || angle > deg_to_rad(rotation_degrees + rotationDegreesOffset)):
 		var glb_rotation = global_rotation
 		var angle_delta = rotationSpeed * delta
 		angle = lerp_angle(glb_rotation, angle, rotationWeight)
 		angle = clamp(angle, glb_rotation - angle_delta, glb_rotation + angle_delta)
 		global_rotation = angle
+		isDoneRotating = false
+	else:
+		isDoneRotating = true
 
 func get_current_look_direction():
 	var direction: Vector2

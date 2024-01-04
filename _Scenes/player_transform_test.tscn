@@ -71,8 +71,6 @@ waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
 
-[connection signal="give_self_reference" from="PlayerCharacter" to="Guard" method="_on_player_character_give_self_reference"]
-[connection signal="give_self_reference" from="PlayerCharacter" to="LocalAllowedItems" method="_on_player_character_give_self_reference"]
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
 [connection signal="set_trs_ready" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
 [connection signal="set_trs_notReady" from="TransformationObject2" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]

@@ -12,7 +12,7 @@ var startupTimer: float
 var startupActive: bool
 
 var isWaiting: bool
-var hasRotated: bool
+var isRotating: bool
 var patrolStopped: bool
 
 var waitTimer: float
@@ -30,6 +30,13 @@ func _process(delta):
 	startup(delta)
 	wait_active(delta)
 	extra_patrol_timer(delta)
+	wait_for_rotation()
+
+func wait_for_rotation():
+	if (isRotating):
+		if (guardRotator.isDoneRotating == true):
+			set_current_patrol_routine()
+			isRotating = false
 
 func set_current_patrol_routine():
 	if(guardController.isInPatrol == true):
@@ -41,11 +48,7 @@ func set_current_patrol_routine():
 				move_patrol_action(loadedPatrolIndicator.moveActions[patrolMovementIndex])
 			else:
 				look_around_patrol_action(loadedPatrolIndicator.lookActions[patrolLookAroundIndex])
-				hasRotated = true
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
-		if (hasRotated == true):
-			hasRotated = false
-			set_current_patrol_routine()
 
 func move_patrol_action(target):
 	guardMovement.set_new_target(target)
@@ -71,6 +74,7 @@ func look_around_patrol_action(rotationPoint):
 	guardRotator.stopLooking()
 	guardRotator.rotateTo(rotationPoint)
 	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
+	isRotating = true
 
 func set_new_index(currentIndex: int, valueChange:int , size:int):
 	currentIndex += valueChange
@@ -86,6 +90,7 @@ func reset_patrol():
 	patrolWaitIndex = 0
 	patrolMovementIndex = 0
 	patrolLookAroundIndex = 0
+	isRotating = false
 
 func _on_guard_movement_reached_destination():
 	set_current_patrol_routine()
@@ -98,6 +103,7 @@ func stop_patrol():
 func restart_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
+	isRotating = false
 	guardMovement.reset_movement_speed()
 	reset_patrol()
 	set_current_patrol_routine()
@@ -109,6 +115,7 @@ func resume_patrol():
 		backToMove = resume_patrol_operation()
 	guardController.isInPatrol = true
 	patrolStopped = false
+	isRotating = false
 	guardMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
