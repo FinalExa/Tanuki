@@ -106,6 +106,7 @@ texture = ExtResource("2_7u3uy")
 script = ExtResource("2_n1dev")
 guardController = NodePath("../..")
 guardRotator = NodePath("..")
+checkValue = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardContact"]
 shape = SubResource("RectangleShape2D_fbjn8")
