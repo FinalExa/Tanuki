@@ -12,6 +12,7 @@ var tempTransformationSpeed
 var tempTransformationProperties
 var tempTransformationCollisionShape: CollisionShape2D
 var tempTransformationTexture: Texture2D
+var tempTransformationTextureScale: Vector2
 
 var currentTransformationSet
 var currentTransformationName
@@ -19,6 +20,7 @@ var currentTransformationSpeed
 var currentTransformationProperties
 var currentTransformationCollisionShape: CollisionShape2D
 var currentTransformationTexture: Texture2D
+var currentTransformationTextureScale: Vector2
 
 var guardsLookingForMe: Array[GuardResearch]
 
@@ -33,6 +35,7 @@ var isTransformed: bool = false
 @export var playerSprite: Sprite2D
 var baseCollisionShapeInfo
 var baseTextureInfo: Texture2D
+var baseTextureScale
 var tailInstance
 var transformationTimer
 
@@ -47,6 +50,7 @@ func _ready():
 	transformationTimer = 0
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	baseTextureInfo = playerSprite.texture
+	baseTextureScale = playerSprite.scale
 	self.remove_child(tailRef)
 
 func _process(delta):
@@ -56,13 +60,14 @@ func _process(delta):
 	transformation_active(delta)
 	transformation_lock(delta)
 
-func _on_player_character_set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture):
+func _on_player_character_set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale):
 	isInsidePossibleTransformationObject = true
 	tempTransformationName = tempName
 	tempTransformationSpeed = tempSpeed
 	tempTransformationProperties = tempProperties
 	tempTransformationCollisionShape = tempCollider
 	tempTransformationTexture = tempTexture
+	tempTransformationTextureScale = tempTextureScale
 
 func _on_player_character_unset_temp_trs():
 	isInsidePossibleTransformationObject = false
@@ -75,6 +80,7 @@ func set_new_transformation():
 		currentTransformationProperties = tempTransformationProperties
 		currentTransformationCollisionShape = tempTransformationCollisionShape
 		currentTransformationTexture = tempTransformationTexture
+		currentTransformationTextureScale = tempTransformationTextureScale
 		emit_signal("send_transformation_name", currentTransformationName)
 
 func activate_transformation():
@@ -82,6 +88,7 @@ func activate_transformation():
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
 		playerSprite.texture = currentTransformationTexture
+		playerSprite.scale = currentTransformationTextureScale
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
 		transformation_lock_activate()
@@ -94,6 +101,7 @@ func deactivate_transformation():
 	emit_signal("reset_speed")
 	baseCollisionShape.shape = baseCollisionShapeInfo
 	playerSprite.texture = baseTextureInfo
+	playerSprite.scale = baseTextureScale
 	isTransformed = false
 	if (tailInstance != null):
 		sceneRef.remove_child(tailInstance)

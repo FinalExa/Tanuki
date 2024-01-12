@@ -8,13 +8,17 @@ signal set_trs_notReady
 @export var transformedMaxSpeed: float
 @export var transformedProperties: Array[String]
 @export var transformedCollider: CollisionShape2D
-@export var transformedTexture: Texture2D
+@export var transformedTexture: Sprite2D
+var transformedTextureScale: Vector2
 
 var localAllowedItemsRef: LocalAllowedItems
 
+func _ready():
+	transformedTextureScale = transformedTexture.scale
+
 func set_change_trs_available(status, body):
 	if (status == true):
-		body.set_trs_ready(transformedName, transformedMaxSpeed, transformedProperties, transformedCollider, transformedTexture)
+		body.set_trs_ready(transformedName, transformedMaxSpeed, transformedProperties, transformedCollider, transformedTexture.texture, transformedTextureScale)
 	else:
 		body.set_trs_not_ready()
 
