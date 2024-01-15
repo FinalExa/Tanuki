@@ -8,7 +8,7 @@ func execute_effect_normally(receivedBody: CharacterBody2D, delta):
 		get_tree().reload_current_scene()
 	else:
 		if(!receivedBody.isStunned):
-			receivedBody.is_damaged()
+			receivedBody.is_damaged(self.global_position)
 			var destination: Vector2 = self.get_parent().global_position.direction_to(receivedBody.global_position)
 			destination *= guardLaunchDistance
 			receivedBody.translate(destination)
