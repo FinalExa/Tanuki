@@ -19,6 +19,7 @@ var characterRef
 @export var guardStunned: GuardStunned
 @export var guardMovement: GuardMovement
 @export var guardPatrol: GuardPatrol
+@export var guardAlert: GuardAlert
 var guardsLookingForMe: Array[GuardResearch]
 
 func _ready():
