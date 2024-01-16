@@ -13,8 +13,8 @@ func _ready():
 	sceneRef = self.get_parent()
 	transformationChangeRef.sceneRef = sceneRef
 
-func set_trs_ready(trsName, speed, properties, collider):
-	emit_signal("set_temp_trs", trsName, speed, properties, collider)
+func set_trs_ready(trsName, speed, properties, collider, texture, textureScale):
+	emit_signal("set_temp_trs", trsName, speed, properties, collider, texture, textureScale)
 
 func set_trs_not_ready():
 	emit_signal("unset_temp_trs")
