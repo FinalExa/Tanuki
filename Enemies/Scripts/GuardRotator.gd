@@ -60,8 +60,13 @@ func lookAtTarget(delta):
 			execute_rotation(vectorTarget, delta)
 
 func execute_rotation(rotationDestination: Vector2, delta):
-	var angle = (rotationDestination - mainNodeRef.global_position).angle() + deg_to_rad(lookAtOffset)
-	if (angle < deg_to_rad(rotation_degrees - rotationDegreesOffset) || angle > deg_to_rad(rotation_degrees + rotationDegreesOffset)):
+	var angle = (mainNodeRef.global_position.direction_to(rotationDestination)).angle() + deg_to_rad(lookAtOffset)
+	var deg = rotation_degrees
+	if (deg < 0 ):
+		deg += 360
+	if (rad_to_deg(angle)<0):
+		angle = deg_to_rad(rad_to_deg(angle) + 360)
+	if (angle < deg_to_rad(deg - rotationDegreesOffset) || angle > deg_to_rad(deg + rotationDegreesOffset)):
 		var glb_rotation = global_rotation
 		var angle_delta = rotationSpeed * delta
 		angle = lerp_angle(glb_rotation, angle, rotationWeight)
