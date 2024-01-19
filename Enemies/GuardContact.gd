@@ -7,7 +7,8 @@ extends Area2D
 func _on_body_entered(body):
 	if (body is PlayerCharacter && body.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
 		if (guardController.isInAlert):
-			guardController.guardAlert.set_last_target_info(body)
+			guardController.guardAlert.lastTargetPosition = body.global_position
+			guardController.guardAlert.extraTargetLocation = body.global_position
 			return
 		if (guardController.isInResearch):
 			guardController.guardResearch.spot_player_from_afar(body)
