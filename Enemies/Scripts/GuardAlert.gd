@@ -145,7 +145,7 @@ func second_location_target_check(space_state):
 	var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
 	var result = space_state.intersect_ray(query)
 	if (result && result != { }):
-			return result.collider.global_position
+			return result.position
 	return searchPosition
 
 func check_if_player_transformation_status(playerRef: PlayerCharacter):
