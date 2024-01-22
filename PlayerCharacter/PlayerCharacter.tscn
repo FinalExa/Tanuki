@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="Texture2D" uid="uid://be5gemxpkvyt5" path="res://PlayerCharacter/Sprites/Tan_test_3.png" id="4_ij41b"]
-[ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/Tail.tscn" id="6_gubbw"]
+[ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/AttackHitbox.gd" id="9_xmiyi"]
 

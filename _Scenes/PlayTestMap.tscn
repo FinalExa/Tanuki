@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://vo0g6kml8604"]
+
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
+
+[node name="PlayTestMap" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(0, 64, 0, 0, 1088, 0, 1088, 64)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D2"]
+polygon = PackedVector2Array(0, 64, 0, 0, 1344, 4.57764e-05, 1344, 64)
