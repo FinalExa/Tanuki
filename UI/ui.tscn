@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
-[ext_resource type="Script" path="res://UI/SavedTransformationText.gd" id="2_f6e08"]
-[ext_resource type="Script" path="res://UI/TimerText.gd" id="3_81fkr"]
+[ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
+[ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
 
 [node name="UI" type="Node2D"]
 z_index = 1
@@ -24,7 +24,7 @@ offset_left = 479.0
 offset_top = 261.0
 offset_right = 519.0
 offset_bottom = 287.0
-script = ExtResource("2_f6e08")
+script = ExtResource("2_xm4oh")
 
 [node name="Timer" type="Label" parent="."]
 offset_left = -474.0
@@ -32,7 +32,7 @@ offset_top = -274.0
 offset_right = -434.0
 offset_bottom = -248.0
 text = "DDD"
-script = ExtResource("3_81fkr")
+script = ExtResource("3_ipm4y")
 
 [connection signal="timer_value" from="." to="Timer" method="_on_ui_timer_value"]
 [connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]
