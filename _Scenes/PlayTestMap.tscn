@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=5 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
+[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_lexfe"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="3_rx25o"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
+vertices = PackedVector2Array(1416, -472, 1416, 1064, 1224, 680, 1224, -280, 8, -472, 968, -280, 968, 680, 8, 1064, 328, 808, 456, 488, 456, -216, 200, -216, 8, 680, 200, 488, 328, 680, 8, 808)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 2, 1, 7, 8), PackedInt32Array(9, 5, 6, 8), PackedInt32Array(5, 9, 10), PackedInt32Array(4, 5, 10, 11), PackedInt32Array(12, 4, 11, 13), PackedInt32Array(14, 12, 13, 9), PackedInt32Array(7, 15, 8), PackedInt32Array(14, 9, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1416, -472, 8, -472, 8, 680, 328, 680, 328, 808, 8, 808, 8, 1064, 1416, 1064), PackedVector2Array(200, -216, 456, -216, 456, 488, 200, 488), PackedVector2Array(968, -280, 1224, -280, 1224, 680, 968, 680)])
 
 [node name="PlayTestMap" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-200, -936)
+navigation_polygon = SubResource("NavigationPolygon_ou1kk")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
 
@@ -12,11 +23,137 @@
 position = Vector2(-256, 128)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
-polygon = PackedVector2Array(0, 64, 0, 0, 1088, 0, 1088, 64)
+polygon = PackedVector2Array(0, 64, 0, 0, 1536, 0, 1536, 64)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Walls"]
+position = Vector2(-192, -192)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D6"]
+polygon = PackedVector2Array(0, 64, 0, -64, 320, -64, 320, 64)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Walls"]
+position = Vector2(-192, -824)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D7"]
+polygon = PackedVector2Array(192, 376, 192, -328, 448, -328, 448, 376)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Walls"]
+position = Vector2(576, -760)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D8"]
+polygon = PackedVector2Array(192, 504, 192, -456, 448, -456, 448, 504)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, -1472)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D3"]
+polygon = PackedVector2Array(0, 64, 0, 0, 1536, 0, 1536, 64)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 position = Vector2(-256, 128)
 rotation = -1.5708
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D2"]
-polygon = PackedVector2Array(0, 64, 0, 0, 1344, 4.57764e-05, 1344, 64)
+polygon = PackedVector2Array(0, 64, 0, 0, 1536, 0.0055542, 1536, 64.0056)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D4"]
+polygon = PackedVector2Array(832, 64.0031, 832, 0.00305176, 1536, 0.0055542, 1536, 64.0056)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 1264)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D5"]
+polygon = PackedVector2Array(1136, 64.004, 1136, 0.00402832, 1648, 0.00585938, 1648, 64.0059)
+
+[node name="NavigationPoints1" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="NavigationPoints1"]
+position = Vector2(640, -64)
+
+[node name="2" type="Node2D" parent="NavigationPoints1"]
+position = Vector2(640, -1312)
+
+[node name="3" type="Node2D" parent="NavigationPoints1"]
+position = Vector2(1120, -1312)
+
+[node name="4" type="Node2D" parent="NavigationPoints1"]
+position = Vector2(1120, -64)
+
+[node name="NavigationPoints2" type="Node2D" parent="."]
+
+[node name="5" type="Node2D" parent="NavigationPoints2"]
+position = Vector2(384, -352)
+
+[node name="6" type="Node2D" parent="NavigationPoints2"]
+position = Vector2(-96, -352)
+
+[node name="7" type="Node2D" parent="NavigationPoints2"]
+position = Vector2(-96, -1312)
+
+[node name="8" type="Node2D" parent="NavigationPoints2"]
+position = Vector2(384, -1312)
+
+[node name="Guards" type="Node2D" parent="."]
+
+[node name="Guard" parent="Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_lexfe")]
+position = Vector2(1144, 40)
+rotation = -1.57079
+patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingLeft")]
+
+[node name="Guard4" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(696, -816)
+rotation = -1.57079
+patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingLeft")]
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard5" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(333, -872)
+rotation = 1.57079
+patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingRight")]
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard2" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(640, -312)
+patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard3" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(384, -640)
+rotation = 3.14159
+patrolIndicators = [NodePath("../../PatrolIndicators/5to8")]
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="PatrolIndicators" type="Node2D" parent="."]
+
+[node name="1to4" parent="PatrolIndicators" instance=ExtResource("3_rx25o")]
+
+[node name="5to8" parent="PatrolIndicators" instance=ExtResource("3_rx25o")]
+
+[node name="StillFacingRight" parent="PatrolIndicators" instance=ExtResource("3_rx25o")]
+
+[node name="StillFacingLeft" parent="PatrolIndicators" instance=ExtResource("3_rx25o")]
