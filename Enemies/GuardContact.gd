@@ -14,7 +14,7 @@ func _on_body_entered(body):
 			guardController.guardResearch.spot_player_from_afar(body)
 			return
 		if (!guardController.isChecking && guardController.isInPatrol):
-				guardController.guardCheck.activate_check(body)
+			guardController.guardCheck.activate_check(body)
 		if (guardController.isChecking && guardController.guardCheck.currentAlertValue < checkValue):
 			guardController.guardCheck.currentAlertValue = checkValue
 		guardRotator.setLookingAtPosition(body.global_position)

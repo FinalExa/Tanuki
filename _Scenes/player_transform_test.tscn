@@ -30,8 +30,9 @@ transformedName = "Poop"
 transformedMaxSpeed = 1000.0
 transformedProperties = Array[String](["Slippery", "Frosted"])
 
-[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_kj1fg")]
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("3_kj1fg")]
 patrolIndicators = [NodePath("../PatrolIndicator")]
+navigationRegion = NodePath("../NavigationRegion2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(0, -24)

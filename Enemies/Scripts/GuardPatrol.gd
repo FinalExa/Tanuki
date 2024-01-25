@@ -51,8 +51,8 @@ func set_current_patrol_routine():
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
 func move_patrol_action(target):
-	guardMovement.set_new_target(target)
-	guardRotator.setLookingAtNode(target)
+	guardMovement.set_location_target(target.global_position)
+	guardRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
 func wait_patrol_action(timer):
