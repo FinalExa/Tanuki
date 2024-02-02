@@ -7,19 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="5_amoh5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
-vertices = PackedVector2Array(1408, -1536, 1408, 320, 1024, -256, 1024, -1152, -384, -1536, 768, -1152, 256, -1216, 768, -256, -384, 320, 320, -128, 320, -256, 256, -576, 0, -1216, -384, -256, 0, -576, -384, -128)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 2, 1, 8, 9), PackedInt32Array(5, 7, 10, 11, 6), PackedInt32Array(4, 6, 12), PackedInt32Array(13, 4, 12, 14), PackedInt32Array(10, 13, 14, 11), PackedInt32Array(8, 15, 9), PackedInt32Array(10, 7, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1536, -384, -1536, -384, -256, 320, -256, 320, -128, -384, -128, -384, 320, 1408, 320), PackedVector2Array(768, -1152, 1024, -1152, 1024, -256, 768, -256), PackedVector2Array(0, -576, 256, -576, 256, -1216, 0, -1216)])
+vertices = PackedVector2Array(4800, 192, 2624, 192, 2880, -64, 3584, -64, 2624, -384, 2880, -1152, 4800, -768, 5376, -768, 5376, -640, 5504, -640, 5504, -512, 5376, -512, 5376, -384, 4800, -384, 3584, -512, 3328, -512, 3328, -768, 3584, -768, 3584, -1152, 3840, -1152, 3840, -64, 4544, -64, 4544, -1152, 1408, -384, 1408, -704, 2624, -704, 2624, -1408, 4800, -1408, 1408, -1536, 1408, 320, 1024, -256, 1024, -1152, -384, -1536, 768, -1152, 256, -1216, 768, -256, -384, 320, 320, -128, 320, -256, 256, -576, 0, -1216, -384, -256, 0, -576, -384, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(11, 12, 13, 6), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(14, 17, 20), PackedInt32Array(3, 14, 20), PackedInt32Array(0, 3, 20), PackedInt32Array(0, 20, 21), PackedInt32Array(13, 0, 21, 22), PackedInt32Array(4, 23, 24, 25), PackedInt32Array(5, 4, 25), PackedInt32Array(5, 25, 26), PackedInt32Array(5, 26, 27, 22), PackedInt32Array(6, 8, 11), PackedInt32Array(6, 13, 22), PackedInt32Array(27, 6, 22), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 28, 31, 33, 34), PackedInt32Array(35, 30, 29, 36, 37), PackedInt32Array(33, 35, 38, 39, 34), PackedInt32Array(32, 34, 40), PackedInt32Array(41, 32, 40, 42), PackedInt32Array(38, 41, 42, 39), PackedInt32Array(36, 43, 37), PackedInt32Array(38, 35, 37)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1536, -384, -1536, -384, -256, 320, -256, 320, -128, -384, -128, -384, 320, 1408, 320), PackedVector2Array(768, -1152, 1024, -1152, 1024, -256, 768, -256), PackedVector2Array(0, -576, 256, -576, 256, -1216, 0, -1216), PackedVector2Array(2624, -1408, 4800, -1408, 4800, -768, 5376, -768, 5376, -640, 5504, -640, 5504, -512, 5376, -512, 5376, -384, 4800, -384, 4800, 192, 2624, 192, 2880, -64, 3584, -64, 3584, -512, 3328, -512, 3328, -768, 3584, -768, 3584, -1152, 3840, -1152, 3840, -64, 4544, -64, 4544, -1152, 2880, -1152, 2880, -64, 2624, 192, 2624, -384, 1408, -384, 1408, -704, 2624, -704)])
 
 [node name="PlayTestMap" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
 visible = false
-position = Vector2(-45, 214)
+position = Vector2(3704, -712)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -28,7 +27,7 @@ position = Vector2(-256, 128)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 position = Vector2(-256, 0)
-polygon = PackedVector2Array(0, 312, 0, 192, 2048, 192, 2048, 320)
+polygon = PackedVector2Array(0, 320, 0, 192, 2048, 192, 2048, 320)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Walls"]
 position = Vector2(-192, -192)
@@ -71,6 +70,86 @@ rotation = -1.5708
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D4"]
 polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1664, 192.006, 1664, 320.006)
 
+[node name="StaticBody2D11" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D11"]
+position = Vector2(127.996, 1088)
+polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1408, 192.005, 1408, 320.005)
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D15"]
+position = Vector2(127.988, 3392)
+polygon = PackedVector2Array(767.999, 320.003, 767.999, 192.003, 1408, 192.005, 1408, 320.005)
+
+[node name="StaticBody2D21" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D21"]
+position = Vector2(-384.014, 3968)
+polygon = PackedVector2Array(1152, 320.004, 1152, 192.004, 1408, 192.005, 1408, 320.005)
+
+[node name="StaticBody2D22" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D22"]
+position = Vector2(-768.015, 3968)
+polygon = PackedVector2Array(1152, 320.004, 1152, 192.004, 1408, 192.005, 1408, 320.005)
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D16"]
+position = Vector2(-896.012, 3392)
+polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1408, 192.005, 1408, 320.005)
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D17"]
+position = Vector2(-320.011, 3008)
+polygon = PackedVector2Array(511.999, 320.002, 512.001, -383.998, 1600, -383.994, 1600, 320.006)
+
+[node name="StaticBody2D18" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D18"]
+position = Vector2(-320.007, 2048)
+polygon = PackedVector2Array(1216, 320.004, 1216, -383.996, 1600, -383.994, 1600, 320.006)
+
+[node name="StaticBody2D24" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D24"]
+position = Vector2(-640.007, 2048)
+polygon = PackedVector2Array(1280, 64.0046, 1280, -383.995, 1536, -383.995, 1536, 64.0054)
+
+[node name="StaticBody2D23" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D23"]
+position = Vector2(-960.007, 2048)
+polygon = PackedVector2Array(1152, 320.004, 1144, -383.996, 1600, -383.994, 1600, 320.006)
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="Walls"]
+position = Vector2(1216, 128)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D12"]
+position = Vector2(-1024, 1088)
+polygon = PackedVector2Array(959.999, 320.003, 959.999, 192.003, 1408, 192.005, 1408, 320.005)
+
 [node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
 position = Vector2(1216, 1264)
 rotation = -1.5708
@@ -78,8 +157,49 @@ rotation = -1.5708
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D5"]
 polygon = PackedVector2Array(943.999, 320.003, 943.999, 192.003, 1648, 192.006, 1648, 320.006)
 
+[node name="StaticBody2D9" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D9"]
+position = Vector2(1792, -704)
+polygon = PackedVector2Array(0, 320, 0, 192, 1088, 192, 1088, 320)
+
+[node name="StaticBody2D19" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D19"]
+position = Vector2(5176, -688)
+polygon = PackedVector2Array(8, 304, 8, 176, 456, 176, 456, 304)
+
+[node name="StaticBody2D20" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D20"]
+position = Vector2(5176, -1200)
+polygon = PackedVector2Array(8, 304, 8, 176, 456, 176, 456, 304)
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D13"]
+position = Vector2(2752, -128)
+polygon = PackedVector2Array(0, 320, 0, 192, 2432, 192, 2432, 320)
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D14"]
+position = Vector2(2752, -1856)
+polygon = PackedVector2Array(0, 320, 0, 192, 2432, 192, 2432, 320)
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Walls"]
+position = Vector2(-256, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D10"]
+position = Vector2(1792, -1152)
+polygon = PackedVector2Array(0, 320, 0, 192, 1088, 192, 1088, 320)
+
 [node name="NavigationPoints1" type="Node2D" parent="."]
-visible = false
 
 [node name="1" type="Node2D" parent="NavigationPoints1"]
 position = Vector2(576, -64)
@@ -94,7 +214,6 @@ position = Vector2(1216, -1344)
 position = Vector2(1216, -64)
 
 [node name="NavigationPoints2" type="Node2D" parent="."]
-visible = false
 
 [node name="5" type="Node2D" parent="NavigationPoints2"]
 position = Vector2(448, -416)
@@ -109,7 +228,6 @@ position = Vector2(-192, -1344)
 position = Vector2(448, -1344)
 
 [node name="NavigationPoints3" type="Node2D" parent="."]
-visible = false
 
 [node name="9" type="Node2D" parent="NavigationPoints3"]
 position = Vector2(1280, 0)
@@ -120,8 +238,35 @@ position = Vector2(320, -960)
 [node name="11" type="Node2D" parent="NavigationPoints3"]
 position = Vector2(704, -896)
 
+[node name="NavigationPoints4" type="Node2D" parent="."]
+
+[node name="12" type="Node2D" parent="NavigationPoints4"]
+position = Vector2(3712, 64)
+
+[node name="13" type="Node2D" parent="NavigationPoints4"]
+position = Vector2(2752, 64)
+
+[node name="14" type="Node2D" parent="NavigationPoints4"]
+position = Vector2(2752, -1280)
+
+[node name="15" type="Node2D" parent="NavigationPoints4"]
+position = Vector2(3712, -1280)
+
+[node name="NavigationPoints5" type="Node2D" parent="."]
+
+[node name="16" type="Node2D" parent="NavigationPoints5"]
+position = Vector2(4672, 64)
+
+[node name="17" type="Node2D" parent="NavigationPoints5"]
+position = Vector2(3712, 64)
+
+[node name="18" type="Node2D" parent="NavigationPoints5"]
+position = Vector2(3712, -1280)
+
+[node name="19" type="Node2D" parent="NavigationPoints5"]
+position = Vector2(4672, -1280)
+
 [node name="Guards" type="Node2D" parent="."]
-visible = false
 
 [node name="Guard" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
 position = Vector2(1144, 40)
@@ -148,8 +293,29 @@ position = Vector2(384, -640)
 patrolIndicators = [NodePath("../../PatrolIndicators/5to8")]
 navigationRegion = NodePath("../../NavigationRegion2D")
 
+[node name="Guard6" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(3712, -224)
+patrolIndicators = [NodePath("../../PatrolIndicators/12to15")]
+navigationRegion = NodePath("../../NavigationRegion2D")
+guardCheck = NodePath("../Guard3/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard3/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard3/GuardStunned")
+guardMovement = NodePath("../Guard3/GuardMovement")
+guardPatrol = NodePath("../Guard3/GuardPatrol")
+guardAlert = NodePath("../Guard3/Rotator/GuardAlert")
+
+[node name="Guard7" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
+position = Vector2(3712, -1064)
+patrolIndicators = [NodePath("../../PatrolIndicators/16to19")]
+navigationRegion = NodePath("../../NavigationRegion2D")
+guardCheck = NodePath("../Guard3/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard3/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard3/GuardStunned")
+guardMovement = NodePath("../Guard3/GuardMovement")
+guardPatrol = NodePath("../Guard3/GuardPatrol")
+guardAlert = NodePath("../Guard3/Rotator/GuardAlert")
+
 [node name="PatrolIndicators" type="Node2D" parent="."]
-visible = false
 
 [node name="1to4" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
@@ -162,6 +328,18 @@ patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints2/5"), NodePath("../../NavigationPoints2/6"), NodePath("../../NavigationPoints2/7"), NodePath("../../NavigationPoints2/8")]
 lookActions = Array[int]([0, 3, 1, 2])
+
+[node name="12to15" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints4/12"), NodePath("../../NavigationPoints4/13"), NodePath("../../NavigationPoints4/14"), NodePath("../../NavigationPoints4/15")]
+lookActions = Array[int]([1, 2, 0, 3])
+
+[node name="16to19" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints5/18"), NodePath("../../NavigationPoints5/19"), NodePath("../../NavigationPoints5/16"), NodePath("../../NavigationPoints5/17")]
+lookActions = Array[int]([1, 2, 0, 3])
 
 [node name="StillFacingRight" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
 patrolActions = Array[int]([1, 2, 0])
@@ -182,7 +360,6 @@ moveActions = [NodePath("../../NavigationPoints3/11")]
 lookActions = Array[int]([2])
 
 [node name="TransformObjects" type="Node2D" parent="."]
-visible = false
 
 [node name="Feather" parent="TransformObjects" instance=ExtResource("4_0k0v2")]
 position = Vector2(-232, -56)
@@ -198,11 +375,27 @@ transformedProperties = Array[String](["Light"])
 transformedCollider = NodePath("../Feather/CollisionShape2D")
 transformedTexture = NodePath("../Feather/Sprite2D")
 
+[node name="Feather3" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4040, 8)
+transformedName = "Feather"
+transformedMaxSpeed = 600.0
+transformedProperties = Array[String](["Light"])
+transformedCollider = NodePath("../Feather/CollisionShape2D")
+transformedTexture = NodePath("../Feather/Sprite2D")
+
 [node name="HeavyBox" parent="TransformObjects" instance=ExtResource("4_0k0v2")]
 position = Vector2(120, -56)
 transformedName = "HeavyBox"
 transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
+
+[node name="HeavyBox4" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4344, -1224)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
 [node name="HeavyBox2" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
 position = Vector2(-312, -952)
