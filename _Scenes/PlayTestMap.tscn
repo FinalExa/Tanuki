@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=9 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_lexfe"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="3_rx25o"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="4_0k0v2"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="5_amoh5"]
+[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_eovfk"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_s8vu6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
 vertices = PackedVector2Array(4800, -384, 4800, 192, 4544, -64, 4544, -1152, 2624, 192, 3840, -64, 3584, -64, 2880, -64, 2624, -384, 2880, -1152, 5376, -768, 5376, -384, 4800, -768, 4800, -1408, 2624, -1408, 3840, -1152, 3584, -512, 3328, -512, 3328, -768, 3584, -768, 3584, -1152, 2624, -704, 1408, -384, 1408, -704, 1408, -1536, 1408, 320, 1024, -256, 1024, -1152, -384, -1536, 768, -1152, 256, -1216, 768, -256, -384, 320, 320, -128, 320, -256, 256, -576, 0, -1216, -384, -256, 0, -576, -384, -128)
@@ -229,7 +231,7 @@ position = Vector2(448, -1344)
 [node name="NavigationPoints3" type="Node2D" parent="."]
 
 [node name="9" type="Node2D" parent="NavigationPoints3"]
-position = Vector2(1280, 0)
+position = Vector2(1280, -65)
 
 [node name="10" type="Node2D" parent="NavigationPoints3"]
 position = Vector2(320, -960)
@@ -268,7 +270,7 @@ position = Vector2(4672, -1280)
 [node name="Guards" type="Node2D" parent="."]
 
 [node name="Guard" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(1144, 40)
+position = Vector2(1144, -64)
 patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingLeft")]
 navigationRegion = NodePath("../../NavigationRegion2D")
 
@@ -366,14 +368,6 @@ transformedName = "Feather"
 transformedMaxSpeed = 600.0
 transformedProperties = Array[String](["Light"])
 
-[node name="Feather2" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
-position = Vector2(899, 248)
-transformedName = "Feather"
-transformedMaxSpeed = 600.0
-transformedProperties = Array[String](["Light"])
-transformedCollider = NodePath("../Feather/CollisionShape2D")
-transformedTexture = NodePath("../Feather/Sprite2D")
-
 [node name="Feather3" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
 position = Vector2(4040, 8)
 transformedName = "Feather"
@@ -416,5 +410,49 @@ transformedTexture = NodePath("../HeavyBox/Sprite2D")
 position = Vector2(-45, 214)
 
 [node name="LocalAllowedItems" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-allowedObjects = Array[String](["Feather"])
-assignedObjects = [NodePath("../../TransformObjects/Feather"), NodePath("../../TransformObjects/Feather2")]
+position = Vector2(13, -118)
+scale = Vector2(35.6, 22.48)
+allowedObjects = Array[String](["Feather", "HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/Feather"), NodePath("../../TransformObjects/Feather3"), NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+
+[node name="LocalAllowedItems4" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(4237, -150)
+scale = Vector2(35.6, 12.96)
+allowedObjects = Array[String](["Feather", "HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/Feather"), NodePath("../../TransformObjects/Feather3")]
+
+[node name="LocalAllowedItems2" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(-147, -1206)
+scale = Vector2(18.96, 22.48)
+allowedObjects = Array[String](["HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+
+[node name="LocalAllowedItems3" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(845, -1558)
+scale = Vector2(35.12, 18.92)
+allowedObjects = Array[String](["HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+
+[node name="LocalAllowedItems5" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(4237, -1494)
+scale = Vector2(35.12, 12.44)
+allowedObjects = Array[String](["HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+
+[node name="Deathtraps" type="Node2D" parent="."]
+
+[node name="DeathTrapInteractionObject" parent="Deathtraps" instance=ExtResource("6_eovfk")]
+position = Vector2(1664, -544)
+scale = Vector2(3.96, 2.52)
+effectNegateProperty = "Light"
+
+[node name="DeathTrapInteractionObject2" parent="Deathtraps" node_paths=PackedStringArray("effect") instance=ExtResource("6_eovfk")]
+position = Vector2(4288, 64)
+scale = Vector2(2, 2.08)
+effectNegateProperty = "Light"
+effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="MovementImpairInteractionObject" parent="Deathtraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(5120, -576)
+scale = Vector2(4.00001, 2.96)
+effectNegateProperty = "Heavy"
