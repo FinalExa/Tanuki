@@ -3,11 +3,12 @@ extends Node
 
 signal reached_destination
 
-@onready var navReg = $"../../NavigationRegion2D"
+var navReg
 var map
 var path = []
 
 @export var guardPatrol: GuardPatrol
+@export var guardController: GuardController
 @export var bodyRef: CharacterBody2D
 @export var navigation_agent: NavigationAgent2D
 
@@ -22,6 +23,7 @@ func _ready():
 	call_deferred("setup_navserver")
 
 func setup_navserver():
+	navReg = guardController.navigationRegion
 	current_movement_speed = default_movement_speed
 	map = NavigationServer2D.map_create()
 	NavigationServer2D.map_set_active(map, true)

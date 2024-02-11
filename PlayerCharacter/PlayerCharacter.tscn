@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
-[ext_resource type="Texture2D" uid="uid://be5gemxpkvyt5" path="res://PlayerCharacter/Sprites/Tan_test_3.png" id="4_ij41b"]
+[ext_resource type="Texture2D" uid="uid://bpqkirdt4u1xb" path="res://PlayerCharacter/Sprites/Tan-Def - anim 1.0.png" id="4_uqokj"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/Tail.tscn" id="6_gubbw"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/AttackHitbox.gd" id="9_xmiyi"]
@@ -34,9 +34,9 @@ leftRad = 270
 rightRad = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-position = Vector2(-7.62939e-06, -7.62939e-06)
-scale = Vector2(0.46875, 0.46875)
-texture = ExtResource("4_ij41b")
+position = Vector2(8, -8)
+scale = Vector2(0.808594, 0.808594)
+texture = ExtResource("4_uqokj")
 
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite")]
 script = ExtResource("3_bjmh7")

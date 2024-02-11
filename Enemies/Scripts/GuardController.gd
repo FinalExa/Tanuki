@@ -13,6 +13,7 @@ var characterRef
 
 @export var patrolIndicators: Array[PatrolIndicator]
 @export var guardProperties: Array[String]
+@export var navigationRegion: NavigationRegion2D
 
 @export var guardCheck: GuardCheck
 @export var guardResearch: GuardResearch

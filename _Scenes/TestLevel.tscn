@@ -173,17 +173,20 @@ polygon = PackedVector2Array(1019.3, 249.342, 1019.3, -415.57, -235.222, -415.57
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_nvxq0")]
 position = Vector2(-392, 384)
 
-[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_fmwiu")]
 position = Vector2(1328, 248)
 patrolIndicators = [NodePath("../PatrolIndicator"), NodePath("../PatrolIndicatorSecondZone")]
+navigationRegion = NodePath("../NavigationRegion2D")
 
-[node name="Guard2" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
+[node name="Guard2" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_fmwiu")]
 position = Vector2(832, 768)
 patrolIndicators = [NodePath("../PatrolIndicator2"), NodePath("../PatrolIndicatorSecondZone")]
+navigationRegion = NodePath("../NavigationRegion2D")
 
-[node name="Guard3" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("2_fmwiu")]
+[node name="Guard3" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_fmwiu")]
 position = Vector2(512, 0)
 patrolIndicators = [NodePath("../PatrolIndicator3"), NodePath("../PatrolIndicatorSecondZone")]
+navigationRegion = NodePath("../NavigationRegion2D")
 
 [node name="NavigationPoint1" type="Node2D" parent="."]
 position = Vector2(1280, 768)

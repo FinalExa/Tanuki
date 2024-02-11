@@ -51,9 +51,10 @@ shape = SubResource("CircleShape2D_2aaw5")
 avoidance_enabled = true
 radius = 100.0
 
-[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardPatrol", "bodyRef", "navigation_agent")]
+[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardPatrol", "guardController", "bodyRef", "navigation_agent")]
 script = ExtResource("1_lv0fd")
 guardPatrol = NodePath("../GuardPatrol")
+guardController = NodePath("..")
 bodyRef = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
 default_movement_speed = 200.0

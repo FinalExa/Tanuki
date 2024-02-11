@@ -35,7 +35,7 @@ func _ready():
 	send_alert_value()
 	checkActive = true
 
-func _process(delta):
+func _process(_delta):
 	body_checks()
 
 func _physics_process(delta):
@@ -52,7 +52,6 @@ func check_with_raycast(delta):
 	if (checkActive == true && checkWithRayCast == true):
 		var space_state = get_world_2d().direct_space_state
 		for i in rayTargets.size():
-			var direction: Vector2 = rayTargets[i].position - controllerRef.position
 			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
