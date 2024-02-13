@@ -34,8 +34,6 @@ leftRad = 270
 rightRad = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-position = Vector2(8, -8)
-scale = Vector2(0.808594, 0.808594)
 texture = ExtResource("4_uqokj")
 
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite")]
