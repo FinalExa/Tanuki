@@ -124,6 +124,7 @@ researchValueThreshold = 50.0
 playerIsSeenMultiplier = 3.0
 playerIsNotSeenMultiplier = 1.5
 reductionOverTimeValue = 15.0
+minimumIncreaseValue = 5.0
 distanceMultiplier = 0.4
 preCheckDuration = 0.05
 rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]

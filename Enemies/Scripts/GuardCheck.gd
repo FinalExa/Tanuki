@@ -7,6 +7,7 @@ extends Area2D
 @export var playerIsSeenMultiplier: float
 @export var playerIsNotSeenMultiplier: float
 @export var reductionOverTimeValue: float
+@export var minimumIncreaseValue: float
 @export var distanceMultiplier: float
 @export var preCheckDuration: float
 @export var rayTargets: Array[Node2D]
@@ -156,8 +157,8 @@ func increase_suspicion_value(delta, multiplier):
 		var multValue: float = (abs(distance-(rayTargets[0].global_position.distance_to(guardController.position))))
 		multValue = multValue * distanceMultiplier * multiplier * delta
 		if (currentAlertValue < maxAlertValue):
-			if (multValue<=0):
-				multValue = 0.01
+			if (multValue <= minimumIncreaseValue * multiplier * delta):
+				multValue = minimumIncreaseValue * multiplier * delta
 			currentAlertValue = clamp(currentAlertValue + multValue, 0, maxAlertValue)
 			send_alert_value()
 		else:
