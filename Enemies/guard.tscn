@@ -32,7 +32,7 @@ radius = 64.0
 size = Vector2(144, 144)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
-radius = 1000.51
+radius = 688.047
 
 [node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert")]
 position = Vector2(-168, -240)
@@ -97,7 +97,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 100.0
+rotationSpeed = 4.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
@@ -120,12 +120,12 @@ collision_layer = 12
 script = ExtResource("6_8v6qf")
 controllerRef = NodePath("../..")
 maxAlertValue = 100.0
-researchValueThreshold = 40.0
-playerIsSeenMultiplier = 1.0
-playerIsNotSeenMultiplier = 0.5
+researchValueThreshold = 50.0
+playerIsSeenMultiplier = 3.0
+playerIsNotSeenMultiplier = 1.5
 reductionOverTimeValue = 15.0
-distanceMultiplier = 0.2
-preCheckDuration = 0.1
+distanceMultiplier = 0.4
+preCheckDuration = 0.05
 rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
 guardRotator = NodePath("..")
 guardController = NodePath("../..")
@@ -138,28 +138,28 @@ guardStunned = NodePath("../../GuardStunned")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
-polygon = PackedVector2Array(23.0629, 2.67029e-05, -32.2883, -1.52588e-05, -64.577, 63.9674, 55.3506, 63.9675)
+polygon = PackedVector2Array(23.0629, 2.67029e-05, -32.2883, -1.52588e-05, -59.9643, 48.6708, 50.7381, 48.6709)
 
 [node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
 
 [node name="Target1" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-0.00100708, 408)
+position = Vector2(-0.000793457, 320)
 rotation = -3.14159
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-48.001, 408)
+position = Vector2(-48.0008, 320)
 rotation = -3.14159
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(47.999, 408)
+position = Vector2(47.9992, 320)
 rotation = -3.14159
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-96.001, 408)
+position = Vector2(-96.0008, 320)
 rotation = -3.14159
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(95.999, 408)
+position = Vector2(95.9992, 320)
 rotation = -3.14159
 
 [node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "guardController", "guardAlertValue", "guardAlert", "guardPatrol", "guardMovement", "guardRotator", "guardCheck", "guardStunned")]
@@ -190,19 +190,19 @@ guardStunned = NodePath("../../GuardStunned")
 [node name="MainTargets" type="Node2D" parent="Rotator/GuardResearch"]
 
 [node name="Target" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(-152, -592)
+position = Vector2(-128, -400)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(168, -592)
+position = Vector2(128, -400)
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(-72, -592)
+position = Vector2(-64, -400)
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(88, -592)
+position = Vector2(64, -400)
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(8, -592)
+position = Vector2(0, -400)
 
 [node name="SecondaryTargets" type="Node2D" parent="Rotator/GuardResearch"]
 
@@ -210,61 +210,61 @@ position = Vector2(8, -592)
 position = Vector2(-152, -208)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(168, -208)
+position = Vector2(152, -208)
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-184, -336)
+position = Vector2(-176, -304)
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(200, -336)
+position = Vector2(176, -304)
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-216, -464)
+position = Vector2(-200, -400)
 
 [node name="Target6" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(232, -464)
+position = Vector2(200, -400)
 
 [node name="Target7" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-248, -592)
+position = Vector2(-168, -480)
 
 [node name="Target8" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(264, -592)
+position = Vector2(168, -480)
 
 [node name="Target9" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-184, -656)
+position = Vector2(-128, -504)
 
 [node name="Target10" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(200, -656)
+position = Vector2(128, -504)
 
 [node name="Target11" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-88, -720)
+position = Vector2(-88, -528)
 
 [node name="Target12" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(104, -720)
+position = Vector2(88, -528)
 
 [node name="Target13" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(8, -720)
+position = Vector2(0, -528)
 
 [node name="PrimaryAreaFeedback" type="Area2D" parent="Rotator/GuardResearch"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/PrimaryAreaFeedback"]
-polygon = PackedVector2Array(0, 0, 168, -592, -152, -592)
+polygon = PackedVector2Array(0, 0, 128, -400, -128, -400)
 
 [node name="SecondaryAreaFeedback" type="Area2D" parent="Rotator/GuardResearch"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/SecondaryAreaFeedback"]
-polygon = PackedVector2Array(0, 0, 168, -208, 264, -592, 200, -656, 104, -720, -88, -720, -184, -656, -248, -592, -152, -208)
+polygon = PackedVector2Array(0, 0, 152, -208, 200, -400, 168, -480, 88, -528, -88, -528, -168, -480, -200, -400, -152, -208)
 
 [node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardPatrol", "guardCheck", "guardStunned")]
 script = ExtResource("5_t7kgq")
-alertMovementSpeed = 350.0
+alertMovementSpeed = 400.0
 catchDistanceThreshold = 200.0
 catchPreparationDuration = 1.0
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.5
 searchForMissingTargetDistance = 200.0
-rayTargets = [NodePath("Targets/Target"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21")]
+rayTargets = [NodePath("Targets/Target"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21"), NodePath("Targets/Target22"), NodePath("Targets/Target23")]
 alertText = "ALERT"
 screamArea = NodePath("ScreamArea")
 returnToCheckAlertValue = 35.0
@@ -281,67 +281,73 @@ guardStunned = NodePath("../../GuardStunned")
 [node name="Targets" type="Node2D" parent="Rotator/GuardAlert"]
 
 [node name="Target" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(232, -16)
+position = Vector2(168, -48)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-216, -16)
+position = Vector2(-168, -48)
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-248, -144)
+position = Vector2(-176, -112)
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(264, -144)
+position = Vector2(176, -112)
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-280, -272)
+position = Vector2(-208, -272)
 
 [node name="Target6" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(296, -272)
+position = Vector2(208, -272)
 
 [node name="Target7" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-312, -400)
+position = Vector2(-232, -400)
 
 [node name="Target8" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(328, -400)
+position = Vector2(232, -400)
 
 [node name="Target9" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-344, -528)
+position = Vector2(-216, -448)
 
 [node name="Target10" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(360, -528)
+position = Vector2(216, -448)
 
 [node name="Target11" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-280, -592)
+position = Vector2(-200, -496)
 
 [node name="Target12" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(296, -592)
+position = Vector2(200, -496)
 
 [node name="Target13" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-184, -656)
+position = Vector2(-120, -560)
 
 [node name="Target14" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(200, -656)
+position = Vector2(120, -560)
 
 [node name="Target15" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-120, -656)
+position = Vector2(-88, -592)
 
 [node name="Target16" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(136, -656)
+position = Vector2(88, -592)
 
 [node name="Target17" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-56, -656)
+position = Vector2(-48, -592)
 
 [node name="Target18" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(72, -656)
+position = Vector2(48, -592)
 
 [node name="Target19" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(8, -656)
+position = Vector2(0, -592)
 
 [node name="Target20" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-232, -624)
+position = Vector2(-160, -528)
 
 [node name="Target21" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(248, -624)
+position = Vector2(160, -528)
+
+[node name="Target22" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(192, -184)
+
+[node name="Target23" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-192, -184)
 
 [node name="ScreamArea" type="Area2D" parent="Rotator/GuardAlert"]
 script = ExtResource("11_xc2i3")
@@ -353,7 +359,7 @@ debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
 [node name="AlertAreaFeedback" type="Area2D" parent="Rotator/GuardAlert"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
-polygon = PackedVector2Array(-216, -16, 0, 0, 232, -16, 360, -528, 296, -592, 200, -656, -184, -656, -280, -592, -344, -528)
+polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -400, 200, -496, 88, -592, -88, -592, -200, -496, -232, -400)
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
