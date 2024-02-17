@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=11 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_dm8nm"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_0unoy"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+[ext_resource type="PackedScene" uid="uid://g7yg1bvbr6yt" path="res://InteractionObject/Button/deactivation_button.tscn" id="9_ewvfa"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(-64, 184, 1888, 1536, -2224, 1896, -536, 232, -2320, -2272, -560, -40, 2120, -1840, -80, -128)
@@ -71,6 +72,10 @@ patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
 waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
+
+[node name="DeactivationButton" parent="." node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("9_ewvfa")]
+position = Vector2(-176, 368)
+objectToDeactivate = NodePath("../DeathTrapInteractionObject")
 
 [connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
 [connection signal="set_trs_ready" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
