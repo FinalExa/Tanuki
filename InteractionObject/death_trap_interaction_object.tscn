@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://chiiakop44t61" path="res://InteractionObject/Effects/death_trap_effect.tscn" id="2_xkk2o"]
 
 [node name="DeathTrapInteractionObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_dhkv6")]
-effectNegateProperty = "Frosted"
+effectNegateProperty = "Light"
 effect = NodePath("DeathTrapEffect")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-256, 256, -256, -256, 256, -256, 256, 256)
 
 [node name="DeathTrapEffect" parent="." index="1" instance=ExtResource("2_xkk2o")]
