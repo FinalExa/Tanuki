@@ -13,14 +13,13 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
-vertices = PackedVector2Array(256, -1536, 256, -1280, 128, -1280, -384, -1536, -384, -512, 128, -1152, 384, -1152, 384, -1536, 640, -1536, 640, -1152, 768, -1152, 768, -2176, 1280, -2176, 1280, -2071.19, 1280, -1152, 1280, -896, 768, -896, 1280, 128, 768, 128, 640, -896, 384, -896, 640, -512, 384, -512, 128, -896, 128, -768, 256, -512, 256, -768)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(10, 13, 14), PackedInt32Array(10, 14, 15, 16), PackedInt32Array(15, 17, 18, 16), PackedInt32Array(9, 10, 16, 19), PackedInt32Array(6, 9, 19, 20), PackedInt32Array(19, 21, 22, 20), PackedInt32Array(5, 6, 20, 23), PackedInt32Array(4, 5, 23), PackedInt32Array(4, 23, 24), PackedInt32Array(25, 4, 24, 26)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(256, -1536, -384, -1536, -384, -512, 256, -512, 256, -768, 128, -768, 128, -896, 384, -896, 384, -512, 640, -512, 640, -896, 768, -896, 768, 128, 1280, 128, 1280, -896, 1280, -1152, 1280, -2071.19, 1280, -2176, 768, -2176, 768, -1152, 640, -1152, 640, -1536, 384, -1536, 384, -1152, 128, -1152, 128, -1280, 256, -1280)])
+vertices = PackedVector2Array(-448, -1152, 576, -1152, 576, -1024, -448, -512, 704, -1024, 704, -1280, 1088, -1280, 2752, -2432, 1088, -1408, -832, -1408, -832, -2432, 1344, -3712, 1598.71, -3712, 2752, -2944, -960, -2432, -960, -2048, -1216, -2048, -1216, -2432, -1472, -2304, -1344, -2304, -1344, -2048, -1984, -2048, -1984, -3072, -1472, -2432, -1344, -3072, -1344, -2816, -1472, -2816, -1216, -2688, -1216, -3072, -960, -3072, -960, -2688, -832, -2688, -832, -3712, 1344, -3840, 1216, -3840, 1216, -4224, 1728, -4224, 1728, -3840, 1600, -3840, 2752, -3712, 2880, -2944, 2880, -3328, 3656, -3328, 3648, -2048, 3951.41, -3456, 3776, -3456, 3776, -4224, 4800, -4224, 4160, -3456, 4800, -3456, 4416, -3456, 4160, -3328, 4416, -3328, 9536, -3328, 9536, -2944, 9664, -2944, 9664, -2432, 9536, -2432, 9536, -2048, 5440, -2048, 5440, -1920, 5696, -1920, 5696, -1408, 4928, -1408, 4928, -1920, 5020.92, -1920, 2880, -2048, 2880, -2432, 2752, -1408, 2752, -512, 704, -512, 704, -768, 576, -768, 576, -512, 5184, -1920, 5184, -2048, -1472, -2688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(18, 21, 22, 23), PackedInt32Array(22, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 11), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38), PackedInt32Array(33, 36, 38), PackedInt32Array(33, 38, 12, 11), PackedInt32Array(12, 39, 13), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 44, 47), PackedInt32Array(47, 49, 50), PackedInt32Array(48, 47, 50, 51), PackedInt32Array(51, 50, 52, 43), PackedInt32Array(52, 53, 54), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(57, 58, 59, 52), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(63, 64, 65), PackedInt32Array(43, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 3), PackedInt32Array(72, 3, 2, 4), PackedInt32Array(68, 71, 72, 4, 6), PackedInt32Array(68, 6, 8, 7), PackedInt32Array(52, 54, 57), PackedInt32Array(63, 65, 74), PackedInt32Array(60, 63, 74, 59), PackedInt32Array(59, 74, 75), PackedInt32Array(52, 59, 75), PackedInt32Array(52, 75, 43), PackedInt32Array(42, 51, 43), PackedInt32Array(40, 43, 67, 13), PackedInt32Array(13, 67, 7), PackedInt32Array(22, 26, 76), PackedInt32Array(23, 22, 76, 17), PackedInt32Array(17, 76, 27, 14), PackedInt32Array(14, 27, 30, 10), PackedInt32Array(10, 30, 31), PackedInt32Array(10, 31, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512, 576, -512, 576, -768, 704, -768, 704, -512, 2752, -512, 2752, -1408, 2752, -2432, 2880, -2432, 2880, -2048, 3648, -2048, 5184, -2048, 5184, -1920, 5020.92, -1920, 4928, -1920, 4928, -1408, 5696, -1408, 5696, -1920, 5440, -1920, 5440, -2048, 9536, -2048, 9536, -2432, 9664, -2432, 9664, -2944, 9536, -2944, 9536, -3328, 4416, -3328, 4416, -3456, 4800, -3456, 4800, -4224, 3776, -4224, 3776, -3456, 3951.41, -3456, 4160, -3456, 4160, -3328, 3656, -3328, 2880, -3328, 2880, -2944, 2752, -2944, 2752, -3712, 1598.71, -3712, 1600, -3840, 1728, -3840, 1728, -4224, 1216, -4224, 1216, -3840, 1344, -3840, 1344, -3712, -832, -3712, -832, -2688, -960, -2688, -960, -3072, -1216, -3072, -1216, -2688, -1472, -2688, -1472, -2816, -1344, -2816, -1344, -3072, -1984, -3072, -1984, -2048, -1344, -2048, -1344, -2304, -1472, -2304, -1472, -2432, -1216, -2432, -1216, -2048, -960, -2048, -960, -2432, -832, -2432, -832, -1408, 1088, -1408, 1088, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152)])
 
 [node name="PlayTestMap" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(-1600, -1536)
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
@@ -29,7 +28,6 @@ position = Vector2(1480, -4048)
 [node name="Room1" type="Node2D" parent="."]
 
 [node name="Deathtraps" type="Node2D" parent="Room1"]
-visible = false
 
 [node name="InteractionObject" parent="Room1/Deathtraps" instance=ExtResource("6_ob1wc")]
 position = Vector2(-1152, -2560)
@@ -59,7 +57,6 @@ scale = Vector2(2, 2)
 effect = NodePath("../MovementImpairInteractionObject/MovementImpairEffect")
 
 [node name="DetectionZone" type="Node2D" parent="Room1"]
-visible = false
 position = Vector2(-45, 214)
 
 [node name="LocalAllowedItems" parent="Room1/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
@@ -90,7 +87,6 @@ scale = Vector2(12.8048, 7.96288)
 allowedObjects = Array[String](["Statue"])
 
 [node name="TransformObjects" type="Node2D" parent="Room1"]
-visible = false
 
 [node name="Feather" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
 position = Vector2(-1912, -2576)
@@ -233,12 +229,82 @@ transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="Room1"]
-visible = false
 
-[node name="Guard" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
+[node name="Guard" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(-760, -2760)
-patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingDown")]
 guardProperties = Array[String]([""])
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard2" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(-576, -1536)
+patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard3" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(192, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/3to2")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard4" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(704, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/6to5")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard5" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(1216, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/7to8")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard6" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(1600, -1280)
+patrolIndicators = [NodePath("../../PatrolIndicators/9to12")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard7" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(2368, -3328)
+patrolIndicators = [NodePath("../../PatrolIndicators/11to10")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard8" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(1176, -1344)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingRight")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard9" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(2672, -2368)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingUp")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
 
 [node name="Walls" type="Node2D" parent="Room1"]
 
@@ -560,7 +626,6 @@ position = Vector2(-192, -2304)
 position = Vector2(-192, -1792)
 
 [node name="Buttons" type="Node2D" parent="Room1"]
-visible = false
 
 [node name="DeactivationButton" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
 visible = false
@@ -615,22 +680,30 @@ position = Vector2(2368, -3330)
 [node name="12" type="Node2D" parent="Room1/NavigationPoints"]
 position = Vector2(2368, -1280)
 
+[node name="13" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(-760, -2752)
+
+[node name="14" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1176, -1344)
+
+[node name="15" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(2672, -2368)
+
 [node name="PatrolIndicators" type="Node2D" parent="Room1"]
-visible = false
 
 [node name="1to4" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2"), NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4")]
-lookActions = Array[int]([0, 1, 2, 3])
+lookActions = Array[int]([3, 1, 2, 0])
 
 [node name="3to2" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4"), NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2")]
-lookActions = Array[int]([0, 1, 2, 3])
+lookActions = Array[int]([2, 0, 3, 1])
 
 [node name="6to5" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
@@ -644,30 +717,42 @@ script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/7"), NodePath("../../NavigationPoints/8")]
-lookActions = Array[int]([2, 3])
+lookActions = Array[int]([3, 2])
 
 [node name="9to12" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10"), NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12")]
-lookActions = Array[int]([1, 2, 0, 3])
+lookActions = Array[int]([3, 1, 2, 0])
 
 [node name="11to10" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12"), NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10")]
-lookActions = Array[int]([0, 1, 2, 3])
+lookActions = Array[int]([2, 0, 3, 1])
 
-[node name="StillfacingDown" type="Node2D" parent="Room1/PatrolIndicators"]
+[node name="StillfacingDown" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/13")]
+lookActions = Array[int]([1])
 
-[node name="StillfacingRight" type="Node2D" parent="Room1/PatrolIndicators"]
+[node name="StillfacingUp" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/15")]
+lookActions = Array[int]([0])
 
-[node name="StillfacingUp" type="Node2D" parent="Room1/PatrolIndicators"]
+[node name="StillfacingRight" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/14")]
+lookActions = Array[int]([3])
 
 [node name="Room2" type="Node2D" parent="."]
 
@@ -1027,7 +1112,6 @@ position = Vector2(9600, -2304)
 rotation = 1.5708
 
 [node name="DetectionZone" type="Node2D" parent="Room2"]
-visible = false
 
 [node name="LocalAllowedItems" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
 position = Vector2(5312, -1664)
@@ -1099,7 +1183,6 @@ allowedObjects = Array[String](["Gloves", "Bucket", "Broom"])
 assignedObjects = [NodePath("../../TransformObjects/Broom2"), NodePath("../../TransformObjects/Broom3"), NodePath("../../TransformObjects/Broom4"), NodePath("../../TransformObjects/Bucket2"), NodePath("../../TransformObjects/Gloves2"), NodePath("../../TransformObjects/Gloves3")]
 
 [node name="TransformObjects" type="Node2D" parent="Room2"]
-visible = false
 
 [node name="Broom" parent="Room2/TransformObjects" instance=ExtResource("4_0k0v2")]
 position = Vector2(3776, -2099)
@@ -1296,7 +1379,11 @@ position = Vector2(8896, -3072)
 [node name="15" type="Node2D" parent="Room2/NavigationPoints"]
 position = Vector2(7744, -3072)
 
-[node name="Path1" type="Node2D" parent="Room2/NavigationPoints"]
+[node name="16" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4224, -2688)
+
+[node name="17" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(7488, -2690)
 
 [node name="PatrolIndicator" type="Node2D" parent="Room2"]
 
@@ -1305,25 +1392,101 @@ script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/2"), NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4"), NodePath("../../NavigationPoints/1")]
-lookActions = Array[int]([2, 0, 3, 1])
+lookActions = Array[int]([1, 2, 0, 3])
 
 [node name="5to8" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/5"), NodePath("../../NavigationPoints/6"), NodePath("../../NavigationPoints/7"), NodePath("../../NavigationPoints/8")]
-lookActions = Array[int]([2, 1, 3, 0])
+lookActions = Array[int]([2, 2, 1, 3])
 
 [node name="9to12" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10"), NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12")]
-lookActions = Array[int]([3, 1, 3, 2])
+lookActions = Array[int]([3, 2, 1, 3])
 
 [node name="13to15" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+waitActions = Array[float]([1.0, 1.0, 1.0])
 moveActions = [NodePath("../../NavigationPoints/13"), NodePath("../../NavigationPoints/14"), NodePath("../../NavigationPoints/15")]
-lookActions = Array[int]([1, 2])
+lookActions = Array[int]([2, 1, 3])
+
+[node name="StillFacingRight" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/16")]
+lookActions = Array[int]([3])
+
+[node name="StillFacingDown" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/17")]
+lookActions = Array[int]([1])
+
+[node name="Guard" type="Node2D" parent="Room2"]
+
+[node name="Guard" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(3456, -3134)
+patrolIndicators = [NodePath("../../PatrolIndicator/2to1")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard2" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(4224, -2688)
+patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingRight")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard3" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(4928, -2240)
+patrolIndicators = [NodePath("../../PatrolIndicator/5to8")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard4" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(7232, -2240)
+patrolIndicators = [NodePath("../../PatrolIndicator/9to12")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard5" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(7488, -2688)
+patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingDown")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard6" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(8896, -3072)
+patrolIndicators = [NodePath("../../PatrolIndicator/13to15")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
