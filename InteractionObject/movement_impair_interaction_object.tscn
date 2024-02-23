@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kxl5qy84tcok" path="res://InteractionObject/Effects/movement_impair_effect.tscn" id="2_bn4dj"]
 
 [node name="MovementImpairInteractionObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_du1o7")]
-effectNegateProperty = "Slippery"
+effectNegateProperty = "Heavy"
 effect = NodePath("MovementImpairEffect")
 
 [node name="MovementImpairEffect" parent="." index="1" instance=ExtResource("2_bn4dj")]

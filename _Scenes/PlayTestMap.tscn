@@ -13,9 +13,9 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
-vertices = PackedVector2Array(-448, -1152, 576, -1152, 576, -1024, -448, -512, 704, -1024, 704, -1280, 1088, -1280, 2752, -2432, 1088, -1408, -832, -1408, -832, -2432, 1344, -3712, 1598.71, -3712, 2752, -2944, -960, -2432, -960, -2048, -1216, -2048, -1216, -2432, -1472, -2304, -1344, -2304, -1344, -2048, -1984, -2048, -1984, -3072, -1472, -2432, -1344, -3072, -1344, -2816, -1472, -2816, -1216, -2688, -1216, -3072, -960, -3072, -960, -2688, -832, -2688, -832, -3712, 1344, -3840, 1216, -3840, 1216, -4224, 1728, -4224, 1728, -3840, 1600, -3840, 2752, -3712, 2880, -2944, 2880, -3328, 3656, -3328, 3648, -2048, 3951.41, -3456, 3776, -3456, 3776, -4224, 4800, -4224, 4160, -3456, 4800, -3456, 4416, -3456, 4160, -3328, 4416, -3328, 9536, -3328, 9536, -2944, 9664, -2944, 9664, -2432, 9536, -2432, 9536, -2048, 5440, -2048, 5440, -1920, 5696, -1920, 5696, -1408, 4928, -1408, 4928, -1920, 5020.92, -1920, 2880, -2048, 2880, -2432, 2752, -1408, 2752, -512, 704, -512, 704, -768, 576, -768, 576, -512, 5184, -1920, 5184, -2048, -1472, -2688)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(18, 21, 22, 23), PackedInt32Array(22, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 11), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38), PackedInt32Array(33, 36, 38), PackedInt32Array(33, 38, 12, 11), PackedInt32Array(12, 39, 13), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 44, 47), PackedInt32Array(47, 49, 50), PackedInt32Array(48, 47, 50, 51), PackedInt32Array(51, 50, 52, 43), PackedInt32Array(52, 53, 54), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(57, 58, 59, 52), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(63, 64, 65), PackedInt32Array(43, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 3), PackedInt32Array(72, 3, 2, 4), PackedInt32Array(68, 71, 72, 4, 6), PackedInt32Array(68, 6, 8, 7), PackedInt32Array(52, 54, 57), PackedInt32Array(63, 65, 74), PackedInt32Array(60, 63, 74, 59), PackedInt32Array(59, 74, 75), PackedInt32Array(52, 59, 75), PackedInt32Array(52, 75, 43), PackedInt32Array(42, 51, 43), PackedInt32Array(40, 43, 67, 13), PackedInt32Array(13, 67, 7), PackedInt32Array(22, 26, 76), PackedInt32Array(23, 22, 76, 17), PackedInt32Array(17, 76, 27, 14), PackedInt32Array(14, 27, 30, 10), PackedInt32Array(10, 30, 31), PackedInt32Array(10, 31, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512, 576, -512, 576, -768, 704, -768, 704, -512, 2752, -512, 2752, -1408, 2752, -2432, 2880, -2432, 2880, -2048, 3648, -2048, 5184, -2048, 5184, -1920, 5020.92, -1920, 4928, -1920, 4928, -1408, 5696, -1408, 5696, -1920, 5440, -1920, 5440, -2048, 9536, -2048, 9536, -2432, 9664, -2432, 9664, -2944, 9536, -2944, 9536, -3328, 4416, -3328, 4416, -3456, 4800, -3456, 4800, -4224, 3776, -4224, 3776, -3456, 3951.41, -3456, 4160, -3456, 4160, -3328, 3656, -3328, 2880, -3328, 2880, -2944, 2752, -2944, 2752, -3712, 1598.71, -3712, 1600, -3840, 1728, -3840, 1728, -4224, 1216, -4224, 1216, -3840, 1344, -3840, 1344, -3712, -832, -3712, -832, -2688, -960, -2688, -960, -3072, -1216, -3072, -1216, -2688, -1472, -2688, -1472, -2816, -1344, -2816, -1344, -3072, -1984, -3072, -1984, -2048, -1344, -2048, -1344, -2304, -1472, -2304, -1472, -2432, -1216, -2432, -1216, -2048, -960, -2048, -960, -2432, -832, -2432, -832, -1408, 1088, -1408, 1088, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152)])
+vertices = PackedVector2Array(-448, -1152, 576, -1152, 576, -1024, -448, -512, 704, -1024, 704, -1280, 1088, -1280, 2752, -2432, 1088, -1408, -832, -1408, -832, -2432, 1344, -3712, 1598.71, -3712, 2752, -2944, -960, -2432, -960, -2048, -1216, -2048, -1216, -2432, -1472, -2304, -1344, -2304, -1344, -2048, -1984, -2048, -1984, -3072, -1472, -2432, -1344, -3072, -1344, -2816, -1472, -2816, -1216, -2688, -1216, -3072, -960, -3072, -960, -2688, -832, -2688, -832, -3712, 1344, -3840, 1216, -3840, 1216, -4224, 1728, -4224, 1728, -3840, 1600, -3840, 2752, -3712, 2880, -2944, 2880, -3328, 3656, -3328, 3648, -2048, 4160, -3456, 3776, -3456, 3776, -4224, 4800, -4224, 4800, -3456, 4416, -3456, 4160, -3328, 4416, -3328, 9536, -3328, 9536, -2944, 9664, -2944, 9664, -2432, 9536, -2432, 9536, -2048, 5440, -2048, 5440, -1920, 5696, -1920, 5696, -1408, 4928, -1408, 4928, -1920, 5184, -1920, 5184, -2048, 2880, -2048, 2880, -2432, 2752, -1408, 2752, -512, 704, -512, 704, -768, 576, -768, 576, -512, -1472, -2688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(18, 21, 22, 23), PackedInt32Array(22, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 11), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38), PackedInt32Array(33, 36, 38), PackedInt32Array(33, 38, 12, 11), PackedInt32Array(12, 39, 13), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(47, 48, 49), PackedInt32Array(44, 47, 49, 50), PackedInt32Array(50, 49, 51, 43), PackedInt32Array(51, 52, 53), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(56, 57, 58, 51), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(62, 63, 64), PackedInt32Array(59, 62, 64, 58), PackedInt32Array(58, 64, 65), PackedInt32Array(43, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 3), PackedInt32Array(72, 3, 2, 4), PackedInt32Array(68, 71, 72, 4, 6), PackedInt32Array(68, 6, 8, 7), PackedInt32Array(51, 53, 56), PackedInt32Array(51, 58, 65), PackedInt32Array(51, 65, 43), PackedInt32Array(42, 50, 43), PackedInt32Array(40, 43, 67, 13), PackedInt32Array(13, 67, 7), PackedInt32Array(22, 26, 74), PackedInt32Array(23, 22, 74, 17), PackedInt32Array(17, 74, 27, 14), PackedInt32Array(14, 27, 30, 10), PackedInt32Array(10, 30, 31), PackedInt32Array(10, 31, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512, 576, -512, 576, -768, 704, -768, 704, -512, 2752, -512, 2752, -1408, 2752, -2432, 2880, -2432, 2880, -2048, 3648, -2048, 5184, -2048, 5184, -1920, 4928, -1920, 4928, -1408, 5696, -1408, 5696, -1920, 5440, -1920, 5440, -2048, 9536, -2048, 9536, -2432, 9664, -2432, 9664, -2944, 9536, -2944, 9536, -3328, 4416, -3328, 4416, -3456, 4800, -3456, 4800, -4224, 3776, -4224, 3776, -3456, 4160, -3456, 4160, -3328, 3656, -3328, 2880, -3328, 2880, -2944, 2752, -2944, 2752, -3712, 1598.71, -3712, 1600, -3840, 1728, -3840, 1728, -4224, 1216, -4224, 1216, -3840, 1344, -3840, 1344, -3712, -832, -3712, -832, -2688, -960, -2688, -960, -3072, -1216, -3072, -1216, -2688, -1472, -2688, -1472, -2816, -1344, -2816, -1344, -3072, -1984, -3072, -1984, -2048, -1344, -2048, -1344, -2304, -1472, -2304, -1472, -2432, -1216, -2432, -1216, -2048, -960, -2048, -960, -2432, -832, -2432, -832, -1408, 1088, -1408, 1088, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152)])
 
 [node name="PlayTestMap" type="Node2D"]
 
@@ -41,20 +41,17 @@ position = Vector2(3008, -2688)
 position = Vector2(-1344, -2560)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject2" parent="Room1/Deathtraps" node_paths=PackedStringArray("effect") instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject2" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(960, -3200)
 scale = Vector2(2, 2)
-effect = NodePath("../MovementImpairInteractionObject/MovementImpairEffect")
 
-[node name="MovementImpairInteractionObject3" parent="Room1/Deathtraps" node_paths=PackedStringArray("effect") instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject3" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(960, -2560)
 scale = Vector2(2, 2)
-effect = NodePath("../MovementImpairInteractionObject/MovementImpairEffect")
 
-[node name="MovementImpairInteractionObject4" parent="Room1/Deathtraps" node_paths=PackedStringArray("effect") instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject4" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(960, -1920)
 scale = Vector2(2, 2)
-effect = NodePath("../MovementImpairInteractionObject/MovementImpairEffect")
 
 [node name="DetectionZone" type="Node2D" parent="Room1"]
 position = Vector2(-45, 214)
@@ -628,17 +625,14 @@ position = Vector2(-192, -1792)
 [node name="Buttons" type="Node2D" parent="Room1"]
 
 [node name="DeactivationButton" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-visible = false
 position = Vector2(2888, -3192)
 objectToDeactivate = NodePath("../../Deathtraps/DeathTrapInteractionObject")
 
 [node name="DeactivationButton2" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-visible = false
 position = Vector2(-968, -2936)
 objectToDeactivate = NodePath("../../Deathtraps/InteractionObject")
 
 [node name="DeactivationButton3" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-visible = false
 position = Vector2(-1480, -2720)
 objectToDeactivate = NodePath("../../Deathtraps/MovementImpairInteractionObject")
 
@@ -735,24 +729,24 @@ lookActions = Array[int]([2, 0, 3, 1])
 
 [node name="StillfacingDown" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0])
 moveActions = [NodePath("../../NavigationPoints/13")]
-lookActions = Array[int]([1])
+lookActions = Array[int]([1, 3])
 
 [node name="StillfacingUp" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0])
 moveActions = [NodePath("../../NavigationPoints/15")]
-lookActions = Array[int]([0])
+lookActions = Array[int]([0, 2])
 
 [node name="StillfacingRight" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0, 3.0, 3.0])
 moveActions = [NodePath("../../NavigationPoints/14")]
-lookActions = Array[int]([3])
+lookActions = Array[int]([3, 0, 3, 1])
 
 [node name="Room2" type="Node2D" parent="."]
 
