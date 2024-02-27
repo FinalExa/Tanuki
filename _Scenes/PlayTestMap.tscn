@@ -1,17 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=13 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
-[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="2_lexfe"]
-[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="3_rx25o"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
+[ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="4_0k0v2"]
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="5_amoh5"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_eovfk"]
+[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="6_ob1wc"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_s8vu6"]
+[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="7_xs62e"]
+[ext_resource type="PackedScene" uid="uid://g7yg1bvbr6yt" path="res://InteractionObject/Button/deactivation_button.tscn" id="8_h800m"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
-vertices = PackedVector2Array(4800, -384, 4800, 192, 4544, -64, 4544, -1152, 2624, 192, 3840, -64, 3584, -64, 2880, -64, 2624, -384, 2880, -1152, 5376, -768, 5376, -384, 4800, -768, 4800, -1408, 2624, -1408, 3840, -1152, 3584, -512, 3328, -512, 3328, -768, 3584, -768, 3584, -1152, 2624, -704, 1408, -384, 1408, -704, 1408, -1536, 1408, 320, 1024, -256, 1024, -1152, -384, -1536, 768, -1152, 256, -1216, 768, -256, -384, 320, 320, -128, 320, -256, 256, -576, 0, -1216, -384, -256, 0, -576, -384, -128)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 5, 4), PackedInt32Array(7, 6, 4), PackedInt32Array(7, 4, 8, 9), PackedInt32Array(10, 11, 0, 12), PackedInt32Array(12, 0, 3), PackedInt32Array(13, 12, 3), PackedInt32Array(14, 13, 3, 15), PackedInt32Array(15, 5, 6, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(15, 16, 19), PackedInt32Array(15, 19, 20), PackedInt32Array(14, 15, 20), PackedInt32Array(14, 20, 9), PackedInt32Array(21, 14, 9), PackedInt32Array(21, 9, 8), PackedInt32Array(21, 8, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 24, 27, 29, 30), PackedInt32Array(31, 26, 25, 32, 33), PackedInt32Array(29, 31, 34, 35, 30), PackedInt32Array(28, 30, 36), PackedInt32Array(37, 28, 36, 38), PackedInt32Array(34, 37, 38, 35), PackedInt32Array(32, 39, 33), PackedInt32Array(34, 31, 33)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1536, -384, -1536, -384, -256, 320, -256, 320, -128, -384, -128, -384, 320, 1408, 320), PackedVector2Array(768, -1152, 1024, -1152, 1024, -256, 768, -256), PackedVector2Array(0, -576, 256, -576, 256, -1216, 0, -1216), PackedVector2Array(5376, -384, 4800, -384, 4800, 192, 2624, 192, 2624, -384, 1408, -384, 1408, -704, 2624, -704, 2624, -1408, 4800, -1408, 4800, -768, 5376, -768), PackedVector2Array(2880, -1152, 3584, -1152, 3584, -768, 3328, -768, 3328, -512, 3584, -512, 3584, -64, 2880, -64), PackedVector2Array(3840, -1152, 4544, -1152, 4544, -64, 3840, -64)])
+vertices = PackedVector2Array(-448, -1152, 576, -1152, 576, -1024, -448, -512, 704, -1024, 704, -1280, 1088, -1280, 2752, -2432, 1088, -1408, -832, -1408, -832, -2432, 1344, -3712, 1598.71, -3712, 2752, -2944, -960, -2432, -960, -2048, -1216, -2048, -1216, -2432, -1472, -2304, -1344, -2304, -1344, -2048, -1984, -2048, -1984, -3072, -1472, -2432, -1344, -3072, -1344, -2816, -1472, -2816, -1216, -2688, -1216, -3072, -960, -3072, -960, -2688, -832, -2688, -832, -3712, 1344, -3840, 1216, -3840, 1216, -4224, 1728, -4224, 1728, -3840, 1600, -3840, 2752, -3712, 2880, -2944, 2880, -3328, 3656, -3328, 3648, -2048, 4160, -3456, 3776, -3456, 3776, -4224, 4800, -4224, 4800, -3456, 4416, -3456, 4160, -3328, 4416, -3328, 9536, -3328, 9536, -2944, 9664, -2944, 9664, -2432, 9536, -2432, 9536, -2048, 5440, -2048, 5440, -1920, 5696, -1920, 5696, -1408, 4928, -1408, 4928, -1920, 5184, -1920, 5184, -2048, 2880, -2048, 2880, -2432, 2752, -1408, 2752, -512, 704, -512, 704, -768, 576, -768, 576, -512, -1472, -2688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(18, 21, 22, 23), PackedInt32Array(22, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 11), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38), PackedInt32Array(33, 36, 38), PackedInt32Array(33, 38, 12, 11), PackedInt32Array(12, 39, 13), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(47, 48, 49), PackedInt32Array(44, 47, 49, 50), PackedInt32Array(50, 49, 51, 43), PackedInt32Array(51, 52, 53), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(56, 57, 58, 51), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(62, 63, 64), PackedInt32Array(59, 62, 64, 58), PackedInt32Array(58, 64, 65), PackedInt32Array(43, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 3), PackedInt32Array(72, 3, 2, 4), PackedInt32Array(68, 71, 72, 4, 6), PackedInt32Array(68, 6, 8, 7), PackedInt32Array(51, 53, 56), PackedInt32Array(51, 58, 65), PackedInt32Array(51, 65, 43), PackedInt32Array(42, 50, 43), PackedInt32Array(40, 43, 67, 13), PackedInt32Array(13, 67, 7), PackedInt32Array(22, 26, 74), PackedInt32Array(23, 22, 74, 17), PackedInt32Array(17, 74, 27, 14), PackedInt32Array(14, 27, 30, 10), PackedInt32Array(10, 30, 31), PackedInt32Array(10, 31, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512, 576, -512, 576, -768, 704, -768, 704, -512, 2752, -512, 2752, -1408, 2752, -2432, 2880, -2432, 2880, -2048, 3648, -2048, 5184, -2048, 5184, -1920, 4928, -1920, 4928, -1408, 5696, -1408, 5696, -1920, 5440, -1920, 5440, -2048, 9536, -2048, 9536, -2432, 9664, -2432, 9664, -2944, 9536, -2944, 9536, -3328, 4416, -3328, 4416, -3456, 4800, -3456, 4800, -4224, 3776, -4224, 3776, -3456, 4160, -3456, 4160, -3328, 3656, -3328, 2880, -3328, 2880, -2944, 2752, -2944, 2752, -3712, 1598.71, -3712, 1600, -3840, 1728, -3840, 1728, -4224, 1216, -4224, 1216, -3840, 1344, -3840, 1344, -3712, -832, -3712, -832, -2688, -960, -2688, -960, -3072, -1216, -3072, -1216, -2688, -1472, -2688, -1472, -2816, -1344, -2816, -1344, -3072, -1984, -3072, -1984, -2048, -1344, -2048, -1344, -2304, -1472, -2304, -1472, -2432, -1216, -2432, -1216, -2048, -960, -2048, -960, -2432, -832, -2432, -832, -1408, 1088, -1408, 1088, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152)])
 
 [node name="PlayTestMap" type="Node2D"]
 
@@ -19,440 +23,1464 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1408, -1536, -384, -153
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
-position = Vector2(-232, 218)
+position = Vector2(1480, -4048)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Room1" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
+[node name="Deathtraps" type="Node2D" parent="Room1"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
-position = Vector2(-256, 0)
-polygon = PackedVector2Array(0, 320, 0, 192, 2048, 192, 2048, 320)
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="Walls"]
-position = Vector2(-192, -192)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D6"]
-position = Vector2(-128, 0)
-polygon = PackedVector2Array(-64, 64, -64, -64, 640, -64, 640, 64)
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="Walls"]
-position = Vector2(-192, -824)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D7"]
-position = Vector2(0, -128)
-polygon = PackedVector2Array(192, 376, 192, -264, 448, -264, 448, 376)
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="Walls"]
-position = Vector2(576, -760)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D8"]
-polygon = PackedVector2Array(192, 504, 192, -392, 448, -392, 448, 504)
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, -1472)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D3"]
-polygon = PackedVector2Array(-256, -64, -256, -192, 1792, -192, 1792, -64)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
+[node name="InteractionObject" parent="Room1/Deathtraps" instance=ExtResource("6_ob1wc")]
+position = Vector2(-1152, -2560)
 rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D2"]
-position = Vector2(0.000465393, -128)
-polygon = PackedVector2Array(-192, -0.000701904, -192, -128.001, 1664, -127.994, 1664, 0.00601196)
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D4"]
-polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1664, 192.006, 1664, 320.006)
-
-[node name="StaticBody2D11" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D11"]
-position = Vector2(127.996, 1088)
-polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D15" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D15"]
-position = Vector2(127.988, 3392)
-polygon = PackedVector2Array(767.999, 320.003, 767.999, 192.003, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D21" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D21"]
-position = Vector2(-384.014, 3968)
-polygon = PackedVector2Array(1152, 320.004, 1152, 192.004, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D22" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D22"]
-position = Vector2(-768.015, 3968)
-polygon = PackedVector2Array(1152, 320.004, 1152, 192.004, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D16" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D16"]
-position = Vector2(-896.012, 3392)
-polygon = PackedVector2Array(831.999, 320.003, 831.999, 192.003, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D17" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D17"]
-position = Vector2(-320.011, 3008)
-polygon = PackedVector2Array(511.999, 320.002, 512.001, -383.998, 1600, -383.994, 1600, 320.006)
-
-[node name="StaticBody2D18" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D18"]
-position = Vector2(-320.007, 2048)
-polygon = PackedVector2Array(1216, 320.004, 1216, -383.996, 1600, -383.994, 1600, 320.006)
-
-[node name="StaticBody2D24" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D24"]
-position = Vector2(-640.007, 2048)
-polygon = PackedVector2Array(1280, 64.0046, 1280, -383.995, 1536, -383.995, 1536, 64.0054)
-
-[node name="StaticBody2D23" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D23"]
-position = Vector2(-960.007, 2048)
-polygon = PackedVector2Array(1152, 320.004, 1152, -383.999, 1600, -383.994, 1600, 320.006)
-
-[node name="StaticBody2D12" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 128)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D12"]
-position = Vector2(-1024, 1088)
-polygon = PackedVector2Array(959.999, 320.003, 959.999, 192.003, 1408, 192.005, 1408, 320.005)
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
-position = Vector2(1216, 1264)
-rotation = -1.5708
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D5"]
-polygon = PackedVector2Array(943.999, 320.003, 943.999, 192.003, 1648, 192.006, 1648, 320.006)
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D9"]
-position = Vector2(1792, -704)
-polygon = PackedVector2Array(0, 320, 0, 192, 1088, 192, 1088, 320)
-
-[node name="StaticBody2D19" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D19"]
-position = Vector2(5176, -688)
-polygon = PackedVector2Array(8, 304, 8, 176, 456, 176, 456, 304)
-
-[node name="StaticBody2D20" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D20"]
-position = Vector2(5176, -1200)
-polygon = PackedVector2Array(8, 304, 8, 176, 456, 176, 456, 304)
-
-[node name="StaticBody2D13" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D13"]
-position = Vector2(2752, -128)
-polygon = PackedVector2Array(0, 320, 0, 192, 2432, 192, 2432, 320)
-
-[node name="StaticBody2D14" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D14"]
-position = Vector2(2752, -1856)
-polygon = PackedVector2Array(0, 320, 0, 192, 2432, 192, 2432, 320)
-
-[node name="StaticBody2D10" type="StaticBody2D" parent="Walls"]
-position = Vector2(-256, 128)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D10"]
-position = Vector2(1792, -1152)
-polygon = PackedVector2Array(0, 320, 0, 192, 1088, 192, 1088, 320)
-
-[node name="NavigationPoints1" type="Node2D" parent="."]
-
-[node name="1" type="Node2D" parent="NavigationPoints1"]
-position = Vector2(576, -64)
-
-[node name="2" type="Node2D" parent="NavigationPoints1"]
-position = Vector2(576, -1344)
-
-[node name="3" type="Node2D" parent="NavigationPoints1"]
-position = Vector2(1216, -1344)
-
-[node name="4" type="Node2D" parent="NavigationPoints1"]
-position = Vector2(1216, -64)
-
-[node name="NavigationPoints2" type="Node2D" parent="."]
-
-[node name="5" type="Node2D" parent="NavigationPoints2"]
-position = Vector2(448, -416)
-
-[node name="6" type="Node2D" parent="NavigationPoints2"]
-position = Vector2(-192, -416)
-
-[node name="7" type="Node2D" parent="NavigationPoints2"]
-position = Vector2(-192, -1344)
-
-[node name="8" type="Node2D" parent="NavigationPoints2"]
-position = Vector2(448, -1344)
-
-[node name="NavigationPoints3" type="Node2D" parent="."]
-
-[node name="9" type="Node2D" parent="NavigationPoints3"]
-position = Vector2(1280, -65)
-
-[node name="10" type="Node2D" parent="NavigationPoints3"]
-position = Vector2(320, -960)
-
-[node name="11" type="Node2D" parent="NavigationPoints3"]
-position = Vector2(704, -896)
-
-[node name="NavigationPoints4" type="Node2D" parent="."]
-
-[node name="12" type="Node2D" parent="NavigationPoints4"]
-position = Vector2(3712, 64)
-
-[node name="13" type="Node2D" parent="NavigationPoints4"]
-position = Vector2(2752, 64)
-
-[node name="14" type="Node2D" parent="NavigationPoints4"]
-position = Vector2(2752, -1280)
-
-[node name="15" type="Node2D" parent="NavigationPoints4"]
-position = Vector2(3712, -1280)
-
-[node name="NavigationPoints5" type="Node2D" parent="."]
-
-[node name="16" type="Node2D" parent="NavigationPoints5"]
-position = Vector2(4672, 64)
-
-[node name="17" type="Node2D" parent="NavigationPoints5"]
-position = Vector2(3712, 64)
-
-[node name="18" type="Node2D" parent="NavigationPoints5"]
-position = Vector2(3712, -1280)
-
-[node name="19" type="Node2D" parent="NavigationPoints5"]
-position = Vector2(4672, -1280)
-
-[node name="Guards" type="Node2D" parent="."]
-
-[node name="Guard" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(1144, -64)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingLeft")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-
-[node name="Guard4" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(696, -816)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingLeft2")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-
-[node name="Guard5" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(328, -872)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillFacingRight")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-
-[node name="Guard2" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(640, -312)
-patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-
-[node name="Guard3" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("2_lexfe")]
-position = Vector2(384, -640)
-patrolIndicators = [NodePath("../../PatrolIndicators/5to8")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-
-[node name="Guard6" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
-position = Vector2(3712, -224)
-patrolIndicators = [NodePath("../../PatrolIndicators/12to15")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-guardCheck = NodePath("../Guard3/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard3/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard3/GuardStunned")
-guardMovement = NodePath("../Guard3/GuardMovement")
-guardPatrol = NodePath("../Guard3/GuardPatrol")
-guardAlert = NodePath("../Guard3/Rotator/GuardAlert")
-
-[node name="Guard7" parent="Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("2_lexfe")]
-position = Vector2(3712, -1064)
-patrolIndicators = [NodePath("../../PatrolIndicators/16to19")]
-navigationRegion = NodePath("../../NavigationRegion2D")
-guardCheck = NodePath("../Guard3/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard3/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard3/GuardStunned")
-guardMovement = NodePath("../Guard3/GuardMovement")
-guardPatrol = NodePath("../Guard3/GuardPatrol")
-guardAlert = NodePath("../Guard3/Rotator/GuardAlert")
-
-[node name="PatrolIndicators" type="Node2D" parent="."]
-
-[node name="1to4" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints1/2"), NodePath("../../NavigationPoints1/3"), NodePath("../../NavigationPoints1/4"), NodePath("../../NavigationPoints1/1")]
-lookActions = Array[int]([1, 2, 0, 3])
-
-[node name="5to8" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints2/5"), NodePath("../../NavigationPoints2/6"), NodePath("../../NavigationPoints2/7"), NodePath("../../NavigationPoints2/8")]
-lookActions = Array[int]([0, 3, 1, 2])
-
-[node name="12to15" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints4/12"), NodePath("../../NavigationPoints4/13"), NodePath("../../NavigationPoints4/14"), NodePath("../../NavigationPoints4/15")]
-lookActions = Array[int]([0, 3, 1, 2])
-
-[node name="16to19" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints5/18"), NodePath("../../NavigationPoints5/19"), NodePath("../../NavigationPoints5/16"), NodePath("../../NavigationPoints5/17")]
-lookActions = Array[int]([1, 2, 0, 3])
-
-[node name="StillFacingRight" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
-moveActions = [NodePath("../../NavigationPoints3/10")]
-lookActions = Array[int]([3])
-
-[node name="StillFacingLeft" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
-moveActions = [NodePath("../../NavigationPoints3/9")]
-lookActions = Array[int]([2])
-
-[node name="StillFacingLeft2" parent="PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_rx25o")]
-patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([3.0])
-moveActions = [NodePath("../../NavigationPoints3/11")]
-lookActions = Array[int]([2])
-
-[node name="TransformObjects" type="Node2D" parent="."]
-
-[node name="Feather" parent="TransformObjects" instance=ExtResource("4_0k0v2")]
-position = Vector2(-232, -56)
+scale = Vector2(-1.98857, 1)
+
+[node name="DeathTrapInteractionObject" parent="Room1/Deathtraps" instance=ExtResource("6_eovfk")]
+position = Vector2(3008, -2688)
+
+[node name="MovementImpairInteractionObject" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(-1344, -2560)
+scale = Vector2(2, 2)
+
+[node name="MovementImpairInteractionObject2" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(960, -3200)
+scale = Vector2(2, 2)
+
+[node name="MovementImpairInteractionObject3" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(960, -2560)
+scale = Vector2(2, 2)
+
+[node name="MovementImpairInteractionObject4" parent="Room1/Deathtraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(960, -1920)
+scale = Vector2(2, 2)
+
+[node name="DetectionZone" type="Node2D" parent="Room1"]
+position = Vector2(-45, 214)
+
+[node name="LocalAllowedItems" parent="Room1/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(109, -1046)
+scale = Vector2(51.2, 31.96)
+allowedObjects = Array[String](["HeavyBox"])
+assignedObjects = [NodePath("../../TransformObjects/HeavyBox5"), NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox4"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox6"), NodePath("../../TransformObjects/HeavyBox7"), NodePath("../../TransformObjects/HeavyBox8")]
+
+[node name="LocalAllowedItems2" parent="Room1/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(-1427, -2774)
+scale = Vector2(51.2, 51.2)
+allowedObjects = Array[String](["Feather"])
+assignedObjects = [NodePath("../../TransformObjects/Feather")]
+
+[node name="LocalAllowedItems3" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(-147, -2726)
+scale = Vector2(12.8048, 7.96288)
+allowedObjects = Array[String](["Statue"])
+
+[node name="LocalAllowedItems4" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(2029, -3078)
+scale = Vector2(12.8048, 7.96288)
+allowedObjects = Array[String](["Statue"])
+
+[node name="LocalAllowedItems5" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(2029, -2470)
+scale = Vector2(12.8048, 7.96288)
+allowedObjects = Array[String](["Statue"])
+
+[node name="TransformObjects" type="Node2D" parent="Room1"]
+
+[node name="Feather" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+position = Vector2(-1912, -2576)
 transformedName = "Feather"
 transformedMaxSpeed = 600.0
 transformedProperties = Array[String](["Light"])
 
-[node name="Feather3" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
-position = Vector2(4040, 8)
-transformedName = "Feather"
-transformedMaxSpeed = 600.0
+[node name="HeavyBox5" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(416, -994)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Light"])
 transformedCollider = NodePath("../Feather/CollisionShape2D")
 transformedTexture = NodePath("../Feather/Sprite2D")
 
-[node name="HeavyBox" parent="TransformObjects" instance=ExtResource("4_0k0v2")]
-position = Vector2(120, -56)
+[node name="HeavyBox" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+position = Vector2(-102, -824)
 transformedName = "HeavyBox"
 transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
 
-[node name="HeavyBox4" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
-position = Vector2(4344, -1224)
-transformedName = "HeavyBox"
-transformedMaxSpeed = 300.0
-transformedProperties = Array[String](["Heavy"])
-transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
-transformedTexture = NodePath("../HeavyBox/Sprite2D")
-
-[node name="HeavyBox2" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
-position = Vector2(-312, -952)
+[node name="HeavyBox4" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(184, -928)
 transformedName = "HeavyBox"
 transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox3" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
-position = Vector2(768, -1464)
+[node name="HeavyBox2" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-376, -1080)
 transformedName = "HeavyBox"
 transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="DetectionZone" type="Node2D" parent="."]
-position = Vector2(-45, 214)
+[node name="HeavyBox3" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-152, -1016)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="LocalAllowedItems" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-position = Vector2(13, -118)
-scale = Vector2(35.6, 22.48)
-allowedObjects = Array[String](["Feather", "HeavyBox"])
-assignedObjects = [NodePath("../../TransformObjects/Feather"), NodePath("../../TransformObjects/Feather3"), NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+[node name="HeavyBox6" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-376, -584)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="LocalAllowedItems4" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-position = Vector2(4237, -150)
-scale = Vector2(35.6, 12.96)
-allowedObjects = Array[String](["Feather", "HeavyBox"])
-assignedObjects = [NodePath("../../TransformObjects/Feather"), NodePath("../../TransformObjects/Feather3")]
+[node name="HeavyBox7" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(208, -600)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="LocalAllowedItems2" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-position = Vector2(-147, -1206)
-scale = Vector2(18.96, 22.48)
-allowedObjects = Array[String](["HeavyBox"])
-assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+[node name="HeavyBox8" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(504, -658)
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="LocalAllowedItems3" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-position = Vector2(845, -1558)
-scale = Vector2(35.12, 18.92)
-allowedObjects = Array[String](["HeavyBox"])
-assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+[node name="Statue" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-192, -1968)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="LocalAllowedItems5" parent="DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
-position = Vector2(4237, -1494)
-scale = Vector2(35.12, 12.44)
-allowedObjects = Array[String](["HeavyBox"])
-assignedObjects = [NodePath("../../TransformObjects/HeavyBox"), NodePath("../../TransformObjects/HeavyBox2"), NodePath("../../TransformObjects/HeavyBox3"), NodePath("../../TransformObjects/HeavyBox4")]
+[node name="Statue2" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-192, -2128)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="Deathtraps" type="Node2D" parent="."]
+[node name="Statue3" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-192, -2640)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="DeathTrapInteractionObject" parent="Deathtraps" instance=ExtResource("6_eovfk")]
-position = Vector2(1664, -544)
-scale = Vector2(3.96, 2.52)
-effectNegateProperty = "Light"
+[node name="Statue4" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-192, -2992)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="DeathTrapInteractionObject2" parent="Deathtraps" node_paths=PackedStringArray("effect") instance=ExtResource("6_eovfk")]
-position = Vector2(4288, 64)
-scale = Vector2(2, 2.08)
-effectNegateProperty = "Light"
-effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
+[node name="Statue5" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(-192, -3152)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="MovementImpairInteractionObject" parent="Deathtraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(5120, -576)
-scale = Vector2(4.00001, 2.96)
-effectNegateProperty = "Heavy"
+[node name="Statue6" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(1984, -1712)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+
+[node name="Statue7" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(1984, -1872)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+
+[node name="Statue8" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(1984, -2384)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+
+[node name="Statue9" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(1984, -2736)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+
+[node name="Guards" type="Node2D" parent="Room1"]
+
+[node name="Guard" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(-760, -2760)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingDown")]
+guardProperties = Array[String]([""])
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard2" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(-576, -1536)
+patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard3" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(192, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/3to2")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard4" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(704, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/6to5")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard5" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(1216, -3584)
+patrolIndicators = [NodePath("../../PatrolIndicators/7to8")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard6" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(1600, -1280)
+patrolIndicators = [NodePath("../../PatrolIndicators/9to12")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard7" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(2368, -3328)
+patrolIndicators = [NodePath("../../PatrolIndicators/11to10")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard2/GuardStunned")
+guardMovement = NodePath("../Guard2/GuardMovement")
+guardPatrol = NodePath("../Guard2/GuardPatrol")
+guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
+
+[node name="Guard8" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(1176, -1344)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingRight")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard9" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(2672, -2368)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingUp")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Walls" type="Node2D" parent="Room1"]
+
+[node name="Wall" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2624, -448)
+
+[node name="Wall2" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(576, -448)
+
+[node name="Wall3" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(320, -448)
+
+[node name="Wall4" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(64, -448)
+
+[node name="Wall5" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-192, -448)
+
+[node name="Wall17" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(192, -1216)
+
+[node name="Wall20" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(448, -1216)
+
+[node name="Wall23" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(704, -1344)
+
+[node name="Wall24" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(960, -1344)
+
+[node name="Wall18" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-64, -1216)
+
+[node name="Wall19" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-320, -1216)
+
+[node name="Wall25" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(192, -1344)
+
+[node name="Wall26" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(448, -1344)
+
+[node name="Wall27" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-64, -1344)
+
+[node name="Wall28" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-320, -1344)
+
+[node name="Wall29" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-576, -1344)
+
+[node name="Wall30" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-832, -1344)
+
+[node name="Wall65" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1088, -3136)
+
+[node name="Wall67" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1344, -3136)
+
+[node name="Wall68" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1600, -3136)
+
+[node name="Wall69" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1856, -3136)
+
+[node name="Wall70" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1088, -1984)
+
+[node name="Wall71" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1344, -1984)
+
+[node name="Wall81" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1344, -2368)
+
+[node name="Wall82" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1344, -2752)
+
+[node name="Wall72" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1600, -1984)
+
+[node name="Wall73" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1856, -1984)
+
+[node name="Wall6" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-448, -448)
+
+[node name="Wall7" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(832, -448)
+
+[node name="Wall8" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1088, -448)
+
+[node name="Wall9" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1344, -448)
+
+[node name="Wall36" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(448, -3776)
+
+[node name="Wall40" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(192, -3776)
+
+[node name="Wall41" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-64, -3776)
+
+[node name="Wall42" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-320, -3776)
+
+[node name="Wall43" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-576, -3776)
+
+[node name="Wall44" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-832, -3776)
+
+[node name="Wall45" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(704, -3776)
+
+[node name="Wall46" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(960, -3776)
+
+[node name="Wall47" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1216, -3776)
+
+[node name="Wall83" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1344, -4288)
+
+[node name="Wall84" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1600, -4288)
+
+[node name="Wall48" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1984, -3776)
+
+[node name="Wall49" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1728, -3776)
+
+[node name="Wall50" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2240, -3776)
+
+[node name="Wall51" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2496, -3776)
+
+[node name="Wall52" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2752, -3776)
+
+[node name="Wall10" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1600, -448)
+
+[node name="Wall11" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1856, -448)
+
+[node name="Wall12" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2112, -448)
+
+[node name="Wall13" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2368, -448)
+
+[node name="Wall14" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-512, -640)
+rotation = 1.5708
+
+[node name="Wall15" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-512, -1152)
+rotation = 1.5708
+
+[node name="Wall21" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(640, -1152)
+rotation = 1.5708
+
+[node name="Wall22" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(640, -640)
+rotation = 1.5708
+
+[node name="Wall16" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-512, -896)
+rotation = 1.5708
+
+[node name="Wall31" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -1536)
+rotation = 1.5708
+
+[node name="Wall32" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -2048)
+rotation = 1.5708
+
+[node name="Wall33" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -1792)
+rotation = 1.5708
+
+[node name="Wall34" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -2304)
+rotation = 1.5708
+
+[node name="Wall35" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -2816)
+rotation = 1.5708
+
+[node name="Wall37" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -3072)
+rotation = 1.5708
+
+[node name="Wall79" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1280, -2944)
+rotation = 1.5708
+
+[node name="Wall80" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1280, -2176)
+rotation = 1.5708
+
+[node name="Wall38" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -3584)
+rotation = 1.5708
+
+[node name="Wall39" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-896, -3328)
+rotation = 1.5708
+
+[node name="Wall85" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1152, -4224)
+rotation = 1.5708
+
+[node name="Wall86" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1152, -3968)
+rotation = 1.5708
+
+[node name="Wall87" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1792, -4224)
+rotation = 1.5708
+
+[node name="Wall88" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1792, -3968)
+rotation = 1.5708
+
+[node name="Wall54" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -3072)
+rotation = 1.5708
+
+[node name="Wall55" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -3584)
+rotation = 1.5708
+
+[node name="Wall56" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -3328)
+rotation = 1.5708
+
+[node name="Wall57" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -1792)
+rotation = 1.5708
+
+[node name="Wall58" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -2048)
+rotation = 1.5708
+
+[node name="Wall60" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -2304)
+rotation = 1.5708
+
+[node name="Wall74" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2048, -2816)
+rotation = 1.5708
+
+[node name="Wall75" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2048, -3072)
+rotation = 1.5708
+
+[node name="Wall76" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2048, -2048)
+rotation = 1.5708
+
+[node name="Wall77" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2048, -2560)
+rotation = 1.5708
+
+[node name="Wall78" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2048, -2304)
+rotation = 1.5708
+
+[node name="Wall61" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -768)
+rotation = 1.5708
+
+[node name="Wall66" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -512)
+rotation = 1.5708
+
+[node name="Wall62" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -1024)
+rotation = 1.5708
+
+[node name="Wall63" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -1536)
+rotation = 1.5708
+
+[node name="Wall64" parent="Room1/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2816, -1280)
+rotation = 1.5708
+
+[node name="Pillar" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(-192, -3328)
+
+[node name="Pillar5" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(1984, -3072)
+
+[node name="Pillar6" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(1984, -2560)
+
+[node name="Pillar7" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(1984, -2048)
+
+[node name="Pillar8" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(1984, -1536)
+
+[node name="Pillar2" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(-192, -2816)
+
+[node name="Pillar3" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(-192, -2304)
+
+[node name="Pillar4" parent="Room1/Walls" instance=ExtResource("3_6e2h4")]
+position = Vector2(-192, -1792)
+
+[node name="Buttons" type="Node2D" parent="Room1"]
+
+[node name="DeactivationButton" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
+position = Vector2(2888, -3192)
+objectToDeactivate = NodePath("../../Deathtraps/DeathTrapInteractionObject")
+
+[node name="DeactivationButton2" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
+position = Vector2(-968, -2936)
+objectToDeactivate = NodePath("../../Deathtraps/InteractionObject")
+
+[node name="DeactivationButton3" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
+position = Vector2(-1480, -2720)
+objectToDeactivate = NodePath("../../Deathtraps/MovementImpairInteractionObject")
+
+[node name="NavigationPoints" type="Node2D" parent="Room1"]
+
+[node name="1" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(-576, -1536)
+
+[node name="2" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(-576, -3584)
+
+[node name="3" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(192, -3584)
+
+[node name="4" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(192, -1536)
+
+[node name="5" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(704, -1536)
+
+[node name="6" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(704, -3584)
+
+[node name="7" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1216, -1536)
+
+[node name="8" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1216, -3584)
+
+[node name="9" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1600, -1280)
+
+[node name="10" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1600, -3320)
+
+[node name="11" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(2368, -3330)
+
+[node name="12" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(2368, -1280)
+
+[node name="13" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(-760, -2752)
+
+[node name="14" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(1176, -1344)
+
+[node name="15" type="Node2D" parent="Room1/NavigationPoints"]
+position = Vector2(2672, -2368)
+
+[node name="PatrolIndicators" type="Node2D" parent="Room1"]
+
+[node name="1to4" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2"), NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="3to2" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4"), NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="6to5" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/6"), NodePath("../../NavigationPoints/5")]
+lookActions = Array[int]([2, 3])
+
+[node name="7to8" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/7"), NodePath("../../NavigationPoints/8")]
+lookActions = Array[int]([3, 2])
+
+[node name="9to12" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10"), NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="11to10" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12"), NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="StillfacingDown" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0])
+moveActions = [NodePath("../../NavigationPoints/13")]
+lookActions = Array[int]([1, 3])
+
+[node name="StillfacingUp" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0])
+moveActions = [NodePath("../../NavigationPoints/15")]
+lookActions = Array[int]([0, 2])
+
+[node name="StillfacingRight" type="Node2D" parent="Room1/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
+waitActions = Array[float]([3.0, 3.0, 3.0, 3.0])
+moveActions = [NodePath("../../NavigationPoints/14")]
+lookActions = Array[int]([3, 0, 3, 1])
+
+[node name="Room2" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room2"]
+
+[node name="Wall59" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -3392)
+
+[node name="Wall89" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -3392)
+
+[node name="Wall90" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3520, -3392)
+
+[node name="Wall91" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3264, -3392)
+
+[node name="Wall92" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3008, -3392)
+
+[node name="Wall63" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -4288)
+
+[node name="Wall139" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4544, -4288)
+
+[node name="Wall140" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4288, -4288)
+
+[node name="Wall141" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -4288)
+
+[node name="Wall142" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -4288)
+
+[node name="Wall93" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4544, -3392)
+
+[node name="Wall94" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -3392)
+
+[node name="Wall95" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -3392)
+
+[node name="Wall96" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -3392)
+
+[node name="Wall97" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5568, -3392)
+
+[node name="Wall112" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5312, -3392)
+
+[node name="Wall98" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -3392)
+
+[node name="Wall99" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6336, -3392)
+
+[node name="Wall100" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6592, -3392)
+
+[node name="Wall101" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -3392)
+
+[node name="Wall102" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -3392)
+
+[node name="Wall103" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7360, -3392)
+
+[node name="Wall104" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7616, -3392)
+
+[node name="Wall105" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -3392)
+
+[node name="Wall106" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8384, -3392)
+
+[node name="Wall107" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -3392)
+
+[node name="Wall108" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8640, -3392)
+
+[node name="Wall109" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8896, -3392)
+
+[node name="Wall110" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9152, -3392)
+
+[node name="Wall111" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9408, -3392)
+
+[node name="Wall60" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -1984)
+
+[node name="Wall61" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4288, -1984)
+
+[node name="Wall113" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -1984)
+
+[node name="Wall114" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3520, -1984)
+
+[node name="Wall115" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3264, -1984)
+
+[node name="Wall116" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3008, -1984)
+
+[node name="Wall117" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4544, -1984)
+
+[node name="Wall118" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -1984)
+
+[node name="Wall119" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -1984)
+
+[node name="Wall143" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -2880)
+
+[node name="Wall144" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -2880)
+
+[node name="Wall145" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -2752)
+
+[node name="Wall146" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -2752)
+
+[node name="Wall147" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -2624)
+
+[node name="Wall148" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -2624)
+
+[node name="Wall149" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -2496)
+
+[node name="Wall150" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4032, -2496)
+
+[node name="Wall151" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -2880)
+
+[node name="Wall152" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -2880)
+
+[node name="Wall153" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -2752)
+
+[node name="Wall154" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -2752)
+
+[node name="Wall155" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -2624)
+
+[node name="Wall156" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -2624)
+
+[node name="Wall157" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4800, -2496)
+
+[node name="Wall158" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5056, -2496)
+
+[node name="Wall159" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -2880)
+
+[node name="Wall160" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -2880)
+
+[node name="Wall161" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -2752)
+
+[node name="Wall162" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -2752)
+
+[node name="Wall163" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -2624)
+
+[node name="Wall164" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -2624)
+
+[node name="Wall165" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -2496)
+
+[node name="Wall166" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -2496)
+
+[node name="Wall167" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -2880)
+
+[node name="Wall168" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -2880)
+
+[node name="Wall169" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -2752)
+
+[node name="Wall170" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -2752)
+
+[node name="Wall171" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -2624)
+
+[node name="Wall172" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -2624)
+
+[node name="Wall173" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -2496)
+
+[node name="Wall174" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -2496)
+
+[node name="Wall175" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -2880)
+
+[node name="Wall176" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -2880)
+
+[node name="Wall177" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -2752)
+
+[node name="Wall178" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -2752)
+
+[node name="Wall179" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -2624)
+
+[node name="Wall180" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -2624)
+
+[node name="Wall181" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -2496)
+
+[node name="Wall182" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -2496)
+
+[node name="Wall62" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4928, -1344)
+
+[node name="Wall122" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5184, -1344)
+
+[node name="Wall137" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5440, -1344)
+
+[node name="Wall138" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5696, -1344)
+
+[node name="Wall120" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5824, -1984)
+
+[node name="Wall121" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5568, -1984)
+
+[node name="Wall123" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6080, -1984)
+
+[node name="Wall124" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6336, -1984)
+
+[node name="Wall125" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6592, -1984)
+
+[node name="Wall126" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7104, -1984)
+
+[node name="Wall127" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(6848, -1984)
+
+[node name="Wall128" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7360, -1984)
+
+[node name="Wall129" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7616, -1984)
+
+[node name="Wall130" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(7872, -1984)
+
+[node name="Wall131" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8384, -1984)
+
+[node name="Wall132" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8128, -1984)
+
+[node name="Wall133" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8640, -1984)
+
+[node name="Wall134" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(8896, -1984)
+
+[node name="Wall135" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9152, -1984)
+
+[node name="Wall136" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9408, -1984)
+
+[node name="Wall183" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4864, -1536)
+rotation = 1.5708
+
+[node name="Wall184" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4864, -1792)
+rotation = 1.5708
+
+[node name="Wall185" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3712, -3584)
+rotation = 1.5708
+
+[node name="Wall186" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3712, -4096)
+rotation = 1.5708
+
+[node name="Wall187" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3712, -3840)
+rotation = 1.5708
+
+[node name="Wall188" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4864, -3584)
+rotation = 1.5708
+
+[node name="Wall189" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4864, -4096)
+rotation = 1.5708
+
+[node name="Wall190" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(4864, -3840)
+rotation = 1.5708
+
+[node name="Wall191" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5760, -1536)
+rotation = 1.5708
+
+[node name="Wall192" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(5760, -1792)
+rotation = 1.5708
+
+[node name="Wall64" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9600, -3072)
+rotation = 1.5708
+
+[node name="Wall193" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9600, -3328)
+rotation = 1.5708
+
+[node name="Wall194" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9600, -2048)
+rotation = 1.5708
+
+[node name="Wall195" parent="Room2/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(9600, -2304)
+rotation = 1.5708
+
+[node name="DetectionZone" type="Node2D" parent="Room2"]
+
+[node name="LocalAllowedItems" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(5312, -1664)
+scale = Vector2(38.4342, 25.6566)
+allowedObjects = Array[String](["Broom", "Bucket"])
+assignedObjects = [NodePath("../../TransformObjects/Shears"), NodePath("../../TransformObjects/Jar6"), NodePath("../../TransformObjects/Jar7"), NodePath("../../TransformObjects/Jar8")]
+
+[node name="LocalAllowedItems11" parent="Room2/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(5608, -2688)
+scale = Vector2(8.72452, -9.53286)
+allowedObjects = Array[String](["Statue", "Bucket", "Broom"])
+
+[node name="LocalAllowedItems12" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(6304, -2560)
+scale = Vector2(9.62141, -9.53286)
+allowedObjects = Array[String](["Bucket"])
+assignedObjects = [NodePath("../../TransformObjects/Statue11")]
+
+[node name="LocalAllowedItems3" parent="Room2/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(7488, -2688)
+scale = Vector2(25.4743, 25.6566)
+allowedObjects = Array[String](["Bucket", "Broom"])
+
+[node name="LocalAllowedItems4" parent="Room2/DetectionZone" instance=ExtResource("5_amoh5")]
+position = Vector2(6336, -3232)
+scale = Vector2(12.7943, 6.37662)
+allowedObjects = Array[String](["Bucket", "Broom"])
+
+[node name="LocalAllowedItems5" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(3904, -2176)
+scale = Vector2(25.6343, 12.8166)
+allowedObjects = Array[String](["Bucket", "Broom"])
+assignedObjects = [NodePath("../../TransformObjects/Broom")]
+
+[node name="LocalAllowedItems6" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(3904, -3232)
+scale = Vector2(19.2729, 9.58253)
+allowedObjects = Array[String](["Jar", "Gloves", "Shears"])
+assignedObjects = [NodePath("../../TransformObjects/Gloves"), NodePath("../../TransformObjects/Jar")]
+
+[node name="LocalAllowedItems7" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(4928, -3232)
+scale = Vector2(19.2729, 9.58252)
+allowedObjects = Array[String](["Gloves", "Jar", "Shears"])
+assignedObjects = [NodePath("../../TransformObjects/Jar2")]
+
+[node name="LocalAllowedItems8" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(5952, -3232)
+scale = Vector2(19.2729, 9.62255)
+allowedObjects = Array[String](["Jar", "Gloves", "Shears"])
+assignedObjects = [NodePath("../../TransformObjects/Jar3"), NodePath("../../TransformObjects/Shears2")]
+
+[node name="LocalAllowedItems9" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(6976, -3232)
+scale = Vector2(19.2729, 9.62549)
+allowedObjects = Array[String](["Jar", "Gloves", "Shears"])
+assignedObjects = [NodePath("../../TransformObjects/Jar4")]
+
+[node name="LocalAllowedItems10" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(8000, -3232)
+scale = Vector2(19.2729, 9.58579)
+allowedObjects = Array[String](["Jar", "Gloves", "Shears"])
+assignedObjects = [NodePath("../../TransformObjects/Jar5")]
+
+[node name="LocalAllowedItems2" parent="Room2/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
+position = Vector2(4288, -3840)
+scale = Vector2(51.1689, 38.4376)
+allowedObjects = Array[String](["Gloves", "Bucket", "Broom"])
+assignedObjects = [NodePath("../../TransformObjects/Broom2"), NodePath("../../TransformObjects/Broom3"), NodePath("../../TransformObjects/Broom4"), NodePath("../../TransformObjects/Bucket2"), NodePath("../../TransformObjects/Gloves2"), NodePath("../../TransformObjects/Gloves3")]
+
+[node name="TransformObjects" type="Node2D" parent="Room2"]
+
+[node name="Broom" parent="Room2/TransformObjects" instance=ExtResource("4_0k0v2")]
+position = Vector2(3776, -2099)
+transformedName = "Broom"
+transformedMaxSpeed = 400.0
+
+[node name="Broom2" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4040, -4176)
+transformedName = "Broom"
+transformedMaxSpeed = 400.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Broom3" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(3976, -4072)
+transformedName = "Broom"
+transformedMaxSpeed = 400.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Broom4" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(3827, -3848)
+transformedName = "Broom"
+transformedMaxSpeed = 400.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Gloves" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(3760, -3277)
+transformedName = "Gloves"
+transformedMaxSpeed = 250.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Gloves2" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4592, -4112)
+transformedName = "Gloves"
+transformedMaxSpeed = 250.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Gloves3" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4749, -3896)
+transformedName = "Gloves"
+transformedMaxSpeed = 250.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(3904, -3277)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar6" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5112, -1744)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar7" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5504, -1696)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar8" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5389, -1480)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar2" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4928, -3280)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar3" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5952, -3280)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar4" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(6976, -3280)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Jar5" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(8000, -3280)
+transformedName = "Jar"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Bucket2" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4288, -4018)
+transformedName = "Bucket"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Shears" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(4968, -1456)
+transformedName = "Shears"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Shears2" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5816, -3184)
+transformedName = "Shears"
+transformedMaxSpeed = 300.0
+transformedCollider = NodePath("../Broom/CollisionShape2D")
+transformedTexture = NodePath("../Broom/Sprite2D")
+
+[node name="Statue10" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(5240, -2690)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../../../Room1/TransformObjects/HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../../../Room1/TransformObjects/HeavyBox/Sprite2D")
+
+[node name="Statue11" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(6256, -2688)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../../../Room1/TransformObjects/HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../../../Room1/TransformObjects/HeavyBox/Sprite2D")
+
+[node name="Statue12" parent="Room2/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("4_0k0v2")]
+position = Vector2(6672, -2690)
+transformedName = "Statue"
+transformedMaxSpeed = 200.0
+transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../../../Room1/TransformObjects/HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../../../Room1/TransformObjects/HeavyBox/Sprite2D")
+
+[node name="NavigationPoints" type="Node2D" parent="Room2"]
+
+[node name="1" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(3456, -2240)
+
+[node name="2" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(3456, -3136)
+
+[node name="3" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4352, -3136)
+
+[node name="4" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4352, -2240)
+
+[node name="5" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4928, -2240)
+
+[node name="6" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(5440, -2240)
+
+[node name="7" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(5439, -3136)
+
+[node name="8" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4928, -3136)
+
+[node name="9" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(7232, -2240)
+
+[node name="10" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(6464, -2240)
+
+[node name="11" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(6464, -3072)
+
+[node name="12" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(5696, -3072)
+
+[node name="13" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(8896, -2440)
+
+[node name="14" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(8896, -3072)
+
+[node name="15" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(7744, -3072)
+
+[node name="16" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(4224, -2688)
+
+[node name="17" type="Node2D" parent="Room2/NavigationPoints"]
+position = Vector2(7488, -2690)
+
+[node name="PatrolIndicator" type="Node2D" parent="Room2"]
+
+[node name="2to1" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/2"), NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4"), NodePath("../../NavigationPoints/1")]
+lookActions = Array[int]([1, 2, 0, 3])
+
+[node name="5to8" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/5"), NodePath("../../NavigationPoints/6"), NodePath("../../NavigationPoints/7"), NodePath("../../NavigationPoints/8")]
+lookActions = Array[int]([2, 2, 1, 3])
+
+[node name="9to12" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10"), NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12")]
+lookActions = Array[int]([3, 2, 1, 3])
+
+[node name="13to15" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0])
+moveActions = [NodePath("../../NavigationPoints/13"), NodePath("../../NavigationPoints/14"), NodePath("../../NavigationPoints/15")]
+lookActions = Array[int]([2, 1, 3])
+
+[node name="StillFacingRight" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/16")]
+lookActions = Array[int]([3])
+
+[node name="StillFacingDown" type="Node2D" parent="Room2/PatrolIndicator" node_paths=PackedStringArray("moveActions")]
+script = ExtResource("11_plsik")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([3.0])
+moveActions = [NodePath("../../NavigationPoints/17")]
+lookActions = Array[int]([1])
+
+[node name="Guard" type="Node2D" parent="Room2"]
+
+[node name="Guard" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+position = Vector2(3456, -3134)
+patrolIndicators = [NodePath("../../PatrolIndicator/2to1")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+
+[node name="Guard2" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(4224, -2688)
+patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingRight")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard3" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(4928, -2240)
+patrolIndicators = [NodePath("../../PatrolIndicator/5to8")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard4" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(7232, -2240)
+patrolIndicators = [NodePath("../../PatrolIndicator/9to12")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard5" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(7488, -2688)
+patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingDown")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")
+
+[node name="Guard6" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+position = Vector2(8896, -3072)
+patrolIndicators = [NodePath("../../PatrolIndicator/13to15")]
+navigationRegion = NodePath("../../../NavigationRegion2D")
+guardCheck = NodePath("../Guard/Rotator/GuardCheck")
+guardResearch = NodePath("../Guard/Rotator/GuardResearch")
+guardStunned = NodePath("../Guard/GuardStunned")
+guardMovement = NodePath("../Guard/GuardMovement")
+guardPatrol = NodePath("../Guard/GuardPatrol")
+guardAlert = NodePath("../Guard/Rotator/GuardAlert")

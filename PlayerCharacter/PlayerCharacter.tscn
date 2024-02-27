@@ -21,6 +21,7 @@ transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 
 [node name="UI" parent="." instance=ExtResource("2_d3p1y")]
 
