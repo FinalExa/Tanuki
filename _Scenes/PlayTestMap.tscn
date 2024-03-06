@@ -61,7 +61,7 @@ position = Vector2(-45, 214)
 position = Vector2(109, -1046)
 scale = Vector2(51.2, 31.96)
 allowedObjects = Array[String](["HeavyBox"])
-assignedObjects = [NodePath(""), null, NodePath(""), null, NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+assignedObjects = [null, null, null, null, null, null, null, null]
 
 [node name="LocalAllowedItems2" parent="Room1/DetectionZone" node_paths=PackedStringArray("assignedObjects") instance=ExtResource("5_amoh5")]
 position = Vector2(-1427, -2774)

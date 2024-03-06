@@ -12,6 +12,7 @@ effect = NodePath("MoveEffect")
 polygon = PackedVector2Array(-64, 320, -64, -64, 64, -64, 64, 320)
 
 [node name="MoveEffect" parent="." index="1" instance=ExtResource("2_f33p7")]
+movementDistancePerTick = 600.0
 
 [node name="Zeb89Zephir" type="Sprite2D" parent="." index="2"]
 position = Vector2(-7.99996, 106.709)
