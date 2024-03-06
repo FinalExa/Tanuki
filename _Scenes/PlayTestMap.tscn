@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=15 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_s8vu6"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://TransformationObjects/heavy_box.tscn" id="7_ubwk7"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="7_xs62e"]
+[ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://TransformationObjects/statue.tscn" id="8_1qbxj"]
 [ext_resource type="PackedScene" uid="uid://g7yg1bvbr6yt" path="res://InteractionObject/Button/deactivation_button.tscn" id="8_h800m"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 
@@ -130,59 +131,48 @@ position = Vector2(504, -656)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="Statue" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue" parent="Room1/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -1968)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
 
-[node name="Statue2" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue2" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -2128)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue3" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue3" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -2640)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue4" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue4" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -2992)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue5" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue5" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -3152)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue6" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue6" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -1712)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue7" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue7" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -1872)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue8" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue8" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -2384)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
-[node name="Statue9" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Statue9" parent="Room1/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -2736)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Heavy"])
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="Room1"]
 
