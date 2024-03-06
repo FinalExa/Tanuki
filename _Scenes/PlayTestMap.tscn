@@ -69,7 +69,7 @@ assignedObjects = [null, null, null, null, null, null, null, null]
 position = Vector2(-1427, -2774)
 scale = Vector2(51.2, 51.2)
 allowedObjects = Array[String](["Feather"])
-assignedObjects = [NodePath("")]
+assignedObjects = [null]
 
 [node name="LocalAllowedItems3" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
 position = Vector2(-147, -2726)

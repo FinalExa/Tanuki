@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5u0mmv35267g"
-path="res://.godot/imported/tail.png-b278c2f78e1d22f0a555e5c649ae0e05.ctex"
+uid="uid://6y1qh0614ytp"
+path="res://.godot/imported/tail2.png-575381e095078fdc0db1583f966680c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/tail.png"
-dest_files=["res://.godot/imported/tail.png-b278c2f78e1d22f0a555e5c649ae0e05.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/tail2.png"
+dest_files=["res://.godot/imported/tail2.png-575381e095078fdc0db1583f966680c0.ctex"]
 
 [params]
 
