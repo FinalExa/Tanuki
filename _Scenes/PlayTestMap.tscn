@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=16 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="5_amoh5"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_eovfk"]
 [ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="6_ob1wc"]
+[ext_resource type="PackedScene" uid="uid://blf1b0nspss5j" path="res://TransformationObjects/feather.tscn" id="6_w2sd4"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_s8vu6"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://TransformationObjects/heavy_box.tscn" id="7_ubwk7"]
 [ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="7_xs62e"]
@@ -68,7 +69,7 @@ assignedObjects = [null, null, null, null, null, null, null, null]
 position = Vector2(-1427, -2774)
 scale = Vector2(51.2, 51.2)
 allowedObjects = Array[String](["Feather"])
-assignedObjects = [NodePath("../../TransformObjects/Feather")]
+assignedObjects = [NodePath("")]
 
 [node name="LocalAllowedItems3" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
 position = Vector2(-147, -2726)
@@ -87,11 +88,8 @@ allowedObjects = Array[String](["Statue"])
 
 [node name="TransformObjects" type="Node2D" parent="Room1"]
 
-[node name="Feather" parent="Room1/TransformObjects" instance=ExtResource("4_0k0v2")]
+[node name="Feather" parent="Room1/TransformObjects" instance=ExtResource("6_w2sd4")]
 position = Vector2(-1912, -2576)
-transformedName = "Feather"
-transformedMaxSpeed = 600.0
-transformedProperties = Array[String](["Light"])
 
 [node name="HeavyBox" parent="Room1/TransformObjects" instance=ExtResource("7_ubwk7")]
 position = Vector2(-104, -824)
