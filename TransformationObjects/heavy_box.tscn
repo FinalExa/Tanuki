@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://s0yf4ksieiki"]
+
+[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="1_o76i8"]
+[ext_resource type="Texture2D" uid="uid://bq36qh3lfi66p" path="res://TransformationObjects/Sprites/Placeholder/NONNO.png" id="2_t643h"]
+
+[node name="HeavyBox" instance=ExtResource("1_o76i8")]
+transformedName = "HeavyBox"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Heavy"])
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(5, 1.5)
+scale = Vector2(0.763889, 0.942623)
+texture = ExtResource("2_t643h")

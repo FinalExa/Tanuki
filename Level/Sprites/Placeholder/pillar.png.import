@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1c75rfnpya55"
-path="res://.godot/imported/transformObject.png-74b9cd213d04bdb28d943f939587d2dd.ctex"
+uid="uid://c07r0gcjq0b24"
+path="res://.godot/imported/pillar.png-1d60efc31198088a5b7c7182285f13db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TransformationObjects/Sprites/transformObject.png"
-dest_files=["res://.godot/imported/transformObject.png-74b9cd213d04bdb28d943f939587d2dd.ctex"]
+source_file="res://Level/Sprites/Placeholder/pillar.png"
+dest_files=["res://.godot/imported/pillar.png-1d60efc31198088a5b7c7182285f13db.ctex"]
 
 [params]
 

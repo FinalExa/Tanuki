@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://bsvvlx0xuucgg"]
+[gd_scene load_steps=2 format=3 uid="uid://bsvvlx0xuucgg"]
+
+[ext_resource type="Texture2D" uid="uid://c07r0gcjq0b24" path="res://Level/Sprites/Placeholder/pillar.png" id="1_teg0h"]
 
 [node name="Pillar" type="StaticBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)
+
+[node name="Pillar" type="Sprite2D" parent="."]
+position = Vector2(5.17188, -15.0677)
+scale = Vector2(1.81462, 1.60746)
+texture = ExtResource("1_teg0h")

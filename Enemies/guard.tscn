@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
-[ext_resource type="Texture2D" uid="uid://dn7bqp3hsgrfj" path="res://icon.svg" id="2_7u3uy"]
 [ext_resource type="Script" path="res://Enemies/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
@@ -11,6 +10,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
+[ext_resource type="Texture2D" uid="uid://bxyifyjfoqmx8" path="res://Enemies/Sprites/Placeholder/lapula.png" id="7_2tctk"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
 [ext_resource type="Script" path="res://Enemies/Scripts/ScreamArea.gd" id="11_xc2i3"]
@@ -102,7 +102,9 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-texture = ExtResource("2_7u3uy")
+position = Vector2(-4, -1.38283e-05)
+scale = Vector2(0.598425, 0.271698)
+texture = ExtResource("7_2tctk")
 
 [node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardRotator")]
 script = ExtResource("2_n1dev")
