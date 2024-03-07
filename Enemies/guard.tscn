@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
-[ext_resource type="Script" path="res://Enemies/GuardContact.gd" id="2_n1dev"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
