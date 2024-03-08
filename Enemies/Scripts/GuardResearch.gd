@@ -257,5 +257,6 @@ func add_feedback(feedbackToAdd):
 			return get_child(i)
 
 func remove_feedback(feedbackToRemove: Node2D):
-	remove_child(feedbackToRemove)
-	feedbackToRemove = null
+	if(feedbackToRemove != null):
+		remove_child(feedbackToRemove)
+		feedbackToRemove = null

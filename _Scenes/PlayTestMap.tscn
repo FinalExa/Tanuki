@@ -73,17 +73,12 @@ assignedObjects = [null]
 
 [node name="LocalAllowedItems3" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
 position = Vector2(-147, -2726)
-scale = Vector2(12.8048, 7.96288)
+scale = Vector2(12.805, 84.12)
 allowedObjects = Array[String](["Statue"])
 
 [node name="LocalAllowedItems4" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
-position = Vector2(2029, -3078)
-scale = Vector2(12.8048, 7.96288)
-allowedObjects = Array[String](["Statue"])
-
-[node name="LocalAllowedItems5" parent="Room1/DetectionZone" instance=ExtResource("5_amoh5")]
 position = Vector2(2029, -2470)
-scale = Vector2(12.8048, 7.96288)
+scale = Vector2(12.805, 82.11)
 allowedObjects = Array[String](["Statue"])
 
 [node name="TransformObjects" type="Node2D" parent="Room1"]
