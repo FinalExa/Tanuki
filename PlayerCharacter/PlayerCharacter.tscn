@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=12 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/Tail.tscn" id="6_gubbw"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/AttackHitbox.gd" id="9_xmiyi"]
+[ext_resource type="Texture2D" uid="uid://he43w3djx5gf" path="res://PlayerCharacter/Sprites/Placeholder/attack.png" id="10_5w8uw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
@@ -73,6 +74,12 @@ script = ExtResource("9_xmiyi")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/PlayerAttack/AttackHitbox"]
 polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator/PlayerAttack/AttackHitbox"]
+position = Vector2(1.93762, 3.3385)
+rotation = -1.57079
+scale = Vector2(0.154553, 0.58333)
+texture = ExtResource("10_5w8uw")
 
 [connection signal="set_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_set_temp_trs"]
 [connection signal="unset_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_unset_temp_trs"]

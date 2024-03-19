@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1c75rfnpya55"
-path="res://.godot/imported/transformObject.png-74b9cd213d04bdb28d943f939587d2dd.ctex"
+uid="uid://6y1qh0614ytp"
+path="res://.godot/imported/tail2.png-575381e095078fdc0db1583f966680c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TransformationObjects/Sprites/transformObject.png"
-dest_files=["res://.godot/imported/transformObject.png-74b9cd213d04bdb28d943f939587d2dd.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/tail2.png"
+dest_files=["res://.godot/imported/tail2.png-575381e095078fdc0db1583f966680c0.ctex"]
 
 [params]
 
