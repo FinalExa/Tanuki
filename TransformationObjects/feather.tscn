@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://blf1b0nspss5j"]
+
+[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="1_snb4i"]
+[ext_resource type="Texture2D" uid="uid://d0mruefo0ddlu" path="res://TransformationObjects/Sprites/Placeholder/feather.png" id="2_15b70"]
+
+[node name="Feather" instance=ExtResource("1_snb4i")]
+transformedName = "Feather"
+transformedMaxSpeed = 600.0
+transformedProperties = Array[String](["Light"])
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, 0.499996)
+scale = Vector2(0.277778, 0.280556)
+texture = ExtResource("2_15b70")
