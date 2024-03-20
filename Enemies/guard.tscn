@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvrh8nj8aokk1"]
+[gd_scene load_steps=31 format=3 uid="uid://dvrh8nj8aokk1"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/BT_Selector.gd" id="15_wdr74"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertCatchPreparation.gd" id="16_8kh41"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInResearch.gd" id="17_5me30"]
+[ext_resource type="Script" path="res://Enemies/GuardCheckHitboxChecker.gd" id="23_veg6g"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckReduction.gd" id="24_wi1hx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardMainCheckExecution.gd" id="25_83w75"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardPreCheck.gd" id="25_ydjbr"]
@@ -439,7 +440,12 @@ guardController = NodePath("../../../..")
 
 [node name="SelectorCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_wdr74")
-children = [NodePath("Sequence"), NodePath("GuardCheckReduction")]
+children = [NodePath("GuardCheckHitboxChecker"), NodePath("Sequence"), NodePath("GuardCheckReduction")]
+
+[node name="GuardCheckHitboxChecker" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardCheck", "guardController")]
+script = ExtResource("23_veg6g")
+guardCheck = NodePath("../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")

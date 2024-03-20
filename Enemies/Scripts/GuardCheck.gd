@@ -38,9 +38,6 @@ func _ready():
 	send_alert_value()
 	checkActive = true
 
-func _process(_delta):
-	body_checks()
-
 func reset_alert_value():
 	currentAlertValue = 0
 	controllerRef.isChecking = false
@@ -53,26 +50,6 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if (body is PlayerCharacter || body is TailFollow):
 		playerInsideCheckHitbox = false
-
-func body_checks():
-	if (checkActive):
-		if (playerInsideCheckHitbox && !checkWithRayCast):
-			checkWithRayCast = true
-			return
-		if (!playerInsideCheckHitbox):
-				determine_if_end_check(bodySave)
-
-func determine_if_end_check(_body):
-	if (guardController.isChecking == false):
-		checkWithRayCast = false
-		preCheckActive = false
-	else:
-		if (currentAlertValue >= researchValueThreshold):
-			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget)
-		else:
-			if (reductionOverTimeActive == false):
-				activate_reduction_over_time()
 
 func activate_reduction_over_time():
 	reductionOverTimeActive = true
