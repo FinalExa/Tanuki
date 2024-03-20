@@ -62,12 +62,6 @@ func body_checks():
 		if (!playerInsideCheckHitbox):
 				determine_if_end_check(bodySave)
 
-func activate_preCheck(target, multiplier):
-	preCheckActive = true
-	preCheckTimer = preCheckDuration
-	detectedTarget = target
-	selectedMultiplier = multiplier
-
 func determine_if_end_check(_body):
 	if (guardController.isChecking == false):
 		checkWithRayCast = false

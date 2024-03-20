@@ -180,60 +180,30 @@ position = Vector2(-576, -1536)
 patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
 
-[node name="Guard3" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard3" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(192, -3584)
 patrolIndicators = [NodePath("../../PatrolIndicators/3to2")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard2/GuardStunned")
-guardMovement = NodePath("../Guard2/GuardMovement")
-guardPatrol = NodePath("../Guard2/GuardPatrol")
-guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
 
-[node name="Guard4" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard4" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(704, -3584)
 patrolIndicators = [NodePath("../../PatrolIndicators/6to5")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard2/GuardStunned")
-guardMovement = NodePath("../Guard2/GuardMovement")
-guardPatrol = NodePath("../Guard2/GuardPatrol")
-guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
 
-[node name="Guard5" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard5" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(1216, -3584)
 patrolIndicators = [NodePath("../../PatrolIndicators/7to8")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard2/GuardStunned")
-guardMovement = NodePath("../Guard2/GuardMovement")
-guardPatrol = NodePath("../Guard2/GuardPatrol")
-guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
 
-[node name="Guard6" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard6" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(1600, -1280)
 patrolIndicators = [NodePath("../../PatrolIndicators/9to12")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard2/GuardStunned")
-guardMovement = NodePath("../Guard2/GuardMovement")
-guardPatrol = NodePath("../Guard2/GuardPatrol")
-guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
 
-[node name="Guard7" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard7" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(2368, -3328)
 patrolIndicators = [NodePath("../../PatrolIndicators/11to10")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard2/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard2/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard2/GuardStunned")
-guardMovement = NodePath("../Guard2/GuardMovement")
-guardPatrol = NodePath("../Guard2/GuardPatrol")
-guardAlert = NodePath("../Guard2/Rotator/GuardAlert")
 
 [node name="Guard8" parent="Room1/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(1176, -1344)
@@ -1359,64 +1329,34 @@ waitActions = Array[float]([3.0])
 moveActions = [NodePath("../../NavigationPoints/17")]
 lookActions = Array[int]([1])
 
-[node name="Guard" type="Node2D" parent="Room2"]
+[node name="Guards" type="Node2D" parent="Room2"]
 
-[node name="Guard" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
+[node name="Guard" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(3456, -3134)
 patrolIndicators = [NodePath("../../PatrolIndicator/2to1")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
 
-[node name="Guard2" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard2" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(4224, -2688)
 patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingRight")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard/GuardStunned")
-guardMovement = NodePath("../Guard/GuardMovement")
-guardPatrol = NodePath("../Guard/GuardPatrol")
-guardAlert = NodePath("../Guard/Rotator/GuardAlert")
 
-[node name="Guard3" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard3" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(4928, -2240)
 patrolIndicators = [NodePath("../../PatrolIndicator/5to8")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard/GuardStunned")
-guardMovement = NodePath("../Guard/GuardMovement")
-guardPatrol = NodePath("../Guard/GuardPatrol")
-guardAlert = NodePath("../Guard/Rotator/GuardAlert")
 
-[node name="Guard4" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard4" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(7232, -2240)
 patrolIndicators = [NodePath("../../PatrolIndicator/9to12")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard/GuardStunned")
-guardMovement = NodePath("../Guard/GuardMovement")
-guardPatrol = NodePath("../Guard/GuardPatrol")
-guardAlert = NodePath("../Guard/Rotator/GuardAlert")
 
-[node name="Guard5" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard5" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(7488, -2688)
 patrolIndicators = [NodePath("../../PatrolIndicator/StillFacingDown")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard/GuardStunned")
-guardMovement = NodePath("../Guard/GuardMovement")
-guardPatrol = NodePath("../Guard/GuardPatrol")
-guardAlert = NodePath("../Guard/Rotator/GuardAlert")
 
-[node name="Guard6" parent="Room2/Guard" node_paths=PackedStringArray("patrolIndicators", "navigationRegion", "guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert") instance=ExtResource("7_xs62e")]
+[node name="Guard6" parent="Room2/Guards" node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("7_xs62e")]
 position = Vector2(8896, -3072)
 patrolIndicators = [NodePath("../../PatrolIndicator/13to15")]
 navigationRegion = NodePath("../../../NavigationRegion2D")
-guardCheck = NodePath("../Guard/Rotator/GuardCheck")
-guardResearch = NodePath("../Guard/Rotator/GuardResearch")
-guardStunned = NodePath("../Guard/GuardStunned")
-guardMovement = NodePath("../Guard/GuardMovement")
-guardPatrol = NodePath("../Guard/GuardPatrol")
-guardAlert = NodePath("../Guard/Rotator/GuardAlert")

@@ -3,9 +3,9 @@ extends Node
 
 enum NodeState
 {
-	RUNNING,
+	FAILURE,
 	SUCCESS,
-	FAILURE
+	RUNNING
 }
 
 var state: NodeState

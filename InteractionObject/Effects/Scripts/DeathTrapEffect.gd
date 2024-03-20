@@ -3,7 +3,7 @@ extends InteractionObjectEffect
 @export var cooldownExtraReductionPerTick: float
 @export var guardLaunchDistance: float
 
-func execute_effect_normally(receivedBody: CharacterBody2D, delta):
+func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
 	if (receivedBody!=null):
 		if (receivedBody is PlayerCharacter):
 			get_tree().reload_current_scene()

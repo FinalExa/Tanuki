@@ -12,20 +12,18 @@ func _physics_process(_delta):
 	check_with_raycast()
 
 func check_with_raycast():
-	if (guardCheck.checkActive == true && guardCheck.checkWithRayCast == true):
+	if (guardCheck.checkActive && guardCheck.checkWithRayCast):
 		var space_state = guardCheck.get_world_2d().direct_space_state
 		for i in guardCheck.rayTargets.size():
 			var query = PhysicsRayQueryParameters2D.create(guardController.position, guardCheck.rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
-				determine_suspicion_type_with_conditions(result.collider)
+				determine_suspicion_type(result.collider)
 				break
+			else:
+				state = NodeState.FAILURE
 	else:
 		state = NodeState.FAILURE
-
-func determine_suspicion_type_with_conditions(target):
-	if (guardCheck.checkActive == true):
-		determine_suspicion_type(target)
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
@@ -51,12 +49,20 @@ func determine_suspicion_type(target):
 			return
 	if (target is TailFollow):
 		guardCheck.playerSeen = true
-		suspicion_active(target, guardCheck.playerIsSeenMultiplier)
 		guardCheck.researchOutcome = true
+		suspicion_active(target, guardCheck.playerIsSeenMultiplier)
+		return
+	state = NodeState.FAILURE
 
 func suspicion_active(target: Node2D, multiplier):
 	if (guardCheck.reductionOverTimeActive == true):
 		guardCheck.reductionOverTimeActive = false
-	if (guardCheck.preCheckActive == false && guardController.isChecking == false):
-		guardCheck.activate_preCheck(target, multiplier)
-		state = NodeState.SUCCESS
+	if (!guardCheck.preCheckActive && !guardController.isChecking):
+		activate_preCheck(target, multiplier)
+	state = NodeState.SUCCESS
+
+func activate_preCheck(target, multiplier):
+	guardCheck.preCheckActive = true
+	guardCheck.preCheckTimer = guardCheck.preCheckDuration
+	guardCheck.detectedTarget = target
+	guardCheck.selectedMultiplier = multiplier

@@ -15,7 +15,7 @@ func _ready():
 	sceneRef = self.get_parent()
 	transformationChangeRef.sceneRef = sceneRef
 
-func _process(delta):
+func _process(_delta):
 	if (Input.is_action_just_pressed("interact")):
 		activate_button()
 
