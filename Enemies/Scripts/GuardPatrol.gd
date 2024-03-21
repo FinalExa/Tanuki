@@ -97,7 +97,7 @@ func stop_patrol():
 	guardController.isInPatrol = false
 	patrolStopped = true
 	isRotating = false
-	guardController.guardMovement.set_location_target(guardController.global_position)
+	guardController.guardMovement.set_new_target(null)
 
 func restart_patrol():
 	guardController.isInPatrol = true

@@ -24,6 +24,7 @@ func research_secondary_raycast():
 func spot_player_from_afar(target):
 	if (target is PlayerCharacter):
 		var playerRef: PlayerCharacter = target
-		if (!playerRef.transformationChangeRef.isTransformed):
+		if (playerRef.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
 			guardResearch.save_target_info(target)
+		return true
 	return false

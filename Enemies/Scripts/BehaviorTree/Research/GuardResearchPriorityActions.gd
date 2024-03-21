@@ -55,6 +55,7 @@ func track_priority_target():
 	if (guardController.global_position.distance_to(guardResearch.researchLastPosition) > guardResearch.priorityTargetThresholdDistance):
 		if (guardResearch.researchTarget is PlayerCharacter && !guardResearch.researchTarget.transformationChangeRef.isTransformed):
 			guardResearch.set_research_target(guardResearch.researchLastPosition)
+			guardResearch.isTrackingPriorityTarget = true
 		else:
 			guardResearch.isTrackingPriorityTarget = false
 	else:

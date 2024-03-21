@@ -19,7 +19,7 @@ func research_main_raycast():
 			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, guardResearch.rayTargets[i].global_position)
 			var result = spaceState.intersect_ray(query)
 			if (result && result != { }):
-				guardResearch.researchHasFoundSomething = spotting_operations(result.collider)
+				spotting_operations(result.collider)
 				if (guardController.isInAlert):
 					return
 
@@ -28,12 +28,12 @@ func spotting_operations(trackedObject: Node2D):
 	spotting_result = player_detection(trackedObject)
 	if (spotting_result):
 		guardResearch.stop_research()
-		return spotting_result
+		return
 	spotting_result = stunned_guards_detection(trackedObject)
 	if (spotting_result):
-		return spotting_result
+		return
 	spotting_result = suspicious_objects_detection(trackedObject)
-	return spotting_result
+	return
 
 func player_detection(trackedObject: Node2D):
 	if ((trackedObject is PlayerCharacter &&

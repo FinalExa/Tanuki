@@ -31,7 +31,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardPreCheck.gd" id="25_ydjbr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
-[ext_resource type="Script" path="res://Enemies/GuardResearchPriorityActions.gd" id="27_b50io"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchPriorityActions.gd" id="27_dxtmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -447,7 +447,7 @@ guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
 guardController = NodePath("../../../../../..")
 
 [node name="GuardResearchPriorityActions" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
-script = ExtResource("27_b50io")
+script = ExtResource("27_dxtmq")
 guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
 guardController = NodePath("../../../../../..")
 
