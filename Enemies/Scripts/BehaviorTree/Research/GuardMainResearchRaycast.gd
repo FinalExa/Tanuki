@@ -8,7 +8,7 @@ func _ready():
 func Evaluate(_delta):
 	return state
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	research_main_raycast()
 	state = NodeState.SUCCESS
 
