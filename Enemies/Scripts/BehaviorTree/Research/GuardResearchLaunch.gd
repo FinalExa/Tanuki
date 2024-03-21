@@ -9,7 +9,6 @@ func research_launch_timer(delta):
 	if (!guardResearch.researchLaunched):
 		if (guardResearch.researchLaunchTimer > 0):
 			guardResearch.researchLaunchTimer -= delta
-			print("execute")
 			return NodeState.SUCCESS
 		else:
 			if (guardResearch.researchTarget is PlayerCharacter):

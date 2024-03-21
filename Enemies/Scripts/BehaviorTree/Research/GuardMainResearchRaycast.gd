@@ -9,10 +9,10 @@ func Evaluate(_delta):
 	return state
 
 func _physics_process(delta):
-	research_main_raycast(delta)
+	research_main_raycast()
 	state = NodeState.SUCCESS
 
-func research_main_raycast(delta):
+func research_main_raycast():
 	if (guardController.isInResearch && guardResearch.researchLaunched):
 		var spaceState = guardController.get_world_2d().direct_space_state
 		for i in guardResearch.rayTargets.size():
