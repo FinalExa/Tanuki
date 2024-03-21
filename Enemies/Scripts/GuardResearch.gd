@@ -82,9 +82,7 @@ func research_active(delta):
 			priority_actions()
 
 func research_raycasts(delta):
-	researchHasFoundSomething = false
 	var spaceState = guardController.get_world_2d().direct_space_state
-	research_secondary_raycast(spaceState)
 	if(researchLaunched):
 		research_main_raycast(spaceState, delta)
 
@@ -100,14 +98,6 @@ func research_main_raycast(spaceState, delta):
 		research_end_timer(delta)
 	else:
 		reset_research_end_timer()
-
-func research_secondary_raycast(spaceState):
-	pass
-	for i in secondaryRayTargets.size():
-		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, secondaryRayTargets[i].global_position)
-		var result = spaceState.intersect_ray(query)
-		if (result && result != { }):
-			researchHasFoundSomething = spot_player_from_afar(result.collider)
 
 func spotting_operations(trackedObject: Node2D):
 	var spotting_result: bool = false
@@ -151,13 +141,6 @@ func stunned_guards_detection(trackedObject: Node2D):
 				if (!trackedObject.guardsLookingForMe.has(self)):
 					trackedObject.guardsLookingForMe.push_back(self)
 			return true
-	return false
-
-func spot_player_from_afar(target):
-	if (target is PlayerCharacter):
-		var playerRef: PlayerCharacter = target
-		if (!playerRef.transformationChangeRef.isTransformed):
-			save_target_info(target)
 	return false
 
 func priority_actions():

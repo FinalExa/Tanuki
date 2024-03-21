@@ -436,8 +436,9 @@ guardController = NodePath("../../../../..")
 script = ExtResource("15_wdr74")
 children = [NodePath("GuardIsInResearch"), NodePath("Sequence")]
 
-[node name="GuardIsInResearch" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("guardController")]
+[node name="GuardIsInResearch" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("guardResearch", "guardController")]
 script = ExtResource("22_m4ta3")
+guardResearch = NodePath("../../../../Rotator/GuardResearch")
 guardController = NodePath("../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("children")]
