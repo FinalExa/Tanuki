@@ -15,7 +15,7 @@ func check_with_raycast():
 	if (guardCheck.checkActive && guardCheck.checkWithRayCast):
 		var space_state = guardCheck.get_world_2d().direct_space_state
 		for i in guardCheck.rayTargets.size():
-			var query = PhysicsRayQueryParameters2D.create(guardController.position, guardCheck.rayTargets[i].global_position)
+			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, guardCheck.rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
 				determine_suspicion_type(result.collider)
