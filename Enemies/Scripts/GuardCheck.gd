@@ -25,13 +25,7 @@ var playerSeen: bool
 var detectedTarget: Node2D
 var selectedMultiplier: float
 
-@export var guardRotator: GuardRotator
 @export var guardController: GuardController
-@export var guardAlertValue: GuardAlertValue
-@export var guardResearch: GuardResearch
-@export var guardAlert: GuardAlert
-@export var guardPatrol: GuardPatrol
-@export var guardStunned: GuardStunned
 
 func _ready():
 	reset_alert_value()
@@ -58,13 +52,13 @@ func activate_reduction_over_time():
 func activate_check(target: Node2D):
 	preCheckActive = false
 	guardController.isChecking = true
-	guardPatrol.stop_patrol()
+	guardController.guardPatrol.stop_patrol()
 	checkTarget = target
 
 func end_check():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
-	guardPatrol.resume_patrol()
+	guardController.guardPatrol.resume_patrol()
 
 func stop_guardCheck():
 	checkActive = false
@@ -81,7 +75,7 @@ func resume_check():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isChecking == true || checkActive == true):
 		stop_guardCheck()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
 
 func send_alert_value():
-	guardAlertValue.updateValue(currentAlertValue, maxAlertValue)
+	guardController.guardAlertValue.updateValue(currentAlertValue, maxAlertValue)

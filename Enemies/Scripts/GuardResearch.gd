@@ -31,13 +31,6 @@ var isTrackingPriorityTarget: bool
 @export var priorityTargetThresholdDistance: float
 
 @export var guardController: GuardController
-@export var guardAlertValue: GuardAlertValue
-@export var guardAlert: GuardAlert
-@export var guardPatrol: GuardPatrol
-@export var guardMovement: GuardMovement
-@export var guardRotator: GuardRotator
-@export var guardCheck: GuardCheck
-@export var guardStunned: GuardStunned
 
 func _ready():
 	startup_feedbacks()
@@ -45,7 +38,7 @@ func _ready():
 func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
-	guardAlertValue.updateText(researchActiveText)
+	guardController.guardAlertValue.updateText(researchActiveText)
 	mainAreaFeedbackInstance = add_feedback(mainAreaFeedback)
 	secondaryAreaFeedbackInstance = add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
@@ -62,14 +55,14 @@ func save_target_info(target):
 	isTrackingPriorityTarget = true
 
 func set_research_target(target: Vector2):
-	guardMovement.set_location_target(target)
-	guardMovement.reset_movement_speed()
-	guardRotator.setLookingAtPosition(target)
+	guardController.guardMovement.set_location_target(target)
+	guardController.guardMovement.reset_movement_speed()
+	guardController.guardRotator.setLookingAtPosition(target)
 
 func research_to_check():
-	guardCheck.currentAlertValue = onReturnToCheckAlertValue
+	guardController.guardCheck.currentAlertValue = onReturnToCheckAlertValue
 	stop_research()
-	guardCheck.resume_check()
+	guardController.guardCheck.resume_check()
 
 func stop_research():
 	remove_feedback(mainAreaFeedbackInstance)
@@ -78,12 +71,12 @@ func stop_research():
 
 func _on_guard_movement_reached_destination():
 	if (guardController.isInResearch == true):
-		guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
+		guardController.guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInResearch == true):
 		stop_research()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration
