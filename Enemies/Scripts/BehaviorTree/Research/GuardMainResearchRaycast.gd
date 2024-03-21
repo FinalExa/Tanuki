@@ -51,8 +51,8 @@ func suspicious_objects_detection(trackedObject: Node2D):
 		trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 		if (!guardResearch.suspiciousItemsList.has(trackedObject)):
 			guardResearch.suspiciousItemsList.push_back(trackedObject)
-			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(self)):
-				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(self)
+			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(guardResearch)):
+				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(guardResearch)
 		return true
 	return false
 
@@ -60,9 +60,15 @@ func stunned_guards_detection(trackedObject: Node2D):
 	if (trackedObject is GuardController &&
 		trackedObject.isStunned &&
 		trackedObject != guardController):
-			if (!guardResearch.stunnedGuardsList.has(trackedObject)):
+			if (!search_object_in_list(trackedObject, guardResearch.stunnedGuardsList)):
 				guardResearch.stunnedGuardsList.push_back(trackedObject)
-				if (!trackedObject.guardsLookingForMe.has(self)):
-					trackedObject.guardsLookingForMe.push_back(self)
+				if (!search_object_in_list(guardResearch, trackedObject.guardsLookingForMe)):
+					trackedObject.guardsLookingForMe.push_back(guardResearch)
+			return true
+	return false
+
+func search_object_in_list(objectToSearch, list):
+	for i in list.size():
+		if (list[i] == objectToSearch):
 			return true
 	return false

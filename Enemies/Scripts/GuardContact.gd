@@ -6,7 +6,8 @@ extends Area2D
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter && body.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
-		guardRotator.setLookingAtPosition(body.global_position)
+		if (!guardController.isStunned):
+			guardRotator.setLookingAtPosition(body.global_position)
 		if (guardController.isInAlert):
 			guardController.guardAlert.lastTargetPosition = body.global_position
 			guardController.guardAlert.extraTargetLocation = body.global_position

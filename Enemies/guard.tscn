@@ -69,25 +69,18 @@ bodyRef = NodePath("..")
 navigation_agent = NodePath("../NavigationAgent2D")
 default_movement_speed = 200.0
 
-[node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardMovement", "guardRotator", "guardStunned")]
+[node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("4_amsnv")
 guardController = NodePath("..")
-guardMovement = NodePath("../GuardMovement")
-guardRotator = NodePath("../Rotator")
-guardStunned = NodePath("../GuardStunned")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
-[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController", "guardPatrol", "guardCheck", "guardMovement", "guardRotator", "guardAlertValue")]
+[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("6_8wc3c")
-stunDuration = 5.0
+stunDuration = 20.0
 stunEndAlertValue = 35.0
+stunnedText = "STUNNED"
 guardController = NodePath("..")
-guardPatrol = NodePath("../GuardPatrol")
-guardCheck = NodePath("../Rotator/GuardCheck")
-guardMovement = NodePath("../GuardMovement")
-guardRotator = NodePath("../Rotator")
-guardAlertValue = NodePath("../AlertValue")
 
 [node name="AlertValue" type="Label" parent="."]
 offset_left = -80.0
@@ -107,7 +100,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 4.0
+rotationSpeed = 2.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
@@ -255,7 +248,7 @@ polygon = PackedVector2Array(0, 0, 128, -528, -128, -528)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/SecondaryAreaFeedback"]
 polygon = PackedVector2Array(0, 0, 152, -208, 200, -528, 168, -608, 88, -656, -88, -656, -168, -608, -200, -528, -152, -208)
 
-[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardAlertValue", "guardController", "guardMovement", "guardRotator", "guardResearch", "guardPatrol", "guardCheck", "guardStunned")]
+[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "guardController")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 375.0
 catchDistanceThreshold = 200.0
@@ -269,14 +262,7 @@ alertText = "ALERT"
 screamArea = NodePath("ScreamArea")
 returnToCheckAlertValue = 35.0
 alertAreaFeedback = NodePath("AlertAreaFeedback")
-guardAlertValue = NodePath("../../AlertValue")
 guardController = NodePath("../..")
-guardMovement = NodePath("../../GuardMovement")
-guardRotator = NodePath("..")
-guardResearch = NodePath("../GuardResearch")
-guardPatrol = NodePath("../../GuardPatrol")
-guardCheck = NodePath("../GuardCheck")
-guardStunned = NodePath("../../GuardStunned")
 
 [node name="Targets" type="Node2D" parent="Rotator/GuardAlert"]
 

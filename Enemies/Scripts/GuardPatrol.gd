@@ -2,9 +2,6 @@ class_name GuardPatrol
 extends Node
 
 @export var guardController: GuardController
-@export var guardMovement: GuardMovement
-@export var guardRotator: GuardRotator
-@export var guardStunned: GuardStunned
 @export var startupDuration: float
 @export var timeSpentDoingExtraPatrol: float
 var extraPatrolTimer: float
@@ -34,7 +31,7 @@ func _process(delta):
 
 func wait_for_rotation():
 	if (isRotating):
-		if (guardRotator.isDoneRotating == true):
+		if (guardController.guardRotator.isDoneRotating == true):
 			set_current_patrol_routine()
 			isRotating = false
 
@@ -51,14 +48,14 @@ func set_current_patrol_routine():
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
 func move_patrol_action(target):
-	guardMovement.set_location_target(target.global_position)
-	guardRotator.setLookingAtPosition(target.global_position)
+	guardController.guardMovement.set_location_target(target.global_position)
+	guardController.guardRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
 func wait_patrol_action(timer):
 	waitTimer = timer
-	guardMovement.set_new_target(null)
-	guardRotator.stopLooking()
+	guardController.guardMovement.set_new_target(null)
+	guardController.guardRotator.stopLooking()
 	isWaiting = true
 	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 
@@ -71,9 +68,9 @@ func wait_active(delta):
 			set_current_patrol_routine()
 
 func look_around_patrol_action(rotationPoint):
-	guardMovement.set_new_target(null)
-	guardRotator.stopLooking()
-	guardRotator.rotateTo(rotationPoint)
+	guardController.guardMovement.set_new_target(null)
+	guardController.guardRotator.stopLooking()
+	guardController.guardRotator.rotateTo(rotationPoint)
 	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 	isRotating = true
 
@@ -100,13 +97,13 @@ func stop_patrol():
 	guardController.isInPatrol = false
 	patrolStopped = true
 	isRotating = false
-	guardMovement.set_location_target(guardController.global_position)
+	guardController.guardMovement.set_location_target(guardController.global_position)
 
 func restart_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardMovement.reset_movement_speed()
+	guardController.guardMovement.reset_movement_speed()
 	reset_patrol()
 	set_current_patrol_routine()
 
@@ -118,7 +115,7 @@ func resume_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardMovement.reset_movement_speed()
+	guardController.guardMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
 func resume_patrol_operation():
@@ -136,7 +133,7 @@ func resume_patrol_operation():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInPatrol == true):
 		stop_patrol()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
 
 func initialize_startup():
 	startupTimer = startupDuration
