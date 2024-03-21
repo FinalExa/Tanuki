@@ -40,16 +40,7 @@ var isTrackingPriorityTarget: bool
 @export var guardStunned: GuardStunned
 
 func _ready():
-	mainAreaFeedbackInstance = mainAreaFeedback
-	remove_feedback(mainAreaFeedbackInstance)
-	secondaryAreaFeedbackInstance = secondaryAreaFeedback
-	remove_feedback(secondaryAreaFeedbackInstance)
-
-func  _physics_process(delta):
-	research_active(delta)
-
-func _process(delta):
-	research_launch_timer(delta)
+	startup_feedbacks()
 
 func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
@@ -75,127 +66,6 @@ func set_research_target(target: Vector2):
 	guardMovement.reset_movement_speed()
 	guardRotator.setLookingAtPosition(target)
 
-func research_active(delta):
-	if (guardController.isInResearch):
-		research_raycasts(delta)
-		if (researchLaunched):
-			priority_actions()
-
-func research_raycasts(delta):
-	var spaceState = guardController.get_world_2d().direct_space_state
-	if(researchLaunched):
-		research_main_raycast(spaceState, delta)
-
-func research_main_raycast(spaceState, delta):
-	for i in rayTargets.size():
-		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
-		var result = spaceState.intersect_ray(query)
-		if (result && result != { }):
-			researchHasFoundSomething = spotting_operations(result.collider)
-			if (guardController.isInAlert):
-				return
-	if (researchHasFoundSomething == false && stunnedGuardsList.size() == 0 && suspiciousItemsList.size() == 0):
-		research_end_timer(delta)
-	else:
-		reset_research_end_timer()
-
-func spotting_operations(trackedObject: Node2D):
-	var spotting_result: bool = false
-	spotting_result = player_detection(trackedObject)
-	if (spotting_result):
-		stop_research()
-		return spotting_result
-	spotting_result = stunned_guards_detection(trackedObject)
-	if (spotting_result):
-		return spotting_result
-	spotting_result = suspicious_objects_detection(trackedObject)
-	return spotting_result
-
-func player_detection(trackedObject: Node2D):
-	if ((trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.isTransformed == false) ||
-	trackedObject is TailFollow):
-		if (trackedObject is PlayerCharacter):
-			guardAlert.start_alert(trackedObject)
-		else:
-			guardAlert.start_alert(trackedObject.playerRef)
-		return true
-	return false
-
-func suspicious_objects_detection(trackedObject: Node2D):
-	if (trackedObject is PlayerCharacter &&
-		trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
-		if (!suspiciousItemsList.has(trackedObject)):
-			suspiciousItemsList.push_back(trackedObject)
-			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(self)):
-				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(self)
-		return true
-	return false
-
-func stunned_guards_detection(trackedObject: Node2D):
-	if (trackedObject is GuardController &&
-		trackedObject.isStunned &&
-		trackedObject != guardController):
-			if (!stunnedGuardsList.has(trackedObject)):
-				stunnedGuardsList.push_back(trackedObject)
-				if (!trackedObject.guardsLookingForMe.has(self)):
-					trackedObject.guardsLookingForMe.push_back(self)
-			return true
-	return false
-
-func priority_actions():
-	if (isTrackingPriorityTarget):
-		track_priority_target()
-	else:
-		var check: bool = false
-		check = help_guards()
-		if (!check):
-			check = investigate_objects()
-			if (check):
-				return
-
-func help_guards():
-	if (stunnedGuardsList.size()>0):
-		if (researchTarget != stunnedGuardsList[0]):
-			researchTarget = stunnedGuardsList[0]
-			set_research_target(researchTarget.global_position)
-		if (guardController.global_position.distance_to(researchLastPosition) <= stunnedGuardsThresholdDistance):
-			guardMovement.set_location_target(guardController.global_position)
-			var id: int = 0
-			for i in stunnedGuardsList[0].guardsLookingForMe.size():
-				if (stunnedGuardsList[0].guardsLookingForMe[i] == self):
-					id = i
-					break
-			stunnedGuardsList[0].guardsLookingForMe.remove_at(id)
-			stunnedGuardsList[0].guardStunned.end_stun()
-			stunnedGuardsList.remove_at(0)
-		return true
-	return false
-
-func investigate_objects():
-	if (suspiciousItemsList.size()>0):
-		if (researchTarget != suspiciousItemsList[0]):
-			researchTarget = suspiciousItemsList[0]
-			set_research_target(researchTarget.global_position)
-		if (guardController.global_position.distance_to(researchLastPosition) <= suspiciousItemsThresholdDistance):
-			guardMovement.set_location_target(guardController.global_position)
-			if (researchTarget is PlayerCharacter):
-				var tempPlayerReference: PlayerCharacter = researchTarget
-				suspiciousItemsList.remove_at(0)
-				tempPlayerReference.transformationChangeRef.deactivate_transformation()
-				stop_research()
-				guardAlert.start_alert(tempPlayerReference)
-				return true
-	return false
-
-func track_priority_target():
-	if (guardController.global_position.distance_to(researchLastPosition) > priorityTargetThresholdDistance):
-		if (researchTarget is PlayerCharacter && !researchTarget.transformationChangeRef.isTransformed):
-			set_research_target(researchLastPosition)
-		else: isTrackingPriorityTarget = false
-	else:
-		isTrackingPriorityTarget = false
-
 func research_to_check():
 	guardCheck.currentAlertValue = onReturnToCheckAlertValue
 	stop_research()
@@ -215,23 +85,14 @@ func _on_guard_damaged(direction: Vector2):
 		stop_research()
 		guardStunned.start_stun(direction)
 
-func research_end_timer(delta):
-	if (researchEndTimer>0):
-		researchEndTimer-=delta
-	else:
-		research_to_check()
-
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration
 
-func research_launch_timer(delta):
-	if (!researchLaunched):
-		if (researchLaunchTimer>0):
-			researchLaunchTimer-=delta
-		else:
-			if (researchTarget is PlayerCharacter):
-				set_research_target(researchLastPosition)
-			researchLaunched = true
+func startup_feedbacks():
+	mainAreaFeedbackInstance = mainAreaFeedback
+	remove_feedback(mainAreaFeedbackInstance)
+	secondaryAreaFeedbackInstance = secondaryAreaFeedback
+	remove_feedback(secondaryAreaFeedbackInstance)
 
 func add_feedback(feedbackToAdd):
 	add_child(feedbackToAdd)

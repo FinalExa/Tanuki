@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=36 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -17,18 +17,21 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInAlert.gd" id="13_ymqa5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertPreChase.gd" id="14_upctj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardIsInStun.gd" id="14_v1743"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_ixdn1"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardStunnedTimer.gd" id="15_ky3fu"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertTargetNotSeen.gd" id="15_smfg7"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/BT_Selector.gd" id="15_wdr74"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/GuardAlertCatchPreparation.gd" id="16_8kh41"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardIsInResearch.gd" id="22_m4ta3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardSecondaryResearchRaycast.gd" id="23_0dmw8"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchLaunch.gd" id="23_logam"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckHitboxChecker.gd" id="23_wfykk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardMainResearchRaycast.gd" id="24_s705y"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckReduction.gd" id="24_wi1hx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardMainCheckExecution.gd" id="25_83w75"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardPreCheck.gd" id="25_ydjbr"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
+[ext_resource type="Script" path="res://Enemies/GuardResearchPriorityActions.gd" id="27_b50io"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -393,7 +396,7 @@ script = ExtResource("11_hsu07")
 children = [NodePath("SelectorStunned"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck")]
 
 [node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_wdr74")
+script = ExtResource("15_ixdn1")
 children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
 
 [node name="GuardIsInStun" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardController")]
@@ -406,7 +409,7 @@ guardStunned = NodePath("../../../../GuardStunned")
 guardController = NodePath("../../../..")
 
 [node name="SelectorAlert" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_wdr74")
+script = ExtResource("15_ixdn1")
 children = [NodePath("GuardIsInAlert"), NodePath("Sequence")]
 
 [node name="GuardIsInAlert" type="Node" parent="BehaviorTree/Sequence/SelectorAlert" node_paths=PackedStringArray("guardController")]
@@ -433,30 +436,49 @@ guardAlert = NodePath("../../../../../Rotator/GuardAlert")
 guardController = NodePath("../../../../..")
 
 [node name="SelectorResearch" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_wdr74")
-children = [NodePath("GuardIsInResearch"), NodePath("Sequence")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("GuardIsInResearch"), NodePath("Selector")]
 
 [node name="GuardIsInResearch" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("guardResearch", "guardController")]
 script = ExtResource("22_m4ta3")
 guardResearch = NodePath("../../../../Rotator/GuardResearch")
 guardController = NodePath("../../../..")
 
-[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("children")]
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorResearch" node_paths=PackedStringArray("children")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("GuardResearchLaunch"), NodePath("Sequence")]
+
+[node name="GuardResearchLaunch" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector" node_paths=PackedStringArray("guardResearch", "guardController")]
+script = ExtResource("23_logam")
+guardResearch = NodePath("../../../../../Rotator/GuardResearch")
+guardController = NodePath("../../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")
-children = [NodePath("GuardSecondaryResearchRaycast"), NodePath("GuardMainResearchRaycast")]
+children = [NodePath("GuardSecondaryResearchRaycast"), NodePath("GuardMainResearchRaycast"), NodePath("GuardResearchEndCooldown"), NodePath("GuardResearchPriorityActions")]
 
-[node name="GuardSecondaryResearchRaycast" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
+[node name="GuardSecondaryResearchRaycast" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
 script = ExtResource("23_0dmw8")
-guardResearch = NodePath("../../../../../Rotator/GuardResearch")
-guardController = NodePath("../../../../..")
+guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
+guardController = NodePath("../../../../../..")
 
-[node name="GuardMainResearchRaycast" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
+[node name="GuardMainResearchRaycast" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
 script = ExtResource("24_s705y")
-guardResearch = NodePath("../../../../../Rotator/GuardResearch")
-guardController = NodePath("../../../../..")
+guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
+guardController = NodePath("../../../../../..")
+
+[node name="GuardResearchEndCooldown" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
+script = ExtResource("26_h724o")
+guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
+guardController = NodePath("../../../../../..")
+
+[node name="GuardResearchPriorityActions" type="Node" parent="BehaviorTree/Sequence/SelectorResearch/Selector/Sequence" node_paths=PackedStringArray("guardResearch", "guardController")]
+script = ExtResource("27_b50io")
+guardResearch = NodePath("../../../../../../Rotator/GuardResearch")
+guardController = NodePath("../../../../../..")
 
 [node name="SelectorCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_wdr74")
+script = ExtResource("15_ixdn1")
 children = [NodePath("GuardCheckHitboxChecker"), NodePath("Sequence"), NodePath("GuardCheckReduction")]
 
 [node name="GuardCheckHitboxChecker" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardCheck", "guardController")]
@@ -474,7 +496,7 @@ guardCheck = NodePath("../../../../../Rotator/GuardCheck")
 guardController = NodePath("../../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_wdr74")
+script = ExtResource("15_ixdn1")
 children = [NodePath("GuardPreCheck"), NodePath("GuardSuspicionValue")]
 
 [node name="GuardPreCheck" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
