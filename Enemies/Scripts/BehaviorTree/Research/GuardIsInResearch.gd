@@ -4,6 +4,5 @@ extends GuardNode
 
 func Evaluate(_delta):
 	if (guardController.isInResearch):
-		guardResearch.researchHasFoundSomething = false
 		return NodeState.FAILURE
 	return NodeState.SUCCESS
