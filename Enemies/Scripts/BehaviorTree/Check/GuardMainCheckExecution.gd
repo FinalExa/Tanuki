@@ -12,23 +12,26 @@ func Evaluate(_delta):
 	return state
 
 func main_check():
-	if (previousRaycastArray != guardCheck.raycastResult):
-		var foundSomething: bool = false
-		for i in guardCheck.raycastResult.size():
-			if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
-				foundSomething = true
-				previousResult = guardCheck.raycastResult[i]
-				determine_suspicion_type(guardCheck.raycastResult[i])
-				break
-		if (!foundSomething):
-			state = NodeState.FAILURE
-			previousResult = null
-		previousRaycastArray = guardCheck.raycastResult
-	else:
-		if (previousResult == null):
-			state = NodeState.FAILURE
+	if (guardCheck.checkWithRayCast):
+		if (previousRaycastArray != guardCheck.raycastResult):
+			var foundSomething: bool = false
+			for i in guardCheck.raycastResult.size():
+				if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
+					foundSomething = true
+					previousResult = guardCheck.raycastResult[i]
+					determine_suspicion_type(guardCheck.raycastResult[i])
+					break
+			if (!foundSomething):
+				state = NodeState.FAILURE
+				previousResult = null
+			previousRaycastArray = guardCheck.raycastResult
 		else:
-			determine_suspicion_type(previousResult)
+			if (previousResult == null):
+				state = NodeState.FAILURE
+			else:
+				determine_suspicion_type(previousResult)
+	else:
+		state = NodeState.FAILURE
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):

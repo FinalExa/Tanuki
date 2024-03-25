@@ -23,18 +23,6 @@ var patrolLookAroundIndex = 0
 func _ready():
 	loadedPatrolIndicator = guardController.patrolIndicators[0]
 
-func _process(delta):
-	startup(delta)
-	wait_active(delta)
-	extra_patrol_timer(delta)
-	wait_for_rotation()
-
-func wait_for_rotation():
-	if (isRotating):
-		if (guardController.guardRotator.isDoneRotating == true):
-			set_current_patrol_routine()
-			isRotating = false
-
 func set_current_patrol_routine():
 	if(guardController.isInPatrol == true):
 		var currentAction = loadedPatrolIndicator.patrolActions[patrolIndex]
@@ -58,14 +46,6 @@ func wait_patrol_action(timer):
 	guardController.guardRotator.stopLooking()
 	isWaiting = true
 	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
-
-func wait_active(delta):
-	if (isWaiting == true && patrolStopped == false):
-		if (waitTimer>0):
-			waitTimer-=delta
-		else:
-			isWaiting = false
-			set_current_patrol_routine()
 
 func look_around_patrol_action(rotationPoint):
 	guardController.guardMovement.set_new_target(null)
@@ -139,14 +119,6 @@ func initialize_startup():
 	startupTimer = startupDuration
 	startupActive = true
 
-func startup(delta):
-	if (startupActive == true):
-		if (startupTimer>0):
-			startupTimer-=delta
-		else:
-			set_current_patrol_routine()
-			startupActive = false
-
 func select_new_patrol_indicator():
 	if (guardController.patrolIndicators.size() > 1):
 		var storedIndex: int = 0
@@ -165,11 +137,3 @@ func select_new_patrol_indicator():
 			reset_patrol()
 		if (storedIndex != 0):
 			extraPatrolTimer = timeSpentDoingExtraPatrol
-
-func extra_patrol_timer(delta):
-	if (guardController.patrolIndicators.size() > 1 && loadedPatrolIndicator != guardController.patrolIndicators[0]):
-		if (extraPatrolTimer > 0):
-			extraPatrolTimer-=delta
-		else:
-			loadedPatrolIndicator = guardController.patrolIndicators[0]
-			reset_patrol()

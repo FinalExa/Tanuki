@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=42 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -33,6 +33,11 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchPriorityActions.gd" id="27_dxtmq"]
+[ext_resource type="Script" path="res://Enemies/GuardIsInPatrol.gd" id="34_wfqjn"]
+[ext_resource type="Script" path="res://Enemies/GuardPatrolStartup.gd" id="35_bb5ie"]
+[ext_resource type="Script" path="res://Enemies/GuardExtraPatrolTimer.gd" id="36_qc3ny"]
+[ext_resource type="Script" path="res://Enemies/GuardPatrolExecuteWait.gd" id="37_dn63d"]
+[ext_resource type="Script" path="res://Enemies/GuardPatrolWaitForRotation.gd" id="38_et11u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
@@ -368,7 +373,7 @@ root = NodePath("Sequence")
 
 [node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")
-children = [NodePath("SelectorStunned"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck")]
+children = [NodePath("SelectorStunned"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck"), NodePath("SelectorPatrol")]
 
 [node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
@@ -493,6 +498,47 @@ guardController = NodePath("../../../../../..")
 script = ExtResource("24_wi1hx")
 guardCheck = NodePath("../../../../Rotator/GuardCheck")
 guardController = NodePath("../../../..")
+
+[node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
+
+[node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("guardPatrol", "guardController")]
+script = ExtResource("34_wfqjn")
+guardPatrol = NodePath("../../../../GuardPatrol")
+guardController = NodePath("../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
+
+[node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
+script = ExtResource("35_bb5ie")
+guardPatrol = NodePath("../../../../../GuardPatrol")
+guardController = NodePath("../../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
+script = ExtResource("11_hsu07")
+children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
+
+[node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("guardPatrol", "guardController")]
+script = ExtResource("36_qc3ny")
+guardPatrol = NodePath("../../../../../../GuardPatrol")
+guardController = NodePath("../../../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRotation")]
+
+[node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
+script = ExtResource("37_dn63d")
+guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardController = NodePath("../../../../../../..")
+
+[node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
+script = ExtResource("38_et11u")
+guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
