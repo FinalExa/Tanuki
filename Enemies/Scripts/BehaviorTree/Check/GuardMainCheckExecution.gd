@@ -1,29 +1,34 @@
 extends GuardNode
 
 @export var guardCheck: GuardCheck
+var previousRaycastArray: Array[Node2D]
+var previousResult: Node2D
 
 func _ready():
 	state = NodeState.FAILURE
 
 func Evaluate(_delta):
+	main_check()
 	return state
 
-func _physics_process(_delta):
-	check_with_raycast()
-
-func check_with_raycast():
-	if (guardCheck.checkActive && guardCheck.checkWithRayCast):
-		var space_state = guardCheck.get_world_2d().direct_space_state
-		for i in guardCheck.rayTargets.size():
-			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, guardCheck.rayTargets[i].global_position)
-			var result = space_state.intersect_ray(query)
-			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
-				determine_suspicion_type(result.collider)
+func main_check():
+	if (previousRaycastArray != guardCheck.raycastResult):
+		var foundSomething: bool = false
+		for i in guardCheck.raycastResult.size():
+			if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
+				foundSomething = true
+				previousResult = guardCheck.raycastResult[i]
+				determine_suspicion_type(guardCheck.raycastResult[i])
 				break
-			else:
-				state = NodeState.FAILURE
+		if (!foundSomething):
+			state = NodeState.FAILURE
+			previousResult = null
+		previousRaycastArray = guardCheck.raycastResult
 	else:
-		state = NodeState.FAILURE
+		if (previousResult == null):
+			state = NodeState.FAILURE
+		else:
+			determine_suspicion_type(previousResult)
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):

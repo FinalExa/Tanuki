@@ -24,8 +24,12 @@ var playerInsideCheckHitbox: bool
 var playerSeen: bool
 var detectedTarget: Node2D
 var selectedMultiplier: float
+var raycastResult: Array[Node2D]
 
 @export var guardController: GuardController
+
+func _physics_process(delta):
+	check_raycast()
 
 func _ready():
 	reset_alert_value()
@@ -35,6 +39,18 @@ func _ready():
 func reset_alert_value():
 	currentAlertValue = 0
 	controllerRef.isChecking = false
+
+func check_raycast():
+	if (checkWithRayCast):
+		var space_state = get_world_2d().direct_space_state
+		raycastResult.clear()
+		for i in rayTargets.size():
+			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }): 
+				raycastResult.push_back(result.collider)
+			else:
+				raycastResult.push_back(null)
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is TailFollow):
