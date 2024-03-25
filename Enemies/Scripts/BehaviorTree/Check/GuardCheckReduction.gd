@@ -9,4 +9,5 @@ func Evaluate(delta):
 			guardCheck.send_alert_value()
 		else:
 			guardCheck.end_check()
+		return NodeState.SUCCESS
 	return NodeState.FAILURE

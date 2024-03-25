@@ -12,31 +12,28 @@ func Evaluate(_delta):
 	return state
 
 func main_check():
-	if (guardCheck.checkWithRayCast):
-		if (previousRaycastArray != guardCheck.raycastResult):
-			var foundSomething: bool = false
-			for i in guardCheck.raycastResult.size():
-				if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
-					foundSomething = true
-					previousResult = guardCheck.raycastResult[i]
-					determine_suspicion_type(guardCheck.raycastResult[i])
-					break
-			if (!foundSomething):
-				state = NodeState.FAILURE
-				previousResult = null
-			previousRaycastArray = guardCheck.raycastResult
-		else:
-			if (previousResult == null):
-				state = NodeState.FAILURE
-			else:
-				determine_suspicion_type(previousResult)
+	if (previousRaycastArray != guardCheck.raycastResult):
+		var foundSomething: bool = false
+		for i in guardCheck.raycastResult.size():
+			if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
+				foundSomething = true
+				previousResult = guardCheck.raycastResult[i]
+				determine_suspicion_type(guardCheck.raycastResult[i])
+				break
+		if (!foundSomething):
+			state = NodeState.FAILURE
+			previousResult = null
+		previousRaycastArray = guardCheck.raycastResult
 	else:
-		state = NodeState.FAILURE
+		if (previousResult == null):
+			state = NodeState.FAILURE
+		else:
+			determine_suspicion_type(previousResult)
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
 		guardController.guardRotator.setLookingAtPosition(target.global_position)
-		if(target.transformationChangeRef.isTransformed == false):
+		if (!target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)
 			guardCheck.researchOutcome = true
@@ -46,8 +43,7 @@ func determine_suspicion_type(target):
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
 			return
-		var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
-		if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
+		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false

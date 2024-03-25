@@ -9,6 +9,7 @@ func body_checks():
 	if (guardCheck.checkActive):
 		if (guardCheck.playerInsideCheckHitbox && !guardCheck.checkWithRayCast):
 			guardCheck.checkWithRayCast = true
+			guardCheck.reductionOverTimeActive = false
 			return NodeState.FAILURE
 		if (!guardCheck.playerInsideCheckHitbox):
 				return determine_if_end_check(guardCheck.bodySave)
