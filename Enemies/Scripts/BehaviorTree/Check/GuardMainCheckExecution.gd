@@ -32,6 +32,7 @@ func main_check():
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
+		guardController.guardRotator.setLookingAtPosition(target.global_position)
 		if(target.transformationChangeRef.isTransformed == false):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)
@@ -53,6 +54,7 @@ func determine_suspicion_type(target):
 			guardCheck.researchOutcome = false
 			return
 	if (target is TailFollow):
+		guardController.guardRotator.setLookingAtPosition(target.global_position)
 		guardCheck.playerSeen = true
 		guardCheck.researchOutcome = true
 		suspicion_active(target, guardCheck.playerIsSeenMultiplier)

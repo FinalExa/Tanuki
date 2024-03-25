@@ -28,7 +28,7 @@ var raycastResult: Array[Node2D]
 
 @export var guardController: GuardController
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	check_raycast()
 
 func _ready():

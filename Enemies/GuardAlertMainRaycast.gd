@@ -5,10 +5,10 @@ extends GuardNode
 func _ready():
 	state = NodeState.FAILURE
 
-func Evaluate(delta):
+func Evaluate(_delta):
 	return state
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	target_tracker_operations()
 
 func target_tracker_operations():

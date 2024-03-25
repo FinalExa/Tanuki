@@ -1,27 +1,32 @@
 extends GuardNode
 
 @export var guardResearch: GuardResearch
+var previousRaycastArray: Array[Node2D]
+var previousResult: Array[Node2D]
 
 func _ready():
 	state = NodeState.FAILURE
 
 func Evaluate(_delta):
-	return state
-
-func _physics_process(_delta):
-	research_main_raycast()
-	state = NodeState.SUCCESS
+	if (guardResearch.researchLaunched):
+		research_main_raycast()
+		return NodeState.SUCCESS
+	else:
+		return NodeState.FAILURE
 
 func research_main_raycast():
-	if (guardController.isInResearch && guardResearch.researchLaunched):
-		var spaceState = guardController.get_world_2d().direct_space_state
-		for i in guardResearch.rayTargets.size():
-			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, guardResearch.rayTargets[i].global_position)
-			var result = spaceState.intersect_ray(query)
-			if (result && result != { }):
-				spotting_operations(result.collider)
+	if (guardResearch.mainRaycastResult != previousRaycastArray):
+		previousResult.clear()
+		for i in guardResearch.mainRaycastResult.size():
+			if (guardResearch.mainRaycastResult[i] != null):
+				if (!previousResult.has(guardResearch.mainRaycastResult[i])):
+					previousResult.push_back(guardResearch.mainRaycastResult[i])
+				spotting_operations(guardResearch.mainRaycastResult[i])
 				if (guardController.isInAlert):
 					return
+	else:
+		for i in previousResult.size():
+			spotting_operations(previousResult[i])
 
 func spotting_operations(trackedObject: Node2D):
 	var spotting_result: bool = false

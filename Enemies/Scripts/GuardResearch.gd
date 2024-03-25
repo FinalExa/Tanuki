@@ -29,11 +29,16 @@ var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
 @export var priorityTargetThresholdDistance: float
+var mainRaycastResult: Array[Node2D]
+var secondaryRaycastResult: Array[Node2D]
 
 @export var guardController: GuardController
 
 func _ready():
 	startup_feedbacks()
+
+func _physics_process(_delta):
+	research_raycasts()
 
 func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
@@ -47,6 +52,24 @@ func initialize_guard_research(target: Node2D):
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
+
+func research_raycasts():
+	if (guardController.isInResearch):
+		secondaryRaycastResult = launch_raycast(secondaryRayTargets)
+		mainRaycastResult = launch_raycast(rayTargets)
+	
+func launch_raycast(rayList: Array[Node2D]):
+	var raycastResult: Array[Node2D] = []
+	raycastResult.clear()
+	var space_state = get_world_2d().direct_space_state
+	for i in rayList.size():
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayList[i].global_position)
+		var result = space_state.intersect_ray(query)
+		if (result && result != { }): 
+			raycastResult.push_back(result.collider)
+		else:
+			raycastResult.push_back(null)
+	return raycastResult
 
 func save_target_info(target):
 	researchTarget = target
