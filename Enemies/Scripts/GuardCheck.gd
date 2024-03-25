@@ -42,7 +42,7 @@ func reset_alert_value():
 
 func check_raycast():
 	if (checkWithRayCast):
-		var space_state = get_world_2d().direct_space_state
+		var space_state = guardController.get_world_2d().direct_space_state
 		raycastResult.clear()
 		for i in rayTargets.size():
 			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)

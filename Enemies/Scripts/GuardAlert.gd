@@ -29,11 +29,16 @@ var alertTarget: Node2D
 var lastTargetPosition: Vector2
 var lastTargetDirection: Vector2
 var extraTargetLocation: Vector2
+var raycastResult: Array[Node2D]
+var extraLocationSet: bool
 
 @export var guardController: GuardController
 
 func _ready():
 	setup_areas()
+
+func _physics_process(_delta):
+	alert_raycasts()
 
 func start_alert(target):
 	guardController.guardAlertValue.updateText(alertText)
@@ -49,6 +54,32 @@ func start_alert(target):
 	secondLocationTargetCheckLaunched = false
 	lostSightOfPlayer = false
 	guardController.isInAlert = true
+
+func alert_raycasts():
+	if (guardController.isInAlert):
+		var space_state = guardController.get_world_2d().direct_space_state
+		main_alert_raycast(space_state)
+		if (secondLocationTargetCheckLaunched && !extraLocationSet):
+			extraTargetLocation = set_possible_second_destination(space_state)
+
+func main_alert_raycast(space_state):
+		raycastResult.clear()
+		for i in rayTargets.size():
+			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }): 
+				raycastResult.push_back(result.collider)
+			else:
+				raycastResult.push_back(null)
+
+func set_possible_second_destination(space_state):
+		var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
+		var result = space_state.intersect_ray(query)
+		extraLocationSet = true
+		if (result && result != { }):
+				return result.position
+		return searchPosition
 
 func set_last_target_info(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position

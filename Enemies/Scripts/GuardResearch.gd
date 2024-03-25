@@ -55,13 +55,13 @@ func initialize_guard_research(target: Node2D):
 
 func research_raycasts():
 	if (guardController.isInResearch):
-		secondaryRaycastResult = launch_raycast(secondaryRayTargets)
-		mainRaycastResult = launch_raycast(rayTargets)
+		var space_state = guardController.get_world_2d().direct_space_state
+		secondaryRaycastResult = launch_raycast(secondaryRayTargets, space_state)
+		mainRaycastResult = launch_raycast(rayTargets, space_state)
 	
-func launch_raycast(rayList: Array[Node2D]):
+func launch_raycast(rayList: Array[Node2D], space_state):
 	var raycastResult: Array[Node2D] = []
 	raycastResult.clear()
-	var space_state = get_world_2d().direct_space_state
 	for i in rayList.size():
 		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayList[i].global_position)
 		var result = space_state.intersect_ray(query)

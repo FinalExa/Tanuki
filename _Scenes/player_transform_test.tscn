@@ -40,5 +40,3 @@ patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
 waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
-
-[connection signal="get_character_ref" from="Guard" to="PlayerCharacter" method="_on_guard_get_character_ref"]
