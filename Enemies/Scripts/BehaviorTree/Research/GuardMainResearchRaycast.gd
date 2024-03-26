@@ -1,8 +1,6 @@
 extends GuardNode
 
 @export var guardResearch: GuardResearch
-var previousRaycastArray: Array[Node2D]
-var previousResult: Array[Node2D]
 
 func _ready():
 	state = NodeState.FAILURE
@@ -15,18 +13,11 @@ func Evaluate(_delta):
 		return NodeState.FAILURE
 
 func research_main_raycast():
-	if (guardResearch.mainRaycastResult != previousRaycastArray):
-		previousResult.clear()
-		for i in guardResearch.mainRaycastResult.size():
-			if (guardResearch.mainRaycastResult[i] != null):
-				if (!previousResult.has(guardResearch.mainRaycastResult[i])):
-					previousResult.push_back(guardResearch.mainRaycastResult[i])
-				spotting_operations(guardResearch.mainRaycastResult[i])
-				if (guardController.isInAlert):
-					return
-	else:
-		for i in previousResult.size():
-			spotting_operations(previousResult[i])
+	for i in guardResearch.mainRaycastResult.size():
+		if (guardResearch.mainRaycastResult[i] != null):
+			spotting_operations(guardResearch.mainRaycastResult[i])
+			if (guardController.isInAlert):
+				return
 
 func spotting_operations(trackedObject: Node2D):
 	var spotting_result: bool = false

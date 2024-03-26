@@ -1,8 +1,6 @@
 extends GuardNode
 
 @export var guardCheck: GuardCheck
-var previousRaycastArray: Array[Node2D]
-var previousResult: Node2D
 
 func _ready():
 	state = NodeState.FAILURE
@@ -13,24 +11,15 @@ func Evaluate(_delta):
 
 func main_check():
 	if (guardCheck.checkWithRayCast):
-		if guardController.arrays_have_same_content(previousRaycastArray, guardCheck.raycastResult):
-			var foundSomething: bool = false
-			for i in guardCheck.raycastResult.size():
-				if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
-					foundSomething = true
-					previousResult = guardCheck.raycastResult[i]
-					determine_suspicion_type(guardCheck.raycastResult[i])
-					break
-			if (!foundSomething):
-				state = NodeState.FAILURE
-				guardCheck.playerSeen = false
-				previousResult = null
-			previousRaycastArray = guardCheck.raycastResult
-		else:
-			if (previousResult == null):
-				state = NodeState.FAILURE
-			else:
-				determine_suspicion_type(previousResult)
+		var foundSomething: bool = false
+		for i in guardCheck.raycastResult.size():
+			if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
+				foundSomething = true
+				determine_suspicion_type(guardCheck.raycastResult[i])
+				break
+		if (!foundSomething):
+			state = NodeState.FAILURE
+			guardCheck.playerSeen = false
 	else:
 		state = NodeState.FAILURE
 

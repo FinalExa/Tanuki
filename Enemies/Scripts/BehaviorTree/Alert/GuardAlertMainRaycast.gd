@@ -1,7 +1,6 @@
 extends GuardNode
 
 @export var guardAlert: GuardAlert
-var previousRaycastArray: Array[Node2D]
 
 func _ready():
 	state = NodeState.FAILURE
@@ -13,10 +12,10 @@ func Evaluate(_delta):
 func alert_operations():
 	if (guardAlert.chaseStart && guardAlert.screamAreaInstance != null):
 		guardAlert.remove_area()
-	tracker_ray()
+	main_alert_operation()
 	state = NodeState.SUCCESS
 
-func tracker_ray():
+func main_alert_operation():
 	for i in guardAlert.raycastResult.size():
 		if (guardAlert.raycastResult[i] != null):
 			if (guardAlert.raycastResult[i] == guardAlert.alertTarget):
