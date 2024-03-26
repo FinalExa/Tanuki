@@ -7,16 +7,16 @@ func Evaluate(_delta):
 
 func body_checks():
 	if (guardCheck.checkActive):
-		if (guardCheck.playerInsideCheckHitbox && !guardCheck.checkWithRayCast):
-			guardCheck.checkWithRayCast = true
-			guardCheck.reductionOverTimeActive = false
+		if (guardCheck.playerInsideCheckHitbox):
+			if (!guardCheck.checkWithRayCast):
+				guardCheck.checkWithRayCast = true
 			return NodeState.FAILURE
-		if (!guardCheck.playerInsideCheckHitbox):
-				return determine_if_end_check(guardCheck.bodySave)
+	if (!guardCheck.playerInsideCheckHitbox):
+		return determine_if_end_check(guardCheck.bodySave)
 
 func determine_if_end_check(_body):
-	if (guardController.isChecking == false):
-		guardCheck.checkWithRayCast = false
+	guardCheck.checkWithRayCast = false
+	if (!guardController.isChecking):
 		guardCheck.preCheckActive = false
 		return NodeState.SUCCESS
 	else:
@@ -25,6 +25,6 @@ func determine_if_end_check(_body):
 			guardController.guardResearch.initialize_guard_research(guardCheck.checkTarget)
 			return NodeState.SUCCESS
 		else:
-			if (guardCheck.reductionOverTimeActive == false):
+			if (!guardCheck.reductionOverTimeActive):
 				guardCheck.activate_reduction_over_time()
-				return NodeState.FAILURE
+	return NodeState.FAILURE

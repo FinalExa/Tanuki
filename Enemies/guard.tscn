@@ -464,40 +464,44 @@ guardController = NodePath("../../../../../..")
 
 [node name="SelectorCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
-children = [NodePath("GuardCheckHitboxChecker"), NodePath("GuardCheckReduction"), NodePath("Sequence")]
+children = [NodePath("GuardCheckHitboxChecker"), NodePath("Selector")]
 
 [node name="GuardCheckHitboxChecker" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardCheck", "guardController")]
 script = ExtResource("23_wfykk")
 guardCheck = NodePath("../../../../Rotator/GuardCheck")
 guardController = NodePath("../../../..")
 
-[node name="GuardCheckReduction" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("guardCheck", "guardController")]
-script = ExtResource("24_wi1hx")
-guardCheck = NodePath("../../../../Rotator/GuardCheck")
-guardController = NodePath("../../../..")
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("children")]
+script = ExtResource("15_ixdn1")
+children = [NodePath("Sequence"), NodePath("GuardCheckReduction")]
 
-[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorCheck" node_paths=PackedStringArray("children")]
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")
 children = [NodePath("GuardMainCheckExecution"), NodePath("Selector")]
 
-[node name="GuardMainCheckExecution" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence" node_paths=PackedStringArray("guardCheck", "guardController")]
+[node name="GuardMainCheckExecution" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector/Sequence" node_paths=PackedStringArray("guardCheck", "guardController")]
 script = ExtResource("25_83w75")
-guardCheck = NodePath("../../../../../Rotator/GuardCheck")
-guardController = NodePath("../../../../..")
+guardCheck = NodePath("../../../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../../../..")
 
-[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence" node_paths=PackedStringArray("children")]
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
 children = [NodePath("GuardPreCheck"), NodePath("GuardSuspicionValue")]
 
-[node name="GuardPreCheck" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
+[node name="GuardPreCheck" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector/Sequence/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
 script = ExtResource("25_ydjbr")
-guardCheck = NodePath("../../../../../../Rotator/GuardCheck")
-guardController = NodePath("../../../../../..")
+guardCheck = NodePath("../../../../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../../../../..")
 
-[node name="GuardSuspicionValue" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Sequence/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
+[node name="GuardSuspicionValue" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector/Sequence/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
 script = ExtResource("26_q20lg")
-guardCheck = NodePath("../../../../../../Rotator/GuardCheck")
-guardController = NodePath("../../../../../..")
+guardCheck = NodePath("../../../../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../../../../..")
+
+[node name="GuardCheckReduction" type="Node" parent="BehaviorTree/Sequence/SelectorCheck/Selector" node_paths=PackedStringArray("guardCheck", "guardController")]
+script = ExtResource("24_wi1hx")
+guardCheck = NodePath("../../../../../Rotator/GuardCheck")
+guardController = NodePath("../../../../..")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
