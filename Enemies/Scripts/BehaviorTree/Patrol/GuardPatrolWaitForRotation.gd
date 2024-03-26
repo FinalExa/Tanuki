@@ -2,7 +2,7 @@ extends GuardNode
 
 @export var guardPatrol: GuardPatrol
 
-func Evaluate(delta):
+func Evaluate(_delta):
 	return wait_for_rotation()
 
 func wait_for_rotation():
