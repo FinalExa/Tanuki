@@ -13,7 +13,7 @@ func Evaluate(_delta):
 
 func main_check():
 	if (guardCheck.checkWithRayCast):
-		if (previousRaycastArray != guardCheck.raycastResult):
+		if guardController.arrays_have_same_content(previousRaycastArray, guardCheck.raycastResult):
 			var foundSomething: bool = false
 			for i in guardCheck.raycastResult.size():
 				if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):

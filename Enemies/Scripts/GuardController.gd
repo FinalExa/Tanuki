@@ -31,3 +31,11 @@ func is_damaged(direction: Vector2):
 	if (isInAlert):
 		guardStunned.stunnedFromAlert = true
 	emit_signal("damaged", direction)
+
+func arrays_have_same_content(array1: Array[Node2D], array2: Array[Node2D]):
+	if (array1.size() != array2.size()):
+		return false
+	for i in array1.size():
+		if (array1[i] != array2[i]):
+			return false
+	return true
