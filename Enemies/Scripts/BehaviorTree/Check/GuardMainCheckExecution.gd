@@ -22,6 +22,7 @@ func main_check():
 				break
 		if (!foundSomething):
 			state = NodeState.FAILURE
+			guardCheck.playerSeen = false
 			previousResult = null
 		previousRaycastArray = guardCheck.raycastResult
 	else:
@@ -33,26 +34,31 @@ func main_check():
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
 		guardController.guardRotator.setLookingAtPosition(target.global_position)
-		if (!target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
+		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
+			print("not transformed")
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)
 			guardCheck.researchOutcome = true
 			return
 		if (target.velocity != Vector2.ZERO):
+			print("transformed but moving")
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
 			return
 		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+			print("transformed, still and wrong transformation")
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
 			return
 		if (guardCheck.playerSeen):
+			print("player was seen")
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
-			return
+		return
 	if (target is TailFollow):
+		print("tail spotted")
 		guardController.guardRotator.setLookingAtPosition(target.global_position)
 		guardCheck.playerSeen = true
 		guardCheck.researchOutcome = true
