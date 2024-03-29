@@ -10,7 +10,7 @@ var hitboxActive: bool = false
 func _ready():
 	remove_call_hitbox()
 
-func execute_effect_normally(receivedBody, delta):
+func execute_effect_normally(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
 		var playerRef: PlayerCharacter = receivedBody
 		if (!hitboxActive):

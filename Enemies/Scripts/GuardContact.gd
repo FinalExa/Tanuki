@@ -10,11 +10,9 @@ func _on_body_entered(body):
 			guardController.guardAlert.lastTargetPosition = body.global_position
 			guardController.guardAlert.extraTargetLocation = body.global_position
 			return
-		if (guardController.isInResearch):
-			guardController.guardResearch.spot_player_from_afar(body)
-			return
 		if (!guardController.isChecking && guardController.isInPatrol):
-			guardController.guardCheck.activate_check(body)
-		if (guardController.isChecking && guardController.guardCheck.currentAlertValue < checkValue):
+			guardController.guardMovement.set_new_target(null)
+		if (guardController.guardCheck.currentAlertValue < checkValue):
 			guardController.guardCheck.currentAlertValue = checkValue
-		guardRotator.setLookingAtPosition(body.global_position)
+		if (!guardController.isStunned):
+			guardRotator.setLookingAtPosition(body.global_position)

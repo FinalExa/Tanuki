@@ -2,9 +2,6 @@ class_name GuardPatrol
 extends Node
 
 @export var guardController: GuardController
-@export var guardMovement: GuardMovement
-@export var guardRotator: GuardRotator
-@export var guardStunned: GuardStunned
 @export var startupDuration: float
 @export var timeSpentDoingExtraPatrol: float
 var extraPatrolTimer: float
@@ -26,18 +23,6 @@ var patrolLookAroundIndex = 0
 func _ready():
 	loadedPatrolIndicator = guardController.patrolIndicators[0]
 
-func _process(delta):
-	startup(delta)
-	wait_active(delta)
-	extra_patrol_timer(delta)
-	wait_for_rotation()
-
-func wait_for_rotation():
-	if (isRotating):
-		if (guardRotator.isDoneRotating == true):
-			set_current_patrol_routine()
-			isRotating = false
-
 func set_current_patrol_routine():
 	if(guardController.isInPatrol == true):
 		var currentAction = loadedPatrolIndicator.patrolActions[patrolIndex]
@@ -51,29 +36,21 @@ func set_current_patrol_routine():
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
 func move_patrol_action(target):
-	guardMovement.set_location_target(target.global_position)
-	guardRotator.setLookingAtPosition(target.global_position)
+	guardController.guardMovement.set_location_target(target.global_position)
+	guardController.guardRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
 func wait_patrol_action(timer):
 	waitTimer = timer
-	guardMovement.set_new_target(null)
-	guardRotator.stopLooking()
+	guardController.guardMovement.set_new_target(null)
+	guardController.guardRotator.stopLooking()
 	isWaiting = true
 	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 
-func wait_active(delta):
-	if (isWaiting == true && patrolStopped == false):
-		if (waitTimer>0):
-			waitTimer-=delta
-		else:
-			isWaiting = false
-			set_current_patrol_routine()
-
 func look_around_patrol_action(rotationPoint):
-	guardMovement.set_new_target(null)
-	guardRotator.stopLooking()
-	guardRotator.rotateTo(rotationPoint)
+	guardController.guardMovement.set_new_target(null)
+	guardController.guardRotator.stopLooking()
+	guardController.guardRotator.rotateTo(rotationPoint)
 	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 	isRotating = true
 
@@ -100,13 +77,13 @@ func stop_patrol():
 	guardController.isInPatrol = false
 	patrolStopped = true
 	isRotating = false
-	guardMovement.set_location_target(guardController.global_position)
+	guardController.guardMovement.set_new_target(null)
 
 func restart_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardMovement.reset_movement_speed()
+	guardController.guardMovement.reset_movement_speed()
 	reset_patrol()
 	set_current_patrol_routine()
 
@@ -118,7 +95,7 @@ func resume_patrol():
 	guardController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardMovement.reset_movement_speed()
+	guardController.guardMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
 func resume_patrol_operation():
@@ -136,19 +113,11 @@ func resume_patrol_operation():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInPatrol == true):
 		stop_patrol()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
 
 func initialize_startup():
 	startupTimer = startupDuration
 	startupActive = true
-
-func startup(delta):
-	if (startupActive == true):
-		if (startupTimer>0):
-			startupTimer-=delta
-		else:
-			set_current_patrol_routine()
-			startupActive = false
 
 func select_new_patrol_indicator():
 	if (guardController.patrolIndicators.size() > 1):
@@ -168,11 +137,3 @@ func select_new_patrol_indicator():
 			reset_patrol()
 		if (storedIndex != 0):
 			extraPatrolTimer = timeSpentDoingExtraPatrol
-
-func extra_patrol_timer(delta):
-	if (guardController.patrolIndicators.size() > 1 && loadedPatrolIndicator != guardController.patrolIndicators[0]):
-		if (extraPatrolTimer > 0):
-			extraPatrolTimer-=delta
-		else:
-			loadedPatrolIndicator = guardController.patrolIndicators[0]
-			reset_patrol()

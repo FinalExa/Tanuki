@@ -1,35 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=6 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
-[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="2_67gti"]
-[ext_resource type="PackedScene" uid="uid://dvrh8nj8aokk1" path="res://Enemies/guard.tscn" id="3_kj1fg"]
-[ext_resource type="PackedScene" uid="uid://b5orbkqm40yjl" path="res://Level/Detection/local_allowed_items.tscn" id="4_u1lvf"]
-[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="5_jj61p"]
-[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://InteractionObject/death_trap_interaction_object.tscn" id="6_dm8nm"]
-[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://InteractionObject/movement_impair_interaction_object.tscn" id="7_0unoy"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
+[ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://TransformationObjects/heavy_box.tscn" id="4_txcw4"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
-[ext_resource type="PackedScene" uid="uid://g7yg1bvbr6yt" path="res://InteractionObject/Button/deactivation_button.tscn" id="9_ewvfa"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(-64, 184, 1888, 1536, -2224, 1896, -536, 232, -2320, -2272, -560, -40, 2120, -1840, -80, -128)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-560, -40, -80, -128, -64, 184, -536, 232), PackedVector2Array(-2224, 1896, -2320, -2272, 2120, -1840, 1888, 1536)])
+vertices = PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 3656, 5704)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 3656, 5704)])
 
 [node name="PlayerTransformTest" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
-
-[node name="TransformationObject" parent="." instance=ExtResource("2_67gti")]
-position = Vector2(205, 3)
-transformedName = "Statue"
-transformedMaxSpeed = 200.0
-transformedProperties = Array[String](["Sturdy", "Heavy"])
-
-[node name="TransformationObject2" parent="." instance=ExtResource("2_67gti")]
-position = Vector2(-424, 80)
-transformedName = "Poop"
-transformedMaxSpeed = 1000.0
-transformedProperties = Array[String](["Slippery", "Frosted"])
+position = Vector2(-640, 40)
 
 [node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("3_kj1fg")]
 patrolIndicators = [NodePath("../PatrolIndicator")]
@@ -48,23 +32,8 @@ position = Vector2(448, 192)
 [node name="ThirdCheckPoint" type="Node2D" parent="."]
 position = Vector2(-360, -200)
 
-[node name="LocalAllowedItems" parent="." node_paths=PackedStringArray("assignedObjects") instance=ExtResource("4_u1lvf")]
-position = Vector2(-344, 88)
-scale = Vector2(21.735, 13.925)
-allowedObjects = Array[String](["Poop"])
-assignedObjects = [NodePath("../TransformationObject2")]
-
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-169, 525)
-
-[node name="MoveInteractionObject" parent="." instance=ExtResource("5_jj61p")]
-position = Vector2(192, 448)
-
-[node name="DeathTrapInteractionObject" parent="." instance=ExtResource("6_dm8nm")]
-position = Vector2(-384, 384)
-
-[node name="MovementImpairInteractionObject" parent="." instance=ExtResource("7_0unoy")]
-position = Vector2(-384, 640)
 
 [node name="PatrolIndicator" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
 script = ExtResource("8_n2toe")
@@ -73,12 +42,5 @@ waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
 
-[node name="DeactivationButton" parent="." node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("9_ewvfa")]
-position = Vector2(-176, 368)
-objectToDeactivate = NodePath("../DeathTrapInteractionObject")
-
-[connection signal="set_trs_notReady" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
-[connection signal="set_trs_ready" from="TransformationObject" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
-[connection signal="set_trs_notReady" from="TransformationObject2" to="PlayerCharacter" method="_on_transformation_object_set_trs_not_ready"]
-[connection signal="set_trs_ready" from="TransformationObject2" to="PlayerCharacter" method="_on_transformation_object_set_trs_ready"]
-[connection signal="get_character_ref" from="Guard" to="PlayerCharacter" method="_on_guard_get_character_ref"]
+[node name="HeavyBox" parent="." instance=ExtResource("4_txcw4")]
+position = Vector2(-776, -304)

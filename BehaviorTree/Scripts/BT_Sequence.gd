@@ -6,14 +6,15 @@ func Evaluate(delta):
 	anyChildIsRunning = false
 	
 	for i in children.size():
-		if (children[i].Evaluate(delta) == NodeState.FAILURE):
+		var result = children[i].Evaluate(delta)
+		if (result == NodeState.FAILURE):
 			state = NodeState.FAILURE
 			return state
 		else:
-			if (children[i].Evaluate(delta) == NodeState.SUCCESS):
+			if (result == NodeState.SUCCESS):
 				continue
 			else:
-				if (children[i].Evaluate(delta) == NodeState.RUNNING):
+				if (result == NodeState.RUNNING):
 					anyChildIsRunning = true
 					return state
 				else:

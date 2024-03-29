@@ -22,73 +22,35 @@ var researchOutcome: bool
 var bodySave: Node2D
 var playerInsideCheckHitbox: bool
 var playerSeen: bool
+var detectedTarget: Node2D
+var selectedMultiplier: float
+var raycastResult: Array[Node2D]
 
-@export var guardRotator: GuardRotator
 @export var guardController: GuardController
-@export var guardAlertValue: GuardAlertValue
-@export var guardResearch: GuardResearch
-@export var guardAlert: GuardAlert
-@export var guardPatrol: GuardPatrol
-@export var guardStunned: GuardStunned
+
+func _physics_process(_delta):
+	check_raycast()
 
 func _ready():
 	reset_alert_value()
 	send_alert_value()
 	checkActive = true
 
-func _process(_delta):
-	body_checks()
-
-func _physics_process(delta):
-	check_with_raycast(delta)
-
 func reset_alert_value():
 	currentAlertValue = 0
 	controllerRef.isChecking = false
 
-func send_alert_value():
-	guardAlertValue.updateValue(currentAlertValue, maxAlertValue)
-
-func check_with_raycast(delta):
-	if (checkActive == true && checkWithRayCast == true):
-		var space_state = get_world_2d().direct_space_state
+func check_raycast():
+	if (checkWithRayCast):
+		var space_state = guardController.get_world_2d().direct_space_state
+		raycastResult.clear()
 		for i in rayTargets.size():
-			var query = PhysicsRayQueryParameters2D.create(controllerRef.position, rayTargets[i].global_position)
+			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
 			var result = space_state.intersect_ray(query)
-			if (result && result != { } && (result.collider is PlayerCharacter || result.collider is TailFollow)): 
-				determine_suspicion_type_with_conditions(result.collider, delta)
-				break
-
-func determine_suspicion_type_with_conditions(target, delta):
-	if(checkActive == true):
-		determine_suspicion_type(target, delta)
-
-func determine_suspicion_type(target, delta):
-	if (target is PlayerCharacter):
-		if(target.transformationChangeRef.isTransformed == false):
-			playerSeen = true
-			suspicion_active(target, delta, playerIsSeenMultiplier)
-			researchOutcome = true
-			return
-		if (target.velocity != Vector2.ZERO):
-			playerSeen = true
-			suspicion_active(target, delta, playerIsNotSeenMultiplier)
-			researchOutcome = false
-			return
-		var localAllowRef: LocalAllowedItems = target.transformationChangeRef.localAllowedItemsRef
-		if (localAllowRef == null || (localAllowRef != null && !localAllowRef.allowedObjects.has(target.transformationChangeRef.currentTransformationName))):
-			playerSeen = true
-			suspicion_active(target, delta, playerIsNotSeenMultiplier)
-			researchOutcome = false
-			return
-		if (playerSeen):
-			suspicion_active(target, delta, playerIsNotSeenMultiplier)
-			researchOutcome = false
-			return
-	if (target is TailFollow):
-		playerSeen = true
-		suspicion_active(target, delta, playerIsSeenMultiplier)
-		researchOutcome = true
+			if (result && result != { }): 
+				raycastResult.push_back(result.collider)
+			else:
+				raycastResult.push_back(null)
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is TailFollow):
@@ -99,48 +61,6 @@ func _on_body_exited(body):
 	if (body is PlayerCharacter || body is TailFollow):
 		playerInsideCheckHitbox = false
 
-func body_checks():
-	if (checkActive):
-		if (playerInsideCheckHitbox && !checkWithRayCast):
-			checkWithRayCast = true
-			return
-		if (!playerInsideCheckHitbox):
-				determine_if_end_check(bodySave)
-
-func suspicion_active(target: Node2D, delta, multiplier):
-	if (reductionOverTimeActive == true):
-		reductionOverTimeActive = false
-	if (preCheckActive == false && guardController.isChecking == false):
-		activate_precheck()
-	else:
-		if (preCheckActive == true && guardController.isChecking == false):
-			execute_precheck(target, delta)
-		else:
-			if (preCheckActive == false && guardController.isChecking == true):
-				increase_suspicion_value(delta, multiplier)
-
-func activate_precheck():
-	preCheckActive = true
-	preCheckTimer = preCheckDuration
-
-func execute_precheck(target: Node2D, delta):
-	if (preCheckTimer>0):
-		preCheckTimer -= delta
-	else:
-		activate_check(target)
-
-func determine_if_end_check(_body):
-	if (guardController.isChecking == false):
-		checkWithRayCast = false
-		preCheckActive = false
-	else:
-		if (currentAlertValue >= researchValueThreshold):
-			stop_guardCheck()
-			guardResearch.initialize_guard_research(checkTarget)
-		else:
-			if (reductionOverTimeActive == false):
-				activate_reduction_over_time()
-
 func activate_reduction_over_time():
 	reductionOverTimeActive = true
 	playerSeen = false
@@ -148,31 +68,13 @@ func activate_reduction_over_time():
 func activate_check(target: Node2D):
 	preCheckActive = false
 	guardController.isChecking = true
-	guardPatrol.stop_patrol()
+	guardController.guardPatrol.stop_patrol()
 	checkTarget = target
-
-func increase_suspicion_value(delta, multiplier):
-	if (checkTarget != null):
-		var distance: float = guardController.position.distance_to(checkTarget.position)
-		var multValue: float = (abs(distance-(rayTargets[0].global_position.distance_to(guardController.position))))
-		multValue = multValue * distanceMultiplier * multiplier * delta
-		if (currentAlertValue < maxAlertValue):
-			if (multValue <= minimumIncreaseValue * multiplier * delta):
-				multValue = minimumIncreaseValue * multiplier * delta
-			currentAlertValue = clamp(currentAlertValue + multValue, 0, maxAlertValue)
-			send_alert_value()
-		else:
-			if (researchOutcome == true):
-				stop_guardCheck()
-				guardAlert.start_alert(checkTarget)
-			else:
-				stop_guardCheck()
-				guardResearch.initialize_guard_research(checkTarget)
 
 func end_check():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
-	guardPatrol.resume_patrol()
+	guardController.guardPatrol.resume_patrol()
 
 func stop_guardCheck():
 	checkActive = false
@@ -189,4 +91,7 @@ func resume_check():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isChecking == true || checkActive == true):
 		stop_guardCheck()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
+
+func send_alert_value():
+	guardController.guardAlertValue.updateValue(currentAlertValue, maxAlertValue)
