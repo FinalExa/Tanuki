@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=14 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="Texture2D" uid="uid://bpqkirdt4u1xb" path="res://PlayerCharacter/Sprites/Tan-Def - anim 1.0.png" id="4_uqokj"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
+[ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
+[ext_resource type="AudioStream" uid="uid://dmpf0u48j6o2q" path="res://PlayerCharacter/Sounds/Player SFX Movement 1_Loop.wav" id="8_m3ffu"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/AttackHitbox.gd" id="9_xmiyi"]
 [ext_resource type="Texture2D" uid="uid://he43w3djx5gf" path="res://PlayerCharacter/Sprites/Placeholder/attack.png" id="10_5w8uw"]
 
@@ -55,11 +57,20 @@ position = Vector2(0, 75)
 
 [node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
 
-[node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef")]
+[node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "normalMovementSound", "transformedMovementSound", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700
 defaultMaxSpeed = 500
+normalMovementSound = NodePath("NormalMovement")
+transformedMovementSound = NodePath("TransformedMovement")
+playerRef = NodePath("../..")
+
+[node name="TransformedMovement" type="AudioStreamPlayer2D" parent="Rotator/Movement"]
+stream = ExtResource("8_bh82x")
+
+[node name="NormalMovement" type="AudioStreamPlayer2D" parent="Rotator/Movement"]
+stream = ExtResource("8_m3ffu")
 
 [node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "playerCharacter")]
 script = ExtResource("8_eoajp")

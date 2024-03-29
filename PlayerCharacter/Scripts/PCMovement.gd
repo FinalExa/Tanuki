@@ -6,6 +6,9 @@ signal movement_direction
 @export var rigidbodyRef: CharacterBody2D
 @export var accelerationPerSecond = 0
 @export var defaultMaxSpeed = 0
+@export var normalMovementSound: AudioStreamPlayer2D
+@export var transformedMovementSound: AudioStreamPlayer2D
+@export var playerRef: PlayerCharacter
 var currentMaxSpeed
 var currentSpeed
 var inputDirection
@@ -16,7 +19,23 @@ func _ready():
 
 func get_input():
 	inputDirection = Input.get_vector("left", "right", "up", "down")
-	
+	play_movement_sounds()
+
+func play_movement_sounds():
+	if (inputDirection != Vector2.ZERO && !normalMovementSound.playing):
+		if (!playerRef.transformationChangeRef.isTransformed):
+			if (transformedMovementSound.playing):
+				transformedMovementSound.stop()
+			normalMovementSound.play()
+		else:
+			if (normalMovementSound.playing):
+				normalMovementSound.stop()
+			transformedMovementSound.play()
+		return
+	if (inputDirection == Vector2.ZERO && normalMovementSound.playing):
+		normalMovementSound.stop()
+		transformedMovementSound.stop()
+
 func set_current_speed(delta):
 	if (inputDirection == Vector2.ZERO && currentSpeed!=0):
 		currentSpeed = 0
