@@ -58,8 +58,8 @@ position = Vector2(0, 75)
 [node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
-accelerationPerSecond = 1400
-defaultMaxSpeed = 1000
+accelerationPerSecond = 700
+defaultMaxSpeed = 500
 
 [node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "playerCharacter")]
 script = ExtResource("8_eoajp")
