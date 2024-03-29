@@ -3,34 +3,30 @@ extends Node
 
 @export var stunDuration: float
 @export var stunEndAlertValue: float
+@export var stunnedText: String
 var stunTimer: float
 var stunnedFromAlert: bool = false
 
 @export var guardController: GuardController
-@export var guardPatrol: GuardPatrol
-@export var guardCheck: GuardCheck
-@export var guardMovement: GuardMovement
-@export var guardRotator: GuardRotator
-@export var guardAlertValue: GuardAlertValue
 
 var lookDirectionAfterStun: Vector2
 
 func start_stun(direction: Vector2):
 	stunTimer = stunDuration
 	lookDirectionAfterStun = direction
-	guardMovement.set_location_target(guardController.global_position)
-	guardAlertValue.updateText("STUNNED")
+	guardController.guardMovement.set_location_target(guardController.global_position)
+	guardController.guardAlertValue.updateText(stunnedText)
 	guardController.isStunned = true
 	if (stunnedFromAlert):
-		guardPatrol.select_new_patrol_indicator()
+		guardController.guardPatrol.select_new_patrol_indicator()
 		stunnedFromAlert = false
 
 func end_stun():
 	clear_guards_looking_for_me()
-	guardRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + guardController.global_position)
+	guardController.guardRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + guardController.global_position)
 	guardController.isStunned = false
-	guardCheck.currentAlertValue = stunEndAlertValue
-	guardCheck.resume_check()
+	guardController.guardCheck.currentAlertValue = stunEndAlertValue
+	guardController.guardCheck.resume_check()
 
 func clear_guards_looking_for_me():
 	for i in guardController.guardsLookingForMe.size():

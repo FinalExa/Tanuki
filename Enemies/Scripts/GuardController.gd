@@ -1,7 +1,6 @@
 class_name GuardController
 extends CharacterBody2D
 
-signal get_character_ref
 signal damaged
 
 var isInPatrol: bool = true
@@ -22,10 +21,8 @@ var characterRef
 @export var guardPatrol: GuardPatrol
 @export var guardAlert: GuardAlert
 @export var guardRotator: GuardRotator
+@export var guardAlertValue: GuardAlertValue
 var guardsLookingForMe: Array[GuardResearch]
-
-func _ready():
-	emit_signal("get_character_ref")
 
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference

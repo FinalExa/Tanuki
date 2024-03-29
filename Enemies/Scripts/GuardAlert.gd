@@ -29,30 +29,25 @@ var alertTarget: Node2D
 var lastTargetPosition: Vector2
 var lastTargetDirection: Vector2
 var extraTargetLocation: Vector2
+var raycastResult: Array[Node2D]
+var extraLocationSet: bool
 
-@export var guardAlertValue: GuardAlertValue
 @export var guardController: GuardController
-@export var guardMovement: GuardMovement
-@export var guardRotator: GuardRotator
-@export var guardResearch: GuardResearch
-@export var guardPatrol: GuardPatrol
-@export var guardCheck: GuardCheck
-@export var guardStunned: GuardStunned
 
 func _ready():
-	screamAreaInstance = screamArea
-	remove_area()
-	alertAreaFeedbackInstance = alertAreaFeedback
-	remove_feedback()
+	setup_areas()
+
+func _physics_process(_delta):
+	alert_raycasts()
 
 func start_alert(target):
-	guardAlertValue.updateText(alertText)
+	guardController.guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	add_area()
 	add_feedback()
 	chaseStart = false
-	guardMovement.set_location_target(guardController.global_position)
+	guardController.guardMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
@@ -60,105 +55,40 @@ func start_alert(target):
 	lostSightOfPlayer = false
 	guardController.isInAlert = true
 
-func _physics_process(_delta):
-	target_tracker_operations()
+func alert_raycasts():
+	if (guardController.isInAlert):
+		var space_state = guardController.get_world_2d().direct_space_state
+		main_alert_raycast(space_state)
+		if (secondLocationTargetCheckLaunched && !extraLocationSet):
+			extraTargetLocation = set_possible_second_destination(space_state)
 
-func target_tracker_operations():
-	if (guardController.isInAlert == true):
-		if (chaseStart == true && screamAreaInstance != null): remove_area()
-		tracker_ray()
+func main_alert_raycast(space_state):
+		raycastResult.clear()
+		for i in rayTargets.size():
+			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }): 
+				raycastResult.push_back(result.collider)
+			else:
+				raycastResult.push_back(null)
 
-func tracker_ray():
-	var space_state = guardController.get_world_2d().direct_space_state
-	for i in rayTargets.size():
-		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+func set_possible_second_destination(space_state):
+		var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
 		var result = space_state.intersect_ray(query)
+		extraLocationSet = true
 		if (result && result != { }):
-			if (result.collider == alertTarget):
-				if (alertTarget is TailFollow):
-					alertTarget = alertTarget.playerRef
-				if (lostSightOfPlayer == false || (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 0)):
-					track_target(result.collider)
-					return
-				else:
-					if (lostSightOfPlayer == true && check_if_player_transformation_status(result.collider) == 1):
-						stop_alert()
-						guardResearch.initialize_guard_research(alertTarget)
-						return
-	target_not_seen(space_state)
-
-func track_target(receivedTarget: Node2D):
-	guardRotator.setLookingAtPosition(receivedTarget.global_position)
-	firstLocationReached = false
-	secondLocationReached = false
-	secondLocationTargetCheckLaunched = false
-	lostSightOfPlayer = false
-	if (chaseStart == true):
-		targetNotSeenActive = false
-		if (guardController.position.distance_to(receivedTarget.global_position) > catchDistanceThreshold):
-			catchPreparationActive = false
-			guardMovement.set_movement_speed(alertMovementSpeed)
-			guardMovement.set_location_target(receivedTarget.global_position)
-		else:
-			guardMovement.set_location_target(guardController.global_position)
-			if (catchPreparationActive == false):
-				start_catch_preparation()
-	if (receivedTarget is PlayerCharacter):
-		set_last_target_info(receivedTarget)
-	else:
-		if (receivedTarget is TailFollow):
-			set_last_target_info(receivedTarget.playerRef)
+				return result.position
+		return searchPosition
 
 func set_last_target_info(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
 
-func target_not_seen(space_state):
-	catchPreparationActive = false
-	lostSightOfPlayer = true
-	if (firstLocationReached == false):
-		var distance: float = guardController.global_position.distance_to(lastTargetPosition)
-		if (distance > targetNotSeenLastLocationThreshold && chaseStart == true):
-			set_movement_destination(lastTargetPosition)
-		else:
-			firstLocationReached = true
-	if (firstLocationReached == true && secondLocationReached == false):
-		if (secondLocationTargetCheckLaunched == false):
-			extraTargetLocation = second_location_target_check(space_state)
-		var extraDistance: float = guardController.global_position.distance_to(extraTargetLocation)
-		if (extraDistance > targetNotSeenLastLocationThreshold && chaseStart == true):
-			set_movement_destination(extraTargetLocation)
-		else:
-			secondLocationReached = true
-	else:
-		if (firstLocationReached == true && secondLocationReached == true && targetNotSeenActive == false):
-			start_not_seen_timer()
-
 func set_movement_destination(destination: Vector2):
-	guardMovement.reset_movement_speed()
-	guardMovement.set_location_target(destination)
-	guardRotator.setLookingAtPosition(destination)
-
-func second_location_target_check(space_state):
-	secondLocationTargetCheckLaunched = true
-	var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
-	var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
-	var result = space_state.intersect_ray(query)
-	if (result && result != { }):
-			return result.position
-	return searchPosition
-
-func check_if_player_transformation_status(playerRef: PlayerCharacter):
-	if (playerRef.transformationChangeRef.isTransformed == true):
-		if (playerRef.transformationChangeRef.localAllowedItemsRef != null):
-			if (playerRef.transformationChangeRef.localAllowedItemsRef.allowedObjects.has(playerRef.transformationChangeRef.currentTransformationName)):
-				return 2
-			else:
-				return 1
-		else:
-			return 1
-	else:
-		return 0
+	guardController.guardMovement.reset_movement_speed()
+	guardController.guardMovement.set_location_target(destination)
+	guardController.guardRotator.setLookingAtPosition(destination)
 
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
@@ -176,12 +106,12 @@ func stop_alert():
 	chaseStart = false
 	remove_area()
 	remove_feedback()
-	guardMovement.reset_movement_speed()
+	guardController.guardMovement.reset_movement_speed()
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInAlert == true):
 		stop_alert()
-		guardStunned.start_stun(direction)
+		guardController.guardStunned.start_stun(direction)
 
 func remove_area():
 	if(screamAreaInstance != null):
@@ -207,3 +137,9 @@ func add_feedback():
 		if (get_child(i) == alertAreaFeedback):
 			alertAreaFeedbackInstance = get_child(i)
 			break
+
+func setup_areas():
+	screamAreaInstance = screamArea
+	remove_area()
+	alertAreaFeedbackInstance = alertAreaFeedback
+	remove_feedback()
