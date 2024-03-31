@@ -66,11 +66,11 @@ normalMovementSound = NodePath("NormalMovement")
 transformedMovementSound = NodePath("TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="TransformedMovement" type="AudioStreamPlayer2D" parent="Rotator/Movement"]
-stream = ExtResource("8_bh82x")
-
-[node name="NormalMovement" type="AudioStreamPlayer2D" parent="Rotator/Movement"]
+[node name="NormalMovement" type="AudioStreamPlayer" parent="Rotator/Movement"]
 stream = ExtResource("8_m3ffu")
+
+[node name="TransformedMovement" type="AudioStreamPlayer" parent="Rotator/Movement"]
+stream = ExtResource("8_bh82x")
 
 [node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "playerCharacter")]
 script = ExtResource("8_eoajp")
