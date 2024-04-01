@@ -1,5 +1,5 @@
 class_name ExecuteAttack
-extends Node
+extends Node2D
 
 @export var attackDuration: float
 @export var attackPhasesLaunch: Array[float]
@@ -17,14 +17,15 @@ func _ready():
 	currentPhase = 0
 
 func add_attack_hitbox(index):
-	if (attackHitboxes[index] != null):
-		self.add_child(attackHitboxes[index])
-		attackHitboxInstance = self.get_child(0)
-		attackHitboxInstance.characterRef = characterRef
-	if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
+	if (index < attackHitboxes.size()):
+		if (attackHitboxes[index] != null):
+			self.add_child(attackHitboxes[index])
+			attackHitboxInstance = self.get_child(0)
+			attackHitboxInstance.characterRef = characterRef
+		if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
 
 func remove_attack_hitbox(index):
-	if (attackHitboxes[index] != null):
+	if (index < attackHitboxes.size() && attackHitboxes[index] != null):
 		attackHitboxInstance = attackHitboxes[index]
 		attackHitboxInstance.attack_end()
 		self.remove_child(attackHitboxInstance)
