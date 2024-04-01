@@ -7,8 +7,7 @@ func _process(delta):
 
 func check_for_attack_input():
 	if (!attackLaunched && Input.is_action_just_pressed("attack") && !characterRef.transformationChangeRef.isTransformed):
-		start_attack()
+		launch_attack()
 
-func start_attack():
-	startup_attack_phase()
-	attackLaunched = true
+func launch_attack():
+	start_attack()

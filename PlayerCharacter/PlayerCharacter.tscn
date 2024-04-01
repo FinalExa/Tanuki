@@ -88,12 +88,12 @@ normalMovementSound = NodePath("../../Sounds/NormalMovement")
 transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "attackSound", "characterRef")]
+[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef")]
 script = ExtResource("8_eoajp")
-attackPhasesDuration = Array[float]([0.5, 1.0, 1.0])
-attackPhasesActivation = Array[bool]([false, true, false])
-attackHitbox = NodePath("PlayerAttackHitbox")
-attackSound = NodePath("../../Sounds/Attack")
+attackDuration = 2.5
+attackPhasesLaunch = Array[float]([0.0, 0.5, 1.5])
+attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
+attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")
 
 [node name="PlayerAttackHitbox" type="Area2D" parent="Rotator/PlayerAttack"]
