@@ -1,14 +1,4 @@
-class_name AttackHitbox
-extends Area2D
-
-var characterRef: PlayerCharacter
-var hitTargets: Array[Node2D]
-
-func _ready():
-	attack_end()
-
-func attack_end():
-	hitTargets.clear()
+extends AttackHitbox
 
 func _on_body_entered(body):
 	check_if_enemy(body)
