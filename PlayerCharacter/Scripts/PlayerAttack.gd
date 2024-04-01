@@ -4,6 +4,7 @@ extends Node2D
 @export var attackPhasesDuration: Array[float]
 @export var attackPhasesActivation: Array[bool]
 @export var attackHitbox: AttackHitbox
+@export var attackSound: AudioStreamPlayer
 var attackHitboxInstance: AttackHitbox
 
 var attackLaunched: bool
@@ -23,6 +24,7 @@ func add_attack_hitbox():
 	self.add_child(attackHitbox)
 	attackHitboxInstance = self.get_child(0)
 	attackHitboxInstance.characterRef = playerCharacter
+	if (!attackSound.playing): attackSound.play()
 
 func remove_attack_hitbox():
 	attackHitboxInstance = attackHitbox
@@ -30,7 +32,7 @@ func remove_attack_hitbox():
 	self.remove_child(attackHitboxInstance)
 
 func check_for_attack_input():
-	if (attackLaunched == false && Input.is_action_just_pressed("attack") && playerCharacter.transformationChangeRef.isTransformed == false):
+	if (!attackLaunched && Input.is_action_just_pressed("attack") && !playerCharacter.transformationChangeRef.isTransformed):
 		start_attack()
 
 func start_attack():
