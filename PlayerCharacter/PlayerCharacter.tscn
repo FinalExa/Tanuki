@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=17 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -7,9 +7,14 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="Texture2D" uid="uid://bpqkirdt4u1xb" path="res://PlayerCharacter/Sprites/Tan-Def - anim 1.0.png" id="4_uqokj"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
+[ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
+[ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
-[ext_resource type="Script" path="res://PlayerCharacter/Scripts/AttackHitbox.gd" id="9_xmiyi"]
+[ext_resource type="AudioStream" uid="uid://dmpf0u48j6o2q" path="res://PlayerCharacter/Sounds/Player SFX Movement 1_Loop.wav" id="8_m3ffu"]
+[ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
 [ext_resource type="Texture2D" uid="uid://he43w3djx5gf" path="res://PlayerCharacter/Sprites/Placeholder/attack.png" id="10_5w8uw"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttackHitbox.gd" id="14_7c2rx"]
+[ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
@@ -20,6 +25,23 @@ script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="EnterTransformation" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_yl2lp")
+
+[node name="ExitTransformation" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_rlmsq")
+
+[node name="NormalMovement" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_m3ffu")
+
+[node name="TransformedMovement" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_bh82x")
+
+[node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("15_fe3wv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
@@ -38,7 +60,7 @@ rightRad = 90
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 texture = ExtResource("4_uqokj")
 
-[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite")]
+[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 10
 tailActivationTime = 3
@@ -48,6 +70,8 @@ tailLocation = NodePath("TailLocation")
 playerRef = NodePath("../..")
 baseCollisionShape = NodePath("../../CollisionShape2D")
 playerSprite = NodePath("../Sprite2D")
+enterTransformationSound = NodePath("../../Sounds/EnterTransformation")
+exitTransformationSound = NodePath("../../Sounds/ExitTransformation")
 transformationLockDuration = 1
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
@@ -55,27 +79,31 @@ position = Vector2(0, 75)
 
 [node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
 
-[node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef")]
+[node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "normalMovementSound", "transformedMovementSound", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700
 defaultMaxSpeed = 500
+normalMovementSound = NodePath("../../Sounds/NormalMovement")
+transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
+playerRef = NodePath("../..")
 
-[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitbox", "playerCharacter")]
+[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef")]
 script = ExtResource("8_eoajp")
-attackPhasesDuration = Array[float]([0.5, 1.0, 1.0])
-attackPhasesActivation = Array[bool]([false, true, false])
-attackHitbox = NodePath("AttackHitbox")
-playerCharacter = NodePath("../..")
+attackDuration = 2.5
+attackPhasesLaunch = Array[float]([0.0, 0.5, 1.5])
+attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
+attackSounds = [null, NodePath("../../Sounds/Attack"), null]
+characterRef = NodePath("../..")
 
-[node name="AttackHitbox" type="Area2D" parent="Rotator/PlayerAttack"]
+[node name="PlayerAttackHitbox" type="Area2D" parent="Rotator/PlayerAttack"]
 position = Vector2(0, -128)
-script = ExtResource("9_xmiyi")
+script = ExtResource("14_7c2rx")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/PlayerAttack/AttackHitbox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/PlayerAttack/PlayerAttackHitbox"]
 polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotator/PlayerAttack/AttackHitbox"]
+[node name="Sprite2D" type="Sprite2D" parent="Rotator/PlayerAttack/PlayerAttackHitbox"]
 position = Vector2(1.93762, 3.3385)
 rotation = -1.57079
 scale = Vector2(0.154553, 0.58333)
@@ -88,4 +116,4 @@ texture = ExtResource("10_5w8uw")
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
 [connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
-[connection signal="body_entered" from="Rotator/PlayerAttack/AttackHitbox" to="Rotator/PlayerAttack/AttackHitbox" method="_on_body_entered"]
+[connection signal="body_entered" from="Rotator/PlayerAttack/PlayerAttackHitbox" to="Rotator/PlayerAttack/PlayerAttackHitbox" method="_on_body_entered"]

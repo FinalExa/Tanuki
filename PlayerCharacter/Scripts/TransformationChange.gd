@@ -33,6 +33,8 @@ var isTransformed: bool = false
 @export var playerRef: PlayerCharacter
 @export var baseCollisionShape: CollisionShape2D
 @export var playerSprite: Sprite2D
+@export var enterTransformationSound: AudioStreamPlayer
+@export var exitTransformationSound: AudioStreamPlayer
 var baseCollisionShapeInfo
 var baseTextureInfo: Texture2D
 var baseTextureScale
@@ -85,6 +87,7 @@ func set_new_transformation():
 
 func activate_transformation():
 	if (Input.is_action_just_pressed("transformation") && currentTransformationSet && !isTransformed && !transformationLock):
+		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
 		playerSprite.texture = currentTransformationTexture
@@ -99,6 +102,7 @@ func manual_deactivate_transformation():
 
 func deactivate_transformation():
 	emit_signal("reset_speed")
+	if (!exitTransformationSound.playing): exitTransformationSound.play()
 	baseCollisionShape.shape = baseCollisionShapeInfo
 	playerSprite.texture = baseTextureInfo
 	playerSprite.scale = baseTextureScale

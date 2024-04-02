@@ -99,7 +99,8 @@ func start_catch_preparation():
 	catchPreparationActive = true
 
 func capture_player():
-	get_tree().reload_current_scene()
+	guardController.guardMovement.set_new_target(null)
+	guardController.enemyAttack.launch_attack()
 
 func stop_alert():
 	guardController.isInAlert = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=47 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -14,6 +14,9 @@
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
 [ext_resource type="Script" path="res://Enemies/Scripts/ScreamArea.gd" id="11_xc2i3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttack.gd" id="13_k5tdm"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="14_gq0mv"]
+[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="15_c5d1l"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_ixdn1"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_slhsl"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_tw0pk"]
@@ -21,6 +24,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertPreChase.gd" id="19_03pbj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertMainRaycast.gd" id="20_r5o6v"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertTargetNotSeen.gd" id="21_6cr5u"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsAttacking.gd" id="21_uu2lk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardIsInResearch.gd" id="22_m4ta3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertCatchPreparation.gd" id="22_spoys"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardSecondaryResearchRaycast.gd" id="23_0dmw8"]
@@ -48,9 +52,13 @@ size = Vector2(144, 144)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
 radius = 744.043
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert", "guardRotator", "guardAlertValue")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
+size = Vector2(144, 184)
+
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert", "guardRotator", "guardAlertValue", "enemyAttack")]
 position = Vector2(-168, -240)
 script = ExtResource("1_loc1f")
+guardProperties = null
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardStunned = NodePath("GuardStunned")
@@ -59,6 +67,7 @@ guardPatrol = NodePath("GuardPatrol")
 guardAlert = NodePath("Rotator/GuardAlert")
 guardRotator = NodePath("Rotator")
 guardAlertValue = NodePath("AlertValue")
+enemyAttack = NodePath("Rotator/EnemyAttack")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -258,7 +267,7 @@ polygon = PackedVector2Array(0, 0, 152, -208, 200, -528, 168, -608, 88, -656, -8
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 375.0
 catchDistanceThreshold = 200.0
-catchPreparationDuration = 1.0
+catchPreparationDuration = 0.3
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
@@ -353,6 +362,26 @@ debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
 polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
+[node name="EnemyAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef")]
+script = ExtResource("13_k5tdm")
+attackDuration = 3.0
+attackPhasesLaunch = Array[float]([0.0, 1.5])
+attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
+attackSounds = [null, null]
+characterRef = NodePath("../..")
+
+[node name="EnemyAttackHitbox" type="Area2D" parent="Rotator/EnemyAttack"]
+script = ExtResource("14_gq0mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/EnemyAttack/EnemyAttackHitbox"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_1ia6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator/EnemyAttack/EnemyAttackHitbox"]
+position = Vector2(0, -108)
+scale = Vector2(0.32, 0.428904)
+texture = ExtResource("15_c5d1l")
+
 [node name="RotationPoints" type="Node2D" parent="."]
 
 [node name="UpRotationPoint" type="Node2D" parent="RotationPoints"]
@@ -387,6 +416,9 @@ guardController = NodePath("../../../..")
 script = ExtResource("17_tw0pk")
 guardStunned = NodePath("../../../../GuardStunned")
 guardController = NodePath("../../../..")
+
+[node name="GuardIsAttacking" type="Node" parent="BehaviorTree/Sequence"]
+script = ExtResource("21_uu2lk")
 
 [node name="SelectorAlert" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
@@ -553,3 +585,4 @@ guardController = NodePath("../../../../../../..")
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardAlert/ScreamArea" to="Rotator/GuardAlert/ScreamArea" method="_on_body_entered"]
+[connection signal="body_entered" from="Rotator/EnemyAttack/EnemyAttackHitbox" to="Rotator/EnemyAttack/EnemyAttackHitbox" method="_on_body_entered"]

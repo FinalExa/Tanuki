@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=7 format=3 uid="uid://d34wwl7yqbe5r"]
 
+[ext_resource type="AudioStream" uid="uid://pibfpba2f1b6" path="res://_Scenes/Sounds/Prova 3_Level Music.wav" id="1_8b1rj"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://TransformationObjects/heavy_box.tscn" id="4_txcw4"]
@@ -11,6 +12,10 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 3656, 5704)])
 
 [node name="PlayerTransformTest" type="Node2D"]
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8b1rj")
+autoplay = true
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
 position = Vector2(-640, 40)

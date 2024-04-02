@@ -22,6 +22,7 @@ var characterRef
 @export var guardAlert: GuardAlert
 @export var guardRotator: GuardRotator
 @export var guardAlertValue: GuardAlertValue
+@export var enemyAttack: EnemyAttack
 var guardsLookingForMe: Array[GuardResearch]
 
 func _on_player_character_give_self_reference(reference):
