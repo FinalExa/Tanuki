@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=16 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
-[ext_resource type="AudioStream" uid="uid://pibfpba2f1b6" path="res://_Scenes/Sounds/Prova 3_Level Music.wav" id="2_3gfii"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://TransformationObjects/transformation_object.tscn" id="4_0k0v2"]
@@ -25,10 +24,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_3gfii")
-autoplay = true
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
 position = Vector2(1480, -4048)
