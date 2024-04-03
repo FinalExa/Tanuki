@@ -13,5 +13,5 @@ func _on_body_entered(body):
 				guardRef.guardCheck.stop_guardCheck()
 			if (guardRef.isInResearch):
 				guardRef.guardResearch.stop_research()
-			guardRef.guardMovement.set_new_target(targetObject)
-			guardRef.guardRotator.setLookingAtNode(targetObject)
+			guardRef.guardAlert.start_alert(targetObject)
+			guardRef.guardAlert.set_movement_destination(targetObject.global_position)
