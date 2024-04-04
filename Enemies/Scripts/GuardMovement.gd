@@ -3,92 +3,70 @@ extends Node
 
 signal reached_destination
 
-var navReg
-var map
-var path = []
-
-@export var guardPatrol: GuardPatrol
 @export var guardController: GuardController
 @export var bodyRef: CharacterBody2D
-@export var navigation_agent: NavigationAgent2D
+@export var navigationAgent: NavigationAgent2D
 
-@export var default_movement_speed: float
-var current_movement_speed
+@export var defaultMovementSpeed: float
+@export var distanceTolerance: float
+@export var repathTimerDuration: float
+var repathTimer: float
+var currentMovementSpeed
 var target: Node2D
 var locationTarget: Vector2
 var locationTargetEnabled: bool
-var lastPosition: Vector2
 
 func _ready():
-	call_deferred("setup_navserver")
+	repathTimer = 0
+	currentMovementSpeed = defaultMovementSpeed
 
-func setup_navserver():
-	navReg = guardController.navigationRegion
-	current_movement_speed = default_movement_speed
-	map = NavigationServer2D.map_create()
-	NavigationServer2D.map_set_active(map, true)
-	
-	var region = NavigationServer2D.region_create()
-	NavigationServer2D.region_set_transform(region, Transform2D())
-	NavigationServer2D.region_set_map(region, map)
-	
-	var navigation_poly = NavigationMesh.new()
-	navigation_poly = navReg.navigation_polygon
-	NavigationServer2D.region_set_navigation_polygon(region, navigation_poly)
-	guardPatrol.initialize_startup()
-	set_process(true)
+func _update_navigation_path(end_position):
+	navigationAgent.target_position = end_position
 
-func _update_navigation_path(start_position, end_position):
-	if(lastPosition == null || lastPosition != end_position):
-		path = NavigationServer2D.map_get_path(map, start_position, end_position, true)
-		path.remove_at(0)
-		lastPosition = end_position
+func _physics_process(delta):
+	if((target != null || locationTargetEnabled)):
+		navigation(delta)
+		navigate_on_path()
 
-func _process(delta):
-	if((target != null || locationTargetEnabled == true)):
-		navigation()
-		navigate_on_path(delta)
-
-func navigate_on_path(delta):
-	var movement_speed = current_movement_speed * delta
-	move_along_path(movement_speed)
-
-func move_along_path(distance):
-	var last_point = bodyRef.position
-	while path.size():
-		var distance_between_points = last_point.distance_to(path[0])
-		if (distance <= distance_between_points):
-			bodyRef.position = last_point.lerp(path[0],distance / distance_between_points)
-			return
-		distance -= distance_between_points
-		last_point = path[0]
-		path.remove_at(0)
-	bodyRef.position = last_point
-	emit_signal("reached_destination")
+func navigate_on_path():
+	var movementSpeed = currentMovementSpeed
+	var dir = guardController.global_position.direction_to(navigationAgent.get_next_path_position())
+	guardController.velocity = dir * movementSpeed
+	guardController.move_and_slide()
+	if ((locationTargetEnabled && guardController.global_position.distance_to(locationTarget) < distanceTolerance)
+	|| (target != null && guardController.global_position.distance_to(target.global_position) < distanceTolerance)):
+		emit_signal("reached_destination")
 
 func set_new_target(newTarget):
 	target = newTarget
 	locationTarget = Vector2.ZERO
 	locationTargetEnabled = false
-	navigation()
+	repath()
 
 func set_location_target(locTarget: Vector2):
 	locationTarget = locTarget
 	target = null
 	locationTargetEnabled = true
-	navigation()
+	repath()
 
-func navigation():
-	if(target != null):
-		_update_navigation_path(bodyRef.global_position, target.global_position)
+func navigation(delta):
+	if (repathTimer>0):
+		repathTimer-=delta
 	else:
-		if (locationTargetEnabled == true):
-			_update_navigation_path(bodyRef.global_position, locationTarget)
+		repath()
+		repathTimer = repathTimerDuration
+
+func repath():
+	if(target != null):
+		_update_navigation_path(target.global_position)
+	else:
+		if (locationTargetEnabled):
+			_update_navigation_path(locationTarget)
 		else:
-			_update_navigation_path(bodyRef.global_position, bodyRef.global_position)
+			_update_navigation_path(bodyRef.global_position)
 
 func set_movement_speed(newMovementSpeed: float):
-	current_movement_speed = newMovementSpeed
+	currentMovementSpeed = newMovementSpeed
 
 func reset_movement_speed():
-	current_movement_speed = default_movement_speed
+	currentMovementSpeed = defaultMovementSpeed

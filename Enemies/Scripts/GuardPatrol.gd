@@ -22,6 +22,7 @@ var patrolLookAroundIndex = 0
 
 func _ready():
 	loadedPatrolIndicator = guardController.patrolIndicators[0]
+	set_current_patrol_routine()
 
 func set_current_patrol_routine():
 	if(guardController.isInPatrol == true):

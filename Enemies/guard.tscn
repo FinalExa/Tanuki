@@ -77,15 +77,16 @@ shape = SubResource("CircleShape2D_2aaw5")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 100.0
-debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
-[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardPatrol", "guardController", "bodyRef", "navigation_agent")]
+[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent")]
 script = ExtResource("1_lv0fd")
-guardPatrol = NodePath("../GuardPatrol")
 guardController = NodePath("..")
 bodyRef = NodePath("..")
-navigation_agent = NodePath("../NavigationAgent2D")
-default_movement_speed = 200.0
+navigationAgent = NodePath("../NavigationAgent2D")
+defaultMovementSpeed = 200.0
+distanceTolerance = 10.0
+repathTimerDuration = 0.25
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("4_amsnv")
