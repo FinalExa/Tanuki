@@ -361,7 +361,8 @@ debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
 polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
-[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
+[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
+attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
 characterRef = NodePath("../..")
 

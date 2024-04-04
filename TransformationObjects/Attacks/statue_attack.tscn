@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0ohjoul4xxvy"]
+
+[ext_resource type="Script" path="res://TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_7pxvr"]
+[ext_resource type="Script" path="res://TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="1_lkhma"]
+
+[node name="StatueAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_7pxvr")
+attackDuration = 1.5
+attackPhasesLaunch = Array[float]([0.5, 0.0])
+attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
+attackSounds = [null, null]
+
+[node name="ObjectAttackHitbox" type="Area2D" parent="."]
+script = ExtResource("1_lkhma")
+attackTag = "Pound"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
+polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)
+
+[connection signal="body_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_entered"]
