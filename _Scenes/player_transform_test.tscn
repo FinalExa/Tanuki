@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://TransformationObjects/heavy_box.tscn" id="4_txcw4"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://TransformationObjects/statue.tscn" id="6_kehd8"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://InteractionObject/move_interaction_object.tscn" id="7_f2on0"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
@@ -51,3 +52,6 @@ position = Vector2(-160, 0)
 
 [node name="Statue" parent="." instance=ExtResource("6_kehd8")]
 position = Vector2(-1032, 176)
+
+[node name="InteractionObject" parent="." instance=ExtResource("7_f2on0")]
+position = Vector2(-1216, -392)
