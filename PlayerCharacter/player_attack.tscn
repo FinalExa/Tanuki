@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://tp0v8dsqkf32"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="1_7s3bv"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttackHitbox.gd" id="2_vmxay"]
+[ext_resource type="Texture2D" uid="uid://he43w3djx5gf" path="res://PlayerCharacter/Sprites/Placeholder/attack.png" id="3_meg5f"]
+
+[node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_7s3bv")
+attackDuration = 2.5
+attackPhasesLaunch = Array[float]([0.0, 0.5, 1.5])
+attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
+attackSounds = [null, null, null]
+
+[node name="PlayerAttackHitbox" type="Area2D" parent="."]
+position = Vector2(0, -128)
+script = ExtResource("2_vmxay")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerAttackHitbox"]
+polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAttackHitbox"]
+position = Vector2(1.93762, 3.3385)
+rotation = -1.57079
+scale = Vector2(0.154553, 0.58333)
+texture = ExtResource("3_meg5f")
+
+[connection signal="body_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_body_entered"]
