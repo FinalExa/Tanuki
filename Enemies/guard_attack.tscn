@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv386oatrmsc"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttack.gd" id="1_krrw3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="2_4o2q2"]
+[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="3_dilo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
+size = Vector2(144, 184)
+
+[node name="GuardAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_krrw3")
+attackDuration = 3.0
+attackPhasesLaunch = Array[float]([0.0, 1.5])
+attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
+attackSounds = [null, null]
+
+[node name="EnemyAttackHitbox" type="Area2D" parent="."]
+script = ExtResource("2_4o2q2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttackHitbox"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_1ia6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyAttackHitbox"]
+position = Vector2(0, -108)
+scale = Vector2(0.32, 0.428904)
+texture = ExtResource("3_dilo0")
+
+[connection signal="body_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_body_entered"]
