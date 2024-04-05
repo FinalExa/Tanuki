@@ -5,11 +5,13 @@ var sceneRef: Node2D
 @export var tailRef: Node2D
 @export var transformationChangeRef: TransformationChange
 @export var movementRef: PCMovement
+@export var spriteRef: AnimatedSprite2D
 var buttonInteractionReady: bool
 var deactivationButton: DeactivationButton
 
 func _ready():
 	sceneRef = self.get_parent()
+	spriteRef.play("idle")
 	transformationChangeRef.sceneRef = sceneRef
 
 func _process(_delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=45 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
 [ext_resource type="Texture2D" uid="uid://bxyifyjfoqmx8" path="res://Enemies/Sprites/Placeholder/lapula.png" id="7_2tctk"]
+[ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
 [ext_resource type="Script" path="res://Enemies/Scripts/ScreamArea.gd" id="11_xc2i3"]
@@ -74,6 +75,11 @@ avoidance_enabled = true
 radius = 100.0
 debug_path_custom_color = Color(1, 0, 0, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -1.52588e-05)
+scale = Vector2(0.598425, 0.271698)
+texture = ExtResource("7_2tctk")
+
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent")]
 script = ExtResource("1_lv0fd")
 guardController = NodePath("..")
@@ -118,10 +124,11 @@ rotationSpeed = 2.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-position = Vector2(-4, -1.38283e-05)
-scale = Vector2(0.598425, 0.271698)
-texture = ExtResource("7_2tctk")
+[node name="Lantern" type="Sprite2D" parent="Rotator"]
+modulate = Color(0.0705882, 0.541176, 0.156863, 1)
+position = Vector2(0, -104)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_7mxgb")
 
 [node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardRotator")]
 script = ExtResource("2_n1dev")
