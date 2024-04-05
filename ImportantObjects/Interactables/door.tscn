@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b58p4qwcqetqi"]
+
+[ext_resource type="Texture2D" uid="uid://bg51otxc4h1q2" path="res://ImportantObjects/Interactables/Sprites/Placeholder/door.png" id="1_3gnxi"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_gqh0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdla0"]
+size = Vector2(256, 128)
+
+[node name="Door" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_gqh0n")
+neededString = "OpenDoor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bdla0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.47, 0.235)
+texture = ExtResource("1_3gnxi")

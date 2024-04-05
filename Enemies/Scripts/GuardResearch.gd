@@ -111,7 +111,7 @@ func startup_feedbacks():
 	remove_feedback(secondaryAreaFeedbackInstance)
 
 func add_feedback(feedbackToAdd):
-	add_child(feedbackToAdd)
+	call_deferred("add_child", feedbackToAdd)
 	for i in get_child_count():
 		if (get_child(i) == feedbackToAdd):
 			return get_child(i)

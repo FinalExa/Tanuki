@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4btlyev0ndb"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_6vptt"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="2_yb35t"]
+
+[node name="KeyAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_6vptt")
+attackDuration = 0.1
+attackPhasesLaunch = Array[float]([0.0])
+attackHitboxes = [NodePath("ObjectAttackHitbox")]
+attackSounds = [null]
+
+[node name="ObjectAttackHitbox" type="Area2D" parent="."]
+script = ExtResource("2_yb35t")
+attackTag = "OpenDoor"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
+polygon = PackedVector2Array(-24, -64, 32, -64, 32, -128, -24, -128)
+
+[connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_entered"]

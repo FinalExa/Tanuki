@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=15 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -9,11 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
-[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="8_eoajp"]
 [ext_resource type="AudioStream" uid="uid://dmpf0u48j6o2q" path="res://PlayerCharacter/Sounds/Player SFX Movement 1_Loop.wav" id="8_m3ffu"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
-[ext_resource type="Texture2D" uid="uid://he43w3djx5gf" path="res://PlayerCharacter/Sprites/Placeholder/attack.png" id="10_5w8uw"]
-[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttackHitbox.gd" id="14_7c2rx"]
+[ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
@@ -88,32 +86,13 @@ normalMovementSound = NodePath("../../Sounds/NormalMovement")
 transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" type="Node2D" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef")]
-script = ExtResource("8_eoajp")
-attackDuration = 2.5
-attackPhasesLaunch = Array[float]([0.0, 0.5, 1.5])
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
 attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")
 
-[node name="PlayerAttackHitbox" type="Area2D" parent="Rotator/PlayerAttack"]
-position = Vector2(0, -128)
-script = ExtResource("14_7c2rx")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/PlayerAttack/PlayerAttackHitbox"]
-polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
-
-[node name="Sprite2D" type="Sprite2D" parent="Rotator/PlayerAttack/PlayerAttackHitbox"]
-position = Vector2(1.93762, 3.3385)
-rotation = -1.57079
-scale = Vector2(0.154553, 0.58333)
-texture = ExtResource("10_5w8uw")
-
-[connection signal="set_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_set_temp_trs"]
-[connection signal="unset_temp_trs" from="." to="Rotator/TransformationChange" method="_on_player_character_unset_temp_trs"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_reset_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
 [connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
-[connection signal="body_entered" from="Rotator/PlayerAttack/PlayerAttackHitbox" to="Rotator/PlayerAttack/PlayerAttackHitbox" method="_on_body_entered"]

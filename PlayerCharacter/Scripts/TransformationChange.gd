@@ -13,6 +13,7 @@ var tempTransformationProperties
 var tempTransformationCollisionShape: CollisionShape2D
 var tempTransformationTexture: Texture2D
 var tempTransformationTextureScale: Vector2
+var tempTransformAttackPath: String
 
 var currentTransformationSet
 var currentTransformationName
@@ -21,7 +22,9 @@ var currentTransformationProperties
 var currentTransformationCollisionShape: CollisionShape2D
 var currentTransformationTexture: Texture2D
 var currentTransformationTextureScale: Vector2
+var currentTransformationAttackPath: String
 
+var currentAttack: TransformObjectAttack
 var guardsLookingForMe: Array[GuardResearch]
 
 var isTransformed: bool = false
@@ -61,8 +64,9 @@ func _process(delta):
 	manual_deactivate_transformation()
 	transformation_active(delta)
 	transformation_lock(delta)
+	check_for_attack_input()
 
-func _on_player_character_set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale):
+func set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale, tempAttackPath):
 	isInsidePossibleTransformationObject = true
 	tempTransformationName = tempName
 	tempTransformationSpeed = tempSpeed
@@ -70,8 +74,9 @@ func _on_player_character_set_temp_trs(tempName, tempSpeed, tempProperties, temp
 	tempTransformationCollisionShape = tempCollider
 	tempTransformationTexture = tempTexture
 	tempTransformationTextureScale = tempTextureScale
+	tempTransformAttackPath = tempAttackPath
 
-func _on_player_character_unset_temp_trs():
+func unset_temp_trs():
 	isInsidePossibleTransformationObject = false
 
 func set_new_transformation():
@@ -83,6 +88,8 @@ func set_new_transformation():
 		currentTransformationCollisionShape = tempTransformationCollisionShape
 		currentTransformationTexture = tempTransformationTexture
 		currentTransformationTextureScale = tempTransformationTextureScale
+		currentTransformationAttackPath = tempTransformAttackPath
+		add_attack()
 		emit_signal("send_transformation_name", currentTransformationName)
 
 func activate_transformation():
@@ -164,3 +171,26 @@ func get_if_transformed_in_right_zone():
 				return 1
 		return 2
 	return 0
+
+func add_attack():
+	var children = get_children()
+	for i in children.size():
+		if (children[i] is TransformObjectAttack):
+			remove_child(children[i])
+			i-=1
+	if (currentTransformationAttackPath != ""):
+		var new_atk_scene = load(currentTransformationAttackPath)
+		var new_atk = new_atk_scene.instantiate()
+		add_child(new_atk)
+		children = get_children()
+		for i in children.size():
+			if (children[i] is TransformObjectAttack):
+				currentAttack = children[i]
+				break
+		currentAttack.characterRef = playerRef
+	else:
+		currentAttack = null
+
+func check_for_attack_input():
+	if (currentAttack != null && !currentAttack.attackLaunched && Input.is_action_just_pressed("attack") && isTransformed):
+		currentAttack.start_attack()

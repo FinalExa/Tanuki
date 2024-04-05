@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pibfpba2f1b6"
+path="res://.godot/imported/Prova 3_Level Music.wav-b89ed53ab295ea868bd9eaf85352a05f.sample"
+
+[deps]
+
+source_file="res://1_Scenes/Sounds/Prova 3_Level Music.wav"
+dest_files=["res://.godot/imported/Prova 3_Level Music.wav-b89ed53ab295ea868bd9eaf85352a05f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
