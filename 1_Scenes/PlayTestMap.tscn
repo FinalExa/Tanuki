@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=15 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="7_ubwk7"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="7_xs62e"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_1qbxj"]
-[ext_resource type="PackedScene" uid="uid://g7yg1bvbr6yt" path="res://ImportantObjects/Traps/Button/deactivation_button.tscn" id="8_h800m"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
@@ -535,18 +534,6 @@ position = Vector2(-192, -2304)
 position = Vector2(-192, -1792)
 
 [node name="Buttons" type="Node2D" parent="Room1"]
-
-[node name="DeactivationButton" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-position = Vector2(2888, -3192)
-objectToDeactivate = NodePath("../../Deathtraps/DeathTrapInteractionObject")
-
-[node name="DeactivationButton2" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-position = Vector2(-968, -2936)
-objectToDeactivate = NodePath("../../Deathtraps/InteractionObject")
-
-[node name="DeactivationButton3" parent="Room1/Buttons" node_paths=PackedStringArray("objectToDeactivate") instance=ExtResource("8_h800m")]
-position = Vector2(-1480, -2720)
-objectToDeactivate = NodePath("../../Deathtraps/MovementImpairInteractionObject")
 
 [node name="NavigationPoints" type="Node2D" parent="Room1"]
 
