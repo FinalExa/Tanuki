@@ -91,7 +91,7 @@ timeSpentDoingExtraPatrol = 60.0
 
 [node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("6_8wc3c")
-stunDuration = 20.0
+stunDuration = 10.0
 stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
 guardController = NodePath("..")
@@ -361,7 +361,9 @@ debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
 polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
-[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("characterRef") instance=ExtResource("13_3c0sx")]
+[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
+attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
+attackSounds = [null, null]
 characterRef = NodePath("../..")
 
 [node name="RotationPoints" type="Node2D" parent="."]

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://chiiakop44t61"]
-
-[ext_resource type="Script" path="res://InteractionObject/Effects/Scripts/DeathTrapEffect.gd" id="1_4yuvb"]
-
-[node name="DeathTrapEffect" type="Node2D"]
-script = ExtResource("1_4yuvb")
-cooldownExtraReductionPerTick = 3.0
-guardLaunchDistance = 100.0
