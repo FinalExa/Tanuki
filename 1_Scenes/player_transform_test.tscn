@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
+
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
+[ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="4_txcw4"]
+[ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="6_kehd8"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="7_f2on0"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
+vertices = PackedVector2Array(4952, -4432, 4944, 5656, -32, 64, -32, -64, -7368, -4512, -288, -64, -5976, 5856, -288, 64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(2, 1, 6, 7), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 4944, 5656), PackedVector2Array(-288, -64, -32, -64, -32, 64, -288, 64)])
+
+[node name="PlayerTransformTest" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
+position = Vector2(-1016, -24)
+
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("3_kj1fg")]
+patrolIndicators = [NodePath("../PatrolIndicator")]
+navigationRegion = NodePath("../NavigationRegion2D")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_71oav")
+
+[node name="FirstCheckPoint" type="Node2D" parent="."]
+position = Vector2(-192, 192)
+
+[node name="SecondCheckPoint" type="Node2D" parent="."]
+position = Vector2(448, 192)
+
+[node name="ThirdCheckPoint" type="Node2D" parent="."]
+position = Vector2(-360, -200)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-169, 525)
+
+[node name="PatrolIndicator" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
+script = ExtResource("8_n2toe")
+patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
+moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
+lookActions = Array[int]([1, 2, 0])
+
+[node name="HeavyBox" parent="." instance=ExtResource("4_txcw4")]
+position = Vector2(-776, -304)
+
+[node name="Wall" parent="." instance=ExtResource("6_qwx0y")]
+position = Vector2(-160, 0)
+
+[node name="Statue" parent="." instance=ExtResource("6_kehd8")]
+position = Vector2(-1032, 176)
+
+[node name="InteractionObject" parent="." instance=ExtResource("7_f2on0")]
+position = Vector2(-1216, -392)
