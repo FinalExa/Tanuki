@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6u2a7gaoiufs"]
+
+[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_cs7rc"]
+[ext_resource type="Texture2D" uid="uid://cniicodsxq0h4" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/key.png" id="2_lpy2r"]
+
+[node name="Key" instance=ExtResource("1_cs7rc")]
+transformedName = "Key"
+transformedMaxSpeed = 700.0
+transformedProperties = Array[String](["Metallic"])
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/key_attack.tscn"
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_lpy2r")

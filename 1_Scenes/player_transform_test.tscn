@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=12 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="8_ltv25"]
 [ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="8_mj32v"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+[ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(4952, -4432, 4944, 5656, -32, 64, -32, -64, -7368, -4512, -288, -64, -5976, 5856, -288, 64)
@@ -63,3 +64,7 @@ position = Vector2(-1440, 24)
 
 [node name="Drawer" parent="." instance=ExtResource("8_mj32v")]
 position = Vector2(-1288, 320)
+dropActive = true
+
+[node name="Door" parent="." instance=ExtResource("10_4v3sr")]
+position = Vector2(-952, 432)

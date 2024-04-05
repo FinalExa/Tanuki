@@ -8,6 +8,7 @@ size = Vector2(128, 128)
 
 [node name="Drawer" type="StaticBody2D" node_paths=PackedStringArray("dropPoint") groups=["Interactable"]]
 script = ExtResource("1_ykqst")
+droppedObjectOnInteraction = "res://ImportantObjects/TransformationObjects/key.tscn"
 dropPoint = NodePath("DropPoint")
 neededString = "Smash"
 
