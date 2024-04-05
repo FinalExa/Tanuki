@@ -13,6 +13,7 @@ position = Vector2(576, -192)
 
 [node name="Wall" parent="." instance=ExtResource("3_irhh7")]
 position = Vector2(-320, -256)
+rotation = -1.57079
 
 [node name="Wall2" parent="." instance=ExtResource("3_irhh7")]
 position = Vector2(-320, 192)
