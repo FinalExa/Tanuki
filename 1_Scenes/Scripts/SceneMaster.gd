@@ -20,7 +20,6 @@ func _ready():
 	Load()
 
 func _process(_delta):
-	ManualSave()
 	ReloadScene()
 
 func AddDeletePath(newPath: String):
@@ -30,10 +29,6 @@ func AddDeletePath(newPath: String):
 func ReloadScene():
 	if (Input.is_action_just_pressed("reload")):
 		get_tree().reload_current_scene()
-
-func ManualSave():
-	if (Input.is_action_just_pressed("save")):
-		Save()
 
 func Save():
 	var file = FileAccess.open(savePath, FileAccess.WRITE)

@@ -7,6 +7,8 @@ var sceneRef: Node2D
 @export var movementRef: PCMovement
 @export var spriteRef: AnimatedSprite2D
 var buttonInteractionReady: bool
+var savePointInteractionReady: bool
+var savedSavePoint: SavePoint
 var deactivationButton: DeactivationButton
 
 func _ready():
@@ -17,7 +19,7 @@ func _ready():
 
 func _process(_delta):
 	if (Input.is_action_just_pressed("interact")):
-		activate_button()
+		activate_interaction()
 
 func set_deactivation_button(deactivationBtn: DeactivationButton):
 	buttonInteractionReady = true
@@ -26,7 +28,17 @@ func set_deactivation_button(deactivationBtn: DeactivationButton):
 func unset_deactivation_button():
 	buttonInteractionReady = false
 	deactivationButton = null
-	
-func activate_button():
+
+func set_save_point(savePoint: SavePoint):
+	savePointInteractionReady = true
+	savedSavePoint = savePoint
+
+func unset_save_point():
+	savePointInteractionReady = false
+	savedSavePoint = null
+
+func activate_interaction():
 	if (buttonInteractionReady):
 		deactivationButton.activate_effect()
+	if (savePointInteractionReady):
+		savedSavePoint.activate_effect()

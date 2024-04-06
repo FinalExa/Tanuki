@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=14 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="8_mj32v"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
+[ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(4952, -4432, 4944, 5656, -32, 64, -32, -64, -7368, -4512, -288, -64, -5976, 5856, -288, 64)
@@ -71,3 +72,7 @@ dropActive = true
 [node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
 position = Vector2(-952, 432)
 objectToSendDestoySignal = NodePath("../Drawer")
+
+[node name="SavePoint" parent="." node_paths=PackedStringArray("sceneMasterRef") instance=ExtResource("12_75wbm")]
+position = Vector2(-1680, 240)
+sceneMasterRef = NodePath("..")
