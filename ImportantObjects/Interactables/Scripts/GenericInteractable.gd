@@ -6,11 +6,15 @@ extends Node2D
 @export var objectToSendDestoySignal: Node2D
 var sceneMaster: SceneMaster
 
-func attackInteraction(receivedString):
+func AttackInteraction(receivedString):
 	if (neededString == receivedString):
 		ExecuteExtraEffect()
 		SaveOnDestroy()
 		get_parent().remove_child(self)
+
+func ExecuteLoadOperation():
+	SaveDestroySignalToOtherObject()
+	get_parent().remove_child(self)
 
 func ExecuteExtraEffect():
 	pass
