@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=16 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
+[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="4_0k0v2"]
@@ -20,6 +21,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -1152, -448, -512, 576, -512, 576, -768, 704, -768, 704, -512, 2752, -512, 2752, -1408, 2752, -2432, 2880, -2432, 2880, -2048, 3648, -2048, 5184, -2048, 5184, -1920, 4928, -1920, 4928, -1408, 5696, -1408, 5696, -1920, 5440, -1920, 5440, -2048, 9536, -2048, 9536, -2432, 9664, -2432, 9664, -2944, 9536, -2944, 9536, -3328, 4416, -3328, 4416, -3456, 4800, -3456, 4800, -4224, 3776, -4224, 3776, -3456, 4160, -3456, 4160, -3328, 3656, -3328, 2880, -3328, 2880, -2944, 2752, -2944, 2752, -3712, 1598.71, -3712, 1600, -3840, 1728, -3840, 1728, -4224, 1216, -4224, 1216, -3840, 1344, -3840, 1344, -3712, -832, -3712, -832, -2688, -960, -2688, -960, -3072, -1216, -3072, -1216, -2688, -1472, -2688, -1472, -2816, -1344, -2816, -1344, -3072, -1984, -3072, -1984, -2048, -1344, -2048, -1344, -2304, -1472, -2304, -1472, -2432, -1216, -2432, -1216, -2048, -960, -2048, -960, -2432, -832, -2432, -832, -1408, 1088, -1408, 1088, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152)])
 
 [node name="PlayTestMap" type="Node2D"]
+script = ExtResource("1_x7cfa")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")

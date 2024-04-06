@@ -12,3 +12,6 @@ func ExecuteExtraEffect():
 		for i in get_parent().get_child_count():
 			if (get_parent().get_child(i) == obj):
 				get_parent().get_child(i).global_position = dropPoint.global_position
+
+func DestroyedSignal():
+	dropActive = false

@@ -9,6 +9,7 @@ size = Vector2(256, 128)
 [node name="Door" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_gqh0n")
 neededString = "OpenDoor"
+savedOnDestroy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bdla0")
