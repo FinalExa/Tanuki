@@ -6,23 +6,25 @@ signal reset_speed
 signal send_transformation_name
 signal send_transformation_active_info
 
-var isInsidePossibleTransformationObject
-var tempTransformationName
-var tempTransformationSpeed
-var tempTransformationProperties
+var isInsidePossibleTransformationObject: bool
+var tempTransformationName: String
+var tempTransformationSpeed: float
+var tempTransformationProperties: Array[String]
 var tempTransformationCollisionShape: CollisionShape2D
 var tempTransformationTexture: Texture2D
 var tempTransformationTextureScale: Vector2
 var tempTransformAttackPath: String
+var tempOriginalObjectPath: String
 
-var currentTransformationSet
-var currentTransformationName
-var currentTransformationSpeed
-var currentTransformationProperties
+var currentTransformationSet: bool
+var currentTransformationName: String
+var currentTransformationSpeed: float
+var currentTransformationProperties: Array[String]
 var currentTransformationCollisionShape: CollisionShape2D
 var currentTransformationTexture: Texture2D
 var currentTransformationTextureScale: Vector2
 var currentTransformationAttackPath: String
+var currentOriginalObjectPath: String
 
 var currentAttack: TransformObjectAttack
 var guardsLookingForMe: Array[GuardResearch]
@@ -68,7 +70,7 @@ func _process(delta):
 	transformation_lock(delta)
 	check_for_attack_input()
 
-func set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale, tempAttackPath):
+func set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale, tempAttackPath, tempOriginalPath):
 	isInsidePossibleTransformationObject = true
 	tempTransformationName = tempName
 	tempTransformationSpeed = tempSpeed
@@ -77,22 +79,27 @@ func set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture
 	tempTransformationTexture = tempTexture
 	tempTransformationTextureScale = tempTextureScale
 	tempTransformAttackPath = tempAttackPath
+	tempOriginalObjectPath = tempOriginalPath
 
 func unset_temp_trs():
 	isInsidePossibleTransformationObject = false
 
 func set_new_transformation():
 	if (Input.is_action_just_pressed("interact") && isInsidePossibleTransformationObject):
-		currentTransformationSet = true
-		currentTransformationName = tempTransformationName
-		currentTransformationSpeed = tempTransformationSpeed
-		currentTransformationProperties = tempTransformationProperties
-		currentTransformationCollisionShape = tempTransformationCollisionShape
-		currentTransformationTexture = tempTransformationTexture
-		currentTransformationTextureScale = tempTransformationTextureScale
-		currentTransformationAttackPath = tempTransformAttackPath
-		add_attack()
-		emit_signal("send_transformation_name", currentTransformationName)
+		actually_set_new_transformation()
+
+func actually_set_new_transformation():
+	currentTransformationSet = true
+	currentTransformationName = tempTransformationName
+	currentTransformationSpeed = tempTransformationSpeed
+	currentTransformationProperties = tempTransformationProperties
+	currentTransformationCollisionShape = tempTransformationCollisionShape
+	currentTransformationTexture = tempTransformationTexture
+	currentTransformationTextureScale = tempTransformationTextureScale
+	currentTransformationAttackPath = tempTransformAttackPath
+	currentOriginalObjectPath = tempOriginalObjectPath
+	add_attack()
+	emit_signal("send_transformation_name", currentTransformationName)
 
 func activate_transformation():
 	if (Input.is_action_just_pressed("transformation") && currentTransformationSet && !isTransformed && !transformationLock):

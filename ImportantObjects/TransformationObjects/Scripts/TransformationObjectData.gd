@@ -7,6 +7,7 @@ extends StaticBody2D
 @export var transformedCollider: CollisionShape2D
 @export var transformedTexture: Sprite2D
 @export var transformedAttackPath: String
+@export var originalObjectPath: String
 var transformedTextureScale: Vector2
 
 var localAllowedItemsRef: LocalAllowedItems
@@ -15,8 +16,8 @@ func _ready():
 	transformedTextureScale = transformedTexture.scale
 
 func set_change_trs_available(status, body):
-	if (status == true):
-		body.transformationChangeRef.set_temp_trs(transformedName, transformedMaxSpeed, transformedProperties, transformedCollider, transformedTexture.texture, transformedTextureScale, transformedAttackPath)
+	if (status):
+		body.transformationChangeRef.set_temp_trs(transformedName, transformedMaxSpeed, transformedProperties, transformedCollider, transformedTexture.texture, transformedTextureScale, transformedAttackPath, originalObjectPath)
 	else:
 		body.transformationChangeRef.unset_temp_trs()
 

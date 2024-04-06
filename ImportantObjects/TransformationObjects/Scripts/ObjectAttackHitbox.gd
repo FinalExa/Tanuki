@@ -8,7 +8,7 @@ func _on_body_entered(body):
 
 func check_if_target(body):
 	if (body.is_in_group("Interactable")):
-		body.attackInteraction(attackTag)
+		body.AttackInteraction(attackTag)
 		return
 	if (stunsGuard && body is GuardController):
 		body.is_damaged(body.global_position.direction_to(self.global_position))
