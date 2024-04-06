@@ -10,10 +10,11 @@ func _ready():
 
 func _process(_delta):
 	ManualSave()
-	ManualLoad()
+	#ManualLoad()
 
 func AddDeletePath(newPath: String):
-	savedDeletePaths.push_back(newPath)
+	if(!savedDeletePaths.has(newPath)):
+		savedDeletePaths.push_back(newPath)
 
 func ManualSave():
 	if (Input.is_action_just_pressed("save")):
@@ -43,7 +44,6 @@ func LoadOperations():
 
 func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 	var newString: String = ""
-	var count: int = 0
 	while (string[0] != "/"):
 		newString += string[0]
 		string = string.right(string.length()-1)
@@ -54,6 +54,7 @@ func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 		for i in currentNode.get_child_count():
 			if (currentNode.get_child(i).name == newString):
 				currentNode = currentNode.get_child(i)
+				break
 		if (string.is_empty()):
 			currentNode.ExecuteLoadOperation()
 		else:

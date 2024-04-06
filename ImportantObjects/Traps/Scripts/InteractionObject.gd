@@ -3,6 +3,9 @@ extends Area2D
 
 @export var effectNegateProperty: String
 @export var effect: InteractionObjectEffect
+@export var savedOnDestroy: bool
+@export var objectToSendDestoySignal: Node2D
+var sceneMaster: SceneMaster
 var objectsInArea: Array[Node2D]
 
 func _on_body_entered(body):
@@ -38,3 +41,34 @@ func execute_effect_on_guard(guardRef: GuardController, delta):
 		effect.execute_negated_effect(guardRef, delta)
 		return
 	effect.execute_effect_normally(guardRef, delta)
+
+func SaveOnDestroy():
+	if (savedOnDestroy):
+		var savedPath: String
+		savedPath = ComposePathString(SetCurrentNodeInPath(self))
+		sceneMaster.AddDeletePath(savedPath)
+
+func SetCurrentNodeInPath(node: Node2D):
+	var path: Array[String] = []
+	path.push_front(node.name)
+	var reached: bool = false
+	while (!reached):
+		node = node.get_parent()
+		path.push_front(node.name)
+		if (node is SceneMaster):
+			sceneMaster = node
+			reached = true
+	return path
+
+func ComposePathString(path: Array[String]):
+	var pathString: String = ""
+	for i in path.size():
+		pathString += path[i] + "/"
+	return pathString
+
+func SaveDestroySignalToOtherObject():
+	if (objectToSendDestoySignal != null):
+		objectToSendDestoySignal.DestroyedSignal()
+
+func ExecuteLoadOperation():
+	pass
