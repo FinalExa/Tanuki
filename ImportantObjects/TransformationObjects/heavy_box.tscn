@@ -7,6 +7,7 @@
 transformedName = "HeavyBox"
 transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
+originalObjectPath = "res://ImportantObjects/TransformationObjects/heavy_box.tscn"
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(5, 1.5)

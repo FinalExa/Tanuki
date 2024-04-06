@@ -3,34 +3,45 @@ extends Node2D
 
 var savedDeletePaths: Array[String]
 var savePath: String
+var playerDataSavePath: String = "user://PlayerData.save"
+
 var lastPos: Vector2
-@export var playerRef: PlayerCharacter
+var lastTransformationSet: bool
+var lastObjectOriginalPath: String
+
+var playerRef: PlayerCharacter
 
 func _ready():
 	savePath = "user://"+ self.name +".save"
+	for i in get_child_count():
+		if (get_child(i) is PlayerCharacter):
+			playerRef = get_child(i)
+			break
 	Load()
 
 func _process(_delta):
 	ManualSave()
-	#ManualLoad()
+	ReloadScene()
 
 func AddDeletePath(newPath: String):
 	if(!savedDeletePaths.has(newPath)):
 		savedDeletePaths.push_back(newPath)
 
+func ReloadScene():
+	if (Input.is_action_just_pressed("reload")):
+		get_tree().reload_current_scene()
+
 func ManualSave():
 	if (Input.is_action_just_pressed("save")):
 		Save()
 
-func ManualLoad():
-	if (Input.is_action_just_pressed("load")):
-		Load()
-
 func Save():
 	var file = FileAccess.open(savePath, FileAccess.WRITE)
-	lastPos = playerRef.global_position
 	file.store_var(savedDeletePaths)
-	file.store_var(lastPos)
+	file.store_var(playerRef.global_position)
+	file = FileAccess.open(playerDataSavePath, FileAccess.WRITE)
+	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
+	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
 
 func Load():
 	if (FileAccess.file_exists(savePath)):
@@ -41,10 +52,20 @@ func Load():
 			for i in result.size():
 				savedDeletePaths.push_back(result[i])
 		lastPos = file.get_var()
-		LoadOperations()
+	if (FileAccess.file_exists(playerDataSavePath)):
+		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
+		lastTransformationSet = file.get_var()
+		lastObjectOriginalPath = file.get_var()
+	LoadOperations()
 
 func LoadOperations():
 	playerRef.global_position = lastPos
+	if (lastTransformationSet):
+		var new_trs_scene = load(lastObjectOriginalPath)
+		var new_trs = new_trs_scene.instantiate()
+		playerRef.transformationChangeRef.set_temp_trs(new_trs.transformedName, new_trs.transformedMaxSpeed, new_trs.transformedProperties, new_trs.transformedCollider, new_trs.transformedTexture.texture, new_trs.transformedTexture.scale, new_trs.transformedAttackPath, new_trs.originalObjectPath)
+		playerRef.transformationChangeRef.actually_set_new_transformation()
+		playerRef.transformationChangeRef.unset_temp_trs()
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
 			TranslateStringIntoPathResult(self, savedDeletePaths[i])
