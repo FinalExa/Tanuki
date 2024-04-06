@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5r2v2csdxv8n"]
+
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_hye3a"]
+[ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="2_8mey8"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="3_irhh7"]
+
+[node name="ArtScene" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_hye3a")]
+
+[node name="Pillar" parent="." instance=ExtResource("2_8mey8")]
+position = Vector2(576, -192)
+
+[node name="Wall" parent="." instance=ExtResource("3_irhh7")]
+position = Vector2(-320, -256)
+rotation = -1.57079
+
+[node name="Wall2" parent="." instance=ExtResource("3_irhh7")]
+position = Vector2(-320, 192)
+
+[node name="Wall3" parent="." instance=ExtResource("3_irhh7")]
+position = Vector2(-64, 192)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be5gemxpkvyt5"
-path="res://.godot/imported/Tan_test_3.png-ee06b70561fcc5d9474ad451556d530f.ctex"
+path="res://.godot/imported/Tan_test_3.png-9dffae082b3bce09fb08f0eb988a17fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/Tan_test_3.png"
-dest_files=["res://.godot/imported/Tan_test_3.png-ee06b70561fcc5d9474ad451556d530f.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/Tan_test_3.png"
+dest_files=["res://.godot/imported/Tan_test_3.png-9dffae082b3bce09fb08f0eb988a17fb.ctex"]
 
 [params]
 

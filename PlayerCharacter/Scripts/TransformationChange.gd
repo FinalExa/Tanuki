@@ -35,11 +35,12 @@ var isTransformed: bool = false
 @export var tailLocation: Node2D
 @export var playerRef: PlayerCharacter
 @export var baseCollisionShape: CollisionShape2D
-@export var playerSprite: Sprite2D
+@export var playerSprite: AnimatedSprite2D
 @export var enterTransformationSound: AudioStreamPlayer
 @export var exitTransformationSound: AudioStreamPlayer
+@export var playerTransformedSprite: Sprite2D
 var baseCollisionShapeInfo
-var baseTextureInfo: Texture2D
+var baseTextureInfo: SpriteFrames
 var baseTextureScale
 var tailInstance
 var transformationTimer
@@ -54,8 +55,9 @@ var localAllowedItemsRef: LocalAllowedItems
 func _ready():
 	transformationTimer = 0
 	baseCollisionShapeInfo = baseCollisionShape.shape
-	baseTextureInfo = playerSprite.texture
+	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
+	get_parent().remove_child(playerTransformedSprite)
 	self.remove_child(tailRef)
 
 func _process(delta):
@@ -97,8 +99,9 @@ func activate_transformation():
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
-		playerSprite.texture = currentTransformationTexture
-		playerSprite.scale = currentTransformationTextureScale
+		get_parent().add_child(playerTransformedSprite)
+		playerTransformedSprite.texture = currentTransformationTexture
+		playerTransformedSprite.scale = currentTransformationTextureScale
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
 		transformation_lock_activate()
@@ -111,7 +114,8 @@ func deactivate_transformation():
 	emit_signal("reset_speed")
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
 	baseCollisionShape.shape = baseCollisionShapeInfo
-	playerSprite.texture = baseTextureInfo
+	get_parent().remove_child(playerTransformedSprite)
+	playerSprite.sprite_frames = baseTextureInfo
 	playerSprite.scale = baseTextureScale
 	isTransformed = false
 	if (tailInstance != null):

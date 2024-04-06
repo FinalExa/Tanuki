@@ -1,28 +1,188 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=37 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
-[ext_resource type="Texture2D" uid="uid://bpqkirdt4u1xb" path="res://PlayerCharacter/Sprites/Tan-Def - anim 1.0.png" id="4_uqokj"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
+[ext_resource type="Texture2D" uid="uid://bm81r0s0n3iua" path="res://PlayerCharacter/Sprites/Tan-Def-anim 3.0-Idle.png" id="7_rx5ag"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
+[ext_resource type="Texture2D" uid="uid://ck5wskpg8ufmu" path="res://PlayerCharacter/Sprites/Tan-Def-anim 3.0-Run.png" id="8_80igd"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="AudioStream" uid="uid://dmpf0u48j6o2q" path="res://PlayerCharacter/Sounds/Player SFX Movement 1_Loop.wav" id="8_m3ffu"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vp7j"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(0, 12, 34, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwl0i"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w67cs"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7tqp"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rca1q"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0awlw"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms8pd"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ykg"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peeau"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxp1a"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rpy5"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g83bf"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d25eo"]
+atlas = ExtResource("8_80igd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmbri"]
+atlas = ExtResource("8_80igd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf8sy"]
+atlas = ExtResource("8_80igd")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqw6w"]
+atlas = ExtResource("8_80igd")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q12j7"]
+atlas = ExtResource("8_80igd")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsxdl"]
+atlas = ExtResource("8_80igd")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64fn0"]
+atlas = ExtResource("8_80igd")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc7yf"]
+atlas = ExtResource("8_80igd")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5la1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vp7j")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwl0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w67cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7tqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rca1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0awlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms8pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ykg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peeau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxp1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rpy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g83bf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d25eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmbri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf8sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqw6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q12j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsxdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64fn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc7yf")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef", "spriteRef")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
+spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -41,6 +201,11 @@ stream = ExtResource("8_bh82x")
 [node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("15_fe3wv")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_5la1i")
+animation = &"hidden"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 
@@ -56,9 +221,8 @@ leftRad = 270
 rightRad = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
-texture = ExtResource("4_uqokj")
 
-[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound")]
+[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 10
 tailActivationTime = 3
@@ -67,9 +231,10 @@ tailRef = NodePath("Tail")
 tailLocation = NodePath("TailLocation")
 playerRef = NodePath("../..")
 baseCollisionShape = NodePath("../../CollisionShape2D")
-playerSprite = NodePath("../Sprite2D")
+playerSprite = NodePath("../../AnimatedSprite2D")
 enterTransformationSound = NodePath("../../Sounds/EnterTransformation")
 exitTransformationSound = NodePath("../../Sounds/ExitTransformation")
+playerTransformedSprite = NodePath("../Sprite2D")
 transformationLockDuration = 1
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]

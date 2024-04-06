@@ -1,21 +1,107 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqguar4cro7y5"]
+[gd_scene load_steps=16 format=3 uid="uid://bqguar4cro7y5"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TailFollow.gd" id="1_iym6t"]
-[ext_resource type="Texture2D" uid="uid://6y1qh0614ytp" path="res://PlayerCharacter/Sprites/Placeholder/tail2.png" id="2_pmbjp"]
+[ext_resource type="Texture2D" uid="uid://dl1lkuq63fgte" path="res://PlayerCharacter/Sprites/Coda-tranf.png" id="2_yijmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfj45"]
 size = Vector2(48, 49)
 
-[node name="Tail" type="StaticBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y625p"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(0, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvt3v"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(450, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk7v3"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(900, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaud3"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(1350, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eqg2"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(1800, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxj76"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(2250, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mlk3"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(2700, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m00te"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(3150, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lmp8"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(3600, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we12w"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(4050, 0, 450, 253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygvko"]
+atlas = ExtResource("2_yijmh")
+region = Rect2(4500, 0, 450, 253)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0kyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y625p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvt3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk7v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaud3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eqg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxj76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mlk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m00te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lmp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we12w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygvko")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tail" type="StaticBody2D" node_paths=PackedStringArray("spriteRef")]
 position = Vector2(0, 75)
 collision_layer = 11
 script = ExtResource("1_iym6t")
+spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qfj45")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.077063, 0.0166906)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, -43)
 rotation = -1.57079
-scale = Vector2(0.0956642, 0.164912)
-texture = ExtResource("2_pmbjp")
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_y0kyd")

@@ -19,9 +19,23 @@ func _ready():
 
 func _process(_delta):
 	play_movement_sounds()
+	decide_animation()
 
 func get_input():
 	inputDirection = Input.get_vector("left", "right", "up", "down")
+
+func decide_animation():
+	if (Input.is_action_just_pressed("left")): playerRef.spriteRef.flip_h = true
+	else:
+		if (Input.is_action_just_pressed("right")): playerRef.spriteRef.flip_h = false
+	if (playerRef.transformationChangeRef.isTransformed): 
+		playerRef.spriteRef.play("hidden")
+		return
+	if (inputDirection != Vector2.ZERO):
+		playerRef.spriteRef.play("running")
+		return
+	else:
+		playerRef.spriteRef.play("idle")
 
 func play_movement_sounds():
 	if (inputDirection != Vector2.ZERO):
