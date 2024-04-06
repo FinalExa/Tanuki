@@ -11,6 +11,7 @@ var deactivationButton: DeactivationButton
 
 func _ready():
 	sceneRef = self.get_parent()
+	sceneRef.playerRef = self
 	spriteRef.play("idle")
 	transformationChangeRef.sceneRef = sceneRef
 

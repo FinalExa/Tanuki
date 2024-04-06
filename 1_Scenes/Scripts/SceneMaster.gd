@@ -3,6 +3,8 @@ extends Node2D
 
 var savedDeletePaths: Array[String]
 var savePath: String
+var lastPos: Vector2
+@export var playerRef: PlayerCharacter
 
 func _ready():
 	savePath = "user://"+ self.name +".save"
@@ -26,21 +28,27 @@ func ManualLoad():
 
 func Save():
 	var file = FileAccess.open(savePath, FileAccess.WRITE)
+	lastPos = playerRef.global_position
 	file.store_var(savedDeletePaths)
+	file.store_var(lastPos)
 
 func Load():
 	if (FileAccess.file_exists(savePath)):
 		var file = FileAccess.open(savePath, FileAccess.READ)
-		savedDeletePaths.clear()
 		var result = file.get_var()
-		for i in result.size():
-			savedDeletePaths.push_back(result[i])
+		if (result != null):
+			savedDeletePaths.clear()
+			for i in result.size():
+				savedDeletePaths.push_back(result[i])
+		lastPos = file.get_var()
 		LoadOperations()
 
 func LoadOperations():
+	playerRef.global_position = lastPos
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
 			TranslateStringIntoPathResult(self, savedDeletePaths[i])
+	
 
 func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 	var newString: String = ""
