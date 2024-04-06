@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=37 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -14,6 +14,10 @@
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vp7j"]
+atlas = ExtResource("7_rx5ag")
+region = Rect2(0, 12, 34, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwl0i"]
 atlas = ExtResource("7_rx5ag")
@@ -93,6 +97,14 @@ region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5la1i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vp7j")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gwl0i")
@@ -192,7 +204,7 @@ stream = ExtResource("15_fe3wv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_5la1i")
-animation = &"running"
+animation = &"hidden"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)

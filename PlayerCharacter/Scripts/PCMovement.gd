@@ -28,6 +28,9 @@ func decide_animation():
 	if (Input.is_action_just_pressed("left")): playerRef.spriteRef.flip_h = true
 	else:
 		if (Input.is_action_just_pressed("right")): playerRef.spriteRef.flip_h = false
+	if (playerRef.transformationChangeRef.isTransformed): 
+		playerRef.spriteRef.play("hidden")
+		return
 	if (inputDirection != Vector2.ZERO):
 		playerRef.spriteRef.play("running")
 		return
