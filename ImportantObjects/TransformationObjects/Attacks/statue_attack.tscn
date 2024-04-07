@@ -5,8 +5,9 @@
 
 [node name="StatueAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7pxvr")
-attackDuration = 0.7
-attackPhasesLaunch = Array[float]([0.3, 0.0])
+attackDuration = 60
+attackCooldown = 90
+attackPhasesLaunch = Array[int]([0, 20])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
 

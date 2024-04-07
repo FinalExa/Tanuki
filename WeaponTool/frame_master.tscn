@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4loys1tn1mk5"]
+
+[ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="1_wcbvk"]
+
+[node name="FrameMaster" type="Node"]
+script = ExtResource("1_wcbvk")
+framesPerSecond = 60.0

@@ -5,8 +5,9 @@
 
 [node name="CrowbarAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_c57cu")
-attackDuration = 0.5
-attackPhasesLaunch = Array[float]([0.0, 0.2])
+attackDuration = 30
+attackCooldown = 30
+attackPhasesLaunch = Array[int]([0, 5])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
 

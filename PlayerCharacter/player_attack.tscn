@@ -6,10 +6,11 @@
 
 [node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7s3bv")
-attackDuration = 2.5
-attackPhasesLaunch = Array[float]([0.0, 0.5, 1.5])
-attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
-attackSounds = [null, null, null]
+attackDuration = 30
+attackCooldown = 180
+attackPhasesLaunch = Array[int]([0, 10])
+attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
+attackSounds = [null, null]
 
 [node name="PlayerAttackHitbox" type="Area2D" parent="."]
 position = Vector2(0, -128)
