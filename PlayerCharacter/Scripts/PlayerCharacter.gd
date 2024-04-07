@@ -6,6 +6,7 @@ var sceneRef: Node2D
 @export var transformationChangeRef: TransformationChange
 @export var movementRef: PCMovement
 @export var spriteRef: AnimatedSprite2D
+@export var playerUI: PlayerHUD
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
