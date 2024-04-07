@@ -5,10 +5,12 @@ signal transformation_name
 signal timer_value
 
 @export var pauseMenuPanel: Panel
+@export var dialogueUI: DialogueUI
 var isInForcePause: bool
 
 func _ready():
 	pauseMenuPanel.hide()
+	dialogueUI.hide()
 
 func _process(_delta):
 	PauseGame()

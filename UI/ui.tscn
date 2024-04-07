@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=5 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
 [ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueUI.gd" id="4_n7cj2"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel")]
+[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3fp2r")
 pauseMenuPanel = NodePath("PauseMenuPanel")
+dialogueUI = NodePath("DialogueUI")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
@@ -60,6 +62,7 @@ layout_mode = 2
 text = "Resume"
 
 [node name="Reload" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 72.0
 offset_right = 120.0
@@ -68,6 +71,13 @@ offset_bottom = 120.0
 [node name="ReloadButton" type="Button" parent="PauseMenuPanel/Reload"]
 layout_mode = 2
 text = "Reload"
+
+[node name="DialogueUI" type="Control" parent="."]
+process_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_n7cj2")
 
 [connection signal="timer_value" from="." to="Timer" method="_on_ui_timer_value"]
 [connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]

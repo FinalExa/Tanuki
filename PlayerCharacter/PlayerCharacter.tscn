@@ -176,13 +176,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef", "spriteRef")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
 spriteRef = NodePath("AnimatedSprite2D")
+playerHUD = NodePath("UI")
 
 [node name="Sounds" type="Node" parent="."]
 
