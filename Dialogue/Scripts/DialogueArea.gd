@@ -1,3 +1,4 @@
+class_name DialogueArea
 extends Area2D
 
 @export var dialogueText: Array[String]
@@ -12,6 +13,9 @@ func _on_body_entered(body):
 func StartDialogue(playerRef: PlayerCharacter):
 	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == characterEmotion.size() && dialogueText.size() > 0):
 		playerRef.playerHUD.ForcePause()
-		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, characterEmotion)
-		if (deleteOnDone):
-			get_parent().remove_child(self)
+		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, characterEmotion, self)
+		
+
+func DeleteOnDone():
+	if (deleteOnDone):
+		get_parent().remove_child(self)

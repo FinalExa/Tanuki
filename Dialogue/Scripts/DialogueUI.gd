@@ -31,15 +31,17 @@ var currentCharacterTalking: Array[DialogueCharacters]
 var currentCharacterEmotion: Array[DialogueEmotions]
 var currentString: String
 var currentIndex: int
+var currentSource: DialogueArea
 
 func  _ready():
 	dialogueIntervalBetweenCharacters = 1 / charactersPerSecond
 
-func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions]):
+func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions], source: DialogueArea):
 	currentDialogueText = text
 	currentCharacterTalking = characters
 	currentCharacterEmotion = emotions
 	currentIndex = 0
+	currentSource = source
 	SetCurrentText()
 	self.show()
 	dialogueActive = true
@@ -91,8 +93,8 @@ func SetCurrentText():
 
 func WaitForContinue():
 	if (Input.is_action_just_pressed("attack")):
-		currentTextIndex += 1
-		if (currentTextIndex >= currentDialogueText.size()):
+		currentIndex += 1
+		if (currentIndex >= currentDialogueText.size()):
 			EndDialogue()
 		else:
 			SetCurrentText()
@@ -101,3 +103,4 @@ func EndDialogue():
 	dialogueActive = false
 	self.hide()
 	playerHUD.EndForcePause()
+	currentSource.DeleteOnDone()

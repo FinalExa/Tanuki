@@ -80,3 +80,7 @@ sceneMasterRef = NodePath("..")
 
 [node name="DialogueArea" parent="." instance=ExtResource("13_nsc52")]
 position = Vector2(-1344, 576)
+dialogueText = Array[String](["Ciao!", "Ciao ciao!", "Molto bene ragazzi è tempo di mangiare diverse mele che ho trovato giù di lì nella viuzza, buone!"])
+characterTalking = Array[int]([0, 1, 0])
+characterEmotion = Array[int]([0, 0, 0])
+deleteOnDone = true

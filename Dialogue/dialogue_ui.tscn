@@ -34,4 +34,3 @@ flip_h = true
 
 [node name="DialogueText" type="TextEdit" parent="PanelContainer"]
 layout_mode = 2
-placeholder_text = "YO RAM RANCH REALLY ROCKS"
