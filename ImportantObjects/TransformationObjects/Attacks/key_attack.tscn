@@ -5,8 +5,9 @@
 
 [node name="KeyAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_6vptt")
-attackDuration = 0.1
-attackPhasesLaunch = Array[float]([0.0])
+attackDuration = 15
+attackCooldown = 10
+attackPhasesLaunch = Array[int]([0])
 attackHitboxes = [NodePath("ObjectAttackHitbox")]
 attackSounds = [null]
 

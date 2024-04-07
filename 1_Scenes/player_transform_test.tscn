@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=16 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="2_6x342"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_kj1fg"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="4_txcw4"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="6_kehd8"]
@@ -19,8 +20,13 @@ vertices = PackedVector2Array(4952, -4432, 4944, 5656, -32, 64, -32, -64, -7368,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(2, 1, 6, 7), PackedInt32Array(6, 4, 5, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 4944, 5656), PackedVector2Array(-288, -64, -32, -64, -32, 64, -288, 64)])
 
-[node name="PlayerTransformTest" type="Node2D"]
+[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_e07wx")
+frameMaster = NodePath("FrameMaster")
+
+[node name="FrameMaster" type="Node" parent="."]
+script = ExtResource("2_6x342")
+framesPerSecond = 60.0
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
 position = Vector2(-1016, -24)

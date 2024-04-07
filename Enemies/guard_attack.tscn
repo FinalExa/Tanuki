@@ -9,8 +9,9 @@ size = Vector2(144, 184)
 
 [node name="GuardAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_krrw3")
-attackDuration = 3.0
-attackPhasesLaunch = Array[float]([0.0, 1.5])
+attackDuration = 30
+attackCooldown = 10
+attackPhasesLaunch = Array[int]([0, 5])
 attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
 

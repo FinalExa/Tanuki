@@ -10,6 +10,7 @@ var lastPos: Vector2
 var lastTransformationSet: bool
 var lastObjectOriginalPath: String
 
+@export var frameMaster: FrameMaster
 var playerRef: PlayerCharacter
 
 func _ready():
