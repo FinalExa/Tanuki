@@ -19,16 +19,9 @@ func _ready():
 			break
 	Load()
 
-func _process(_delta):
-	ReloadScene()
-
 func AddDeletePath(newPath: String):
 	if(!savedDeletePaths.has(newPath)):
 		savedDeletePaths.push_back(newPath)
-
-func ReloadScene():
-	if (Input.is_action_just_pressed("reload")):
-		get_tree().reload_current_scene()
 
 func Save():
 	var file = FileAccess.open(savePath, FileAccess.WRITE)
