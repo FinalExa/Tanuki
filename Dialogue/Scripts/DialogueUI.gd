@@ -4,7 +4,7 @@ extends Control
 @export var charactersPerSecond: float
 @export var leftSprite: Sprite2D
 @export var rightSprite: Sprite2D
-@export var dialogueText: TextEdit
+@export var dialogueText: Label
 @export var playerHUD: PlayerHUD
 var dialogueIntervalBetweenCharacters: float
 var currentTextLenght: int

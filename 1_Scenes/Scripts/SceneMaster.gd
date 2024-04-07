@@ -4,6 +4,7 @@ extends Node2D
 var savedDeletePaths: Array[String]
 var savePath: String
 var playerDataSavePath: String = "user://PlayerData.save"
+var stopResetPosition: bool
 
 var lastPos: Vector2
 var lastTransformationSet: bool
@@ -44,10 +45,13 @@ func Load():
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
+		stopResetPosition = false
+	else:
+		stopResetPosition = true
 	LoadOperations()
 
 func LoadOperations():
-	playerRef.global_position = lastPos
+	if (!stopResetPosition): playerRef.global_position = lastPos
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)
 		var new_trs = new_trs_scene.instantiate()
