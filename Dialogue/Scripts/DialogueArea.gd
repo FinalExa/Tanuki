@@ -10,5 +10,8 @@ func _on_body_entered(body):
 		StartDialogue(body)
 
 func StartDialogue(playerRef: PlayerCharacter):
-	playerRef.playerHUD.ForcePause()
-	playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, characterEmotion)
+	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == characterEmotion.size() && dialogueText.size() > 0):
+		playerRef.playerHUD.ForcePause()
+		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, characterEmotion)
+		if (deleteOnDone):
+			get_parent().remove_child(self)

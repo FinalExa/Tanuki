@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy3jgrp1re64e"]
+
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueUI.gd" id="1_dpck6"]
+[ext_resource type="Texture2D" uid="uid://bpqkirdt4u1xb" path="res://PlayerCharacter/Sprites/Placeholder/Tan-Def - anim 1.0.png" id="2_wc6kd"]
+
+[node name="DialogueUI" type="Control" node_paths=PackedStringArray("leftSprite", "rightSprite", "dialogueText")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dpck6")
+charactersPerSecond = 15.0
+leftSprite = NodePath("PanelContainer/SpriteLeft")
+rightSprite = NodePath("PanelContainer/SpriteRight")
+dialogueText = NodePath("PanelContainer/DialogueText")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 128.0
+
+[node name="SpriteLeft" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(-112, -8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_wc6kd")
+
+[node name="SpriteRight" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(1136, -8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_wc6kd")
+flip_h = true
+
+[node name="DialogueText" type="TextEdit" parent="PanelContainer"]
+layout_mode = 2
+placeholder_text = "YO RAM RANCH REALLY ROCKS"
