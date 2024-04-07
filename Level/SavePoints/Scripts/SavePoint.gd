@@ -6,7 +6,6 @@ var playerRef: PlayerCharacter
 
 func activate_effect():
 	sceneMasterRef.Save()
-	print("Saved!")
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
