@@ -29,7 +29,6 @@ frameMaster = NodePath("FrameMaster")
 navigation_polygon = SubResource("NavigationPolygon_ou1kk")
 
 [node name="FrameMaster" parent="." instance=ExtResource("2_ae2pm")]
-framesPerSecond = 60.0
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
 position = Vector2(1480, -4048)

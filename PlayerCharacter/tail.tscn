@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bqguar4cro7y5"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TailFollow.gd" id="1_iym6t"]
-[ext_resource type="Texture2D" uid="uid://dl1lkuq63fgte" path="res://PlayerCharacter/Sprites/Coda-tranf.png" id="2_yijmh"]
+[ext_resource type="Texture2D" uid="uid://dl1lkuq63fgte" path="res://PlayerCharacter/Sprites/Placeholder/Coda-tranf.png" id="2_yijmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfj45"]
 size = Vector2(48, 49)

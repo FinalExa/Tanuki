@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl1lkuq63fgte"
-path="res://.godot/imported/Coda-tranf.png-a35a84029537c86aa1d7f54f6bfed404.ctex"
+uid="uid://bm81r0s0n3iua"
+path="res://.godot/imported/Tan-Def-anim 3.0-Idle.png-59e1cd9ad0c766b2f7c3f7b49e576233.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/Coda-tranf.png"
-dest_files=["res://.godot/imported/Coda-tranf.png-a35a84029537c86aa1d7f54f6bfed404.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/Tan-Def-anim 3.0-Idle.png"
+dest_files=["res://.godot/imported/Tan-Def-anim 3.0-Idle.png-59e1cd9ad0c766b2f7c3f7b49e576233.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm81r0s0n3iua"
-path="res://.godot/imported/Tan-Def-anim 3.0-Idle.png-433f3398ed38ddbee67957e496846aba.ctex"
+uid="uid://bdje4cdbnmypp"
+path="res://.godot/imported/Tan-Def - anim 2.0.1-variant-TEST-IDLE.png-2c3ddfc1ae1156aa32c4753d485b9e35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/Tan-Def-anim 3.0-Idle.png"
-dest_files=["res://.godot/imported/Tan-Def-anim 3.0-Idle.png-433f3398ed38ddbee67957e496846aba.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/Tan-Def - anim 2.0.1-variant-TEST-IDLE.png"
+dest_files=["res://.godot/imported/Tan-Def - anim 2.0.1-variant-TEST-IDLE.png-2c3ddfc1ae1156aa32c4753d485b9e35.ctex"]
 
 [params]
 
