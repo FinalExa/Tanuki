@@ -25,9 +25,12 @@ func get_input():
 	inputDirection = Input.get_vector("left", "right", "up", "down")
 
 func decide_animation():
-	if (Input.is_action_just_pressed("left")): playerRef.spriteRef.flip_h = true
-	else:
-		if (Input.is_action_just_pressed("right")): playerRef.spriteRef.flip_h = false
+	if (playerRef.velocity != Vector2.ZERO):
+		if (playerRef.velocity.x < 0):
+			playerRef.spriteRef.flip_h = true
+		else:
+			if (playerRef.velocity.x > 0):
+				playerRef.spriteRef.flip_h = false
 	if (playerRef.transformationChangeRef.isTransformed): 
 		playerRef.spriteRef.play("hidden")
 		return
