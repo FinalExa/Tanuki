@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(-6016, 5632, -6016, -4480, 4928, -4480, 4928, 5632, -304, -80, -16, -80, -16, 80, -304, 80)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-6016, 5632, -6016, -4480, 4928, -4480, 4928, 5632), PackedVector2Array(-304, -80, -16, -80, -16, 80, -304, 80)])
+vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1616, -312, 88, -2800, -1520, -312, -88)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(5, 4, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-3048, 1616, -2800, -1520, 1024, -1272, 1584, 1688), PackedVector2Array(-312, -88, -8, -88, -8, 88, -312, 88)])
 
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_e07wx")
