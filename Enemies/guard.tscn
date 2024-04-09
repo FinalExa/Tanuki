@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=51 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
+[ext_resource type="Texture2D" uid="uid://iv805pmy41uu" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
@@ -10,7 +11,6 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
-[ext_resource type="Texture2D" uid="uid://bxyifyjfoqmx8" path="res://Enemies/Sprites/Placeholder/lapula.png" id="7_2tctk"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
@@ -45,18 +45,60 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmw2q"]
+atlas = ExtResource("2_k7bgq")
+region = Rect2(0, 0, 144, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45iua"]
+atlas = ExtResource("2_k7bgq")
+region = Rect2(144, 0, 144, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chfte"]
+atlas = ExtResource("2_k7bgq")
+region = Rect2(288, 0, 144, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyvwx"]
+atlas = ExtResource("2_k7bgq")
+region = Rect2(432, 0, 144, 159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg7g7"]
+atlas = ExtResource("2_k7bgq")
+region = Rect2(576, 0, 144, 159)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmw2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45iua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chfte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyvwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg7g7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ttp4"]
 radius = 744.043
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert", "guardRotator", "guardAlertValue", "enemyAttack")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert", "guardRotator", "guardAlertValue", "enemyAttack", "spriteRef")]
 position = Vector2(-168, -240)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_loc1f")
-guardProperties = null
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardStunned = NodePath("GuardStunned")
@@ -66,6 +108,7 @@ guardAlert = NodePath("Rotator/GuardAlert")
 guardRotator = NodePath("Rotator")
 guardAlertValue = NodePath("AlertValue")
 enemyAttack = NodePath("Rotator/GuardAttack")
+spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -75,10 +118,9 @@ avoidance_enabled = true
 radius = 100.0
 debug_path_custom_color = Color(1, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -1.52588e-05)
-scale = Vector2(0.598425, 0.271698)
-texture = ExtResource("7_2tctk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d6h4v")
+animation = &"idle"
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent")]
 script = ExtResource("1_lv0fd")

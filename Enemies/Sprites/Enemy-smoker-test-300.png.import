@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyiale1jrkaxh"
-path="res://.godot/imported/PlayerSprite.png-d9d68bb0790903d3448f8013d1d00c39.ctex"
+uid="uid://iv805pmy41uu"
+path="res://.godot/imported/Enemy-smoker-test-300.png-442c1e77861af970926469d8c4481f3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/Placeholder/PlayerSprite.png"
-dest_files=["res://.godot/imported/PlayerSprite.png-d9d68bb0790903d3448f8013d1d00c39.ctex"]
+source_file="res://Enemies/Sprites/Enemy-smoker-test-300.png"
+dest_files=["res://.godot/imported/Enemy-smoker-test-300.png-442c1e77861af970926469d8c4481f3d.ctex"]
 
 [params]
 

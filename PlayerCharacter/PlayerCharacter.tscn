@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=40 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
-[ext_resource type="Texture2D" uid="uid://bm81r0s0n3iua" path="res://PlayerCharacter/Sprites/Placeholder/Tan-Def-anim 3.0-Idle.png" id="7_7eto1"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
 [ext_resource type="Texture2D" uid="uid://dlg810w8b614s" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-variant-TEST-300.png" id="8_0cjo4"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
@@ -15,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vp7j"]
-atlas = ExtResource("7_7eto1")
-region = Rect2(0, 12, 34, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7inrk"]
+atlas = ExtResource("8_0cjo4")
+region = Rect2(0, 0, 63, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l05oo"]
 atlas = ExtResource("8_0cjo4")
@@ -115,7 +114,7 @@ region = Rect2(3916, 0, 178, 144)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2vp7j")
+"texture": SubResource("AtlasTexture_7inrk")
 }],
 "loop": true,
 "name": &"hidden",
@@ -238,6 +237,8 @@ animation = &"idle"
 zoom = Vector2(0.75, 0.75)
 
 [node name="UI" parent="." instance=ExtResource("2_d3p1y")]
+z_index = 1
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")

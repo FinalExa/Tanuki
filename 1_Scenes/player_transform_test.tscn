@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(4952, -4432, 4944, 5656, -32, 64, -32, -64, -7368, -4512, -288, -64, -5976, 5856, -288, 64)
+vertices = PackedVector2Array(4952, -4432, 4944, 5656, -16, 72, -16, -80, -7368, -4512, -304, -80, -5976, 5856, -304, 72)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(2, 1, 6, 7), PackedInt32Array(6, 4, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 4944, 5656), PackedVector2Array(-288, -64, -32, -64, -32, 64, -288, 64)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5976, 5856, -7368, -4512, 4952, -4432, 4944, 5656), PackedVector2Array(-304, -80, -16, -80, -16, 72, -304, 72)])
 
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_e07wx")
@@ -31,9 +31,8 @@ framesPerSecond = 60.0
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
 position = Vector2(-1016, -24)
 
-[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators", "navigationRegion") instance=ExtResource("3_kj1fg")]
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_kj1fg")]
 patrolIndicators = [NodePath("../PatrolIndicator")]
-navigationRegion = NodePath("../NavigationRegion2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_71oav")

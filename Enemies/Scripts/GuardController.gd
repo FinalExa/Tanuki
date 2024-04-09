@@ -12,7 +12,6 @@ var characterRef
 
 @export var patrolIndicators: Array[PatrolIndicator]
 @export var guardProperties: Array[String]
-@export var navigationRegion: NavigationRegion2D
 
 @export var guardCheck: GuardCheck
 @export var guardResearch: GuardResearch
@@ -23,7 +22,21 @@ var characterRef
 @export var guardRotator: GuardRotator
 @export var guardAlertValue: GuardAlertValue
 @export var enemyAttack: EnemyAttack
+@export var spriteRef: AnimatedSprite2D
 var guardsLookingForMe: Array[GuardResearch]
+
+func _ready():
+	spriteRef.play("idle")
+
+func _process(delta):
+	GuardAnimations()
+
+func GuardAnimations():
+	if (velocity.x < 0):
+		spriteRef.flip_h = true
+	else:
+		if (velocity.x > 0):
+			spriteRef.flip_h = false
 
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference
