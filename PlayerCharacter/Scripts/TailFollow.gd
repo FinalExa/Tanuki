@@ -6,7 +6,7 @@ var objectToTrack: Node2D
 var playerRef: PlayerCharacter
 
 func _ready():
-	spriteRef.play("default")
+	spriteRef.play("idle")
 
 func _process(_delta):
 	self.position = objectToTrack.global_position
