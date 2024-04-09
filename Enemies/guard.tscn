@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
-[ext_resource type="Texture2D" uid="uid://iv805pmy41uu" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
+[ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
@@ -45,23 +45,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 64.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xmw2q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jmn3"]
 atlas = ExtResource("2_k7bgq")
 region = Rect2(0, 0, 144, 159)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_45iua"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v25mi"]
 atlas = ExtResource("2_k7bgq")
 region = Rect2(144, 0, 144, 159)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_chfte"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gul6"]
 atlas = ExtResource("2_k7bgq")
 region = Rect2(288, 0, 144, 159)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cyvwx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_18opb"]
 atlas = ExtResource("2_k7bgq")
 region = Rect2(432, 0, 144, 159)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eg7g7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsm8s"]
 atlas = ExtResource("2_k7bgq")
 region = Rect2(576, 0, 144, 159)
 
@@ -69,19 +69,19 @@ region = Rect2(576, 0, 144, 159)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xmw2q")
+"texture": SubResource("AtlasTexture_7jmn3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_45iua")
+"texture": SubResource("AtlasTexture_v25mi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_chfte")
+"texture": SubResource("AtlasTexture_3gul6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cyvwx")
+"texture": SubResource("AtlasTexture_18opb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eg7g7")
+"texture": SubResource("AtlasTexture_bsm8s")
 }],
 "loop": true,
 "name": &"idle",
