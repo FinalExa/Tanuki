@@ -42,13 +42,13 @@ func Load():
 			for i in result.size():
 				savedDeletePaths.push_back(result[i])
 		lastPos = file.get_var()
+		stopResetPosition = false
+	else:
+		stopResetPosition = true
 	if (FileAccess.file_exists(playerDataSavePath)):
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
-		stopResetPosition = false
-	else:
-		stopResetPosition = true
 	LoadOperations()
 
 func LoadOperations():
