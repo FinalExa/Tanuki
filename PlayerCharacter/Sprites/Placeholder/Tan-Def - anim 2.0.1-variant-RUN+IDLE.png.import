@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnhmynh1hfbkk"
-path="res://.godot/imported/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png-fe57632585a914f9444e4d6a09f2c51d.ctex"
+path="res://.godot/imported/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png-9941d3ddbe30f1878ff092adf4e83f3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png"
-dest_files=["res://.godot/imported/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png-fe57632585a914f9444e4d6a09f2c51d.ctex"]
+source_file="res://PlayerCharacter/Sprites/Placeholder/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png"
+dest_files=["res://.godot/imported/Tan-Def - anim 2.0.1-variant-RUN+IDLE.png-9941d3ddbe30f1878ff092adf4e83f3f.ctex"]
 
 [params]
 
