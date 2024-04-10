@@ -81,3 +81,23 @@ func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 			currentNode.ExecuteLoadOperation()
 		else:
 			TranslateStringIntoPathResult(currentNode, string)
+
+func SetCurrentNodeInPath(node: Node2D):
+	var path: Array[String] = []
+	path.push_front(node.name)
+	var reached: bool = false
+	while (!reached):
+		node = node.get_parent()
+		path.push_front(node.name)
+		if (node is SceneMaster):
+			reached = true
+	return path
+
+func ComposePathString(path: Array[String]):
+	var pathString: String = ""
+	for i in path.size():
+		pathString += path[i] + "/"
+	return pathString
+
+func AddPathString(baseNode: Node2D):
+	AddDeletePath(ComposePathString(SetCurrentNodeInPath(baseNode)))

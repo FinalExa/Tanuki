@@ -8,6 +8,9 @@ extends Area2D
 var sceneMaster: SceneMaster
 var objectsInArea: Array[Node2D]
 
+func _ready():
+	sceneMaster = get_tree().root.get_child(0)
+
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is GuardController):
 		if(!objectsInArea.has(body)):
@@ -45,26 +48,7 @@ func execute_effect_on_guard(guardRef: GuardController, delta):
 func SaveOnDestroy():
 	if (savedOnDestroy):
 		var savedPath: String
-		savedPath = ComposePathString(SetCurrentNodeInPath(self))
-		sceneMaster.AddDeletePath(savedPath)
-
-func SetCurrentNodeInPath(node: Node2D):
-	var path: Array[String] = []
-	path.push_front(node.name)
-	var reached: bool = false
-	while (!reached):
-		node = node.get_parent()
-		path.push_front(node.name)
-		if (node is SceneMaster):
-			sceneMaster = node
-			reached = true
-	return path
-
-func ComposePathString(path: Array[String]):
-	var pathString: String = ""
-	for i in path.size():
-		pathString += path[i] + "/"
-	return pathString
+		sceneMaster.AddPathString(self)
 
 func SaveDestroySignalToOtherObject():
 	if (objectToSendDestoySignal != null):
