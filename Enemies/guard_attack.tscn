@@ -9,11 +9,18 @@ size = Vector2(144, 184)
 
 [node name="GuardAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_krrw3")
-attackDuration = 30
+attackDuration = 120
 attackCooldown = 10
-attackPhasesLaunch = Array[int]([0, 5])
-attackHitboxes = [null, NodePath("EnemyAttackHitbox")]
+attackPhasesLaunch = Array[int]([0, 60])
+attackHitboxes = [NodePath("Feedback"), NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
+
+[node name="Feedback" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Feedback"]
+modulate = Color(0, 0.431373, 0.321569, 1)
+scale = Vector2(0.32, 0.43)
+texture = ExtResource("3_dilo0")
 
 [node name="EnemyAttackHitbox" type="Area2D" parent="."]
 script = ExtResource("2_4o2q2")

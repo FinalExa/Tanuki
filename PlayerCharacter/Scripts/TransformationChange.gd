@@ -59,7 +59,7 @@ func _ready():
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
-	get_parent().remove_child(playerTransformedSprite)
+	get_parent().remove_child.call_deferred(playerTransformedSprite)
 	self.remove_child(tailRef)
 
 func _process(delta):
