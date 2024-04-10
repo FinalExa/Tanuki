@@ -13,7 +13,6 @@ func check_if_target(body):
 	if (stunsGuard && body is GuardController):
 		body.is_damaged(body.global_position.direction_to(self.global_position))
 
-
 func _on_area_entered(area):
 	if (area.is_in_group("Interactable")):
 		area.attackInteraction(attackTag)

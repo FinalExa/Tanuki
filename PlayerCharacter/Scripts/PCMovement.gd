@@ -33,7 +33,7 @@ func decide_animation():
 		else:
 			if (playerRef.velocity.x > 0):
 				playerRef.spriteRef.flip_h = false
-	if (playerRef.transformationChangeRef.isTransformed && movementEnabled): 
+	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.spriteRef.play("hidden")
 		return
 	if (inputDirection != Vector2.ZERO && movementEnabled):
