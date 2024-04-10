@@ -28,7 +28,7 @@ var guardsLookingForMe: Array[GuardResearch]
 func _ready():
 	spriteRef.play("idle")
 
-func _process(delta):
+func _process(_delta):
 	GuardAnimations()
 
 func GuardAnimations():

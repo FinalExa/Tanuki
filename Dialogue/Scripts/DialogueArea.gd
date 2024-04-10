@@ -27,7 +27,6 @@ func DeleteOnDone():
 
 func SaveOnDestroy():
 	if (savedOnDestroy):
-		var savedPath: String
 		sceneMaster.AddPathString(self)
 
 func ExecuteLoadOperation():

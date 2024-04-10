@@ -47,7 +47,6 @@ func execute_effect_on_guard(guardRef: GuardController, delta):
 
 func SaveOnDestroy():
 	if (savedOnDestroy):
-		var savedPath: String
 		sceneMaster.AddPathString(self)
 
 func SaveDestroySignalToOtherObject():
