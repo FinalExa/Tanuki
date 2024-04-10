@@ -128,7 +128,7 @@ guardController = NodePath("..")
 bodyRef = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 200.0
-distanceTolerance = 10.0
+distanceTolerance = 1.0
 repathTimerDuration = 0.25
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
@@ -315,7 +315,7 @@ polygon = PackedVector2Array(0, 0, 152, -208, 200, -528, 168, -608, 88, -656, -8
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 375.0
 catchDistanceThreshold = 200.0
-catchPreparationDuration = 0.3
+catchPreparationDuration = 0.1
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
@@ -433,7 +433,7 @@ root = NodePath("Sequence")
 
 [node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")
-children = [NodePath("SelectorStunned"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck"), NodePath("SelectorPatrol")]
+children = [NodePath("SelectorStunned"), NodePath("GuardIsAttacking"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck"), NodePath("SelectorPatrol")]
 
 [node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
@@ -448,8 +448,10 @@ script = ExtResource("17_tw0pk")
 guardStunned = NodePath("../../../../GuardStunned")
 guardController = NodePath("../../../..")
 
-[node name="GuardIsAttacking" type="Node" parent="BehaviorTree/Sequence"]
+[node name="GuardIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttack", "guardController")]
 script = ExtResource("21_uu2lk")
+enemyAttack = NodePath("../../../Rotator/GuardAttack")
+guardController = NodePath("../../..")
 
 [node name="SelectorAlert" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
