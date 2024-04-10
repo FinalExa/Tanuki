@@ -203,7 +203,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 50.01
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
@@ -211,6 +211,7 @@ transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
 spriteRef = NodePath("AnimatedSprite2D")
 playerHUD = NodePath("UI")
+playerMovement = NodePath("Rotator/Movement")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -274,13 +275,14 @@ position = Vector2(0, 75)
 [node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "normalMovementSound", "transformedMovementSound", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
-accelerationPerSecond = 700
-defaultMaxSpeed = 500
+accelerationPerSecond = 700.0
+defaultMaxSpeed = 500.0
 normalMovementSound = NodePath("../../Sounds/NormalMovement")
 transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerRef", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+playerRef = NodePath("../..")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
 attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")

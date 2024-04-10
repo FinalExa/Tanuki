@@ -56,10 +56,16 @@ func EndAttack():
 		remove_attack_hitbox(attackPhasesLaunch.size()-1)
 		currentPhase = 0
 		if (attackCooldown == 0):
-			attackLaunched = false
+			FinalizeAttack()
 		else:
-			attackInCooldown = true
-			attackFrame = 0
+			StartCooldown()
+
+func FinalizeAttack():
+	attackLaunched = false
+
+func StartCooldown():
+	attackInCooldown = true
+	attackFrame = 0
 
 func EndCooldown():
 	attackInCooldown = false
