@@ -128,7 +128,7 @@ guardController = NodePath("..")
 bodyRef = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 200.0
-distanceTolerance = 1.0
+distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
