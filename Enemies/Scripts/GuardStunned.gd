@@ -4,6 +4,7 @@ extends Node
 @export var stunDuration: float
 @export var stunEndAlertValue: float
 @export var stunnedText: String
+@export var stunnedSound: AudioStreamPlayer
 var stunTimer: float
 var stunnedFromAlert: bool = false
 
@@ -17,6 +18,7 @@ func start_stun(direction: Vector2):
 	guardController.guardMovement.set_location_target(guardController.global_position)
 	guardController.guardAlertValue.updateText(stunnedText)
 	guardController.isStunned = true
+	if (!stunnedSound.playing): stunnedSound.play()
 	if (stunnedFromAlert):
 		guardController.guardPatrol.select_new_patrol_indicator()
 		stunnedFromAlert = false
