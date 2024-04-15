@@ -1,13 +1,16 @@
-[gd_scene load_steps=51 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=54 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
+[ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_irny6"]
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
+[ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_1jrvl"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
+[ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_vmgao"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
@@ -118,11 +121,22 @@ avoidance_enabled = true
 radius = 100.0
 debug_path_custom_color = Color(1, 0, 0, 1)
 
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="PatrolMovement" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("2_irny6")
+
+[node name="AlertMovement" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_1jrvl")
+
+[node name="StunnedGuard" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_vmgao")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent")]
+[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
 script = ExtResource("1_lv0fd")
 guardController = NodePath("..")
 bodyRef = NodePath("..")
@@ -130,6 +144,8 @@ navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
+patrolMovementSound = NodePath("../Sounds/PatrolMovement")
+alertMovementSound = NodePath("../Sounds/AlertMovement")
 
 [node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("4_amsnv")
@@ -137,11 +153,12 @@ guardController = NodePath("..")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
-[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("guardController")]
+[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "guardController")]
 script = ExtResource("6_8wc3c")
 stunDuration = 10.0
 stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
+stunnedSound = NodePath("../Sounds/StunnedGuard")
 guardController = NodePath("..")
 
 [node name="AlertValue" type="Label" parent="."]
@@ -410,8 +427,7 @@ debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
 polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
-[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
-attackSounds = [null, null]
+[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("characterRef") instance=ExtResource("13_3c0sx")]
 characterRef = NodePath("../..")
 
 [node name="RotationPoints" type="Node2D" parent="."]

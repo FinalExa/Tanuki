@@ -30,9 +30,10 @@ var currentAttack: TransformObjectAttack
 var guardsLookingForMe: Array[GuardResearch]
 
 var isTransformed: bool = false
-@export var transformationDuration = 0
-@export var tailActivationTime = 0
-@export var timeRefundOnReactivation = 0
+@export var transformationDuration: float
+@export var tailActivationTime: float
+@export var lowTimeRemaining: float
+@export var timeRefundOnReactivation: float
 @export var tailRef: Node2D
 @export var tailLocation: Node2D
 @export var playerRef: PlayerCharacter
@@ -41,15 +42,19 @@ var isTransformed: bool = false
 @export var enterTransformationSound: AudioStreamPlayer
 @export var exitTransformationSound: AudioStreamPlayer
 @export var playerTransformedSprite: Sprite2D
+@export var objectSavedSound: AudioStreamPlayer
+@export var transformationTimeLowSound: AudioStreamPlayer
+@export var tailAppearsSound: AudioStreamPlayer
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale
 var tailInstance
 var transformationTimer
 
-@export var transformationLockDuration = 0
-var transformationLockTimer
-var transformationLock = false
+@export var transformationLockDuration: float
+var transformationLockTimer: float
+var transformationLock: bool = false
+var timeLowSoundPlayed: bool = false
 
 var sceneRef: Node2D
 var localAllowedItemsRef: LocalAllowedItems
@@ -87,6 +92,7 @@ func unset_temp_trs():
 func set_new_transformation():
 	if (Input.is_action_just_pressed("interact") && isInsidePossibleTransformationObject):
 		actually_set_new_transformation()
+		if (!objectSavedSound.playing): objectSavedSound.play()
 
 func actually_set_new_transformation():
 	currentTransformationSet = true
@@ -125,6 +131,7 @@ func deactivate_transformation():
 	playerSprite.sprite_frames = baseTextureInfo
 	playerSprite.scale = baseTextureScale
 	isTransformed = false
+	timeLowSoundPlayed = false
 	if (tailInstance != null):
 		sceneRef.remove_child(tailInstance)
 		tailInstance = null
@@ -133,22 +140,29 @@ func deactivate_transformation():
 
 func transformation_active(delta):
 	if (isTransformed):
-		if (transformationTimer<transformationDuration):
-			transformationTimer=clamp(transformationTimer+delta,0,transformationDuration)
-			if(transformationTimer>=tailActivationTime && tailInstance == null):
-				sceneRef.add_child(tailRef)
-				for i in sceneRef.get_child_count():
-					if (sceneRef.get_child(i) == tailRef):
-						tailInstance = sceneRef.get_child(i)
-						tailInstance.playerRef = playerRef
-						tailInstance.objectToTrack = tailLocation
-						break
+		if (transformationTimer < transformationDuration):
+			transformationTimer = clamp(transformationTimer + delta, 0, transformationDuration)
+			if(transformationTimer >= tailActivationTime && tailInstance == null):
+				AddTail()
+			if (transformationTimer >= lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
+				transformationTimeLowSound.play()
+				timeLowSoundPlayed = true
 		else:
 			deactivate_transformation()
 	else:
-		if (transformationTimer>0):
+		if (transformationTimer > 0):
 			transformationTimer=clamp(transformationTimer-delta,0,transformationDuration)
 	emit_signal("send_transformation_active_info", isTransformed, transformationTimer, transformationDuration)
+
+func AddTail():
+	sceneRef.add_child(tailRef)
+	for i in sceneRef.get_child_count():
+		if (sceneRef.get_child(i) == tailRef):
+			tailInstance = sceneRef.get_child(i)
+			tailInstance.playerRef = playerRef
+			tailInstance.objectToTrack = tailLocation
+			break
+	if (!tailAppearsSound.playing): tailAppearsSound.play()
 
 func transformation_lock_activate():
 	transformationLock = true
