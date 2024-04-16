@@ -10,6 +10,7 @@ attackCooldown = 90
 attackPhasesLaunch = Array[int]([0, 20])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
+attackMovements = Array[float]([0.0, 200.0])
 
 [node name="ObjectAttackHitbox" type="Area2D" parent="."]
 script = ExtResource("1_lkhma")

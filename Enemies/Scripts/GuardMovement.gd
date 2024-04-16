@@ -27,7 +27,7 @@ func _ready():
 func _update_navigation_path(end_position):
 	navigationAgent.target_position = end_position
 
-func _process(delta):
+func _process(_delta):
 	PlayMovementSound()
 
 func _physics_process(delta):

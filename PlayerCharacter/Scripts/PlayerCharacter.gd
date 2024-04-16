@@ -8,6 +8,7 @@ var sceneRef: Node2D
 @export var spriteRef: AnimatedSprite2D
 @export var playerHUD: PlayerHUD
 @export var playerMovement: PCMovement
+@export var playerRotator: PlayerRotator
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
@@ -44,3 +45,6 @@ func activate_interaction():
 		deactivationButton.activate_effect()
 	if (savePointInteractionReady):
 		savedSavePoint.activate_effect()
+
+func GetRotator():
+	return playerRotator
