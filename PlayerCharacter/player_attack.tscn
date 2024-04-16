@@ -11,6 +11,7 @@ attackCooldown = 180
 attackPhasesLaunch = Array[int]([0, 10])
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, null]
+attackMovements = Array[float]([50.0, 100.0])
 
 [node name="PlayerAttackHitbox" type="Area2D" parent="."]
 position = Vector2(0, -128)

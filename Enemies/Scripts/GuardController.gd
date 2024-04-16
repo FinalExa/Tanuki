@@ -45,3 +45,6 @@ func is_damaged(direction: Vector2):
 	if (isInAlert):
 		guardStunned.stunnedFromAlert = true
 	emit_signal("damaged", direction)
+
+func GetRotator():
+	return guardRotator

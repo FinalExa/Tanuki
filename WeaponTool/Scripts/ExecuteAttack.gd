@@ -6,9 +6,12 @@ extends Node2D
 @export var attackPhasesLaunch: Array[int]
 @export var attackHitboxes: Array[Node2D]
 @export var attackSounds: Array[AudioStreamPlayer]
+@export var attackMovements: Array[float]
 @export var characterRef: Node2D
 var frameMaster: FrameMaster
 var attackHitboxInstance: Node2D
+var movementValue: float
+var movementDirection: Vector2
 
 var attackLaunched: bool
 var attackInCooldown: bool
@@ -45,6 +48,7 @@ func start_attack():
 func ExecuteAttackPhase():
 	PrepareHitboxes()
 	currentPhase += 1
+	CalculateCurrentAttackMovement(currentPhase - 1)
 
 func PrepareHitboxes():
 	if (currentPhase > 0):
@@ -75,6 +79,7 @@ func Attacking():
 	if (attackLaunched):
 		if (!attackInCooldown):
 			if (attackFrame < attackDuration):
+				AttackMovement(currentPhase - 1)
 				attackFrame += 1
 				if (currentPhase < attackPhasesLaunch.size() && attackFrame > attackPhasesLaunch[currentPhase]):
 					ExecuteAttackPhase()
@@ -89,3 +94,17 @@ func Attacking():
 func RemoveAttackHitboxes():
 	for i in attackHitboxes.size():
 		remove_attack_hitbox(i)
+
+func CalculateCurrentAttackMovement(index: int):
+	if (attackMovements[index] != null):
+		movementDirection = characterRef.GetRotator().get_current_look_direction()
+		if (index == attackPhasesLaunch.size() - 1):
+			movementValue = attackMovements[index] / float(attackDuration - attackPhasesLaunch[index])
+			return
+		if (index < attackPhasesLaunch.size() - 1):
+			movementValue = attackMovements[index] / float(attackPhasesLaunch[index + 1] - attackPhasesLaunch[index])
+
+func AttackMovement(index: int):
+	if (index < attackMovements.size() && attackMovements[index] != null):
+		var translateValue: Vector2 = movementValue * movementDirection
+		characterRef.translate(translateValue)

@@ -1,15 +1,19 @@
+class_name PlayerRotator
 extends Node2D
 
 @export var upRad = 0
 @export var downRad = 0
 @export var leftRad = 0
 @export var rightRad = 0
-var lastDirection = Vector2(0,0)
+var lastDirection: Vector2
+var lastSavedDirection: Vector2 = Vector2(0, -1)
 
 func _on_movement_movement_direction(direction):
 	horizontalRotation(direction)
 	verticalRotation(direction)
 	lastDirection = direction
+	if (lastDirection != lastSavedDirection && lastDirection != Vector2.ZERO):
+		lastSavedDirection = lastDirection
 
 func verticalRotation(direction):
 	if (direction.y != lastDirection.y):
@@ -26,3 +30,6 @@ func horizontalRotation(direction):
 		else: 
 			if (direction.x>0):
 				self.rotation_degrees = rightRad
+
+func get_current_look_direction():
+	return lastSavedDirection
