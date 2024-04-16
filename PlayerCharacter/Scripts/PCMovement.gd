@@ -73,10 +73,9 @@ func set_max_speed(newMaxSpeed):
 	currentMaxSpeed = newMaxSpeed
 
 func _physics_process(delta):
-	get_input()
-	set_current_speed(delta)
 	if (movementEnabled):
-		rigidbodyRef.move_and_slide()
+		get_input()
+		set_current_speed(delta)
 
 func _on_transformation_change_change_speed(receivedSpeed):
 	set_max_speed(receivedSpeed)

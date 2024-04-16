@@ -11,6 +11,7 @@ extends Node2D
 var frameMaster: FrameMaster
 var attackHitboxInstance: Node2D
 var movementValue: float
+var movementDirection: Vector2
 
 var attackLaunched: bool
 var attackInCooldown: bool
@@ -96,6 +97,7 @@ func RemoveAttackHitboxes():
 
 func CalculateCurrentAttackMovement(index: int):
 	if (attackMovements[index] != null):
+		movementDirection = characterRef.GetRotator().get_current_look_direction()
 		if (index == attackPhasesLaunch.size() - 1):
 			movementValue = attackMovements[index] / float(attackDuration - attackPhasesLaunch[index])
 			return
@@ -104,6 +106,5 @@ func CalculateCurrentAttackMovement(index: int):
 
 func AttackMovement(index: int):
 	if (index < attackMovements.size() && attackMovements[index] != null):
-		var direction: Vector2 = characterRef.GetRotator().get_current_look_direction()
-		var translateValue: Vector2 = movementValue * direction
+		var translateValue: Vector2 = movementValue * movementDirection
 		characterRef.translate(translateValue)

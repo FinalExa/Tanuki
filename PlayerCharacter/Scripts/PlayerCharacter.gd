@@ -24,6 +24,9 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("interact")):
 		activate_interaction()
 
+func _physics_process(_delta):
+	move_and_slide()
+
 func set_deactivation_button(deactivationBtn: DeactivationButton):
 	buttonInteractionReady = true
 	deactivationButton = deactivationBtn
