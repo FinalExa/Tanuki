@@ -43,6 +43,7 @@ func remove_attack_hitbox(index):
 func start_attack():
 	attackLaunched = true
 	attackFrame = 0
+	characterRef.velocity = Vector2.ZERO
 	ExecuteAttackPhase()
 
 func ExecuteAttackPhase():
@@ -74,6 +75,7 @@ func StartCooldown():
 func EndCooldown():
 	attackInCooldown = false
 	attackLaunched = false
+	EndCooldownFeedback()
 
 func Attacking():
 	if (attackLaunched):
@@ -87,6 +89,7 @@ func Attacking():
 				EndAttack()
 		else:
 			if (attackFrame < attackCooldown):
+				ActiveCooldownFeedback()
 				attackFrame += 1
 			else:
 				EndCooldown()
@@ -108,3 +111,9 @@ func AttackMovement(index: int):
 	if (index < attackMovements.size() && attackMovements[index] != null):
 		var translateValue: Vector2 = movementValue * movementDirection
 		characterRef.translate(translateValue)
+
+func ActiveCooldownFeedback():
+	pass
+
+func EndCooldownFeedback():
+	pass

@@ -1,6 +1,8 @@
 class_name PlayerAttack
 extends ExecuteAttack
 
+@export var playerHUD: PlayerHUD
+
 func _process(_delta):
 	check_for_attack_input()
 
@@ -17,3 +19,9 @@ func StartCooldown():
 	attackInCooldown = true
 	attackFrame = 0
 	characterRef.playerMovement.EnableMovement()
+
+func ActiveCooldownFeedback():
+	playerHUD.UpdateAttackCooldown(true, attackFrame, attackCooldown)
+
+func EndCooldownFeedback():
+	playerHUD.UpdateAttackCooldown(false, 0, 0)

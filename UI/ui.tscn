@@ -1,24 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=6 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
 [ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
+[ext_resource type="Script" path="res://UI/AttackCooldown.gd" id="4_uhvlw"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI")]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3fp2r")
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
-offset_left = 284.0
-offset_top = -283.0
-offset_right = 543.0
-offset_bottom = -205.0
+offset_left = 904.0
+offset_top = 16.0
+offset_right = 1163.0
+offset_bottom = 120.0
 text = "WASD: movement
 Shift: get transformation
 E: transform/stop transformation
@@ -28,27 +33,46 @@ vertical_alignment = 1
 
 [node name="SavedTransformation" type="Label" parent="."]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 261.0
-offset_right = 519.0
-offset_bottom = 287.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 172.0
+offset_bottom = 50.0
+text = "No Transformation"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_xm4oh")
+transformationChosenText = "Current tranformation: "
 
 [node name="Timer" type="Label" parent="."]
 layout_mode = 0
-offset_left = -474.0
-offset_top = -274.0
-offset_right = -434.0
-offset_bottom = -248.0
-text = "DDD"
+offset_left = 224.0
+offset_top = 56.0
+offset_right = 272.0
+offset_bottom = 82.0
+text = "TIMER"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("3_ipm4y")
+
+[node name="AttackCooldown" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 106.0
+text = "ATTACK COOLDOWN"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_uhvlw")
+attackReadyText = "Attack Ready"
+attackInCooldownText = "Cooldown: "
 
 [node name="PauseMenuPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -64.0
-offset_top = -256.0
-offset_right = 64.0
-offset_bottom = -128.0
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 320.0
 
 [node name="Resume" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -73,10 +97,13 @@ layout_mode = 2
 text = "Reload"
 
 [node name="DialogueUI" parent="." node_paths=PackedStringArray("playerHUD") instance=ExtResource("4_4n6p0")]
-offset_top = 256.0
-offset_bottom = 296.0
+offset_left = 576.0
+offset_top = 512.0
+offset_right = 616.0
+offset_bottom = 552.0
 playerHUD = NodePath("..")
 
+[connection signal="attack_cooldown" from="." to="AttackCooldown" method="_on_ui_attack_cooldown"]
 [connection signal="timer_value" from="." to="Timer" method="_on_ui_timer_value"]
 [connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]
 [connection signal="button_up" from="PauseMenuPanel/Resume/ResumeButton" to="." method="_on_resume_button_button_up"]

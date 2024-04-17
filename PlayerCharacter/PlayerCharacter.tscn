@@ -213,7 +213,7 @@ tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/Movement")
 spriteRef = NodePath("AnimatedSprite2D")
-playerHUD = NodePath("UI")
+playerHUD = NodePath("CanvasLayer/HBoxContainer/UI")
 playerMovement = NodePath("Rotator/Movement")
 playerRotator = NodePath("Rotator")
 
@@ -250,9 +250,16 @@ animation = &"idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 
-[node name="UI" parent="." instance=ExtResource("2_d3p1y")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_d3p1y")]
 z_index = 1
 z_as_relative = false
+layout_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")
@@ -298,13 +305,14 @@ normalMovementSound = NodePath("../../Sounds/NormalMovement")
 transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
 attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")
 
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_reset_speed"]
-[connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_active_info"]
-[connection signal="send_transformation_name" from="Rotator/TransformationChange" to="UI" method="_on_transformation_change_send_transformation_name"]
+[connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]
+[connection signal="send_transformation_name" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_name"]
 [connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
