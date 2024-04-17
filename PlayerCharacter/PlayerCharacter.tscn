@@ -305,7 +305,8 @@ normalMovementSound = NodePath("../../Sounds/NormalMovement")
 transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
 attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")
