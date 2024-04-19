@@ -8,10 +8,6 @@ extends Node2D
 @export var transformedMovementSound: AudioStreamPlayer
 var currentStepIndex: int
 var normalStepsStarted: bool
-var randomNumber: RandomNumberGenerator
-
-func _ready():
-	randomNumber = RandomNumberGenerator.new()
 
 func _process(_delta):
 	PlayMovementSounds()
@@ -29,7 +25,7 @@ func PlayNormalMovement():
 		SelectNextStep()
 
 func SelectNextStep():
-	currentStepIndex = randomNumber.randi_range(0, normalMovementSounds.size() - 1)
+	currentStepIndex = randi_range(0, normalMovementSounds.size() - 1)
 	if (!normalStepsStarted):
 		if (!normalStepsStarted):
 			normalStepsStarted = true
