@@ -1,21 +1,26 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=48 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
+[ext_resource type="AudioStream" uid="uid://cutr6jwmfjvqx" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 01.wav" id="2_vw0dl"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
+[ext_resource type="AudioStream" uid="uid://rp3ugwufrtnw" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 02.wav" id="3_yyw17"]
+[ext_resource type="AudioStream" uid="uid://dvfsa3rk5d6nt" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 03.wav" id="4_ssnr2"]
+[ext_resource type="AudioStream" uid="uid://f4uw1q51on1" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 04.wav" id="5_mbc8e"]
+[ext_resource type="AudioStream" uid="uid://c0fyrvpn5gydq" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 05.wav" id="6_87xno"]
 [ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
 [ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="7_r4d5s"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
 [ext_resource type="Texture2D" uid="uid://dlg810w8b614s" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-variant-TEST-300.png" id="8_0cjo4"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="8_bhedw"]
-[ext_resource type="AudioStream" uid="uid://dmpf0u48j6o2q" path="res://PlayerCharacter/Sounds/Player SFX Movement 1_Loop.wav" id="8_m3ffu"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
 [ext_resource type="AudioStream" uid="uid://cioi8ccilonij" path="res://PlayerCharacter/Sounds/Tail appears while transformed.wav" id="9_3jagt"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
+[ext_resource type="Script" path="res://PlayerCharacter/PlayerMovementSounds.gd" id="16_qikhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7inrk"]
 atlas = ExtResource("8_0cjo4")
@@ -211,22 +216,40 @@ collision_layer = 11
 script = ExtResource("1_0akyq")
 tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
-movementRef = NodePath("Rotator/Movement")
+movementRef = NodePath("Rotator/PlayerMovement")
 spriteRef = NodePath("AnimatedSprite2D")
 playerHUD = NodePath("CanvasLayer/HBoxContainer/UI")
-playerMovement = NodePath("Rotator/Movement")
+playerMovement = NodePath("Rotator/PlayerMovement")
 playerRotator = NodePath("Rotator")
 
 [node name="Sounds" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="Sounds"]
+
+[node name="Normal" type="Node" parent="Sounds/Movement"]
+
+[node name="CurrentStep" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+
+[node name="Step1" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("2_vw0dl")
+
+[node name="Step2" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("3_yyw17")
+
+[node name="Step3" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("4_ssnr2")
+
+[node name="Step4" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("5_mbc8e")
+
+[node name="Step5" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("6_87xno")
 
 [node name="EnterTransformation" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_yl2lp")
 
 [node name="ExitTransformation" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("8_rlmsq")
-
-[node name="NormalMovement" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("8_m3ffu")
 
 [node name="TransformedMovement" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("8_bh82x")
@@ -296,14 +319,20 @@ position = Vector2(0, 75)
 
 [node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
 
-[node name="Movement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "normalMovementSound", "transformedMovementSound", "playerRef")]
+[node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700.0
 defaultMaxSpeed = 500.0
-normalMovementSound = NodePath("../../Sounds/NormalMovement")
-transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 playerRef = NodePath("../..")
+
+[node name="PlayerMovementSounds" type="Node2D" parent="Rotator" node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
+script = ExtResource("16_qikhy")
+playerMovement = NodePath("../PlayerMovement")
+playerRef = NodePath("../..")
+currentNormalStep = NodePath("../../Sounds/Movement/Normal/CurrentStep")
+normalMovementSounds = [NodePath("../../Sounds/Movement/Normal/Step1"), NodePath("../../Sounds/Movement/Normal/Step2"), NodePath("../../Sounds/Movement/Normal/Step3"), NodePath("../../Sounds/Movement/Normal/Step4"), NodePath("../../Sounds/Movement/Normal/Step5")]
+transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 
 [node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
@@ -311,8 +340,8 @@ attackHitboxes = [null, NodePath("PlayerAttackHitbox"), null]
 attackSounds = [null, NodePath("../../Sounds/Attack"), null]
 characterRef = NodePath("../..")
 
-[connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_change_speed"]
-[connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/Movement" method="_on_transformation_change_reset_speed"]
+[connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_change_speed"]
+[connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_reset_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]
 [connection signal="send_transformation_name" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_name"]
-[connection signal="movement_direction" from="Rotator/Movement" to="Rotator" method="_on_movement_movement_direction"]
+[connection signal="movement_direction" from="Rotator/PlayerMovement" to="Rotator" method="_on_movement_movement_direction"]
