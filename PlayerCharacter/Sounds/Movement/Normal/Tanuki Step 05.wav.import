@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dutyq3jcybiej"
+path="res://.godot/imported/Tanuki Step 05.wav-b064ec82b55cd6194831b9c9d420f530.sample"
+
+[deps]
+
+source_file="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 05.wav"
+dest_files=["res://.godot/imported/Tanuki Step 05.wav-b064ec82b55cd6194831b9c9d420f530.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
