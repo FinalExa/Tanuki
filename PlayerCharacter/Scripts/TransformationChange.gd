@@ -126,6 +126,7 @@ func manual_deactivate_transformation():
 func deactivate_transformation():
 	emit_signal("reset_speed")
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
+	if (transformationTimeLowSound.playing) : transformationTimeLowSound.stop()
 	baseCollisionShape.shape = baseCollisionShapeInfo
 	get_parent().remove_child(playerTransformedSprite)
 	playerSprite.sprite_frames = baseTextureInfo

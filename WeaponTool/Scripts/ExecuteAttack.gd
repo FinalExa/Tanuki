@@ -99,7 +99,7 @@ func RemoveAttackHitboxes():
 		remove_attack_hitbox(i)
 
 func CalculateCurrentAttackMovement(index: int):
-	if (attackMovements[index] != null):
+	if (attackMovements.size() > 0 && attackMovements[index] != null):
 		movementDirection = characterRef.GetRotator().get_current_look_direction()
 		if (index == attackPhasesLaunch.size() - 1):
 			movementValue = attackMovements[index] / float(attackDuration - attackPhasesLaunch[index])
@@ -108,7 +108,7 @@ func CalculateCurrentAttackMovement(index: int):
 			movementValue = attackMovements[index] / float(attackPhasesLaunch[index + 1] - attackPhasesLaunch[index])
 
 func AttackMovement(index: int):
-	if (index < attackMovements.size() && attackMovements[index] != null):
+	if (attackMovements.size() > 0 && index < attackMovements.size() && attackMovements[index] != null):
 		var translateValue: Vector2 = movementValue * movementDirection
 		characterRef.translate(translateValue)
 
