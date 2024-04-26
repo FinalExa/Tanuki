@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://baslbth2sgli8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 512.0
+
+[node name="NewGame" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="NewGameButton" type="Button" parent="PauseMenuPanel/NewGame"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="ContinueButton" type="Button" parent="PauseMenuPanel/Continue"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Options" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="OptionsButton" type="Button" parent="PauseMenuPanel/Options"]
+layout_mode = 2
+text = "Options"
+
+[node name="Controls" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 248.0
+
+[node name="ControlsButton" type="Button" parent="PauseMenuPanel/Controls"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Credits" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 264.0
+offset_right = 184.0
+offset_bottom = 312.0
+
+[node name="CreditsButton" type="Button" parent="PauseMenuPanel/Credits"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit to Desktop" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 328.0
+offset_right = 193.0
+offset_bottom = 376.0
+
+[node name="QuitButton" type="Button" parent="PauseMenuPanel/Quit to Desktop"]
+layout_mode = 2
+text = "Quit to Desktop"
