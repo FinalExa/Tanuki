@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Menus/Scripts/CreditsPanel.gd" id="1_ep4g3"]
 
 [node name="CreditsPanel" type="Panel"]
+process_mode = 3
 offset_right = 256.0
 offset_bottom = 64.0
 script = ExtResource("1_ep4g3")

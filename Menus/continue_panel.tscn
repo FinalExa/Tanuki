@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Menus/Scripts/ContinuePanel.gd" id="1_kvkd7"]
 
 [node name="ContinuePanel" type="Panel"]
+process_mode = 3
 offset_right = 256.0
 offset_bottom = 192.0
 script = ExtResource("1_kvkd7")
