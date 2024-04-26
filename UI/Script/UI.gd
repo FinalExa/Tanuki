@@ -5,8 +5,11 @@ signal transformation_name
 signal timer_value
 signal attack_cooldown
 
+@export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
+@export var optionsPanel: Panel
+@export var controlsPanel: Panel
 var isInForcePause: bool
 
 func _ready():
@@ -27,11 +30,12 @@ func UpdateAttackCooldown(status, currentFrame, duration):
 
 func PauseGame():
 	if (!isInForcePause && Input.is_action_just_pressed("pause")):
-		get_tree().paused = !get_tree().paused
-		if (get_tree().paused):
-			pauseMenuPanel.show()
-		else:
-			pauseMenuPanel.hide()
+		if (!(get_tree().paused && !pauseMenuPanel.visible)):
+			get_tree().paused = !get_tree().paused
+			if (get_tree().paused):
+				pauseMenuPanel.show()
+			else:
+				pauseMenuPanel.hide()
 
 func ForcePause():
 	isInForcePause = true
@@ -51,3 +55,17 @@ func _on_resume_button_button_up():
 func _on_reload_button_button_up():
 	Resume()
 	get_tree().reload_current_scene()
+
+func _on_options_button_button_up():
+	optionsPanel.show()
+	pauseMenuPanel.hide()
+
+func _on_controls_button_button_up():
+	controlsPanel.show()
+	pauseMenuPanel.hide()
+
+func _on_main_menu_button_button_up():
+	get_tree().change_scene_to_file(mainMenuPath)
+
+func _on_quit_to_desktop_button_button_up():
+	get_tree().quit()

@@ -6,6 +6,9 @@ extends Panel
 @export var controlsPanel: Panel
 @export var creditsPanel: Panel
 
+func _ready():
+	get_tree().paused = false
+
 func _on_new_game_button_button_up():
 	get_tree().change_scene_to_file(gameScenePath)
 
