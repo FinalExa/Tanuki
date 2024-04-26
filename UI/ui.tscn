@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=10 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
 [ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
 [ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
+[ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="5_5if3a"]
+[ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="6_mc342"]
+[ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="7_aqx6o"]
+[ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI")]
+[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -15,8 +19,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
+mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
+optionsPanel = NodePath("OptionsPanel")
+controlsPanel = NodePath("ControlsPanel")
+gameOverPanel = NodePath("GameOverPanel")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
@@ -69,16 +77,16 @@ attackInCooldownText = "Cooldown: "
 
 [node name="PauseMenuPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 192.0
-offset_right = 640.0
-offset_bottom = 320.0
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 512.0
 
 [node name="Resume" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 72.0
 offset_top = 8.0
-offset_right = 120.0
+offset_right = 184.0
 offset_bottom = 56.0
 
 [node name="ResumeButton" type="Button" parent="PauseMenuPanel/Resume"]
@@ -87,14 +95,146 @@ text = "Resume"
 
 [node name="Reload" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 72.0
 offset_top = 72.0
-offset_right = 120.0
+offset_right = 184.0
 offset_bottom = 120.0
 
 [node name="ReloadButton" type="Button" parent="PauseMenuPanel/Reload"]
 layout_mode = 2
 text = "Reload"
+
+[node name="Options" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="OptionsButton" type="Button" parent="PauseMenuPanel/Options"]
+layout_mode = 2
+text = "Options"
+
+[node name="Controls" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 248.0
+
+[node name="ControlsButton" type="Button" parent="PauseMenuPanel/Controls"]
+layout_mode = 2
+text = "Controls
+"
+
+[node name="MainMenu" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 264.0
+offset_right = 184.0
+offset_bottom = 312.0
+
+[node name="MainMenuButton" type="Button" parent="PauseMenuPanel/MainMenu"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitToDesktop" type="PanelContainer" parent="PauseMenuPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 328.0
+offset_right = 197.0
+offset_bottom = 376.0
+
+[node name="QuitToDesktopButton" type="Button" parent="PauseMenuPanel/QuitToDesktop"]
+layout_mode = 2
+text = "Quit To Desktop"
+
+[node name="OptionsPanel" parent="." node_paths=PackedStringArray("videoPanel", "audioPanel", "previousPanel") instance=ExtResource("5_5if3a")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+videoPanel = NodePath("../VideoPanel")
+audioPanel = NodePath("../AudioPanel")
+previousPanel = NodePath("../PauseMenuPanel")
+
+[node name="VideoPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("7_aqx6o")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 704.0
+offset_bottom = 320.0
+previousPanel = NodePath("../OptionsPanel")
+
+[node name="AudioPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("6_mc342")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 704.0
+offset_bottom = 320.0
+previousPanel = NodePath("../OptionsPanel")
+
+[node name="ControlsPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("8_pl0yk")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 704.0
+offset_bottom = 320.0
+previousPanel = NodePath("../PauseMenuPanel")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 384.0
+
+[node name="GameOver" type="PanelContainer" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="GameOverLabel" type="Label" parent="GameOverPanel/GameOver"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reload" type="PanelContainer" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="ReloadButton" type="Button" parent="GameOverPanel/Reload"]
+layout_mode = 2
+text = "Reload"
+
+[node name="MainMenu" type="PanelContainer" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="MainMenuButton" type="Button" parent="GameOverPanel/MainMenu"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitToDesktop" type="PanelContainer" parent="GameOverPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 200.0
+offset_right = 194.0
+offset_bottom = 248.0
+
+[node name="QuitToDesktopButton" type="Button" parent="GameOverPanel/QuitToDesktop"]
+layout_mode = 2
+text = "Quit to Desktop"
 
 [node name="DialogueUI" parent="." node_paths=PackedStringArray("playerHUD") instance=ExtResource("4_4n6p0")]
 offset_left = 576.0
@@ -108,3 +248,10 @@ playerHUD = NodePath("..")
 [connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]
 [connection signal="button_up" from="PauseMenuPanel/Resume/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/Reload/ReloadButton" to="." method="_on_reload_button_button_up"]
+[connection signal="button_up" from="PauseMenuPanel/Options/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="PauseMenuPanel/Controls/ControlsButton" to="." method="_on_controls_button_button_up"]
+[connection signal="button_up" from="PauseMenuPanel/MainMenu/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
+[connection signal="button_up" from="PauseMenuPanel/QuitToDesktop/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_button_up"]
+[connection signal="button_up" from="GameOverPanel/Reload/ReloadButton" to="." method="_on_reload_button_button_up"]
+[connection signal="button_up" from="GameOverPanel/MainMenu/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
+[connection signal="button_up" from="GameOverPanel/QuitToDesktop/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_button_up"]

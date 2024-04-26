@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://0bwb8lk1y0qa"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/MainMenuPanel.gd" id="1_h434p"]
+
+[node name="MainMenuPanel" type="Panel"]
+process_mode = 3
+offset_right = 256.0
+offset_bottom = 384.0
+script = ExtResource("1_h434p")
+gameScenePath = "res://1_Scenes/PlayTestMap.tscn"
+
+[node name="NewGame" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="NewGameButton" type="Button" parent="NewGame"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="ContinueButton" type="Button" parent="Continue"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Options" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="OptionsButton" type="Button" parent="Options"]
+layout_mode = 2
+text = "Options"
+
+[node name="Controls" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 248.0
+
+[node name="ControlsButton" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Credits" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 264.0
+offset_right = 184.0
+offset_bottom = 312.0
+
+[node name="CreditsButton" type="Button" parent="Credits"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit to Desktop" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 328.0
+offset_right = 193.0
+offset_bottom = 376.0
+
+[node name="QuitButton" type="Button" parent="Quit to Desktop"]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[connection signal="button_up" from="NewGame/NewGameButton" to="." method="_on_new_game_button_button_up"]
+[connection signal="button_up" from="Continue/ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="Options/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="Controls/ControlsButton" to="." method="_on_controls_button_button_up"]
+[connection signal="button_up" from="Credits/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="Quit to Desktop/QuitButton" to="." method="_on_quit_button_button_up"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://sxf7ivyfqmb1"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/OptionsPanel.gd" id="1_3wtpp"]
+
+[node name="OptionsPanel" type="Panel"]
+process_mode = 3
+offset_right = 256.0
+offset_bottom = 192.0
+script = ExtResource("1_3wtpp")
+
+[node name="Video" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="Back"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="Video/VideoButton" to="." method="_on_video_button_button_up"]
+[connection signal="button_up" from="Audio/AudioButton" to="." method="_on_audio_button_button_up"]
+[connection signal="button_up" from="Back/BackButton" to="." method="_on_back_button_button_up"]

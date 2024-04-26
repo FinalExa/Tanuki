@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjlyvhsooyjrt"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/VideoPanel.gd" id="1_1yipa"]
+
+[node name="VideoPanel" type="Panel"]
+process_mode = 3
+offset_right = 256.0
+offset_bottom = 64.0
+script = ExtResource("1_1yipa")
+
+[node name="Back" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="BackButton" type="Button" parent="Back"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="Back/BackButton" to="." method="_on_back_button_button_up"]

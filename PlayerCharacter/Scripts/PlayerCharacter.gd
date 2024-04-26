@@ -51,3 +51,6 @@ func activate_interaction():
 
 func GetRotator():
 	return playerRotator
+
+func GameOver():
+	playerHUD.GameOverScreen()
