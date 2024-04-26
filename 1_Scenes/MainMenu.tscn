@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://baslbth2sgli8"]
+[gd_scene load_steps=4 format=3 uid="uid://baslbth2sgli8"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/MainMenuPanel.gd" id="1_kl4rr"]
+[ext_resource type="Script" path="res://Menus/Scripts/ContinuePanel.gd" id="2_sd0ol"]
+[ext_resource type="Script" path="res://Menus/Scripts/OptionsPanel.gd" id="3_g36qq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -8,75 +12,316 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenuPanel" type="Panel" parent="."]
+[node name="MainMenuPanel" type="Panel" parent="." node_paths=PackedStringArray("continuePanel", "optionsPanel")]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 128.0
 offset_right = 704.0
 offset_bottom = 512.0
+script = ExtResource("1_kl4rr")
+gameScenePath = "res://1_Scenes/PlayTestMap.tscn"
+continuePanel = NodePath("../ContinuePanel")
+optionsPanel = NodePath("../OptionsPanel")
 
-[node name="NewGame" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="NewGame" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 8.0
 offset_right = 184.0
 offset_bottom = 56.0
 
-[node name="NewGameButton" type="Button" parent="PauseMenuPanel/NewGame"]
+[node name="NewGameButton" type="Button" parent="MainMenuPanel/NewGame"]
 layout_mode = 2
 text = "New Game"
 
-[node name="Continue" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="Continue" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 72.0
 offset_right = 184.0
 offset_bottom = 120.0
 
-[node name="ContinueButton" type="Button" parent="PauseMenuPanel/Continue"]
+[node name="ContinueButton" type="Button" parent="MainMenuPanel/Continue"]
 layout_mode = 2
 text = "Continue"
 
-[node name="Options" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="Options" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 136.0
 offset_right = 184.0
 offset_bottom = 184.0
 
-[node name="OptionsButton" type="Button" parent="PauseMenuPanel/Options"]
+[node name="OptionsButton" type="Button" parent="MainMenuPanel/Options"]
 layout_mode = 2
 text = "Options"
 
-[node name="Controls" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="Controls" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 200.0
 offset_right = 184.0
 offset_bottom = 248.0
 
-[node name="ControlsButton" type="Button" parent="PauseMenuPanel/Controls"]
+[node name="ControlsButton" type="Button" parent="MainMenuPanel/Controls"]
 layout_mode = 2
 text = "Controls"
 
-[node name="Credits" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="Credits" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 264.0
 offset_right = 184.0
 offset_bottom = 312.0
 
-[node name="CreditsButton" type="Button" parent="PauseMenuPanel/Credits"]
+[node name="CreditsButton" type="Button" parent="MainMenuPanel/Credits"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit to Desktop" type="PanelContainer" parent="PauseMenuPanel"]
+[node name="Quit to Desktop" type="PanelContainer" parent="MainMenuPanel"]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 328.0
 offset_right = 193.0
 offset_bottom = 376.0
 
-[node name="QuitButton" type="Button" parent="PauseMenuPanel/Quit to Desktop"]
+[node name="QuitButton" type="Button" parent="MainMenuPanel/Quit to Desktop"]
 layout_mode = 2
 text = "Quit to Desktop"
+
+[node name="ContinuePanel" type="Panel" parent="." node_paths=PackedStringArray("mainMenuPanel")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+script = ExtResource("2_sd0ol")
+playtestMapPath = "res://1_Scenes/PlayTestMap.tscn"
+playerMapPath = "res://1_Scenes/player_transform_test.tscn"
+mainMenuPanel = NodePath("../MainMenuPanel")
+
+[node name="PlayTestMap" type="PanelContainer" parent="ContinuePanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="PlayTestMapButton" type="Button" parent="ContinuePanel/PlayTestMap"]
+layout_mode = 2
+text = "Playtest Map"
+
+[node name="PlayerMap" type="PanelContainer" parent="ContinuePanel"]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="PlayerMapButton" type="Button" parent="ContinuePanel/PlayerMap"]
+layout_mode = 2
+text = "Player Map"
+
+[node name="Back" type="PanelContainer" parent="ContinuePanel"]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="ContinuePanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[node name="OptionsPanel" type="Panel" parent="." node_paths=PackedStringArray("mainMenuPanel")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+script = ExtResource("3_g36qq")
+mainMenuPanel = NodePath("../MainMenuPanel")
+
+[node name="Video" type="PanelContainer" parent="OptionsPanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="OptionsPanel/Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="OptionsPanel"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="OptionsPanel/Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="OptionsPanel"]
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="OptionsPanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[node name="VideoPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+
+[node name="Video" type="PanelContainer" parent="VideoPanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="VideoPanel/Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="VideoPanel"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="VideoPanel/Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="VideoPanel"]
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="VideoPanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[node name="AudioPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+
+[node name="Video" type="PanelContainer" parent="AudioPanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="AudioPanel/Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="AudioPanel"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="AudioPanel/Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="AudioPanel"]
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="AudioPanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[node name="ControlsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+
+[node name="Video" type="PanelContainer" parent="ControlsPanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="ControlsPanel/Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="ControlsPanel"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="ControlsPanel/Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="ControlsPanel"]
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="ControlsPanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[node name="CreditsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 384.0
+
+[node name="Video" type="PanelContainer" parent="CreditsPanel"]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="VideoButton" type="Button" parent="CreditsPanel/Video"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="PanelContainer" parent="CreditsPanel"]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="AudioButton" type="Button" parent="CreditsPanel/Audio"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Back" type="PanelContainer" parent="CreditsPanel"]
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="BackButton" type="Button" parent="CreditsPanel/Back"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="MainMenuPanel/NewGame/NewGameButton" to="MainMenuPanel" method="_on_new_game_button_button_up"]
+[connection signal="button_up" from="MainMenuPanel/Continue/ContinueButton" to="MainMenuPanel" method="_on_continue_button_button_up"]
+[connection signal="button_up" from="MainMenuPanel/Options/OptionsButton" to="MainMenuPanel" method="_on_options_button_button_up"]
+[connection signal="button_up" from="ContinuePanel/PlayTestMap/PlayTestMapButton" to="ContinuePanel" method="_on_play_test_map_button_button_up"]
+[connection signal="button_up" from="ContinuePanel/PlayerMap/PlayerMapButton" to="ContinuePanel" method="_on_player_map_button_button_up"]
+[connection signal="button_up" from="ContinuePanel/Back/BackButton" to="ContinuePanel" method="_on_back_button_button_up"]

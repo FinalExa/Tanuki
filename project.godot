@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tanuki"
-run/main_scene="res://1_Scenes/player_transform_test.tscn"
+run/main_scene="res://1_Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
