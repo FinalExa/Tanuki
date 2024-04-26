@@ -6,7 +6,7 @@ extends Panel
 func _ready():
 	self.hide()
 
-func _process(delta):
+func _process(_delta):
 	if (self.visible && Input.is_action_just_pressed("pause")):
 		BackToPreviousPanel()
 

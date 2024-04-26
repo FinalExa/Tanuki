@@ -6,7 +6,7 @@ extends InteractionObjectEffect
 func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
 	if (receivedBody!=null):
 		if (receivedBody is PlayerCharacter):
-			get_tree().reload_current_scene()
+			receivedBody.GameOver()
 		else:
 			if(!receivedBody.isStunned):
 				receivedBody.is_damaged(self.global_position)

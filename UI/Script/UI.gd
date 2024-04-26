@@ -10,11 +10,13 @@ signal attack_cooldown
 @export var dialogueUI: DialogueUI
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
+@export var gameOverPanel: Panel
 var isInForcePause: bool
 
 func _ready():
 	pauseMenuPanel.hide()
 	dialogueUI.hide()
+	gameOverPanel.hide()
 
 func _process(_delta):
 	PauseGame()
@@ -29,13 +31,12 @@ func UpdateAttackCooldown(status, currentFrame, duration):
 	emit_signal("attack_cooldown", status, currentFrame, duration)
 
 func PauseGame():
-	if (!isInForcePause && Input.is_action_just_pressed("pause")):
-		if (!(get_tree().paused && !pauseMenuPanel.visible)):
-			get_tree().paused = !get_tree().paused
-			if (get_tree().paused):
-				pauseMenuPanel.show()
-			else:
-				pauseMenuPanel.hide()
+	if (!isInForcePause && Input.is_action_just_pressed("pause") && !(get_tree().paused && !pauseMenuPanel.visible)):
+		get_tree().paused = !get_tree().paused
+		if (get_tree().paused):
+			pauseMenuPanel.show()
+		else:
+			pauseMenuPanel.hide()
 
 func ForcePause():
 	isInForcePause = true
@@ -69,3 +70,7 @@ func _on_main_menu_button_button_up():
 
 func _on_quit_to_desktop_button_button_up():
 	get_tree().quit()
+
+func GameOverScreen():
+	ForcePause()
+	gameOverPanel.show()
