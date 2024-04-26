@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
 [ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
-[ext_resource type="Script" path="res://UI/AttackCooldown.gd" id="4_uhvlw"]
+[ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI")]
 process_mode = 3
@@ -63,8 +63,8 @@ offset_bottom = 106.0
 text = "ATTACK COOLDOWN"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("4_uhvlw")
-attackReadyText = "Attack Ready"
+script = ExtResource("4_e360h")
+attackReadyText = "Ready!"
 attackInCooldownText = "Cooldown: "
 
 [node name="PauseMenuPanel" type="Panel" parent="."]

@@ -19,8 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://cioi8ccilonij" path="res://PlayerCharacter/Sounds/Tail appears while transformed.wav" id="9_3jagt"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="Texture2D" uid="uid://c81psw8hrc3xj" path="res://PlayerCharacter/Sprites/Tan-2.0.1-200.png" id="14_6hj2i"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
-[ext_resource type="Script" path="res://PlayerCharacter/PlayerMovementSounds.gd" id="16_qikhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -270,6 +270,14 @@ stream = ExtResource("9_3jagt")
 sprite_frames = SubResource("SpriteFrames_5la1i")
 animation = &"idle"
 
+[node name="PlayerMovementSounds" type="Node2D" parent="." node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
+script = ExtResource("15_4hghg")
+playerMovement = NodePath("../Rotator/PlayerMovement")
+playerRef = NodePath("..")
+currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
+normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5")]
+transformedMovementSound = NodePath("../Sounds/TransformedMovement")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 
@@ -325,14 +333,6 @@ rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700.0
 defaultMaxSpeed = 500.0
 playerRef = NodePath("../..")
-
-[node name="PlayerMovementSounds" type="Node2D" parent="Rotator" node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
-script = ExtResource("16_qikhy")
-playerMovement = NodePath("../PlayerMovement")
-playerRef = NodePath("../..")
-currentNormalStep = NodePath("../../Sounds/Movement/Normal/CurrentStep")
-normalMovementSounds = [NodePath("../../Sounds/Movement/Normal/Step1"), NodePath("../../Sounds/Movement/Normal/Step2"), NodePath("../../Sounds/Movement/Normal/Step3"), NodePath("../../Sounds/Movement/Normal/Step4"), NodePath("../../Sounds/Movement/Normal/Step5")]
-transformedMovementSound = NodePath("../../Sounds/TransformedMovement")
 
 [node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
