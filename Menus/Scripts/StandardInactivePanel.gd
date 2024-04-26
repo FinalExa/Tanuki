@@ -1,7 +1,7 @@
 class_name StandardInactivePanel
 extends Panel
 
-@export var mainMenuPanel: Panel
+@export var previousPanel: Panel
 
 func _ready():
 	self.hide()
@@ -11,5 +11,5 @@ func _process(delta):
 		BackToMainMenu()
 
 func BackToMainMenu():
-	mainMenuPanel.show()
+	previousPanel.show()
 	self.hide()
