@@ -10,4 +10,4 @@ func _on_player_map_button_button_up():
 	get_tree().change_scene_to_file(playerMapPath)
 
 func _on_back_button_button_up():
-	BackToMainMenu()
+	BackToPreviousPanel()

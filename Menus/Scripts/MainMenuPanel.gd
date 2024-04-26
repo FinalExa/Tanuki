@@ -16,3 +16,14 @@ func _on_continue_button_button_up():
 func _on_options_button_button_up():
 	optionsPanel.show()
 	self.hide()
+
+func _on_controls_button_button_up():
+	controlsPanel.show()
+	self.hide()
+
+func _on_credits_button_button_up():
+	creditsPanel.show()
+	self.hide()
+
+func _on_quit_button_button_up():
+	get_tree().quit()

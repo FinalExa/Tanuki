@@ -7,9 +7,9 @@ func _ready():
 	self.hide()
 
 func _process(delta):
-	if (Input.is_action_just_pressed("pause") && self.visible):
-		BackToMainMenu()
+	if (self.visible && Input.is_action_just_pressed("pause")):
+		BackToPreviousPanel()
 
-func BackToMainMenu():
+func BackToPreviousPanel():
 	previousPanel.show()
 	self.hide()
