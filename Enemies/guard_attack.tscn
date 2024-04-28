@@ -14,7 +14,7 @@ attackCooldown = 60
 attackPhasesLaunch = Array[int]([0, 30])
 attackHitboxes = [NodePath("Feedback"), NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
-attackMovements = Array[float]([100.0, 200.0])
+attackMovements = Array[float]([0.0, 200.0])
 
 [node name="Feedback" type="Node2D" parent="."]
 

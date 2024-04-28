@@ -14,7 +14,7 @@ signal reached_destination
 @export var alertMovementSound: AudioStreamPlayer2D
 var currentMovementSound: AudioStreamPlayer2D
 var repathTimer: float
-var currentMovementSpeed
+var currentMovementSpeed: float
 var target: Node2D
 var locationTarget: Vector2
 var locationTargetEnabled: bool
@@ -42,6 +42,7 @@ func navigate_on_path():
 	guardController.move_and_slide()
 	if ((locationTargetEnabled && guardController.global_position.distance_to(locationTarget) < distanceTolerance)
 	|| (target != null && guardController.global_position.distance_to(target.global_position) < distanceTolerance)):
+		currentMovementSpeed = 0
 		emit_signal("reached_destination")
 
 func set_new_target(newTarget):
