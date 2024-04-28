@@ -38,7 +38,7 @@ func TargetIsVisible(result):
 	return false
 
 func BackToResearch():
-	if (guardAlert.lostSightOfPlayer == true && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+	if (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 		guardAlert.stop_alert()
 		guardController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
 		return true

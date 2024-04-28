@@ -125,9 +125,11 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="PatrolMovement" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("2_irny6")
+max_distance = 500.0
 
 [node name="AlertMovement" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("3_1jrvl")
+max_distance = 500.0
 
 [node name="StunnedGuard" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_vmgao")
