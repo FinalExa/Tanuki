@@ -38,6 +38,7 @@ func set_current_patrol_routine():
 
 func move_patrol_action(target):
 	guardController.guardMovement.set_location_target(target.global_position)
+	guardController.guardMovement.reset_movement_speed()
 	guardController.guardRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
