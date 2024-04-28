@@ -12,24 +12,37 @@ func Evaluate(_delta):
 func alert_operations():
 	if (guardAlert.chaseStart && guardAlert.screamAreaInstance != null):
 		guardAlert.remove_area()
-	main_alert_operation()
+	MainAlertOperation()
 	state = NodeState.SUCCESS
 
-func main_alert_operation():
+func MainAlertOperation():
 	for i in guardAlert.raycastResult.size():
-		if (guardAlert.raycastResult[i] != null):
-			if (guardAlert.raycastResult[i] == guardAlert.alertTarget):
-				if (guardAlert.alertTarget is TailFollow):
-					guardAlert.alertTarget = guardAlert.alertTarget.playerRef
-				if (!guardAlert.lostSightOfPlayer || (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
-					track_target(guardAlert.raycastResult[i])
-					return
-				else:
-					if (guardAlert.lostSightOfPlayer == true && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
-						guardAlert.stop_alert()
-						guardController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
-						return
+		if (AnalyzeResult(guardAlert.raycastResult[i])): return
 	target_not_seen()
+
+func AnalyzeResult(result):
+	if (result != null && result == guardAlert.alertTarget):
+		TargetIsTail()
+		if (TargetIsVisible(result)): return true
+		if (BackToResearch()): return true
+	return false
+
+func TargetIsTail():
+	if (guardAlert.alertTarget is TailFollow):
+		guardAlert.alertTarget = guardAlert.alertTarget.playerRef
+
+func TargetIsVisible(result):
+	if (!guardAlert.lostSightOfPlayer || (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
+		track_target(result)
+		return true
+	return false
+
+func BackToResearch():
+	if (guardAlert.lostSightOfPlayer == true && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+		guardAlert.stop_alert()
+		guardController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
+		return true
+	return false
 
 func track_target(receivedTarget: Node2D):
 	guardController.guardRotator.setLookingAtPosition(receivedTarget.global_position)
