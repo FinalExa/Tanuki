@@ -74,3 +74,7 @@ func _on_quit_to_desktop_button_button_up():
 func GameOverScreen():
 	ForcePause()
 	gameOverPanel.show()
+
+func _on_gameover_reload_button_button_up():
+	EndForcePause()
+	get_tree().reload_current_scene()

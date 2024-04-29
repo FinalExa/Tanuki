@@ -252,6 +252,6 @@ playerHUD = NodePath("..")
 [connection signal="button_up" from="PauseMenuPanel/Controls/ControlsButton" to="." method="_on_controls_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/MainMenu/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/QuitToDesktop/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_button_up"]
-[connection signal="button_up" from="GameOverPanel/Reload/ReloadButton" to="." method="_on_reload_button_button_up"]
+[connection signal="button_up" from="GameOverPanel/Reload/ReloadButton" to="." method="_on_gameover_reload_button_button_up"]
 [connection signal="button_up" from="GameOverPanel/MainMenu/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
 [connection signal="button_up" from="GameOverPanel/QuitToDesktop/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_button_up"]
