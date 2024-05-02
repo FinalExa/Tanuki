@@ -10,8 +10,6 @@ func Evaluate(_delta):
 	return state
 
 func alert_operations():
-	if (guardAlert.chaseStart && guardAlert.screamAreaInstance != null):
-		guardAlert.remove_area()
 	MainAlertOperation()
 	state = NodeState.SUCCESS
 
