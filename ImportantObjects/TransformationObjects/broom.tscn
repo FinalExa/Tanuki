@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv2ama730fiex"]
+
+[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_oehmo"]
+
+[node name="Broom" instance=ExtResource("1_oehmo")]
+transformedName = "Broom"
+transformedMaxSpeed = 700.0
+originalObjectPath = "res://ImportantObjects/TransformationObjects/broom.tscn"
