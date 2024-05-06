@@ -284,6 +284,7 @@ zoom = Vector2(0.75, 0.75)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
