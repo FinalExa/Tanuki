@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_k167w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
-size = Vector2(100, 100)
+size = Vector2(96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
-size = Vector2(144, 144)
+size = Vector2(128, 128)
 
 [node name="TransformationObject" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
 collision_layer = 3
@@ -28,9 +28,6 @@ transformation_object_data = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("RectangleShape2D_10nd7")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-48, 48, -48, -48, 48, -48, 48, 48)
 
 [connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

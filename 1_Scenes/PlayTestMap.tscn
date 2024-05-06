@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=19 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cv2ama730fiex" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="8_ydnc8"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 [ext_resource type="PackedScene" uid="uid://c273y8hyyc3hf" path="res://ImportantObjects/TransformationObjects/cup.tscn" id="15_y1bt5"]
+[ext_resource type="PackedScene" uid="uid://8p6lrlqbtesj" path="res://ImportantObjects/TransformationObjects/jewels.tscn" id="16_32aar"]
+[ext_resource type="PackedScene" uid="uid://cn8kgms7h6lwc" path="res://ImportantObjects/TransformationObjects/chest.tscn" id="17_6pdyf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
 vertices = PackedVector2Array(-832, -2176, -960, -2176, -2048, -2240, -2048, -2752, -1984, -3328, -1552, -3328, -1368, -3144, -960, -2432, -1280, -3232, -1376, -3328, -960, -3328, -960, -2912, -1096, -3048, -2240, -512, -3480, -512, -3120, -872, -2240, -640, -3848, -1224, -4032, -1040, -4032, -2048, -3776, -2048, -1000, -2776, -960, -2816, -1184, -2960, -1192, -2024, -960, -1408, -1560, -1656, -2112, -1408, -2112, -1664, -1648, -1744, -2624, -1408, -2240, -1664, -2240, -1280, -2752, -1152, -2624, -1536, -3208, -960, -3576, -592, -3936, -960, -3760, -1136, -3200, -1152, -3072, -1152, -2176, -2752, -2240, -3328.19, -2240, -3456, -1984, -3456, 704, -512, 704, -1280, 832, -1280, 1600, -512, 832, -1408, -832, -1408, -2752, -1536, -2752, -1792, -2176, -2240, -2880, -1792, -2880, -1152, -3072, -1792, -3200, -1792, -3200, -1536, -3584, -1536, -3776, -2176, -3584, -1408, -3200, -1408, -2752, -1408, -2240, -896, -2112, -896, -2112, -640, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -4032, -2944, -4032, -3328, -2880, -3328, -2880, -3072, -832, -2432, -832, -3712, 2752, -3712, 2752, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1984, -512, -2752, -3072, -2752, -3328, -1280, -2112)
@@ -777,6 +779,84 @@ transformedTexture = NodePath("../Cup/Sprite2D")
 position = Vector2(-3264, -2240)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
+
+[node name="Jewels" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("16_32aar")]
+position = Vector2(-3840, -960)
+rotation = 0.785398
+
+[node name="Jewels2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3752, -872)
+rotation = 0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels9" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3392, -864)
+rotation = -0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels10" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3304, -952)
+rotation = -0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3656, -776)
+rotation = 0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3568, -688)
+rotation = 0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3744, -1048)
+rotation = 0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3656, -960)
+rotation = 0.785398
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels7" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3560, -864)
+rotation = 0.785398
+scale = Vector2(1, 1)
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Jewels8" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+position = Vector2(-3472, -776)
+rotation = 0.785398
+scale = Vector2(1, 1)
+transformedCollider = NodePath("../Jewels/CollisionShape2D")
+transformedTexture = NodePath("../Jewels/Sprite2D")
+
+[node name="Chest" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("17_6pdyf")]
+position = Vector2(-3296, -1632)
+
+[node name="Chest2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+position = Vector2(-3296, -1312)
+transformedCollider = NodePath("../Chest/CollisionShape2D")
+transformedTexture = NodePath("../Chest/Sprite2D")
+
+[node name="Chest3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+position = Vector2(-2656, -1312)
+transformedCollider = NodePath("../Chest/CollisionShape2D")
+transformedTexture = NodePath("../Chest/Sprite2D")
+
+[node name="Chest4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+position = Vector2(-2656, -1624)
+transformedCollider = NodePath("../Chest/CollisionShape2D")
+transformedTexture = NodePath("../Chest/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="RoomA2Warehouse"]
 
