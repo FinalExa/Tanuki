@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://ImportantObjects/Traps/Scripts/MoveInteractionObject.gd" id="2_qktsi"]
 [ext_resource type="Texture2D" uid="uid://dfldve1qpij2d" path="res://ImportantObjects/Traps/Sprites/Placeholder/zeb89zephir.png" id="3_oudp0"]
 
-[node name="InteractionObject" node_paths=PackedStringArray("effect") groups=["Interactable"] instance=ExtResource("1_ftreu")]
+[node name="MoveInteractionObject" node_paths=PackedStringArray("effect") groups=["Interactable"] instance=ExtResource("1_ftreu")]
 script = ExtResource("2_qktsi")
 neededTagForAttackInteraction = "Pound"
 effectNegateProperty = "Stable"
