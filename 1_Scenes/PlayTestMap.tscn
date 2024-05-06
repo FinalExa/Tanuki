@@ -49,7 +49,7 @@ scale = Vector2(2, 2)
 position = Vector2(960, -1920)
 scale = Vector2(2, 2)
 
-[node name="DetectionZone" type="Node2D" parent="Room1Hall"]
+[node name="DetectionZones" type="Node2D" parent="Room1Hall"]
 position = Vector2(-45, 214)
 
 [node name="TransformObjects" type="Node2D" parent="Room1Hall"]
@@ -404,8 +404,6 @@ position = Vector2(-192, -2304)
 [node name="Pillar4" parent="Room1Hall/Walls" instance=ExtResource("3_6e2h4")]
 position = Vector2(-192, -1792)
 
-[node name="Buttons" type="Node2D" parent="Room1Hall"]
-
 [node name="NavigationPoints" type="Node2D" parent="Room1Hall"]
 
 [node name="1" type="Node2D" parent="Room1Hall/NavigationPoints"]
@@ -517,3 +515,83 @@ patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
 waitActions = Array[float]([3.0, 3.0, 3.0, 3.0])
 moveActions = [NodePath("../../NavigationPoints/14")]
 lookActions = Array[int]([3, 0, 3, 1])
+
+[node name="RoomA2Warehouse" type="Node2D" parent="."]
+
+[node name="DeathTraps" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="DetectionZones" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="TransformObjects" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="Guards" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="Walls" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="NavigationPoints" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="PatrolIndicators" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="RoomA3Archive" type="Node2D" parent="."]
+
+[node name="DeathTraps" type="Node2D" parent="RoomA3Archive"]
+
+[node name="DetectionZones" type="Node2D" parent="RoomA3Archive"]
+
+[node name="TransformObjects" type="Node2D" parent="RoomA3Archive"]
+
+[node name="Guards" type="Node2D" parent="RoomA3Archive"]
+
+[node name="Walls" type="Node2D" parent="RoomA3Archive"]
+
+[node name="NavigationPoints" type="Node2D" parent="RoomA3Archive"]
+
+[node name="PatrolIndicators" type="Node2D" parent="RoomA3Archive"]
+
+[node name="RoomB2Bedrooms" type="Node2D" parent="."]
+
+[node name="DeathTraps" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="DetectionZones" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="TransformObjects" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="Guards" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="Walls" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="NavigationPoints" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="PatrolIndicators" type="Node2D" parent="RoomB2Bedrooms"]
+
+[node name="RoomB3AbandonedOffice" type="Node2D" parent="."]
+
+[node name="DeathTraps" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="DetectionZones" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="TransformObjects" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="Guards" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="Walls" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="NavigationPoints" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="PatrolIndicators" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="Room4Exit" type="Node2D" parent="."]
+
+[node name="DeathTraps" type="Node2D" parent="Room4Exit"]
+
+[node name="DetectionZones" type="Node2D" parent="Room4Exit"]
+
+[node name="TransformObjects" type="Node2D" parent="Room4Exit"]
+
+[node name="Guards" type="Node2D" parent="Room4Exit"]
+
+[node name="Walls" type="Node2D" parent="Room4Exit"]
+
+[node name="NavigationPoints" type="Node2D" parent="Room4Exit"]
+
+[node name="PatrolIndicators" type="Node2D" parent="Room4Exit"]
