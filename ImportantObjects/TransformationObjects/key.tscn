@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_cs7rc"]
 [ext_resource type="Texture2D" uid="uid://cniicodsxq0h4" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/key.png" id="2_lpy2r"]
 
-[node name="Key" instance=ExtResource("1_cs7rc")]
-transformedName = "KeyA1"
+[node name="Key" groups=["Interactable"] instance=ExtResource("1_cs7rc")]
+transformedName = "Key"
 transformedMaxSpeed = 700.0
 transformedProperties = Array[String](["Metallic"])
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/key_attack.tscn"

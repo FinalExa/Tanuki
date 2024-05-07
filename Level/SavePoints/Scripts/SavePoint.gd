@@ -1,8 +1,11 @@
 class_name SavePoint
 extends Area2D
 
-@export var sceneMasterRef: SceneMaster
+var sceneMasterRef: SceneMaster
 var playerRef: PlayerCharacter
+
+func _ready():
+	sceneMasterRef = get_tree().root.get_child(0)
 
 func activate_effect():
 	sceneMasterRef.Save()

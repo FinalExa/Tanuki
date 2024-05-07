@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=26 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
 [ext_resource type="PackedScene" uid="uid://b4loys1tn1mk5" path="res://WeaponTool/frame_master.tscn" id="2_ae2pm"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
+[ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="6_dih8m"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="6_eovfk"]
 [ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="6_ob1wc"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="7_ktmq7"]
@@ -14,12 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_1qbxj"]
 [ext_resource type="PackedScene" uid="uid://cv2ama730fiex" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="8_ydnc8"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
+[ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="14_0ols6"]
 [ext_resource type="PackedScene" uid="uid://c273y8hyyc3hf" path="res://ImportantObjects/TransformationObjects/cup.tscn" id="15_y1bt5"]
 [ext_resource type="PackedScene" uid="uid://8p6lrlqbtesj" path="res://ImportantObjects/TransformationObjects/jewels.tscn" id="16_32aar"]
 [ext_resource type="PackedScene" uid="uid://cn8kgms7h6lwc" path="res://ImportantObjects/TransformationObjects/chest.tscn" id="17_6pdyf"]
 [ext_resource type="PackedScene" uid="uid://blf1b0nspss5j" path="res://ImportantObjects/TransformationObjects/feather.tscn" id="18_h38mc"]
 [ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="19_2rdmc"]
 [ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="19_6nity"]
+[ext_resource type="PackedScene" uid="uid://6u2a7gaoiufs" path="res://ImportantObjects/TransformationObjects/key.tscn" id="20_stvfx"]
 [ext_resource type="PackedScene" uid="uid://cca0liwla3pkt" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
@@ -43,9 +46,6 @@ position = Vector2(1856, -192)
 
 [node name="Deathtraps" type="Node2D" parent="Room1Hall"]
 
-[node name="DeathTrapInteractionObject" parent="Room1Hall/Deathtraps" instance=ExtResource("6_eovfk")]
-position = Vector2(3008, -2688)
-
 [node name="MovementImpairInteractionObject2" parent="Room1Hall/Deathtraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(960, -3200)
 scale = Vector2(2, 2)
@@ -57,6 +57,11 @@ scale = Vector2(2, 2)
 [node name="MovementImpairInteractionObject4" parent="Room1Hall/Deathtraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(960, -1920)
 scale = Vector2(2, 2)
+
+[node name="Interactables" type="Node2D" parent="Room1Hall"]
+
+[node name="SavePoint" parent="Room1Hall/Interactables" instance=ExtResource("6_dih8m")]
+position = Vector2(2048, -64)
 
 [node name="DetectionZones" type="Node2D" parent="Room1Hall"]
 position = Vector2(-45, 214)
@@ -534,6 +539,14 @@ position = Vector2(-1152, -2304)
 rotation = 1.5708
 scale = Vector2(2, -1)
 
+[node name="Interactables" type="Node2D" parent="RoomA2Warehouse"]
+
+[node name="Door1C" parent="RoomA2Warehouse/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(-1232, -3096)
+rotation = 0.785398
+neededString = "Key1C"
+objectToSendDestoySignal = NodePath("../../TransformObjects/Key1C")
+
 [node name="DetectionZones" type="Node2D" parent="RoomA2Warehouse"]
 
 [node name="TransformObjects" type="Node2D" parent="RoomA2Warehouse"]
@@ -567,6 +580,9 @@ transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D
 position = Vector2(-1664, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
+
+[node name="Coin" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("21_3ke44")]
+position = Vector2(-1248, -3296)
 
 [node name="HeavyBox" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("7_ubwk7")]
 position = Vector2(-3968, -3008)
@@ -859,6 +875,10 @@ transformedTexture = NodePath("../Chest/Sprite2D")
 position = Vector2(-2656, -1624)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
+
+[node name="Key1C" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("20_stvfx")]
+position = Vector2(-3264, -576)
+transformedName = "Key1C"
 
 [node name="Guards" type="Node2D" parent="RoomA2Warehouse"]
 
@@ -1177,6 +1197,12 @@ scale = Vector2(2, 2)
 position = Vector2(1216, 896)
 scale = Vector2(2, 2)
 
+[node name="Interactables" type="Node2D" parent="RoomA3Archive"]
+
+[node name="Door1A" parent="RoomA3Archive/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+neededString = "Key1A"
+objectToSendDestoySignal = NodePath("../../TransformObjects/Key1A")
+
 [node name="DetectionZones" type="Node2D" parent="RoomA3Archive"]
 
 [node name="TransformObjects" type="Node2D" parent="RoomA3Archive"]
@@ -1229,6 +1255,10 @@ position = Vector2(1216, 1280)
 
 [node name="Broom" parent="RoomA3Archive/TransformObjects" instance=ExtResource("8_ydnc8")]
 position = Vector2(1280, -192)
+
+[node name="Key1A" parent="RoomA3Archive/TransformObjects" instance=ExtResource("20_stvfx")]
+position = Vector2(-2432, 896)
+transformedName = "Key1A"
 
 [node name="Guards" type="Node2D" parent="RoomA3Archive"]
 
@@ -1517,10 +1547,11 @@ position = Vector2(-1088, -5376)
 scale = Vector2(2, 2)
 dropPoint = NodePath("../Drawer/DropPoint")
 
-[node name="Drawer6" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
+[node name="Drawer6" parent="RoomB2Bedrooms/Interactables" instance=ExtResource("19_2rdmc")]
 position = Vector2(-576, -5376)
 scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
+dropActive = true
+droppedObjectOnInteraction = "res://ImportantObjects/TransformationObjects/Keys/key_1b.tscn"
 
 [node name="Drawer7" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
 position = Vector2(-64, -5376)
@@ -1531,6 +1562,12 @@ dropPoint = NodePath("../Drawer/DropPoint")
 position = Vector2(-1344, -3584)
 scale = Vector2(2, 2)
 dropPoint = NodePath("../Drawer/DropPoint")
+
+[node name="Door1B" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(1024, -4480)
+rotation = 1.5708
+neededString = "Key1B"
+objectToSendDestoySignal = NodePath("../Drawer6")
 
 [node name="DetectionZones" type="Node2D" parent="RoomB2Bedrooms"]
 
@@ -1638,63 +1675,6 @@ rotation = 1.5708
 position = Vector2(1024, -4736)
 rotation = 1.5708
 
-[node name="Wall32" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2944, -3840)
-rotation = 1.5708
-
-[node name="Wall33" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2944, -3520)
-rotation = 1.5708
-scale = Vector2(0.5, 1)
-
-[node name="Wall34" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3456)
-rotation = 1.5708
-
-[node name="Wall35" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3712)
-rotation = 1.5708
-
-[node name="Wall36" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3968)
-rotation = 1.5708
-
-[node name="Wall37" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4224)
-rotation = 1.5708
-
-[node name="Wall38" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4480)
-rotation = 1.5708
-
-[node name="Wall39" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4736)
-rotation = 1.5708
-
-[node name="Wall40" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4992)
-rotation = 1.5708
-
-[node name="Wall41" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5248)
-rotation = 1.5708
-
-[node name="Wall42" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5504)
-rotation = 1.5708
-
-[node name="Wall43" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5760)
-rotation = 1.5708
-
-[node name="Wall44" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -6016)
-rotation = 1.5708
-
-[node name="Wall45" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -6272)
-rotation = 1.5708
-
 [node name="Wall12" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1024, -4992)
 rotation = 1.5708
@@ -1743,6 +1723,20 @@ scale = Vector2(2, 2)
 position = Vector2(2176, -5216)
 rotation = -1.5708
 scale = Vector2(-2.5, -1)
+
+[node name="Interactables" type="Node2D" parent="RoomB3AbandonedOffice"]
+
+[node name="Door1D" parent="RoomB3AbandonedOffice/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(2048, -5888)
+rotation = 1.5708
+neededString = "Key1D"
+objectToSendDestoySignal = NodePath("../../TransformObjects/Key1D")
+
+[node name="Door1E" parent="RoomB3AbandonedOffice/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(2944, -6144)
+rotation = 1.5708
+neededString = "Key1E"
+objectToSendDestoySignal = NodePath("../../TransformObjects/Key1E")
 
 [node name="DetectionZones" type="Node2D" parent="RoomB3AbandonedOffice"]
 
@@ -1794,6 +1788,16 @@ transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Feather" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("18_h38mc")]
 position = Vector2(3392, -5312)
+
+[node name="Key1D" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("20_stvfx")]
+position = Vector2(2304, -4032)
+transformedName = "Key1D"
+
+[node name="Key1E" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("20_stvfx")]
+position = Vector2(3840, -6016)
+transformedName = "Key1E"
+transformedCollider = NodePath("../Key1D/CollisionShape2D")
+transformedTexture = NodePath("../Key1D/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="RoomB3AbandonedOffice"]
 
@@ -1978,6 +1982,63 @@ scale = Vector2(0.5, 1)
 [node name="Wall14" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(3776, -3392)
 
+[node name="Wall52" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2944, -3840)
+rotation = 1.5708
+
+[node name="Wall53" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2944, -3520)
+rotation = 1.5708
+scale = Vector2(0.5, 1)
+
+[node name="Wall54" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -3456)
+rotation = 1.5708
+
+[node name="Wall55" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -3712)
+rotation = 1.5708
+
+[node name="Wall56" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -3968)
+rotation = 1.5708
+
+[node name="Wall57" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -4224)
+rotation = 1.5708
+
+[node name="Wall58" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -4480)
+rotation = 1.5708
+
+[node name="Wall59" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -4736)
+rotation = 1.5708
+
+[node name="Wall60" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -4992)
+rotation = 1.5708
+
+[node name="Wall61" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -5248)
+rotation = 1.5708
+
+[node name="Wall62" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -5504)
+rotation = 1.5708
+
+[node name="Wall63" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -5760)
+rotation = 1.5708
+
+[node name="Wall64" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -6016)
+rotation = 1.5708
+
+[node name="Wall65" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -6272)
+rotation = 1.5708
+
 [node name="NavigationPoints" type="Node2D" parent="RoomB3AbandonedOffice"]
 
 [node name="PatrolIndicators" type="Node2D" parent="RoomB3AbandonedOffice"]
@@ -1985,6 +2046,9 @@ position = Vector2(3776, -3392)
 [node name="Room4Exit" type="Node2D" parent="."]
 
 [node name="DeathTraps" type="Node2D" parent="Room4Exit"]
+
+[node name="DeathTrapInteractionObject" parent="Room4Exit/DeathTraps" instance=ExtResource("6_eovfk")]
+position = Vector2(3008, -2688)
 
 [node name="DetectionZones" type="Node2D" parent="Room4Exit"]
 
