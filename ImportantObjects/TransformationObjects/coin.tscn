@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cca0liwla3pkt"]
+
+[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_cxvik"]
+
+[node name="Coin" instance=ExtResource("1_cxvik")]
+scale = Vector2(0.5, 0.5)
+transformedName = "Coin"
+transformedMaxSpeed = 700.0
+transformedProperties = Array[String](["Small"])
+originalObjectPath = "res://ImportantObjects/TransformationObjects/coin.tscn"
