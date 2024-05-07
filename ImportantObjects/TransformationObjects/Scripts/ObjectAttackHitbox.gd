@@ -1,6 +1,7 @@
+class_name ObjectAttackHitbox
 extends AttackHitbox
 
-@export var attackTag: String
+var attackTag: String
 @export var stunsGuard: bool
 
 func _on_body_entered(body):

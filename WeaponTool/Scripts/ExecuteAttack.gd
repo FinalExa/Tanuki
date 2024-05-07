@@ -23,6 +23,10 @@ func _ready():
 	frameMaster.RegisterAttack(self)
 	RemoveAttackHitboxes()
 	currentPhase = 0
+	ExtraReadyOperations()
+	
+func ExtraReadyOperations():
+	pass
 
 func add_attack_hitbox(index):
 	if (index < attackHitboxes.size()):

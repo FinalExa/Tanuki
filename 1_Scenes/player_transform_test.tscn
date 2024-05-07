@@ -78,6 +78,12 @@ dropActive = true
 
 [node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
 position = Vector2(-952, 432)
+neededString = "KeyA1"
+objectToSendDestoySignal = NodePath("../Drawer")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
+position = Vector2(-674, 432)
+neededString = "KeyA2"
 objectToSendDestoySignal = NodePath("../Drawer")
 
 [node name="SavePoint" parent="." node_paths=PackedStringArray("sceneMasterRef") instance=ExtResource("12_75wbm")]
