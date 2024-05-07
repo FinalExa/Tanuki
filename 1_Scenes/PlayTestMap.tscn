@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=28 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="19_6nity"]
 [ext_resource type="PackedScene" uid="uid://6u2a7gaoiufs" path="res://ImportantObjects/TransformationObjects/key.tscn" id="20_stvfx"]
 [ext_resource type="PackedScene" uid="uid://cca0liwla3pkt" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
+[ext_resource type="PackedScene" uid="uid://pkhqx6464kki" path="res://ImportantObjects/Interactables/shoji.tscn" id="25_gbuf8"]
+[ext_resource type="PackedScene" uid="uid://ruxpunnlh85d" path="res://ImportantObjects/TransformationObjects/katana.tscn" id="25_ydcnl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
 vertices = PackedVector2Array(1344, -384, 1344, 0, 320, 0, 48, -176, 576, -384, 3776, -4352, 3904, -6272, 3904, -3456, 3776, -3968, 3776, -4480, 832, -1280, 2760, -2432, 2752, -512, 1984, -512, 704, -1024, 1344, 128, 1344, 1408, 1136, 1112, -800, -544, -256, 0, -896, 512, -1216, -128, -1216, -256, 2112, -5504, 2880, -5760, 2888, -5760, 3200, -5448, 3200, -4736, 2072, -4968, 1984, -5056, -1280, -3232, -1376, -3328, -960, -3328, -960, -2912, -1096, -3048, -2240, -512, -3480, -512, -3120, -872, -2240, -640, -3848, -1224, -4032, -1040, -4032, -2048, -3776, -2048, 3328, -5504, 3328, -5496, 3008, -5816, 2632, -4232, 2896, -3968, 2240, -3968, 2240, -4624, 2448, -4416, 2720, -4320, 2536, -4504, 2080, -4784, 2136, -4728, 2112, -4728, -1000, -2776, -960, -2816, -960, -2432, -1368, -3144, -1184, -2960, -2624, -1408, -2624, -1536, -2240, -1664, -2240, -896, -1192, -2024, -960, -2176, -960, -1408, -1560, -1656, 400, 376, 320, 128, -896, 640, -256, 1024, -1088, 1152, -1728, -128, -1408, 512, -1792, 128, -2112, -1408, -2112, -1664, -1648, -1744, 832, -1408, 2112, -5760, 2880, -6016, 3008, -3840, 3776, -3840, 3520, -3456, 3008, -3712, 1984, -5504, 1856, -5056, 1048, 1200, -128, 1024, -2496, 1408, -192, -640, -192, -896, 576, -768, -40, -264, -3208, -960, -3576, -592, -3936, -960, -3760, -1136, -192, -112, -712, -632, -320, -640, -1408, 640, -1216, 640, -1216, 1152, -1792, 1152, -1088, 640, -1920, 1152, -2496, -384, -2112, -384, -1920, 128, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -4032, -2944, -4032, -3328, -2880, -3328, -2880, -3072, -2248, -3456, -3264, -3456, -3264, -5504, 960, -5504, 960, -4608, 1088, -4608, 1088, -6272, 1984, -6272, 1984, -6016, 2112, -6016, 2112, -6272, 3328, -4792, 3328, -5376, 3584, -5376, 3632, -4480, 2112, -3968, 1088, -3968, 1088, -4352, 1856, -4288, 960, -4352, 960, -3840, 64, -3840, -192, -3712, 64, -3712, -832, -2432, -192, -3840, -960, -3840, -960, -3456, -1984, -3456, -832, -3712, 3520, -3200, 3392, -3200, 3392, -3456, 3008, -3584, 3008, -3456, 2752, -3584, 2880, -2944, 2880, -3200, 3904, -3200, 3904, -2176, 2880, -2176, 2880, -2432, 2752, -2944, -832, -1408, -832, -2176, -2176, -2240, -2752, -1536, -2752, -1792, -2176, -2752, -2752, -1152, -2752, -1408, -3200, -1792, -3200, -1536, -3584, -1536, -3584, -1408, -3200, -1408, -3200, -1152, -2112, -896, -2112, -1152, 576, -1152, 576, -1024, -320, -896, 704, -1280, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 704, -768, 704, -512, -2752, -3072, -2752, -3328, -2240, -3328.19, -2112, -640, -2048, -2240, 3584, -5504, -1280, -2112, -128, 0, 312, 464, -1728, -256, 3008, -6016, -2048, -2752, -1984, -3328, -1552, -3328, 1984, -5760, -2880, -1792, 1984, -4288, 1984, -4880, 3520, -4416, 3520, -4352, 2168, -4872, 3072, -3968, -3072, -1152, -2880, -1152, -3072, -1792)
@@ -1738,6 +1740,36 @@ rotation = 1.5708
 neededString = "Key1E"
 objectToSendDestoySignal = NodePath("../../TransformObjects/Key1E")
 
+[node name="Drawer" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("19_2rdmc")]
+position = Vector2(1920, -4128)
+scale = Vector2(2.5, 2.5)
+
+[node name="Shoji" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(1216, -5568)
+
+[node name="Shoji2" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(1920, -5568)
+scale = Vector2(0.5, 1)
+
+[node name="Shoji5" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(3840, -4032)
+scale = Vector2(0.5, 1)
+
+[node name="Shoji3" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(1728, -5568)
+
+[node name="Shoji6" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(3648, -4032)
+
+[node name="Shoji7" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(3392, -4032)
+
+[node name="Shoji8" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(3136, -4032)
+
+[node name="Shoji4" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
+position = Vector2(1472, -5568)
+
 [node name="DetectionZones" type="Node2D" parent="RoomB3AbandonedOffice"]
 
 [node name="TransformObjects" type="Node2D" parent="RoomB3AbandonedOffice"]
@@ -1798,6 +1830,9 @@ position = Vector2(3840, -6016)
 transformedName = "Key1E"
 transformedCollider = NodePath("../Key1D/CollisionShape2D")
 transformedTexture = NodePath("../Key1D/Sprite2D")
+
+[node name="Katana" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("25_ydcnl")]
+position = Vector2(1152, -6208)
 
 [node name="Guards" type="Node2D" parent="RoomB3AbandonedOffice"]
 
