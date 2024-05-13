@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=29 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
@@ -23,7 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="19_2rdmc"]
 [ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="19_6nity"]
 [ext_resource type="PackedScene" uid="uid://6u2a7gaoiufs" path="res://ImportantObjects/TransformationObjects/key.tscn" id="20_stvfx"]
-[ext_resource type="PackedScene" uid="uid://cca0liwla3pkt" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
+[ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
+[ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="24_oha34"]
 [ext_resource type="PackedScene" uid="uid://pkhqx6464kki" path="res://ImportantObjects/Interactables/shoji.tscn" id="25_gbuf8"]
 [ext_resource type="PackedScene" uid="uid://ruxpunnlh85d" path="res://ImportantObjects/TransformationObjects/katana.tscn" id="25_ydcnl"]
 
@@ -583,9 +584,6 @@ position = Vector2(-1664, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Coin" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("21_3ke44")]
-position = Vector2(-1248, -3296)
-
 [node name="HeavyBox" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("7_ubwk7")]
 position = Vector2(-3968, -3008)
 
@@ -881,6 +879,11 @@ transformedTexture = NodePath("../Chest/Sprite2D")
 [node name="Key1C" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("20_stvfx")]
 position = Vector2(-3264, -576)
 transformedName = "Key1C"
+
+[node name="Coin" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("21_3ke44")]
+position = Vector2(-1248, -3296)
+transformedCollider = NodePath("../../../RoomB3AbandonedOffice/TransformObjects/Coin/CollisionShape2D")
+transformedTexture = NodePath("../../../RoomB3AbandonedOffice/TransformObjects/Coin/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="RoomA2Warehouse"]
 
@@ -1697,6 +1700,31 @@ rotation = 1.5708
 
 [node name="DeathTraps" type="Node2D" parent="RoomB3AbandonedOffice"]
 
+[node name="SmallGapObject" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("24_oha34")]
+position = Vector2(2080, -4872)
+rotation = -0.785398
+
+[node name="SmallGapObject2" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
+position = Vector2(3840, -4416)
+rotation = 1.5708
+effect = NodePath("../SmallGapObject/SmallGapEffect")
+
+[node name="SmallGapObject3" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
+position = Vector2(3840, -3904)
+rotation = 1.5708
+effect = NodePath("../SmallGapObject/SmallGapEffect")
+
+[node name="SmallGapObject4" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
+position = Vector2(3456, -3328)
+rotation = 1.5708
+scale = Vector2(2, 1)
+effect = NodePath("../SmallGapObject/SmallGapEffect")
+
+[node name="SmallGapObject5" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
+position = Vector2(2880, -3648)
+scale = Vector2(2, 1)
+effect = NodePath("../SmallGapObject/SmallGapEffect")
+
 [node name="DeathTrapInteractionObject" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("6_eovfk")]
 position = Vector2(1728, -5880)
 
@@ -1907,7 +1935,7 @@ position = Vector2(3200, -5536)
 rotation = 0.785398
 
 [node name="Wall44" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1984, -4968)
+position = Vector2(1992, -4960)
 rotation = 0.785398
 scale = Vector2(0.5, 1)
 
