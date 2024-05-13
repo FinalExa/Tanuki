@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
-[ext_resource type="PackedScene" uid="uid://cca0liwla3pkt" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="12_j0865"]
+[ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="12_j0865"]
 [ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="13_0qhe3"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
 
@@ -78,9 +78,6 @@ position = Vector2(-1440, 24)
 position = Vector2(-1288, 320)
 dropActive = true
 
-[node name="Coin" parent="." instance=ExtResource("12_j0865")]
-position = Vector2(-1907, -27)
-
 [node name="SmallGapObject" parent="." instance=ExtResource("13_0qhe3")]
 position = Vector2(-1668, -235)
 
@@ -105,3 +102,6 @@ characterEmotion = Array[int]([0, 0, 0])
 deleteOnDone = true
 savedOnDestroy = true
 sceneMaster = NodePath("..")
+
+[node name="Coin" parent="." instance=ExtResource("12_j0865")]
+position = Vector2(-1937, -94)

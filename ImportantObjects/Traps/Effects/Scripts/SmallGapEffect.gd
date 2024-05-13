@@ -3,7 +3,7 @@ extends InteractionObjectEffect
 @export var firstExitPoint: SmallGapExitPoint
 @export var secondExitPoint: SmallGapExitPoint
 
-func execute_negated_effect(receivedBody: CharacterBody2D, _delta):
+func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
 	SendCharacterBack(receivedBody)
 
 func SendCharacterBack(receivedBody: CharacterBody2D):
