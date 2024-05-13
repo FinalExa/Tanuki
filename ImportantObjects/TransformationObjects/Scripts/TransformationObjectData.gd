@@ -26,3 +26,6 @@ func set_local_zone(localRef: LocalAllowedItems):
 
 func unset_local_zone():
 	localAllowedItemsRef = null
+
+func DestroyedSignal():
+	get_parent().remove_child(self)
