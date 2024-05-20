@@ -279,7 +279,6 @@ normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath(".
 transformedMovementSound = NodePath("../Sounds/TransformedMovement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
