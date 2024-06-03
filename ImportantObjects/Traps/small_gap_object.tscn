@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://0tjmhpqcox2v"]
+
+[ext_resource type="PackedScene" uid="uid://de327ahrn6hd2" path="res://ImportantObjects/Traps/interaction_object.tscn" id="1_vk7bo"]
+[ext_resource type="PackedScene" uid="uid://clismg2xo3ogk" path="res://ImportantObjects/Traps/Effects/small_gap_effect.tscn" id="2_3ap3e"]
+[ext_resource type="Texture2D" uid="uid://bynrnjgvicfei" path="res://Level/Sprites/Placeholder/japwall.png" id="2_pqfjw"]
+[ext_resource type="Script" path="res://ImportantObjects/Traps/Effects/Scripts/SmallGapExitPoint.gd" id="3_o0318"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwxw"]
+size = Vector2(128, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trx4p"]
+size = Vector2(128, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eilro"]
+size = Vector2(80, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyyo8"]
+size = Vector2(80, 64)
+
+[node name="SmallGapObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_vk7bo")]
+effectNegateProperty = "Small"
+effect = NodePath("SmallGapEffect")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-48, 16, -48, -16, 48, -16, 48, 16)
+
+[node name="UpWall" type="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpWall" index="0"]
+shape = SubResource("RectangleShape2D_dhwxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpWall" index="1"]
+position = Vector2(-0.00157726, 0.00118734)
+rotation = 1.5708
+scale = Vector2(0.5275, 0.316812)
+texture = ExtResource("2_pqfjw")
+
+[node name="DownWall" type="StaticBody2D" parent="." index="2"]
+position = Vector2(0, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall" index="0"]
+shape = SubResource("RectangleShape2D_trx4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="DownWall" index="1"]
+position = Vector2(0.00119147, 0.00043871)
+rotation = 1.5708
+scale = Vector2(0.527418, 0.316829)
+texture = ExtResource("2_pqfjw")
+
+[node name="FirstExitPoint" type="Area2D" parent="." index="3" node_paths=PackedStringArray("otherPoint")]
+position = Vector2(-104, 0)
+script = ExtResource("3_o0318")
+otherPoint = NodePath("../SecondExitPoint")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstExitPoint" index="0"]
+shape = SubResource("RectangleShape2D_eilro")
+
+[node name="SecondExitPoint" type="Area2D" parent="." index="4" node_paths=PackedStringArray("otherPoint")]
+position = Vector2(104, 0)
+script = ExtResource("3_o0318")
+otherPoint = NodePath("../FirstExitPoint")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondExitPoint" index="0"]
+shape = SubResource("RectangleShape2D_uyyo8")
+
+[node name="SmallGapEffect" parent="." index="5" node_paths=PackedStringArray("firstExitPoint", "secondExitPoint") instance=ExtResource("2_3ap3e")]
+firstExitPoint = NodePath("../FirstExitPoint")
+secondExitPoint = NodePath("../SecondExitPoint")
+
+[connection signal="body_entered" from="FirstExitPoint" to="FirstExitPoint" method="_on_body_entered"]
+[connection signal="body_entered" from="SecondExitPoint" to="SecondExitPoint" method="_on_body_entered"]

@@ -28,10 +28,9 @@ gameOverPanel = NodePath("GameOverPanel")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
-offset_left = 904.0
-offset_top = 16.0
-offset_right = 1163.0
-offset_bottom = 120.0
+offset_left = 1656.0
+offset_right = 1915.0
+offset_bottom = 104.0
 text = "WASD: movement
 Shift: get transformation
 E: transform/stop transformation
@@ -77,10 +76,10 @@ attackInCooldownText = "Cooldown: "
 
 [node name="PauseMenuPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 128.0
-offset_right = 704.0
-offset_bottom = 512.0
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 1088.0
+offset_bottom = 704.0
 
 [node name="Resume" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -151,44 +150,44 @@ text = "Quit To Desktop"
 
 [node name="OptionsPanel" parent="." node_paths=PackedStringArray("videoPanel", "audioPanel", "previousPanel") instance=ExtResource("5_5if3a")]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 192.0
-offset_right = 704.0
-offset_bottom = 384.0
+offset_left = 832.0
+offset_top = 384.0
+offset_right = 1088.0
+offset_bottom = 576.0
 videoPanel = NodePath("../VideoPanel")
 audioPanel = NodePath("../AudioPanel")
 previousPanel = NodePath("../PauseMenuPanel")
 
 [node name="VideoPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("7_aqx6o")]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 256.0
-offset_right = 704.0
-offset_bottom = 320.0
+offset_left = 832.0
+offset_top = 448.0
+offset_right = 1088.0
+offset_bottom = 512.0
 previousPanel = NodePath("../OptionsPanel")
 
 [node name="AudioPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("6_mc342")]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 256.0
-offset_right = 704.0
-offset_bottom = 320.0
+offset_left = 832.0
+offset_top = 448.0
+offset_right = 1088.0
+offset_bottom = 512.0
 previousPanel = NodePath("../OptionsPanel")
 
 [node name="ControlsPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("8_pl0yk")]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 256.0
-offset_right = 704.0
-offset_bottom = 320.0
+offset_left = 832.0
+offset_top = 448.0
+offset_right = 1088.0
+offset_bottom = 512.0
 previousPanel = NodePath("../PauseMenuPanel")
 
 [node name="GameOverPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 128.0
-offset_right = 704.0
-offset_bottom = 384.0
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 1088.0
+offset_bottom = 576.0
 
 [node name="GameOver" type="PanelContainer" parent="GameOverPanel"]
 layout_mode = 0
@@ -237,10 +236,10 @@ layout_mode = 2
 text = "Quit to Desktop"
 
 [node name="DialogueUI" parent="." node_paths=PackedStringArray("playerHUD") instance=ExtResource("4_4n6p0")]
-offset_left = 576.0
-offset_top = 512.0
-offset_right = 616.0
-offset_bottom = 552.0
+offset_left = 960.0
+offset_top = 952.0
+offset_right = 1000.0
+offset_bottom = 992.0
 playerHUD = NodePath("..")
 
 [connection signal="attack_cooldown" from="." to="AttackCooldown" method="_on_ui_attack_cooldown"]

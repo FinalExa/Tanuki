@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=18 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
+[ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="12_j0865"]
+[ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="13_0qhe3"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
@@ -76,13 +78,21 @@ position = Vector2(-1440, 24)
 position = Vector2(-1288, 320)
 dropActive = true
 
+[node name="SmallGapObject" parent="." instance=ExtResource("13_0qhe3")]
+position = Vector2(-1668, -235)
+
 [node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
 position = Vector2(-952, 432)
+neededString = "KeyA1"
 objectToSendDestoySignal = NodePath("../Drawer")
 
-[node name="SavePoint" parent="." node_paths=PackedStringArray("sceneMasterRef") instance=ExtResource("12_75wbm")]
+[node name="Door2" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
+position = Vector2(-674, 432)
+neededString = "KeyA2"
+objectToSendDestoySignal = NodePath("../Drawer")
+
+[node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1680, 240)
-sceneMasterRef = NodePath("..")
 
 [node name="DialogueArea" parent="." node_paths=PackedStringArray("sceneMaster") instance=ExtResource("13_nsc52")]
 position = Vector2(-1344, 576)
@@ -92,3 +102,6 @@ characterEmotion = Array[int]([0, 0, 0])
 deleteOnDone = true
 savedOnDestroy = true
 sceneMaster = NodePath("..")
+
+[node name="Coin" parent="." instance=ExtResource("12_j0865")]
+position = Vector2(-1937, -94)
