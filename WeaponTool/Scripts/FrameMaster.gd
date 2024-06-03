@@ -16,9 +16,8 @@ func _process(delta):
 
 func FrameTimer(delta):
 	if (attackSources.size() > 0):
-		if (frameTimer < frameTime):
-			frameTimer+=delta
-		else:
+		frameTimer+=delta
+		if (frameTimer >= frameTime):
 			PrepareLaunchFrame(delta)
 
 func PrepareLaunchFrame(delta):
