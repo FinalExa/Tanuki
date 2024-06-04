@@ -7,7 +7,7 @@ func Evaluate(_delta):
 
 func wait_for_rotation():
 	if (enemyPatrol.isRotating):
-		if (guardController.guardRotator.isDoneRotating):
+		if (enemyController.enemyRotator.isDoneRotating):
 			enemyPatrol.set_current_patrol_routine()
 			enemyPatrol.isRotating = false
 	return NodeState.SUCCESS

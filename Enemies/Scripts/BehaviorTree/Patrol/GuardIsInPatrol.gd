@@ -1,7 +1,7 @@
 extends GuardNode
 
 func Evaluate(_delta):
-	if (guardController.isInPatrol):
+	if (enemyController.isInPatrol):
 		return NodeState.FAILURE
 	else:
 		return NodeState.SUCCESS

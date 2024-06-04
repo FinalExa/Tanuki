@@ -16,13 +16,13 @@ func body_checks():
 
 func determine_if_end_check(_body):
 	guardCheck.checkWithRayCast = false
-	if (!guardController.isChecking):
+	if (!enemyController.isChecking):
 		guardCheck.preCheckActive = false
 		return NodeState.SUCCESS
 	else:
 		if (guardCheck.currentAlertValue >= guardCheck.researchValueThreshold):
 			guardCheck.stop_guardCheck()
-			guardController.guardResearch.initialize_guard_research(guardCheck.checkTarget)
+			enemyController.guardResearch.initialize_guard_research(guardCheck.checkTarget)
 			return NodeState.SUCCESS
 		else:
 			if (!guardCheck.reductionOverTimeActive):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://b7kmimphyyi8y"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_pnbb5"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_lfxg5"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_ijpgm"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_bj44j"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_nsdbq"]
@@ -71,15 +71,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
 size = Vector2(192, 64)
 
-[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("spriteRef", "enemyMovement", "enemyRotator", "enemyPatrol")]
-position = Vector2(-168, -240)
+[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "guardStunned", "spriteRef")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_pnbb5")
-spriteRef = NodePath("AnimatedSprite2D")
+script = ExtResource("1_lfxg5")
 enemyMovement = NodePath("GuardMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
+guardStunned = NodePath("GuardStunned")
+spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -106,10 +106,9 @@ stream = ExtResource("4_nsdbq")
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
+[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
 script = ExtResource("6_tgxdo")
-guardController = NodePath("..")
-bodyRef = NodePath("..")
+enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 500.0
 distanceTolerance = 10.0
@@ -117,9 +116,9 @@ repathTimerDuration = 0.25
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
 
-[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
+[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_a74yt")
-guardController = NodePath("..")
+enemyController = NodePath("..")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
@@ -181,55 +180,54 @@ children = [NodePath("SelectorStunned"), NodePath("SelectorPatrol")]
 script = ExtResource("20_ssalh")
 children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
 
-[node name="GuardIsInStun" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardController")]
+[node name="GuardIsInStun" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyController")]
 script = ExtResource("21_kkbnv")
-guardController = NodePath("../../../..")
+enemyController = NodePath("../../../..")
 
-[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardStunned", "guardController")]
+[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardStunned", "enemyController")]
 script = ExtResource("22_3j2hq")
 guardStunned = NodePath("../../../../GuardStunned")
-guardController = NodePath("../../../..")
+enemyController = NodePath("../../../..")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("20_ssalh")
 children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
 
-[node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("guardController")]
+[node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("enemyController")]
 script = ExtResource("40_tiahj")
-guardController = NodePath("../../../..")
+enemyController = NodePath("../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
 script = ExtResource("20_ssalh")
-children = [null, NodePath("Sequence")]
+children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
 
-[node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("enemyPatrol", "guardController")]
+[node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
 script = ExtResource("41_3pwvh")
 enemyPatrol = NodePath("../../../../../EnemyPatrol")
-guardController = NodePath("../../../../..")
+enemyController = NodePath("../../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
 script = ExtResource("19_joed8")
-children = [null, NodePath("Selector")]
+children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
 
-[node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("enemyPatrol", "guardController")]
+[node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
 script = ExtResource("42_scng7")
 enemyPatrol = NodePath("../../../../../../EnemyPatrol")
-guardController = NodePath("../../../../../..")
+enemyController = NodePath("../../../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("20_ssalh")
-children = [null, null]
+children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRotation")]
 
-[node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "guardController")]
+[node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
 script = ExtResource("43_q3oo3")
 enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
-guardController = NodePath("../../../../../../..")
+enemyController = NodePath("../../../../../../..")
 
-[node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "guardController")]
+[node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
 script = ExtResource("44_8gufd")
 enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
-guardController = NodePath("../../../../../../..")
+enemyController = NodePath("../../../../../../..")
 
-[connection signal="damaged" from="." to="EnemyPatrol" method="_on_guard_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]

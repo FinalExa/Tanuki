@@ -38,12 +38,12 @@ func TargetIsVisible(result):
 func BackToResearch():
 	if (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 		guardAlert.stop_alert()
-		guardController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
+		enemyController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
 		return true
 	return false
 
 func track_target(receivedTarget: Node2D):
-	guardController.guardRotator.setLookingAtPosition(receivedTarget.global_position)
+	enemyController.guardRotator.setLookingAtPosition(receivedTarget.global_position)
 	guardAlert.firstLocationReached = false
 	guardAlert.secondLocationReached = false
 	guardAlert.secondLocationTargetCheckLaunched = false
@@ -55,12 +55,12 @@ func track_target(receivedTarget: Node2D):
 			guardAlert.set_last_target_info(receivedTarget.playerRef)
 	if (guardAlert.chaseStart):
 		guardAlert.targetNotSeenActive = false
-		if (guardController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
+		if (enemyController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
 			guardAlert.catchPreparationActive = false
-			guardController.guardMovement.set_movement_speed(guardAlert.alertMovementSpeed)
-			guardController.guardMovement.set_location_target(receivedTarget.global_position)
+			enemyController.guardMovement.set_movement_speed(guardAlert.alertMovementSpeed)
+			enemyController.guardMovement.set_location_target(receivedTarget.global_position)
 		else:
-			guardController.guardMovement.set_location_target(guardController.global_position)
+			enemyController.guardMovement.set_location_target(enemyController.global_position)
 			if (!guardAlert.catchPreparationActive):
 				guardAlert.start_catch_preparation()
 
@@ -68,7 +68,7 @@ func target_not_seen():
 	guardAlert.catchPreparationActive = false
 	guardAlert.lostSightOfPlayer = true
 	if (!guardAlert.firstLocationReached):
-		var distance: float = guardController.global_position.distance_to(guardAlert.lastTargetPosition)
+		var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
 		if (distance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
 			guardAlert.set_movement_destination(guardAlert.lastTargetPosition)
 		else:
@@ -77,7 +77,7 @@ func target_not_seen():
 		if (guardAlert.secondLocationTargetCheckLaunched == false):
 			guardAlert.secondLocationTargetCheckLaunched = true
 			guardAlert.extraLocationSet = false
-		var extraDistance: float = guardController.global_position.distance_to(guardAlert.extraTargetLocation)
+		var extraDistance: float = enemyController.global_position.distance_to(guardAlert.extraTargetLocation)
 		if (extraDistance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
 			guardAlert.set_movement_destination(guardAlert.extraTargetLocation)
 		else:

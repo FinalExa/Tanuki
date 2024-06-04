@@ -36,7 +36,7 @@ var extraLocationSet: bool
 
 func _ready():
 	setup_areas()
-	guardController.guardMovement.SetAlertSound()
+	guardController.enemyMovement.SetAlertSound()
 
 func _physics_process(_delta):
 	alert_raycasts()
