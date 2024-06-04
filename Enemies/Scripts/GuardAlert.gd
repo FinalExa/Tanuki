@@ -45,8 +45,8 @@ func start_alert(target):
 	guardController.guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
-	add_area()
-	add_feedback()
+	call_deferred("add_area")
+	call_deferred("add_feedback")
 	chaseStart = false
 	guardController.enemyMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
@@ -114,7 +114,7 @@ func stop_alert():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInAlert == true):
 		stop_alert()
-		guardController.guardStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction)
 
 func remove_area():
 	if(screamAreaInstance != null):

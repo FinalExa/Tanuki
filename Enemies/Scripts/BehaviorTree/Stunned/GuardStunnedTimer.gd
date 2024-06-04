@@ -1,10 +1,10 @@
 extends GuardNode
 
-@export var guardStunned: GuardStunned
+@export var enemyStunned: EnemyStunned
 
 func Evaluate(delta):
-	if (guardStunned.stunTimer > 0):
-		guardStunned.stunTimer -= delta
+	if (enemyStunned.stunTimer > 0):
+		enemyStunned.stunTimer -= delta
 	else:
-		guardStunned.end_stun()
+		enemyStunned.end_stun()
 	return NodeState.FAILURE

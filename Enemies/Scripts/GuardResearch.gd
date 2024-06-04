@@ -99,7 +99,7 @@ func _on_guard_movement_reached_destination():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInResearch == true):
 		stop_research()
-		guardController.guardStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction)
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration

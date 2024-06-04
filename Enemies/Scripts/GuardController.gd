@@ -13,5 +13,5 @@ var isInResearch: bool
 
 func is_damaged(direction: Vector2):
 	if (isInAlert):
-		guardStunned.stunnedFromAlert = true
+		enemyStunned.stunnedFromAlert = true
 	emit_signal("damaged", direction)

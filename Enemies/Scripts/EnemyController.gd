@@ -12,7 +12,7 @@ var characterRef
 @export var enemyMovement: EnemyMovement
 @export var enemyRotator: EnemyRotator
 @export var enemyPatrol: EnemyPatrol
-@export var guardStunned: GuardStunned
+@export var enemyStunned: EnemyStunned
 @export var spriteRef: AnimatedSprite2D
 
 var guardsLookingForMe: Array[GuardResearch]
