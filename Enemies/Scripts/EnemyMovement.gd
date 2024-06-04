@@ -1,4 +1,4 @@
-class_name GuardMovement
+class_name EnemyMovement
 extends Node
 
 signal reached_destination

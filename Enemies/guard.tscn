@@ -1,7 +1,6 @@
 [gd_scene load_steps=53 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="1_lv0fd"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_irny6"]
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
@@ -9,13 +8,14 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="4_amsnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="4_lrldw"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_vmgao"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_siqfe"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
 [ext_resource type="PackedScene" uid="uid://bv386oatrmsc" path="res://Enemies/guard_attack.tscn" id="13_3c0sx"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_ixdn1"]
@@ -94,7 +94,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardMovement", "guardPatrol", "guardAlert", "guardRotator", "guardAlertValue", "enemyAttack", "spriteRef")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardStunned", "guardAlert", "guardAlertValue", "enemyAttack", "spriteRef", "enemyMovement", "enemyRotator", "guardPatrol")]
 position = Vector2(-168, -240)
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -102,13 +102,13 @@ script = ExtResource("1_loc1f")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardStunned = NodePath("GuardStunned")
-guardMovement = NodePath("GuardMovement")
-guardPatrol = NodePath("GuardPatrol")
 guardAlert = NodePath("Rotator/GuardAlert")
-guardRotator = NodePath("Rotator")
 guardAlertValue = NodePath("AlertValue")
 enemyAttack = NodePath("Rotator/GuardAttack")
 spriteRef = NodePath("AnimatedSprite2D")
+enemyMovement = NodePath("GuardMovement")
+enemyRotator = NodePath("Rotator")
+guardPatrol = NodePath("EnemyPatrol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -136,7 +136,7 @@ sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
-script = ExtResource("1_lv0fd")
+script = ExtResource("6_xnjjn")
 guardController = NodePath("..")
 bodyRef = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
@@ -146,7 +146,7 @@ repathTimerDuration = 0.25
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
 
-[node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
+[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("4_amsnv")
 guardController = NodePath("..")
 startupDuration = 0.1
@@ -171,7 +171,7 @@ vertical_alignment = 1
 script = ExtResource("4_0sjol")
 
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
-script = ExtResource("4_lrldw")
+script = ExtResource("10_siqfe")
 upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
 downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
 leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
@@ -188,10 +188,10 @@ position = Vector2(0, -104)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("8_7mxgb")
 
-[node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardRotator")]
+[node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "enemyRotator")]
 script = ExtResource("2_n1dev")
 guardController = NodePath("../..")
-guardRotator = NodePath("..")
+enemyRotator = NodePath("..")
 checkValue = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardContact"]
@@ -586,7 +586,7 @@ children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
 
 [node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("34_rmphj")
-guardPatrol = NodePath("../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../EnemyPatrol")
 guardController = NodePath("../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
@@ -595,7 +595,7 @@ children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
 
 [node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("35_bky16")
-guardPatrol = NodePath("../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../EnemyPatrol")
 guardController = NodePath("../../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
@@ -604,7 +604,7 @@ children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
 
 [node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("36_fj3dh")
-guardPatrol = NodePath("../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
@@ -613,19 +613,19 @@ children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRota
 
 [node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("37_gpmfi")
-guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../../..")
 
 [node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("38_pil26")
-guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../../..")
 
-[connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
-[connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]

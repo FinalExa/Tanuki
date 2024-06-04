@@ -5,11 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_bj44j"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_nsdbq"]
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="5_2wyb7"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardMovement.gd" id="6_28km1"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_tgxdo"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardPatrol.gd" id="7_c2a6m"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_lch6o"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="10_bwylu"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardRotator.gd" id="10_sx2fk"]
 [ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="11_sk7b8"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="19_joed8"]
@@ -71,15 +71,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
 size = Vector2(192, 64)
 
-[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("guardMovement", "guardPatrol", "guardRotator", "spriteRef")]
+[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("spriteRef", "enemyMovement", "enemyRotator", "guardPatrol")]
 position = Vector2(-168, -240)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_pnbb5")
-guardMovement = NodePath("GuardMovement")
-guardPatrol = NodePath("GuardPatrol")
-guardRotator = NodePath("Rotator")
 spriteRef = NodePath("AnimatedSprite2D")
+enemyMovement = NodePath("GuardMovement")
+enemyRotator = NodePath("Rotator")
+guardPatrol = NodePath("EnemyPatrol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -107,7 +107,7 @@ sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
 [node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("guardController", "bodyRef", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
-script = ExtResource("6_28km1")
+script = ExtResource("6_tgxdo")
 guardController = NodePath("..")
 bodyRef = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
@@ -117,7 +117,7 @@ repathTimerDuration = 0.25
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
 
-[node name="GuardPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
+[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("guardController")]
 script = ExtResource("7_c2a6m")
 guardController = NodePath("..")
 startupDuration = 0.1
@@ -132,7 +132,7 @@ stunnedSound = NodePath("../Sounds/StunnedGuard")
 guardController = NodePath("..")
 
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
-script = ExtResource("10_sx2fk")
+script = ExtResource("9_u1qet")
 upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
 downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
 leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
@@ -196,7 +196,7 @@ children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
 
 [node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("40_tiahj")
-guardPatrol = NodePath("../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../EnemyPatrol")
 guardController = NodePath("../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
@@ -205,7 +205,7 @@ children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
 
 [node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("41_3pwvh")
-guardPatrol = NodePath("../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../EnemyPatrol")
 guardController = NodePath("../../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
@@ -214,7 +214,7 @@ children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
 
 [node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("42_scng7")
-guardPatrol = NodePath("../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../..")
 
 [node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
@@ -223,14 +223,14 @@ children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRota
 
 [node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("43_q3oo3")
-guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../../..")
 
 [node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("guardPatrol", "guardController")]
 script = ExtResource("44_8gufd")
-guardPatrol = NodePath("../../../../../../../GuardPatrol")
+guardPatrol = NodePath("../../../../../../../EnemyPatrol")
 guardController = NodePath("../../../../../../..")
 
-[connection signal="damaged" from="." to="GuardPatrol" method="_on_guard_damaged"]
-[connection signal="reached_destination" from="GuardMovement" to="GuardPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_guard_damaged"]
+[connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]
