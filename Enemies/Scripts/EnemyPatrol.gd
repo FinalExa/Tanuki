@@ -1,7 +1,7 @@
-class_name GuardPatrol
+class_name EnemyPatrol
 extends Node
 
-@export var guardController: GuardController
+@export var enemyController: EnemyController
 @export var startupDuration: float
 @export var timeSpentDoingExtraPatrol: float
 var extraPatrolTimer: float
@@ -21,11 +21,11 @@ var patrolMovementIndex = 0
 var patrolLookAroundIndex = 0
 
 func _ready():
-	loadedPatrolIndicator = guardController.patrolIndicators[0]
+	loadedPatrolIndicator = enemyController.patrolIndicators[0]
 	set_current_patrol_routine()
 
 func set_current_patrol_routine():
-	if(guardController.isInPatrol == true):
+	if(enemyController.isInPatrol == true):
 		var currentAction = loadedPatrolIndicator.patrolActions[patrolIndex]
 		if (currentAction == loadedPatrolIndicator.ActionTypes.WAIT):
 			wait_patrol_action(loadedPatrolIndicator.waitActions[patrolWaitIndex])
@@ -37,22 +37,22 @@ func set_current_patrol_routine():
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
 func move_patrol_action(target):
-	guardController.guardMovement.set_location_target(target.global_position)
-	guardController.guardMovement.reset_movement_speed()
-	guardController.guardRotator.setLookingAtPosition(target.global_position)
+	enemyController.enemyMovement.set_location_target(target.global_position)
+	enemyController.enemyMovement.reset_movement_speed()
+	enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
 func wait_patrol_action(timer):
 	waitTimer = timer
-	guardController.guardMovement.set_new_target(null)
-	guardController.guardRotator.stopLooking()
+	enemyController.enemyMovement.set_new_target(null)
+	enemyController.enemyRotator.stopLooking()
 	isWaiting = true
 	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 
 func look_around_patrol_action(rotationPoint):
-	guardController.guardMovement.set_new_target(null)
-	guardController.guardRotator.stopLooking()
-	guardController.guardRotator.rotateTo(rotationPoint)
+	enemyController.enemyMovement.set_new_target(null)
+	enemyController.enemyRotator.stopLooking()
+	enemyController.enemyRotator.rotateTo(rotationPoint)
 	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 	isRotating = true
 
@@ -76,16 +76,16 @@ func _on_guard_movement_reached_destination():
 	set_current_patrol_routine()
 
 func stop_patrol():
-	guardController.isInPatrol = false
+	enemyController.isInPatrol = false
 	patrolStopped = true
 	isRotating = false
-	guardController.guardMovement.set_new_target(null)
+	enemyController.enemyMovement.set_new_target(null)
 
 func restart_patrol():
-	guardController.isInPatrol = true
+	enemyController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardController.guardMovement.reset_movement_speed()
+	enemyController.enemyMovement.reset_movement_speed()
 	reset_patrol()
 	set_current_patrol_routine()
 
@@ -94,10 +94,10 @@ func resume_patrol():
 	backToMove = resume_patrol_operation()
 	while (!backToMove):
 		backToMove = resume_patrol_operation()
-	guardController.isInPatrol = true
+	enemyController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	guardController.guardMovement.reset_movement_speed()
+	enemyController.enemyMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
 func resume_patrol_operation():
@@ -113,29 +113,29 @@ func resume_patrol_operation():
 	return false
 
 func _on_guard_damaged(direction: Vector2):
-	if (guardController.isInPatrol == true):
+	if (enemyController.isInPatrol == true):
 		stop_patrol()
-		guardController.guardStunned.start_stun(direction)
+		enemyController.enemyStunned.start_stun(direction)
 
 func initialize_startup():
 	startupTimer = startupDuration
 	startupActive = true
 
 func select_new_patrol_indicator():
-	if (guardController.patrolIndicators.size() > 1):
+	if (enemyController.patrolIndicators.size() > 1):
 		var storedIndex: int = 0
 		var storedDistance: float
 		var tempDistance: float
-		for i in guardController.patrolIndicators.size():
+		for i in enemyController.patrolIndicators.size():
 			if (i == 0):
-				storedDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
+				storedDistance = enemyController.global_position.distance_to(enemyController.patrolIndicators[i].global_position)
 			else:
-				tempDistance = guardController.global_position.distance_to(guardController.patrolIndicators[i].global_position)
+				tempDistance = enemyController.global_position.distance_to(enemyController.patrolIndicators[i].global_position)
 				if (tempDistance < storedDistance):
 					storedDistance = tempDistance
 					storedIndex = i
-		if (loadedPatrolIndicator != guardController.patrolIndicators[storedIndex]):
-			loadedPatrolIndicator = guardController.patrolIndicators[storedIndex]
+		if (loadedPatrolIndicator != enemyController.patrolIndicators[storedIndex]):
+			loadedPatrolIndicator = enemyController.patrolIndicators[storedIndex]
 			reset_patrol()
 		if (storedIndex != 0):
 			extraPatrolTimer = timeSpentDoingExtraPatrol

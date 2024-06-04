@@ -25,7 +25,7 @@ func main_check():
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
-		guardController.guardRotator.setLookingAtPosition(target.global_position)
+		enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)
@@ -46,7 +46,7 @@ func determine_suspicion_type(target):
 			guardCheck.researchOutcome = false
 		return
 	if (target is TailFollow):
-		guardController.guardRotator.setLookingAtPosition(target.global_position)
+		enemyController.guardRotator.setLookingAtPosition(target.global_position)
 		guardCheck.playerSeen = true
 		guardCheck.researchOutcome = true
 		suspicion_active(target, guardCheck.playerIsSeenMultiplier)
@@ -56,7 +56,7 @@ func determine_suspicion_type(target):
 func suspicion_active(target: Node2D, multiplier):
 	if (guardCheck.reductionOverTimeActive == true):
 		guardCheck.reductionOverTimeActive = false
-	if (!guardCheck.preCheckActive && !guardController.isChecking):
+	if (!guardCheck.preCheckActive && !enemyController.isChecking):
 		activate_preCheck(target, multiplier)
 	state = NodeState.SUCCESS
 

@@ -36,7 +36,7 @@ var extraLocationSet: bool
 
 func _ready():
 	setup_areas()
-	guardController.guardMovement.SetAlertSound()
+	guardController.enemyMovement.SetAlertSound()
 
 func _physics_process(_delta):
 	alert_raycasts()
@@ -45,10 +45,10 @@ func start_alert(target):
 	guardController.guardAlertValue.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
-	add_area()
-	add_feedback()
+	call_deferred("add_area")
+	call_deferred("add_feedback")
 	chaseStart = false
-	guardController.guardMovement.set_location_target(guardController.global_position)
+	guardController.enemyMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
@@ -87,9 +87,9 @@ func set_last_target_info(receivedTarget: Node2D):
 	lastTargetDirection = receivedTarget.velocity
 
 func set_movement_destination(destination: Vector2):
-	guardController.guardMovement.reset_movement_speed()
-	guardController.guardMovement.set_location_target(destination)
-	guardController.guardRotator.setLookingAtPosition(destination)
+	guardController.enemyMovement.reset_movement_speed()
+	guardController.enemyMovement.set_location_target(destination)
+	guardController.enemyRotator.setLookingAtPosition(destination)
 
 func start_not_seen_timer():
 	targetNotSeenTimer = targetNotSeenDuration
@@ -100,7 +100,7 @@ func start_catch_preparation():
 	catchPreparationActive = true
 
 func capture_player():
-	guardController.guardMovement.set_new_target(null)
+	guardController.enemyMovement.set_new_target(null)
 	guardController.enemyAttack.launch_attack()
 
 func stop_alert():
@@ -108,13 +108,13 @@ func stop_alert():
 	chaseStart = false
 	remove_area()
 	remove_feedback()
-	guardController.guardMovement.reset_movement_speed()
-	guardController.guardMovement.SetPatrolSound()
+	guardController.enemyMovement.reset_movement_speed()
+	guardController.enemyMovement.SetPatrolSound()
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInAlert == true):
 		stop_alert()
-		guardController.guardStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction)
 
 func remove_area():
 	if(screamAreaInstance != null):

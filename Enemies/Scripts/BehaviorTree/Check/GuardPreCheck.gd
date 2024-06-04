@@ -3,7 +3,7 @@ extends GuardNode
 @export var guardCheck: GuardCheck
 
 func Evaluate(delta):
-	if (guardCheck.preCheckActive == true && guardController.isChecking == false):
+	if (guardCheck.preCheckActive == true && enemyController.isChecking == false):
 		return execute_precheck(guardCheck.detectedTarget, delta)
 	return NodeState.FAILURE
 

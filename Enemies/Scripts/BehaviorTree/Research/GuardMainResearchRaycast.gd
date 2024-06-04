@@ -16,7 +16,7 @@ func research_main_raycast():
 	for i in guardResearch.mainRaycastResult.size():
 		if (guardResearch.mainRaycastResult[i] != null):
 			spotting_operations(guardResearch.mainRaycastResult[i])
-			if (guardController.isInAlert):
+			if (enemyController.isInAlert):
 				return
 
 func spotting_operations(trackedObject: Node2D):
@@ -36,9 +36,9 @@ func player_detection(trackedObject: Node2D):
 	trackedObject.transformationChangeRef.isTransformed == false) ||
 	trackedObject is TailFollow):
 		if (trackedObject is PlayerCharacter):
-			guardController.guardAlert.start_alert(trackedObject)
+			enemyController.guardAlert.start_alert(trackedObject)
 		else:
-			guardController.guardAlert.start_alert(trackedObject.playerRef)
+			enemyController.guardAlert.start_alert(trackedObject.playerRef)
 		return true
 	return false
 
@@ -55,7 +55,7 @@ func suspicious_objects_detection(trackedObject: Node2D):
 func stunned_guards_detection(trackedObject: Node2D):
 	if (trackedObject is GuardController &&
 		trackedObject.isStunned &&
-		trackedObject != guardController):
+		trackedObject != enemyController):
 			if (!search_object_in_list(trackedObject, guardResearch.stunnedGuardsList)):
 				guardResearch.stunnedGuardsList.push_back(trackedObject)
 				if (!search_object_in_list(guardResearch, trackedObject.guardsLookingForMe)):

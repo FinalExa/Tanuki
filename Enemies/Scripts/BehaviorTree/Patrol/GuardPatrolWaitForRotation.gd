@@ -1,13 +1,13 @@
 extends GuardNode
 
-@export var guardPatrol: GuardPatrol
+@export var enemyPatrol: EnemyPatrol
 
 func Evaluate(_delta):
 	return wait_for_rotation()
 
 func wait_for_rotation():
-	if (guardPatrol.isRotating):
-		if (guardController.guardRotator.isDoneRotating):
-			guardPatrol.set_current_patrol_routine()
-			guardPatrol.isRotating = false
+	if (enemyPatrol.isRotating):
+		if (enemyController.enemyRotator.isDoneRotating):
+			enemyPatrol.set_current_patrol_routine()
+			enemyPatrol.isRotating = false
 	return NodeState.SUCCESS

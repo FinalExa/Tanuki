@@ -1,15 +1,15 @@
 extends GuardNode
 
-@export var guardPatrol: GuardPatrol
+@export var enemyPatrol: EnemyPatrol
 
 func Evaluate(delta):
 	extra_patrol_timer(delta)
 	return NodeState.SUCCESS
 
 func extra_patrol_timer(delta):
-	if (guardController.patrolIndicators.size() > 1 && guardPatrol.loadedPatrolIndicator != guardController.patrolIndicators[0]):
-		if (guardPatrol.extraPatrolTimer > 0):
-			guardPatrol.extraPatrolTimer -= delta
+	if (enemyController.patrolIndicators.size() > 1 && enemyPatrol.loadedPatrolIndicator != enemyController.patrolIndicators[0]):
+		if (enemyPatrol.extraPatrolTimer > 0):
+			enemyPatrol.extraPatrolTimer -= delta
 		else:
-			guardPatrol.loadedPatrolIndicator = guardController.patrolIndicators[0]
-			guardPatrol.reset_patrol()
+			enemyPatrol.loadedPatrolIndicator = enemyController.patrolIndicators[0]
+			enemyPatrol.reset_patrol()

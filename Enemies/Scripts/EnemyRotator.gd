@@ -1,4 +1,4 @@
-class_name GuardRotator
+class_name EnemyRotator
 extends Node2D
 
 @export var upRotationPoint: Node2D

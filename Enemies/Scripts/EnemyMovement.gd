@@ -1,10 +1,9 @@
-class_name GuardMovement
+class_name EnemyMovement
 extends Node
 
 signal reached_destination
 
-@export var guardController: GuardController
-@export var bodyRef: CharacterBody2D
+@export var enemyController: EnemyController
 @export var navigationAgent: NavigationAgent2D
 
 @export var defaultMovementSpeed: float
@@ -37,11 +36,11 @@ func _physics_process(delta):
 
 func navigate_on_path():
 	var movementSpeed = currentMovementSpeed
-	var dir = guardController.global_position.direction_to(navigationAgent.get_next_path_position())
-	guardController.velocity = dir * movementSpeed
-	guardController.move_and_slide()
-	if ((locationTargetEnabled && guardController.global_position.distance_to(locationTarget) < distanceTolerance)
-	|| (target != null && guardController.global_position.distance_to(target.global_position) < distanceTolerance)):
+	var dir = enemyController.global_position.direction_to(navigationAgent.get_next_path_position())
+	enemyController.velocity = dir * movementSpeed
+	enemyController.move_and_slide()
+	if ((locationTargetEnabled && enemyController.global_position.distance_to(locationTarget) < distanceTolerance)
+	|| (target != null && enemyController.global_position.distance_to(target.global_position) < distanceTolerance)):
 		currentMovementSpeed = 0
 		emit_signal("reached_destination")
 
@@ -71,7 +70,7 @@ func repath():
 		if (locationTargetEnabled):
 			_update_navigation_path(locationTarget)
 		else:
-			_update_navigation_path(bodyRef.global_position)
+			_update_navigation_path(enemyController.global_position)
 
 func set_movement_speed(newMovementSpeed: float):
 	currentMovementSpeed = newMovementSpeed
@@ -80,7 +79,7 @@ func reset_movement_speed():
 	currentMovementSpeed = defaultMovementSpeed
 
 func PlayMovementSound():
-	if (guardController.velocity != Vector2.ZERO):
+	if (enemyController.velocity != Vector2.ZERO):
 		if (!currentMovementSound.playing):
 			currentMovementSound.play()
 	else:

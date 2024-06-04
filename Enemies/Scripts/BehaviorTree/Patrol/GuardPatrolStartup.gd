@@ -1,16 +1,16 @@
 extends GuardNode
 
-@export var guardPatrol: GuardPatrol
+@export var enemyPatrol: EnemyPatrol
 
 func Evaluate(delta):
 	return startup(delta)
 
 func startup(delta):
-	if (guardPatrol.startupActive == true):
-		if (guardPatrol.startupTimer > 0):
-			guardPatrol.startupTimer -= delta
+	if (enemyPatrol.startupActive == true):
+		if (enemyPatrol.startupTimer > 0):
+			enemyPatrol.startupTimer -= delta
 			return NodeState.SUCCESS
 		else:
-			guardPatrol.set_current_patrol_routine()
-			guardPatrol.startupActive = false
+			enemyPatrol.set_current_patrol_routine()
+			enemyPatrol.startupActive = false
 	return NodeState.FAILURE
