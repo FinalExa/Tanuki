@@ -78,9 +78,9 @@ func save_target_info(target):
 	isTrackingPriorityTarget = true
 
 func set_research_target(target: Vector2):
-	guardController.guardMovement.set_location_target(target)
-	guardController.guardMovement.reset_movement_speed()
-	guardController.guardRotator.setLookingAtPosition(target)
+	guardController.enemyMovement.set_location_target(target)
+	guardController.enemyMovement.reset_movement_speed()
+	guardController.enemyRotator.setLookingAtPosition(target)
 
 func research_to_check():
 	guardController.guardCheck.currentAlertValue = onReturnToCheckAlertValue
@@ -94,7 +94,7 @@ func stop_research():
 
 func _on_guard_movement_reached_destination():
 	if (guardController.isInResearch == true):
-		guardController.guardRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
+		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInResearch == true):

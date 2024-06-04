@@ -9,7 +9,7 @@ func Evaluate(delta):
 		else:
 			guardAlert.stop_alert()
 			enemyController.guardCheck.currentAlertValue = guardAlert.returnToCheckAlertValue
-			enemyController.guardPatrol.select_new_patrol_indicator()
+			enemyController.enemyPatrol.select_new_patrol_indicator()
 			enemyController.guardCheck.resume_check()
 		return NodeState.FAILURE
 	return NodeState.SUCCESS

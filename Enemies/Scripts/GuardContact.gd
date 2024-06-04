@@ -25,7 +25,7 @@ func playerTouching():
 			guardController.guardAlert.extraTargetLocation = playerSave.global_position
 			return
 		if (!guardController.isChecking && guardController.isInPatrol):
-			guardController.guardMovement.set_new_target(null)
+			guardController.enemyMovement.set_new_target(null)
 		if (guardController.guardCheck.currentAlertValue < checkValue):
 			guardController.guardCheck.currentAlertValue = checkValue
 		if (!guardController.isStunned):

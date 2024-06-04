@@ -1,6 +1,8 @@
 class_name EnemyController
 extends CharacterBody2D
 
+signal damaged
+
 var isInPatrol: bool = true
 var isStunned: bool
 var characterRef
@@ -31,6 +33,8 @@ func GuardAnimations():
 func _on_player_character_give_self_reference(reference):
 	characterRef = reference
 
+func is_damaged(direction: Vector2):
+	emit_signal("damaged", direction)
 
 func GetRotator():
 	return enemyRotator

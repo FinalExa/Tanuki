@@ -79,13 +79,13 @@ func stop_patrol():
 	enemyController.isInPatrol = false
 	patrolStopped = true
 	isRotating = false
-	enemyController.guardMovement.set_new_target(null)
+	enemyController.enemyMovement.set_new_target(null)
 
 func restart_patrol():
 	enemyController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	enemyController.guardMovement.reset_movement_speed()
+	enemyController.enemyMovement.reset_movement_speed()
 	reset_patrol()
 	set_current_patrol_routine()
 
@@ -97,7 +97,7 @@ func resume_patrol():
 	enemyController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
-	enemyController.guardMovement.reset_movement_speed()
+	enemyController.enemyMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
 func resume_patrol_operation():

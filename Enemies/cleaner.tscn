@@ -229,5 +229,6 @@ script = ExtResource("44_8gufd")
 enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_guard_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]

@@ -43,7 +43,7 @@ func BackToResearch():
 	return false
 
 func track_target(receivedTarget: Node2D):
-	enemyController.guardRotator.setLookingAtPosition(receivedTarget.global_position)
+	enemyController.enemyRotator.setLookingAtPosition(receivedTarget.global_position)
 	guardAlert.firstLocationReached = false
 	guardAlert.secondLocationReached = false
 	guardAlert.secondLocationTargetCheckLaunched = false
@@ -57,10 +57,10 @@ func track_target(receivedTarget: Node2D):
 		guardAlert.targetNotSeenActive = false
 		if (enemyController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
 			guardAlert.catchPreparationActive = false
-			enemyController.guardMovement.set_movement_speed(guardAlert.alertMovementSpeed)
-			enemyController.guardMovement.set_location_target(receivedTarget.global_position)
+			enemyController.enemyMovement.set_movement_speed(guardAlert.alertMovementSpeed)
+			enemyController.enemyMovement.set_location_target(receivedTarget.global_position)
 		else:
-			enemyController.guardMovement.set_location_target(enemyController.global_position)
+			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			if (!guardAlert.catchPreparationActive):
 				guardAlert.start_catch_preparation()
 

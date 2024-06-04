@@ -25,7 +25,7 @@ func main_check():
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
-		enemyController.guardRotator.setLookingAtPosition(target.global_position)
+		enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)

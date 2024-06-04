@@ -68,13 +68,13 @@ func activate_reduction_over_time():
 func activate_check(target: Node2D):
 	preCheckActive = false
 	guardController.isChecking = true
-	guardController.guardPatrol.stop_patrol()
+	guardController.enemyPatrol.stop_patrol()
 	checkTarget = target
 
 func end_check():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
-	guardController.guardPatrol.resume_patrol()
+	guardController.enemyPatrol.resume_patrol()
 
 func stop_guardCheck():
 	checkActive = false

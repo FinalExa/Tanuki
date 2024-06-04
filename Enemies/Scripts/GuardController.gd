@@ -1,8 +1,6 @@
 class_name GuardController
 extends EnemyController
 
-signal damaged
-
 var isInAlert: bool
 var isChecking: bool
 var isInResearch: bool
