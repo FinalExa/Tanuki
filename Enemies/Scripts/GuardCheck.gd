@@ -91,7 +91,7 @@ func resume_check():
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isChecking == true || checkActive == true):
 		stop_guardCheck()
-		guardController.guardStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction)
 
 func send_alert_value():
 	guardController.guardAlertValue.updateValue(currentAlertValue, maxAlertValue)

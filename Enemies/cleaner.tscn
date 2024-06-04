@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="5_2wyb7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_tgxdo"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_a74yt"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_lch6o"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_js8pp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="10_bwylu"]
 [ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="11_sk7b8"]
@@ -71,14 +71,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
 size = Vector2(192, 64)
 
-[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "guardStunned", "spriteRef")]
+[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStunned", "spriteRef")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
 enemyMovement = NodePath("GuardMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
-guardStunned = NodePath("GuardStunned")
+enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -122,13 +122,12 @@ enemyController = NodePath("..")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
-[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "guardController")]
-script = ExtResource("8_lch6o")
+[node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
+script = ExtResource("8_js8pp")
 stunDuration = 10.0
-stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedGuard")
-guardController = NodePath("..")
+enemyController = NodePath("..")
 
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
 script = ExtResource("9_u1qet")
@@ -184,9 +183,9 @@ children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
 script = ExtResource("21_kkbnv")
 enemyController = NodePath("../../../..")
 
-[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardStunned", "enemyController")]
+[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyStunned", "enemyController")]
 script = ExtResource("22_3j2hq")
-guardStunned = NodePath("../../../../GuardStunned")
+enemyStunned = NodePath("../../../../EnemyStunned")
 enemyController = NodePath("../../../..")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]

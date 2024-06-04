@@ -10,10 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_vmgao"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="6_8wc3c"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_siqfe"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
@@ -94,7 +94,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardAlertValue", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "guardStunned", "spriteRef")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardAlertValue", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStunned", "spriteRef")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_loc1f")
@@ -103,10 +103,11 @@ guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
 guardAlertValue = NodePath("AlertValue")
 enemyAttack = NodePath("Rotator/GuardAttack")
+guardProperties = null
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
-guardStunned = NodePath("GuardStunned")
+enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,13 +151,13 @@ enemyController = NodePath("..")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
-[node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "guardController")]
-script = ExtResource("6_8wc3c")
+[node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
+script = ExtResource("8_73ftb")
 stunDuration = 10.0
 stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedGuard")
-guardController = NodePath("..")
+enemyController = NodePath("..")
 
 [node name="AlertValue" type="Label" parent="."]
 offset_left = -80.0
@@ -453,9 +454,9 @@ children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
 script = ExtResource("16_slhsl")
 enemyController = NodePath("../../../..")
 
-[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("guardStunned", "enemyController")]
+[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyStunned", "enemyController")]
 script = ExtResource("17_tw0pk")
-guardStunned = NodePath("../../../../GuardStunned")
+enemyStunned = NodePath("../../../../EnemyStunned")
 enemyController = NodePath("../../../..")
 
 [node name="GuardIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttack", "enemyController")]
