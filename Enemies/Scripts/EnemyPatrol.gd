@@ -1,4 +1,4 @@
-class_name GuardPatrol
+class_name EnemyPatrol
 extends Node
 
 @export var guardController: GuardController

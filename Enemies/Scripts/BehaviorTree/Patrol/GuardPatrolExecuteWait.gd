@@ -1,16 +1,16 @@
 extends GuardNode
 
-@export var guardPatrol: GuardPatrol
+@export var enemyPatrol: EnemyPatrol
 
 func Evaluate(delta):
 	return wait_active(delta)
 
 func wait_active(delta):
-	if (guardPatrol.isWaiting && !guardPatrol.patrolStopped):
-		if (guardPatrol.waitTimer > 0):
-			guardPatrol.waitTimer -= delta
+	if (enemyPatrol.isWaiting && !enemyPatrol.patrolStopped):
+		if (enemyPatrol.waitTimer > 0):
+			enemyPatrol.waitTimer -= delta
 			return NodeState.SUCCESS
 		else:
-			guardPatrol.isWaiting = false
-			guardPatrol.set_current_patrol_routine()
+			enemyPatrol.isWaiting = false
+			enemyPatrol.set_current_patrol_routine()
 	return NodeState.FAILURE

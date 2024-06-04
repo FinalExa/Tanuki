@@ -3,7 +3,6 @@ extends EnemyController
 
 signal damaged
 
-var isInPatrol: bool = true
 var isInAlert: bool
 var isChecking: bool
 var isInResearch: bool
