@@ -16,7 +16,7 @@ func start_stun(direction: Vector2):
 	stunTimer = stunDuration
 	lookDirectionAfterStun = direction
 	enemyController.enemyMovement.set_location_target(enemyController.global_position)
-	enemyController.guardAlertValue.updateText(stunnedText)
+	enemyController.enemyStatus.updateText(stunnedText)
 	enemyController.isStunned = true
 	if (!stunnedSound.playing): stunnedSound.play()
 	if (stunnedFromAlert):
@@ -28,6 +28,7 @@ func end_stun():
 	enemyController.enemyRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + enemyController.global_position)
 	enemyController.isStunned = false
 	enemyController.enemyPatrol.resume_patrol()
+	enemyController.enemyStatus.updateText("")
 
 func clear_guards_looking_for_me():
 	for i in enemyController.guardsLookingForMe.size():

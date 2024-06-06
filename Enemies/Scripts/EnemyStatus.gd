@@ -1,4 +1,4 @@
-class_name GuardAlertValue
+class_name EnemyStatus
 extends Label
 
 func updateValue(currentValue, maxValue):

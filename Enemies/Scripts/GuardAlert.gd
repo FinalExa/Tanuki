@@ -42,7 +42,7 @@ func _physics_process(_delta):
 	alert_raycasts()
 
 func start_alert(target):
-	guardController.guardAlertValue.updateText(alertText)
+	guardController.enemyStatus.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
 	call_deferred("add_area")
