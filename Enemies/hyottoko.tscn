@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://cdkro5e6qvfs4"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_8bb8e"]
+[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_hhh2j"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_cnhsa"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_yeult"]
@@ -10,12 +10,12 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_rcli2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_5jpci"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_o85p4"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="11_hk2xg"]
-[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="12_2bh60"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="13_inx1f"]
+[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoRange.gd" id="13_mbevb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_h7btj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_up2r5"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskIsSpottingPlayer.gd" id="17_avink"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_jo8pb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="18_l37p7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="19_3r3qj"]
@@ -69,13 +69,14 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
-size = Vector2(192, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
+radius = 256.0
 
-[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef")]
+[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_8bb8e")
+script = ExtResource("1_ukclv")
+hyottokoRange = NodePath("Rotator/HyottokoRange")
 enemyMovement = NodePath("GuardMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -152,17 +153,12 @@ rotationSpeed = 5.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="EnemyAttackHitbox" type="Area2D" parent="Rotator"]
-script = ExtResource("11_hk2xg")
+[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController")]
+script = ExtResource("13_mbevb")
+hyottokoController = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/EnemyAttackHitbox"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_xs1ow")
-
-[node name="Sprite2D" type="Sprite2D" parent="Rotator/EnemyAttackHitbox"]
-position = Vector2(-4.43777e-06, -112)
-scale = Vector2(0.426667, 0.149184)
-texture = ExtResource("12_2bh60")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
+shape = SubResource("CircleShape2D_tvwmf")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
@@ -198,6 +194,12 @@ enemyController = NodePath("../../../..")
 script = ExtResource("17_jo8pb")
 enemyStunned = NodePath("../../../../EnemyStunned")
 enemyController = NodePath("../../../..")
+
+[node name="SelectorSpottedPlayer" type="Node" parent="BehaviorTree/Sequence"]
+script = ExtResource("15_h7btj")
+
+[node name="TaskIsSpottingPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer"]
+script = ExtResource("17_avink")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_h7btj")
@@ -241,4 +243,5 @@ enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
 [connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
-[connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]
+[connection signal="body_entered" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_entered"]
+[connection signal="body_exited" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_exited"]
