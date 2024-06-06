@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_1jrvl"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardAlertValue.gd" id="4_0sjol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_vmgao"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
@@ -14,6 +13,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_erwln"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="10_ixflf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_siqfe"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="11_hsu07"]
@@ -94,19 +94,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardAlertValue", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStunned", "spriteRef")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_loc1f")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
-guardAlertValue = NodePath("AlertValue")
 enemyAttack = NodePath("Rotator/GuardAttack")
-guardProperties = null
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
+enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
 
@@ -159,7 +158,7 @@ stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedGuard")
 enemyController = NodePath("..")
 
-[node name="AlertValue" type="Label" parent="."]
+[node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
 offset_top = -96.0
 offset_right = 80.0
@@ -167,7 +166,7 @@ offset_bottom = -73.0
 text = "ALERT VALUE"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("4_0sjol")
+script = ExtResource("9_erwln")
 
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
 script = ExtResource("10_siqfe")

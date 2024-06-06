@@ -43,7 +43,7 @@ func _physics_process(_delta):
 func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
-	guardController.guardAlertValue.updateText(researchActiveText)
+	guardController.enemyStatus.updateText(researchActiveText)
 	mainAreaFeedbackInstance = add_feedback(mainAreaFeedback)
 	secondaryAreaFeedbackInstance = add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()

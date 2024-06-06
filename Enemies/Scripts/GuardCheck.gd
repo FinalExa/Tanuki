@@ -94,4 +94,4 @@ func _on_guard_damaged(direction: Vector2):
 		guardController.enemyStunned.start_stun(direction)
 
 func send_alert_value():
-	guardController.guardAlertValue.updateValue(currentAlertValue, maxAlertValue)
+	guardController.enemyStatus.updateValue(currentAlertValue, maxAlertValue)
