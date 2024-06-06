@@ -112,8 +112,8 @@ func resume_patrol_operation():
 			patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, -1, loadedPatrolIndicator.lookActions.size())
 	return false
 
-func _on_guard_damaged(direction: Vector2):
-	if (enemyController.isInPatrol == true):
+func _on_enemy_damaged(direction: Vector2):
+	if (enemyController.isInPatrol):
 		stop_patrol()
 		enemyController.enemyStunned.start_stun(direction)
 

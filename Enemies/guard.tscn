@@ -619,7 +619,7 @@ script = ExtResource("38_pil26")
 enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
-[connection signal="damaged" from="." to="EnemyPatrol" method="_on_guard_damaged"]
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
