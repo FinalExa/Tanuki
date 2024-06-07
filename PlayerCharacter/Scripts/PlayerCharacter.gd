@@ -49,7 +49,7 @@ func activate_interaction():
 	if (savePointInteractionReady):
 		savedSavePoint.activate_effect()
 
-func SetLaunched(distance: float, time: float):
+func SetLaunched(distance: float, time: float, direction: Vector2):
 	print("ciao")
 	pass
 
