@@ -5,7 +5,7 @@ extends Area2D
 var target: PlayerCharacter
 var raycastActive: bool
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	RangeRaycast()
 
 func RangeRaycast():
@@ -33,7 +33,6 @@ func _on_body_exited(body):
 			UnsetSpottingPlayer()
 
 func SetSpottingPlayer():
-	print("spotting")
 	hyottokoController.isSpottingPlayer = true
 	hyottokoController.enemyPatrol.stop_patrol()
 	if (hyottokoController.playerRef == null):
