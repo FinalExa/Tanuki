@@ -2,6 +2,7 @@ class_name PlayerCharacter
 extends CharacterBody2D
 
 var sceneRef: Node2D
+@export var playerInputs: PlayerInputs
 @export var tailRef: Node2D
 @export var transformationChangeRef: TransformationChange
 @export var movementRef: PCMovement
@@ -9,6 +10,7 @@ var sceneRef: Node2D
 @export var playerHUD: PlayerHUD
 @export var playerMovement: PCMovement
 @export var playerRotator: PlayerRotator
+@export var playerRepelled: PlayerRepelled
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
@@ -48,6 +50,9 @@ func activate_interaction():
 		deactivationButton.activate_effect()
 	if (savePointInteractionReady):
 		savedSavePoint.activate_effect()
+
+func SetLaunched(distance: float, time: float, direction: Vector2):
+	playerRepelled.SetRepelled(distance, time, direction)
 
 func GetRotator():
 	return playerRotator

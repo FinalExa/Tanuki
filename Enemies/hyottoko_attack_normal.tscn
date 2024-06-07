@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctfcwjmwtwcqe"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttack.gd" id="1_26npr"]
+[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="2_l4yi7"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyLaunchHitbox.gd" id="3_lyp7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
+size = Vector2(144, 184)
+
+[node name="HyottokoAttackNormal" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_26npr")
+attackDuration = 60
+attackCooldown = 15
+attackPhasesLaunch = Array[int]([0, 30])
+attackHitboxes = [NodePath("Feedback"), NodePath("EnemyLaunchHitbox")]
+attackSounds = [null, null]
+attackMovements = Array[float]([0.0, 200.0])
+
+[node name="Feedback" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Feedback"]
+modulate = Color(0, 0.431373, 0.321569, 1)
+scale = Vector2(0.32, 0.43)
+texture = ExtResource("2_l4yi7")
+
+[node name="EnemyLaunchHitbox" type="Area2D" parent="."]
+script = ExtResource("3_lyp7r")
+launchDistance = 500.0
+launchTime = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyLaunchHitbox"]
+position = Vector2(0, -108)
+shape = SubResource("RectangleShape2D_1ia6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyLaunchHitbox"]
+position = Vector2(0, -108)
+scale = Vector2(0.32, 0.428904)
+texture = ExtResource("2_l4yi7")
+
+[connection signal="body_entered" from="EnemyLaunchHitbox" to="EnemyLaunchHitbox" method="_on_body_entered"]

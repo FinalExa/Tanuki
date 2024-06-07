@@ -2,5 +2,5 @@ class_name EnemyAttack
 extends ExecuteAttack
 
 func launch_attack():
-	if (!attackLaunched):
+	if (!attackLaunched && !attackInCooldown):
 		start_attack()

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk30k5u3802jv"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoRageArea.gd" id="1_x3bnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in5ia"]
+size = Vector2(128, 128)
+
+[node name="HyottokoRageArea" type="Area2D"]
+position = Vector2(-256, 448)
+script = ExtResource("1_x3bnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_in5ia")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

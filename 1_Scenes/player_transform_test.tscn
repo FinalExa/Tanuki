@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=19 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
@@ -10,12 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="8_ltv25"]
 [ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="8_mj32v"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="9_63vj3"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
-[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="10_ukvh3"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 [ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="12_j0865"]
 [ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="13_0qhe3"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
+[ext_resource type="PackedScene" uid="uid://dk30k5u3802jv" path="res://Enemies/hyottoko_rage_area.tscn" id="17_7svay"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1616, -312, 88, -2800, -1520, -312, -88)
@@ -67,8 +68,8 @@ position = Vector2(-1032, 176)
 [node name="InteractionObject" parent="." instance=ExtResource("7_f2on0")]
 position = Vector2(-1216, -392)
 
-[node name="Cleaner" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_ukvh3")]
-position = Vector2(333, -437)
+[node name="Hyottoko" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("9_63vj3")]
+position = Vector2(8, 640)
 patrolIndicators = [NodePath("../PatrolIndicator")]
 
 [node name="Crowbar" parent="." instance=ExtResource("8_ltv25")]
@@ -105,3 +106,5 @@ sceneMaster = NodePath("..")
 
 [node name="Coin" parent="." instance=ExtResource("12_j0865")]
 position = Vector2(-1937, -94)
+
+[node name="HyottokoRageArea" parent="." instance=ExtResource("17_7svay")]
