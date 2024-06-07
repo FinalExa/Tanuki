@@ -5,6 +5,7 @@ func Evaluate(_delta):
 	if (dist > enemyController.hyottokoPushDistanceFromPlayer):
 		if (enemyController.enemyMovement.target != enemyController.playerRef):
 			enemyController.enemyMovement.set_new_target(enemyController.playerRef)
+			enemyController.enemyRotator.setLookingAtNode(enemyController.playerRef)
 		return NodeState.FAILURE
 	enemyController.enemyMovement.set_new_target(null)
 	return NodeState.SUCCESS

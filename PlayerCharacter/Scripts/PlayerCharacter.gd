@@ -49,6 +49,10 @@ func activate_interaction():
 	if (savePointInteractionReady):
 		savedSavePoint.activate_effect()
 
+func SetLaunched(distance: float, time: float):
+	print("ciao")
+	pass
+
 func GetRotator():
 	return playerRotator
 
