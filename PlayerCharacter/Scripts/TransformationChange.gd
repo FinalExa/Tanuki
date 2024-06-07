@@ -90,7 +90,7 @@ func unset_temp_trs():
 	isInsidePossibleTransformationObject = false
 
 func set_new_transformation():
-	if (Input.is_action_just_pressed("interact") && isInsidePossibleTransformationObject):
+	if (playerRef.playerInputs.interactInput && isInsidePossibleTransformationObject):
 		actually_set_new_transformation()
 		if (!objectSavedSound.playing): objectSavedSound.play()
 
@@ -108,7 +108,7 @@ func actually_set_new_transformation():
 	emit_signal("send_transformation_name", currentTransformationName)
 
 func activate_transformation():
-	if (Input.is_action_just_pressed("transformation") && currentTransformationSet && !isTransformed && !transformationLock):
+	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
@@ -120,7 +120,7 @@ func activate_transformation():
 		transformation_lock_activate()
 
 func manual_deactivate_transformation():
-	if (Input.is_action_just_pressed("transformation") && isTransformed && !transformationLock):
+	if (playerRef.playerInputs.transformInput && isTransformed && !transformationLock):
 		deactivate_transformation()
 
 func deactivate_transformation():

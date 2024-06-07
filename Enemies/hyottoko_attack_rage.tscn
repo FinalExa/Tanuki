@@ -9,12 +9,12 @@ size = Vector2(144, 184)
 
 [node name="HyottokoAttackRage" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_kxwds")
-attackDuration = 60
-attackCooldown = 15
-attackPhasesLaunch = Array[int]([0, 30])
+attackDuration = 30
+attackCooldown = 120
+attackPhasesLaunch = Array[int]([0, 15])
 attackHitboxes = [NodePath("Feedback"), NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
-attackMovements = Array[float]([0.0, 200.0])
+attackMovements = Array[float]([0.0, 0.0])
 
 [node name="Feedback" type="Node2D" parent="."]
 

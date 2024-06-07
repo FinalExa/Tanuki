@@ -13,7 +13,7 @@ func _process(_delta):
 	PlayMovementSounds()
 
 func PlayMovementSounds():
-	if (playerMovement.inputDirection != Vector2.ZERO && playerMovement.movementEnabled):
+	if (playerRef.playerInputs.inputDirection != Vector2.ZERO && playerMovement.movementEnabled):
 		if (!playerRef.transformationChangeRef.isTransformed): PlayNormalMovement()
 		else: PlayTransformedMovement()
 	else: StopMovementSounds()

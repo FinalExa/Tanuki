@@ -5,6 +5,7 @@ signal transformation_name
 signal timer_value
 signal attack_cooldown
 
+@export var playerInputs: PlayerInputs
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
@@ -31,20 +32,30 @@ func UpdateAttackCooldown(status, currentFrame, duration):
 	emit_signal("attack_cooldown", status, currentFrame, duration)
 
 func PauseGame():
-	if (!isInForcePause && Input.is_action_just_pressed("pause") && !(get_tree().paused && !pauseMenuPanel.visible)):
+	if (!isInForcePause && playerInputs.pauseInput && !(get_tree().paused && !pauseMenuPanel.visible)):
+		playerInputs.pauseInput = false
 		get_tree().paused = !get_tree().paused
+		playerInputs.inputsForceLocked = !playerInputs.inputsForceLocked
 		if (get_tree().paused):
 			pauseMenuPanel.show()
 		else:
 			pauseMenuPanel.hide()
 
+func SetPause():
+	get_tree().paused = true
+	playerInputs.inputsForceLocked = true
+
+func StopPause():
+	get_tree().paused = false
+	playerInputs.inputsForceLocked = false
+
 func ForcePause():
 	isInForcePause = true
-	get_tree().paused = true
+	SetPause()
 
 func EndForcePause():
 	isInForcePause = false
-	get_tree().paused = false
+	StopPause()
 
 func Resume():
 	get_tree().paused = false

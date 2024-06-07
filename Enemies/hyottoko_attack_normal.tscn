@@ -25,6 +25,8 @@ texture = ExtResource("2_l4yi7")
 
 [node name="EnemyLaunchHitbox" type="Area2D" parent="."]
 script = ExtResource("3_lyp7r")
+launchDistance = 500.0
+launchTime = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyLaunchHitbox"]
 position = Vector2(0, -108)
