@@ -10,7 +10,7 @@ var transformInput: bool
 var interactInput: bool
 var pauseInput: bool
 
-func _process(delta):
+func _process(_delta):
 	GetInputs()
 
 func GetInputs():

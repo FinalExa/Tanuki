@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=31 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="7_xs62e"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_1qbxj"]
 [ext_resource type="PackedScene" uid="uid://cv2ama730fiex" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="8_ydnc8"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="10_0iiw5"]
+[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="11_hni55"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="14_0ols6"]
 [ext_resource type="PackedScene" uid="uid://c273y8hyyc3hf" path="res://ImportantObjects/TransformationObjects/cup.tscn" id="15_y1bt5"]
@@ -188,7 +190,7 @@ patrolIndicators = [NodePath("../../PatrolIndicators/6to5")]
 position = Vector2(1216, -3584)
 patrolIndicators = [NodePath("../../PatrolIndicators/7to8")]
 
-[node name="Guard6" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
+[node name="Cleaner" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_0iiw5")]
 position = Vector2(1600, -1280)
 patrolIndicators = [NodePath("../../PatrolIndicators/9to12")]
 
@@ -200,7 +202,7 @@ patrolIndicators = [NodePath("../../PatrolIndicators/11to10")]
 position = Vector2(1176, -1344)
 patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingRight")]
 
-[node name="Guard9" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
+[node name="Hyottoko" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_hni55")]
 position = Vector2(2672, -2368)
 patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingUp")]
 
