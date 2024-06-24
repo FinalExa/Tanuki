@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=23 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
@@ -11,36 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="7_ktmq7"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="7_s8vu6"]
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="7_ubwk7"]
-[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="7_xs62e"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_1qbxj"]
 [ext_resource type="PackedScene" uid="uid://cv2ama730fiex" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="8_ydnc8"]
-[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="10_0iiw5"]
-[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="11_hni55"]
-[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="11_plsik"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="14_0ols6"]
 [ext_resource type="PackedScene" uid="uid://c273y8hyyc3hf" path="res://ImportantObjects/TransformationObjects/cup.tscn" id="15_y1bt5"]
 [ext_resource type="PackedScene" uid="uid://8p6lrlqbtesj" path="res://ImportantObjects/TransformationObjects/jewels.tscn" id="16_32aar"]
 [ext_resource type="PackedScene" uid="uid://cn8kgms7h6lwc" path="res://ImportantObjects/TransformationObjects/chest.tscn" id="17_6pdyf"]
 [ext_resource type="PackedScene" uid="uid://blf1b0nspss5j" path="res://ImportantObjects/TransformationObjects/feather.tscn" id="18_h38mc"]
-[ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="19_2rdmc"]
-[ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="19_6nity"]
 [ext_resource type="PackedScene" uid="uid://6u2a7gaoiufs" path="res://ImportantObjects/TransformationObjects/key.tscn" id="20_stvfx"]
 [ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
 [ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="24_oha34"]
-[ext_resource type="PackedScene" uid="uid://pkhqx6464kki" path="res://ImportantObjects/Interactables/shoji.tscn" id="25_gbuf8"]
-[ext_resource type="PackedScene" uid="uid://ruxpunnlh85d" path="res://ImportantObjects/TransformationObjects/katana.tscn" id="25_ydcnl"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ou1kk"]
-vertices = PackedVector2Array(1344, -384, 1344, 0, 320, 0, 48, -176, 576, -384, 3776, -4352, 3904, -6272, 3904, -3456, 3776, -3968, 3776, -4480, 832, -1280, 2760, -2432, 2752, -512, 1984, -512, 704, -1024, 1344, 128, 1344, 1408, 1136, 1112, -800, -544, -256, 0, -896, 512, -1216, -128, -1216, -256, 2112, -5504, 2880, -5760, 2888, -5760, 3200, -5448, 3200, -4736, 2072, -4968, 1984, -5056, -1280, -3232, -1376, -3328, -960, -3328, -960, -2912, -1096, -3048, -2240, -512, -3480, -512, -3120, -872, -2240, -640, -3848, -1224, -4032, -1040, -4032, -2048, -3776, -2048, 3328, -5504, 3328, -5496, 3008, -5816, 2632, -4232, 2896, -3968, 2240, -3968, 2240, -4624, 2448, -4416, 2720, -4320, 2536, -4504, 2080, -4784, 2136, -4728, 2112, -4728, -1000, -2776, -960, -2816, -960, -2432, -1368, -3144, -1184, -2960, -2624, -1408, -2624, -1536, -2240, -1664, -2240, -896, -1192, -2024, -960, -2176, -960, -1408, -1560, -1656, 400, 376, 320, 128, -896, 640, -256, 1024, -1088, 1152, -1728, -128, -1408, 512, -1792, 128, -2112, -1408, -2112, -1664, -1648, -1744, 832, -1408, 2112, -5760, 2880, -6016, 3008, -3840, 3776, -3840, 3520, -3456, 3008, -3712, 1984, -5504, 1856, -5056, 1048, 1200, -128, 1024, -2496, 1408, -192, -640, -192, -896, 576, -768, -40, -264, -3208, -960, -3576, -592, -3936, -960, -3760, -1136, -192, -112, -712, -632, -320, -640, -1408, 640, -1216, 640, -1216, 1152, -1792, 1152, -1088, 640, -1920, 1152, -2496, -384, -2112, -384, -1920, 128, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -4032, -2944, -4032, -3328, -2880, -3328, -2880, -3072, -2248, -3456, -3264, -3456, -3264, -5504, 960, -5504, 960, -4608, 1088, -4608, 1088, -6272, 1984, -6272, 1984, -6016, 2112, -6016, 2112, -6272, 3328, -4792, 3328, -5376, 3584, -5376, 3632, -4480, 2112, -3968, 1088, -3968, 1088, -4352, 1856, -4288, 960, -4352, 960, -3840, 64, -3840, -192, -3712, 64, -3712, -832, -2432, -192, -3840, -960, -3840, -960, -3456, -1984, -3456, -832, -3712, 3520, -3200, 3392, -3200, 3392, -3456, 3008, -3584, 3008, -3456, 2752, -3584, 2880, -2944, 2880, -3200, 3904, -3200, 3904, -2176, 2880, -2176, 2880, -2432, 2752, -2944, -832, -1408, -832, -2176, -2176, -2240, -2752, -1536, -2752, -1792, -2176, -2752, -2752, -1152, -2752, -1408, -3200, -1792, -3200, -1536, -3584, -1536, -3584, -1408, -3200, -1408, -3200, -1152, -2112, -896, -2112, -1152, 576, -1152, 576, -1024, -320, -896, 704, -1280, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 704, -768, 704, -512, -2752, -3072, -2752, -3328, -2240, -3328.19, -2112, -640, -2048, -2240, 3584, -5504, -1280, -2112, -128, 0, 312, 464, -1728, -256, 3008, -6016, -2048, -2752, -1984, -3328, -1552, -3328, 1984, -5760, -2880, -1792, 1984, -4288, 1984, -4880, 3520, -4416, 3520, -4352, 2168, -4872, 3072, -3968, -3072, -1152, -2880, -1152, -3072, -1792)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(6, 5, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(15, 16, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(23, 24, 25, 26, 27, 28, 29), PackedInt32Array(30, 31, 32), PackedInt32Array(32, 33, 34), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(43, 44, 45), PackedInt32Array(46, 47, 48), PackedInt32Array(48, 49, 50), PackedInt32Array(51, 46, 48, 50, 52), PackedInt32Array(53, 54, 55), PackedInt32Array(56, 57, 58), PackedInt32Array(59, 30, 32, 34, 60), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(15, 17, 69, 70), PackedInt32Array(71, 19, 72, 73), PackedInt32Array(19, 71, 20), PackedInt32Array(74, 21, 20, 75, 76), PackedInt32Array(68, 67, 77, 78), PackedInt32Array(79, 68, 78), PackedInt32Array(11, 10, 80), PackedInt32Array(24, 23, 81, 82), PackedInt32Array(83, 84, 7, 85, 86), PackedInt32Array(87, 23, 29, 88), PackedInt32Array(89, 17, 16), PackedInt32Array(72, 90, 89, 16, 91, 73), PackedInt32Array(92, 93, 94, 4, 3, 95), PackedInt32Array(96, 97, 98, 99), PackedInt32Array(92, 95, 100, 101, 102), PackedInt32Array(103, 104, 105, 106), PackedInt32Array(103, 106, 76, 75), PackedInt32Array(73, 107, 71), PackedInt32Array(108, 91, 109, 110, 111), PackedInt32Array(112, 113, 114, 115), PackedInt32Array(116, 117, 118, 119), PackedInt32Array(120, 121, 122, 123, 124), PackedInt32Array(125, 126, 127, 128, 129), PackedInt32Array(130, 131, 132, 133), PackedInt32Array(134, 135, 6, 82), PackedInt32Array(136, 137, 138, 139), PackedInt32Array(140, 141, 142, 143), PackedInt32Array(144, 145, 146), PackedInt32Array(147, 146, 148, 149), PackedInt32Array(146, 147, 150, 144), PackedInt32Array(151, 152, 153), PackedInt32Array(149, 154, 147), PackedInt32Array(85, 155, 156, 157), PackedInt32Array(86, 85, 157, 158), PackedInt32Array(157, 159, 158), PackedInt32Array(148, 86, 158, 160), PackedInt32Array(161, 162, 156), PackedInt32Array(155, 163, 164, 165, 166), PackedInt32Array(156, 155, 166, 161), PackedInt32Array(167, 161, 166, 11), PackedInt32Array(80, 168, 169, 11), PackedInt32Array(170, 63, 62, 171, 172, 173), PackedInt32Array(174, 175, 61, 64), PackedInt32Array(176, 177, 178), PackedInt32Array(179, 180, 181, 96, 99), PackedInt32Array(182, 183, 184, 185, 186), PackedInt32Array(14, 187, 10), PackedInt32Array(188, 189, 190, 191), PackedInt32Array(188, 191, 192, 13), PackedInt32Array(14, 13, 192, 193, 185), PackedInt32Array(192, 194, 193), PackedInt32Array(185, 193, 94, 93), PackedInt32Array(195, 196, 197), PackedInt32Array(186, 102, 101, 198, 182), PackedInt32Array(199, 149, 167, 11, 169, 66), PackedInt32Array(148, 160, 167, 149), PackedInt32Array(6, 9, 139, 138, 200), PackedInt32Array(66, 65, 201), PackedInt32Array(90, 202, 3, 2, 70, 203), PackedInt32Array(204, 74, 76, 111, 110, 198), PackedInt32Array(119, 120, 124, 195), PackedInt32Array(6, 200, 43, 45, 205), PackedInt32Array(58, 149, 199), PackedInt32Array(56, 58, 199, 206, 60), PackedInt32Array(59, 60, 206), PackedInt32Array(207, 208, 59, 206, 173), PackedInt32Array(70, 69, 203), PackedInt32Array(90, 203, 89), PackedInt32Array(105, 73, 91), PackedInt32Array(106, 105, 91), PackedInt32Array(108, 106, 91), PackedInt32Array(115, 116, 119), PackedInt32Array(130, 133, 134, 209, 144), PackedInt32Array(199, 66, 201), PackedInt32Array(170, 199, 201, 79, 78, 63), PackedInt32Array(173, 172, 210), PackedInt32Array(99, 39, 42, 119, 178), PackedInt32Array(112, 115, 119), PackedInt32Array(211, 212, 28, 53, 140), PackedInt32Array(28, 27, 213, 214, 215), PackedInt32Array(8, 216, 51), PackedInt32Array(18, 22, 204, 198, 101), PackedInt32Array(42, 112, 119), PackedInt32Array(64, 198, 38, 37, 96, 181, 217), PackedInt32Array(53, 55, 140), PackedInt32Array(8, 51, 52), PackedInt32Array(218, 174, 64), PackedInt32Array(218, 64, 217), PackedInt32Array(210, 218, 217, 219), PackedInt32Array(173, 210, 219), PackedInt32Array(207, 173, 219, 176, 153), PackedInt32Array(144, 150, 151, 130), PackedInt32Array(8, 52, 215, 214), PackedInt32Array(197, 153, 176, 178, 195), PackedInt32Array(125, 129, 130, 151), PackedInt32Array(82, 81, 209, 134), PackedInt32Array(7, 84, 8), PackedInt32Array(214, 5, 8), PackedInt32Array(28, 215, 53), PackedInt32Array(143, 211, 140), PackedInt32Array(88, 143, 142), PackedInt32Array(87, 88, 142, 144, 209), PackedInt32Array(6, 205, 82), PackedInt32Array(125, 151, 153), PackedInt32Array(197, 125, 153), PackedInt32Array(119, 195, 178), PackedInt32Array(99, 178, 179), PackedInt32Array(198, 64, 182), PackedInt32Array(186, 185, 93)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(576, -768, 704, -768, 704, -512, 1600, -512, 1600, 0, 2112, 0, 2112, -384, 1984, -384, 1984, -512, 2752, -512, 2760, -2432, 2880, -2432, 2880, -2176, 3904, -2176, 3904, -3200, 3520, -3200, 3520, -3456, 3904, -3456, 3904, -6272, 2112, -6272, 2112, -6016, 1984, -6016, 1984, -6272, 1088, -6272, 1088, -4608, 960, -4608, 960, -5504, -3264, -5504, -3264, -3456, -2248, -3456, -2240, -3328.19, -2752, -3328, -2752, -3072, -2880, -3072, -2880, -3328, -4032, -3328, -4032, -2944, -3264, -2944, -3264, -2816, -4032, -2816, -4032, -2496, -3776, -2496, -3776, -2368, -4032, -2368, -4032, -2176, -3776, -2176, -3776, -2048, -4032, -2048, -4032, -1040, -3848, -1224, -3760, -1136, -3936, -960, -3576, -592, -3208, -960, -3120, -872, -3480, -512, -2240, -512, -2240, -640, -2112, -640, -2112, -384, -2496, -384, -2496, 1408, 1344, 1408, 1344, 128, 320, 128, 320, 0, 1344, 0, 1344, -384, 576, -384), PackedVector2Array(-1280, -2112, -1192, -2024, -1560, -1656, -1648, -1744), PackedVector2Array(-2176, -2752, -2048, -2752, -2048, -2240, -2176, -2240), PackedVector2Array(-3200, -1792, -3072, -1792, -3072, -1152, -3200, -1152, -3200, -1408, -3584, -1408, -3584, -1536, -3200, -1536), PackedVector2Array(-2880, -1792, -2752, -1792, -2752, -1536, -2624, -1536, -2624, -1408, -2752, -1408, -2752, -1152, -2880, -1152), PackedVector2Array(-320, -896, -192, -896, -192, -640, -320, -640), PackedVector2Array(-800, -544, -712, -632, -192, -112, -40, -264, 48, -176, -128, 0, -128, 1024, -256, 1024, -256, 0), PackedVector2Array(-1728, -256, -1216, -256, -1216, -128, -1728, -128), PackedVector2Array(-1920, 128, -1792, 128, -1792, 1152, -1920, 1152), PackedVector2Array(-1408, 512, -896, 512, -896, 640, -1088, 640, -1088, 1152, -1216, 1152, -1216, 640, -1408, 640), PackedVector2Array(312, 464, 400, 376, 1136, 1112, 1048, 1200), PackedVector2Array(-2240, -896, -2240, -1664, -2112, -1664, -2112, -1408, -960, -1408, -960, -2176, -832, -2176, -832, -1408, 832, -1408, 832, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152, -2112, -1152, -2112, -896), PackedVector2Array(-1984, -3456, -1984, -3328, -1552, -3328, -1368, -3144, -1280, -3232, -1376, -3328, -960, -3328, -960, -2912, -1096, -3048, -1184, -2960, -1000, -2776, -960, -2816, -960, -2432, -832, -2432, -832, -3712, -192, -3712, -192, -3840, -960, -3840, -960, -3456), PackedVector2Array(64, -3840, 64, -3712, 3008, -3712, 3008, -3840, 3776, -3840, 3776, -3968, 3072, -3968, 2720, -4320, 2632, -4232, 2896, -3968, 2240, -3968, 2240, -4624, 2448, -4416, 2536, -4504, 2168, -4872, 2080, -4784, 2136, -4728, 2112, -4728, 2112, -3968, 1088, -3968, 1088, -4352, 960, -4352, 960, -3840), PackedVector2Array(1984, -5760, 2112, -5760, 2112, -5504, 1984, -5504), PackedVector2Array(1856, -5056, 1984, -5056, 2072, -4968, 1984, -4880, 1984, -4288, 1856, -4288), PackedVector2Array(2880, -6016, 3008, -6016, 3008, -5816, 3328, -5496, 3328, -5504, 3584, -5504, 3584, -5376, 3328, -5376, 3328, -4792, 3632, -4480, 3776, -4480, 3776, -4352, 3520, -4352, 3520, -4416, 3200, -4736, 3200, -5448, 2888, -5760, 2880, -5760), PackedVector2Array(2880, -2944, 2752, -2944, 2752, -3584, 3008, -3584, 3008, -3456, 3392, -3456, 3392, -3200, 2880, -3200)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lv7pc"]
+vertices = PackedVector2Array(-3904, -1536, -3200, -2176, -2176, -2240, -2048, -2240, -3392, -1728, -2368, -2240, -2496, -2240, 2240, -640, 832, -1280, 1856, -1408, 2112, -1408, 2496, -640, 64, 128, 320, 0, 1344, 0, 704, 512, 576, 512, -64, -1664, 1856, -1920, 1920, -1920, 1856, -1664, 1280, 1216, 1152, 1216, 704, 1024, 2112, -2432, 2112, -2688, 2752, -3712, 2752, -512, 2112, -2944, 2048, -2688, 2048, -2816, 2112, -3200, 1344, -3712, 1856, -3200, 1344, -3584, -3200, -640, -3352, -640, -3120, -872, -2240, -1664, -2240, -896, -2560, -1216, -2560, -1408, 1344, 1408, 1280, 1344, -832, 1408, 1152, 1344, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -256, 128, -256, 1152, -1088, 1152, -896, 640, -448, 128, -896, 512, 64, 0, -64, -1920, 1856, -2176, 832, -1408, -320, -2432, -320, -2176, -832, -2176, -1664, -2304, -832, -2432, 1920, -2816, 1856, -2688, -64, -2688, -64, -2944, 1856, -2944, -832, 1280, -128, 1152, -1088, 1280, -2112, 1216, -4032, -3072, -4032, -3200, -2880, -3200, -3392, -3072, -2880, -3072, -3264, -2944, -3392, -2944, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -3712, 832, -3712, 832, -3584, -64, -3456, -320, -3456, -64, -3200, -128, -2944, -128, -3200, -320, -3200, -256, -3200, -256, -2944, -320, -2944, -320, -2688, -256, -2688, -256, -2560, -128, -2560, -128, -2688, 1856, -2432, 1920, -2304, -64, -2432, 1920, -2688, 1920, -2432, 2048, -2304, 2048, -2432, 2112, -2176, 2112, -1664, 2048, -1664, 2048, -1920, 2112, -1920, -128, -1920, -128, -2064, -64, -2176, -128, -2176, -1664, -2688, -2048, -2688, -2048, -2752, -2176, -2752, -2368, -2752, -2496, -2752, -2496, -2688, -2880, -2688, -3264, -2816, -2880, -2304, -2496, -2304, -3200, -2560, -960, -2176, -2048, -2304, -256, -2176, -256, -2064, -320, -1920, -256, -1920, 1920, -1664, 448, -1536, 448, -1408, 192, -1536, 192, -1408, -832, -1408, -320, -1664, -960, -1536, -1728, -1536, -2112, -1664, -1728, -1408, -2112, -1408, -2624, -1408, -2624, -1536, -2560, -1536, -2560, -1728, -2752, -1728, -2752, -1792, -2752, -1152, -2752, -1216, -3200, -1792, -3200, -1728, -3392, -1536, -3328, -1536, -3328, -1408, -3392, -1408, -3392, -1216, -3200, -1216, -3200, -1152, -3304, -1048, -2112, -896, -2112, -1152, -1216, -1152, -1216, -1024, -704, -1024, -704, -1152, 576, -1152, 576, -1024, 1984, -512, 1472, -640, 704, -1024, 704, -1280, 2240, -512, 2496, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, -1216, -256, -1216, -128, -448, 0, -1408, 640, -1216, 640, -1216, 1152, -1088, 640, -128, 128, 576, 1024, -1088, 1408, -2496, 1408, -2240, 1216, -2496, 960, -2368, 960, -2240, 192, -2368, 832, -2496, 832, -2496, -384, -2112, 192, -2112, -384, -1728, -128, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3584, -2560, -3480, -872, -1408, 512, 576, -768, -1728, -256, -2112, -640, -3072, -1152, -2880, -1152, -2880, -1792, -3072, -1792, -3584, -2176)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1), PackedInt32Array(6, 5, 1), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(14, 21, 22, 23, 15), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 26, 25, 29, 30), PackedInt32Array(26, 28, 31), PackedInt32Array(32, 26, 31, 33, 34), PackedInt32Array(35, 36, 37), PackedInt32Array(38, 39, 40, 41), PackedInt32Array(14, 42, 43, 21), PackedInt32Array(43, 42, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(50, 51, 52, 53, 54), PackedInt32Array(54, 53, 55), PackedInt32Array(13, 12, 56), PackedInt32Array(18, 17, 57, 58), PackedInt32Array(9, 8, 59), PackedInt32Array(60, 61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(45, 44, 70, 22), PackedInt32Array(71, 22, 70, 72, 73, 51), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 76, 78, 79, 80), PackedInt32Array(81, 82, 83, 84), PackedInt32Array(85, 86, 87, 88), PackedInt32Array(85, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(69, 28, 30, 65), PackedInt32Array(92, 34, 33, 69, 68, 95), PackedInt32Array(68, 96, 97, 95), PackedInt32Array(92, 95, 93), PackedInt32Array(64, 90, 94, 98), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(64, 98, 101), PackedInt32Array(64, 101, 102), PackedInt32Array(64, 102, 103, 104, 60), PackedInt32Array(105, 106, 67, 107, 108, 58, 109), PackedInt32Array(65, 110, 66), PackedInt32Array(67, 66, 107), PackedInt32Array(107, 111, 108), PackedInt32Array(112, 113, 24, 114), PackedInt32Array(115, 116, 117, 118), PackedInt32Array(58, 57, 119, 120, 121), PackedInt32Array(120, 122, 121), PackedInt32Array(123, 124, 125, 84), PackedInt32Array(126, 2, 5, 127), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(132, 133, 6, 1), PackedInt32Array(132, 1, 134, 130), PackedInt32Array(135, 3, 136, 63, 62), PackedInt32Array(61, 137, 138, 139), PackedInt32Array(138, 140, 139), PackedInt32Array(19, 141, 20), PackedInt32Array(17, 20, 9, 142), PackedInt32Array(59, 143, 142), PackedInt32Array(17, 144, 145, 146, 147), PackedInt32Array(135, 148, 149, 150), PackedInt32Array(149, 151, 152, 150), PackedInt32Array(41, 153, 154, 155), PackedInt32Array(38, 41, 155), PackedInt32Array(38, 155, 156), PackedInt32Array(135, 156, 157, 158, 3), PackedInt32Array(159, 160, 40, 39), PackedInt32Array(161, 162, 4), PackedInt32Array(163, 164, 165, 166), PackedInt32Array(167, 168, 169, 170), PackedInt32Array(171, 172, 173, 174), PackedInt32Array(175, 176, 177, 178), PackedInt32Array(179, 180, 181, 182, 8, 7, 183), PackedInt32Array(27, 184, 11), PackedInt32Array(27, 11, 10, 115), PackedInt32Array(185, 186, 187, 188), PackedInt32Array(185, 188, 189, 179), PackedInt32Array(189, 190, 180), PackedInt32Array(191, 192, 193, 194), PackedInt32Array(195, 196, 197, 198, 199), PackedInt32Array(200, 199, 198, 13, 56), PackedInt32Array(200, 56, 201), PackedInt32Array(202, 203, 204, 73), PackedInt32Array(52, 205, 53), PackedInt32Array(71, 206, 12, 16, 207), PackedInt32Array(73, 72, 208, 209, 210), PackedInt32Array(210, 209, 211, 212), PackedInt32Array(213, 210, 212, 214), PackedInt32Array(214, 215, 216, 213), PackedInt32Array(217, 213, 216, 218, 219), PackedInt32Array(220, 221, 222, 223), PackedInt32Array(224, 225, 226, 35, 37), PackedInt32Array(0, 227, 228, 229), PackedInt32Array(230, 231, 232, 233), PackedInt32Array(234, 235, 236, 131, 237), PackedInt32Array(170, 238, 46, 49, 0, 167), PackedInt32Array(200, 201, 54, 55, 239, 219), PackedInt32Array(58, 121, 109), PackedInt32Array(131, 79, 78, 81, 84, 125, 126), PackedInt32Array(84, 85, 89, 63, 123), PackedInt32Array(171, 174, 175, 240, 195, 199, 241), PackedInt32Array(179, 189, 180), PackedInt32Array(181, 180, 191, 194, 178), PackedInt32Array(178, 194, 240, 175), PackedInt32Array(39, 171, 241, 219, 242), PackedInt32Array(27, 115, 118), PackedInt32Array(243, 39, 223, 224, 37, 170, 169), PackedInt32Array(244, 159, 39), PackedInt32Array(244, 39, 243), PackedInt32Array(245, 244, 243, 246), PackedInt32Array(217, 219, 239, 202, 73), PackedInt32Array(27, 118, 114), PackedInt32Array(24, 27, 114), PackedInt32Array(112, 114, 58, 108), PackedInt32Array(105, 109, 60, 104), PackedInt32Array(89, 64, 63), PackedInt32Array(131, 126, 127), PackedInt32Array(131, 127, 128), PackedInt32Array(131, 130, 134, 237), PackedInt32Array(234, 237, 247, 233), PackedInt32Array(230, 233, 247), PackedInt32Array(229, 230, 247), PackedInt32Array(0, 229, 247, 1), PackedInt32Array(135, 150, 38, 156), PackedInt32Array(207, 23, 22, 71), PackedInt32Array(52, 51, 73), PackedInt32Array(204, 52, 73), PackedInt32Array(219, 218, 242), PackedInt32Array(39, 242, 220), PackedInt32Array(39, 220, 223), PackedInt32Array(166, 167, 0), PackedInt32Array(163, 166, 0), PackedInt32Array(4, 163, 0), PackedInt32Array(161, 4, 3), PackedInt32Array(246, 161, 3), PackedInt32Array(245, 246, 3), PackedInt32Array(158, 245, 3), PackedInt32Array(9, 59, 142), PackedInt32Array(17, 142, 144), PackedInt32Array(147, 146, 62, 139), PackedInt32Array(61, 139, 62)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4032, -3200, -2880, -3200, -2880, -3072, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -2432, -832, -3712, 832, -3712, 832, -3584, 1344, -3584, 1344, -3712, 2752, -3712, 2752, -512, 2496, -512, 2496, -640, 2240, -640, 2240, -512, 1984, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1472, -640, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, 320, 0, 1344, 0, 1344, 1408, -832, 1408, -832, 1280, -1088, 1280, -1088, 1408, -2496, 1408, -2496, 960, -2368, 960, -2368, 832, -2496, 832, -2496, -384, -2112, -384, -2112, -640, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -3200, -640, -3352, -640, -3120, -872, -3304, -1048, -3480, -872, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -3904, -1536, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -3392, -2944, -3392, -3072, -4032, -3072), PackedVector2Array(-3584, -2560, -3200, -2560, -3200, -2176, -3584, -2176), PackedVector2Array(-2880, -2304, -2880, -2688, -2496, -2688, -2496, -2752, -2368, -2752, -2368, -2240, -2496, -2240, -2496, -2304), PackedVector2Array(-2176, -2752, -2048, -2752, -2048, -2688, -1664, -2688, -1664, -2304, -2048, -2304, -2048, -2240, -2176, -2240), PackedVector2Array(-3392, -1728, -3200, -1728, -3200, -1792, -3072, -1792, -3072, -1152, -3200, -1152, -3200, -1216, -3392, -1216, -3392, -1408, -3328, -1408, -3328, -1536, -3392, -1536), PackedVector2Array(-2880, -1792, -2752, -1792, -2752, -1728, -2560, -1728, -2560, -1536, -2624, -1536, -2624, -1408, -2560, -1408, -2560, -1216, -2752, -1216, -2752, -1152, -2880, -1152), PackedVector2Array(-960, -2176, -832, -2176, -832, -1408, 192, -1408, 192, -1536, 448, -1536, 448, -1408, 832, -1408, 832, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152, -704, -1152, -704, -1024, -1216, -1024, -1216, -1152, -2112, -1152, -2112, -896, -2240, -896, -2240, -1664, -2112, -1664, -2112, -1408, -1728, -1408, -1728, -1536, -960, -1536), PackedVector2Array(-320, -3456, -64, -3456, -64, -3200, -128, -3200, -128, -2944, -64, -2944, -64, -2688, -128, -2688, -128, -2560, -256, -2560, -256, -2688, -320, -2688, -320, -2944, -256, -2944, -256, -3200, -320, -3200), PackedVector2Array(-320, -2432, -64, -2432, -64, -2176, -128, -2176, -128, -2064, -128, -1920, -64, -1920, -64, -1664, -320, -1664, -320, -1920, -256, -1920, -256, -2064, -256, -2176, -320, -2176), PackedVector2Array(1856, -3200, 2112, -3200, 2112, -2944, 1856, -2944), PackedVector2Array(1920, -2816, 2048, -2816, 2048, -2688, 2112, -2688, 2112, -2432, 2048, -2432, 2048, -2304, 1920, -2304, 1920, -2432, 1856, -2432, 1856, -2688, 1920, -2688), PackedVector2Array(1856, -2176, 2112, -2176, 2112, -1920, 2048, -1920, 2048, -1664, 2112, -1664, 2112, -1408, 1856, -1408, 1856, -1664, 1920, -1664, 1920, -1920, 1856, -1920), PackedVector2Array(-1728, -256, -1216, -256, -1216, -128, -1728, -128), PackedVector2Array(-2240, 192, -2112, 192, -2112, 1216, -2240, 1216), PackedVector2Array(1152, 1216, 1280, 1216, 1280, 1344, 1152, 1344), PackedVector2Array(-256, 1152, -256, 128, -448, 128, -448, 0, 64, 0, 64, 128, -128, 128, -128, 1152), PackedVector2Array(576, 512, 704, 512, 704, 1024, 576, 1024), PackedVector2Array(-1216, 1152, -1216, 640, -1408, 640, -1408, 512, -896, 512, -896, 640, -1088, 640, -1088, 1152)])
 
 [node name="PlayTestMap" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_x7cfa")
 frameMaster = NodePath("FrameMaster")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_ou1kk")
+position = Vector2(1, 0)
+navigation_polygon = SubResource("NavigationPolygon_lv7pc")
 
 [node name="FrameMaster" parent="." instance=ExtResource("2_ae2pm")]
 
@@ -169,43 +162,6 @@ transformedTexture = NodePath("../Broom/Sprite2D")
 
 [node name="Guards" type="Node2D" parent="Room1Hall"]
 
-[node name="Guard" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(-760, -2760)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingDown")]
-guardProperties = Array[String]([""])
-
-[node name="Guard2" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(-576, -1536)
-patrolIndicators = [NodePath("../../PatrolIndicators/1to4")]
-
-[node name="Guard3" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(192, -3584)
-patrolIndicators = [NodePath("../../PatrolIndicators/3to2")]
-
-[node name="Guard4" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(704, -3584)
-patrolIndicators = [NodePath("../../PatrolIndicators/6to5")]
-
-[node name="Guard5" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(1216, -3584)
-patrolIndicators = [NodePath("../../PatrolIndicators/7to8")]
-
-[node name="Cleaner" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_0iiw5")]
-position = Vector2(1600, -1280)
-patrolIndicators = [NodePath("../../PatrolIndicators/9to12")]
-
-[node name="Guard7" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(2368, -3328)
-patrolIndicators = [NodePath("../../PatrolIndicators/11to10")]
-
-[node name="Guard8" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_xs62e")]
-position = Vector2(1176, -1344)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingRight")]
-
-[node name="Hyottoko" parent="Room1Hall/Guards" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_hni55")]
-position = Vector2(2672, -2368)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillfacingUp")]
-
 [node name="Walls" type="Node2D" parent="Room1Hall"]
 
 [node name="Wall" parent="Room1Hall/Walls" instance=ExtResource("2_4y2q6")]
@@ -249,6 +205,9 @@ position = Vector2(192, -3776)
 
 [node name="Wall42" parent="Room1Hall/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-320, -3776)
+
+[node name="Wall59" parent="Room1Hall/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-64, -3776)
 
 [node name="Wall43" parent="Room1Hall/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-576, -3776)
@@ -425,1688 +384,901 @@ position = Vector2(-192, -1792)
 
 [node name="NavigationPoints" type="Node2D" parent="Room1Hall"]
 
-[node name="1" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(-576, -1536)
-
-[node name="2" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(-576, -3584)
-
-[node name="3" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(192, -3584)
-
-[node name="4" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(192, -1536)
-
-[node name="5" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(704, -1536)
-
-[node name="6" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(704, -3584)
-
-[node name="7" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(1216, -1536)
-
-[node name="8" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(1216, -3584)
-
-[node name="9" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(1600, -1280)
-
-[node name="10" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(1600, -3320)
-
-[node name="11" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(2368, -3330)
-
-[node name="12" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(2368, -1280)
-
-[node name="13" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(-760, -2752)
-
-[node name="14" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(1176, -1344)
-
-[node name="15" type="Node2D" parent="Room1Hall/NavigationPoints"]
-position = Vector2(2672, -2368)
-
 [node name="PatrolIndicators" type="Node2D" parent="Room1Hall"]
 
-[node name="1to4" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2"), NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4")]
-lookActions = Array[int]([3, 1, 2, 0])
+[node name="Room2Warehouse" type="Node2D" parent="."]
 
-[node name="3to2" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/3"), NodePath("../../NavigationPoints/4"), NodePath("../../NavigationPoints/1"), NodePath("../../NavigationPoints/2")]
-lookActions = Array[int]([2, 0, 3, 1])
+[node name="DeathTraps" type="Node2D" parent="Room2Warehouse"]
 
-[node name="6to5" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/6"), NodePath("../../NavigationPoints/5")]
-lookActions = Array[int]([2, 3])
-
-[node name="7to8" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/7"), NodePath("../../NavigationPoints/8")]
-lookActions = Array[int]([3, 2])
-
-[node name="9to12" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10"), NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12")]
-lookActions = Array[int]([3, 1, 2, 0])
-
-[node name="11to10" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../../NavigationPoints/11"), NodePath("../../NavigationPoints/12"), NodePath("../../NavigationPoints/9"), NodePath("../../NavigationPoints/10")]
-lookActions = Array[int]([2, 0, 3, 1])
-
-[node name="StillfacingDown" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 2, 0])
-waitActions = Array[float]([3.0, 3.0])
-moveActions = [NodePath("../../NavigationPoints/13")]
-lookActions = Array[int]([1, 3])
-
-[node name="StillfacingUp" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 2, 0])
-waitActions = Array[float]([3.0, 3.0])
-moveActions = [NodePath("../../NavigationPoints/15")]
-lookActions = Array[int]([0, 2])
-
-[node name="StillfacingRight" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
-script = ExtResource("11_plsik")
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
-waitActions = Array[float]([3.0, 3.0, 3.0, 3.0])
-moveActions = [NodePath("../../NavigationPoints/14")]
-lookActions = Array[int]([3, 0, 3, 1])
-
-[node name="RoomA2Warehouse" type="Node2D" parent="."]
-
-[node name="DeathTraps" type="Node2D" parent="RoomA2Warehouse"]
-
-[node name="MoveInteractionObject" parent="RoomA2Warehouse/DeathTraps" instance=ExtResource("6_ob1wc")]
+[node name="MoveInteractionObject" parent="Room2Warehouse/DeathTraps" instance=ExtResource("6_ob1wc")]
 position = Vector2(-1152, -2304)
 rotation = 1.5708
 scale = Vector2(2, -1)
 
-[node name="Interactables" type="Node2D" parent="RoomA2Warehouse"]
+[node name="Interactables" type="Node2D" parent="Room2Warehouse"]
 
-[node name="Door1C" parent="RoomA2Warehouse/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
-position = Vector2(-1232, -3096)
-rotation = 0.785398
+[node name="Door1C" parent="Room2Warehouse/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(-1088, -2880)
 neededString = "Key1C"
 objectToSendDestoySignal = NodePath("../../TransformObjects/Key1C")
 
-[node name="DetectionZones" type="Node2D" parent="RoomA2Warehouse"]
+[node name="Door1A" parent="Room2Warehouse/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
+position = Vector2(640, -896)
+rotation = 1.5708
+neededString = "Key1A"
+objectToSendDestoySignal = NodePath("../../TransformObjects/Key1C")
 
-[node name="TransformObjects" type="Node2D" parent="RoomA2Warehouse"]
+[node name="DetectionZones" type="Node2D" parent="Room2Warehouse"]
 
-[node name="Vase" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="TransformObjects" type="Node2D" parent="Room2Warehouse"]
+
+[node name="Vase" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1024, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Vase2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1152, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Vase3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1280, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Vase4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1408, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Vase5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1536, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="Vase6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1664, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Vase/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Vase/Sprite2D")
 
-[node name="HeavyBox" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox" parent="Room2Warehouse/TransformObjects" instance=ExtResource("7_ubwk7")]
 position = Vector2(-3968, -3008)
 
-[node name="HeavyBox2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3840, -3008)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3712, -3008)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3584, -3008)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3456, -3008)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3968, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox7" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox7" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3840, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox8" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox8" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3712, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox9" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox9" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3584, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox10" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox10" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3456, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox11" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox11" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3328, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox12" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox12" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3200, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox13" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox13" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-3072, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="HeavyBox14" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
+[node name="HeavyBox14" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ubwk7")]
 position = Vector2(-2944, -3264)
 transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
-[node name="Statue" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue7" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue7" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2816, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue8" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue8" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2816, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue9" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue9" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-2816, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue10" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue10" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue11" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue11" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue12" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue12" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue13" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue13" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue14" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue14" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue15" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue15" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue16" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue16" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1984, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue17" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue17" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1984, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Statue18" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
+[node name="Statue18" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
 position = Vector2(-1984, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
-[node name="Broom" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
+[node name="Broom" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
 position = Vector2(-2624, -576)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Broom/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Broom/Sprite2D")
 
-[node name="Broom2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
+[node name="Broom2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
 position = Vector2(-3968, -1472)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Broom/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Broom/Sprite2D")
 
-[node name="Broom3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
+[node name="Broom3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_ydnc8")]
 position = Vector2(-1024, -3136)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Broom/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Broom/Sprite2D")
 
-[node name="Cup" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("15_y1bt5")]
+[node name="Cup" parent="Room2Warehouse/TransformObjects" instance=ExtResource("15_y1bt5")]
 position = Vector2(-3520, -2496)
 
-[node name="Cup2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3520, -2368)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3520, -2240)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3392, -2496)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3392, -2368)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3392, -2240)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup7" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup7" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3264, -2496)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup8" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup8" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3264, -2368)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Cup9" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
+[node name="Cup9" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("15_y1bt5")]
 position = Vector2(-3264, -2240)
 transformedCollider = NodePath("../Cup/CollisionShape2D")
 transformedTexture = NodePath("../Cup/Sprite2D")
 
-[node name="Jewels" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("16_32aar")]
+[node name="Jewels" parent="Room2Warehouse/TransformObjects" instance=ExtResource("16_32aar")]
 position = Vector2(-3840, -960)
 rotation = 0.785398
 
-[node name="Jewels2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3752, -872)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels9" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels9" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3392, -864)
 rotation = -0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels10" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels10" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3304, -952)
 rotation = -0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3656, -776)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3568, -688)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels5" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3744, -1048)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels6" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3656, -960)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels7" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels7" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3560, -864)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Jewels8" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
+[node name="Jewels8" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("16_32aar")]
 position = Vector2(-3472, -776)
 rotation = 0.785398
 transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
-[node name="Chest" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("17_6pdyf")]
+[node name="Chest" parent="Room2Warehouse/TransformObjects" instance=ExtResource("17_6pdyf")]
 position = Vector2(-3296, -1632)
 
-[node name="Chest2" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+[node name="Chest2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
 position = Vector2(-3296, -1312)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
-[node name="Chest3" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+[node name="Chest3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
 position = Vector2(-2656, -1312)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
-[node name="Chest4" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
-position = Vector2(-2656, -1624)
+[node name="Chest4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
+position = Vector2(-2656, -1632)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
-[node name="Key1C" parent="RoomA2Warehouse/TransformObjects" instance=ExtResource("20_stvfx")]
+[node name="Key1C" parent="Room2Warehouse/TransformObjects" instance=ExtResource("20_stvfx")]
 position = Vector2(-3264, -576)
 transformedName = "Key1C"
 
-[node name="Coin" parent="RoomA2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("21_3ke44")]
-position = Vector2(-1248, -3296)
-transformedCollider = NodePath("../../../RoomB3AbandonedOffice/TransformObjects/Coin/CollisionShape2D")
-transformedTexture = NodePath("../../../RoomB3AbandonedOffice/TransformObjects/Coin/Sprite2D")
+[node name="Coin" parent="Room2Warehouse/TransformObjects" instance=ExtResource("21_3ke44")]
+position = Vector2(-1120, -3296)
 
-[node name="Guards" type="Node2D" parent="RoomA2Warehouse"]
+[node name="Guards" type="Node2D" parent="Room2Warehouse"]
 
-[node name="Walls" type="Node2D" parent="RoomA2Warehouse"]
+[node name="Walls" type="Node2D" parent="Room2Warehouse"]
 
-[node name="Wall" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2176, -1536)
 rotation = 1.5708
 
-[node name="Wall38" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall38" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2816, -3200)
 rotation = 1.5708
 
-[node name="Wall47" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall47" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2816, -1664)
 rotation = 1.5708
 
-[node name="Wall48" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall48" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2816, -1280)
 rotation = 1.5708
 
-[node name="Wall49" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall49" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3136, -1280)
 rotation = 1.5708
 
-[node name="Wall50" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall50" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3136, -1664)
 rotation = 1.5708
 
-[node name="Wall51" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall51" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2112, -2368)
 rotation = 1.5708
 
-[node name="Wall52" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall52" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2112, -2624)
 rotation = 1.5708
 
-[node name="Wall53" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall53" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2432, -2624)
 rotation = 1.5708
 
-[node name="Wall54" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall54" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2432, -2368)
 rotation = 1.5708
 
-[node name="Wall55" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall55" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3896, -1088)
 rotation = -0.785398
 
-[node name="Wall58" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall58" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3440, -640)
 rotation = -0.785398
 
-[node name="Wall59" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall59" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3256, -824)
 rotation = -0.785398
 
-[node name="Wall60" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1512, -1792)
-rotation = -0.785398
-
-[node name="Wall61" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1328, -1976)
-rotation = -0.785398
-
-[node name="Wall56" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall56" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3896, -824)
 rotation = 0.785398
 
-[node name="Wall57" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall57" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3712, -640)
 rotation = 0.785398
 
-[node name="Wall62" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1416, -3280)
-rotation = 0.785398
+[node name="Wall62" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1280, -3200)
+rotation = 1.5708
 
-[node name="Wall64" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1048, -2912)
-rotation = 0.785398
+[node name="Wall64" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-1280, -2944)
+rotation = 1.5708
 
-[node name="Wall36" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall36" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2176, -512)
 rotation = 1.5708
 
-[node name="Wall17" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall17" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -3328)
 rotation = 1.5708
 
-[node name="Wall18" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall18" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -3072)
 rotation = 1.5708
 
-[node name="Wall19" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall19" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -2816)
 rotation = 1.5708
 
-[node name="Wall20" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall20" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -2560)
 rotation = 1.5708
 
-[node name="Wall21" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall21" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -2304)
 rotation = 1.5708
 
-[node name="Wall22" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall22" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -2048)
 rotation = 1.5708
 
-[node name="Wall23" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall23" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -1792)
 rotation = 1.5708
 
-[node name="Wall24" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall24" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -1536)
 rotation = 1.5708
 
-[node name="Wall25" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall25" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -1280)
 rotation = 1.5708
 
-[node name="Wall26" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall26" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -1024)
 rotation = 1.5708
 
-[node name="Wall27" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall27" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -768)
 rotation = 1.5708
 
-[node name="Wall28" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall28" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-4096, -512)
 rotation = 1.5708
 
-[node name="Wall2" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall2" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1088, -1344)
 
-[node name="Wall7" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall7" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1088, -3392)
 
-[node name="Wall8" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall8" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1344, -3392)
 
-[node name="Wall9" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall9" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1600, -3392)
 
-[node name="Wall10" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall10" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1856, -3392)
 
-[node name="Wall11" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall11" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2368, -3392)
 
-[node name="Wall12" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall44" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2112, -3392)
+
+[node name="Wall12" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2624, -3392)
 
-[node name="Wall13" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall13" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2880, -3392)
 
-[node name="Wall14" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall14" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3136, -3392)
 
-[node name="Wall15" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall15" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3392, -3392)
 
-[node name="Wall16" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall16" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3648, -3392)
 
-[node name="Wall37" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall37" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3904, -3392)
 
-[node name="Wall39" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall39" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3904, -2880)
 
-[node name="Wall40" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall40" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3648, -2880)
 
-[node name="Wall41" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall41" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3392, -2880)
 
-[node name="Wall42" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall42" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3904, -2432)
 
-[node name="Wall43" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall43" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3904, -2112)
 
-[node name="Wall44" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3456, -1472)
-
-[node name="Wall45" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall45" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3200, -1472)
 
-[node name="Wall46" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall46" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2752, -1472)
 
-[node name="Wall3" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall3" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1344, -1344)
 
-[node name="Wall4" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall4" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1600, -1344)
 
-[node name="Wall5" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall5" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1856, -1344)
 
-[node name="Wall6" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall6" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2112, -1344)
 
-[node name="Wall29" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall29" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3904, -448)
 
-[node name="Wall30" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall30" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3648, -448)
 
-[node name="Wall31" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall31" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3392, -448)
 
-[node name="Wall32" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall32" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-3136, -448)
 
-[node name="Wall33" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall33" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2880, -448)
 
-[node name="Wall34" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall34" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2624, -448)
 
-[node name="Wall35" parent="RoomA2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall35" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2368, -448)
 
-[node name="NavigationPoints" type="Node2D" parent="RoomA2Warehouse"]
+[node name="NavigationPoints" type="Node2D" parent="Room2Warehouse"]
 
-[node name="PatrolIndicators" type="Node2D" parent="RoomA2Warehouse"]
+[node name="PatrolIndicators" type="Node2D" parent="Room2Warehouse"]
 
-[node name="RoomA3Archive" type="Node2D" parent="."]
+[node name="Room3Archive" type="Node2D" parent="."]
 
-[node name="DeathTraps" type="Node2D" parent="RoomA3Archive"]
+[node name="DeathTraps" type="Node2D" parent="Room3Archive"]
 
-[node name="MovementImpairInteractionObject3" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1536, -584)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject4" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1280, -584)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject5" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1016, -584)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject6" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1536, -760)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject7" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1272, -760)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject8" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1016, -768)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject9" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-2048, 576)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject10" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject9" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-2368, 576)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject11" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-2208, 576)
+[node name="MovementImpairInteractionObject10" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(-384, 512)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject12" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-384, 320)
+[node name="MovementImpairInteractionObject11" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(-768, -704)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject13" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-640, 320)
+[node name="MovementImpairInteractionObject16" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(-1216, 128)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject14" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-904, 320)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject15" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1160, 320)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject16" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-1400, 320)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject17" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject17" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-200, 1280)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject18" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-200, 1152)
+[node name="MovementImpairInteractionObject21" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(704, -256)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject19" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-128, -512)
+[node name="MovementImpairInteractionObject23" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
+position = Vector2(1024, 768)
 scale = Vector2(2, 2)
 
-[node name="MovementImpairInteractionObject20" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(-384, -512)
-scale = Vector2(2, 2)
+[node name="Interactables" type="Node2D" parent="Room3Archive"]
 
-[node name="MovementImpairInteractionObject21" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(768, -256)
-scale = Vector2(2, 2)
+[node name="DetectionZones" type="Node2D" parent="Room3Archive"]
 
-[node name="MovementImpairInteractionObject22" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(768, -128)
-scale = Vector2(2, 2)
+[node name="TransformObjects" type="Node2D" parent="Room3Archive"]
 
-[node name="MovementImpairInteractionObject23" parent="RoomA3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(1216, 896)
-scale = Vector2(2, 2)
-
-[node name="Interactables" type="Node2D" parent="RoomA3Archive"]
-
-[node name="Door1A" parent="RoomA3Archive/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
-neededString = "Key1A"
-objectToSendDestoySignal = NodePath("../../TransformObjects/Key1A")
-
-[node name="DetectionZones" type="Node2D" parent="RoomA3Archive"]
-
-[node name="TransformObjects" type="Node2D" parent="RoomA3Archive"]
-
-[node name="Vase" parent="RoomA3Archive/TransformObjects" instance=ExtResource("7_ktmq7")]
+[node name="Vase" parent="Room3Archive/TransformObjects" instance=ExtResource("7_ktmq7")]
 position = Vector2(-1152, -1088)
 
-[node name="Vase2" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase2" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1024, -1088)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase3" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase3" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-896, -1088)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase4" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase4" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-768, -1088)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase5" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase5" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1024, 1344)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase6" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+[node name="Vase6" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-896, 1344)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase7" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(640, 192)
+[node name="Vase7" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+position = Vector2(640, 64)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase8" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(768, 192)
+[node name="Vase8" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+position = Vector2(768, 64)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase9" parent="RoomA3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(896, 192)
+[node name="Vase9" parent="Room3Archive/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
+position = Vector2(896, 64)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Feather" parent="RoomA3Archive/TransformObjects" instance=ExtResource("18_h38mc")]
+[node name="Feather" parent="Room3Archive/TransformObjects" instance=ExtResource("18_h38mc")]
 position = Vector2(1216, 1280)
 
-[node name="Broom" parent="RoomA3Archive/TransformObjects" instance=ExtResource("8_ydnc8")]
+[node name="Broom" parent="Room3Archive/TransformObjects" instance=ExtResource("8_ydnc8")]
 position = Vector2(1280, -192)
 
-[node name="Key1A" parent="RoomA3Archive/TransformObjects" instance=ExtResource("20_stvfx")]
+[node name="Key1A" parent="Room3Archive/TransformObjects" instance=ExtResource("20_stvfx")]
 position = Vector2(-2432, 896)
 transformedName = "Key1A"
 
-[node name="Guards" type="Node2D" parent="RoomA3Archive"]
+[node name="Guards" type="Node2D" parent="Room3Archive"]
 
-[node name="Walls" type="Node2D" parent="RoomA3Archive"]
+[node name="Walls" type="Node2D" parent="Room3Archive"]
 
-[node name="Wall" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2176, -1024)
 rotation = 1.5708
 
-[node name="Wall13" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall13" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, -256)
 rotation = 1.5708
 
-[node name="Wall14" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall14" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 0)
 rotation = 1.5708
 
-[node name="Wall21" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall21" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, -256)
 rotation = 1.5708
 
-[node name="Wall22" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall22" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 0)
 rotation = 1.5708
 
-[node name="Wall23" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall23" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 256)
 rotation = 1.5708
 
-[node name="Wall24" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall24" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 512)
 rotation = 1.5708
 
-[node name="Wall25" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall25" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 768)
 rotation = 1.5708
 
-[node name="Wall26" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall26" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 1024)
 rotation = 1.5708
 
-[node name="Wall27" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall27" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1408, 1280)
 rotation = 1.5708
 
-[node name="Wall15" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall15" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 256)
 rotation = 1.5708
 
-[node name="Wall16" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall16" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 512)
 rotation = 1.5708
 
-[node name="Wall17" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall17" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 768)
 rotation = 1.5708
 
-[node name="Wall18" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall18" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 1024)
 rotation = 1.5708
 
-[node name="Wall43" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1856, 1024)
+[node name="Wall43" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2176, 1088)
 rotation = 1.5708
 
-[node name="Wall47" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall47" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1152, 1024)
 rotation = 1.5708
 
-[node name="Wall57" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-192, 896)
+[node name="Wall57" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-192, 1024)
 rotation = 1.5708
 
-[node name="Wall58" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-192, 640)
+[node name="Wall58" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-192, 768)
 rotation = 1.5708
 
-[node name="Wall59" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-192, 384)
+[node name="Wall59" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-192, 512)
 rotation = 1.5708
 
-[node name="Wall60" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-192, 128)
+[node name="Wall60" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-192, 256)
 rotation = 1.5708
 
-[node name="Wall62" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-88, -128)
-rotation = -0.785398
+[node name="Wall62" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-64, 64)
 
-[node name="Wall63" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-296, -128)
-rotation = 0.785398
+[node name="Wall63" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-320, 64)
 
-[node name="Wall64" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-480, -312)
-rotation = 0.785398
-
-[node name="Wall65" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-664, -496)
-rotation = 0.785398
-
-[node name="Wall66" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1000, 1064)
-rotation = 0.785398
-
-[node name="Wall67" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(816, 880)
-rotation = 0.785398
-
-[node name="Wall68" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(632, 696)
-rotation = 0.785398
-
-[node name="Wall69" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(448, 512)
-rotation = 0.785398
-
-[node name="Wall61" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-256, -768)
+[node name="Wall68" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(640, 896)
 rotation = 1.5708
 
-[node name="Wall48" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall69" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(640, 640)
+rotation = 1.5708
+
+[node name="Wall48" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1152, 768)
 rotation = 1.5708
 
-[node name="Wall49" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall49" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1280, 576)
 
-[node name="Wall50" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall50" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1024, 576)
 
-[node name="Wall44" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1856, 768)
+[node name="Wall44" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2176, 832)
 rotation = 1.5708
 
-[node name="Wall45" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1856, 512)
+[node name="Wall45" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2176, 576)
 rotation = 1.5708
 
-[node name="Wall46" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1856, 256)
+[node name="Wall46" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(-2176, 320)
 rotation = 1.5708
 
-[node name="Wall51" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall51" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1600, -192)
 
-[node name="Wall52" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall52" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1344, -192)
 
-[node name="Wall53" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1216, 64)
+[node name="Wall53" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(1216, -64)
 
-[node name="Wall54" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(960, 64)
+[node name="Wall54" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(960, -64)
 
-[node name="Wall55" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(704, 64)
+[node name="Wall55" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(704, -64)
 
-[node name="Wall56" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(448, 64)
+[node name="Wall56" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(448, -64)
 
-[node name="Wall19" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall19" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2560, 1280)
 rotation = 1.5708
 
-[node name="Wall20" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall20" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2496, 1472)
 
-[node name="Wall28" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall28" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2240, 1472)
 
-[node name="Wall29" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall29" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1984, 1472)
 
-[node name="Wall30" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall30" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1728, 1472)
 
-[node name="Wall31" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall31" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1472, 1472)
 
-[node name="Wall32" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall32" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1216, 1472)
 
-[node name="Wall33" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall33" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-960, 1472)
 
-[node name="Wall34" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall34" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-704, 1472)
 
-[node name="Wall35" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall35" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-448, 1472)
 
-[node name="Wall36" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall36" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-192, 1472)
 
-[node name="Wall37" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall37" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(64, 1472)
 
-[node name="Wall38" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall38" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(320, 1472)
 
-[node name="Wall39" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall39" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(576, 1472)
 
-[node name="Wall40" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall40" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(832, 1472)
 
-[node name="Wall41" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall41" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1088, 1472)
 
-[node name="Wall42" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall42" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(1344, 1472)
 
-[node name="Wall2" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall2" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2112, -1216)
 
-[node name="Wall3" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall3" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1856, -1216)
 
-[node name="Wall4" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall4" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1600, -1216)
 
-[node name="Wall5" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall5" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1344, -1216)
 
-[node name="Wall6" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall6" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1088, -1216)
 
-[node name="Wall7" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall7" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-832, -1216)
 
-[node name="Wall8" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall8" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-576, -1216)
 
-[node name="Wall9" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall9" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-320, -1216)
 
-[node name="Wall10" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall10" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-64, -1216)
 
-[node name="Wall11" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall11" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(192, -1216)
 
-[node name="Wall12" parent="RoomA3Archive/Walls" instance=ExtResource("2_4y2q6")]
+[node name="Wall12" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(448, -1216)
 
-[node name="NavigationPoints" type="Node2D" parent="RoomA3Archive"]
+[node name="NavigationPoints" type="Node2D" parent="Room3Archive"]
 
-[node name="PatrolIndicators" type="Node2D" parent="RoomA3Archive"]
-
-[node name="RoomB2Bedrooms" type="Node2D" parent="."]
-
-[node name="DeathTraps" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="DeathTrapInteractionObject" parent="RoomB2Bedrooms/DeathTraps" instance=ExtResource("6_eovfk")]
-position = Vector2(-2112, -3520)
-scale = Vector2(0.5, 0.75)
-
-[node name="MoveInteractionObject" parent="RoomB2Bedrooms/DeathTraps" instance=ExtResource("6_ob1wc")]
-position = Vector2(-64, -4032)
-scale = Vector2(2, 1)
-
-[node name="Interactables" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="Drawer" parent="RoomB2Bedrooms/Interactables" instance=ExtResource("19_2rdmc")]
-position = Vector2(-3136, -5376)
-scale = Vector2(2, 2)
-
-[node name="Drawer2" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-2624, -5376)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Drawer3" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-2112, -5376)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Drawer4" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-1600, -5376)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Drawer5" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-1088, -5376)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Drawer6" parent="RoomB2Bedrooms/Interactables" instance=ExtResource("19_2rdmc")]
-position = Vector2(-576, -5376)
-scale = Vector2(2, 2)
-dropActive = true
-droppedObjectOnInteraction = "res://ImportantObjects/TransformationObjects/Keys/key_1b.tscn"
-
-[node name="Drawer7" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-64, -5376)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Drawer8" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("dropPoint") instance=ExtResource("19_2rdmc")]
-position = Vector2(-1344, -3584)
-scale = Vector2(2, 2)
-dropPoint = NodePath("../Drawer/DropPoint")
-
-[node name="Door1B" parent="RoomB2Bedrooms/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
-position = Vector2(1024, -4480)
-rotation = 1.5708
-neededString = "Key1B"
-objectToSendDestoySignal = NodePath("../Drawer6")
-
-[node name="DetectionZones" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="TransformObjects" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="Crowbar" parent="RoomB2Bedrooms/TransformObjects" instance=ExtResource("19_6nity")]
-position = Vector2(-3136, -3584)
-
-[node name="Guards" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="Walls" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="Wall" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -3584)
-rotation = 1.5708
-
-[node name="Wall2" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -3840)
-rotation = 1.5708
-
-[node name="Wall3" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -4096)
-rotation = 1.5708
-
-[node name="Wall4" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -4352)
-rotation = 1.5708
-
-[node name="Wall5" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -4608)
-rotation = 1.5708
-
-[node name="Wall6" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -4864)
-rotation = 1.5708
-
-[node name="Wall7" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -5120)
-rotation = 1.5708
-
-[node name="Wall8" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3328, -5376)
-rotation = 1.5708
-
-[node name="Wall15" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3264, -5568)
-
-[node name="Wall16" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3008, -5568)
-
-[node name="Wall17" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2752, -5568)
-
-[node name="Wall18" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2496, -5568)
-
-[node name="Wall19" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2240, -5568)
-
-[node name="Wall20" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1984, -5568)
-
-[node name="Wall21" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1728, -5568)
-
-[node name="Wall22" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1472, -5568)
-
-[node name="Wall23" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-1216, -5568)
-
-[node name="Wall24" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-960, -5568)
-
-[node name="Wall25" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-704, -5568)
-
-[node name="Wall26" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-448, -5568)
-
-[node name="Wall27" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-192, -5568)
-
-[node name="Wall28" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(64, -5568)
-
-[node name="Wall29" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(320, -5568)
-
-[node name="Wall30" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(576, -5568)
-
-[node name="Wall31" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(832, -5568)
-
-[node name="Wall9" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -3968)
-rotation = 1.5708
-
-[node name="Wall10" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -4224)
-rotation = 1.5708
-
-[node name="Wall11" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -4736)
-rotation = 1.5708
-
-[node name="Wall12" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -4992)
-rotation = 1.5708
-
-[node name="Wall13" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -5248)
-rotation = 1.5708
-
-[node name="Wall14" parent="RoomB2Bedrooms/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -5504)
-rotation = 1.5708
-
-[node name="NavigationPoints" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="PatrolIndicators" type="Node2D" parent="RoomB2Bedrooms"]
-
-[node name="RoomB3AbandonedOffice" type="Node2D" parent="."]
-
-[node name="DeathTraps" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="SmallGapObject" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("24_oha34")]
-position = Vector2(2080, -4872)
-rotation = -0.785398
-
-[node name="SmallGapObject2" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
-position = Vector2(3840, -4416)
-rotation = 1.5708
-effect = NodePath("../SmallGapObject/SmallGapEffect")
-
-[node name="SmallGapObject3" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
-position = Vector2(3840, -3904)
-rotation = 1.5708
-effect = NodePath("../SmallGapObject/SmallGapEffect")
-
-[node name="SmallGapObject4" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
-position = Vector2(3456, -3328)
-rotation = 1.5708
-scale = Vector2(2, 1)
-effect = NodePath("../SmallGapObject/SmallGapEffect")
-
-[node name="SmallGapObject5" parent="RoomB3AbandonedOffice/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("24_oha34")]
-position = Vector2(2880, -3648)
-scale = Vector2(2, 1)
-effect = NodePath("../SmallGapObject/SmallGapEffect")
-
-[node name="DeathTrapInteractionObject" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("6_eovfk")]
-position = Vector2(1728, -5880)
-
-[node name="DeathTrapInteractionObject2" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("6_eovfk")]
-position = Vector2(2576, -4360)
-rotation = 0.785398
-scale = Vector2(0.5, 0.5)
-
-[node name="MovementImpairInteractionObject20" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(2944, -5376)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject21" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(2688, -5376)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject22" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(2688, -5120)
-scale = Vector2(2, 2)
-
-[node name="MovementImpairInteractionObject23" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("7_s8vu6")]
-position = Vector2(2944, -5120)
-scale = Vector2(2, 2)
-
-[node name="MoveInteractionObject" parent="RoomB3AbandonedOffice/DeathTraps" instance=ExtResource("6_ob1wc")]
-position = Vector2(2176, -5216)
-rotation = -1.5708
-scale = Vector2(-2.5, -1)
-
-[node name="Interactables" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="Door1D" parent="RoomB3AbandonedOffice/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
-position = Vector2(2048, -5888)
-rotation = 1.5708
-neededString = "Key1D"
-objectToSendDestoySignal = NodePath("../../TransformObjects/Key1D")
-
-[node name="Door1E" parent="RoomB3AbandonedOffice/Interactables" node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("14_0ols6")]
-position = Vector2(2944, -6144)
-rotation = 1.5708
-neededString = "Key1E"
-objectToSendDestoySignal = NodePath("../../TransformObjects/Key1E")
-
-[node name="Drawer" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("19_2rdmc")]
-position = Vector2(1920, -4128)
-scale = Vector2(2.5, 2.5)
-
-[node name="Shoji" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(1216, -5568)
-
-[node name="Shoji2" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(1920, -5568)
-scale = Vector2(0.5, 1)
-
-[node name="Shoji5" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(3840, -4032)
-scale = Vector2(0.5, 1)
-
-[node name="Shoji3" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(1728, -5568)
-
-[node name="Shoji6" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(3648, -4032)
-
-[node name="Shoji7" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(3392, -4032)
-
-[node name="Shoji8" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(3136, -4032)
-
-[node name="Shoji4" parent="RoomB3AbandonedOffice/Interactables" instance=ExtResource("25_gbuf8")]
-position = Vector2(1472, -5568)
-
-[node name="DetectionZones" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="TransformObjects" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="Coin" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("21_3ke44")]
-position = Vector2(2016, -4704)
-
-[node name="Statue" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("8_1qbxj")]
-position = Vector2(3456, -6208)
-
-[node name="Statue2" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(3136, -5312)
-transformedCollider = NodePath("../Statue/CollisionShape2D")
-transformedTexture = NodePath("../Statue/Sprite2D")
-
-[node name="Statue3" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(3136, -5184)
-transformedCollider = NodePath("../Statue/CollisionShape2D")
-transformedTexture = NodePath("../Statue/Sprite2D")
-
-[node name="Statue4" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(3136, -5056)
-transformedCollider = NodePath("../Statue/CollisionShape2D")
-transformedTexture = NodePath("../Statue/Sprite2D")
-
-[node name="Vase" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("7_ktmq7")]
-position = Vector2(2304, -6208)
-
-[node name="Vase2" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(2432, -6208)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase3" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(2560, -6208)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase4" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(2176, -5568)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase5" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(2176, -5440)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Feather" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("18_h38mc")]
-position = Vector2(3392, -5312)
-
-[node name="Key1D" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("20_stvfx")]
-position = Vector2(2304, -4032)
-transformedName = "Key1D"
-
-[node name="Key1E" parent="RoomB3AbandonedOffice/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("20_stvfx")]
-position = Vector2(3840, -6016)
-transformedName = "Key1E"
-transformedCollider = NodePath("../Key1D/CollisionShape2D")
-transformedTexture = NodePath("../Key1D/Sprite2D")
-
-[node name="Katana" parent="RoomB3AbandonedOffice/TransformObjects" instance=ExtResource("25_ydcnl")]
-position = Vector2(1152, -6208)
-
-[node name="Guards" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="Walls" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="Wall" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -5760)
-rotation = 1.5708
-
-[node name="Wall2" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -6016)
-rotation = 1.5708
-
-[node name="Wall3" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1024, -6272)
-rotation = 1.5708
-
-[node name="Wall29" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2048, -6144)
-rotation = 1.5708
-
-[node name="Wall30" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2048, -5632)
-rotation = 1.5708
-
-[node name="Wall41" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1920, -4416)
-rotation = 1.5708
-
-[node name="Wall42" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1920, -4672)
-rotation = 1.5708
-
-[node name="Wall49" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2176, -4096)
-rotation = 1.5708
-
-[node name="Wall50" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2176, -4352)
-rotation = 1.5708
-
-[node name="Wall51" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2176, -4600)
-rotation = 1.5708
-
-[node name="Wall43" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1920, -4928)
-rotation = 1.5708
-
-[node name="Wall31" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2944, -5888)
-rotation = 1.5708
-
-[node name="Wall34" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3264, -5376)
-rotation = 1.5708
-
-[node name="Wall36" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3264, -5120)
-rotation = 1.5708
-
-[node name="Wall37" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3264, -4864)
-rotation = 1.5708
-
-[node name="Wall32" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3016, -5720)
-rotation = 0.785398
-
-[node name="Wall33" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3200, -5536)
-rotation = 0.785398
-
-[node name="Wall44" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1992, -4960)
-rotation = 0.785398
-scale = Vector2(0.5, 1)
-
-[node name="Wall45" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2216, -4736)
-rotation = 0.785398
-
-[node name="Wall46" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2400, -4552)
-rotation = 0.785398
-
-[node name="Wall48" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2768, -4184)
-rotation = 0.785398
-
-[node name="Wall47" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2952, -4000)
-rotation = 0.785398
-
-[node name="Wall38" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3336, -4688)
-rotation = 0.785398
-
-[node name="Wall39" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3520, -4504)
-rotation = 0.785398
-
-[node name="Wall4" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1216, -3904)
-
-[node name="Wall5" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1472, -3904)
-
-[node name="Wall18" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1216, -6336)
-
-[node name="Wall19" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1472, -6336)
-
-[node name="Wall20" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1728, -6336)
-
-[node name="Wall21" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1984, -6336)
-
-[node name="Wall22" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2240, -6336)
-
-[node name="Wall23" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2496, -6336)
-
-[node name="Wall24" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2752, -6336)
-
-[node name="Wall25" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3008, -6336)
-
-[node name="Wall26" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3264, -6336)
-
-[node name="Wall35" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3456, -5440)
-
-[node name="Wall40" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3648, -4416)
-
-[node name="Wall27" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3520, -6336)
-
-[node name="Wall28" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3776, -6336)
-
-[node name="Wall6" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1728, -3904)
-
-[node name="Wall7" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(1984, -3904)
-
-[node name="Wall8" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2240, -3904)
-
-[node name="Wall9" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2496, -3904)
-
-[node name="Wall10" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2752, -3904)
-
-[node name="Wall15" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3136, -3904)
-
-[node name="Wall16" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3392, -3904)
-
-[node name="Wall17" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3648, -3904)
-
-[node name="Wall11" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3008, -3392)
-
-[node name="Wall12" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3264, -3392)
-
-[node name="Wall13" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3584, -3392)
-scale = Vector2(0.5, 1)
-
-[node name="Wall14" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3776, -3392)
-
-[node name="Wall52" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2944, -3840)
-rotation = 1.5708
-
-[node name="Wall53" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(2944, -3520)
-rotation = 1.5708
-scale = Vector2(0.5, 1)
-
-[node name="Wall54" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3456)
-rotation = 1.5708
-
-[node name="Wall55" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3712)
-rotation = 1.5708
-
-[node name="Wall56" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -3968)
-rotation = 1.5708
-
-[node name="Wall57" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4224)
-rotation = 1.5708
-
-[node name="Wall58" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4480)
-rotation = 1.5708
-
-[node name="Wall59" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4736)
-rotation = 1.5708
-
-[node name="Wall60" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -4992)
-rotation = 1.5708
-
-[node name="Wall61" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5248)
-rotation = 1.5708
-
-[node name="Wall62" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5504)
-rotation = 1.5708
-
-[node name="Wall63" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -5760)
-rotation = 1.5708
-
-[node name="Wall64" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -6016)
-rotation = 1.5708
-
-[node name="Wall65" parent="RoomB3AbandonedOffice/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(3968, -6272)
-rotation = 1.5708
-
-[node name="NavigationPoints" type="Node2D" parent="RoomB3AbandonedOffice"]
-
-[node name="PatrolIndicators" type="Node2D" parent="RoomB3AbandonedOffice"]
+[node name="PatrolIndicators" type="Node2D" parent="Room3Archive"]
 
 [node name="Room4Exit" type="Node2D" parent="."]
 
@@ -2114,6 +1286,15 @@ rotation = 1.5708
 
 [node name="DeathTrapInteractionObject" parent="Room4Exit/DeathTraps" instance=ExtResource("6_eovfk")]
 position = Vector2(3008, -2688)
+
+[node name="SmallGapObject5" parent="Room4Exit/DeathTraps" instance=ExtResource("24_oha34")]
+position = Vector2(2880, -3648)
+scale = Vector2(2, 1)
+
+[node name="SmallGapObject4" parent="Room4Exit/DeathTraps" instance=ExtResource("24_oha34")]
+position = Vector2(3456, -3328)
+rotation = 1.5708
+scale = Vector2(2, 1)
 
 [node name="DetectionZones" type="Node2D" parent="Room4Exit"]
 
@@ -2163,6 +1344,44 @@ position = Vector2(3264, -3264)
 
 [node name="Wall4" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(3776, -3264)
+
+[node name="Wall15" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3008, -3776)
+
+[node name="Wall16" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3264, -3776)
+
+[node name="Wall17" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3520, -3776)
+
+[node name="Wall53" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(2944, -3520)
+rotation = 1.5708
+scale = Vector2(0.5, 1)
+
+[node name="Wall54" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -3456)
+rotation = 1.5708
+
+[node name="Wall55" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3968, -3712)
+rotation = 1.5708
+
+[node name="Wall14" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3008, -3392)
+
+[node name="Wall18" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3264, -3392)
+
+[node name="Wall19" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3584, -3392)
+scale = Vector2(0.5, 1)
+
+[node name="Wall20" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -3392)
+
+[node name="Wall56" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
+position = Vector2(3776, -3776)
 
 [node name="Wall3" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(3584, -3264)
