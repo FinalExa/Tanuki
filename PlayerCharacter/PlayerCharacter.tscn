@@ -21,8 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://c81psw8hrc3xj" path="res://PlayerCharacter/Sprites/Tan-2.0.1-200.png" id="14_6hj2i"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerInputs.gd" id="14_tgchp"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
-[ext_resource type="Script" path="res://PlayerCharacter/PlayerRepelled.gd" id="15_ar7ap"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -275,7 +275,7 @@ process_mode = 3
 script = ExtResource("14_tgchp")
 
 [node name="PlayerRepelled" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
-script = ExtResource("15_ar7ap")
+script = ExtResource("15_v4kpo")
 playerRef = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
