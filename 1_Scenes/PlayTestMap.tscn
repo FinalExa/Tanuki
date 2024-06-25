@@ -199,23 +199,23 @@ patrolIndicators = [NodePath("../../PatrolIndicators/B")]
 
 [node name="Guard2" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(2368, -3008)
-patrolIndicators = [NodePath("../../PatrolIndicators/D")]
+patrolIndicators = [NodePath("../../PatrolIndicators/D"), NodePath("../../PatrolIndicators/C")]
 
 [node name="Guard3" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(-768, -2752)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillA")]
+patrolIndicators = [NodePath("../../PatrolIndicators/StillA"), NodePath("../../PatrolIndicators/A")]
 
 [node name="Guard4" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(-576, -2560)
-patrolIndicators = [NodePath("../../PatrolIndicators/A")]
+patrolIndicators = [NodePath("../../PatrolIndicators/A"), NodePath("../../PatrolIndicators/B")]
 
 [node name="Guard5" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(192, -2112)
-patrolIndicators = [NodePath("../../PatrolIndicators/A")]
+patrolIndicators = [NodePath("../../PatrolIndicators/A"), NodePath("../../PatrolIndicators/B")]
 
 [node name="Guard6" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(2688, -2368)
-patrolIndicators = [NodePath("../../PatrolIndicators/StillB")]
+patrolIndicators = [NodePath("../../PatrolIndicators/StillB"), NodePath("../../PatrolIndicators/D")]
 
 [node name="Cleaner7" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_g7har")]
 position = Vector2(1216, -1600)
@@ -227,7 +227,7 @@ patrolIndicators = [NodePath("../../PatrolIndicators/StillC")]
 
 [node name="Guard9" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(1600, -1408)
-patrolIndicators = [NodePath("../../PatrolIndicators/D")]
+patrolIndicators = [NodePath("../../PatrolIndicators/D"), NodePath("../../PatrolIndicators/C")]
 
 [node name="Guard10" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
 position = Vector2(768, -704)
