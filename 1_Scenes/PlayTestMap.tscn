@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=29 format=3 uid="uid://vo0g6kml8604"]
 
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
 [ext_resource type="PackedScene" uid="uid://b4loys1tn1mk5" path="res://WeaponTool/frame_master.tscn" id="2_ae2pm"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="6_7ekh4"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="6_dih8m"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="6_eovfk"]
 [ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="6_ob1wc"]
@@ -13,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="7_ubwk7"]
 [ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_1qbxj"]
 [ext_resource type="PackedScene" uid="uid://cv2ama730fiex" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="8_ydnc8"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="10_g7har"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="11_gcc7g"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="13_akx0w"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="14_0ols6"]
 [ext_resource type="PackedScene" uid="uid://c273y8hyyc3hf" path="res://ImportantObjects/TransformationObjects/cup.tscn" id="15_y1bt5"]
 [ext_resource type="PackedScene" uid="uid://8p6lrlqbtesj" path="res://ImportantObjects/TransformationObjects/jewels.tscn" id="16_32aar"]
@@ -20,25 +24,28 @@
 [ext_resource type="PackedScene" uid="uid://blf1b0nspss5j" path="res://ImportantObjects/TransformationObjects/feather.tscn" id="18_h38mc"]
 [ext_resource type="PackedScene" uid="uid://6u2a7gaoiufs" path="res://ImportantObjects/TransformationObjects/key.tscn" id="20_stvfx"]
 [ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="21_3ke44"]
+[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="23_bm6s3"]
 [ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="24_oha34"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lv7pc"]
-vertices = PackedVector2Array(-3904, -1536, -3200, -2176, -2176, -2240, -2048, -2240, -3392, -1728, -2368, -2240, -2496, -2240, 2240, -640, 832, -1280, 1856, -1408, 2112, -1408, 2496, -640, 64, 128, 320, 0, 1344, 0, 704, 512, 576, 512, -64, -1664, 1856, -1920, 1920, -1920, 1856, -1664, 1280, 1216, 1152, 1216, 704, 1024, 2112, -2432, 2112, -2688, 2752, -3712, 2752, -512, 2112, -2944, 2048, -2688, 2048, -2816, 2112, -3200, 1344, -3712, 1856, -3200, 1344, -3584, -3200, -640, -3352, -640, -3120, -872, -2240, -1664, -2240, -896, -2560, -1216, -2560, -1408, 1344, 1408, 1280, 1344, -832, 1408, 1152, 1344, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -256, 128, -256, 1152, -1088, 1152, -896, 640, -448, 128, -896, 512, 64, 0, -64, -1920, 1856, -2176, 832, -1408, -320, -2432, -320, -2176, -832, -2176, -1664, -2304, -832, -2432, 1920, -2816, 1856, -2688, -64, -2688, -64, -2944, 1856, -2944, -832, 1280, -128, 1152, -1088, 1280, -2112, 1216, -4032, -3072, -4032, -3200, -2880, -3200, -3392, -3072, -2880, -3072, -3264, -2944, -3392, -2944, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -3712, 832, -3712, 832, -3584, -64, -3456, -320, -3456, -64, -3200, -128, -2944, -128, -3200, -320, -3200, -256, -3200, -256, -2944, -320, -2944, -320, -2688, -256, -2688, -256, -2560, -128, -2560, -128, -2688, 1856, -2432, 1920, -2304, -64, -2432, 1920, -2688, 1920, -2432, 2048, -2304, 2048, -2432, 2112, -2176, 2112, -1664, 2048, -1664, 2048, -1920, 2112, -1920, -128, -1920, -128, -2064, -64, -2176, -128, -2176, -1664, -2688, -2048, -2688, -2048, -2752, -2176, -2752, -2368, -2752, -2496, -2752, -2496, -2688, -2880, -2688, -3264, -2816, -2880, -2304, -2496, -2304, -3200, -2560, -960, -2176, -2048, -2304, -256, -2176, -256, -2064, -320, -1920, -256, -1920, 1920, -1664, 448, -1536, 448, -1408, 192, -1536, 192, -1408, -832, -1408, -320, -1664, -960, -1536, -1728, -1536, -2112, -1664, -1728, -1408, -2112, -1408, -2624, -1408, -2624, -1536, -2560, -1536, -2560, -1728, -2752, -1728, -2752, -1792, -2752, -1152, -2752, -1216, -3200, -1792, -3200, -1728, -3392, -1536, -3328, -1536, -3328, -1408, -3392, -1408, -3392, -1216, -3200, -1216, -3200, -1152, -3304, -1048, -2112, -896, -2112, -1152, -1216, -1152, -1216, -1024, -704, -1024, -704, -1152, 576, -1152, 576, -1024, 1984, -512, 1472, -640, 704, -1024, 704, -1280, 2240, -512, 2496, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, -1216, -256, -1216, -128, -448, 0, -1408, 640, -1216, 640, -1216, 1152, -1088, 640, -128, 128, 576, 1024, -1088, 1408, -2496, 1408, -2240, 1216, -2496, 960, -2368, 960, -2240, 192, -2368, 832, -2496, 832, -2496, -384, -2112, 192, -2112, -384, -1728, -128, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3584, -2560, -3480, -872, -1408, 512, 576, -768, -1728, -256, -2112, -640, -3072, -1152, -2880, -1152, -2880, -1792, -3072, -1792, -3584, -2176)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1), PackedInt32Array(6, 5, 1), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(14, 21, 22, 23, 15), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 26, 25, 29, 30), PackedInt32Array(26, 28, 31), PackedInt32Array(32, 26, 31, 33, 34), PackedInt32Array(35, 36, 37), PackedInt32Array(38, 39, 40, 41), PackedInt32Array(14, 42, 43, 21), PackedInt32Array(43, 42, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(50, 51, 52, 53, 54), PackedInt32Array(54, 53, 55), PackedInt32Array(13, 12, 56), PackedInt32Array(18, 17, 57, 58), PackedInt32Array(9, 8, 59), PackedInt32Array(60, 61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(45, 44, 70, 22), PackedInt32Array(71, 22, 70, 72, 73, 51), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 76, 78, 79, 80), PackedInt32Array(81, 82, 83, 84), PackedInt32Array(85, 86, 87, 88), PackedInt32Array(85, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(69, 28, 30, 65), PackedInt32Array(92, 34, 33, 69, 68, 95), PackedInt32Array(68, 96, 97, 95), PackedInt32Array(92, 95, 93), PackedInt32Array(64, 90, 94, 98), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(64, 98, 101), PackedInt32Array(64, 101, 102), PackedInt32Array(64, 102, 103, 104, 60), PackedInt32Array(105, 106, 67, 107, 108, 58, 109), PackedInt32Array(65, 110, 66), PackedInt32Array(67, 66, 107), PackedInt32Array(107, 111, 108), PackedInt32Array(112, 113, 24, 114), PackedInt32Array(115, 116, 117, 118), PackedInt32Array(58, 57, 119, 120, 121), PackedInt32Array(120, 122, 121), PackedInt32Array(123, 124, 125, 84), PackedInt32Array(126, 2, 5, 127), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(132, 133, 6, 1), PackedInt32Array(132, 1, 134, 130), PackedInt32Array(135, 3, 136, 63, 62), PackedInt32Array(61, 137, 138, 139), PackedInt32Array(138, 140, 139), PackedInt32Array(19, 141, 20), PackedInt32Array(17, 20, 9, 142), PackedInt32Array(59, 143, 142), PackedInt32Array(17, 144, 145, 146, 147), PackedInt32Array(135, 148, 149, 150), PackedInt32Array(149, 151, 152, 150), PackedInt32Array(41, 153, 154, 155), PackedInt32Array(38, 41, 155), PackedInt32Array(38, 155, 156), PackedInt32Array(135, 156, 157, 158, 3), PackedInt32Array(159, 160, 40, 39), PackedInt32Array(161, 162, 4), PackedInt32Array(163, 164, 165, 166), PackedInt32Array(167, 168, 169, 170), PackedInt32Array(171, 172, 173, 174), PackedInt32Array(175, 176, 177, 178), PackedInt32Array(179, 180, 181, 182, 8, 7, 183), PackedInt32Array(27, 184, 11), PackedInt32Array(27, 11, 10, 115), PackedInt32Array(185, 186, 187, 188), PackedInt32Array(185, 188, 189, 179), PackedInt32Array(189, 190, 180), PackedInt32Array(191, 192, 193, 194), PackedInt32Array(195, 196, 197, 198, 199), PackedInt32Array(200, 199, 198, 13, 56), PackedInt32Array(200, 56, 201), PackedInt32Array(202, 203, 204, 73), PackedInt32Array(52, 205, 53), PackedInt32Array(71, 206, 12, 16, 207), PackedInt32Array(73, 72, 208, 209, 210), PackedInt32Array(210, 209, 211, 212), PackedInt32Array(213, 210, 212, 214), PackedInt32Array(214, 215, 216, 213), PackedInt32Array(217, 213, 216, 218, 219), PackedInt32Array(220, 221, 222, 223), PackedInt32Array(224, 225, 226, 35, 37), PackedInt32Array(0, 227, 228, 229), PackedInt32Array(230, 231, 232, 233), PackedInt32Array(234, 235, 236, 131, 237), PackedInt32Array(170, 238, 46, 49, 0, 167), PackedInt32Array(200, 201, 54, 55, 239, 219), PackedInt32Array(58, 121, 109), PackedInt32Array(131, 79, 78, 81, 84, 125, 126), PackedInt32Array(84, 85, 89, 63, 123), PackedInt32Array(171, 174, 175, 240, 195, 199, 241), PackedInt32Array(179, 189, 180), PackedInt32Array(181, 180, 191, 194, 178), PackedInt32Array(178, 194, 240, 175), PackedInt32Array(39, 171, 241, 219, 242), PackedInt32Array(27, 115, 118), PackedInt32Array(243, 39, 223, 224, 37, 170, 169), PackedInt32Array(244, 159, 39), PackedInt32Array(244, 39, 243), PackedInt32Array(245, 244, 243, 246), PackedInt32Array(217, 219, 239, 202, 73), PackedInt32Array(27, 118, 114), PackedInt32Array(24, 27, 114), PackedInt32Array(112, 114, 58, 108), PackedInt32Array(105, 109, 60, 104), PackedInt32Array(89, 64, 63), PackedInt32Array(131, 126, 127), PackedInt32Array(131, 127, 128), PackedInt32Array(131, 130, 134, 237), PackedInt32Array(234, 237, 247, 233), PackedInt32Array(230, 233, 247), PackedInt32Array(229, 230, 247), PackedInt32Array(0, 229, 247, 1), PackedInt32Array(135, 150, 38, 156), PackedInt32Array(207, 23, 22, 71), PackedInt32Array(52, 51, 73), PackedInt32Array(204, 52, 73), PackedInt32Array(219, 218, 242), PackedInt32Array(39, 242, 220), PackedInt32Array(39, 220, 223), PackedInt32Array(166, 167, 0), PackedInt32Array(163, 166, 0), PackedInt32Array(4, 163, 0), PackedInt32Array(161, 4, 3), PackedInt32Array(246, 161, 3), PackedInt32Array(245, 246, 3), PackedInt32Array(158, 245, 3), PackedInt32Array(9, 59, 142), PackedInt32Array(17, 142, 144), PackedInt32Array(147, 146, 62, 139), PackedInt32Array(61, 139, 62)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-4032, -3200, -2880, -3200, -2880, -3072, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -2432, -832, -3712, 832, -3712, 832, -3584, 1344, -3584, 1344, -3712, 2752, -3712, 2752, -512, 2496, -512, 2496, -640, 2240, -640, 2240, -512, 1984, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1472, -640, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, 320, 0, 1344, 0, 1344, 1408, -832, 1408, -832, 1280, -1088, 1280, -1088, 1408, -2496, 1408, -2496, 960, -2368, 960, -2368, 832, -2496, 832, -2496, -384, -2112, -384, -2112, -640, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -3200, -640, -3352, -640, -3120, -872, -3304, -1048, -3480, -872, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -3904, -1536, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -3392, -2944, -3392, -3072, -4032, -3072), PackedVector2Array(-3584, -2560, -3200, -2560, -3200, -2176, -3584, -2176), PackedVector2Array(-2880, -2304, -2880, -2688, -2496, -2688, -2496, -2752, -2368, -2752, -2368, -2240, -2496, -2240, -2496, -2304), PackedVector2Array(-2176, -2752, -2048, -2752, -2048, -2688, -1664, -2688, -1664, -2304, -2048, -2304, -2048, -2240, -2176, -2240), PackedVector2Array(-3392, -1728, -3200, -1728, -3200, -1792, -3072, -1792, -3072, -1152, -3200, -1152, -3200, -1216, -3392, -1216, -3392, -1408, -3328, -1408, -3328, -1536, -3392, -1536), PackedVector2Array(-2880, -1792, -2752, -1792, -2752, -1728, -2560, -1728, -2560, -1536, -2624, -1536, -2624, -1408, -2560, -1408, -2560, -1216, -2752, -1216, -2752, -1152, -2880, -1152), PackedVector2Array(-960, -2176, -832, -2176, -832, -1408, 192, -1408, 192, -1536, 448, -1536, 448, -1408, 832, -1408, 832, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152, -704, -1152, -704, -1024, -1216, -1024, -1216, -1152, -2112, -1152, -2112, -896, -2240, -896, -2240, -1664, -2112, -1664, -2112, -1408, -1728, -1408, -1728, -1536, -960, -1536), PackedVector2Array(-320, -3456, -64, -3456, -64, -3200, -128, -3200, -128, -2944, -64, -2944, -64, -2688, -128, -2688, -128, -2560, -256, -2560, -256, -2688, -320, -2688, -320, -2944, -256, -2944, -256, -3200, -320, -3200), PackedVector2Array(-320, -2432, -64, -2432, -64, -2176, -128, -2176, -128, -2064, -128, -1920, -64, -1920, -64, -1664, -320, -1664, -320, -1920, -256, -1920, -256, -2064, -256, -2176, -320, -2176), PackedVector2Array(1856, -3200, 2112, -3200, 2112, -2944, 1856, -2944), PackedVector2Array(1920, -2816, 2048, -2816, 2048, -2688, 2112, -2688, 2112, -2432, 2048, -2432, 2048, -2304, 1920, -2304, 1920, -2432, 1856, -2432, 1856, -2688, 1920, -2688), PackedVector2Array(1856, -2176, 2112, -2176, 2112, -1920, 2048, -1920, 2048, -1664, 2112, -1664, 2112, -1408, 1856, -1408, 1856, -1664, 1920, -1664, 1920, -1920, 1856, -1920), PackedVector2Array(-1728, -256, -1216, -256, -1216, -128, -1728, -128), PackedVector2Array(-2240, 192, -2112, 192, -2112, 1216, -2240, 1216), PackedVector2Array(1152, 1216, 1280, 1216, 1280, 1344, 1152, 1344), PackedVector2Array(-256, 1152, -256, 128, -448, 128, -448, 0, 64, 0, 64, 128, -128, 128, -128, 1152), PackedVector2Array(576, 512, 704, 512, 704, 1024, 576, 1024), PackedVector2Array(-1216, 1152, -1216, 640, -1408, 640, -1408, 512, -896, 512, -896, 640, -1088, 640, -1088, 1152)])
+vertices = PackedVector2Array(-3200, -2176, -2048, -2240, -1920, -2240, -2112, -1664, -2240, -1664, -2560, -1792, -2240, -2240, -2368, -2240, 2240, -640, 832, -1280, 1856, -1408, 2112, -1408, 2496, -640, 64, 128, 320, 0, 1344, 0, 704, 512, 576, 512, -64, -1664, 1856, -1920, 1920, -1920, 1856, -1664, 1280, 1216, 1152, 1216, 704, 1024, 2112, -2432, 2112, -2688, 2752, -3712, 2752, -512, 2112, -2944, 2048, -2688, 2048, -2816, 2112, -3200, 1344, -3712, 1856, -3200, 1344, -3584, -2240, -896, -2560, -1280, -2560, -1472, -3200, -640, -3352, -640, -3120, -872, 1344, 1408, 1280, 1344, -832, 1408, 1152, 1344, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -256, 128, -256, 1152, -1088, 1152, -896, 640, -448, 128, -896, 512, 64, 0, -64, -1920, 1856, -2176, 832, -1408, -320, -2432, -320, -2176, -832, -2176, -1536, -2304, -832, -2432, 1920, -2816, 1856, -2688, -64, -2688, -64, -2944, 1856, -2944, -832, 1280, -1088, 1280, -2112, 1216, -1216, 1152, -4032, -3072, -4032, -3200, -2880, -3200, -3392, -3072, -2880, -3072, -3264, -2944, -3392, -2944, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -3712, 832, -3712, 832, -3584, -64, -3456, -320, -3456, -64, -3200, -128, -2944, -128, -3200, -320, -3200, -256, -3200, -256, -2944, -320, -2944, -320, -2688, -256, -2688, -256, -2560, -128, -2560, -128, -2688, 1856, -2432, 1920, -2304, -64, -2432, 1920, -2688, 1920, -2432, 2048, -2304, 2048, -2432, 2112, -2176, 2112, -1664, 2048, -1664, 2048, -1920, 2112, -1920, -128, -1920, -128, -2064, -64, -2176, -128, -2176, -1536, -2688, -1920, -2688, -1920, -2752, -2048, -2752, -2240, -2752, -2368, -2752, -2368, -2688, -2752, -2688, -3264, -2816, -2752, -2304, -2368, -2304, -3200, -2560, -1920, -2304, -256, -2176, -256, -2064, -320, -1920, -256, -1920, 1920, -1664, 703, -1536, 703, -1408, 447, -1536, 447, -1408, -832, -1408, -320, -1664, -960, -2176, -960, -1536, -1728, -1536, -1728, -1408, -2112, -1408, -2624, -1472, -2624, -1600, -2560, -1600, -2752, -1792, -2752, -1856, -2880, -1856, -2880, -1216, -3072, -1216, -3072, -1856, -3200, -1856, -3200, -1792, -3392, -1792, -3584, -2176, -3392, -1600, -3328, -1600, -3328, -1472, -3392, -1472, -3392, -1280, -3200, -1280, -3200, -1216, -3304, -1048, -2752, -1216, -2752, -1280, -2112, -896, -2112, -1152, -1216, -1152, -1216, -1024, -704, -1024, -704, -1152, 576, -1152, 576, -1024, 1984, -512, 1472, -640, 704, -1024, 704, -1280, 2240, -512, 2496, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, -1216, -256, -1216, -128, -448, 0, -1408, 640, -1216, 640, -1088, 640, -128, 1152, -128, 128, 576, 1024, -1088, 1408, -2496, 1408, -2240, 1216, -2496, 960, -2368, 960, -2240, 192, -2368, 832, -2496, 832, -2496, -384, -2112, 192, -2112, -384, -1728, -128, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -3904, -1536, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3584, -2560, -3480, -872, -1408, 512, 576, -768, -1728, -256, -2112, -640)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 1, 0), PackedInt32Array(7, 6, 0), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(15, 22, 23, 24, 16), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 27, 26, 30, 31), PackedInt32Array(27, 29, 32), PackedInt32Array(33, 27, 32, 34, 35), PackedInt32Array(4, 36, 37, 38), PackedInt32Array(39, 40, 41), PackedInt32Array(15, 42, 43, 22), PackedInt32Array(43, 42, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(50, 51, 52, 53, 54), PackedInt32Array(54, 53, 55), PackedInt32Array(14, 13, 56), PackedInt32Array(19, 18, 57, 58), PackedInt32Array(10, 9, 59), PackedInt32Array(60, 61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(45, 44, 70, 23), PackedInt32Array(23, 70, 71, 72, 73, 52), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 76, 78, 79, 80), PackedInt32Array(81, 82, 83, 84), PackedInt32Array(85, 86, 87, 88), PackedInt32Array(85, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(69, 29, 31, 65), PackedInt32Array(92, 35, 34, 69, 68, 95), PackedInt32Array(68, 96, 97, 95), PackedInt32Array(92, 95, 93), PackedInt32Array(64, 90, 94, 98), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(64, 98, 101), PackedInt32Array(64, 101, 102), PackedInt32Array(64, 102, 103, 104, 60), PackedInt32Array(105, 106, 67, 107, 108, 58, 109), PackedInt32Array(65, 110, 66), PackedInt32Array(67, 66, 107), PackedInt32Array(107, 111, 108), PackedInt32Array(112, 113, 25, 114), PackedInt32Array(115, 116, 117, 118), PackedInt32Array(58, 57, 119, 120, 121), PackedInt32Array(120, 122, 121), PackedInt32Array(123, 124, 125, 84), PackedInt32Array(126, 1, 6, 127), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(132, 133, 7, 0), PackedInt32Array(132, 0, 134, 130), PackedInt32Array(2, 135, 63), PackedInt32Array(61, 136, 137, 138), PackedInt32Array(137, 139, 138), PackedInt32Array(20, 140, 21), PackedInt32Array(18, 21, 10, 141), PackedInt32Array(59, 142, 141), PackedInt32Array(18, 143, 144, 145, 146), PackedInt32Array(63, 147, 148, 149, 3, 2), PackedInt32Array(149, 150, 151, 3), PackedInt32Array(38, 152, 153, 154), PackedInt32Array(4, 38, 154), PackedInt32Array(4, 154, 5), PackedInt32Array(5, 155, 156), PackedInt32Array(157, 158, 159, 160), PackedInt32Array(161, 162, 163, 164), PackedInt32Array(165, 166, 167, 168), PackedInt32Array(169, 170, 171, 172), PackedInt32Array(173, 174, 37, 36), PackedInt32Array(175, 176, 177, 178), PackedInt32Array(179, 180, 181, 182), PackedInt32Array(183, 184, 185, 186, 9, 8, 187), PackedInt32Array(28, 188, 12), PackedInt32Array(28, 12, 11, 115), PackedInt32Array(189, 190, 191, 192), PackedInt32Array(189, 192, 193, 183), PackedInt32Array(193, 194, 184), PackedInt32Array(195, 196, 197, 198), PackedInt32Array(199, 200, 201, 202, 203), PackedInt32Array(204, 203, 202, 14, 56), PackedInt32Array(204, 56, 205), PackedInt32Array(206, 207, 73, 72), PackedInt32Array(52, 208, 53), PackedInt32Array(209, 210, 13, 17, 211), PackedInt32Array(72, 71, 212, 213, 214), PackedInt32Array(214, 213, 215, 216), PackedInt32Array(217, 214, 216, 218), PackedInt32Array(218, 219, 220, 217), PackedInt32Array(221, 217, 220, 222, 223), PackedInt32Array(224, 225, 226, 227), PackedInt32Array(228, 229, 230, 39, 41), PackedInt32Array(231, 232, 233, 234), PackedInt32Array(235, 236, 237, 238), PackedInt32Array(239, 240, 241, 131, 242), PackedInt32Array(172, 243, 46, 49, 231, 234), PackedInt32Array(204, 205, 54, 55, 244, 223), PackedInt32Array(58, 121, 109), PackedInt32Array(131, 79, 78, 81, 84, 125, 126), PackedInt32Array(84, 85, 89, 63, 123), PackedInt32Array(175, 178, 179, 245, 199, 203, 246), PackedInt32Array(183, 193, 184), PackedInt32Array(185, 184, 195, 198, 182), PackedInt32Array(182, 198, 245, 179), PackedInt32Array(36, 175, 246, 223, 247), PackedInt32Array(10, 59, 141), PackedInt32Array(18, 141, 143), PackedInt32Array(146, 145, 62, 138), PackedInt32Array(61, 138, 62), PackedInt32Array(63, 62, 147), PackedInt32Array(0, 5, 156), PackedInt32Array(0, 156, 157), PackedInt32Array(0, 157, 160), PackedInt32Array(0, 160, 161, 164), PackedInt32Array(158, 173, 36), PackedInt32Array(28, 115, 118), PackedInt32Array(171, 159, 36, 227, 228, 41, 172), PackedInt32Array(164, 163, 165, 235, 238), PackedInt32Array(159, 158, 36), PackedInt32Array(221, 223, 244, 206, 72), PackedInt32Array(172, 234, 235, 169), PackedInt32Array(28, 118, 114), PackedInt32Array(25, 28, 114), PackedInt32Array(112, 114, 58, 108), PackedInt32Array(105, 109, 60, 104), PackedInt32Array(89, 64, 63), PackedInt32Array(131, 126, 127), PackedInt32Array(131, 127, 128), PackedInt32Array(131, 130, 134, 242), PackedInt32Array(239, 242, 164, 238), PackedInt32Array(235, 165, 168), PackedInt32Array(235, 168, 169), PackedInt32Array(224, 227, 36), PackedInt32Array(247, 224, 36), PackedInt32Array(222, 247, 223), PackedInt32Array(23, 52, 51), PackedInt32Array(23, 51, 209), PackedInt32Array(23, 209, 211, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4032, -3200, -2880, -3200, -2880, -3072, -2752, -3072, -2752, -3328, -1344, -3328, -1344, -2816, -1216, -2816, -1216, -3328, -960, -3328, -960, -2816, -960, -2432, -832, -2432, -832, -3712, 832, -3712, 832, -3584, 1344, -3584, 1344, -3712, 2752, -3712, 2752, -512, 2496, -512, 2496, -640, 2240, -640, 2240, -512, 1984, -512, 1984, -384, 2112, -384, 2112, 0, 1600, 0, 1600, -512, 1472, -512, 1472, -640, 1088, -640, 1088, -512, 704, -512, 704, -768, 576, -768, 576, -384, 1344, -384, 1344, -128, 320, -128, 320, 0, 1344, 0, 1344, 1408, -832, 1408, -832, 1280, -1088, 1280, -1088, 1408, -2496, 1408, -2496, 960, -2368, 960, -2368, 832, -2496, 832, -2496, -384, -2112, -384, -2112, -640, -2240, -640, -2240, -512, -2560, -512, -2560, -640, -2688, -640, -2688, -512, -3200, -512, -3200, -640, -3352, -640, -3120, -872, -3304, -1048, -3480, -872, -3848, -1224, -4032, -1040, -4032, -1408, -3904, -1408, -3904, -1536, -4032, -1536, -4032, -2048, -3776, -2048, -3776, -2176, -4032, -2176, -4032, -2368, -3776, -2368, -3776, -2496, -4032, -2496, -4032, -2816, -3264, -2816, -3264, -2944, -3392, -2944, -3392, -3072, -4032, -3072), PackedVector2Array(-3584, -2560, -3200, -2560, -3200, -2176, -3584, -2176), PackedVector2Array(-2752, -2304, -2752, -2688, -2368, -2688, -2368, -2752, -2240, -2752, -2240, -2240, -2368, -2240, -2368, -2304), PackedVector2Array(-2048, -2752, -1920, -2752, -1920, -2688, -1536, -2688, -1536, -2304, -1920, -2304, -1920, -2240, -2048, -2240), PackedVector2Array(-3392, -1792, -3200, -1792, -3200, -1856, -3072, -1856, -3072, -1216, -3200, -1216, -3200, -1280, -3392, -1280, -3392, -1472, -3328, -1472, -3328, -1600, -3392, -1600), PackedVector2Array(-2880, -1856, -2752, -1856, -2752, -1792, -2560, -1792, -2560, -1600, -2624, -1600, -2624, -1472, -2560, -1472, -2560, -1280, -2752, -1280, -2752, -1216, -2880, -1216), PackedVector2Array(-960, -2176, -832, -2176, -832, -1408, 447, -1408, 447, -1536, 703, -1536, 703, -1408, 832, -1408, 832, -1280, 704, -1280, 704, -1024, 576, -1024, 576, -1152, -704, -1152, -704, -1024, -1216, -1024, -1216, -1152, -2112, -1152, -2112, -896, -2240, -896, -2240, -1664, -2112, -1664, -2112, -1408, -1728, -1408, -1728, -1536, -960, -1536), PackedVector2Array(-320, -3456, -64, -3456, -64, -3200, -128, -3200, -128, -2944, -64, -2944, -64, -2688, -128, -2688, -128, -2560, -256, -2560, -256, -2688, -320, -2688, -320, -2944, -256, -2944, -256, -3200, -320, -3200), PackedVector2Array(-320, -2432, -64, -2432, -64, -2176, -128, -2176, -128, -2064, -128, -1920, -64, -1920, -64, -1664, -320, -1664, -320, -1920, -256, -1920, -256, -2064, -256, -2176, -320, -2176), PackedVector2Array(1856, -3200, 2112, -3200, 2112, -2944, 1856, -2944), PackedVector2Array(1920, -2816, 2048, -2816, 2048, -2688, 2112, -2688, 2112, -2432, 2048, -2432, 2048, -2304, 1920, -2304, 1920, -2432, 1856, -2432, 1856, -2688, 1920, -2688), PackedVector2Array(1856, -2176, 2112, -2176, 2112, -1920, 2048, -1920, 2048, -1664, 2112, -1664, 2112, -1408, 1856, -1408, 1856, -1664, 1920, -1664, 1920, -1920, 1856, -1920), PackedVector2Array(-1728, -256, -1216, -256, -1216, -128, -1728, -128), PackedVector2Array(-2240, 192, -2112, 192, -2112, 1216, -2240, 1216), PackedVector2Array(1152, 1216, 1280, 1216, 1280, 1344, 1152, 1344), PackedVector2Array(-256, 1152, -256, 128, -448, 128, -448, 0, 64, 0, 64, 128, -128, 128, -128, 1152), PackedVector2Array(576, 512, 704, 512, 704, 1024, 576, 1024), PackedVector2Array(-1216, 1152, -1216, 640, -1408, 640, -1408, 512, -896, 512, -896, 640, -1088, 640, -1088, 1152)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1lqo"]
+size = Vector2(384, 256)
 
 [node name="PlayTestMap" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_x7cfa")
 frameMaster = NodePath("FrameMaster")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(1, 0)
 navigation_polygon = SubResource("NavigationPolygon_lv7pc")
-
-[node name="FrameMaster" parent="." instance=ExtResource("2_ae2pm")]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
 position = Vector2(1856, -192)
+
+[node name="FrameMaster" parent="." instance=ExtResource("2_ae2pm")]
 
 [node name="Room1Hall" type="Node2D" parent="."]
 
@@ -63,6 +70,30 @@ position = Vector2(2048, -64)
 
 [node name="DetectionZones" type="Node2D" parent="Room1Hall"]
 position = Vector2(-45, 214)
+
+[node name="LocalAllowedItems" type="Area2D" parent="Room1Hall/DetectionZones"]
+position = Vector2(2029, -3030)
+script = ExtResource("6_7ekh4")
+allowedObjects = Array[String](["Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Hall/DetectionZones/LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_m1lqo")
+
+[node name="LocalAllowedItems2" type="Area2D" parent="Room1Hall/DetectionZones"]
+position = Vector2(2029, -2518)
+script = ExtResource("6_7ekh4")
+allowedObjects = Array[String](["Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Hall/DetectionZones/LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_m1lqo")
+
+[node name="LocalAllowedItems3" type="Area2D" parent="Room1Hall/DetectionZones"]
+position = Vector2(-147, -2774)
+script = ExtResource("6_7ekh4")
+allowedObjects = Array[String](["Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Hall/DetectionZones/LocalAllowedItems3"]
+shape = SubResource("RectangleShape2D_m1lqo")
 
 [node name="TransformObjects" type="Node2D" parent="Room1Hall"]
 
@@ -110,7 +141,7 @@ transformedCollider = NodePath("../Statue/CollisionShape2D")
 transformedTexture = NodePath("../Statue/Sprite2D")
 
 [node name="Vase" parent="Room1Hall/TransformObjects" instance=ExtResource("7_ktmq7")]
-position = Vector2(256, -1472)
+position = Vector2(512, -1472)
 
 [node name="Vase3" parent="Room1Hall/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(1152, -576)
@@ -128,7 +159,7 @@ transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase2" parent="Room1Hall/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
-position = Vector2(384, -1472)
+position = Vector2(640, -1472)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
@@ -160,7 +191,47 @@ position = Vector2(1280, -3648)
 transformedCollider = NodePath("../Broom/CollisionShape2D")
 transformedTexture = NodePath("../Broom/Sprite2D")
 
-[node name="Guards" type="Node2D" parent="Room1Hall"]
+[node name="Enemies" type="Node2D" parent="Room1Hall"]
+
+[node name="Cleaner1" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_g7har")]
+position = Vector2(704, -3456)
+patrolIndicators = [NodePath("../../PatrolIndicators/B")]
+
+[node name="Guard2" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(2368, -3008)
+patrolIndicators = [NodePath("../../PatrolIndicators/D"), NodePath("../../PatrolIndicators/C")]
+
+[node name="Guard3" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-768, -2752)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillA"), NodePath("../../PatrolIndicators/A")]
+
+[node name="Guard4" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-576, -2560)
+patrolIndicators = [NodePath("../../PatrolIndicators/A"), NodePath("../../PatrolIndicators/B")]
+
+[node name="Guard5" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(192, -2112)
+patrolIndicators = [NodePath("../../PatrolIndicators/A"), NodePath("../../PatrolIndicators/B")]
+
+[node name="Guard6" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(2688, -2368)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillB"), NodePath("../../PatrolIndicators/D")]
+
+[node name="Cleaner7" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_g7har")]
+position = Vector2(1216, -1600)
+patrolIndicators = [NodePath("../../PatrolIndicators/C")]
+
+[node name="Guard8" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(768, -1088)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillC")]
+
+[node name="Guard9" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(1600, -1408)
+patrolIndicators = [NodePath("../../PatrolIndicators/D"), NodePath("../../PatrolIndicators/C")]
+
+[node name="Guard10" parent="Room1Hall/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(768, -704)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillD")]
 
 [node name="Walls" type="Node2D" parent="Room1Hall"]
 
@@ -382,9 +453,112 @@ position = Vector2(-192, -2304)
 [node name="Pillar4" parent="Room1Hall/Walls" instance=ExtResource("3_6e2h4")]
 position = Vector2(-192, -1792)
 
-[node name="NavigationPoints" type="Node2D" parent="Room1Hall"]
-
 [node name="PatrolIndicators" type="Node2D" parent="Room1Hall"]
+
+[node name="A" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(0, -2624)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/A"]
+position = Vector2(192, -960)
+
+[node name="2" type="Node2D" parent="Room1Hall/PatrolIndicators/A"]
+position = Vector2(192, 1088)
+
+[node name="3" type="Node2D" parent="Room1Hall/PatrolIndicators/A"]
+position = Vector2(-576, 1088)
+
+[node name="4" type="Node2D" parent="Room1Hall/PatrolIndicators/A"]
+position = Vector2(-576, -960)
+
+[node name="B" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(704, -2496)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([1, 0])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/B"]
+position = Vector2(0, -960)
+
+[node name="2" type="Node2D" parent="Room1Hall/PatrolIndicators/B"]
+position = Vector2(0, 896)
+
+[node name="C" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(1216, -2496)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([0, 1])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/C"]
+position = Vector2(0, 896)
+
+[node name="2" type="Node2D" parent="Room1Hall/PatrolIndicators/C"]
+position = Vector2(0, -960)
+
+[node name="D" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(1600, -2048)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+lookActions = Array[int]([0, 3, 1, 2])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/D"]
+position = Vector2(768, 768)
+
+[node name="2" type="Node2D" parent="Room1Hall/PatrolIndicators/D"]
+position = Vector2(0, 768)
+
+[node name="3" type="Node2D" parent="Room1Hall/PatrolIndicators/D"]
+position = Vector2(0, -1280)
+
+[node name="4" type="Node2D" parent="Room1Hall/PatrolIndicators/D"]
+position = Vector2(768, -1280)
+
+[node name="StillA" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-768, -2752)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([1])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/StillA"]
+
+[node name="StillB" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(2688, -2368)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([0])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/StillB"]
+
+[node name="StillC" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(768, -1088)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([3])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/StillC"]
+
+[node name="StillD" type="Node2D" parent="Room1Hall/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(768, -704)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([3])
+
+[node name="1" type="Node2D" parent="Room1Hall/PatrolIndicators/StillD"]
 
 [node name="Room2Warehouse" type="Node2D" parent="."]
 
@@ -511,92 +685,92 @@ transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
 transformedTexture = NodePath("../HeavyBox/Sprite2D")
 
 [node name="Statue" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2560, -2624)
+position = Vector2(-2432, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2560, -2496)
+position = Vector2(-2432, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2560, -2368)
+position = Vector2(-2432, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2688, -2368)
+position = Vector2(-2560, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue5" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2688, -2496)
+position = Vector2(-2560, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue6" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2688, -2624)
+position = Vector2(-2560, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue7" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2816, -2624)
+position = Vector2(-2688, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue8" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2816, -2496)
+position = Vector2(-2688, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue9" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-2816, -2368)
+position = Vector2(-2688, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue10" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1728, -2624)
+position = Vector2(-1600, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue11" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1728, -2496)
+position = Vector2(-1600, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue12" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1728, -2368)
+position = Vector2(-1600, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue13" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1856, -2368)
+position = Vector2(-1728, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue14" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1856, -2496)
+position = Vector2(-1728, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue15" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1856, -2624)
+position = Vector2(-1728, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue16" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1984, -2624)
+position = Vector2(-1856, -2624)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue17" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1984, -2496)
+position = Vector2(-1856, -2496)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
 [node name="Statue18" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("8_1qbxj")]
-position = Vector2(-1984, -2368)
+position = Vector2(-1856, -2368)
 transformedCollider = NodePath("../../../Room1Hall/TransformObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../Room1Hall/TransformObjects/Statue/Sprite2D")
 
@@ -717,20 +891,20 @@ transformedCollider = NodePath("../Jewels/CollisionShape2D")
 transformedTexture = NodePath("../Jewels/Sprite2D")
 
 [node name="Chest" parent="Room2Warehouse/TransformObjects" instance=ExtResource("17_6pdyf")]
-position = Vector2(-3296, -1632)
+position = Vector2(-3296, -1696)
 
 [node name="Chest2" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
-position = Vector2(-3296, -1312)
+position = Vector2(-3296, -1376)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
 [node name="Chest3" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
-position = Vector2(-2656, -1312)
+position = Vector2(-2656, -1376)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
 [node name="Chest4" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("17_6pdyf")]
-position = Vector2(-2656, -1632)
+position = Vector2(-2656, -1696)
 transformedCollider = NodePath("../Chest/CollisionShape2D")
 transformedTexture = NodePath("../Chest/Sprite2D")
 
@@ -741,7 +915,31 @@ transformedName = "Key1C"
 [node name="Coin" parent="Room2Warehouse/TransformObjects" instance=ExtResource("21_3ke44")]
 position = Vector2(-1120, -3296)
 
-[node name="Guards" type="Node2D" parent="Room2Warehouse"]
+[node name="Enemies" type="Node2D" parent="Room2Warehouse"]
+
+[node name="Guard11" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-3392, -2688)
+patrolIndicators = [NodePath("../../PatrolIndicators/E")]
+
+[node name="Guard12" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-2880, -2368)
+patrolIndicators = [NodePath("../../PatrolIndicators/F"), NodePath("../../PatrolIndicators/E"), NodePath("../../PatrolIndicators/G")]
+
+[node name="Guard13" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-1408, -2496)
+patrolIndicators = [NodePath("../../PatrolIndicators/F"), NodePath("../../PatrolIndicators/E")]
+
+[node name="Guard14" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-3392, -1920)
+patrolIndicators = [NodePath("../../PatrolIndicators/G"), NodePath("../../PatrolIndicators/E")]
+
+[node name="Hyottoko15" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("23_bm6s3")]
+position = Vector2(-1280, -1664)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillE")]
+
+[node name="Guard16" parent="Room2Warehouse/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_gcc7g")]
+position = Vector2(-2976, -1152)
+patrolIndicators = [NodePath("../../PatrolIndicators/G"), NodePath("../../PatrolIndicators/F")]
 
 [node name="Walls" type="Node2D" parent="Room2Warehouse"]
 
@@ -754,35 +952,35 @@ position = Vector2(-2816, -3200)
 rotation = 1.5708
 
 [node name="Wall47" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2816, -1664)
+position = Vector2(-2816, -1728)
 rotation = 1.5708
 
 [node name="Wall48" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2816, -1280)
+position = Vector2(-2816, -1344)
 rotation = 1.5708
 
 [node name="Wall49" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3136, -1280)
+position = Vector2(-3136, -1344)
 rotation = 1.5708
 
 [node name="Wall50" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3136, -1664)
+position = Vector2(-3136, -1728)
 rotation = 1.5708
 
 [node name="Wall51" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2112, -2368)
+position = Vector2(-1984, -2368)
 rotation = 1.5708
 
 [node name="Wall52" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2112, -2624)
+position = Vector2(-1984, -2624)
 rotation = 1.5708
 
 [node name="Wall53" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2432, -2624)
+position = Vector2(-2304, -2624)
 rotation = 1.5708
 
 [node name="Wall54" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2432, -2368)
+position = Vector2(-2304, -2368)
 rotation = 1.5708
 
 [node name="Wall55" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
@@ -920,10 +1118,10 @@ position = Vector2(-3904, -2432)
 position = Vector2(-3904, -2112)
 
 [node name="Wall45" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-3200, -1472)
+position = Vector2(-3200, -1536)
 
 [node name="Wall46" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
-position = Vector2(-2752, -1472)
+position = Vector2(-2752, -1536)
 
 [node name="Wall3" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-1344, -1344)
@@ -958,9 +1156,74 @@ position = Vector2(-2624, -448)
 [node name="Wall35" parent="Room2Warehouse/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(-2368, -448)
 
-[node name="NavigationPoints" type="Node2D" parent="Room2Warehouse"]
-
 [node name="PatrolIndicators" type="Node2D" parent="Room2Warehouse"]
+
+[node name="E" type="Node2D" parent="Room2Warehouse/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-3136, -2176)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+
+[node name="1" type="Node2D" parent="Room2Warehouse/PatrolIndicators/E"]
+position = Vector2(0, -512)
+
+[node name="2" type="Node2D" parent="Room2Warehouse/PatrolIndicators/E"]
+position = Vector2(0, 128)
+
+[node name="3" type="Node2D" parent="Room2Warehouse/PatrolIndicators/E"]
+position = Vector2(-512, 128)
+
+[node name="4" type="Node2D" parent="Room2Warehouse/PatrolIndicators/E"]
+position = Vector2(-512, -512)
+
+[node name="F" type="Node2D" parent="Room2Warehouse/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2144, -2240)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+
+[node name="1" type="Node2D" parent="Room2Warehouse/PatrolIndicators/F"]
+position = Vector2(736, 128)
+
+[node name="2" type="Node2D" parent="Room2Warehouse/PatrolIndicators/F"]
+position = Vector2(736, -640)
+
+[node name="3" type="Node2D" parent="Room2Warehouse/PatrolIndicators/F"]
+position = Vector2(-736, -640)
+
+[node name="4" type="Node2D" parent="Room2Warehouse/PatrolIndicators/F"]
+position = Vector2(-736, 128)
+
+[node name="G" type="Node2D" parent="Room2Warehouse/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2976, -1536)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+
+[node name="1" type="Node2D" parent="Room2Warehouse/PatrolIndicators/G"]
+position = Vector2(544, 384)
+
+[node name="2" type="Node2D" parent="Room2Warehouse/PatrolIndicators/G"]
+position = Vector2(544, -384)
+
+[node name="3" type="Node2D" parent="Room2Warehouse/PatrolIndicators/G"]
+position = Vector2(-544, -384)
+
+[node name="4" type="Node2D" parent="Room2Warehouse/PatrolIndicators/G"]
+position = Vector2(-544, 384)
+
+[node name="StillE" type="Node2D" parent="Room2Warehouse/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-1280, -1664)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([1])
+
+[node name="1" type="Node2D" parent="Room2Warehouse/PatrolIndicators/StillE"]
 
 [node name="Room3Archive" type="Node2D" parent="."]
 
@@ -969,6 +1232,11 @@ position = Vector2(-2368, -448)
 [node name="MovementImpairInteractionObject9" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-2368, 576)
 scale = Vector2(2, 2)
+
+[node name="MovementImpairInteractionObject12" parent="Room3Archive/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("7_s8vu6")]
+position = Vector2(-1856, 832)
+scale = Vector2(2, 2)
+effect = NodePath("../MovementImpairInteractionObject9/MovementImpairEffect")
 
 [node name="MovementImpairInteractionObject10" parent="Room3Archive/DeathTraps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-384, 512)
@@ -1053,7 +1321,47 @@ position = Vector2(1280, -192)
 position = Vector2(-2432, 896)
 transformedName = "Key1A"
 
-[node name="Guards" type="Node2D" parent="Room3Archive"]
+[node name="Enemies" type="Node2D" parent="Room3Archive"]
+
+[node name="Cleaner17" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_g7har")]
+position = Vector2(-1792, -960)
+patrolIndicators = [NodePath("../../PatrolIndicators/H")]
+
+[node name="Cleaner18" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("10_g7har")]
+position = Vector2(128, -768)
+patrolIndicators = [NodePath("../../PatrolIndicators/I")]
+
+[node name="Hyottoko19" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("23_bm6s3")]
+position = Vector2(-1408, -384)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillF")]
+
+[node name="Hyottoko20" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("23_bm6s3")]
+position = Vector2(-960, 768)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillG")]
+
+[node name="Hyottoko21" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("23_bm6s3")]
+position = Vector2(-2304, 1152)
+patrolIndicators = [NodePath("../../PatrolIndicators/StillH")]
+
+[node name="Cleaner22" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
+position = Vector2(-1600, 1216)
+patrolIndicators = [NodePath("../../PatrolIndicators/J")]
+enemyMovement = NodePath("../Cleaner18/GuardMovement")
+enemyRotator = NodePath("../Cleaner18/Rotator")
+enemyPatrol = NodePath("../Cleaner18/EnemyPatrol")
+enemyStatus = NodePath("../Cleaner18/EnemyStatus")
+enemyStunned = NodePath("../Cleaner18/EnemyStunned")
+spriteRef = NodePath("../Cleaner18/AnimatedSprite2D")
+
+[node name="Cleaner23" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
+position = Vector2(640, 1216)
+patrolIndicators = [NodePath("../../PatrolIndicators/K")]
+enemyMovement = NodePath("../Cleaner18/GuardMovement")
+enemyRotator = NodePath("../Cleaner18/Rotator")
+enemyPatrol = NodePath("../Cleaner18/EnemyPatrol")
+enemyStatus = NodePath("../Cleaner18/EnemyStatus")
+enemyStunned = NodePath("../Cleaner18/EnemyStunned")
+spriteRef = NodePath("../Cleaner18/AnimatedSprite2D")
 
 [node name="Walls" type="Node2D" parent="Room3Archive"]
 
@@ -1276,9 +1584,89 @@ position = Vector2(192, -1216)
 [node name="Wall12" parent="Room3Archive/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(448, -1216)
 
-[node name="NavigationPoints" type="Node2D" parent="Room3Archive"]
-
 [node name="PatrolIndicators" type="Node2D" parent="Room3Archive"]
+
+[node name="H" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-640, -960)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([2, 3])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/H"]
+position = Vector2(1088, 0)
+
+[node name="2" type="Node2D" parent="Room3Archive/PatrolIndicators/H"]
+position = Vector2(-1344, 0)
+
+[node name="I" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(128, 512)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([0, 1])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/I"]
+position = Vector2(0, 832)
+
+[node name="2" type="Node2D" parent="Room3Archive/PatrolIndicators/I"]
+position = Vector2(0, -1600)
+
+[node name="J" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-768, 1216)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([2, 3])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/J"]
+position = Vector2(320, 0)
+
+[node name="2" type="Node2D" parent="Room3Archive/PatrolIndicators/J"]
+position = Vector2(-960, 0)
+
+[node name="K" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(800, 1216)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 1, 2])
+moveActions = [NodePath("1"), NodePath("2")]
+lookActions = Array[int]([3, 2])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/K"]
+position = Vector2(-736, 0)
+
+[node name="2" type="Node2D" parent="Room3Archive/PatrolIndicators/K"]
+position = Vector2(224, 0)
+
+[node name="StillF" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-1408, -384)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([1])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/StillF"]
+
+[node name="StillG" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-960, 768)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([2])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/StillG"]
+
+[node name="StillH" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2304, 1152)
+script = ExtResource("13_akx0w")
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([60.0])
+moveActions = [NodePath("1")]
+lookActions = Array[int]([3])
+
+[node name="1" type="Node2D" parent="Room3Archive/PatrolIndicators/StillH"]
 
 [node name="Room4Exit" type="Node2D" parent="."]
 
@@ -1300,7 +1688,7 @@ scale = Vector2(2, 1)
 
 [node name="TransformObjects" type="Node2D" parent="Room4Exit"]
 
-[node name="Guards" type="Node2D" parent="Room4Exit"]
+[node name="Enemies" type="Node2D" parent="Room4Exit"]
 
 [node name="Walls" type="Node2D" parent="Room4Exit"]
 
@@ -1386,7 +1774,5 @@ position = Vector2(3776, -3776)
 [node name="Wall3" parent="Room4Exit/Walls" instance=ExtResource("2_4y2q6")]
 position = Vector2(3584, -3264)
 scale = Vector2(0.5, 1)
-
-[node name="NavigationPoints" type="Node2D" parent="Room4Exit"]
 
 [node name="PatrolIndicators" type="Node2D" parent="Room4Exit"]

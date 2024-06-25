@@ -42,7 +42,8 @@ func remove_attack_hitbox(index):
 		attackHitboxInstance = attackHitboxes[index]
 		if (attackHitboxInstance is AttackHitbox):
 			attackHitboxInstance.attack_end()
-		self.remove_child(attackHitboxInstance)
+		if (attackHitboxInstance.get_parent() == self):
+			self.remove_child(attackHitboxInstance)
 
 func start_attack():
 	attackLaunched = true
