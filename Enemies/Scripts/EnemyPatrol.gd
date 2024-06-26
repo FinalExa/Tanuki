@@ -92,27 +92,30 @@ func restart_patrol():
 	set_current_patrol_routine()
 
 func resume_patrol():
-	var backToMove: bool = false
-	backToMove = resume_patrol_operation()
-	while (!backToMove):
-		backToMove = resume_patrol_operation()
+	AdvanceIndexTo(GetClosestMovementLocation())
 	enemyController.isInPatrol = true
 	patrolStopped = false
 	isRotating = false
 	enemyController.enemyMovement.reset_movement_speed()
 	set_current_patrol_routine()
 
-func resume_patrol_operation():
-	patrolIndex = set_new_index(patrolIndex, -1, loadedPatrolIndicator.patrolActions.size())
-	if (loadedPatrolIndicator.patrolActions[patrolIndex] == loadedPatrolIndicator.ActionTypes.MOVE):
-		patrolMovementIndex = set_new_index(patrolMovementIndex, -1, loadedPatrolIndicator.moveActions.size())
-		return true
-	else:
-		if (loadedPatrolIndicator.patrolActions[patrolIndex] == loadedPatrolIndicator.ActionTypes.WAIT):
-			patrolWaitIndex = set_new_index(patrolWaitIndex, -1, loadedPatrolIndicator.waitActions.size())
-		else:
-			patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, -1, loadedPatrolIndicator.lookActions.size())
-	return false
+func GetClosestMovementLocation():
+	var moveIndex: int = 0
+	var selectedIndex: int = 0
+	var selectedMoveIndex: int = 0
+	var firstMoveSet: bool = false
+	for i in loadedPatrolIndicator.patrolActions.size():
+		var currentAction: PatrolIndicator.ActionTypes = loadedPatrolIndicator.patrolActions[i]
+		if (currentAction == PatrolIndicator.ActionTypes.MOVE):
+			if (!firstMoveSet):
+				selectedIndex = i
+				firstMoveSet = true
+			else:
+				if (enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[moveIndex].global_position) > enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[selectedMoveIndex].global_position)):
+					selectedIndex = i
+					selectedMoveIndex = moveIndex
+			moveIndex += 1
+	return selectedIndex
 
 func _on_enemy_damaged(direction: Vector2):
 	if (enemyController.isInPatrol):
