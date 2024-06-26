@@ -143,7 +143,7 @@ func select_new_patrol_indicator():
 			extraPatrolTimer = timeSpentDoingExtraPatrol
 
 func AdvanceIndexTo(targetIndex: int):
-	for i in targetIndex + 1:
+	for i in targetIndex:
 		var currentAction: PatrolIndicator.ActionTypes = loadedPatrolIndicator.patrolActions[patrolIndex]
 		if (currentAction == PatrolIndicator.ActionTypes.MOVE):
 			patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
@@ -154,4 +154,3 @@ func AdvanceIndexTo(targetIndex: int):
 				if (currentAction == PatrolIndicator.ActionTypes.LOOK_AROUND):
 					patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
-		print(patrolIndex)
