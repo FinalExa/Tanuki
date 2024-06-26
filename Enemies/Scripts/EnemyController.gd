@@ -8,6 +8,7 @@ var isStunned: bool
 var characterRef
 
 @export var patrolIndicators: Array[PatrolIndicator]
+@export var startingIndex: int
 @export var guardProperties: Array[String]
 @export var enemyMovement: EnemyMovement
 @export var enemyRotator: EnemyRotator
@@ -30,9 +31,6 @@ func GuardAnimations():
 	else:
 		if (velocity.x > 0):
 			spriteRef.flip_h = false
-
-func _on_player_character_give_self_reference(reference):
-	characterRef = reference
 
 func is_damaged(direction: Vector2):
 	emit_signal("damaged", direction)
