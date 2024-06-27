@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsvvlx0xuucgg"]
 
-[ext_resource type="Texture2D" uid="uid://c07r0gcjq0b24" path="res://Level/Sprites/Placeholder/pillar.png" id="1_teg0h"]
+[ext_resource type="Texture2D" uid="uid://b6xi0nu4wknve" path="res://Level/Sprites/Placeholder/Colonnone.png" id="1_mke3t"]
 
 [node name="Pillar" type="StaticBody2D"]
 
@@ -8,6 +8,4 @@
 polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)
 
 [node name="Pillar" type="Sprite2D" parent="."]
-position = Vector2(5.17188, -15.0677)
-scale = Vector2(1.81462, 1.60746)
-texture = ExtResource("1_teg0h")
+texture = ExtResource("1_mke3t")
