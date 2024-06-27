@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=54 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_irny6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="7_25hsu"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_erwln"]
@@ -143,6 +144,9 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
+
+[node name="EnemyMovementSounds" type="Node" parent="."]
+script = ExtResource("7_25hsu")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_2tf71")

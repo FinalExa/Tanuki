@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nxr7wvrb5q1c"
+path="res://.godot/imported/Step 2-Patrol_movement.wav-b0ec2a6c880f0b085cd9c23a18d51f23.sample"
+
+[deps]
+
+source_file="res://Enemies/Sounds/Guard/NormalSteps/Step 2-Patrol_movement.wav"
+dest_files=["res://.godot/imported/Step 2-Patrol_movement.wav-b0ec2a6c880f0b085cd9c23a18d51f23.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
