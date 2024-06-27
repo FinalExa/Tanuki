@@ -9,9 +9,6 @@ signal reached_destination
 @export var defaultMovementSpeed: float
 @export var distanceTolerance: float
 @export var repathTimerDuration: float
-@export var patrolMovementSound: AudioStreamPlayer2D
-@export var alertMovementSound: AudioStreamPlayer2D
-var currentMovementSound: AudioStreamPlayer2D
 var repathTimer: float
 var currentMovementSpeed: float
 var target: Node2D
@@ -21,13 +18,9 @@ var locationTargetEnabled: bool
 func _ready():
 	repathTimer = 0
 	currentMovementSpeed = defaultMovementSpeed
-	SetPatrolSound()
 
 func _update_navigation_path(end_position):
 	navigationAgent.target_position = end_position
-
-func _process(_delta):
-	PlayMovementSound()
 
 func _physics_process(delta):
 	if((target != null || locationTargetEnabled)):
@@ -77,20 +70,3 @@ func set_movement_speed(newMovementSpeed: float):
 
 func reset_movement_speed():
 	currentMovementSpeed = defaultMovementSpeed
-
-func PlayMovementSound():
-	if (enemyController.velocity != Vector2.ZERO):
-		if (!currentMovementSound.playing):
-			currentMovementSound.play()
-	else:
-		currentMovementSound.stop()
-
-func SetPatrolSound():
-	if (currentMovementSound != null && currentMovementSound.playing):
-		currentMovementSound.stop()
-	currentMovementSound = patrolMovementSound
-
-func SetAlertSound():
-	if (currentMovementSound != null && currentMovementSound.playing):
-		currentMovementSound.stop()
-	currentMovementSound = alertMovementSound

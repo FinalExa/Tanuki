@@ -135,18 +135,19 @@ stream = ExtResource("4_vmgao")
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
 script = ExtResource("6_xnjjn")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
+
+[node name="EnemyMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "patrolMovementSound", "alertMovementSound")]
+script = ExtResource("7_25hsu")
+enemyController = NodePath("..")
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
-
-[node name="EnemyMovementSounds" type="Node" parent="."]
-script = ExtResource("7_25hsu")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_2tf71")
