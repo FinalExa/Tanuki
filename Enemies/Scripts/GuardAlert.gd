@@ -37,7 +37,6 @@ var extraLocationSet: bool
 
 func _ready():
 	setup_areas()
-	guardController.enemyMovementSounds.SetAlertSound()
 
 func _physics_process(_delta):
 	alert_raycasts()
@@ -111,7 +110,6 @@ func stop_alert():
 	remove_area()
 	remove_feedback()
 	guardController.enemyMovement.reset_movement_speed()
-	guardController.enemyMovementSounds.SetPatrolSound()
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInAlert == true):

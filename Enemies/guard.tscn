@@ -1,18 +1,23 @@
-[gd_scene load_steps=60 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=65 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
+[ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_irny6"]
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
-[ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_1jrvl"]
+[ext_resource type="AudioStream" uid="uid://nxr7wvrb5q1c" path="res://Enemies/Sounds/Guard/NormalSteps/Step 2-Patrol_movement.wav" id="3_3jkdn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="AudioStream" uid="uid://bx35lcc5ugoop" path="res://Enemies/Sounds/Guard/Checking.wav" id="4_l66y0"]
+[ext_resource type="AudioStream" uid="uid://daxh6bffoi00s" path="res://Enemies/Sounds/Guard/NormalSteps/Step 3-Patrol_movement.wav" id="4_y3eua"]
+[ext_resource type="AudioStream" uid="uid://ca7s3x676py5x" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 1-Patrol_movement.wav" id="5_pg4nj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="5_whpac"]
+[ext_resource type="AudioStream" uid="uid://tuux58c5hira" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 2-Patrol_movement.wav" id="6_3pvk0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="AudioStream" uid="uid://chrfxplethqng" path="res://Enemies/Sounds/Guard/Resarch-interact.wav" id="6_db6xf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
+[ext_resource type="AudioStream" uid="uid://cy7nkj3ihx0p6" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 3-Patrol_movement.wav" id="7_bpryv"]
 [ext_resource type="AudioStream" uid="uid://4omsw3hf5ofc" path="res://Enemies/Sounds/Guard/Research - Movement.wav" id="7_diuu5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovementSounds.gd" id="7_qthhg"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
@@ -131,12 +136,36 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sounds" type="Node2D" parent="."]
 
-[node name="PatrolMovement" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("2_irny6")
+[node name="NormalSteps" type="Node2D" parent="Sounds"]
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/NormalSteps"]
+stream = ExtResource("2_6htqk")
 max_distance = 500.0
 
-[node name="AlertMovement" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("3_1jrvl")
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/NormalSteps"]
+stream = ExtResource("3_3jkdn")
+max_distance = 500.0
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/NormalSteps"]
+stream = ExtResource("4_y3eua")
+max_distance = 500.0
+
+[node name="AlertSteps" type="Node2D" parent="Sounds"]
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/AlertSteps"]
+stream = ExtResource("5_pg4nj")
+max_distance = 500.0
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/AlertSteps"]
+stream = ExtResource("6_3pvk0")
+max_distance = 500.0
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/AlertSteps"]
+stream = ExtResource("7_bpryv")
+max_distance = 500.0
+
+[node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("2_irny6")
 max_distance = 500.0
 
 [node name="Checking" type="AudioStreamPlayer2D" parent="Sounds"]
@@ -172,11 +201,12 @@ defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
-[node name="GuardMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "patrolMovementSound", "alertMovementSound")]
+[node name="GuardMovementSounds" type="Node" parent="." node_paths=PackedStringArray("guardController", "patrolMovementSounds", "alertMovementSounds", "currentMovementSound")]
 script = ExtResource("7_qthhg")
-enemyController = NodePath("..")
-patrolMovementSound = NodePath("../Sounds/PatrolMovement")
-alertMovementSound = NodePath("../Sounds/AlertMovement")
+guardController = NodePath("..")
+patrolMovementSounds = [NodePath("../Sounds/NormalSteps/Step1"), NodePath("../Sounds/NormalSteps/Step2"), NodePath("../Sounds/NormalSteps/Step3")]
+alertMovementSounds = [NodePath("../Sounds/AlertSteps/Step1"), NodePath("../Sounds/AlertSteps/Step2"), NodePath("../Sounds/AlertSteps/Step3")]
+currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_2tf71")

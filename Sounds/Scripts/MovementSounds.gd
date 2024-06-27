@@ -1,7 +1,7 @@
 class_name MovementSounds
 extends Node
 
-func RandomizeStepSound(stepSound: AudioStreamPlayer, currentStepSound: AudioStreamPlayer, arrayOfStepSounds: Array[AudioStreamPlayer], index: int):
+func RandomizeStepSound(stepSound, currentStepSound, arrayOfStepSounds, index: int):
 	if (stepSound.stream == currentStepSound.stream):
 		var rand = randi_range(1, arrayOfStepSounds.size() - 2)
 		index += rand
