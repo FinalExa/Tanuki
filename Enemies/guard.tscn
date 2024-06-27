@@ -95,7 +95,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_loc1f")
@@ -109,6 +109,7 @@ enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
+enemyMovementSounds = NodePath("EnemyMovementSounds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")

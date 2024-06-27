@@ -16,6 +16,7 @@ var characterRef
 @export var enemyStatus: EnemyStatus
 @export var enemyStunned: EnemyStunned
 @export var spriteRef: AnimatedSprite2D
+@export var enemyMovementSounds: MovementSounds
 
 var guardsLookingForMe: Array[GuardResearch]
 
