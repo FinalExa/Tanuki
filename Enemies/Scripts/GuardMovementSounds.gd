@@ -1,4 +1,4 @@
-class_name EnemyMovementSounds
+class_name GuardMovementSounds
 extends MovementSounds
 
 @export var enemyController: EnemyController
