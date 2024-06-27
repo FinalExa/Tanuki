@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="7_25hsu"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardMovementSounds.gd" id="7_qthhg"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_erwln"]
@@ -109,7 +109,7 @@ enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
-enemyMovementSounds = NodePath("EnemyMovementSounds")
+enemyMovementSounds = NodePath("GuardMovementSounds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -144,8 +144,8 @@ defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
-[node name="EnemyMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "patrolMovementSound", "alertMovementSound")]
-script = ExtResource("7_25hsu")
+[node name="GuardMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "patrolMovementSound", "alertMovementSound")]
+script = ExtResource("7_qthhg")
 enemyController = NodePath("..")
 patrolMovementSound = NodePath("../Sounds/PatrolMovement")
 alertMovementSound = NodePath("../Sounds/AlertMovement")
