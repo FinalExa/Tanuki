@@ -4,7 +4,7 @@ extends Node
 @export var stunDuration: float
 @export var stunEndAlertValue: float
 @export var stunnedText: String
-@export var stunnedSound: AudioStreamPlayer
+@export var stunnedSound: AudioStreamPlayer2D
 var stunTimer: float
 var stunnedFromAlert: bool = false
 
@@ -29,6 +29,7 @@ func end_stun():
 	enemyController.isStunned = false
 	enemyController.enemyPatrol.resume_patrol()
 	enemyController.enemyStatus.updateText("")
+	if (stunnedSound.playing): stunnedSound.stop()
 
 func clear_guards_looking_for_me():
 	for i in enemyController.guardsLookingForMe.size():

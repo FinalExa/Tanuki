@@ -13,6 +13,7 @@ extends Node2D
 @export var screamArea: ScreamArea
 @export var returnToCheckAlertValue: float
 @export var alertAreaFeedback: Node2D
+@export var alertStartSound: AudioStreamPlayer2D
 var alertAreaFeedbackInstance: Node2D
 var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
@@ -55,6 +56,7 @@ func start_alert(target):
 	secondLocationTargetCheckLaunched = false
 	lostSightOfPlayer = false
 	guardController.isInAlert = true
+	alertStartSound.play()
 
 func alert_raycasts():
 	if (guardController.isInAlert):

@@ -7,3 +7,4 @@ func end_stun():
 	enemyController.isStunned = false
 	enemyController.guardCheck.currentAlertValue = stunEndAlertValue
 	enemyController.guardCheck.resume_check()
+	if (stunnedSound.playing): stunnedSound.stop()

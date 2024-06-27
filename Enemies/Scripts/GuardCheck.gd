@@ -11,6 +11,7 @@ extends Area2D
 @export var distanceMultiplier: float
 @export var preCheckDuration: float
 @export var rayTargets: Array[Node2D]
+@export var checkingSound: AudioStreamPlayer2D
 var checkActive: bool
 var checkTarget: Node2D
 var currentAlertValue: float
@@ -68,6 +69,7 @@ func activate_reduction_over_time():
 func activate_check(target: Node2D):
 	preCheckActive = false
 	guardController.isChecking = true
+	checkingSound.play()
 	guardController.enemyPatrol.stop_patrol()
 	checkTarget = target
 

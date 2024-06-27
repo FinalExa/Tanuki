@@ -1,12 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=34 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_hhh2j"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_cnhsa"]
-[ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_yeult"]
+[ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="4_ywt4o"]
 [ext_resource type="Texture2D" uid="uid://ck5hjkk3kc8c" path="res://Enemies/Sprites/Hyottoko200.png" id="5_n7plp"]
+[ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="5_p113o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_0ilbm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_m3bc0"]
+[ext_resource type="Script" path="res://Sounds/Scripts/MovementSounds.gd" id="8_jtoqw"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_rcli2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_5jpci"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_o85p4"]
@@ -49,7 +51,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 448.0
 
-[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef")]
+[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ukclv")
@@ -61,6 +63,9 @@ enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
+enemyMovementSounds = NodePath("EnemyMovementSounds")
+hitByPlayerSound = NodePath("Sounds/HitByPlayer")
+stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2aaw5")
@@ -80,22 +85,32 @@ max_distance = 500.0
 stream = ExtResource("3_cnhsa")
 max_distance = 500.0
 
-[node name="StunnedGuard" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("4_yeult")
+[node name="HitByPlayer" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_ywt4o")
+max_distance = 500.0
+
+[node name="StunnedChirp" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_p113o")
+max_distance = 500.0
+
+[node name="StunnedHit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_ywt4o")
+max_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent", "patrolMovementSound", "alertMovementSound")]
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
 script = ExtResource("6_0ilbm")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
 defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
-patrolMovementSound = NodePath("../Sounds/PatrolMovement")
-alertMovementSound = NodePath("../Sounds/AlertMovement")
+
+[node name="EnemyMovementSounds" type="Node" parent="."]
+script = ExtResource("8_jtoqw")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_m3bc0")
@@ -107,7 +122,7 @@ timeSpentDoingExtraPatrol = 60.0
 script = ExtResource("8_rcli2")
 stunDuration = 10.0
 stunnedText = "STUNNED"
-stunnedSound = NodePath("../Sounds/StunnedGuard")
+stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
 
 [node name="EnemyStatus" type="Label" parent="."]

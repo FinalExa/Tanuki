@@ -31,6 +31,8 @@ var isTrackingPriorityTarget: bool
 @export var priorityTargetThresholdDistance: float
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
+@export var researchEnterSound: AudioStreamPlayer2D
+@export var researchInvestigateSound: AudioStreamPlayer2D
 
 @export var guardController: GuardController
 
@@ -52,6 +54,7 @@ func initialize_guard_research(target: Node2D):
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
+	researchEnterSound.play()
 
 func research_raycasts():
 	if (guardController.isInResearch):
@@ -78,6 +81,7 @@ func save_target_info(target):
 	isTrackingPriorityTarget = true
 
 func set_research_target(target: Vector2):
+	if (!researchInvestigateSound.playing): researchInvestigateSound.play()
 	guardController.enemyMovement.set_location_target(target)
 	guardController.enemyMovement.reset_movement_speed()
 	guardController.enemyRotator.setLookingAtPosition(target)

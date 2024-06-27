@@ -17,6 +17,8 @@ var characterRef
 @export var enemyStunned: EnemyStunned
 @export var spriteRef: AnimatedSprite2D
 @export var enemyMovementSounds: MovementSounds
+@export var hitByPlayerSound: AudioStreamPlayer2D
+@export var stunnedHit: AudioStreamPlayer2D
 
 var guardsLookingForMe: Array[GuardResearch]
 
@@ -34,6 +36,11 @@ func GuardAnimations():
 			spriteRef.flip_h = false
 
 func is_damaged(direction: Vector2):
+	SetDamaged(direction)
+
+func SetDamaged(direction: Vector2):
+	hitByPlayerSound.play()
+	stunnedHit.play()
 	emit_signal("damaged", direction)
 
 func GetRotator():
