@@ -1,10 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=32 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_hhh2j"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_cnhsa"]
 [ext_resource type="AudioStream" uid="uid://vjvbktkmj08i" path="res://Enemies/Sounds/Stunned_Guard.wav" id="4_yeult"]
-[ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="5_4wxpn"]
+[ext_resource type="Texture2D" uid="uid://ck5hjkk3kc8c" path="res://Enemies/Sprites/Hyottoko200.png" id="5_n7plp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_0ilbm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_m3bc0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_rcli2"]
@@ -31,47 +31,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 48.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jmn3"]
-atlas = ExtResource("5_4wxpn")
-region = Rect2(0, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v25mi"]
-atlas = ExtResource("5_4wxpn")
-region = Rect2(144, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gul6"]
-atlas = ExtResource("5_4wxpn")
-region = Rect2(288, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_18opb"]
-atlas = ExtResource("5_4wxpn")
-region = Rect2(432, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsm8s"]
-atlas = ExtResource("5_4wxpn")
-region = Rect2(576, 0, 144, 159)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkvre"]
+atlas = ExtResource("5_n7plp")
+region = Rect2(0, 0, 148, 131)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jmn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v25mi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3gul6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18opb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bsm8s")
+"texture": SubResource("AtlasTexture_jkvre")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 1.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]

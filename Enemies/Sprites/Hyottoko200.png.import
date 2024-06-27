@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c07r0gcjq0b24"
-path="res://.godot/imported/pillar.png-1d60efc31198088a5b7c7182285f13db.ctex"
+uid="uid://ck5hjkk3kc8c"
+path="res://.godot/imported/Hyottoko200.png-d840ee1fea8037b5dd03a93eb3675049.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Sprites/Placeholder/pillar.png"
-dest_files=["res://.godot/imported/pillar.png-1d60efc31198088a5b7c7182285f13db.ctex"]
+source_file="res://Enemies/Sprites/Hyottoko200.png"
+dest_files=["res://.godot/imported/Hyottoko200.png-d840ee1fea8037b5dd03a93eb3675049.ctex"]
 
 [params]
 

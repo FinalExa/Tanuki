@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=11 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="6_mc342"]
 [ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="7_aqx6o"]
 [ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
+[ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel")]
+[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -25,6 +26,7 @@ dialogueUI = NodePath("DialogueUI")
 optionsPanel = NodePath("OptionsPanel")
 controlsPanel = NodePath("ControlsPanel")
 gameOverPanel = NodePath("GameOverPanel")
+gameOverSound = NodePath("GameOverPanel/GameOverSound")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
@@ -188,6 +190,9 @@ offset_left = 832.0
 offset_top = 320.0
 offset_right = 1088.0
 offset_bottom = 576.0
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="GameOverPanel"]
+stream = ExtResource("9_x7y7m")
 
 [node name="GameOver" type="PanelContainer" parent="GameOverPanel"]
 layout_mode = 0

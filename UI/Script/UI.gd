@@ -12,6 +12,7 @@ signal attack_cooldown
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
 @export var gameOverPanel: Panel
+@export var gameOverSound: AudioStreamPlayer
 var isInForcePause: bool
 
 func _ready():
@@ -84,6 +85,7 @@ func _on_quit_to_desktop_button_button_up():
 
 func GameOverScreen():
 	ForcePause()
+	gameOverSound.play()
 	gameOverPanel.show()
 
 func _on_gameover_reload_button_button_up():
