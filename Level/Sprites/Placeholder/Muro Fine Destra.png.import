@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bynrnjgvicfei"
-path="res://.godot/imported/japwall.png-700a8eee3860e88de070ba3c842d4807.ctex"
+uid="uid://dc34oqpr0e6v4"
+path="res://.godot/imported/Muro Fine Destra.png-aa58eae5f14bbd4eb67f626321280487.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Sprites/Placeholder/japwall.png"
-dest_files=["res://.godot/imported/japwall.png-700a8eee3860e88de070ba3c842d4807.ctex"]
+source_file="res://Level/Sprites/Placeholder/Muro Fine Destra.png"
+dest_files=["res://.godot/imported/Muro Fine Destra.png-aa58eae5f14bbd4eb67f626321280487.ctex"]
 
 [params]
 

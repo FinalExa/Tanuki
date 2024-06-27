@@ -7,12 +7,13 @@ extends StaticBody2D
 @export var transformedCollider: CollisionShape2D
 @export var transformedTexture: Sprite2D
 @export var transformedAttackPath: String
-@export var originalObjectPath: String
+var originalObjectPath: String
 var transformedTextureScale: Vector2
 
 var localAllowedItemsRef: LocalAllowedItems
 
 func _ready():
+	originalObjectPath = scene_file_path
 	transformedTextureScale = transformedTexture.scale
 
 func set_change_trs_available(status, body):

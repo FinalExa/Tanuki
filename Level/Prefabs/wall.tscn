@@ -1,14 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1enn7ep28o73"]
 
-[ext_resource type="Texture2D" uid="uid://bynrnjgvicfei" path="res://Level/Sprites/Placeholder/japwall.png" id="1_eg2kg"]
+[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="1_1rter"]
 
 [node name="Wall" type="StaticBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-128, 64, -128, -64, 128, -64, 128, 64)
 
-[node name="Japwall" type="Sprite2D" parent="."]
-position = Vector2(0.01953, -0.00457415)
-rotation = 1.5708
-scale = Vector2(1.40402, 0.632548)
-texture = ExtResource("1_eg2kg")
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1rter")
