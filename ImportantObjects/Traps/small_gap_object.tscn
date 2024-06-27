@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://de327ahrn6hd2" path="res://ImportantObjects/Traps/interaction_object.tscn" id="1_vk7bo"]
 [ext_resource type="PackedScene" uid="uid://clismg2xo3ogk" path="res://ImportantObjects/Traps/Effects/small_gap_effect.tscn" id="2_3ap3e"]
-[ext_resource type="Texture2D" uid="uid://bynrnjgvicfei" path="res://Level/Sprites/Placeholder/japwall.png" id="2_pqfjw"]
+[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_5t4m2"]
 [ext_resource type="Script" path="res://ImportantObjects/Traps/Effects/Scripts/SmallGapExitPoint.gd" id="3_o0318"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwxw"]
@@ -31,10 +31,8 @@ position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_dhwxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="UpWall" index="1"]
-position = Vector2(-0.00157726, 0.00118734)
-rotation = 1.5708
-scale = Vector2(0.5275, 0.316812)
-texture = ExtResource("2_pqfjw")
+scale = Vector2(0.5, 0.375)
+texture = ExtResource("2_5t4m2")
 
 [node name="DownWall" type="StaticBody2D" parent="." index="2"]
 position = Vector2(0, 40)
@@ -43,10 +41,9 @@ position = Vector2(0, 40)
 shape = SubResource("RectangleShape2D_trx4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="DownWall" index="1"]
-position = Vector2(0.00119147, 0.00043871)
-rotation = 1.5708
-scale = Vector2(0.527418, 0.316829)
-texture = ExtResource("2_pqfjw")
+position = Vector2(2.02656e-06, 4.76837e-07)
+scale = Vector2(0.5, 0.375)
+texture = ExtResource("2_5t4m2")
 
 [node name="FirstExitPoint" type="Area2D" parent="." index="3" node_paths=PackedStringArray("otherPoint")]
 position = Vector2(-104, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqttv8sn74u5a"
-path="res://.godot/imported/tile.png-bda1ca7f712e6b02ace77f55296ab570.ctex"
+uid="uid://6khx0lgb020a"
+path="res://.godot/imported/Pavimento bellino half verticale SX.png-a89fca15d053f2451e54bd7fea89b90b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Sprites/Placeholder/tile.png"
-dest_files=["res://.godot/imported/tile.png-bda1ca7f712e6b02ace77f55296ab570.ctex"]
+source_file="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png"
+dest_files=["res://.godot/imported/Pavimento bellino half verticale SX.png-a89fca15d053f2451e54bd7fea89b90b.ctex"]
 
 [params]
 

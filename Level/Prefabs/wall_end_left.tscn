@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxq4vwdv3ac5s"]
+[gd_scene load_steps=3 format=3 uid="uid://bxq4vwdv3ac5s"]
 
 [ext_resource type="Texture2D" uid="uid://bggreuw82wsrw" path="res://Level/Sprites/Placeholder/Muro Fine Sinistra.png" id="1_uvycw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4esf"]
+size = Vector2(256, 128)
+
 [node name="WallEndLeft" type="StaticBody2D"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-128, 64, -128, -64, 128, -64, 128, 64)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k4esf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_uvycw")

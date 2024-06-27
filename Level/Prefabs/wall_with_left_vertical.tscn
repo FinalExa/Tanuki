@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gjkhghuswh45"]
+
+[ext_resource type="Texture2D" uid="uid://bg5cpr4a5cq23" path="res://Level/Sprites/Placeholder/Muro Custom SX.png" id="1_o6s2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ern4j"]
+size = Vector2(256, 128)
+
+[node name="WallWithLeftVertical" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ern4j")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_o6s2y")

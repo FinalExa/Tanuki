@@ -1,5 +1,5 @@
 class_name PlayerMovementSounds
-extends Node2D
+extends MovementSounds
 
 @export var playerMovement: PCMovement
 @export var playerRef: PlayerCharacter
@@ -25,18 +25,16 @@ func PlayNormalMovement():
 		SelectNextStep()
 
 func SelectNextStep():
-	currentStepIndex = randi_range(0, normalMovementSounds.size() - 1)
-	if (!normalStepsStarted):
-		if (!normalStepsStarted):
-			normalStepsStarted = true
-	else:
-		if (normalMovementSounds[currentStepIndex].stream == currentNormalStep.stream):
-			var rand = randi_range(1, normalMovementSounds.size() - 2)
-			currentStepIndex += rand
-			if (currentStepIndex >= normalMovementSounds.size()):
-				currentStepIndex -= normalMovementSounds.size()
+	RandomizeStep()
 	currentNormalStep.stream = normalMovementSounds[currentStepIndex].stream
 	currentNormalStep.play()
+
+func RandomizeStep():
+	currentStepIndex = randi_range(0, normalMovementSounds.size() - 1)
+	if (!normalStepsStarted):
+		normalStepsStarted = true
+		return
+	currentStepIndex = RandomizeStepSound(normalMovementSounds[currentStepIndex], currentNormalStep, normalMovementSounds, currentStepIndex)
 
 func StopNormalMovementSound():
 	currentNormalStep.stop()

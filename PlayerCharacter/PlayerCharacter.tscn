@@ -278,17 +278,17 @@ script = ExtResource("14_tgchp")
 script = ExtResource("15_v4kpo")
 playerRef = NodePath("..")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_5la1i")
-animation = &"idle"
-
-[node name="PlayerMovementSounds" type="Node2D" parent="." node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
+[node name="PlayerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
 script = ExtResource("15_4hghg")
 playerMovement = NodePath("../Rotator/PlayerMovement")
 playerRef = NodePath("..")
 currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
 normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5")]
 transformedMovementSound = NodePath("../Sounds/TransformedMovement")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5la1i")
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
