@@ -206,30 +206,39 @@ transformedTexture = NodePath("../Broom/Sprite2D")
 
 [node name="Statue" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -3136)
+transformedPassivePath = ""
 
 [node name="Statue2" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -3008)
+transformedPassivePath = ""
 
 [node name="Statue3" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -2624)
+transformedPassivePath = ""
 
 [node name="Statue4" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -2112)
+transformedPassivePath = ""
 
 [node name="Statue5" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-192, -1984)
+transformedPassivePath = ""
 
 [node name="Statue6" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -2752)
+transformedPassivePath = ""
 
 [node name="Statue7" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -2368)
+transformedPassivePath = ""
 
 [node name="Statue8" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -1856)
+transformedPassivePath = ""
 
 [node name="Statue9" parent="Room1Hall/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(1984, -1728)
+transformedPassivePath = ""
 
 [node name="Enemies" type="Node2D" parent="Room1Hall"]
 
@@ -677,57 +686,75 @@ objectToSendDestoySignal = NodePath("../../TransformObjects/Key1C")
 
 [node name="Statue" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2624)
+transformedPassivePath = ""
 
 [node name="Statue2" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2624)
+transformedPassivePath = ""
 
 [node name="Statue3" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2432, -2624)
+transformedPassivePath = ""
 
 [node name="Statue4" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2496)
+transformedPassivePath = ""
 
 [node name="Statue5" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2496)
+transformedPassivePath = ""
 
 [node name="Statue6" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2432, -2496)
+transformedPassivePath = ""
 
 [node name="Statue7" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2688, -2368)
+transformedPassivePath = ""
 
 [node name="Statue8" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2560, -2368)
+transformedPassivePath = ""
 
 [node name="Statue9" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-2432, -2368)
+transformedPassivePath = ""
 
 [node name="Statue10" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2624)
+transformedPassivePath = ""
 
 [node name="Statue11" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2624)
+transformedPassivePath = ""
 
 [node name="Statue12" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1600, -2624)
+transformedPassivePath = ""
 
 [node name="Statue13" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2496)
+transformedPassivePath = ""
 
 [node name="Statue14" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2496)
+transformedPassivePath = ""
 
 [node name="Statue15" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1600, -2496)
+transformedPassivePath = ""
 
 [node name="Statue16" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1856, -2368)
+transformedPassivePath = ""
 
 [node name="Statue17" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1728, -2368)
+transformedPassivePath = ""
 
 [node name="Statue18" parent="Room2Warehouse/TransformObjects" instance=ExtResource("8_1qbxj")]
 position = Vector2(-1600, -2368)
+transformedPassivePath = ""
 
 [node name="Vase" parent="Room2Warehouse/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("7_ktmq7")]
 position = Vector2(-1024, -1472)
@@ -1906,3 +1933,10 @@ position = Vector2(3584, -3264)
 scale = Vector2(0.5, 1)
 
 [node name="PatrolIndicators" type="Node2D" parent="Room4Exit"]
+
+[connection signal="body_entered" from="Room1Hall/DetectionZones/LocalAllowedItems" to="Room1Hall/DetectionZones/LocalAllowedItems" method="_on_body_entered"]
+[connection signal="body_exited" from="Room1Hall/DetectionZones/LocalAllowedItems" to="Room1Hall/DetectionZones/LocalAllowedItems" method="_on_body_exited"]
+[connection signal="body_entered" from="Room1Hall/DetectionZones/LocalAllowedItems2" to="Room1Hall/DetectionZones/LocalAllowedItems2" method="_on_body_entered"]
+[connection signal="body_exited" from="Room1Hall/DetectionZones/LocalAllowedItems2" to="Room1Hall/DetectionZones/LocalAllowedItems2" method="_on_body_exited"]
+[connection signal="body_entered" from="Room1Hall/DetectionZones/LocalAllowedItems3" to="Room1Hall/DetectionZones/LocalAllowedItems3" method="_on_body_entered"]
+[connection signal="body_exited" from="Room1Hall/DetectionZones/LocalAllowedItems3" to="Room1Hall/DetectionZones/LocalAllowedItems3" method="_on_body_exited"]

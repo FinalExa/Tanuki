@@ -6,15 +6,7 @@ signal reset_speed
 signal send_transformation_name
 signal send_transformation_active_info
 
-var isInsidePossibleTransformationObject: bool
-var tempTransformationName: String
-var tempTransformationSpeed: float
-var tempTransformationProperties: Array[String]
-var tempTransformationCollisionShape: CollisionShape2D
-var tempTransformationTexture: Texture2D
-var tempTransformationTextureScale: Vector2
-var tempTransformAttackPath: String
-var tempOriginalObjectPath: String
+var transformObjectsInRange: Array[TransformationObjectData]
 
 var currentTransformationSet: bool
 var currentTransformationName: String
@@ -68,46 +60,40 @@ func _ready():
 	self.remove_child(tailRef)
 
 func _process(delta):
-	set_new_transformation()
-	activate_transformation()
-	manual_deactivate_transformation()
-	transformation_active(delta)
-	transformation_lock(delta)
-	check_for_attack_input()
+	SetNewTransformation()
+	ActivateTransformation()
+	CheckForDeactivateTransformation()
+	TransformationActive(delta)
+	LockTimer(delta)
+	CheckForAttackInput()
 
-func set_temp_trs(tempName, tempSpeed, tempProperties, tempCollider, tempTexture, tempTextureScale, tempAttackPath, tempOriginalPath):
-	isInsidePossibleTransformationObject = true
-	tempTransformationName = tempName
-	tempTransformationSpeed = tempSpeed
-	tempTransformationProperties = tempProperties
-	tempTransformationCollisionShape = tempCollider
-	tempTransformationTexture = tempTexture
-	tempTransformationTextureScale = tempTextureScale
-	tempTransformAttackPath = tempAttackPath
-	tempOriginalObjectPath = tempOriginalPath
+func SetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
+	if (!transformObjectsInRange.has(trsObjectRef)):
+		transformObjectsInRange.push_back(trsObjectRef)
 
-func unset_temp_trs():
-	isInsidePossibleTransformationObject = false
+func UnsetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
+	if (transformObjectsInRange.has(trsObjectRef)):
+		transformObjectsInRange.erase(trsObjectRef)
 
-func set_new_transformation():
-	if (playerRef.playerInputs.interactInput && isInsidePossibleTransformationObject):
-		actually_set_new_transformation()
+func SetNewTransformation():
+	if (playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0):
+		SaveNewTransformation(transformObjectsInRange[transformObjectsInRange.size() - 1])
 		if (!objectSavedSound.playing): objectSavedSound.play()
 
-func actually_set_new_transformation():
+func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentTransformationSet = true
-	currentTransformationName = tempTransformationName
-	currentTransformationSpeed = tempTransformationSpeed
-	currentTransformationProperties = tempTransformationProperties
-	currentTransformationCollisionShape = tempTransformationCollisionShape
-	currentTransformationTexture = tempTransformationTexture
-	currentTransformationTextureScale = tempTransformationTextureScale
-	currentTransformationAttackPath = tempTransformAttackPath
-	currentOriginalObjectPath = tempOriginalObjectPath
-	add_attack()
+	currentTransformationName = trsObjectToSave.transformedName
+	currentTransformationSpeed = trsObjectToSave.transformedMaxSpeed
+	currentTransformationProperties = trsObjectToSave.transformedProperties
+	currentTransformationCollisionShape = trsObjectToSave.transformedCollider
+	currentTransformationTexture = trsObjectToSave.transformedTexture.texture
+	currentTransformationTextureScale = trsObjectToSave.transformedTextureScale
+	currentTransformationAttackPath = trsObjectToSave.transformedAttackPath
+	currentOriginalObjectPath = trsObjectToSave.scene_file_path
+	AddTransformationAttack()
 	emit_signal("send_transformation_name", currentTransformationName)
 
-func activate_transformation():
+func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
@@ -117,13 +103,13 @@ func activate_transformation():
 		playerTransformedSprite.scale = currentTransformationTextureScale
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
-		transformation_lock_activate()
+		ActivateLock()
 
-func manual_deactivate_transformation():
+func CheckForDeactivateTransformation():
 	if (playerRef.playerInputs.transformInput && isTransformed && !transformationLock):
-		deactivate_transformation()
+		DeactivateTransformation()
 
-func deactivate_transformation():
+func DeactivateTransformation():
 	emit_signal("reset_speed")
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
 	if (transformationTimeLowSound.playing) : transformationTimeLowSound.stop()
@@ -137,9 +123,9 @@ func deactivate_transformation():
 		sceneRef.remove_child(tailInstance)
 		tailInstance = null
 	clear_guards_looking_for_me()
-	transformation_lock_activate()
+	ActivateLock()
 
-func transformation_active(delta):
+func TransformationActive(delta):
 	if (isTransformed):
 		if (transformationTimer < transformationDuration):
 			transformationTimer = clamp(transformationTimer + delta, 0, transformationDuration)
@@ -149,7 +135,7 @@ func transformation_active(delta):
 				transformationTimeLowSound.play()
 				timeLowSoundPlayed = true
 		else:
-			deactivate_transformation()
+			DeactivateTransformation()
 	else:
 		if (transformationTimer > 0):
 			transformationTimer=clamp(transformationTimer-delta,0,transformationDuration)
@@ -165,21 +151,21 @@ func AddTail():
 			break
 	if (!tailAppearsSound.playing): tailAppearsSound.play()
 
-func transformation_lock_activate():
+func ActivateLock():
 	transformationLock = true
 	transformationLockTimer = 0
 
-func transformation_lock(delta):
+func LockTimer(delta):
 	if (transformationLock):
 		if (transformationLockTimer<transformationLockDuration):
 			transformationLockTimer+=delta
 		else:
 			transformationLock = false
 
-func set_local_zone(localRef: LocalAllowedItems):
+func SetLocalZone(localRef: LocalAllowedItems):
 	localAllowedItemsRef = localRef
 
-func unset_local_zone():
+func UnsetLocalZone():
 	localAllowedItemsRef = null
 
 func clear_guards_looking_for_me():
@@ -198,25 +184,21 @@ func get_if_transformed_in_right_zone():
 		return 2
 	return 0
 
-func add_attack():
+func AddTransformationAttack():
 	var children = get_children()
 	for i in children.size():
 		if (children[i] is TransformObjectAttack):
 			remove_child(children[i])
-			i-=1
+			i -= 1
 	if (currentTransformationAttackPath != ""):
 		var new_atk_scene = load(currentTransformationAttackPath)
 		var new_atk = new_atk_scene.instantiate()
 		add_child(new_atk)
-		children = get_children()
-		for i in children.size():
-			if (children[i] is TransformObjectAttack):
-				currentAttack = children[i]
-				break
+		currentAttack = new_atk
 		currentAttack.characterRef = playerRef
 	else:
 		currentAttack = null
 
-func check_for_attack_input():
+func CheckForAttackInput():
 	if (currentAttack != null && !currentAttack.attackLaunched && Input.is_action_just_pressed("attack") && isTransformed):
 		currentAttack.start_attack()

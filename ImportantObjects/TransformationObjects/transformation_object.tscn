@@ -22,9 +22,9 @@ shape = SubResource("RectangleShape2D_3gx12")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qk2ye")
 
-[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformation_object_data")]
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
 script = ExtResource("3_k167w")
-transformation_object_data = NodePath("..")
+transformationObjectData = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("RectangleShape2D_10nd7")

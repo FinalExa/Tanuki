@@ -22,7 +22,7 @@ func execute_effect_normally(receivedBody, _delta):
 				playerHasBeenMoved = true
 			playerHasBeenCaptured = true
 		if (playerRef.transformationChangeRef.isTransformed):
-			playerRef.transformationChangeRef.deactivate_transformation()
+			playerRef.transformationChangeRef.DeactivateTransformation()
 			playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
 
 func execute_negated_effect(receivedBody, _delta):
