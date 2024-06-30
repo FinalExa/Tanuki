@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2wcirv23eic1"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoDrumPassive.gd" id="1_wclvh"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/ExecuteAttack.gd" id="2_frepa"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoHitbox.gd" id="3_kggq0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7g2t"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nt06l"]
+radius = 257.123
+
+[node name="TaikoDrumPassive" type="Area2D" node_paths=PackedStringArray("normalAttack", "specialAttack")]
+script = ExtResource("1_wclvh")
+specialAttackGroup = "TaikoGroup"
+normalAttack = NodePath("NormalAttack")
+specialAttack = NodePath("SpecialAttack")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u7g2t")
+
+[node name="NormalAttack" type="Node2D" parent="." node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("2_frepa")
+attackDuration = 30
+attackCooldown = 90
+attackPhasesLaunch = Array[int]([0, 15])
+attackHitboxes = [null, NodePath("TaikoHitbox")]
+attackSounds = [null, null]
+attackMovements = Array[float]([0.0, 0.0])
+
+[node name="TaikoHitbox" type="Area2D" parent="NormalAttack"]
+script = ExtResource("3_kggq0")
+alertValueOnGuards = 35.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalAttack/TaikoHitbox"]
+shape = SubResource("CircleShape2D_nt06l")
+
+[node name="SpecialAttack" type="Node2D" parent="." node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("2_frepa")
+attackDuration = 30
+attackCooldown = 60
+attackPhasesLaunch = Array[int]([0, 0])
+attackHitboxes = [null, NodePath("TaikoSpecialHitbox")]
+attackSounds = [null, null]
+attackMovements = Array[float]([0.0, 0.0])
+
+[node name="TaikoSpecialHitbox" type="Area2D" parent="SpecialAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttack/TaikoSpecialHitbox"]
+shape = SubResource("CircleShape2D_nt06l")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="NormalAttack/TaikoHitbox" to="NormalAttack/TaikoHitbox" method="_on_body_entered"]
