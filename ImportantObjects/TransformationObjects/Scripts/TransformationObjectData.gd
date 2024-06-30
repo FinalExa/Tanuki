@@ -8,6 +8,7 @@ extends StaticBody2D
 @export var transformedTexture: Sprite2D
 @export var transformedAttackPath: String
 @export var transformedPassivePath: String
+@export var transformedTailLocation: Node2D
 var originalObjectPath: String
 var transformedTextureScale: Vector2
 

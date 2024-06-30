@@ -335,9 +335,10 @@ tailAppearsSound = NodePath("../../Sounds/TailAppears")
 transformationLockDuration = 0.3
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
-position = Vector2(0, 75)
+position = Vector2(0, 80)
 
 [node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
+position = Vector2(0, 80)
 
 [node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
 script = ExtResource("1_7j0ss")

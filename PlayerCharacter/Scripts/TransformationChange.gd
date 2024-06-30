@@ -15,7 +15,6 @@ var currentTransformationProperties: Array[String]
 var currentTransformationCollisionShape: CollisionShape2D
 var currentTransformationTexture: Texture2D
 var currentTransformationTextureScale: Vector2
-var currentTransformationAttackPath: String
 var currentOriginalObjectPath: String
 
 var currentAttack: TransformObjectAttack
@@ -26,7 +25,7 @@ var isTransformed: bool = false
 @export var tailActivationTime: float
 @export var lowTimeRemaining: float
 @export var timeRefundOnReactivation: float
-@export var tailRef: Node2D
+@export var tailRef: TailFollow
 @export var tailLocation: Node2D
 @export var playerRef: PlayerCharacter
 @export var baseCollisionShape: CollisionShape2D
@@ -39,14 +38,13 @@ var isTransformed: bool = false
 @export var tailAppearsSound: AudioStreamPlayer
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
-var baseTextureScale
-var tailInstance
-var transformationTimer
+var baseTextureScale: Vector2
+var transformationTimer: float
 
 @export var transformationLockDuration: float
 var transformationLockTimer: float
-var transformationLock: bool = false
-var timeLowSoundPlayed: bool = false
+var transformationLock: bool
+var timeLowSoundPlayed: bool
 
 var sceneRef: Node2D
 var localAllowedItemsRef: LocalAllowedItems
@@ -76,7 +74,7 @@ func UnsetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
 		transformObjectsInRange.erase(trsObjectRef)
 
 func SetNewTransformation():
-	if (playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0):
+	if (playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0 && !isTransformed):
 		SaveNewTransformation(transformObjectsInRange[transformObjectsInRange.size() - 1])
 		if (!objectSavedSound.playing): objectSavedSound.play()
 
@@ -88,9 +86,10 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentTransformationCollisionShape = trsObjectToSave.transformedCollider
 	currentTransformationTexture = trsObjectToSave.transformedTexture.texture
 	currentTransformationTextureScale = trsObjectToSave.transformedTextureScale
-	currentTransformationAttackPath = trsObjectToSave.transformedAttackPath
+	currentAttack = SpawnTransformationSpecialObject(trsObjectToSave.transformedAttackPath, currentAttack)
 	currentOriginalObjectPath = trsObjectToSave.scene_file_path
-	AddTransformationAttack()
+	tailLocation.position = trsObjectToSave.transformedTailLocation.position
+	
 	emit_signal("send_transformation_name", currentTransformationName)
 
 func ActivateTransformation():
@@ -119,9 +118,8 @@ func DeactivateTransformation():
 	playerSprite.scale = baseTextureScale
 	isTransformed = false
 	timeLowSoundPlayed = false
-	if (tailInstance != null):
-		sceneRef.remove_child(tailInstance)
-		tailInstance = null
+	if (tailRef.get_parent() != null):
+		sceneRef.remove_child(tailRef)
 	clear_guards_looking_for_me()
 	ActivateLock()
 
@@ -129,7 +127,7 @@ func TransformationActive(delta):
 	if (isTransformed):
 		if (transformationTimer < transformationDuration):
 			transformationTimer = clamp(transformationTimer + delta, 0, transformationDuration)
-			if(transformationTimer >= tailActivationTime && tailInstance == null):
+			if(transformationTimer >= tailActivationTime && tailRef.get_parent() == null):
 				AddTail()
 			if (transformationTimer >= lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
 				transformationTimeLowSound.play()
@@ -138,17 +136,13 @@ func TransformationActive(delta):
 			DeactivateTransformation()
 	else:
 		if (transformationTimer > 0):
-			transformationTimer=clamp(transformationTimer-delta,0,transformationDuration)
+			transformationTimer = clamp(transformationTimer-delta,0,transformationDuration)
 	emit_signal("send_transformation_active_info", isTransformed, transformationTimer, transformationDuration)
 
 func AddTail():
 	sceneRef.add_child(tailRef)
-	for i in sceneRef.get_child_count():
-		if (sceneRef.get_child(i) == tailRef):
-			tailInstance = sceneRef.get_child(i)
-			tailInstance.playerRef = playerRef
-			tailInstance.objectToTrack = tailLocation
-			break
+	tailRef.playerRef = playerRef
+	tailRef.objectToTrack = tailLocation
 	if (!tailAppearsSound.playing): tailAppearsSound.play()
 
 func ActivateLock():
@@ -184,21 +178,25 @@ func get_if_transformed_in_right_zone():
 		return 2
 	return 0
 
-func AddTransformationAttack():
-	var children = get_children()
-	for i in children.size():
-		if (children[i] is TransformObjectAttack):
-			remove_child(children[i])
-			i -= 1
-	if (currentTransformationAttackPath != ""):
-		var new_atk_scene = load(currentTransformationAttackPath)
-		var new_atk = new_atk_scene.instantiate()
-		add_child(new_atk)
-		currentAttack = new_atk
-		currentAttack.characterRef = playerRef
-	else:
-		currentAttack = null
+func SpawnTransformationSpecialObject(path: String, objectVariable: Node2D):
+	if (objectVariable != null):
+		if (objectVariable.get_parent() != null):
+			self.remove_child(objectVariable)
+		if (objectVariable is ExecuteAttack):
+			objectVariable.frameMaster.RemoveAttack(objectVariable)
+		objectVariable.queue_free()
+		objectVariable = null
+	if (path != ""):
+		objectVariable = InstantiateScene(path)
+		objectVariable.characterRef = playerRef
+	return objectVariable
+
+func InstantiateScene(path: String):
+	var scene = load(path)
+	var ref = scene.instantiate()
+	add_child(ref)
+	return ref
 
 func CheckForAttackInput():
-	if (currentAttack != null && !currentAttack.attackLaunched && Input.is_action_just_pressed("attack") && isTransformed):
+	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput):
 		currentAttack.start_attack()

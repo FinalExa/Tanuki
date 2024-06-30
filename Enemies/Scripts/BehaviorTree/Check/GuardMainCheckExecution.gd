@@ -46,7 +46,7 @@ func determine_suspicion_type(target):
 			guardCheck.researchOutcome = false
 		return
 	if (target is TailFollow):
-		enemyController.guardRotator.setLookingAtPosition(target.global_position)
+		enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 		guardCheck.playerSeen = true
 		guardCheck.researchOutcome = true
 		suspicion_active(target, guardCheck.playerIsSeenMultiplier)
