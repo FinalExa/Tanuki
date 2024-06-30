@@ -97,7 +97,7 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
-		transformationTimer=clamp(transformationTimer-timeRefundOnReactivation,0,transformationDuration)
+		transformationTimer = clamp(transformationTimer - timeRefundOnReactivation, 0, transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
 		get_parent().add_child(playerTransformedSprite)
 		playerTransformedSprite.texture = currentTransformationTexture

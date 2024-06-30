@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=38 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_hhh2j"]
@@ -20,17 +20,19 @@
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_h7btj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_up2r5"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskIsSpottingPlayer.gd" id="17_avink"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_jo8pb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="18_l37p7"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskHyottokoApproachPlayer.gd" id="18_recdj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="19_3r3qj"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskHyottokoIsAttacking.gd" id="19_lew08"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="20_wvsmk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="21_2kget"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskHyottokoStartAttack.gd" id="22_203ql"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="22_plihh"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/TaskHyottokoIsReachingPoint.gd" id="23_pkxyi"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsAttacking.gd" id="22_r2nck"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsReachingPoint.gd" id="23_ayyf4"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointMovement.gd" id="24_j62r5"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskIsSpottingPlayer.gd" id="24_ygfbv"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoApproachPlayer.gd" id="25_qwomu"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointTimer.gd" id="25_rj14d"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoStartAttack.gd" id="26_t3707"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 48.0
@@ -207,26 +209,40 @@ enemyStunned = NodePath("../../../../EnemyStunned")
 enemyController = NodePath("../../../..")
 
 [node name="TaskHyottokoIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttackNormal", "enemyAttackRage", "enemyController")]
-script = ExtResource("19_lew08")
+script = ExtResource("22_r2nck")
 enemyAttackNormal = NodePath("../../../Rotator/HyottokoAttackNormal")
 enemyAttackRage = NodePath("../../../Rotator/HyottokoAttackRage")
 enemyController = NodePath("../../..")
 
 [node name="SelectorReachPoint" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_h7btj")
-children = [NodePath("TaskHyottokoIsReachingPoint")]
+children = [NodePath("TaskHyottokoIsReachingPoint"), NodePath("BT_Sequence")]
 
 [node name="TaskHyottokoIsReachingPoint" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("hyottokoController", "enemyController")]
-script = ExtResource("23_pkxyi")
+script = ExtResource("23_ayyf4")
 hyottokoController = NodePath("../../../..")
 enemyController = NodePath("../../../..")
+
+[node name="BT_Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("children")]
+script = ExtResource("14_b1r2r")
+children = [NodePath("TaskHyottokoReachingPointMovement"), NodePath("TaskHyottokoReachingPointTimer")]
+
+[node name="TaskHyottokoReachingPointMovement" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/BT_Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+script = ExtResource("24_j62r5")
+hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
+enemyController = NodePath("../../../../..")
+
+[node name="TaskHyottokoReachingPointTimer" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/BT_Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+script = ExtResource("25_rj14d")
+hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
+enemyController = NodePath("../../../../..")
 
 [node name="SelectorSpottedPlayer" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_h7btj")
 children = [NodePath("TaskIsSpottingPlayer"), NodePath("Sequence")]
 
 [node name="TaskIsSpottingPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer" node_paths=PackedStringArray("enemyController")]
-script = ExtResource("17_avink")
+script = ExtResource("24_ygfbv")
 enemyController = NodePath("../../../..")
 
 [node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer" node_paths=PackedStringArray("children")]
@@ -234,11 +250,11 @@ script = ExtResource("14_b1r2r")
 children = [NodePath("TaskHyottokoApproachPlayer"), NodePath("TaskHyottokoStartAttack")]
 
 [node name="TaskHyottokoApproachPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("enemyController")]
-script = ExtResource("18_recdj")
+script = ExtResource("25_qwomu")
 enemyController = NodePath("../../../../..")
 
 [node name="TaskHyottokoStartAttack" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("normalAttack", "rageAttack", "enemyController")]
-script = ExtResource("22_203ql")
+script = ExtResource("26_t3707")
 normalAttack = NodePath("../../../../../Rotator/HyottokoAttackNormal")
 rageAttack = NodePath("../../../../../Rotator/HyottokoAttackRage")
 enemyController = NodePath("../../../../..")
@@ -284,6 +300,7 @@ enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
+[connection signal="damaged" from="." to="HyottokoReachPoint" method="_on_hyottoko_damaged"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_exited"]

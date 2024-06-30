@@ -30,7 +30,8 @@ func LaunchFrame():
 	for i in attackSources.size():
 		if (i >= attackSources.size()):
 			break
-		attackSources[i].Attacking()
+		if (attackSources[i] != null):
+			attackSources[i].Attacking()
 
 func RegisterAttack(attack: ExecuteAttack):
 	if (!attackSources.has(attack)):

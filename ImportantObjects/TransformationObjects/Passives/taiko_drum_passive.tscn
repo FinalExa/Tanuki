@@ -26,7 +26,6 @@ attackCooldown = 90
 attackPhasesLaunch = Array[int]([0, 15])
 attackHitboxes = [null, NodePath("TaikoHitbox")]
 attackSounds = [null, null]
-attackMovements = Array[float]([0.0, 0.0])
 
 [node name="TaikoHitbox" type="Area2D" parent="NormalAttack"]
 script = ExtResource("3_kggq0")
@@ -42,7 +41,6 @@ attackCooldown = 60
 attackPhasesLaunch = Array[int]([0, 0])
 attackHitboxes = [null, NodePath("TaikoSpecialHitbox")]
 attackSounds = [null, null]
-attackMovements = Array[float]([0.0, 0.0])
 
 [node name="TaikoSpecialHitbox" type="Area2D" parent="SpecialAttack"]
 

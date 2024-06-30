@@ -57,10 +57,8 @@ func LoadOperations():
 	if (!stopResetPosition): playerRef.global_position = lastPos
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)
-		var new_trs = new_trs_scene.instantiate()
-		playerRef.transformationChangeRef.set_temp_trs(new_trs.transformedName, new_trs.transformedMaxSpeed, new_trs.transformedProperties, new_trs.transformedCollider, new_trs.transformedTexture.texture, new_trs.transformedTexture.scale, new_trs.transformedAttackPath, new_trs.originalObjectPath)
-		playerRef.transformationChangeRef.actually_set_new_transformation()
-		playerRef.transformationChangeRef.unset_temp_trs()
+		var new_trs: TransformationObjectData = new_trs_scene.instantiate()
+		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
 			TranslateStringIntoPathResult(self, savedDeletePaths[i])

@@ -15,3 +15,9 @@ func SetInRage():
 
 func SetOutOfRage():
 	isInRage = false
+
+func SetDamaged(direction: Vector2):
+	hitByPlayerSound.play()
+	stunnedHit.play()
+	emit_signal("damaged", direction)
+	enemyStunned.start_stun(direction)

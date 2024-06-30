@@ -5,13 +5,14 @@ extends TransformationObjectPassive
 @export var specialAttack: ExecuteAttack
 var specialAttackAreas: Array[Area2D]
 
-func _process(delta):
+func _process(_delta):
 	CheckForAttackInput()
 
 func CheckForAttackInput():
 	if (transformationChangeRef.isTransformed && transformationChangeRef.playerRef.playerInputs.attackInput):
-		if (specialAttackAreas.size() == 0 && !normalAttack.attackLaunched && !normalAttack.attackInCooldown):
-			normalAttack.start_attack()
+		if (specialAttackAreas.size() == 0):
+			if (!normalAttack.attackLaunched && !normalAttack.attackInCooldown):
+				normalAttack.start_attack()
 			return
 		if (!specialAttack.attackLaunched && !specialAttack.attackInCooldown):
 			specialAttack.start_attack()
