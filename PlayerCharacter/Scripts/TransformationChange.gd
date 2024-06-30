@@ -15,6 +15,7 @@ var currentTransformationProperties: Array[String]
 var currentTransformationCollisionShape: CollisionShape2D
 var currentTransformationTexture: Texture2D
 var currentTransformationTextureScale: Vector2
+var currentTransformationPassive: TransformationObjectPassive
 var currentOriginalObjectPath: String
 
 var currentAttack: TransformObjectAttack
@@ -87,9 +88,10 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentTransformationTexture = trsObjectToSave.transformedTexture.texture
 	currentTransformationTextureScale = trsObjectToSave.transformedTextureScale
 	currentAttack = SpawnTransformationSpecialObject(trsObjectToSave.transformedAttackPath, currentAttack)
+	currentTransformationPassive = SpawnTransformationSpecialObject(trsObjectToSave.transformedPassivePath, currentTransformationPassive)
+	if (currentTransformationPassive != null): currentTransformationPassive.SetTransformationChangeRef(self)
 	currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	tailLocation.position = trsObjectToSave.transformedTailLocation.position
-	
 	emit_signal("send_transformation_name", currentTransformationName)
 
 func ActivateTransformation():
