@@ -10,7 +10,6 @@ var isInResearch: bool
 @export var guardAlert: GuardAlert
 @export var enemyAttack: EnemyAttack
 
-
 func is_damaged(direction: Vector2):
 	if (isInAlert):
 		enemyStunned.stunnedFromAlert = true
