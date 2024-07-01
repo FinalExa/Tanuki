@@ -307,11 +307,12 @@ playerInputs = NodePath("../../../PlayerInputs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")
 
-[node name="Rotator" type="Node2D" parent="."]
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("playerCollider")]
 script = ExtResource("2_0m5xn")
 downRad = 180
 leftRad = 270
 rightRad = 90
+playerCollider = NodePath("../CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 

@@ -18,7 +18,7 @@ var currentTransformationTextureScale: Vector2
 var currentTransformationPassive: TransformationObjectPassive
 var currentOriginalObjectPath: String
 
-var currentAttack: TransformObjectAttack
+var currentAttack: ExecuteAttack
 var guardsLookingForMe: Array[GuardResearch]
 
 var isTransformed: bool = false

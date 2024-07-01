@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5lxw87oc4f6o"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_6b151"]
+[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/transformObject.png" id="2_cilmb"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_hs5r0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(80, 128)
+
+[node name="Log" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+collision_layer = 3
+script = ExtResource("1_6b151")
+transformedName = "Log"
+transformedMaxSpeed = 500.0
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/log_attack.tscn"
+transformedTailLocation = NodePath("TailLocation")
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3gx12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 3.8147e-06)
+scale = Vector2(0.48, 0.96)
+texture = ExtResource("2_cilmb")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_hs5r0")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

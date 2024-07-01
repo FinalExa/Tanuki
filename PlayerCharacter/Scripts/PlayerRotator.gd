@@ -5,6 +5,7 @@ extends Node2D
 @export var downRad = 0
 @export var leftRad = 0
 @export var rightRad = 0
+@export var playerCollider: CollisionShape2D
 var lastDirection: Vector2
 var lastSavedDirection: Vector2 = Vector2(0, -1)
 
@@ -14,6 +15,7 @@ func _on_movement_movement_direction(direction):
 	lastDirection = direction
 	if (lastDirection != lastSavedDirection && lastDirection != Vector2.ZERO):
 		lastSavedDirection = lastDirection
+	playerCollider.global_rotation = self.global_rotation
 
 func verticalRotation(direction):
 	if (direction.y != lastDirection.y):
