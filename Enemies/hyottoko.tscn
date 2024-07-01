@@ -55,13 +55,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 448.0
 
-[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoNormalAttack", "hyottokoRageAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ukclv")
 hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 200.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
+hyottokoNormalAttack = NodePath("Rotator/HyottokoAttackNormal")
+hyottokoRageAttack = NodePath("Rotator/HyottokoAttackRage")
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -216,23 +218,23 @@ enemyController = NodePath("../../..")
 
 [node name="SelectorReachPoint" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_h7btj")
-children = [NodePath("TaskHyottokoIsReachingPoint"), NodePath("BT_Sequence")]
+children = [NodePath("TaskHyottokoIsReachingPoint"), NodePath("Sequence")]
 
 [node name="TaskHyottokoIsReachingPoint" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("hyottokoController", "enemyController")]
 script = ExtResource("23_ayyf4")
 hyottokoController = NodePath("../../../..")
 enemyController = NodePath("../../../..")
 
-[node name="BT_Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("children")]
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("children")]
 script = ExtResource("14_b1r2r")
 children = [NodePath("TaskHyottokoReachingPointMovement"), NodePath("TaskHyottokoReachingPointTimer")]
 
-[node name="TaskHyottokoReachingPointMovement" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/BT_Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+[node name="TaskHyottokoReachingPointMovement" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
 script = ExtResource("24_j62r5")
 hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
 enemyController = NodePath("../../../../..")
 
-[node name="TaskHyottokoReachingPointTimer" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/BT_Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+[node name="TaskHyottokoReachingPointTimer" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
 script = ExtResource("25_rj14d")
 hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
 enemyController = NodePath("../../../../..")

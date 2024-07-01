@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2wcirv23eic1"]
+[gd_scene load_steps=8 format=3 uid="uid://d2wcirv23eic1"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoDrumPassive.gd" id="1_wclvh"]
 [ext_resource type="Script" path="res://WeaponTool/Scripts/ExecuteAttack.gd" id="2_frepa"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoHitbox.gd" id="3_kggq0"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoSpecialHitbox.gd" id="4_v67ob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7g2t"]
 radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nt06l"]
-radius = 257.123
+radius = 320.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5gwa"]
+radius = 576.056
 
 [node name="TaikoDrumPassive" type="Area2D" node_paths=PackedStringArray("normalAttack", "specialAttack")]
 script = ExtResource("1_wclvh")
@@ -43,10 +47,13 @@ attackHitboxes = [null, NodePath("TaikoSpecialHitbox")]
 attackSounds = [null, null]
 
 [node name="TaikoSpecialHitbox" type="Area2D" parent="SpecialAttack"]
+script = ExtResource("4_v67ob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttack/TaikoSpecialHitbox"]
-shape = SubResource("CircleShape2D_nt06l")
+shape = SubResource("CircleShape2D_i5gwa")
+debug_color = Color(0.807843, 0.392157, 0.352941, 0.419608)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="NormalAttack/TaikoHitbox" to="NormalAttack/TaikoHitbox" method="_on_body_entered"]
+[connection signal="body_entered" from="SpecialAttack/TaikoSpecialHitbox" to="SpecialAttack/TaikoSpecialHitbox" method="_on_body_entered"]

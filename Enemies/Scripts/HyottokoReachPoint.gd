@@ -13,9 +13,11 @@ func SetPointToReach(point: Vector2):
 	pointToReach = point
 	pointReachedTimer = durationAfterReachingPoint
 	enemyMovement.set_location_target(pointToReach)
+	hyottokoController.enemyStatus.updateText("REACHING POINT")
 
 func _on_hyottoko_damaged(_direction: Vector2):
 	StopReachingPoint()
 
 func StopReachingPoint():
 	hyottokoController.isReachingPoint = false
+	hyottokoController.enemyStatus.updateText("")
