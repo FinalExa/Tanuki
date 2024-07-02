@@ -3,8 +3,10 @@ extends Area2D
 
 @export var guardController: GuardController
 @export var guardDistractionDiffuseArea: GuardDistractionDiffuseArea
+@export var guardCheckValueOnEnd: float
 @export var distractedObjDistance: float
 @export var distractionGroup: String
+@export var possibleDistractionGroup: String
 var distractionSources: Array[Node2D]
 var closestSource: Node2D
 var isDistracted: bool
@@ -26,12 +28,17 @@ func ScanForDistractionSources():
 				SetClosestDistractionSource(result.collider) 
 		StartDistracted()
 		return
-	if (isDistracted && (guardController.isStunned || guardController.isChecking || guardController.isInAlert || guardController.isInResearch)):
-		StopDistracted()
+	if (isDistracted):
+		if (!closestSource.is_in_group(distractionGroup)):
+			StopDistracted()
+			return
+		if (guardController.isStunned || guardController.isChecking || guardController.isInAlert || guardController.isInResearch):
+			StopDistracted()
 
 func SetClosestDistractionSource(receivedSource: Node2D):
-	if (closestSource == null || (closestSource != null && closestSource != receivedSource && guardController.global_position.distance_to(receivedSource.global_position) > guardController.global_position.distance_to(closestSource.global_position))):
-		closestSource = receivedSource
+	if (receivedSource.is_in_group(distractionGroup)):
+		if (closestSource == null || (closestSource != null && closestSource != receivedSource && guardController.global_position.distance_to(receivedSource.global_position) > guardController.global_position.distance_to(closestSource.global_position))):
+			closestSource = receivedSource
 
 func StartDistracted():
 	if (closestSource != null):
@@ -42,15 +49,16 @@ func StartDistracted():
 func StopDistracted():
 	isDistracted = false
 	closestSource = null
-	guardController.enemyPatrol.resume_patrol()
+	guardController.guardCheck.currentAlertValue = guardCheckValueOnEnd
+	guardController.guardCheck.ForceActivateCheck()
 	guardDistractionDiffuseArea.DeactivateDiffuseArea()
 
 func _on_body_entered(body):
-	if (!distractionSources.has(body) && body.is_in_group(distractionGroup)):
+	if (!distractionSources.has(body) && (body.is_in_group(distractionGroup)) || body.is_in_group(possibleDistractionGroup)):
 		distractionSources.push_back(body)
 
 func _on_body_exited(body):
 	if (distractionSources.has(body)):
 		distractionSources.erase(body)
-		if (distractionSources.size() <= 0):
+		if (distractionSources.size() <= 0 && isDistracted):
 			StopDistracted()

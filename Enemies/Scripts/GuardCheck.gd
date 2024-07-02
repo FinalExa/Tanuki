@@ -71,6 +71,11 @@ func activate_check(target: Node2D):
 	guardController.enemyPatrol.stop_patrol()
 	checkTarget = target
 
+func ForceActivateCheck():
+	preCheckActive = false
+	guardController.isChecking = true
+	checkingSound.play()
+
 func end_check():
 	reductionOverTimeActive = false
 	guardController.isChecking = false

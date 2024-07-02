@@ -19,7 +19,7 @@ var isDoneRotating: bool
 @export var rotationDegreesOffset: float
 
 func _physics_process(delta):
-	lookAtTarget(delta)
+	LookAtTarget(delta)
 
 func rotateTo(givenPoint):
 	if (givenPoint == PatrolIndicator.LookDirections.UP):
@@ -52,8 +52,8 @@ func stopLooking():
 	isLookingAtPosition = false
 	isDoneRotating = true
 
-func lookAtTarget(delta):
-	if (isLookingAtNode == true):
+func LookAtTarget(delta):
+	if (isLookingAtNode == true && target != null):
 		execute_rotation(target.global_position, delta)
 	else:
 		if (isLookingAtPosition == true):

@@ -313,8 +313,10 @@ rotation = -3.14159
 script = ExtResource("26_24461")
 guardController = NodePath("../..")
 guardDistractionDiffuseArea = NodePath("GuardDistractionDiffuseArea")
+guardCheckValueOnEnd = 35.0
 distractedObjDistance = 150.0
 distractionGroup = "GuardAttract"
+possibleDistractionGroup = "PossibleGuardAttract"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardDistraction"]
 polygon = PackedVector2Array(48, -56, -48, -56, -96, -464, 96, -464)
