@@ -1,6 +1,8 @@
 class_name ExecuteAttack
 extends Node2D
 
+signal on_attack_end
+
 @export var attackDuration: int
 @export var attackCooldown: int
 @export var attackPhasesLaunch: Array[int]
@@ -74,6 +76,7 @@ func FinalizeAttack():
 		attackLaunched = false
 	else:
 		StartCooldown()
+	emit_signal("on_attack_end")
 
 func ForceEndAttack():
 	RemoveAttackHitboxes()

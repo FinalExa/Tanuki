@@ -110,7 +110,8 @@ func CheckForDeactivateTransformation():
 func DeactivateTransformation():
 	emit_signal("reset_speed")
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
-	if (transformationTimeLowSound.playing) : transformationTimeLowSound.stop()
+	if (transformationTimeLowSound.playing): transformationTimeLowSound.stop()
+	if (playerRef.transformationInvincibility): playerRef.transformationInvincibility = false
 	baseCollisionShape.shape = baseCollisionShapeInfo
 	playerTransformedSprite.hide()
 	playerSprite.show()
@@ -198,3 +199,7 @@ func InstantiateScene(path: String):
 func CheckForAttackInput():
 	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput):
 		currentAttack.start_attack()
+
+func _on_player_character_transformation_invincibility_interacted(receivedNode: Node2D):
+	if (currentTransformationPassive != null):
+		currentTransformationPassive.TransformationInvincibilityInteracted(receivedNode)

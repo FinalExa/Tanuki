@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://bxx57nr5xmatr" path="res://ImportantObjects/ActivationObjects/leaves.tscn" id="8_y4frf"]
 [ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="9_u1tvc"]
+[ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="11_se0y0"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="12_6a3pv"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 [ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="18_xv7oc"]
 
@@ -82,3 +84,8 @@ patrolIndicators = [NodePath("../PatrolIndicator")]
 position = Vector2(-864, -184)
 transformedProperties = null
 transformedPassivePath = null
+
+[node name="Teapot" parent="." instance=ExtResource("11_se0y0")]
+position = Vector2(-1360, 0)
+
+[node name="HeatSource" parent="." instance=ExtResource("12_6a3pv")]

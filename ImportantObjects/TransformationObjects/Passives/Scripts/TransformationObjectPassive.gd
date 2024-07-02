@@ -10,3 +10,6 @@ func SetTransformationChangeRef(ref: TransformationChange):
 
 func AssignExtraRefs():
 	pass
+
+func TransformationInvincibilityInteracted(receivedNode: Node2D):
+	pass
