@@ -62,7 +62,6 @@ func LoadOperations():
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
 			TranslateStringIntoPathResult(self, savedDeletePaths[i])
-	
 
 func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 	var newString: String = ""

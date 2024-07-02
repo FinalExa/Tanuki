@@ -1,7 +1,7 @@
 class_name GuardCheck
 extends Area2D
 
-@export var controllerRef: GuardController
+@export var guardController: GuardController
 @export var maxAlertValue: float
 @export var researchValueThreshold: float
 @export var playerIsSeenMultiplier: float
@@ -27,8 +27,6 @@ var detectedTarget: Node2D
 var selectedMultiplier: float
 var raycastResult: Array[Node2D]
 
-@export var guardController: GuardController
-
 func _physics_process(_delta):
 	check_raycast()
 
@@ -39,7 +37,7 @@ func _ready():
 
 func reset_alert_value():
 	currentAlertValue = 0
-	controllerRef.isChecking = false
+	guardController.isChecking = false
 
 func check_raycast():
 	if (checkWithRayCast):

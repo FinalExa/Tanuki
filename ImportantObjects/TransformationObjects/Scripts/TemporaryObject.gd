@@ -12,5 +12,4 @@ func LifeTimer(delta):
 	Despawn()
 
 func Despawn():
-	reparent(null)
 	queue_free()
