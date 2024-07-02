@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=70 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardDistraction.gd" id="26_24461"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
+[ext_resource type="Script" path="res://Enemies/Scripts/GuardDistractionDiffuseArea.gd" id="27_4smyn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchPriorityActions.gd" id="27_dxtmq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="34_rmphj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="35_bky16"]
@@ -109,13 +110,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
 size = Vector2(144, 144)
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pnfgo"]
+radius = 577.997
+
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardDistraction", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_loc1f")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
+guardDistraction = NodePath("Rotator/GuardDistraction")
 enemyAttack = NodePath("Rotator/GuardAttack")
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
@@ -304,14 +309,21 @@ rotation = -3.14159
 position = Vector2(95.9989, 448)
 rotation = -3.14159
 
-[node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController")]
+[node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
 script = ExtResource("26_24461")
 guardController = NodePath("../..")
-distractedObjDistance = 100.0
+guardDistractionDiffuseArea = NodePath("GuardDistractionDiffuseArea")
+distractedObjDistance = 150.0
 distractionGroup = "GuardAttract"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardDistraction"]
 polygon = PackedVector2Array(48, -56, -48, -56, -96, -464, 96, -464)
+
+[node name="GuardDistractionDiffuseArea" type="Area2D" parent="Rotator/GuardDistraction"]
+script = ExtResource("27_4smyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
+shape = SubResource("CircleShape2D_pnfgo")
 
 [node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "researchEnterSound", "researchInvestigateSound", "guardController")]
 script = ExtResource("4_j1yk0")
@@ -722,3 +734,5 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardDistraction" to="Rotator/GuardDistraction" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardDistraction" to="Rotator/GuardDistraction" method="_on_body_exited"]
+[connection signal="body_entered" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_exited"]

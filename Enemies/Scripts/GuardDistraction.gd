@@ -2,11 +2,15 @@ class_name GuardDistraction
 extends Area2D
 
 @export var guardController: GuardController
+@export var guardDistractionDiffuseArea: GuardDistractionDiffuseArea
 @export var distractedObjDistance: float
 @export var distractionGroup: String
 var distractionSources: Array[Node2D]
 var closestSource: Node2D
 var isDistracted: bool
+
+func _ready():
+	guardDistractionDiffuseArea.guardDistraction = self
 
 func _physics_process(_delta):
 	ScanForDistractionSources()
@@ -33,11 +37,13 @@ func StartDistracted():
 	if (closestSource != null):
 		guardController.enemyPatrol.stop_patrol()
 		isDistracted = true
+		guardDistractionDiffuseArea.ActivateDiffuseArea()
 
 func StopDistracted():
 	isDistracted = false
 	closestSource = null
 	guardController.enemyPatrol.resume_patrol()
+	guardDistractionDiffuseArea.DeactivateDiffuseArea()
 
 func _on_body_entered(body):
 	if (!distractionSources.has(body) && body.is_in_group(distractionGroup)):
