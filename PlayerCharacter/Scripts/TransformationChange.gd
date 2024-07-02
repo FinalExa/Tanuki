@@ -13,8 +13,6 @@ var currentTransformationName: String
 var currentTransformationSpeed: float
 var currentTransformationProperties: Array[String]
 var currentTransformationCollisionShape: CollisionShape2D
-var currentTransformationTexture: Texture2D
-var currentTransformationTextureScale: Vector2
 var currentTransformationPassive: TransformationObjectPassive
 var currentOriginalObjectPath: String
 
@@ -55,7 +53,7 @@ func _ready():
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
-	get_parent().remove_child.call_deferred(playerTransformedSprite)
+	playerTransformedSprite.hide()
 	self.remove_child(tailRef)
 
 func _process(delta):
@@ -85,8 +83,8 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentTransformationSpeed = trsObjectToSave.transformedMaxSpeed
 	currentTransformationProperties = trsObjectToSave.transformedProperties
 	currentTransformationCollisionShape = trsObjectToSave.transformedCollider
-	currentTransformationTexture = trsObjectToSave.transformedTexture.texture
-	currentTransformationTextureScale = trsObjectToSave.transformedTextureScale
+	playerTransformedSprite.texture = trsObjectToSave.transformedTexture.texture
+	playerTransformedSprite.scale = trsObjectToSave.transformedTextureScale
 	currentAttack = SpawnTransformationSpecialObject(trsObjectToSave.transformedAttackPath, currentAttack)
 	currentTransformationPassive = SpawnTransformationSpecialObject(trsObjectToSave.transformedPassivePath, currentTransformationPassive)
 	if (currentTransformationPassive != null): currentTransformationPassive.SetTransformationChangeRef(self)
@@ -99,9 +97,8 @@ func ActivateTransformation():
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		transformationTimer = clamp(transformationTimer - timeRefundOnReactivation, 0, transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
-		get_parent().add_child(playerTransformedSprite)
-		playerTransformedSprite.texture = currentTransformationTexture
-		playerTransformedSprite.scale = currentTransformationTextureScale
+		playerSprite.hide()
+		playerTransformedSprite.show()
 		emit_signal("change_speed", currentTransformationSpeed)
 		isTransformed = true
 		ActivateLock()
@@ -115,9 +112,8 @@ func DeactivateTransformation():
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
 	if (transformationTimeLowSound.playing) : transformationTimeLowSound.stop()
 	baseCollisionShape.shape = baseCollisionShapeInfo
-	get_parent().remove_child(playerTransformedSprite)
-	playerSprite.sprite_frames = baseTextureInfo
-	playerSprite.scale = baseTextureScale
+	playerTransformedSprite.hide()
+	playerSprite.show()
 	isTransformed = false
 	timeLowSoundPlayed = false
 	if (tailRef.get_parent() != null):

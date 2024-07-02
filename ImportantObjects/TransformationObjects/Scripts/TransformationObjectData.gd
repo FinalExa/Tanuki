@@ -9,13 +9,15 @@ extends StaticBody2D
 @export var transformedAttackPath: String
 @export var transformedPassivePath: String
 @export var transformedTailLocation: Node2D
-var originalObjectPath: String
+@export var originalObjectPath: String
 var transformedTextureScale: Vector2
 
 var localAllowedItemsRef: LocalAllowedItems
 
 func _ready():
-	originalObjectPath = scene_file_path
+	GetScale()
+
+func GetScale():
 	transformedTextureScale = transformedTexture.scale
 
 func RegisterAvailableTransformation(playerRef: PlayerCharacter):

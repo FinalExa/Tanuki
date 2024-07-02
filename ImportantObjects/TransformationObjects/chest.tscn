@@ -8,5 +8,5 @@ transformedName = "Chest"
 transformedMaxSpeed = 400.0
 originalObjectPath = "res://ImportantObjects/TransformationObjects/chest.tscn"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(0.96, 0.96)

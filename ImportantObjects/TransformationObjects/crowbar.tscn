@@ -10,6 +10,6 @@ transformedProperties = Array[String](["Metallic"])
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/crowbar_attack.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/crowbar.tscn"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_rxjfp")

@@ -58,6 +58,7 @@ func LoadOperations():
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)
 		var new_trs: TransformationObjectData = new_trs_scene.instantiate()
+		new_trs.GetScale()
 		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():

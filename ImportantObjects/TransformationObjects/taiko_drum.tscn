@@ -19,6 +19,7 @@ transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
 transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/taiko_drum_passive.tscn"
 transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/taiko_drum.tscn"
 
 [node name="TailLocation" type="Node2D" parent="."]
 position = Vector2(0, 80)

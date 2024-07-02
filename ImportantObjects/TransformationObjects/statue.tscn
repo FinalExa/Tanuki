@@ -21,6 +21,7 @@ transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("TransformedSprite")
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/statue_attack.tscn"
 transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/statue.tscn"
 
 [node name="TailLocation" type="Node2D" parent="."]
 position = Vector2(0, 88)

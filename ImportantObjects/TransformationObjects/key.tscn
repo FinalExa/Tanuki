@@ -8,7 +8,8 @@ transformedName = "Key"
 transformedMaxSpeed = 700.0
 transformedProperties = Array[String](["Metallic"])
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/key_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/key.tscn"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("2_lpy2r")

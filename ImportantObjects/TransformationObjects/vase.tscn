@@ -5,3 +5,4 @@
 [node name="Vase" instance=ExtResource("1_grjbp")]
 transformedName = "Vase"
 transformedMaxSpeed = 700.0
+originalObjectPath = "res://ImportantObjects/TransformationObjects/vase.tscn"
