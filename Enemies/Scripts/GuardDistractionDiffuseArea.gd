@@ -9,7 +9,7 @@ var activatedGuardsInArea: Array[GuardController]
 func _ready():
 	DeactivateDiffuseArea()
 
-func _process(delta):
+func _process(_delta):
 	CallOtherGuards()
 
 func CallOtherGuards():
@@ -33,11 +33,12 @@ func DeactivateDiffuseArea():
 	hide()
 
 func _on_body_entered(body):
-	if (body is GuardController && !guardsInArea.has(body)):
+	if (body is GuardController && body != guardDistraction.guardController && !guardsInArea.has(body)):
 		guardsInArea.push_back(body)
 
 func _on_body_exited(body):
-	if (guardsInArea.has(body)):
-		guardsInArea.erase(body)
-	if (activatedGuardsInArea.has(body)):
-		activatedGuardsInArea.erase(body)
+	if (body is GuardController):
+		if (guardsInArea.has(body)):
+			guardsInArea.erase(body)
+		if (activatedGuardsInArea.has(body)):
+			activatedGuardsInArea.erase(body)
