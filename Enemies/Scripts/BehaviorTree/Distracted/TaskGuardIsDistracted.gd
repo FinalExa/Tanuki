@@ -1,6 +1,8 @@
 extends GuardNode
 
+@export var guardDistraction: GuardDistraction
+
 func Evaluate(_delta):
-	if (enemyController.isSpottingPlayer):
+	if (guardDistraction.isDistracted):
 		return NodeState.FAILURE
 	return NodeState.SUCCESS

@@ -9,7 +9,7 @@ transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Heavy"])
 originalObjectPath = "res://ImportantObjects/TransformationObjects/heavy_box.tscn"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(5, 1.5)
 scale = Vector2(0.763889, 0.942623)
 texture = ExtResource("2_t643h")

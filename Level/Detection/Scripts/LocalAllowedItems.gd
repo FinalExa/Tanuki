@@ -2,7 +2,7 @@ class_name LocalAllowedItems
 extends Area2D
 
 @export var allowedObjects: Array[String]
-@export var assignedObjects: Array[Node2D]
+var assignedObjects: Array[Node2D]
 var playerRef: PlayerCharacter
 var playerIsIn: bool
 
@@ -15,34 +15,34 @@ func _on_body_entered(body):
 		playerIsIn = true
 	else:
 		if (body is TransformationObjectData):
-			add_item_to_current_list(body)
+			AddItemToList(body)
 
 func _on_body_exited(body):
 	if (body is PlayerCharacter):
 		playerIsIn = false
-		remove_item_from_current_list(playerRef.transformationChangeRef)
+		RemoveItemFromList(playerRef.transformationChangeRef)
 		
 	else:
 		if (body is TransformationObjectData):
-			remove_item_from_current_list(body)
+			RemoveItemFromList(body)
 
 func player_inside_area_checks():
 	if (playerIsIn == true):
 		if (playerRef.transformationChangeRef.isTransformed == true):
-			add_item_to_current_list(playerRef.transformationChangeRef)
+			AddItemToList(playerRef.transformationChangeRef)
 		else:
 			if (playerRef.transformationChangeRef.isTransformed == false):
-				remove_item_from_current_list(playerRef.transformationChangeRef)
+				RemoveItemFromList(playerRef.transformationChangeRef)
 
-func add_item_to_current_list(item: Node2D):
+func AddItemToList(item: Node2D):
 	if (!assignedObjects.has(item)):
 		assignedObjects.push_back(item)
-		item.set_local_zone(self)
+		item.SetLocalZone(self)
 
-func remove_item_from_current_list(item: Node2D):
+func RemoveItemFromList(item: Node2D):
 	if (assignedObjects.has(item)):
 		assignedObjects.erase(item)
-		item.unset_local_zone()
+		item.UnsetLocalZone()
 
 func _on_player_character_give_self_reference(ref):
 	playerRef = ref

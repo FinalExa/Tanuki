@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctsht1u4n23iu"]
+
+[ext_resource type="Script" path="res://WeaponTool/Scripts/ExecuteAttack.gd" id="1_fqa27"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/ObjectSpawner.gd" id="2_16m0w"]
+
+[node name="LogAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_fqa27")
+attackDuration = 15
+attackCooldown = 120
+attackPhasesLaunch = Array[int]([0, 10])
+attackHitboxes = [null, NodePath("ObjectSpawner")]
+attackSounds = [null, null]
+attackMovements = Array[float]([500.0, 0.0])
+
+[node name="ObjectSpawner" type="Node2D" parent="."]
+position = Vector2(0, 256)
+script = ExtResource("2_16m0w")
+objectToSpawn = "res://ImportantObjects/TransformationObjects/Attacks/ObjectAttacks/fake_log.tscn"

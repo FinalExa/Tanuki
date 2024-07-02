@@ -15,7 +15,7 @@ var lookDirectionAfterStun: Vector2
 func start_stun(direction: Vector2):
 	stunTimer = stunDuration
 	lookDirectionAfterStun = direction
-	enemyController.enemyMovement.set_location_target(enemyController.global_position)
+	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyStatus.updateText(stunnedText)
 	enemyController.isStunned = true
 	if (!stunnedSound.playing): stunnedSound.play()

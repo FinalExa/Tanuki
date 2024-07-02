@@ -1,6 +1,8 @@
 class_name PlayerCharacter
 extends CharacterBody2D
 
+signal transformationInvincibilityInteracted
+
 var sceneRef: Node2D
 @export var playerInputs: PlayerInputs
 @export var tailRef: Node2D
@@ -15,6 +17,7 @@ var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
 var deactivationButton: DeactivationButton
+var transformationInvincibility: bool
 
 func _ready():
 	sceneRef = self.get_parent()
@@ -57,5 +60,11 @@ func SetLaunched(distance: float, time: float, direction: Vector2):
 func GetRotator():
 	return playerRotator
 
-func GameOver():
+func GameOver(receivedNode: Node2D):
+	if (transformationInvincibility):
+		emit_signal("transformationInvincibilityInteracted", receivedNode)
+	else:
+		ForceGameOver()
+
+func ForceGameOver():
 	playerHUD.GameOverScreen()

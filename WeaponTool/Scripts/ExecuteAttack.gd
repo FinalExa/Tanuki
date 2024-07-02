@@ -1,6 +1,8 @@
 class_name ExecuteAttack
 extends Node2D
 
+signal on_attack_end
+
 @export var attackDuration: int
 @export var attackCooldown: int
 @export var attackPhasesLaunch: Array[int]
@@ -35,6 +37,8 @@ func add_attack_hitbox(index):
 			attackHitboxInstance = self.get_child(0)
 			if (attackHitboxInstance is AttackHitbox):
 				attackHitboxInstance.characterRef = characterRef
+			if (attackHitboxInstance is ObjectSpawner):
+				attackHitboxInstance.SpawnObject()
 		if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
 
 func remove_attack_hitbox(index):
@@ -63,15 +67,20 @@ func PrepareHitboxes():
 
 func EndAttack():
 	if (currentPhase >= attackPhasesLaunch.size()):
-		remove_attack_hitbox(attackPhasesLaunch.size()-1)
-		currentPhase = 0
-		if (attackCooldown == 0):
-			FinalizeAttack()
-		else:
-			StartCooldown()
+		remove_attack_hitbox(attackPhasesLaunch.size() - 1)
+		FinalizeAttack()
 
 func FinalizeAttack():
-	attackLaunched = false
+	currentPhase = 0
+	if (attackCooldown == 0):
+		attackLaunched = false
+	else:
+		StartCooldown()
+	emit_signal("on_attack_end")
+
+func ForceEndAttack():
+	RemoveAttackHitboxes()
+	FinalizeAttack()
 
 func StartCooldown():
 	attackInCooldown = true

@@ -1,27 +1,25 @@
-[gd_scene load_steps=19 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="2_6x342"]
-[ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="4_txcw4"]
-[ext_resource type="PackedScene" uid="uid://bravhe23e1p2h" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="6_kehd8"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
-[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="7_f2on0"]
-[ext_resource type="PackedScene" uid="uid://dylf2w25eisfe" path="res://ImportantObjects/TransformationObjects/crowbar.tscn" id="8_ltv25"]
-[ext_resource type="PackedScene" uid="uid://b8krnkf34xhxm" path="res://ImportantObjects/Interactables/drawer.tscn" id="8_mj32v"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="8_flms1"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
-[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="9_g0p33"]
-[ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="10_4v3sr"]
+[ext_resource type="PackedScene" uid="uid://bxx57nr5xmatr" path="res://ImportantObjects/ActivationObjects/leaves.tscn" id="8_y4frf"]
+[ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="9_u1tvc"]
+[ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="11_se0y0"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="12_6a3pv"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
-[ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="12_j0865"]
-[ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="13_0qhe3"]
-[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="13_nsc52"]
-[ext_resource type="PackedScene" uid="uid://dk30k5u3802jv" path="res://Enemies/hyottoko_rage_area.tscn" id="17_7svay"]
+[ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="18_xv7oc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
-vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1616, -312, 88, -2800, -1520, -312, -88)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(5, 4, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-3048, 1616, -2800, -1520, 1024, -1272, 1584, 1688), PackedVector2Array(-312, -88, -8, -88, -8, 88, -312, 88)])
+vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1616, -224, 160, -2800, -1520, -312, -88, -312, 88, -288, 88, -288, 160, -224, 88)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(8, 9, 10, 4), PackedInt32Array(5, 11, 2), PackedInt32Array(5, 4, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-3048, 1616, -2800, -1520, 1024, -1272, 1584, 1688), PackedVector2Array(-312, -88, -8, -88, -8, 88, -224, 88, -224, 160, -288, 160, -288, 88, -312, 88)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22l4x"]
+size = Vector2(896, 512)
 
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_e07wx")
@@ -56,55 +54,38 @@ waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
 
-[node name="HeavyBox" parent="." instance=ExtResource("4_txcw4")]
-position = Vector2(-776, -304)
-
 [node name="Wall" parent="." instance=ExtResource("6_qwx0y")]
 position = Vector2(-160, 0)
 
-[node name="Statue" parent="." instance=ExtResource("6_kehd8")]
-position = Vector2(-1032, 176)
+[node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
+position = Vector2(-1160, 232)
 
-[node name="InteractionObject" parent="." instance=ExtResource("7_f2on0")]
-position = Vector2(-1216, -392)
+[node name="TaikoDrum" parent="." instance=ExtResource("18_xv7oc")]
+position = Vector2(-704, 56)
+transformedProperties = null
+transformedAttackPath = null
 
-[node name="Cleaner" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("9_g0p33")]
-position = Vector2(128, 384)
+[node name="Leaves" parent="." instance=ExtResource("8_y4frf")]
+position = Vector2(-256, 128)
+
+[node name="TaikoSpecialArea" type="Area2D" parent="." groups=["TaikoGroup"]]
+position = Vector2(-624, -560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TaikoSpecialArea"]
+position = Vector2(432, 240)
+shape = SubResource("RectangleShape2D_22l4x")
+debug_color = Color(0.886275, 0.294118, 0.384314, 0.25098)
+
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("8_flms1")]
+position = Vector2(144, 184)
 patrolIndicators = [NodePath("../PatrolIndicator")]
 
-[node name="Crowbar" parent="." instance=ExtResource("8_ltv25")]
-position = Vector2(-1440, 24)
+[node name="Log" parent="." instance=ExtResource("9_u1tvc")]
+position = Vector2(-864, -184)
+transformedProperties = null
+transformedPassivePath = null
 
-[node name="Drawer" parent="." instance=ExtResource("8_mj32v")]
-position = Vector2(-1288, 320)
-dropActive = true
+[node name="Teapot" parent="." instance=ExtResource("11_se0y0")]
+position = Vector2(-1360, 0)
 
-[node name="SmallGapObject" parent="." instance=ExtResource("13_0qhe3")]
-position = Vector2(-1668, -235)
-
-[node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
-position = Vector2(-952, 432)
-neededString = "KeyA1"
-objectToSendDestoySignal = NodePath("../Drawer")
-
-[node name="Door2" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("10_4v3sr")]
-position = Vector2(-674, 432)
-neededString = "KeyA2"
-objectToSendDestoySignal = NodePath("../Drawer")
-
-[node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
-position = Vector2(-1680, 240)
-
-[node name="DialogueArea" parent="." node_paths=PackedStringArray("sceneMaster") instance=ExtResource("13_nsc52")]
-position = Vector2(-1344, 576)
-dialogueText = Array[String](["Ciao!", "Ciao ciao!", "Molto bene ragazzi è tempo di mangiare diverse mele che ho trovato giù di lì nella viuzza, buone!"])
-characterTalking = Array[int]([0, 1, 0])
-characterEmotion = Array[int]([0, 0, 0])
-deleteOnDone = true
-savedOnDestroy = true
-sceneMaster = NodePath("..")
-
-[node name="Coin" parent="." instance=ExtResource("12_j0865")]
-position = Vector2(-1937, -94)
-
-[node name="HyottokoRageArea" parent="." instance=ExtResource("17_7svay")]
+[node name="HeatSource" parent="." instance=ExtResource("12_6a3pv")]

@@ -5,4 +5,4 @@
 [node name="Jewels" instance=ExtResource("1_ek6wj")]
 transformedName = "Jewels"
 transformedMaxSpeed = 700.0
-originalObjectPath = "uid://8p6lrlqbtesj"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/jewels.tscn"

@@ -9,7 +9,7 @@ transformedMaxSpeed = 600.0
 transformedProperties = Array[String](["Light"])
 originalObjectPath = "res://ImportantObjects/TransformationObjects/feather.tscn"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, 0.499996)
 scale = Vector2(0.277778, 0.280556)
 texture = ExtResource("2_15b70")

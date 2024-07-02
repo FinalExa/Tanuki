@@ -307,13 +307,14 @@ playerInputs = NodePath("../../../PlayerInputs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")
 
-[node name="Rotator" type="Node2D" parent="."]
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("playerCollider")]
 script = ExtResource("2_0m5xn")
 downRad = 180
 leftRad = 270
 rightRad = 90
+playerCollider = NodePath("../CollisionShape2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+[node name="TransformedSprite" type="Sprite2D" parent="Rotator"]
 
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound", "tailAppearsSound")]
 script = ExtResource("3_bjmh7")
@@ -328,16 +329,17 @@ baseCollisionShape = NodePath("../../CollisionShape2D")
 playerSprite = NodePath("../../AnimatedSprite2D")
 enterTransformationSound = NodePath("../../Sounds/EnterTransformation")
 exitTransformationSound = NodePath("../../Sounds/ExitTransformation")
-playerTransformedSprite = NodePath("../Sprite2D")
+playerTransformedSprite = NodePath("../TransformedSprite")
 objectSavedSound = NodePath("../../Sounds/ObjectSaved")
 transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 tailAppearsSound = NodePath("../../Sounds/TailAppears")
 transformationLockDuration = 0.3
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
-position = Vector2(0, 75)
+position = Vector2(0, 80)
 
 [node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
+position = Vector2(0, 80)
 
 [node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
 script = ExtResource("1_7j0ss")
@@ -352,6 +354,7 @@ attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
+[connection signal="transformationInvincibilityInteracted" from="." to="Rotator/TransformationChange" method="_on_player_character_transformation_invincibility_interacted"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_reset_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]

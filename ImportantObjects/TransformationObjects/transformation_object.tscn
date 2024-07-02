@@ -10,11 +10,15 @@ size = Vector2(96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
 size = Vector2(128, 128)
 
-[node name="TransformationObject" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+[node name="TransformationObject" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
 collision_layer = 3
 script = ExtResource("1_a53xs")
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
+transformedTailLocation = NodePath("TailLocation")
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 72)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3gx12")
@@ -22,9 +26,9 @@ shape = SubResource("RectangleShape2D_3gx12")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qk2ye")
 
-[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformation_object_data")]
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
 script = ExtResource("3_k167w")
-transformation_object_data = NodePath("..")
+transformationObjectData = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("RectangleShape2D_10nd7")

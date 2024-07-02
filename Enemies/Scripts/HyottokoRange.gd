@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	RangeRaycast()
 
 func RangeRaycast():
-	if (raycastActive):
+	if (raycastActive && !hyottokoController.isStunned && !hyottokoController.isReachingPoint):
 		var space_state = hyottokoController.get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(hyottokoController.global_position, target.global_position)
 		var result = space_state.intersect_ray(query)
@@ -41,7 +41,6 @@ func SetSpottingPlayer():
 	if (!hyottokoController.isSpottingPlayer):
 		playerSpotStatus = 0
 		hyottokoController.isSpottingPlayer = true
-		hyottokoController.enemyPatrol.stop_patrol()
 		if (hyottokoController.playerRef == null):
 			hyottokoController.playerRef = target
 
@@ -58,5 +57,4 @@ func CheckPlayerTransformationStatus(playerRef: PlayerCharacter):
 func UnsetSpottingPlayer():
 	if (hyottokoController.isSpottingPlayer):
 		hyottokoController.isSpottingPlayer = false
-		hyottokoController.enemyPatrol.resume_patrol()
 		playerSpotStatus = -1
