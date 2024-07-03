@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://0td2heahhjul"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DoorInteractable.gd" id="1_kc3nd"]
+[ext_resource type="Texture2D" uid="uid://yyrp601thkea" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta Verticale chusa .png" id="2_cqbyy"]
+[ext_resource type="Texture2D" uid="uid://d0p0bsjuohxvv" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta Verticale aperta.png" id="3_uvt4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdla0"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ruki"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fe1m"]
+size = Vector2(16, 64)
+
+[node name="DoorVertical" type="StaticBody2D" node_paths=PackedStringArray("centralCollider", "closedSprite", "openSprite") groups=["Interactable"]]
+script = ExtResource("1_kc3nd")
+centralCollider = NodePath("CentralCollider")
+closedSprite = NodePath("ClosedSprite")
+openSprite = NodePath("OpenSprite")
+neededString = "OpenDoor"
+savedOnDestroy = true
+
+[node name="CentralCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bdla0")
+
+[node name="RightSideCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_4ruki")
+
+[node name="LeftSideCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -96)
+shape = SubResource("RectangleShape2D_8fe1m")
+
+[node name="ClosedSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_cqbyy")
+
+[node name="OpenSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_uvt4h")

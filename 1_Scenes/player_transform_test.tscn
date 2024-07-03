@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=17 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_e07wx"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="11_se0y0"]
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="12_6a3pv"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
+[ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="13_p5q4h"]
+[ext_resource type="PackedScene" uid="uid://caopd3umhybtt" path="res://ImportantObjects/TransformationObjects/Keys/key_1b.tscn" id="13_s8sdr"]
 [ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="18_xv7oc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
@@ -89,3 +91,12 @@ transformedPassivePath = null
 position = Vector2(-1360, 0)
 
 [node name="HeatSource" parent="." instance=ExtResource("12_6a3pv")]
+
+[node name="Key1" parent="." instance=ExtResource("13_s8sdr")]
+position = Vector2(-1168, 440)
+transformedName = "Key1"
+
+[node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("13_p5q4h")]
+position = Vector2(-1464, 400)
+neededString = "Key1"
+objectToSendDestoySignal = NodePath("../Key1")

@@ -1,19 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://b58p4qwcqetqi"]
+[gd_scene load_steps=7 format=3 uid="uid://b58p4qwcqetqi"]
 
-[ext_resource type="Texture2D" uid="uid://bg51otxc4h1q2" path="res://ImportantObjects/Interactables/Sprites/Placeholder/door.png" id="1_3gnxi"]
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_gqh0n"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DoorInteractable.gd" id="1_d7y0m"]
+[ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale chiusa.png" id="2_yd8ma"]
+[ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale aperta.png" id="3_qrn1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdla0"]
-size = Vector2(256, 128)
+size = Vector2(112, 128)
 
-[node name="Door" type="StaticBody2D" groups=["Interactable"]]
-script = ExtResource("1_gqh0n")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ruki"]
+size = Vector2(72, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fe1m"]
+size = Vector2(72, 128)
+
+[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("centralCollider", "closedSprite", "openSprite") groups=["Interactable"]]
+script = ExtResource("1_d7y0m")
+centralCollider = NodePath("CentralCollider")
+closedSprite = NodePath("ClosedSprite")
+openSprite = NodePath("OpenSprite")
 neededString = "OpenDoor"
 savedOnDestroy = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CentralCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bdla0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.47, 0.235)
-texture = ExtResource("1_3gnxi")
+[node name="RightSideCollider" type="CollisionShape2D" parent="."]
+position = Vector2(92, 0)
+shape = SubResource("RectangleShape2D_4ruki")
+
+[node name="LeftSideCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-92, 0)
+shape = SubResource("RectangleShape2D_8fe1m")
+
+[node name="ClosedSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yd8ma")
+
+[node name="OpenSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_qrn1x")

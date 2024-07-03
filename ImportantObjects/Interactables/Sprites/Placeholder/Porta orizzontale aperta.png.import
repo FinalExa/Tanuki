@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg51otxc4h1q2"
-path="res://.godot/imported/door.png-3ed166a7b39891873569f451aa0720d1.ctex"
+uid="uid://b0odwepiu3f6h"
+path="res://.godot/imported/Porta orizzontale aperta.png-10b0068c205a646fb886f60851f5552c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/door.png"
-dest_files=["res://.godot/imported/door.png-3ed166a7b39891873569f451aa0720d1.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale aperta.png"
+dest_files=["res://.godot/imported/Porta orizzontale aperta.png-10b0068c205a646fb886f60851f5552c.ctex"]
 
 [params]
 
