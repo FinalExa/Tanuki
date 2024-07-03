@@ -68,19 +68,19 @@ func PrepareHitboxes():
 func EndAttack():
 	if (currentPhase >= attackPhasesLaunch.size()):
 		remove_attack_hitbox(attackPhasesLaunch.size() - 1)
-		FinalizeAttack()
+		currentPhase = 0
+		CheckForCooldown()
 
-func FinalizeAttack():
-	currentPhase = 0
+func CheckForCooldown():
 	if (attackCooldown == 0):
 		attackLaunched = false
 	else:
 		StartCooldown()
-	emit_signal("on_attack_end")
 
 func ForceEndAttack():
 	RemoveAttackHitboxes()
-	FinalizeAttack()
+	currentPhase = 0
+	CheckForCooldown()
 
 func StartCooldown():
 	attackInCooldown = true
