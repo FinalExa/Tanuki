@@ -1,14 +1,14 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7kmimphyyi8y"]
+[gd_scene load_steps=30 format=3 uid="uid://b7kmimphyyi8y"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_lfxg5"]
 [ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_ijpgm"]
 [ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_bj44j"]
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="4_guy5w"]
-[ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="5_2wyb7"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="5_unxmf"]
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="6_358ed"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_tgxdo"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_a74yt"]
+[ext_resource type="Texture2D" uid="uid://hrfbw4lurlq2" path="res://Enemies/Sprites/Governante-001-sprite.png" id="7_ptt57"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_js8pp"]
 [ext_resource type="Script" path="res://Sounds/Scripts/MovementSounds.gd" id="9_0dp0p"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_dcsvv"]
@@ -29,43 +29,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 48.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jmn3"]
-atlas = ExtResource("5_2wyb7")
-region = Rect2(0, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v25mi"]
-atlas = ExtResource("5_2wyb7")
-region = Rect2(144, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gul6"]
-atlas = ExtResource("5_2wyb7")
-region = Rect2(288, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_18opb"]
-atlas = ExtResource("5_2wyb7")
-region = Rect2(432, 0, 144, 159)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsm8s"]
-atlas = ExtResource("5_2wyb7")
-region = Rect2(576, 0, 144, 159)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xwfy"]
+atlas = ExtResource("7_ptt57")
+region = Rect2(0, 0, 64, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jmn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v25mi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3gul6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18opb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bsm8s")
+"texture": SubResource("AtlasTexture_2xwfy")
 }],
 "loop": true,
 "name": &"idle",
