@@ -18,12 +18,14 @@ transformedTexture = NodePath("Sprite2D")
 transformedTailLocation = NodePath("TailLocation")
 
 [node name="TailLocation" type="Node2D" parent="."]
-position = Vector2(0, 72)
+position = Vector2(0, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3gx12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.96, 0.96)
 texture = ExtResource("1_qk2ye")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
