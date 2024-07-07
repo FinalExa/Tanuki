@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://drbx66jhb0gu2"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_0ai0e"]
-[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/transformObject.png" id="2_dfymr"]
+[ext_resource type="Texture2D" uid="uid://inliemwi5850" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Moneta.png" id="2_ar7wo"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="2_dk453"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0be1"]
-size = Vector2(16, 16)
+size = Vector2(32, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls5y7"]
 size = Vector2(48, 48)
@@ -28,8 +28,7 @@ shape = SubResource("RectangleShape2D_u0be1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.38419e-07, -2.38419e-07)
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_dfymr")
+texture = ExtResource("2_ar7wo")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 script = ExtResource("2_dk453")

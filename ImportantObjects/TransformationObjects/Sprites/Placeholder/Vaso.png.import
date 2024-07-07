@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfldve1qpij2d"
-path="res://.godot/imported/zeb89zephir.png-1d7f753f18d53c82fff25d552e546306.ctex"
+uid="uid://beuhnrgsl0tw6"
+path="res://.godot/imported/Vaso.png-51c19bad57cdbfdfcf84ee67a3c7a93c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Traps/Sprites/Placeholder/zeb89zephir.png"
-dest_files=["res://.godot/imported/zeb89zephir.png-1d7f753f18d53c82fff25d552e546306.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Vaso.png"
+dest_files=["res://.godot/imported/Vaso.png-51c19bad57cdbfdfcf84ee67a3c7a93c.ctex"]
 
 [params]
 
