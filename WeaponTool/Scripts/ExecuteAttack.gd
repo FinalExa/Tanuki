@@ -46,7 +46,7 @@ func remove_attack_hitbox(index):
 		attackHitboxInstance = attackHitboxes[index]
 		if (attackHitboxInstance is AttackHitbox):
 			attackHitboxInstance.attack_end()
-		if (attackHitboxInstance.get_parent() == self):
+		if (attackHitboxInstance.get_parent() != null):
 			self.remove_child(attackHitboxInstance)
 
 func start_attack():
@@ -78,9 +78,10 @@ func CheckForCooldown():
 		StartCooldown()
 
 func ForceEndAttack():
-	RemoveAttackHitboxes()
-	currentPhase = 0
-	CheckForCooldown()
+	if (attackLaunched && !attackInCooldown):
+		RemoveAttackHitboxes()
+		currentPhase = 0
+		CheckForCooldown()
 
 func StartCooldown():
 	attackInCooldown = true
