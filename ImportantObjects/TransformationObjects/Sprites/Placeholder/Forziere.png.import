@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq36qh3lfi66p"
-path="res://.godot/imported/NONNO.png-8d644437c8787d877fcf1ee20e7b0aba.ctex"
+uid="uid://c8wgriixtf5bk"
+path="res://.godot/imported/Forziere.png-e1e675d9ecc17220ff867a87885fff73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/NONNO.png"
-dest_files=["res://.godot/imported/NONNO.png-8d644437c8787d877fcf1ee20e7b0aba.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Forziere.png"
+dest_files=["res://.godot/imported/Forziere.png-e1e675d9ecc17220ff867a87885fff73.ctex"]
 
 [params]
 
