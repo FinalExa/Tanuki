@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqtulha4fk4cr"
+path="res://.godot/imported/Step 4 Rage Walking - Hyottoko.wav-b9dce52140532a75b414e81d6bd88eca.sample"
+
+[deps]
+
+source_file="res://Enemies/Sounds/Hyottoko/AngryMovement/Step 4 Rage Walking - Hyottoko.wav"
+dest_files=["res://.godot/imported/Step 4 Rage Walking - Hyottoko.wav-b9dce52140532a75b414e81d6bd88eca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -6,7 +6,6 @@ extends MovementSounds
 @export var currentNormalStep: AudioStreamPlayer
 @export var normalMovementSounds: Array[AudioStreamPlayer]
 @export var transformedMovementSound: AudioStreamPlayer
-var currentStepIndex: int
 var normalStepsStarted: bool
 
 func _process(_delta):

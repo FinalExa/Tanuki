@@ -1677,20 +1677,18 @@ patrolIndicators = [NodePath("../../PatrolIndicators/StillG")]
 position = Vector2(-2304, 1152)
 patrolIndicators = [NodePath("../../PatrolIndicators/StillH")]
 
-[node name="Cleaner22" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
+[node name="Cleaner22" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
 position = Vector2(-1600, 1216)
 patrolIndicators = [NodePath("../../PatrolIndicators/J")]
-enemyMovement = NodePath("../Cleaner18/GuardMovement")
 enemyRotator = NodePath("../Cleaner18/Rotator")
 enemyPatrol = NodePath("../Cleaner18/EnemyPatrol")
 enemyStatus = NodePath("../Cleaner18/EnemyStatus")
 enemyStunned = NodePath("../Cleaner18/EnemyStunned")
 spriteRef = NodePath("../Cleaner18/AnimatedSprite2D")
 
-[node name="Cleaner23" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
+[node name="Cleaner23" parent="Room3Archive/Enemies" node_paths=PackedStringArray("patrolIndicators", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef") instance=ExtResource("10_g7har")]
 position = Vector2(640, 1216)
 patrolIndicators = [NodePath("../../PatrolIndicators/K")]
-enemyMovement = NodePath("../Cleaner18/GuardMovement")
 enemyRotator = NodePath("../Cleaner18/Rotator")
 enemyPatrol = NodePath("../Cleaner18/EnemyPatrol")
 enemyStatus = NodePath("../Cleaner18/EnemyStatus")

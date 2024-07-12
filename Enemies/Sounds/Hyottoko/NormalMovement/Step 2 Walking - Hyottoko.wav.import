@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvh17klfimnj0"
+path="res://.godot/imported/Step 2 Walking - Hyottoko.wav-1815e35cd28f4f40f41b86456271486b.sample"
+
+[deps]
+
+source_file="res://Enemies/Sounds/Hyottoko/NormalMovement/Step 2 Walking - Hyottoko.wav"
+dest_files=["res://.godot/imported/Step 2 Walking - Hyottoko.wav-1815e35cd28f4f40f41b86456271486b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

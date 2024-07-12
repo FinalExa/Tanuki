@@ -1,18 +1,22 @@
-[gd_scene load_steps=30 format=3 uid="uid://b7kmimphyyi8y"]
+[gd_scene load_steps=34 format=3 uid="uid://b7kmimphyyi8y"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_lfxg5"]
-[ext_resource type="AudioStream" uid="uid://cgp7u6f007gry" path="res://Enemies/Sounds/Patrol_movement.wav" id="2_ijpgm"]
-[ext_resource type="AudioStream" uid="uid://cexico5v04lxf" path="res://Enemies/Sounds/Alert_movement.wav" id="3_bj44j"]
+[ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_8u2y5"]
+[ext_resource type="AudioStream" uid="uid://be4oq56u3k3dg" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step2.wav" id="3_8hfa7"]
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="4_guy5w"]
+[ext_resource type="AudioStream" uid="uid://ddax2nsv881nc" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step3.wav" id="4_ko1y5"]
+[ext_resource type="AudioStream" uid="uid://0ufr67oxq67a" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step4.wav" id="5_giffm"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="5_unxmf"]
+[ext_resource type="AudioStream" uid="uid://oejjot82t08k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step5.wav" id="6_7l2xo"]
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="6_358ed"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_tgxdo"]
+[ext_resource type="AudioStream" uid="uid://b3ytuo4171ann" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step6.wav" id="7_2bgqa"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_a74yt"]
 [ext_resource type="Texture2D" uid="uid://ruyoywhd1m70" path="res://Enemies/Sprites/Governante-001-sprite.png" id="7_ptt57"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_js8pp"]
-[ext_resource type="Script" path="res://Sounds/Scripts/MovementSounds.gd" id="9_0dp0p"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_dcsvv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
+[ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="9_wuphi"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="10_bwylu"]
 [ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="11_sk7b8"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
@@ -51,13 +55,13 @@ size = Vector2(192, 64)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
-enemyMovement = NodePath("GuardMovement")
+enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
 spriteRef = NodePath("AnimatedSprite2D")
-enemyMovementSounds = NodePath("EnemyMovementSounds")
+enemyMovementSounds = NodePath("CleanerMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
@@ -71,13 +75,28 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sounds" type="Node2D" parent="."]
 
-[node name="PatrolMovement" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("2_ijpgm")
-max_distance = 500.0
+[node name="Node" type="Node2D" parent="Sounds"]
 
-[node name="AlertMovement" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("3_bj44j")
-max_distance = 500.0
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("2_8u2y5")
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("3_8hfa7")
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("4_ko1y5")
+
+[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("5_giffm")
+
+[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("6_7l2xo")
+
+[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("7_2bgqa")
+
+[node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
+max_distance = 800.0
 
 [node name="HitByPlayer" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("4_guy5w")
@@ -95,7 +114,7 @@ max_distance = 500.0
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="GuardMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
 script = ExtResource("6_tgxdo")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
@@ -103,8 +122,11 @@ defaultMovementSpeed = 500.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
-[node name="EnemyMovementSounds" type="Node" parent="."]
-script = ExtResource("9_0dp0p")
+[node name="CleanerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
+script = ExtResource("9_wuphi")
+enemyController = NodePath("..")
+cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
+currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_a74yt")
@@ -228,5 +250,5 @@ enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
-[connection signal="reached_destination" from="GuardMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]
