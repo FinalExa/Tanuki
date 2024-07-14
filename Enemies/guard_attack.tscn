@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttack.gd" id="1_krrw3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="2_4o2q2"]
-[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="3_dilo0"]
+[ext_resource type="Texture2D" uid="uid://wlsph2g2id7h" path="res://Enemies/Sprites/Rete nemico.png" id="2_b26ba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
 size = Vector2(144, 184)
@@ -20,8 +20,7 @@ attackMovements = Array[float]([0.0, 200.0])
 
 [node name="Sprite2D" type="Sprite2D" parent="Feedback"]
 modulate = Color(0, 0.431373, 0.321569, 1)
-scale = Vector2(0.32, 0.43)
-texture = ExtResource("3_dilo0")
+texture = ExtResource("2_b26ba")
 
 [node name="EnemyAttackHitbox" type="Area2D" parent="."]
 script = ExtResource("2_4o2q2")
@@ -32,7 +31,6 @@ shape = SubResource("RectangleShape2D_1ia6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyAttackHitbox"]
 position = Vector2(0, -108)
-scale = Vector2(0.32, 0.428904)
-texture = ExtResource("3_dilo0")
+texture = ExtResource("2_b26ba")
 
 [connection signal="body_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_body_entered"]

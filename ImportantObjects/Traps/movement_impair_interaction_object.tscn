@@ -2,15 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://de327ahrn6hd2" path="res://ImportantObjects/Traps/interaction_object.tscn" id="1_du1o7"]
 [ext_resource type="PackedScene" uid="uid://kxl5qy84tcok" path="res://ImportantObjects/Traps/Effects/movement_impair_effect.tscn" id="2_bn4dj"]
-[ext_resource type="Texture2D" uid="uid://b550hry8d2cxd" path="res://ImportantObjects/Traps/Sprites/Placeholder/net.png" id="3_ktltl"]
+[ext_resource type="Texture2D" uid="uid://cqwyi0wf27rx5" path="res://ImportantObjects/Traps/Sprites/Placeholder/Rete trappola.png" id="3_p8d5d"]
 
 [node name="MovementImpairInteractionObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_du1o7")]
 effectNegateProperty = "Heavy"
 effect = NodePath("MovementImpairEffect")
 
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
+
 [node name="MovementImpairEffect" parent="." index="1" instance=ExtResource("2_bn4dj")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 position = Vector2(9.53674e-07, 6.19888e-06)
-scale = Vector2(0.339204, 0.335664)
-texture = ExtResource("3_ktltl")
+texture = ExtResource("3_p8d5d")

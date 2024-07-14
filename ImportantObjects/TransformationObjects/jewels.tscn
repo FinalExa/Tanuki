@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://8p6lrlqbtesj"]
+[gd_scene load_steps=3 format=3 uid="uid://8p6lrlqbtesj"]
 
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_ek6wj"]
+[ext_resource type="Texture2D" uid="uid://cajgn7lyu07m5" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Tesoro.png" id="2_846ge"]
 
 [node name="Jewels" instance=ExtResource("1_ek6wj")]
 transformedName = "Jewels"
 transformedMaxSpeed = 700.0
 originalObjectPath = "res://ImportantObjects/TransformationObjects/jewels.tscn"
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_846ge")

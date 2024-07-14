@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b550hry8d2cxd"
-path="res://.godot/imported/net.png-4a6426c86ec8ff8bdac62f0f2db7cef5.ctex"
+uid="uid://jggncubmkjco"
+path="res://.godot/imported/Panno Governante.png-da892352b5d035497b938db3c656f78e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Traps/Sprites/Placeholder/net.png"
-dest_files=["res://.godot/imported/net.png-4a6426c86ec8ff8bdac62f0f2db7cef5.ctex"]
+source_file="res://Enemies/Sprites/Panno Governante.png"
+dest_files=["res://.godot/imported/Panno Governante.png-da892352b5d035497b938db3c656f78e.ctex"]
 
 [params]
 

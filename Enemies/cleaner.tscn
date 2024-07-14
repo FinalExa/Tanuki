@@ -18,9 +18,9 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
 [ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="9_wuphi"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="10_bwylu"]
-[ext_resource type="Texture2D" uid="uid://bdilp0yu8r6j8" path="res://Enemies/Sprites/Placeholder/netButOrange.png" id="11_sk7b8"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="19_joed8"]
+[ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="19_qhljy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="20_ssalh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="21_kkbnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="22_3j2hq"]
@@ -171,8 +171,7 @@ shape = SubResource("RectangleShape2D_xs1ow")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator/EnemyAttackHitbox"]
 position = Vector2(-4.43777e-06, -112)
-scale = Vector2(0.426667, 0.149184)
-texture = ExtResource("11_sk7b8")
+texture = ExtResource("19_qhljy")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

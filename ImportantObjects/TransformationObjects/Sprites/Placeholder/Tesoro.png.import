@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdilp0yu8r6j8"
-path="res://.godot/imported/netButOrange.png-ad769635b4294b3cafe67d8788fd49fb.ctex"
+uid="uid://cajgn7lyu07m5"
+path="res://.godot/imported/Tesoro.png-2044777adabae12d553359a70515a0d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Sprites/Placeholder/netButOrange.png"
-dest_files=["res://.godot/imported/netButOrange.png-ad769635b4294b3cafe67d8788fd49fb.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Tesoro.png"
+dest_files=["res://.godot/imported/Tesoro.png-2044777adabae12d553359a70515a0d4.ctex"]
 
 [params]
 
