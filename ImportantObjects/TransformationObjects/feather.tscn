@@ -10,5 +10,6 @@ transformedProperties = Array[String](["Light"])
 originalObjectPath = "res://ImportantObjects/TransformationObjects/feather.tscn"
 
 [node name="Sprite2D" parent="." index="2"]
-position = Vector2(0, 0.499996)
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(1, 1)
 texture = ExtResource("2_fro4y")

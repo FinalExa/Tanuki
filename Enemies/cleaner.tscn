@@ -158,7 +158,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 5.0
+rotationSpeed = 30.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 

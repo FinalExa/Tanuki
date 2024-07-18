@@ -16,7 +16,7 @@ var playerRef: PlayerCharacter
 func _ready():
 	if (get_tree().paused):
 		get_tree().paused = false
-	savePath = "user://"+ self.name +".save"
+	savePath = "user://" + self.name + ".save"
 	for i in get_child_count():
 		if (get_child(i) is PlayerCharacter):
 			playerRef = get_child(i)

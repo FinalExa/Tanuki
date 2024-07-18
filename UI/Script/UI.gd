@@ -59,7 +59,9 @@ func EndForcePause():
 	StopPause()
 
 func Resume():
+	playerInputs.pauseInput = false
 	get_tree().paused = false
+	playerInputs.inputsForceLocked = false
 	pauseMenuPanel.hide()
 
 func _on_resume_button_button_up():

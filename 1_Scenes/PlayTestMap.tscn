@@ -1155,9 +1155,6 @@ transformedPassivePath = null
 
 [node name="Coin" parent="Room2Warehouse/TransformObjects" instance=ExtResource("21_3ke44")]
 position = Vector2(-1120, -3296)
-transformedAttackPath = null
-transformedPassivePath = null
-originalObjectPath = null
 
 [node name="Enemies" type="Node2D" parent="Room2Warehouse"]
 
@@ -1959,7 +1956,8 @@ position = Vector2(-1344, 0)
 [node name="I" type="Node2D" parent="Room3Archive/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
 position = Vector2(128, 512)
 script = ExtResource("13_akx0w")
-patrolActions = Array[int]([1, 2, 1, 2])
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([0.5, 0.5])
 moveActions = [NodePath("1"), NodePath("2")]
 lookActions = Array[int]([0, 1])
 
