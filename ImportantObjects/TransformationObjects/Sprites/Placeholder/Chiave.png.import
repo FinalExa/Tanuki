@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cniicodsxq0h4"
-path="res://.godot/imported/key.png-d0a6d9e6f54215efc91aa37e5e8886f1.ctex"
+uid="uid://dcuwlkp05y7t1"
+path="res://.godot/imported/Chiave.png-687d3a1be0506d3c3e26c9a940093bf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/key.png"
-dest_files=["res://.godot/imported/key.png-d0a6d9e6f54215efc91aa37e5e8886f1.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Chiave.png"
+dest_files=["res://.godot/imported/Chiave.png-687d3a1be0506d3c3e26c9a940093bf6.ctex"]
 
 [params]
 

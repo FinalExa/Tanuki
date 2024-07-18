@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6u2a7gaoiufs"]
 
 [ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_cs7rc"]
-[ext_resource type="Texture2D" uid="uid://cniicodsxq0h4" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/key.png" id="2_lpy2r"]
+[ext_resource type="Texture2D" uid="uid://dcuwlkp05y7t1" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Chiave.png" id="2_5w78d"]
 
 [node name="Key" groups=["Interactable"] instance=ExtResource("1_cs7rc")]
 transformedName = "Key"
@@ -11,5 +11,5 @@ transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/ke
 originalObjectPath = "res://ImportantObjects/TransformationObjects/key.tscn"
 
 [node name="Sprite2D" parent="." index="2"]
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("2_lpy2r")
+scale = Vector2(1, 1)
+texture = ExtResource("2_5w78d")
