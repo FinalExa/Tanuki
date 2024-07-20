@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv04igefuaynb"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/CleanerOneShotArea.gd" id="1_je12p"]
+[ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="2_c40o6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
+size = Vector2(192, 64)
+
+[node name="CleanerAttackHitbox" type="Area2D"]
+script = ExtResource("1_je12p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -112)
+shape = SubResource("RectangleShape2D_xs1ow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.43777e-06, -112)
+texture = ExtResource("2_c40o6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

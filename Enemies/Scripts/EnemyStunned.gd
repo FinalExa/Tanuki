@@ -1,6 +1,8 @@
 class_name EnemyStunned
 extends Node
 
+signal end_stun_signal
+
 @export var stunDuration: float
 @export var stunEndAlertValue: float
 @export var stunnedText: String
@@ -30,6 +32,7 @@ func end_stun():
 	enemyController.enemyPatrol.resume_patrol()
 	enemyController.enemyStatus.updateText("")
 	if (stunnedSound.playing): stunnedSound.stop()
+	emit_signal("end_stun_signal")
 
 func clear_guards_looking_for_me():
 	for i in enemyController.guardsLookingForMe.size():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7kmimphyyi8y"]
+[gd_scene load_steps=32 format=3 uid="uid://b7kmimphyyi8y"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_lfxg5"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_8u2y5"]
@@ -17,10 +17,9 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_dcsvv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
 [ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="9_wuphi"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyAttackHitbox.gd" id="10_bwylu"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
+[ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="19_joed8"]
-[ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="19_qhljy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="20_ssalh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="21_kkbnv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="22_3j2hq"]
@@ -47,9 +46,6 @@ animations = [{
 "name": &"idle",
 "speed": 4.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
-size = Vector2(192, 64)
 
 [node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -162,16 +158,7 @@ rotationSpeed = 30.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="EnemyAttackHitbox" type="Area2D" parent="Rotator"]
-script = ExtResource("10_bwylu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/EnemyAttackHitbox"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_xs1ow")
-
-[node name="Sprite2D" type="Sprite2D" parent="Rotator/EnemyAttackHitbox"]
-position = Vector2(-4.43777e-06, -112)
-texture = ExtResource("19_qhljy")
+[node name="CleanerAttackHitbox" parent="Rotator" instance=ExtResource("18_kg6tm")]
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
@@ -249,5 +236,6 @@ enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
+[connection signal="damaged_no_direction" from="." to="Rotator/CleanerAttackHitbox" method="SetHitboxOff"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
-[connection signal="body_entered" from="Rotator/EnemyAttackHitbox" to="Rotator/EnemyAttackHitbox" method="_on_body_entered"]
+[connection signal="end_stun_signal" from="EnemyStunned" to="Rotator/CleanerAttackHitbox" method="SetHitboxOn"]

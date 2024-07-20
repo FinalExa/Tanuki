@@ -6,7 +6,7 @@ extends MovementSounds
 func _ready():
 	SetSoundsArray(cleanerMovementSounds)
 
-func _process(delta):
+func _process(_delta):
 	CheckForMovement()
 
 func CheckForMovement():

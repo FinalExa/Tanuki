@@ -2,6 +2,7 @@ class_name EnemyController
 extends CharacterBody2D
 
 signal damaged
+signal damaged_no_direction
 signal stop_attack
 
 var isInPatrol: bool = true
@@ -43,6 +44,7 @@ func SetDamaged(direction: Vector2):
 	hitByPlayerSound.play()
 	stunnedHit.play()
 	emit_signal("damaged", direction)
+	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
 
 func GetRotator():
