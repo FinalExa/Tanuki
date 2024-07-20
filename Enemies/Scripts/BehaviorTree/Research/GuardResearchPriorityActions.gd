@@ -3,21 +3,19 @@ extends GuardNode
 @export var guardResearch: GuardResearch
 
 func Evaluate(_delta):
-	priority_actions()
+	PriorityActions()
 	return NodeState.RUNNING
 
-func priority_actions():
+func PriorityActions():
 	if (guardResearch.isTrackingPriorityTarget):
-		track_priority_target()
-	else:
-		var check: bool = false
-		check = help_guards()
-		if (!check):
-			check = investigate_objects()
-			if (check):
-				return
+		TrackPriorityTarget()
+		return
+	var check: bool = false
+	check = HelpStunnedGuards()
+	if (!check):
+		InvestigateSuspiciousObjects()
 
-func help_guards():
+func HelpStunnedGuards():
 	if (guardResearch.stunnedGuardsList.size()>0):
 		if (guardResearch.researchTarget != guardResearch.stunnedGuardsList[0]):
 			guardResearch.researchTarget = guardResearch.stunnedGuardsList[0]
@@ -35,8 +33,8 @@ func help_guards():
 		return true
 	return false
 
-func investigate_objects():
-	if (guardResearch.suspiciousItemsList.size()>0):
+func InvestigateSuspiciousObjects():
+	if (guardResearch.suspiciousItemsList.size() > 0):
 		if (guardResearch.researchTarget != guardResearch.suspiciousItemsList[0]):
 			guardResearch.researchTarget = guardResearch.suspiciousItemsList[0]
 			guardResearch.set_research_target(guardResearch.researchTarget.global_position)
@@ -48,15 +46,11 @@ func investigate_objects():
 				tempPlayerReference.transformationChangeRef.deactivate_transformation()
 				guardResearch.stop_research()
 				enemyController.guardAlert.start_alert(tempPlayerReference)
-				return true
-	return false
 
-func track_priority_target():
+func TrackPriorityTarget():
 	if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) > guardResearch.priorityTargetThresholdDistance):
 		if (guardResearch.researchTarget is PlayerCharacter && !guardResearch.researchTarget.transformationChangeRef.isTransformed):
 			guardResearch.set_research_target(guardResearch.researchLastPosition)
 			guardResearch.isTrackingPriorityTarget = true
-		else:
-			guardResearch.isTrackingPriorityTarget = false
-	else:
-		guardResearch.isTrackingPriorityTarget = false
+			return
+	guardResearch.isTrackingPriorityTarget = false
