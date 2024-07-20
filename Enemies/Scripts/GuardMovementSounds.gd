@@ -21,7 +21,7 @@ func PlayMovementSounds():
 			SwitchLastState(guardController.isInAlert, patrolMovementSounds)
 		return
 	if (guardController.velocity != Vector2.ZERO):
-		if (!currentMovementSound.playing && currentSoundArray.size() > 0):
+		if (!currentMovementSound.playing):
 			SelectNextStep()
 	else:
 		currentMovementSound.stop()

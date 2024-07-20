@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=68 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
 [ext_resource type="AudioStream" uid="uid://cy7nkj3ihx0p6" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 3-Patrol_movement.wav" id="7_bpryv"]
-[ext_resource type="AudioStream" uid="uid://4omsw3hf5ofc" path="res://Enemies/Sounds/Guard/Research - Movement.wav" id="7_diuu5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardMovementSounds.gd" id="7_qthhg"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
@@ -178,11 +177,8 @@ stream = ExtResource("4_l66y0")
 [node name="HitByPlayer" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("5_whpac")
 
-[node name="ResearchInteract" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="ResearchStart" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_db6xf")
-
-[node name="ResearchMovement" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("7_diuu5")
 
 [node name="AlertExclamation" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("8_svg5n")
@@ -325,7 +321,7 @@ script = ExtResource("27_4smyn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
 shape = SubResource("CircleShape2D_pnfgo")
 
-[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "researchEnterSound", "researchInvestigateSound", "guardController")]
+[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "researchEnterSound", "guardController")]
 script = ExtResource("4_j1yk0")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
@@ -341,8 +337,7 @@ mainAreaFeedback = NodePath("PrimaryAreaFeedback")
 secondaryAreaFeedback = NodePath("SecondaryAreaFeedback")
 suspiciousItemsThresholdDistance = 100.0
 stunnedGuardsThresholdDistance = 100.0
-researchEnterSound = NodePath("../../Sounds/ResearchMovement")
-researchInvestigateSound = NodePath("../../Sounds/ResearchInteract")
+researchEnterSound = NodePath("../../Sounds/ResearchStart")
 guardController = NodePath("../..")
 
 [node name="MainTargets" type="Node2D" parent="Rotator/GuardResearch"]
@@ -729,6 +724,7 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
 [connection signal="stop_attack" from="." to="Rotator/GuardAttack" method="ForceEndAttack"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="reached_destination" from="EnemyMovement" to="Rotator/GuardResearch" method="ReachedDestination"]
 [connection signal="body_entered" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]

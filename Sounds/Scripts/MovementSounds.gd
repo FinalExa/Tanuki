@@ -28,7 +28,8 @@ func RandomizeStep():
 
 func SetSoundsArray(newArray: Array[AudioStreamPlayer2D]):
 	currentSoundArray.clear()
-	currentSoundArray = newArray
+	for i in newArray.size():
+		currentSoundArray.push_back(newArray[i])
 
 func ResetFirstStep():
 	if (currentMovementSound.playing):

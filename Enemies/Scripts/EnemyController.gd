@@ -30,6 +30,9 @@ func _ready():
 func _process(_delta):
 	GuardAnimations()
 
+func _physics_process(delta):
+	move_and_slide()
+
 func GuardAnimations():
 	if (velocity.x < 0):
 		spriteRef.flip_h = true

@@ -21,6 +21,8 @@ func _ready():
 
 func _update_navigation_path(end_position):
 	navigationAgent.target_position = end_position
+	if (enemyController.global_position == end_position):
+		enemyController.velocity = Vector2.ZERO
 
 func _physics_process(delta):
 	if((target != null || locationTargetEnabled)):
@@ -31,10 +33,10 @@ func navigate_on_path():
 	var movementSpeed = currentMovementSpeed
 	var dir = enemyController.global_position.direction_to(navigationAgent.get_next_path_position())
 	enemyController.velocity = dir * movementSpeed
-	enemyController.move_and_slide()
 	if ((locationTargetEnabled && enemyController.global_position.distance_to(locationTarget) < distanceTolerance)
 	|| (target != null && enemyController.global_position.distance_to(target.global_position) < distanceTolerance)):
 		currentMovementSpeed = 0
+		enemyController.velocity = Vector2.ZERO
 		emit_signal("reached_destination")
 
 func set_new_target(newTarget):

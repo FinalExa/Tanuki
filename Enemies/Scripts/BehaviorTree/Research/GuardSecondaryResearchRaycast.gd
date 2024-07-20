@@ -6,23 +6,27 @@ func _ready():
 	state = NodeState.FAILURE
 
 func Evaluate(_delta):
-	research_secondary_raycast()
+	ResearchSecondaryRaycast()
 	return NodeState.SUCCESS
 
-func research_secondary_raycast():
+func ResearchSecondaryRaycast():
 	var checkForPlayer: bool = false
 	for i in guardResearch.secondaryRaycastResult.size():
 		if (guardResearch.secondaryRaycastResult[i] != null):
-			checkForPlayer = spot_player_from_afar(guardResearch.secondaryRaycastResult[i])
+			checkForPlayer = SpotPlayerFromAfar(guardResearch.secondaryRaycastResult[i])
 			if (checkForPlayer):
 				guardResearch.researchHasFoundSomething = true
 				break
 	if (!checkForPlayer):
 		guardResearch.researchHasFoundSomething = false
 
-func spot_player_from_afar(target):
+func SpotPlayerFromAfar(target):
 	if (target is PlayerCharacter):
-		if (target.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
-			guardResearch.save_target_info(target)
+		var playerTrsState = target.transformationChangeRef.get_if_transformed_in_right_zone()
+		if (playerTrsState != 1):
+			if (playerTrsState == 0):
+				guardResearch.save_target_info(target, true)
+			else:
+				guardResearch.save_target_info(target, false)
 		return true
 	return false
