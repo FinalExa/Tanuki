@@ -49,8 +49,10 @@ func initialize_guard_research(target: Node2D):
 	mainAreaFeedbackInstance = add_feedback(mainAreaFeedback)
 	secondaryAreaFeedbackInstance = add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
-	if (target is PlayerCharacter || target is GuardController):
-		save_target_info(target)
+	if (target is PlayerCharacter):
+		save_target_info(target, true)
+	else: if (target is GuardController):
+		save_target_info(target, false)
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
@@ -74,11 +76,11 @@ func launch_raycast(rayList: Array[Node2D], space_state):
 			raycastResult.push_back(null)
 	return raycastResult
 
-func save_target_info(target):
+func save_target_info(target: Node2D, isPriotityTarget: bool):
 	researchTarget = target
 	researchLastPosition = researchTarget.position
 	researchLastDirection = researchTarget.velocity
-	isTrackingPriorityTarget = true
+	isTrackingPriorityTarget = isPriotityTarget
 
 func set_research_target(target: Vector2):
 	if (!researchInvestigateSound.playing): researchInvestigateSound.play()

@@ -39,11 +39,11 @@ func InvestigateSuspiciousObjects():
 			guardResearch.researchTarget = guardResearch.suspiciousItemsList[0]
 			guardResearch.set_research_target(guardResearch.researchTarget.global_position)
 		if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) <= guardResearch.suspiciousItemsThresholdDistance):
-			enemyController.guardMovement.set_location_target(enemyController.global_position)
+			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			if (guardResearch.researchTarget is PlayerCharacter):
 				var tempPlayerReference: PlayerCharacter = guardResearch.researchTarget
 				guardResearch.suspiciousItemsList.remove_at(0)
-				tempPlayerReference.transformationChangeRef.deactivate_transformation()
+				tempPlayerReference.transformationChangeRef.DeactivateTransformation()
 				guardResearch.stop_research()
 				enemyController.guardAlert.start_alert(tempPlayerReference)
 
