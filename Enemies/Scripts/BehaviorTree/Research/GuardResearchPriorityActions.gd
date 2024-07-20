@@ -44,7 +44,7 @@ func InvestigateSuspiciousObjects():
 				var tempPlayerReference: PlayerCharacter = guardResearch.researchTarget
 				guardResearch.suspiciousItemsList.remove_at(0)
 				tempPlayerReference.transformationChangeRef.DeactivateTransformation()
-				guardResearch.stop_research()
+				guardResearch.StopResearch()
 				enemyController.guardAlert.start_alert(tempPlayerReference)
 
 func TrackPriorityTarget():

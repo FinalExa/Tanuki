@@ -13,8 +13,6 @@ extends Node2D
 @export var researchLaunchDuration: float
 @export var mainAreaFeedback: Node2D
 @export var secondaryAreaFeedback: Node2D
-var mainAreaFeedbackInstance: Node2D
-var secondaryAreaFeedbackInstance: Node2D
 var researchLaunched: bool
 var researchLaunchTimer: float
 var researchEndTimer: float
@@ -32,22 +30,21 @@ var isTrackingPriorityTarget: bool
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
 @export var researchEnterSound: AudioStreamPlayer2D
-@export var researchInvestigateSound: AudioStreamPlayer2D
 
 @export var guardController: GuardController
 
 func _ready():
-	startup_feedbacks()
+	ClearFeedbacks()
 
 func _physics_process(_delta):
-	research_raycasts()
+	ResearchRaycasts()
 
 func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.enemyStatus.updateText(researchActiveText)
-	mainAreaFeedbackInstance = add_feedback(mainAreaFeedback)
-	secondaryAreaFeedbackInstance = add_feedback(secondaryAreaFeedback)
+	add_feedback(mainAreaFeedback)
+	add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
 	if (target is PlayerCharacter):
 		save_target_info(target, true)
@@ -58,13 +55,13 @@ func initialize_guard_research(target: Node2D):
 	researchLaunched = false
 	researchEnterSound.play()
 
-func research_raycasts():
+func ResearchRaycasts():
 	if (guardController.isInResearch):
 		var space_state = guardController.get_world_2d().direct_space_state
-		secondaryRaycastResult = launch_raycast(secondaryRayTargets, space_state)
-		mainRaycastResult = launch_raycast(rayTargets, space_state)
+		secondaryRaycastResult = LaunchRaycast(secondaryRayTargets, space_state)
+		mainRaycastResult = LaunchRaycast(rayTargets, space_state)
 	
-func launch_raycast(rayList: Array[Node2D], space_state):
+func LaunchRaycast(rayList: Array[Node2D], space_state):
 	var raycastResult: Array[Node2D] = []
 	raycastResult.clear()
 	for i in rayList.size():
@@ -83,46 +80,37 @@ func save_target_info(target: Node2D, isPriotityTarget: bool):
 	isTrackingPriorityTarget = isPriotityTarget
 
 func set_research_target(target: Vector2):
-	if (!researchInvestigateSound.playing): researchInvestigateSound.play()
 	guardController.enemyMovement.set_location_target(target)
 	guardController.enemyMovement.reset_movement_speed()
 	guardController.enemyRotator.setLookingAtPosition(target)
 
 func research_to_check():
 	guardController.guardCheck.currentAlertValue = onReturnToCheckAlertValue
-	stop_research()
+	StopResearch()
 	guardController.guardCheck.resume_check()
 
-func stop_research():
-	remove_feedback(mainAreaFeedbackInstance)
-	remove_feedback(secondaryAreaFeedbackInstance)
+func StopResearch():
+	ClearFeedbacks()
 	guardController.isInResearch = false
 
-func _on_guard_movement_reached_destination():
+func ReachedDestination():
 	if (guardController.isInResearch == true):
-		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection * 100))
+		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection))
 
 func _on_guard_damaged(direction: Vector2):
 	if (guardController.isInResearch == true):
-		stop_research()
+		StopResearch()
 		guardController.enemyStunned.start_stun(direction)
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration
 
-func startup_feedbacks():
-	mainAreaFeedbackInstance = mainAreaFeedback
-	remove_feedback(mainAreaFeedbackInstance)
-	secondaryAreaFeedbackInstance = secondaryAreaFeedback
-	remove_feedback(secondaryAreaFeedbackInstance)
+func ClearFeedbacks():
+	remove_feedback(mainAreaFeedback)
+	remove_feedback(secondaryAreaFeedback)
 
-func add_feedback(feedbackToAdd):
-	add_child(feedbackToAdd)
-	for i in get_child_count():
-		if (get_child(i) == feedbackToAdd):
-			return get_child(i)
+func add_feedback(feedback: Node2D):
+	feedback.show()
 
-func remove_feedback(feedbackToRemove: Node2D):
-	if(feedbackToRemove != null):
-		remove_child(feedbackToRemove)
-		feedbackToRemove = null
+func remove_feedback(feedback: Node2D):
+	feedback.hide()
