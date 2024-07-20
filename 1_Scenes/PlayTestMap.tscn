@@ -1524,9 +1524,8 @@ lookActions = Array[int]([1])
 [node name="MovementImpairInteractionObject9" parent="Room3Archive/Traps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-2368, 576)
 
-[node name="MovementImpairInteractionObject12" parent="Room3Archive/Traps" node_paths=PackedStringArray("effect") instance=ExtResource("7_s8vu6")]
+[node name="MovementImpairInteractionObject12" parent="Room3Archive/Traps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-1856, 832)
-effect = NodePath("../MovementImpairInteractionObject9/MovementImpairEffect")
 
 [node name="MovementImpairInteractionObject10" parent="Room3Archive/Traps" instance=ExtResource("7_s8vu6")]
 position = Vector2(-384, 512)
