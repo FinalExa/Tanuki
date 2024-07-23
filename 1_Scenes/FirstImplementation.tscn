@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://dirgn8y4i3ahx"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_6mq2v"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="1_ewkb2"]
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_l4gk6"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="1_vv2bi"]
+[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="2_bg6xa"]
+[ext_resource type="PackedScene" uid="uid://dqnx2m3ih7q48" path="res://Level/Prefabs/wall_end_right.tscn" id="3_4pd02"]
+[ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="4_bpw4n"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f1817"]
+vertices = PackedVector2Array(0, 128, 512, 128, 512, 512, 256, 384, 256, 512, 0, 384)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 128, 0, 384, 256, 384, 256, 512, 512, 512, 512, 128)])
+
+[node name="FirstImplementation" type="Node2D" node_paths=PackedStringArray("frameMaster")]
+script = ExtResource("1_6mq2v")
+frameMaster = NodePath("FrameMaster")
+
+[node name="FrameMaster" type="Node" parent="."]
+script = ExtResource("1_vv2bi")
+framesPerSecond = 60.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_f1817")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_l4gk6")]
+position = Vector2(72, 200)
+
+[node name="Room Start" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room Start"]
+
+[node name="Wall" parent="Room Start/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(128, 64)
+
+[node name="Wall2" parent="Room Start/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(384, 64)
+
+[node name="WallVertical" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 64)
+
+[node name="WallVertical2" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 192)
+
+[node name="WallVertical5" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 320)
+
+[node name="WallVertical6" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 320)
+
+[node name="WallVertical3" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 64)
+
+[node name="WallVertical4" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 192)
+
+[node name="WallEndRight" parent="Room Start/Walls" instance=ExtResource("3_4pd02")]
+position = Vector2(128, 448)
+
+[node name="Floor" type="Node2D" parent="Room Start"]
+
+[node name="Room A" type="Node2D" parent="."]
+
+[node name="WallVertical3" parent="Room A" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 448)
+
+[node name="WallVertical5" parent="Room A" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 576)
+
+[node name="WallVertical6" parent="Room A" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 704)
+
+[node name="WallVertical7" parent="Room A" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 576)
+
+[node name="WallVertical8" parent="Room A" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 704)
+
+[node name="WallWithRightVertical" parent="Room A" instance=ExtResource("4_bpw4n")]
+position = Vector2(640, 448)
+
+[node name="Room B" type="Node2D" parent="."]
+
+[node name="Room C" type="Node2D" parent="."]
+
+[node name="Room D" type="Node2D" parent="."]
+
+[node name="Room E" type="Node2D" parent="."]
+
+[node name="Room F" type="Node2D" parent="."]
+
+[node name="Room G" type="Node2D" parent="."]
+
+[node name="Room H" type="Node2D" parent="."]
+
+[node name="Room I" type="Node2D" parent="."]
+
+[node name="Room J" type="Node2D" parent="."]
+
+[node name="Room K" type="Node2D" parent="."]
