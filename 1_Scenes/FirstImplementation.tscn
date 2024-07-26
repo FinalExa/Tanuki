@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dirgn8y4i3ahx"]
+[gd_scene load_steps=45 format=3 uid="uid://dirgn8y4i3ahx"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_6mq2v"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="1_ewkb2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="14_wp1u2"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="15_o4efv"]
 [ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="15_v2k3d"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="18_k7488"]
 [ext_resource type="PackedScene" uid="uid://d2vdgc3b6mm3s" path="res://Level/Prefabs/wall_half_end_left.tscn" id="18_rk5mx"]
 [ext_resource type="PackedScene" uid="uid://c2oou053trcg0" path="res://Level/Prefabs/wall_half_end_right.tscn" id="19_h2qt2"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="20_5px3e"]
@@ -78,6 +79,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 512, 752, 512, 752, 
 vertices = PackedVector2Array(3136, 832, 3312, 512, 3312, 1408, 3136, 1088, 3048, 832, 3048, 728, 768, 512, 2968, 728, 2968, 832, 2880, 832, 2880, 1088, 2968, 1088, 2968, 1200, 2448, 1088, 768, 1408, 2448, 976, 1408, 832, 1408, 976, 1328, 976, 3048, 1200, 3048, 1088, 1328, 1088, 2368.95, 976, 2368, 832)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 4, 5, 1), PackedInt32Array(6, 1, 5, 7), PackedInt32Array(7, 8, 9, 6), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 10, 12, 14), PackedInt32Array(9, 10, 13, 15), PackedInt32Array(16, 17, 18, 6), PackedInt32Array(19, 20, 3, 2), PackedInt32Array(19, 2, 14, 12), PackedInt32Array(21, 13, 14), PackedInt32Array(21, 14, 6, 18), PackedInt32Array(15, 22, 23, 9), PackedInt32Array(6, 9, 23), PackedInt32Array(16, 6, 23)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(768, 512, 3312, 512, 3312, 1408, 768, 1408), PackedVector2Array(2448, 1088, 2448, 976, 2368.95, 976, 2368, 832, 1408, 832, 1408, 976, 1328, 976, 1328, 1088), PackedVector2Array(3136, 832, 3048, 832, 3048, 728, 2968, 728, 2968, 832, 2880, 832, 2880, 1088, 2968, 1088, 2968, 1200, 3048, 1200, 3048, 1088, 3136, 1088)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84bav"]
+size = Vector2(1216, 512)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_exop0"]
+vertices = PackedVector2Array(768, 2688, 768, 1536, 2032, 1536, 1296, 2688, 2032, 3200, 1296, 3200)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(768, 1536, 2032, 1536, 2032, 3200, 1296, 3200, 1296, 2688, 768, 2688)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cbfro"]
 vertices = PackedVector2Array(3312, 1536, 3312, 3200, 3072, 2560, 3072, 2432, 2880, 2112, 2880, 1984, 2752, 2944, 2048, 3200, 2240, 2944, 2048, 1536, 2240, 2816, 2752, 2816, 2560, 2560, 2816, 1536, 2368, 1984, 2560, 2432, 2368, 2112, 2560, 1536, 2560, 1408, 2816, 1408)
@@ -422,7 +431,13 @@ position = Vector2(3008, 960)
 
 [node name="AllowedItems" type="Node2D" parent="Room B"]
 
-[node name="Zone1Statue" type="Node2D" parent="Room B/AllowedItems"]
+[node name="Statues" type="Area2D" parent="Room B/AllowedItems"]
+position = Vector2(1888, 960)
+script = ExtResource("18_k7488")
+allowedObjects = Array[String](["Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room B/AllowedItems/Statues"]
+shape = SubResource("RectangleShape2D_84bav")
 
 [node name="Room C" type="Node2D" parent="."]
 
@@ -478,6 +493,9 @@ position = Vector2(640, 2368)
 
 [node name="Room D" type="Node2D" parent="."]
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room D"]
+navigation_polygon = SubResource("NavigationPolygon_exop0")
+
 [node name="Walls" type="Node2D" parent="Room D"]
 
 [node name="WallVertical" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
@@ -527,6 +545,55 @@ position = Vector2(1408, 3264)
 
 [node name="Wall4" parent="Room D/Walls" instance=ExtResource("1_ewkb2")]
 position = Vector2(896, 3264)
+
+[node name="Enemies" type="Node2D" parent="Room D"]
+
+[node name="Hyottoko" parent="Room D/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_5px3e")]
+position = Vector2(1080, 2424)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator")]
+
+[node name="Guard" parent="Room D/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1856, 1960)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+
+[node name="PatrolPoints" type="Node2D" parent="Room D"]
+
+[node name="PatrolIndicator" parent="Room D/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/2"), NodePath("../First/3"), NodePath("../First/2"), NodePath("../First/1")]
+lookActions = Array[int]([2, 0, 2, 3])
+
+[node name="PatrolIndicator2" parent="Room D/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../Second/4"), NodePath("../Second/5")]
+lookActions = Array[int]([0, 1])
+
+[node name="First" type="Node2D" parent="Room D/PatrolPoints"]
+
+[node name="1" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(896, 2432)
+
+[node name="2" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(1536, 2432)
+
+[node name="3" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(1536, 3008)
+
+[node name="Second" type="Node2D" parent="Room D/PatrolPoints"]
+
+[node name="4" type="Node2D" parent="Room D/PatrolPoints/Second"]
+position = Vector2(1856, 3008)
+
+[node name="5" type="Node2D" parent="Room D/PatrolPoints/Second"]
+position = Vector2(1856, 1728)
+
+[node name="TransformObjects" type="Node2D" parent="Room D"]
+
+[node name="Objects" type="Node2D" parent="Room D"]
+
+[node name="Node2D5" type="Node2D" parent="Room D"]
 
 [node name="Room E" type="Node2D" parent="."]
 
@@ -801,12 +868,6 @@ position = Vector2(760, 3392)
 [node name="WallVertical41" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(760, 3520)
 
-[node name="WallVertical42" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
-position = Vector2(760, 3648)
-
-[node name="WallVertical43" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
-position = Vector2(760, 3776)
-
 [node name="WallVertical44" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(760, 3904)
 
@@ -886,6 +947,9 @@ position = Vector2(640, 5056)
 [node name="WallVertical27" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(2040, 3392)
 
+[node name="WallVertical40" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3392)
+
 [node name="WallVertical28" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(2040, 3520)
 
@@ -895,8 +959,23 @@ position = Vector2(2040, 3648)
 [node name="WallVertical30" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(2040, 3776)
 
-[node name="WallVertical31" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+[node name="WallVertical50" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(2040, 3904)
+
+[node name="WallVertical31" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3720)
+
+[node name="WallVertical41" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3848)
+
+[node name="WallVertical42" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3976)
+
+[node name="WallVertical43" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 4104)
+
+[node name="WallVertical44" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 4232)
 
 [node name="WallVertical32" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
 position = Vector2(2040, 4032)
@@ -936,6 +1015,79 @@ position = Vector2(1152, 5056)
 
 [node name="Wall4" parent="Room I/Walls" instance=ExtResource("1_ewkb2")]
 position = Vector2(896, 5056)
+
+[node name="WallVerticalEnd" parent="Room I/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(1512, 4360)
+
+[node name="WallVertical45" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3720)
+
+[node name="WallVertical46" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3848)
+
+[node name="WallVertical47" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3976)
+
+[node name="WallVertical48" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 4104)
+
+[node name="WallVertical49" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 4232)
+
+[node name="WallVerticalEnd2" parent="Room I/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(1048, 4360)
+
+[node name="WallHalfEndLeft" parent="Room I/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(1216, 4672)
+
+[node name="WallHalfEndRight" parent="Room I/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(1344, 4672)
+
+[node name="Enemies" type="Node2D" parent="Room I"]
+
+[node name="PatrolIndicators" type="Node2D" parent="Room I"]
+
+[node name="First" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="1" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(920, 3456)
+
+[node name="2" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(920, 4544)
+
+[node name="3" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(1154, 4544)
+
+[node name="4" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(1154, 3456)
+
+[node name="Second" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="5" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1408, 3456)
+
+[node name="6" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1408, 4544)
+
+[node name="7" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1728, 4544)
+
+[node name="8" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1728, 3456)
+
+[node name="Third" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="9" type="Node2D" parent="Room I/PatrolIndicators/Third"]
+position = Vector2(1920, 4849)
+
+[node name="10" type="Node2D" parent="Room I/PatrolIndicators/Third"]
+position = Vector2(920, 4849)
+
+[node name="TransformObjects" type="Node2D" parent="Room I"]
+
+[node name="Objects" type="Node2D" parent="Room I"]
+
+[node name="PassiveObjects" type="Node2D" parent="Room I"]
 
 [node name="Room J" type="Node2D" parent="."]
 

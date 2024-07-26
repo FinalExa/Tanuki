@@ -48,7 +48,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-4032, -3200, -2880, -3
 tile_size = Vector2i(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1lqo"]
-size = Vector2(384, 256)
+size = Vector2(1048, 888)
 
 [node name="PlayTestMap" type="Node2D" node_paths=PackedStringArray("frameMaster")]
 script = ExtResource("1_x7cfa")
@@ -96,6 +96,7 @@ script = ExtResource("6_7ekh4")
 allowedObjects = Array[String](["Statue"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Hall/DetectionZones/LocalAllowedItems"]
+position = Vector2(332, -316)
 shape = SubResource("RectangleShape2D_m1lqo")
 
 [node name="LocalAllowedItems2" type="Area2D" parent="Room1Hall/DetectionZones"]
