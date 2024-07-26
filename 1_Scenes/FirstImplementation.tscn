@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dirgn8y4i3ahx"]
+[gd_scene load_steps=46 format=3 uid="uid://dirgn8y4i3ahx"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_6mq2v"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="1_ewkb2"]
@@ -92,6 +92,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(768, 1536, 2032, 1536, 
 vertices = PackedVector2Array(3312, 1536, 3312, 3200, 3072, 2560, 3072, 2432, 2880, 2112, 2880, 1984, 2752, 2944, 2048, 3200, 2240, 2944, 2048, 1536, 2240, 2816, 2752, 2816, 2560, 2560, 2816, 1536, 2368, 1984, 2560, 2432, 2368, 2112, 2560, 1536, 2560, 1408, 2816, 1408)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 1, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(2, 1, 6, 11), PackedInt32Array(12, 2, 11, 10), PackedInt32Array(13, 0, 5, 14), PackedInt32Array(4, 3, 15, 16), PackedInt32Array(12, 10, 9, 16), PackedInt32Array(17, 18, 19, 13), PackedInt32Array(17, 13, 14), PackedInt32Array(9, 17, 14), PackedInt32Array(9, 14, 16), PackedInt32Array(12, 16, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2048, 1536, 2560, 1536, 2560, 1408, 2816, 1408, 2816, 1536, 3312, 1536, 3312, 3200, 2048, 3200), PackedVector2Array(2368, 1984, 2368, 2112, 2880, 2112, 2880, 1984), PackedVector2Array(2560, 2432, 2560, 2560, 3072, 2560, 3072, 2432), PackedVector2Array(2752, 2944, 2752, 2816, 2240, 2816, 2240, 2944)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0ulea"]
+vertices = PackedVector2Array(1408, 4736, 2032, 4992, 768, 4992, 1152, 4736, 1520, 4424, 2032, 3328, 1408, 4608, 1504, 4424, 1520, 3656, 1792, 3328, 1504, 3656, 1152, 4608, 1056, 4424, 1056, 3656, 1280, 3328, 1520, 3328, 1520, 3200, 1792, 3200, 768, 3328, 1040, 3656, 1040, 4424)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(4, 0, 6, 7), PackedInt32Array(5, 4, 8, 9), PackedInt32Array(10, 7, 6, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 9), PackedInt32Array(15, 9, 8), PackedInt32Array(14, 15, 8, 10), PackedInt32Array(18, 14, 13, 19), PackedInt32Array(2, 18, 19, 20), PackedInt32Array(11, 3, 2, 20, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(768, 3328, 768, 4992, 2032, 4992, 2032, 3328, 1792, 3328, 1792, 3200, 1520, 3200, 1520, 3328, 1280, 3328), PackedVector2Array(1040, 3656, 1056, 3656, 1056, 4424, 1040, 4424), PackedVector2Array(1504, 3656, 1520, 3656, 1520, 4424, 1504, 4424), PackedVector2Array(1152, 4608, 1408, 4608, 1408, 4736, 1152, 4736)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t4kam"]
 vertices = PackedVector2Array(3008, 4672, 3024, 4672, 2816, 4736, 3024, 4160, 3312, 3328, 3312, 4992, 2048, 4992, 2432, 4864, 2832, 3840, 2832, 3328, 3008, 4160, 2816, 3840, 2816, 4608, 2432, 4216, 2432, 4088, 2560, 4608, 2320, 4432, 2320, 4216, 2304, 3200, 2560, 3200, 2560, 3328, 2304, 3328, 2816, 3328, 2816, 3584, 2304, 3584, 2304, 3712, 2816, 3712, 2320, 3960, 2320, 4088, 2304, 3960, 2304, 4088, 2176, 4088, 2176, 4216, 2304, 4216, 2304, 4432, 2176, 4736, 2432, 4736, 2560, 4736, 2048, 3328, 2176, 4864)
@@ -942,6 +947,9 @@ position = Vector2(640, 5056)
 
 [node name="Room I" type="Node2D" parent="."]
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room I"]
+navigation_polygon = SubResource("NavigationPolygon_0ulea")
+
 [node name="Walls" type="Node2D" parent="Room I"]
 
 [node name="WallVertical27" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
@@ -1045,7 +1053,57 @@ position = Vector2(1344, 4672)
 
 [node name="Enemies" type="Node2D" parent="Room I"]
 
+[node name="Guard" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1024, 4520)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator")]
+
+[node name="Guard2" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1160, 3776)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator2")]
+
+[node name="Guard3" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1592, 3504)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator3")]
+
+[node name="Guard4" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1592, 4568)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator4")]
+
+[node name="Guard5" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1296, 4880)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator5")]
+
 [node name="PatrolIndicators" type="Node2D" parent="Room I"]
+
+[node name="PatrolIndicator" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/3"), NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2")]
+lookActions = Array[int]([2, 1, 3, 0])
+
+[node name="PatrolIndicator2" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2"), NodePath("../First/3")]
+lookActions = Array[int]([1, 3, 0, 2])
+
+[node name="PatrolIndicator3" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/5"), NodePath("../Second/6"), NodePath("../Second/7"), NodePath("../Second/8")]
+lookActions = Array[int]([3, 0, 2, 1])
+
+[node name="PatrolIndicator4" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/6"), NodePath("../Second/5"), NodePath("../Second/8"), NodePath("../Second/7")]
+lookActions = Array[int]([3, 0, 2, 1])
+
+[node name="PatrolIndicator5" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../Third/10"), NodePath("../Third/9")]
+lookActions = Array[int]([3, 2])
 
 [node name="First" type="Node2D" parent="Room I/PatrolIndicators"]
 
@@ -1409,3 +1467,6 @@ position = Vector2(384, 5568)
 
 [node name="WallVerticalEnd2" parent="Room K/Walls" instance=ExtResource("9_u8st8")]
 position = Vector2(3320, 5568)
+
+[connection signal="body_entered" from="Room B/AllowedItems/Statues" to="Room B/AllowedItems/Statues" method="_on_body_entered"]
+[connection signal="body_exited" from="Room B/AllowedItems/Statues" to="Room B/AllowedItems/Statues" method="_on_body_exited"]
