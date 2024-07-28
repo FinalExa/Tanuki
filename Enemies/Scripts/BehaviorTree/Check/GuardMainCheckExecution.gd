@@ -25,8 +25,10 @@ func main_check():
 
 func determine_suspicion_type(target):
 	if (target is PlayerCharacter):
-		enemyController.enemyRotator.setLookingAtPosition(target.global_position)
-		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 0):
+		var playerHiddenStatus = target.transformationChangeRef.get_if_transformed_in_right_zone()
+		if (!(!guardCheck.playerSeen && playerHiddenStatus == 1)):
+			enemyController.enemyRotator.setLookingAtPosition(target.global_position)
+		if (playerHiddenStatus == 0):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsSeenMultiplier)
 			guardCheck.researchOutcome = true
@@ -36,7 +38,9 @@ func determine_suspicion_type(target):
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
 			return
-		if (target.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
+			return
+		if (playerHiddenStatus == 2):
 			guardCheck.playerSeen = true
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false

@@ -1,0 +1,1847 @@
+[gd_scene load_steps=57 format=3 uid="uid://dirgn8y4i3ahx"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_6mq2v"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="1_ewkb2"]
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_l4gk6"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="1_vv2bi"]
+[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="2_bg6xa"]
+[ext_resource type="PackedScene" uid="uid://dqnx2m3ih7q48" path="res://Level/Prefabs/wall_end_right.tscn" id="3_4pd02"]
+[ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="4_bpw4n"]
+[ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="8_24124"]
+[ext_resource type="PackedScene" uid="uid://bxq4vwdv3ac5s" path="res://Level/Prefabs/wall_end_left.tscn" id="9_6i7vb"]
+[ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="9_u8st8"]
+[ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="11_8hbt4"]
+[ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="12_d2dh3"]
+[ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="13_4e284"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="13_e6okw"]
+[ext_resource type="PackedScene" uid="uid://bpj3ppuxsg6ro" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="13_g0iox"]
+[ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="14_fnh1g"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="14_pedh4"]
+[ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="14_wp1u2"]
+[ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="15_o4efv"]
+[ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="15_v2k3d"]
+[ext_resource type="PackedScene" uid="uid://dapmtody61xo8" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="17_abg8f"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="18_k7488"]
+[ext_resource type="PackedScene" uid="uid://d2vdgc3b6mm3s" path="res://Level/Prefabs/wall_half_end_left.tscn" id="18_rk5mx"]
+[ext_resource type="PackedScene" uid="uid://c2oou053trcg0" path="res://Level/Prefabs/wall_half_end_right.tscn" id="19_h2qt2"]
+[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="20_5px3e"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="20_aqld5"]
+[ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="21_ch630"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="22_rfkl8"]
+[ext_resource type="PackedScene" uid="uid://bxx57nr5xmatr" path="res://ImportantObjects/ActivationObjects/leaves.tscn" id="22_yvbl8"]
+[ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="23_icq13"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="24_fybv2"]
+[ext_resource type="PackedScene" uid="uid://p8ojo7an42vu" path="res://Level/Prefabs/wall_half_left_vertical.tscn" id="28_hq7kf"]
+[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="29_5mh2t"]
+[ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="30_24w1b"]
+[ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_rstkl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y33e5"]
+texture = ExtResource("11_8hbt4")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gk6i"]
+texture = ExtResource("12_d2dh3")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnkda"]
+texture = ExtResource("13_4e284")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0l6r"]
+texture = ExtResource("14_fnh1g")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24v7i"]
+texture = ExtResource("15_v2k3d")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6o8ep"]
+tile_size = Vector2i(128, 128)
+sources/1 = SubResource("TileSetAtlasSource_y33e5")
+sources/4 = SubResource("TileSetAtlasSource_5gk6i")
+sources/5 = SubResource("TileSetAtlasSource_tnkda")
+sources/6 = SubResource("TileSetAtlasSource_m0l6r")
+sources/7 = SubResource("TileSetAtlasSource_24v7i")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f1817"]
+vertices = PackedVector2Array(0, 128, 512, 128, 512, 512, 256, 384, 256, 512, 0, 384)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 128, 0, 384, 256, 384, 256, 512, 512, 512, 512, 128)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_846a7"]
+vertices = PackedVector2Array(0, 1408, 0, 512, 752, 512, 752, 768, 768, 768, 768, 1024, 752, 1024, 752, 1408)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 512, 752, 512, 752, 768, 768, 768, 768, 1024, 752, 1024, 752, 1408, 0, 1408)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dts"]
+size = Vector2(752, 896)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_owtel"]
+vertices = PackedVector2Array(3136, 832, 3312, 512, 3312, 1408, 3136, 1088, 3048, 832, 3048, 728, 768, 512, 2968, 728, 2968, 832, 2880, 832, 2880, 1088, 2968, 1088, 2968, 1200, 2448, 1088, 768, 1408, 2448, 976, 1408, 832, 1408, 976, 1328, 976, 3048, 1200, 3048, 1088, 1328, 1088, 2368.95, 976, 2368, 832)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 4, 5, 1), PackedInt32Array(6, 1, 5, 7), PackedInt32Array(7, 8, 9, 6), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 10, 12, 14), PackedInt32Array(9, 10, 13, 15), PackedInt32Array(16, 17, 18, 6), PackedInt32Array(19, 20, 3, 2), PackedInt32Array(19, 2, 14, 12), PackedInt32Array(21, 13, 14), PackedInt32Array(21, 14, 6, 18), PackedInt32Array(15, 22, 23, 9), PackedInt32Array(6, 9, 23), PackedInt32Array(16, 6, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(768, 512, 3312, 512, 3312, 1408, 768, 1408), PackedVector2Array(2448, 1088, 2448, 976, 2368.95, 976, 2368, 832, 1408, 832, 1408, 976, 1328, 976, 1328, 1088), PackedVector2Array(3136, 832, 3048, 832, 3048, 728, 2968, 728, 2968, 832, 2880, 832, 2880, 1088, 2968, 1088, 2968, 1200, 3048, 1200, 3048, 1088, 3136, 1088)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84bav"]
+size = Vector2(1216, 512)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_huqvi"]
+vertices = PackedVector2Array(752, 2304, 0, 2304, 0, 1536, 256, 1536, 752, 1920, 256, 1408, 512, 1408, 512, 1536, 752, 1664, 752, 1536, 768, 1664, 768, 1920)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(4, 3, 7, 8), PackedInt32Array(7, 9, 8), PackedInt32Array(4, 8, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 1536, 256, 1536, 256, 1408, 512, 1408, 512, 1536, 752, 1536, 752, 1664, 768, 1664, 768, 1920, 752, 1920, 752, 2304, 0, 2304)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2w76"]
+size = Vector2(752, 768)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_exop0"]
+vertices = PackedVector2Array(768, 2688, 768, 1536, 2032, 1536, 1296, 2688, 2032, 3200, 1296, 3200)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(768, 1536, 2032, 1536, 2032, 3200, 1296, 3200, 1296, 2688, 768, 2688)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cbfro"]
+vertices = PackedVector2Array(3312, 1536, 3312, 3200, 3072, 2560, 3072, 2432, 2880, 2112, 2880, 1984, 2752, 2944, 2048, 3200, 2240, 2944, 2048, 1536, 2240, 2816, 2752, 2816, 2560, 2560, 2816, 1536, 2368, 1984, 2560, 2432, 2368, 2112, 2560, 1536, 2560, 1408, 2816, 1408)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 1, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(2, 1, 6, 11), PackedInt32Array(12, 2, 11, 10), PackedInt32Array(13, 0, 5, 14), PackedInt32Array(4, 3, 15, 16), PackedInt32Array(12, 10, 9, 16), PackedInt32Array(17, 18, 19, 13), PackedInt32Array(17, 13, 14), PackedInt32Array(9, 17, 14), PackedInt32Array(9, 14, 16), PackedInt32Array(12, 16, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2048, 1536, 2560, 1536, 2560, 1408, 2816, 1408, 2816, 1536, 3312, 1536, 3312, 3200, 2048, 3200), PackedVector2Array(2368, 1984, 2368, 2112, 2880, 2112, 2880, 1984), PackedVector2Array(2560, 2432, 2560, 2560, 3072, 2560, 3072, 2432), PackedVector2Array(2752, 2944, 2752, 2816, 2240, 2816, 2240, 2944)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_57nu1"]
+vertices = PackedVector2Array(0, 3200, 0, 2432, 256, 2432, 752, 3200, 256, 2304, 512, 2304, 512, 2432, 752, 2432)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 2432, 256, 2432, 256, 2304, 512, 2304, 512, 2432, 752, 2432, 752, 3200, 0, 3200)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djec4"]
+size = Vector2(752, 768)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y1w4l"]
+vertices = PackedVector2Array(1280, 3328, 1024, 3328, 1024, 3200, 1280, 2816, 768, 2816, 768, 3200)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1024, 3328, 1024, 3200, 768, 3200, 768, 2816, 1280, 2816, 1280, 3328)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7ul4i"]
+vertices = PackedVector2Array(0, 4992, 0, 3328, 240, 3328, 240, 4992, 240, 3200, 512, 3200, 512, 3328, 752, 3584, 752, 3840, 512, 4992, 752, 3328, 768, 3584, 768, 3840, 752, 4992, 512, 5120, 240, 5120)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6, 7, 8, 9), PackedInt32Array(6, 10, 7), PackedInt32Array(7, 11, 12, 8), PackedInt32Array(8, 13, 9), PackedInt32Array(3, 9, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 3328, 240, 3328, 240, 3200, 512, 3200, 512, 3328, 752, 3328, 752, 3584, 768, 3584, 768, 3840, 752, 3840, 752, 4992, 512, 4992, 512, 5120, 240, 5120, 240, 4992, 0, 4992)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0ulea"]
+vertices = PackedVector2Array(1408, 4736, 2032, 4992, 768, 4992, 1152, 4736, 1520, 4424, 2032, 3328, 1408, 4608, 1504, 4424, 1520, 3656, 1792, 3328, 1504, 3656, 1152, 4608, 1056, 4424, 1056, 3656, 1280, 3328, 1520, 3328, 1520, 3200, 1792, 3200, 768, 3328, 1040, 3656, 1040, 4424)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(4, 0, 6, 7), PackedInt32Array(5, 4, 8, 9), PackedInt32Array(10, 7, 6, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 9), PackedInt32Array(15, 9, 8), PackedInt32Array(14, 15, 8, 10), PackedInt32Array(18, 14, 13, 19), PackedInt32Array(2, 18, 19, 20), PackedInt32Array(11, 3, 2, 20, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(768, 3328, 768, 4992, 2032, 4992, 2032, 3328, 1792, 3328, 1792, 3200, 1520, 3200, 1520, 3328, 1280, 3328), PackedVector2Array(1040, 3656, 1056, 3656, 1056, 4424, 1040, 4424), PackedVector2Array(1504, 3656, 1520, 3656, 1520, 4424, 1504, 4424), PackedVector2Array(1152, 4608, 1408, 4608, 1408, 4736, 1152, 4736)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t4kam"]
+vertices = PackedVector2Array(3008, 4672, 3024, 4672, 2816, 4736, 3024, 4160, 3312, 3328, 3312, 4992, 2048, 4992, 2432, 4864, 2832, 3840, 2832, 3328, 3008, 4160, 2816, 3840, 2816, 4608, 2432, 4216, 2432, 4088, 2560, 4608, 2320, 4432, 2320, 4216, 2304, 3200, 2560, 3200, 2560, 3328, 2304, 3328, 2816, 3328, 2816, 3584, 2304, 3584, 2304, 3712, 2816, 3712, 2320, 3960, 2320, 4088, 2304, 3960, 2304, 4088, 2176, 4088, 2176, 4216, 2304, 4216, 2304, 4432, 2176, 4736, 2432, 4736, 2560, 4736, 2048, 3328, 2176, 4864)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 1), PackedInt32Array(1, 5, 6, 7), PackedInt32Array(8, 9, 4, 3, 10), PackedInt32Array(11, 8, 10, 0, 12, 13, 14), PackedInt32Array(0, 2, 12), PackedInt32Array(13, 12, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(20, 22, 23, 24), PackedInt32Array(21, 20, 24), PackedInt32Array(25, 26, 11, 14, 27), PackedInt32Array(14, 28, 27), PackedInt32Array(25, 27, 29), PackedInt32Array(29, 30, 31), PackedInt32Array(32, 33, 34, 35, 6), PackedInt32Array(36, 15, 37, 7), PackedInt32Array(16, 15, 36, 35, 34), PackedInt32Array(38, 21, 24), PackedInt32Array(38, 24, 25, 31), PackedInt32Array(25, 29, 31), PackedInt32Array(6, 38, 31, 32), PackedInt32Array(6, 35, 39), PackedInt32Array(6, 39, 7), PackedInt32Array(2, 1, 7), PackedInt32Array(2, 7, 37)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2304, 3200, 2304, 3328, 2048, 3328, 2048, 4992, 3312, 4992, 3312, 3328, 2832, 3328, 2832, 3840, 2816, 3840, 2816, 3712, 2304, 3712, 2304, 3584, 2816, 3584, 2816, 3328, 2560, 3328, 2560, 3200), PackedVector2Array(2320, 3960, 2304, 3960, 2304, 4088, 2176, 4088, 2176, 4216, 2304, 4216, 2304, 4432, 2320, 4432, 2320, 4216, 2432, 4216, 2432, 4088, 2320, 4088), PackedVector2Array(2560, 4608, 2816, 4608, 2816, 4736, 2560, 4736), PackedVector2Array(2432, 4736, 2176, 4736, 2176, 4864, 2432, 4864), PackedVector2Array(3024, 4160, 3008, 4160, 3008, 4672, 3024, 4672)])
+
+[node name="FirstImplementation" type="Node2D" node_paths=PackedStringArray("frameMaster")]
+script = ExtResource("1_6mq2v")
+frameMaster = NodePath("FrameMaster")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1000
+position = Vector2(-64, 64)
+tile_set = SubResource("TileSet_6o8ep")
+format = 2
+layer_0/tile_data = PackedInt32Array(262145, 1, 0, 262149, 1, 0, 262147, 1, 0, 393217, 1, 0, 393219, 1, 0, 393221, 1, 0, 524291, 1, 0, 655363, 1, 0, 786435, 1, 0, 917507, 1, 0, 1048579, 1, 0, 1179651, 1, 0, 1310723, 1, 0, 1441795, 1, 0, 1572867, 1, 0, 1703939, 1, 0, 1835011, 1, 0, 1966083, 1, 0, 2097155, 1, 0, 2228227, 1, 0, 2359299, 1, 0, 2490371, 1, 0, 2621443, 1, 0, 2621441, 1, 0, 2490369, 1, 0, 2359297, 1, 0, 2228225, 1, 0, 2097153, 1, 0, 1966081, 1, 0, 1835009, 1, 0, 1703937, 1, 0, 1572865, 1, 0, 1441793, 1, 0, 1310721, 1, 0, 524289, 1, 0, 1179649, 1, 0, 1048577, 1, 0, 917505, 1, 0, 786433, 1, 0, 655361, 1, 0, 524293, 1, 0, 655365, 1, 0, 786437, 1, 0, 917509, 1, 0, 1048581, 1, 0, 1179653, 1, 0, 1310725, 1, 0, 1441797, 1, 0, 1572869, 1, 0, 1703941, 1, 0, 1835013, 1, 0, 1966085, 1, 0, 2097157, 1, 0, 2228229, 1, 0, 2359301, 1, 0, 2490373, 1, 0, 2621445, 1, 0, 2752513, 1, 0, 2752515, 1, 0, 2752517, 1, 0, 131073, 1, 0, 1, 1, 0, 3, 1, 0, 131075, 1, 0, 262151, 1, 0, 393223, 1, 0, 524295, 1, 0, 655367, 1, 0, 655369, 1, 0, 655371, 1, 0, 655373, 1, 0, 655375, 1, 0, 655377, 1, 0, 655379, 1, 0, 655381, 1, 0, 655383, 1, 0, 655385, 1, 0, 524313, 1, 0, 393241, 1, 0, 262169, 1, 0, 262167, 1, 0, 393239, 1, 0, 524311, 1, 0, 524309, 1, 0, 524307, 1, 0, 524305, 1, 0, 524303, 1, 0, 524301, 1, 0, 524299, 1, 0, 524297, 1, 0, 393225, 1, 0, 262153, 1, 0, 262155, 1, 0, 393227, 1, 0, 393229, 1, 0, 262157, 1, 0, 262159, 1, 0, 262161, 1, 0, 262163, 1, 0, 262165, 1, 0, 393237, 1, 0, 393235, 1, 0, 393233, 1, 0, 393231, 1, 0, 786439, 1, 0, 786441, 1, 0, 786443, 1, 0, 786445, 1, 0, 786447, 1, 0, 917519, 1, 0, 917517, 1, 0, 917515, 1, 0, 917513, 1, 0, 917511, 1, 0, 1048583, 1, 0, 1048585, 1, 0, 1048587, 1, 0, 1048589, 1, 0, 1048591, 1, 0, 1179663, 1, 0, 1179661, 1, 0, 1179659, 1, 0, 1179657, 1, 0, 1179655, 1, 0, 1310727, 1, 0, 1310729, 1, 0, 1310731, 1, 0, 1310733, 1, 0, 1310735, 1, 0, 1441807, 1, 0, 1441805, 1, 0, 1441803, 1, 0, 1441801, 1, 0, 1441799, 1, 0, 1572871, 1, 0, 1572873, 1, 0, 1572875, 1, 0, 1572877, 1, 0, 1572879, 1, 0, 1703951, 1, 0, 1703949, 1, 0, 1703947, 1, 0, 1703945, 1, 0, 1703943, 1, 0, 1835015, 1, 0, 1835017, 1, 0, 1835019, 1, 0, 1835021, 1, 0, 1835023, 1, 0, 1966095, 1, 0, 1966093, 1, 0, 1966091, 1, 0, 1966089, 1, 0, 1966087, 1, 0, 2097159, 1, 0, 2097161, 1, 0, 2097163, 1, 0, 2097165, 1, 0, 2097167, 1, 0, 2228239, 1, 0, 2228237, 1, 0, 2228235, 1, 0, 2228233, 1, 0, 2228231, 1, 0, 2359303, 1, 0, 2359305, 1, 0, 2359307, 1, 0, 2359309, 1, 0, 2359311, 1, 0, 2490383, 1, 0, 2490381, 1, 0, 2490379, 1, 0, 2490377, 1, 0, 2490375, 1, 0, 2621447, 1, 0, 2752519, 1, 0, 2752521, 1, 0, 2752523, 1, 0, 2752525, 1, 0, 2752527, 1, 0, 2752529, 1, 0, 2752531, 1, 0, 2752533, 1, 0, 2621461, 1, 0, 2621459, 1, 0, 2621457, 1, 0, 2621455, 1, 0, 2621453, 1, 0, 2621451, 1, 0, 2621449, 1, 0, 2752535, 1, 0, 2752537, 1, 0, 2621465, 1, 0, 2621463, 1, 0, 2490393, 1, 0, 2490391, 1, 0, 2490389, 1, 0, 2490387, 1, 0, 2490385, 1, 0, 2359313, 1, 0, 2359315, 1, 0, 2359317, 1, 0, 2359319, 1, 0, 2359321, 1, 0, 2228249, 1, 0, 2228247, 1, 0, 2228245, 1, 0, 2228243, 1, 0, 2228241, 1, 0, 2097169, 1, 0, 2097171, 1, 0, 1703953, 1, 0, 1835025, 1, 0, 1966097, 1, 0, 2097177, 1, 0, 1966105, 1, 0, 1835033, 1, 0, 1703961, 1, 0, 1703959, 1, 0, 1703957, 1, 0, 1703955, 1, 0, 2097173, 1, 0, 2097175, 1, 0, 1966103, 1, 0, 1966101, 1, 0, 1966099, 1, 0, 1835027, 1, 0, 1835029, 1, 0, 1835031, 1, 0, 1572883, 1, 0, 1572881, 1, 0, 1572885, 1, 0, 1572887, 1, 0, 1572889, 1, 0, 1441817, 1, 0, 1441815, 1, 0, 1441813, 1, 0, 1441811, 1, 0, 1441809, 1, 0, 1310737, 1, 0, 1310739, 1, 0, 1310741, 1, 0, 1310743, 1, 0, 1310745, 1, 0, 1179673, 1, 0, 1179671, 1, 0, 1179669, 1, 0, 1179667, 1, 0, 1179665, 1, 0, 1048593, 1, 0, 1048595, 1, 0, 1048597, 1, 0, 1048599, 1, 0, 1048601, 1, 0, 917529, 1, 0, 917527, 1, 0, 917525, 1, 0, 917523, 1, 0, 917521, 1, 0, 786449, 1, 0, 786451, 1, 0, 786453, 1, 0, 786455, 1, 0, 786457, 1, 0)
+
+[node name="FrameMaster" type="Node" parent="."]
+script = ExtResource("1_vv2bi")
+framesPerSecond = 60.0
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_l4gk6")]
+position = Vector2(72, 200)
+
+[node name="Room Start" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room Start"]
+
+[node name="Wall" parent="Room Start/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(128, 64)
+
+[node name="Wall2" parent="Room Start/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(384, 64)
+
+[node name="WallVertical" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 64)
+
+[node name="WallVertical2" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 192)
+
+[node name="WallVertical5" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 320)
+
+[node name="WallVertical6" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 320)
+
+[node name="WallVertical3" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 64)
+
+[node name="WallVertical4" parent="Room Start/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(520, 192)
+
+[node name="WallEndRight" parent="Room Start/Walls" instance=ExtResource("3_4pd02")]
+position = Vector2(128, 448)
+
+[node name="Floor" type="Node2D" parent="Room Start"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room Start"]
+navigation_polygon = SubResource("NavigationPolygon_f1817")
+
+[node name="Room A" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room A"]
+navigation_polygon = SubResource("NavigationPolygon_846a7")
+
+[node name="Walls" type="Node2D" parent="Room A"]
+
+[node name="WallVertical3" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 448)
+
+[node name="WallVertical5" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 576)
+
+[node name="WallVertical6" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 704)
+
+[node name="WallVertical7" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 576)
+
+[node name="WallVertical8" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 704)
+
+[node name="WallVertical4" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 448)
+
+[node name="WallVertical9" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 576)
+
+[node name="WallVertical10" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 704)
+
+[node name="WallVertical11" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 832)
+
+[node name="WallVertical12" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 960)
+
+[node name="WallVertical13" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1088)
+
+[node name="WallVertical14" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1216)
+
+[node name="WallVertical18" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1344)
+
+[node name="WallVertical15" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 1344)
+
+[node name="WallVertical16" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 1088)
+
+[node name="WallVertical17" parent="Room A/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 1216)
+
+[node name="WallWithRightVertical" parent="Room A/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(640, 448)
+
+[node name="WallEndRight2" parent="Room A/Walls" instance=ExtResource("3_4pd02")]
+position = Vector2(128, 1472)
+
+[node name="WallWithRightVertical2" parent="Room A/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(640, 1472)
+
+[node name="TransformObjects" type="Node2D" parent="Room A"]
+
+[node name="Vase" parent="Room A/TransformObjects" instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 576)
+
+[node name="Vase2" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 576)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(688, 576)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase4" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(568, 576)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase5" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 1344)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase6" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 1344)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase7" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(688, 1344)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase8" parent="Room A/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(568, 1344)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="AllowedItems" type="Node2D" parent="Room A"]
+
+[node name="Vases" type="Area2D" parent="Room A/AllowedItems"]
+position = Vector2(352, 936)
+script = ExtResource("18_k7488")
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room A/AllowedItems/Vases"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_g1dts")
+
+[node name="Room B" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room B"]
+navigation_polygon = SubResource("NavigationPolygon_owtel")
+
+[node name="Walls" type="Node2D" parent="Room B"]
+
+[node name="Wall3" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 448)
+
+[node name="Wall4" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 1472)
+
+[node name="Wall" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1152, 448)
+
+[node name="Wall5" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1408, 448)
+
+[node name="Wall2" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1664, 448)
+
+[node name="Wall6" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1920, 448)
+
+[node name="Wall7" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2176, 448)
+
+[node name="Wall8" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2432, 448)
+
+[node name="Wall9" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2688, 448)
+
+[node name="Wall10" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2944, 448)
+
+[node name="Wall11" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1152, 1472)
+
+[node name="Wall12" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1408, 1472)
+
+[node name="Wall13" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1664, 1472)
+
+[node name="Wall15" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2176, 1472)
+
+[node name="Wall16" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2432, 1472)
+
+[node name="Wall18" parent="Room B/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2944, 1472)
+
+[node name="WallWithRightVertical" parent="Room B/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(3200, 448)
+
+[node name="WallWithRightVertical2" parent="Room B/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(3200, 1472)
+
+[node name="WallWithRightVertical3" parent="Room B/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(1920, 1472)
+
+[node name="WallVertical20" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1216)
+
+[node name="WallVertical21" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1344)
+
+[node name="WallVertical22" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1088)
+
+[node name="WallVertical23" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 832)
+
+[node name="WallVertical24" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 960)
+
+[node name="WallVertical25" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 704)
+
+[node name="WallVertical27" parent="Room B/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 576)
+
+[node name="Enemies" type="Node2D" parent="Room B"]
+
+[node name="Guard" parent="Room B/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1728, 1256)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator")]
+
+[node name="Guard2" parent="Room B/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2000, 728)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+
+[node name="Guard3" parent="Room B/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2712, 984)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
+
+[node name="PatrolPoints" type="Node2D" parent="Room B"]
+
+[node name="PatrolIndicator" parent="Room B/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2"), NodePath("../First/3")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="PatrolIndicator2" parent="Room B/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/2"), NodePath("../First/3"), NodePath("../First/4"), NodePath("../First/1")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="PatrolIndicator3" parent="Room B/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/5"), NodePath("../Second/6"), NodePath("../Second/7"), NodePath("../Second/8")]
+lookActions = Array[int]([1, 2, 0, 3])
+
+[node name="First" type="Node2D" parent="Room B/PatrolPoints"]
+
+[node name="1" type="Node2D" parent="Room B/PatrolPoints/First"]
+position = Vector2(1088, 643)
+
+[node name="2" type="Node2D" parent="Room B/PatrolPoints/First"]
+position = Vector2(2688, 640)
+
+[node name="3" type="Node2D" parent="Room B/PatrolPoints/First"]
+position = Vector2(2688, 1280)
+
+[node name="4" type="Node2D" parent="Room B/PatrolPoints/First"]
+position = Vector2(1088, 1280)
+
+[node name="Second" type="Node2D" parent="Room B/PatrolPoints"]
+
+[node name="5" type="Node2D" parent="Room B/PatrolPoints/Second"]
+position = Vector2(2752, 616)
+
+[node name="6" type="Node2D" parent="Room B/PatrolPoints/Second"]
+position = Vector2(3232, 616)
+
+[node name="7" type="Node2D" parent="Room B/PatrolPoints/Second"]
+position = Vector2(3232, 1322)
+
+[node name="8" type="Node2D" parent="Room B/PatrolPoints/Second"]
+position = Vector2(2752, 1322)
+
+[node name="Traps" type="Node2D" parent="Room B"]
+
+[node name="MoveInteractionObject" parent="Room B/Traps" instance=ExtResource("17_abg8f")]
+position = Vector2(2688, 1600)
+rotation = -3.14159
+
+[node name="TransformationObjects" type="Node2D" parent="Room B"]
+
+[node name="Statue" parent="Room B/TransformationObjects" instance=ExtResource("13_g0iox")]
+position = Vector2(1366, 1024)
+
+[node name="Statue3" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("13_g0iox")]
+position = Vector2(2408, 1024)
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/TransformedSprite")
+transformedTailLocation = NodePath("../Statue/TailLocation")
+
+[node name="Statue4" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("13_g0iox")]
+position = Vector2(3008, 776)
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/TransformedSprite")
+transformedTailLocation = NodePath("../Statue/TailLocation")
+
+[node name="Statue5" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("13_g0iox")]
+position = Vector2(3008, 1148)
+transformedCollider = NodePath("../Statue/CollisionShape2D")
+transformedTexture = NodePath("../Statue/TransformedSprite")
+transformedTailLocation = NodePath("../Statue/TailLocation")
+
+[node name="Vase" parent="Room B/TransformationObjects" instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 1344)
+
+[node name="Vase2" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 1216)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 1088)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase4" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 704)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase5" parent="Room B/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 576)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Objects" type="Node2D" parent="Room B"]
+
+[node name="Pillar" parent="Room B/Objects" instance=ExtResource("15_o4efv")]
+position = Vector2(1536, 960)
+
+[node name="Pillar3" parent="Room B/Objects" instance=ExtResource("15_o4efv")]
+position = Vector2(1888, 960)
+
+[node name="Pillar4" parent="Room B/Objects" instance=ExtResource("15_o4efv")]
+position = Vector2(2240, 960)
+
+[node name="Pillar5" parent="Room B/Objects" instance=ExtResource("15_o4efv")]
+position = Vector2(3008, 960)
+
+[node name="AllowedItems" type="Node2D" parent="Room B"]
+
+[node name="Statues" type="Area2D" parent="Room B/AllowedItems"]
+position = Vector2(1888, 960)
+script = ExtResource("18_k7488")
+allowedObjects = Array[String](["Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room B/AllowedItems/Statues"]
+shape = SubResource("RectangleShape2D_84bav")
+
+[node name="Room C" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room C"]
+navigation_polygon = SubResource("NavigationPolygon_huqvi")
+
+[node name="Walls" type="Node2D" parent="Room C"]
+
+[node name="WallVertical3" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1472)
+
+[node name="WallVertical5" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 1600)
+
+[node name="WallVertical6" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 1984)
+
+[node name="WallVertical7" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1600)
+
+[node name="WallVertical8" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1728)
+
+[node name="WallVertical4" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1472)
+
+[node name="WallVertical9" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1600)
+
+[node name="WallVertical10" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1728)
+
+[node name="WallVertical11" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1856)
+
+[node name="WallVertical12" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 1984)
+
+[node name="WallVertical13" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2112)
+
+[node name="WallVertical14" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2240)
+
+[node name="WallVertical16" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2112)
+
+[node name="WallVertical17" parent="Room C/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2240)
+
+[node name="WallEndRight2" parent="Room C/Walls" instance=ExtResource("3_4pd02")]
+position = Vector2(128, 2368)
+
+[node name="WallWithRightVertical3" parent="Room C/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(640, 2368)
+
+[node name="Enemies" type="Node2D" parent="Room C"]
+
+[node name="Cleaner" parent="Room C/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_aqld5")]
+position = Vector2(384, 1800)
+patrolIndicators = [NodePath("../../PatrolIndicator/PatrolIndicator")]
+
+[node name="PatrolIndicator" type="Node2D" parent="Room C"]
+
+[node name="PatrolIndicator" parent="Room C/PatrolIndicator" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0])
+moveActions = [NodePath("../First/1"), NodePath("../First/2")]
+
+[node name="First" type="Node2D" parent="Room C/PatrolIndicator"]
+
+[node name="1" type="Node2D" parent="Room C/PatrolIndicator/First"]
+position = Vector2(384, 896)
+
+[node name="2" type="Node2D" parent="Room C/PatrolIndicator/First"]
+position = Vector2(384, 3200)
+
+[node name="TransformObjects" type="Node2D" parent="Room C"]
+
+[node name="Vase9" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 1600)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase10" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 1600)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase11" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(688, 1600)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase12" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(568, 1600)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase13" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(72, 2232)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase14" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(195, 2232)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase15" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(696, 2232)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase16" parent="Room C/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(576, 2232)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="AllowedItems" type="Node2D" parent="Room C"]
+
+[node name="Vases" type="Area2D" parent="Room C/AllowedItems"]
+position = Vector2(384, 1920)
+script = ExtResource("18_k7488")
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room C/AllowedItems/Vases"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_h2w76")
+
+[node name="Room D" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room D"]
+navigation_polygon = SubResource("NavigationPolygon_exop0")
+
+[node name="Walls" type="Node2D" parent="Room D"]
+
+[node name="WallVertical" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 1600)
+
+[node name="WallVertical2" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 1728)
+
+[node name="WallVertical3" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 1856)
+
+[node name="WallVertical4" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 1984)
+
+[node name="WallVertical5" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2112)
+
+[node name="WallVertical6" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2240)
+
+[node name="WallVertical7" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2368)
+
+[node name="WallVertical8" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2496)
+
+[node name="WallVertical9" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2624)
+
+[node name="WallVertical10" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2752)
+
+[node name="WallVertical11" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 2880)
+
+[node name="WallVertical12" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3008)
+
+[node name="WallVertical13" parent="Room D/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3136)
+
+[node name="WallWithRightVertical" parent="Room D/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(1920, 3264)
+
+[node name="Wall2" parent="Room D/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1408, 3264)
+
+[node name="Wall4" parent="Room D/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 3264)
+
+[node name="Enemies" type="Node2D" parent="Room D"]
+
+[node name="Hyottoko" parent="Room D/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_5px3e")]
+position = Vector2(1080, 2424)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator")]
+
+[node name="Guard" parent="Room D/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1856, 1960)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+
+[node name="PatrolPoints" type="Node2D" parent="Room D"]
+
+[node name="PatrolIndicator" parent="Room D/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/2"), NodePath("../First/3"), NodePath("../First/2"), NodePath("../First/1")]
+lookActions = Array[int]([2, 0, 2, 3])
+
+[node name="PatrolIndicator2" parent="Room D/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../Second/4"), NodePath("../Second/5")]
+lookActions = Array[int]([0, 1])
+
+[node name="First" type="Node2D" parent="Room D/PatrolPoints"]
+
+[node name="1" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(896, 2432)
+
+[node name="2" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(1536, 2432)
+
+[node name="3" type="Node2D" parent="Room D/PatrolPoints/First"]
+position = Vector2(1536, 3008)
+
+[node name="Second" type="Node2D" parent="Room D/PatrolPoints"]
+
+[node name="4" type="Node2D" parent="Room D/PatrolPoints/Second"]
+position = Vector2(1856, 3008)
+
+[node name="5" type="Node2D" parent="Room D/PatrolPoints/Second"]
+position = Vector2(1856, 1728)
+
+[node name="TransformObjects" type="Node2D" parent="Room D"]
+
+[node name="Teapot" parent="Room D/TransformObjects" instance=ExtResource("23_icq13")]
+position = Vector2(1664, 1600)
+
+[node name="Objects" type="Node2D" parent="Room D"]
+
+[node name="Vase17" parent="Room D/Objects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 1600)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase18" parent="Room D/Objects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 1984)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase19" parent="Room D/Objects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(832, 2120)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Traps" type="Node2D" parent="Room D"]
+
+[node name="MovementImpairInteractionObject" parent="Room D/Traps" instance=ExtResource("22_rfkl8")]
+position = Vector2(1536, 2048)
+
+[node name="Room E" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room E"]
+navigation_polygon = SubResource("NavigationPolygon_cbfro")
+
+[node name="Walls" type="Node2D" parent="Room E"]
+
+[node name="WallVertical14" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1600)
+
+[node name="WallVertical15" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1728)
+
+[node name="WallVertical16" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1856)
+
+[node name="WallVertical17" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 1984)
+
+[node name="WallVertical18" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2112)
+
+[node name="WallVertical19" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2240)
+
+[node name="WallVertical20" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2368)
+
+[node name="WallVertical21" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2496)
+
+[node name="WallVertical22" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2624)
+
+[node name="WallVertical23" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2752)
+
+[node name="WallVertical24" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 2880)
+
+[node name="WallVertical25" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3008)
+
+[node name="WallVertical26" parent="Room E/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3136)
+
+[node name="WallWithRightVertical2" parent="Room E/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(3200, 3264)
+
+[node name="Wall3" parent="Room E/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2624, 2048)
+
+[node name="Wall5" parent="Room E/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2816, 2496)
+
+[node name="Wall6" parent="Room E/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2496, 2880)
+
+[node name="Wall2" parent="Room E/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2688, 3264)
+
+[node name="Wall4" parent="Room E/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2176, 3264)
+
+[node name="WallHalfEndLeft" parent="Room E/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2432, 2048)
+
+[node name="WallHalfEndLeft2" parent="Room E/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2624, 2496)
+
+[node name="WallHalfEndLeft3" parent="Room E/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2304, 2880)
+
+[node name="WallHalfEndRight" parent="Room E/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(2816, 2048)
+
+[node name="WallHalfEndRight2" parent="Room E/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(3008, 2496)
+
+[node name="WallHalfEndRight3" parent="Room E/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(2688, 2880)
+
+[node name="WallWithLeftVertical" parent="Room E/Walls" instance=ExtResource("8_24124")]
+position = Vector2(2944, 3264)
+
+[node name="Enemies" type="Node2D" parent="Room E"]
+
+[node name="Guard" parent="Room E/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2448, 3080)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator")]
+
+[node name="Guard2" parent="Room E/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2752, 2728)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+
+[node name="Guard3" parent="Room E/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2144, 2520)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
+
+[node name="Hyottoko" parent="Room E/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_5px3e")]
+position = Vector2(3192, 2992)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator4")]
+
+[node name="PatrolPoints" type="Node2D" parent="Room E"]
+
+[node name="PatrolIndicator" parent="Room E/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/7"), NodePath("../Second/8"), NodePath("../Second/5"), NodePath("../Second/6")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="PatrolIndicator2" parent="Room E/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/1"), NodePath("../First/2"), NodePath("../First/3"), NodePath("../First/4")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="PatrolIndicator3" parent="Room E/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0])
+waitActions = Array[float]([1.5, 1.5, 1.5])
+moveActions = [NodePath("../Third/9")]
+lookActions = Array[int]([0, 3, 1])
+
+[node name="PatrolIndicator4" parent="Room E/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../Fourth/10")]
+lookActions = Array[int]([0, 2])
+
+[node name="First" type="Node2D" parent="Room E/PatrolPoints"]
+
+[node name="1" type="Node2D" parent="Room E/PatrolPoints/First"]
+position = Vector2(2432, 2688)
+
+[node name="2" type="Node2D" parent="Room E/PatrolPoints/First"]
+position = Vector2(2432, 2304)
+
+[node name="3" type="Node2D" parent="Room E/PatrolPoints/First"]
+position = Vector2(3200, 2304)
+
+[node name="4" type="Node2D" parent="Room E/PatrolPoints/First"]
+position = Vector2(3200, 2688)
+
+[node name="Second" type="Node2D" parent="Room E/PatrolPoints"]
+
+[node name="5" type="Node2D" parent="Room E/PatrolPoints/Second"]
+position = Vector2(3008, 2752)
+
+[node name="6" type="Node2D" parent="Room E/PatrolPoints/Second"]
+position = Vector2(3008, 3072)
+
+[node name="7" type="Node2D" parent="Room E/PatrolPoints/Second"]
+position = Vector2(2152, 3072)
+
+[node name="8" type="Node2D" parent="Room E/PatrolPoints/Second"]
+position = Vector2(2152, 2752)
+
+[node name="Third" type="Node2D" parent="Room E/PatrolPoints"]
+
+[node name="9" type="Node2D" parent="Room E/PatrolPoints/Third"]
+position = Vector2(2136, 2496)
+
+[node name="Fourth" type="Node2D" parent="Room E/PatrolPoints"]
+
+[node name="10" type="Node2D" parent="Room E/PatrolPoints/Fourth"]
+position = Vector2(3200, 3008)
+
+[node name="TransformationObjects" type="Node2D" parent="Room E"]
+
+[node name="TaikoDrum" parent="Room E/TransformationObjects" instance=ExtResource("21_ch630")]
+position = Vector2(2464, 1944)
+
+[node name="Leaves" parent="Room E/TransformationObjects" instance=ExtResource("22_yvbl8")]
+position = Vector2(2320, 2560)
+
+[node name="Teapot" parent="Room E/TransformationObjects" instance=ExtResource("23_icq13")]
+position = Vector2(3264, 2672)
+
+[node name="PassiveObjects" type="Node2D" parent="Room E"]
+
+[node name="HeatSource" parent="Room E/PassiveObjects" instance=ExtResource("24_fybv2")]
+position = Vector2(2720, 1920)
+
+[node name="Room F" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room F"]
+navigation_polygon = SubResource("NavigationPolygon_57nu1")
+
+[node name="Walls" type="Node2D" parent="Room F"]
+
+[node name="WallVertical3" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2368)
+
+[node name="WallVertical5" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2496)
+
+[node name="WallVertical6" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2624)
+
+[node name="WallVertical15" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2752)
+
+[node name="WallVertical18" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 2880)
+
+[node name="WallVertical7" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2496)
+
+[node name="WallVertical8" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2624)
+
+[node name="WallVertical4" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2368)
+
+[node name="WallVertical9" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2496)
+
+[node name="WallVertical10" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2624)
+
+[node name="WallVertical11" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2752)
+
+[node name="WallVertical12" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 2880)
+
+[node name="WallVertical13" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3008)
+
+[node name="WallVertical14" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3136)
+
+[node name="WallVertical16" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 3008)
+
+[node name="WallVertical17" parent="Room F/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 3136)
+
+[node name="WallWithRightVertical4" parent="Room F/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(640, 3264)
+
+[node name="WallWithLeftVertical" parent="Room F/Walls" instance=ExtResource("8_24124")]
+position = Vector2(112, 3264)
+
+[node name="TransformObjects" type="Node2D" parent="Room F"]
+
+[node name="Vase17" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(56, 2504)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase18" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(179, 2504)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase19" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(680, 2504)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase20" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(560, 2504)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase21" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 3136)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase22" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 3136)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase23" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(688, 3136)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="Vase24" parent="Room F/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(568, 3136)
+transformedCollider = NodePath("../../../Room A/TransformObjects/Vase/CollisionShape2D")
+transformedTexture = NodePath("../../../Room A/TransformObjects/Vase/Sprite2D")
+transformedTailLocation = NodePath("../../../Room A/TransformObjects/Vase/TailLocation")
+
+[node name="AllowedItems" type="Node2D" parent="Room F"]
+
+[node name="Vases" type="Area2D" parent="Room F/AllowedItems"]
+position = Vector2(384, 2818)
+script = ExtResource("18_k7488")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room F/AllowedItems/Vases"]
+position = Vector2(-8, -2)
+shape = SubResource("RectangleShape2D_djec4")
+
+[node name="Room G" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room G"]
+
+[node name="WallVertical" parent="Room G/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1288, 3136)
+
+[node name="WallVertical2" parent="Room G/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1288, 3008)
+
+[node name="WallVertical3" parent="Room G/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1288, 2880)
+
+[node name="WallVertical4" parent="Room G/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1288, 2752)
+
+[node name="Wall" parent="Room G/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1152, 2752)
+
+[node name="Wall2" parent="Room G/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 2752)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room G"]
+navigation_polygon = SubResource("NavigationPolygon_y1w4l")
+
+[node name="TransformationObjects" type="Node2D" parent="Room G"]
+
+[node name="Broom" parent="Room G/TransformationObjects" instance=ExtResource("30_rstkl")]
+position = Vector2(816, 3128)
+
+[node name="TaikoDrum" parent="Room G/TransformationObjects" instance=ExtResource("21_ch630")]
+position = Vector2(1032, 2880)
+
+[node name="Room H" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room H"]
+
+[node name="WallVertical40" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 3392)
+
+[node name="WallVertical41" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 3520)
+
+[node name="WallVertical44" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 3904)
+
+[node name="WallVertical45" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4032)
+
+[node name="WallVertical46" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4160)
+
+[node name="WallVertical47" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4288)
+
+[node name="WallVertical48" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4416)
+
+[node name="WallVertical49" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4544)
+
+[node name="WallVertical50" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4672)
+
+[node name="WallVertical51" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4800)
+
+[node name="WallVertical52" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(760, 4928)
+
+[node name="WallVertical53" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3392)
+
+[node name="WallVertical54" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3520)
+
+[node name="WallVertical55" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3648)
+
+[node name="WallVertical56" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3776)
+
+[node name="WallVertical57" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 3904)
+
+[node name="WallVertical58" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4032)
+
+[node name="WallVertical59" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4160)
+
+[node name="WallVertical60" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4288)
+
+[node name="WallVertical61" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4416)
+
+[node name="WallVertical62" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4544)
+
+[node name="WallVertical63" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4672)
+
+[node name="WallVertical64" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4800)
+
+[node name="WallVertical65" parent="Room H/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 4928)
+
+[node name="WallWithLeftVertical" parent="Room H/Walls" instance=ExtResource("8_24124")]
+position = Vector2(112, 5056)
+
+[node name="WallEndLeft" parent="Room H/Walls" instance=ExtResource("9_6i7vb")]
+position = Vector2(640, 5056)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room H"]
+navigation_polygon = SubResource("NavigationPolygon_7ul4i")
+
+[node name="Enemies" type="Node2D" parent="Room H"]
+
+[node name="Cleaner" parent="Room H/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_aqld5")]
+position = Vector2(384, 3992)
+patrolIndicators = [NodePath("../../PatrolIndicator/PatrolIndicator")]
+
+[node name="Hyottoko" parent="Room H/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("20_5px3e")]
+position = Vector2(376, 5024)
+patrolIndicators = [NodePath("../../PatrolIndicator/PatrolIndicator2")]
+
+[node name="PatrolIndicator" type="Node2D" parent="Room H"]
+
+[node name="PatrolIndicator" parent="Room H/PatrolIndicator" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0])
+moveActions = [NodePath("../First/1"), NodePath("../First/2")]
+
+[node name="PatrolIndicator2" parent="Room H/PatrolIndicator" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../Second/3")]
+
+[node name="First" type="Node2D" parent="Room H/PatrolIndicator"]
+
+[node name="1" type="Node2D" parent="Room H/PatrolIndicator/First"]
+position = Vector2(384, 3456)
+
+[node name="2" type="Node2D" parent="Room H/PatrolIndicator/First"]
+position = Vector2(384, 4672)
+
+[node name="Second" type="Node2D" parent="Room H/PatrolIndicator"]
+
+[node name="3" type="Node2D" parent="Room H/PatrolIndicator/Second"]
+position = Vector2(384, 4992)
+
+[node name="TransformObjects" type="Node2D" parent="Room H"]
+
+[node name="Vase" parent="Room H/TransformObjects" instance=ExtResource("14_wp1u2")]
+position = Vector2(576, 3392)
+
+[node name="Vase2" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(696, 3392)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 3392)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase4" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 3392)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase5" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(187, 4928)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase6" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(64, 4928)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase7" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(688, 4928)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase8" parent="Room H/TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("14_wp1u2")]
+position = Vector2(577, 4928)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Room I" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room I"]
+navigation_polygon = SubResource("NavigationPolygon_0ulea")
+
+[node name="Walls" type="Node2D" parent="Room I"]
+
+[node name="WallVertical27" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3392)
+
+[node name="WallVertical40" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3392)
+
+[node name="WallVertical28" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3520)
+
+[node name="WallVertical29" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3648)
+
+[node name="WallVertical30" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3776)
+
+[node name="WallVertical50" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 3904)
+
+[node name="WallVertical31" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3720)
+
+[node name="WallVertical41" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3848)
+
+[node name="WallVertical42" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 3976)
+
+[node name="WallVertical43" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 4104)
+
+[node name="WallVertical44" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1512, 4232)
+
+[node name="WallVertical32" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4032)
+
+[node name="WallVertical33" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4160)
+
+[node name="WallVertical34" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4288)
+
+[node name="WallVertical35" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4416)
+
+[node name="WallVertical36" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4544)
+
+[node name="WallVertical37" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4672)
+
+[node name="WallVertical38" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4800)
+
+[node name="WallVertical39" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2040, 4928)
+
+[node name="WallWithRightVertical3" parent="Room I/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(1920, 5056)
+
+[node name="Wall" parent="Room I/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1664, 5056)
+
+[node name="Wall2" parent="Room I/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1408, 5056)
+
+[node name="Wall3" parent="Room I/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1152, 5056)
+
+[node name="Wall4" parent="Room I/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 5056)
+
+[node name="WallVerticalEnd" parent="Room I/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(1512, 4360)
+
+[node name="WallVertical45" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3720)
+
+[node name="WallVertical46" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3848)
+
+[node name="WallVertical47" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 3976)
+
+[node name="WallVertical48" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 4104)
+
+[node name="WallVertical49" parent="Room I/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(1048, 4232)
+
+[node name="WallVerticalEnd2" parent="Room I/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(1048, 4360)
+
+[node name="WallHalfEndLeft" parent="Room I/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(1216, 4672)
+
+[node name="WallHalfEndRight" parent="Room I/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(1344, 4672)
+
+[node name="Enemies" type="Node2D" parent="Room I"]
+
+[node name="Guard" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1024, 4520)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator")]
+
+[node name="Guard2" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1160, 3776)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator2")]
+
+[node name="Guard3" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1592, 3504)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator3")]
+
+[node name="Guard4" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1592, 4568)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator4")]
+
+[node name="Guard5" parent="Room I/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(1296, 4880)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicator5")]
+
+[node name="PatrolIndicators" type="Node2D" parent="Room I"]
+
+[node name="PatrolIndicator" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/3"), NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2")]
+lookActions = Array[int]([2, 1, 3, 0])
+
+[node name="PatrolIndicator2" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2"), NodePath("../First/3")]
+lookActions = Array[int]([1, 3, 0, 2])
+
+[node name="PatrolIndicator3" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/5"), NodePath("../Second/6"), NodePath("../Second/7"), NodePath("../Second/8")]
+lookActions = Array[int]([3, 0, 2, 1])
+
+[node name="PatrolIndicator4" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/6"), NodePath("../Second/5"), NodePath("../Second/8"), NodePath("../Second/7")]
+lookActions = Array[int]([3, 0, 2, 1])
+
+[node name="PatrolIndicator5" parent="Room I/PatrolIndicators" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../Third/10"), NodePath("../Third/9")]
+lookActions = Array[int]([3, 2])
+
+[node name="First" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="1" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(920, 3456)
+
+[node name="2" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(920, 4544)
+
+[node name="3" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(1154, 4544)
+
+[node name="4" type="Node2D" parent="Room I/PatrolIndicators/First"]
+position = Vector2(1154, 3456)
+
+[node name="Second" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="5" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1408, 3456)
+
+[node name="6" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1408, 4544)
+
+[node name="7" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1728, 4544)
+
+[node name="8" type="Node2D" parent="Room I/PatrolIndicators/Second"]
+position = Vector2(1728, 3456)
+
+[node name="Third" type="Node2D" parent="Room I/PatrolIndicators"]
+
+[node name="9" type="Node2D" parent="Room I/PatrolIndicators/Third"]
+position = Vector2(1920, 4849)
+
+[node name="10" type="Node2D" parent="Room I/PatrolIndicators/Third"]
+position = Vector2(920, 4849)
+
+[node name="TransformObjects" type="Node2D" parent="Room I"]
+
+[node name="Leaves" parent="Room I/TransformObjects" instance=ExtResource("22_yvbl8")]
+position = Vector2(1312, 4064)
+
+[node name="Objects" type="Node2D" parent="Room I"]
+
+[node name="PassiveObjects" type="Node2D" parent="Room I"]
+
+[node name="HeatSource" parent="Room I/PassiveObjects" instance=ExtResource("24_fybv2")]
+position = Vector2(1296, 4928)
+
+[node name="Room J" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Room J"]
+navigation_polygon = SubResource("NavigationPolygon_t4kam")
+
+[node name="Walls" type="Node2D" parent="Room J"]
+
+[node name="Wall5" parent="Room J/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2176, 5056)
+
+[node name="Wall6" parent="Room J/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2688, 3648)
+
+[node name="Wall9" parent="Room J/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2430, 3648)
+
+[node name="Wall7" parent="Room J/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2688, 5056)
+
+[node name="Wall8" parent="Room J/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2944, 5056)
+
+[node name="WallVertical66" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3392)
+
+[node name="WallVertical83" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3016, 4480)
+
+[node name="WallVertical84" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3016, 4352)
+
+[node name="WallVertical85" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3016, 4224)
+
+[node name="WallVertical79" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2824, 3392)
+
+[node name="WallVertical80" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2824, 3520)
+
+[node name="WallVertical81" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2824, 3648)
+
+[node name="WallVertical82" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2824, 3776)
+
+[node name="WallVertical86" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2312, 4024)
+
+[node name="WallVertical87" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(2312, 4280)
+
+[node name="WallVertical67" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3520)
+
+[node name="WallVertical68" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3648)
+
+[node name="WallVertical69" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3776)
+
+[node name="WallVertical70" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 3904)
+
+[node name="WallVertical71" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4032)
+
+[node name="WallVertical72" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4160)
+
+[node name="WallVertical73" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4288)
+
+[node name="WallVertical74" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4416)
+
+[node name="WallVertical75" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4544)
+
+[node name="WallVertical76" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4672)
+
+[node name="WallVertical77" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4800)
+
+[node name="WallVertical78" parent="Room J/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 4928)
+
+[node name="WallWithRightVertical" parent="Room J/Walls" instance=ExtResource("4_bpw4n")]
+position = Vector2(3200, 5056)
+
+[node name="WallHalfEndLeft" parent="Room J/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2624, 4672)
+
+[node name="WallHalfEndLeft2" parent="Room J/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2240, 4800)
+
+[node name="WallHalfEndRight" parent="Room J/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(2368, 4800)
+
+[node name="WallHalfEndRight2" parent="Room J/Walls" instance=ExtResource("19_h2qt2")]
+position = Vector2(2752, 4672)
+
+[node name="WallVerticalEnd" parent="Room J/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(3016, 4608)
+
+[node name="WallVerticalEnd2" parent="Room J/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(2312, 4368)
+
+[node name="WallHalfLeftVertical" parent="Room J/Walls" instance=ExtResource("28_hq7kf")]
+position = Vector2(2368, 4152)
+
+[node name="WallHalfEndLeft3" parent="Room J/Walls" instance=ExtResource("18_rk5mx")]
+position = Vector2(2240, 4152)
+
+[node name="Enemies" type="Node2D" parent="Room J"]
+
+[node name="Guard" parent="Room J/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2312, 4568)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator")]
+
+[node name="Guard2" parent="Room J/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2312, 3816)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+
+[node name="Guard3" parent="Room J/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2912, 4448)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
+
+[node name="Guard4" parent="Room J/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_e6okw")]
+position = Vector2(2296, 4928)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator4")]
+
+[node name="PatrolPoints" type="Node2D" parent="Room J"]
+
+[node name="PatrolIndicator" parent="Room J/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/4"), NodePath("../First/1"), NodePath("../First/2"), NodePath("../First/3")]
+lookActions = Array[int]([3, 1, 2, 0])
+
+[node name="PatrolIndicator2" parent="Room J/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../First/2"), NodePath("../First/3"), NodePath("../First/4"), NodePath("../First/1")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="PatrolIndicator3" parent="Room J/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Second/5"), NodePath("../Second/8"), NodePath("../Second/7"), NodePath("../Second/6")]
+lookActions = Array[int]([0, 2, 1, 3])
+
+[node name="PatrolIndicator4" parent="Room J/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_pedh4")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../Third/12"), NodePath("../Third/11"), NodePath("../Third/10"), NodePath("../Third/9")]
+lookActions = Array[int]([2, 1, 3, 0])
+
+[node name="First" type="Node2D" parent="Room J/PatrolPoints"]
+
+[node name="1" type="Node2D" parent="Room J/PatrolPoints/First"]
+position = Vector2(2112, 3840)
+
+[node name="2" type="Node2D" parent="Room J/PatrolPoints/First"]
+position = Vector2(2688, 3840)
+
+[node name="3" type="Node2D" parent="Room J/PatrolPoints/First"]
+position = Vector2(2688, 4544)
+
+[node name="4" type="Node2D" parent="Room J/PatrolPoints/First"]
+position = Vector2(2112, 4544)
+
+[node name="Second" type="Node2D" parent="Room J/PatrolPoints"]
+
+[node name="5" type="Node2D" parent="Room J/PatrolPoints/Second"]
+position = Vector2(2906, 4864)
+
+[node name="6" type="Node2D" parent="Room J/PatrolPoints/Second"]
+position = Vector2(2906, 3968)
+
+[node name="7" type="Node2D" parent="Room J/PatrolPoints/Second"]
+position = Vector2(3200, 3968)
+
+[node name="8" type="Node2D" parent="Room J/PatrolPoints/Second"]
+position = Vector2(3200, 4864)
+
+[node name="Third" type="Node2D" parent="Room J/PatrolPoints"]
+
+[node name="9" type="Node2D" parent="Room J/PatrolPoints/Third"]
+position = Vector2(2112, 4928)
+
+[node name="10" type="Node2D" parent="Room J/PatrolPoints/Third"]
+position = Vector2(2112, 4672)
+
+[node name="11" type="Node2D" parent="Room J/PatrolPoints/Third"]
+position = Vector2(2498, 4672)
+
+[node name="12" type="Node2D" parent="Room J/PatrolPoints/Third"]
+position = Vector2(2498, 4928)
+
+[node name="Traps" type="Node2D" parent="Room J"]
+
+[node name="DeathTrapInteractionObject" parent="Room J/Traps" instance=ExtResource("29_5mh2t")]
+position = Vector2(2368, 5056)
+
+[node name="DeathTrapInteractionObject2" parent="Room J/Traps" node_paths=PackedStringArray("effect") instance=ExtResource("29_5mh2t")]
+position = Vector2(2496, 5056)
+effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="TransformationObjects" type="Node2D" parent="Room J"]
+
+[node name="Log" parent="Room J/TransformationObjects" instance=ExtResource("30_24w1b")]
+position = Vector2(2906, 3376)
+
+[node name="Log2" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(2952, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log3" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3000, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log4" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3048, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log5" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3096, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log6" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3144, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log7" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3192, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Log8" parent="Room J/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("30_24w1b")]
+position = Vector2(3240, 3376)
+transformedCollider = NodePath("../Log/CollisionShape2D")
+transformedTexture = NodePath("../Log/Sprite2D")
+transformedTailLocation = NodePath("../Log/TailLocation")
+
+[node name="Room K" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Room K"]
+
+[node name="WallVertical" parent="Room K/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 5184)
+
+[node name="WallVertical3" parent="Room K/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(-8, 5440)
+
+[node name="WallVertical2" parent="Room K/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 5184)
+
+[node name="WallVertical4" parent="Room K/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 5440)
+
+[node name="WallVertical5" parent="Room K/Walls" instance=ExtResource("2_bg6xa")]
+position = Vector2(3320, 5312)
+
+[node name="Wall" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(128, 5568)
+
+[node name="WallVerticalEnd" parent="Room K/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(-8, 5568)
+
+[node name="Wall2" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(3200, 5568)
+
+[node name="Wall3" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2944, 5568)
+
+[node name="Wall4" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2688, 5568)
+
+[node name="Wall5" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2432, 5568)
+
+[node name="Wall6" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(2176, 5568)
+
+[node name="Wall7" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1920, 5568)
+
+[node name="Wall8" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1664, 5568)
+
+[node name="Wall9" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1408, 5568)
+
+[node name="Wall10" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(1152, 5568)
+
+[node name="Wall11" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(896, 5568)
+
+[node name="Wall12" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(640, 5568)
+
+[node name="Wall13" parent="Room K/Walls" instance=ExtResource("1_ewkb2")]
+position = Vector2(384, 5568)
+
+[node name="WallVerticalEnd2" parent="Room K/Walls" instance=ExtResource("9_u8st8")]
+position = Vector2(3320, 5568)
+
+[connection signal="body_entered" from="Room A/AllowedItems/Vases" to="Room A/AllowedItems/Vases" method="_on_body_entered"]
+[connection signal="body_exited" from="Room A/AllowedItems/Vases" to="Room A/AllowedItems/Vases" method="_on_body_exited"]
+[connection signal="body_entered" from="Room B/AllowedItems/Statues" to="Room B/AllowedItems/Statues" method="_on_body_entered"]
+[connection signal="body_exited" from="Room B/AllowedItems/Statues" to="Room B/AllowedItems/Statues" method="_on_body_exited"]
+[connection signal="body_entered" from="Room C/AllowedItems/Vases" to="Room C/AllowedItems/Vases" method="_on_body_entered"]
+[connection signal="body_exited" from="Room C/AllowedItems/Vases" to="Room C/AllowedItems/Vases" method="_on_body_exited"]
+[connection signal="body_entered" from="Room F/AllowedItems/Vases" to="Room F/AllowedItems/Vases" method="_on_body_entered"]
+[connection signal="body_exited" from="Room F/AllowedItems/Vases" to="Room F/AllowedItems/Vases" method="_on_body_exited"]
