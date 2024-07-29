@@ -1,9 +1,7 @@
-[gd_scene load_steps=52 format=3 uid="uid://vo0g6kml8604"]
+[gd_scene load_steps=50 format=3 uid="uid://vo0g6kml8604"]
 
-[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_3gu8p"]
-[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_x7cfa"]
+[ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_y6qeg"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_4y2q6"]
-[ext_resource type="PackedScene" uid="uid://b4loys1tn1mk5" path="res://WeaponTool/frame_master.tscn" id="2_ae2pm"]
 [ext_resource type="PackedScene" uid="uid://bsvvlx0xuucgg" path="res://Level/Prefabs/pillar.tscn" id="3_6e2h4"]
 [ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="4_juwwo"]
 [ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="5_4fn3r"]
@@ -84,17 +82,12 @@ sources/4 = SubResource("TileSetAtlasSource_t5b8y")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1lqo"]
 size = Vector2(1048, 888)
 
-[node name="PlayTestMap" type="Node2D" node_paths=PackedStringArray("frameMaster")]
-script = ExtResource("1_x7cfa")
-frameMaster = NodePath("FrameMaster")
-
-[node name="FrameMaster" parent="." instance=ExtResource("2_ae2pm")]
+[node name="PlayTestMap" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
+script = ExtResource("1_y6qeg")
+playerSpawnPoint = NodePath("PlayerSpawnPoint")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lv7pc")
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_3gu8p")]
-position = Vector2(1856, -192)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1000
@@ -2174,6 +2167,9 @@ position = Vector2(3584, -3264)
 scale = Vector2(0.5, 1)
 
 [node name="PatrolIndicators" type="Node2D" parent="Room4Exit"]
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="."]
+position = Vector2(1856, -192)
 
 [connection signal="body_entered" from="Room1Hall/DetectionZones/LocalAllowedItems" to="Room1Hall/DetectionZones/LocalAllowedItems" method="_on_body_entered"]
 [connection signal="body_exited" from="Room1Hall/DetectionZones/LocalAllowedItems" to="Room1Hall/DetectionZones/LocalAllowedItems" method="_on_body_exited"]

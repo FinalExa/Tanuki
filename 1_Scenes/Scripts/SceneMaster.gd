@@ -11,6 +11,7 @@ var lastTransformationSet: bool
 var lastObjectOriginalPath: String
 
 @export var frameMaster: FrameMaster
+@export var sceneSelector: SceneSelector
 var playerRef: PlayerCharacter
 
 func _ready():

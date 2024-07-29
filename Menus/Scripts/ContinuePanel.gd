@@ -1,5 +1,6 @@
 extends StandardInactivePanel
 
+@export var activeLevelPath: String
 @export var playtestMapPath: String
 @export var playerMapPath: String
 
