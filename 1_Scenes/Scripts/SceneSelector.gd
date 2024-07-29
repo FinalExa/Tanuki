@@ -3,6 +3,7 @@ extends Node2D
 
 @export var playerRef: PlayerCharacter
 @export var safePosition: Vector2
+@export var sceneMaster: SceneMaster
 var currentScenePath: String
 var currentScene: GameplayScene
 
@@ -19,6 +20,7 @@ func ChangeScene(newPath: String):
 	currentScene = obj
 	add_child(currentScene)
 	currentScene.SetPlayerSpawn(playerRef)
+	sceneMaster.UpdatePathAndLoad()
 
 func ReloadScene():
 	ChangeScene(currentScenePath)

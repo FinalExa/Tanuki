@@ -19,7 +19,9 @@ var playerRef: PlayerCharacter
 func _ready():
 	if (get_tree().paused):
 		get_tree().paused = false
-	savePath = "user://" + self.name + ".save"
+
+func UpdatePathAndLoad():
+	savePath = "user://" + sceneSelector.get_child(0).name + ".save"
 	for i in get_child_count():
 		if (get_child(i) is PlayerCharacter):
 			playerRef = get_child(i)
@@ -65,7 +67,7 @@ func LoadOperations():
 		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
-			TranslateStringIntoPathResult(self, savedDeletePaths[i])
+			TranslateStringIntoPathResult(sceneSelector.get_child(0), savedDeletePaths[i])
 
 func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
 	var newString: String = ""
