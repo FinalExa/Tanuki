@@ -69,7 +69,8 @@ func _on_resume_button_button_up():
 
 func _on_reload_button_button_up():
 	Resume()
-	get_tree().reload_current_scene()
+	var sceneSelector: SceneSelector = get_tree().root.get_child(0).sceneSelector
+	sceneSelector.ReloadScene()
 
 func _on_options_button_button_up():
 	optionsPanel.show()
@@ -80,7 +81,15 @@ func _on_controls_button_button_up():
 	pauseMenuPanel.hide()
 
 func _on_main_menu_button_button_up():
-	get_tree().change_scene_to_file(mainMenuPath)
+	call_deferred("BackToMainMenu")
+
+func BackToMainMenu():
+	var rootRef = get_tree().root
+	var sceneMaster: SceneMaster = rootRef.get_child(0)
+	var obj_scene = load(mainMenuPath)
+	var mainMenu: Control = obj_scene.instantiate()
+	rootRef.add_child(mainMenu)
+	sceneMaster.queue_free()
 
 func _on_quit_to_desktop_button_button_up():
 	get_tree().quit()

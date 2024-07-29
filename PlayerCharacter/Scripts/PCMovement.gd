@@ -65,3 +65,6 @@ func DisableMovement():
 
 func EnableMovement():
 	movementEnabled = true
+
+func SetToZero():
+	playerRef.velocity = Vector2.ZERO
