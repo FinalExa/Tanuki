@@ -14,9 +14,9 @@ sceneSelector = NodePath("SceneSelector")
 script = ExtResource("2_cdn4e")
 framesPerSecond = 60.0
 
+[node name="PlayerCharacter" parent="." instance=ExtResource("4_ew33i")]
+
 [node name="SceneSelector" type="Node2D" parent="." node_paths=PackedStringArray("playerRef")]
 script = ExtResource("3_7g2cs")
 playerRef = NodePath("../PlayerCharacter")
 safePosition = Vector2(10000, 10000)
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("4_ew33i")]

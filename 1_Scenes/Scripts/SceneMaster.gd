@@ -12,6 +12,8 @@ var lastObjectOriginalPath: String
 
 @export var frameMaster: FrameMaster
 @export var sceneSelector: SceneSelector
+var isInGameplayScene: bool
+var currentlyLoadedGameplayScene: String
 var playerRef: PlayerCharacter
 
 func _ready():
