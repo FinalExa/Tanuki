@@ -19,8 +19,8 @@ func CallOtherGuards():
 				if (guardsInArea[i].guardDistraction.isDistracted):
 					activatedGuardsInArea.push_back(guardsInArea)
 				else:
-					guardsInArea[i].SetClosestDistractionSource(guardDistraction.closestSource)
-					guardsInArea[i].StartDistracted()
+					guardsInArea[i].guardDistraction.SetClosestDistractionSource(guardDistraction.closestSource)
+					guardsInArea[i].guardDistraction.StartDistracted()
 					activatedGuardsInArea.push_back(guardsInArea)
 
 func ActivateDiffuseArea():

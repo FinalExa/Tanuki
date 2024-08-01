@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://yverqrhsnw5x"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_tfpow"]
+[ext_resource type="Texture2D" uid="uid://bhjxhuobwkrni" path="res://ImportantObjects/Interactables/Sprites/Placeholder/shoji.png" id="2_eb085"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(256, 128)
+
+[node name="FragileWall" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_tfpow")
+neededString = "Pound"
+savedOnDestroy = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.57628e-06, -1.90735e-06)
+scale = Vector2(0.256, 0.204473)
+texture = ExtResource("2_eb085")

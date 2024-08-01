@@ -13,7 +13,7 @@ func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
 				var destination: Vector2 = self.get_parent().global_position.direction_to(receivedBody.global_position)
 				destination *= guardLaunchDistance
 				receivedBody.translate(destination)
-				receivedBody.guardMovement.set_location_target(receivedBody.global_position)
+				receivedBody.enemyMovement.set_location_target(receivedBody.global_position)
 
 func execute_negated_effect(receivedBody: CharacterBody2D, delta):
 	if (receivedBody is PlayerCharacter):

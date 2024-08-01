@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
-[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="1_lxk7a"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="8_flms1"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
@@ -27,9 +26,6 @@ script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
-position = Vector2(-1016, -24)
-
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_lxk7a")]
 position = Vector2(-1016, -24)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
