@@ -80,7 +80,7 @@ func set_possible_second_destination(space_state):
 		var result = space_state.intersect_ray(query)
 		extraLocationSet = true
 		if (result && result != { }):
-				return result.position
+			return result.position
 		return searchPosition
 
 func set_last_target_info(receivedTarget: Node2D):
