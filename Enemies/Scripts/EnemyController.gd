@@ -30,7 +30,7 @@ func _ready():
 func _process(_delta):
 	GuardAnimations()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide()
 
 func GuardAnimations():

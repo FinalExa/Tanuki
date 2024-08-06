@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
+[ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="4_h1vlp"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
-[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="8_flms1"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://bxx57nr5xmatr" path="res://ImportantObjects/ActivationObjects/leaves.tscn" id="8_y4frf"]
 [ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="9_u1tvc"]
@@ -53,6 +53,10 @@ lookActions = Array[int]([1, 2, 0])
 [node name="Wall" parent="." instance=ExtResource("6_qwx0y")]
 position = Vector2(-160, 0)
 
+[node name="Warden" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("4_h1vlp")]
+position = Vector2(-504, 320)
+patrolIndicators = [NodePath("../PatrolIndicator")]
+
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
 
@@ -71,10 +75,6 @@ position = Vector2(-624, -560)
 position = Vector2(432, 240)
 shape = SubResource("RectangleShape2D_22l4x")
 debug_color = Color(0.886275, 0.294118, 0.384314, 0.25098)
-
-[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("8_flms1")]
-position = Vector2(144, 184)
-patrolIndicators = [NodePath("../PatrolIndicator")]
 
 [node name="Log" parent="." instance=ExtResource("9_u1tvc")]
 position = Vector2(-864, -184)
