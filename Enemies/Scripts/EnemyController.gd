@@ -71,7 +71,6 @@ func Repelled(delta):
 		if (repelledTimer > 0):
 			repelledTimer -= delta
 			velocity = repelledSpeed * repelledDirection
-			print("repelled")
 			return
 		isRepelled = false
 
