@@ -94,13 +94,17 @@ func StopResearch():
 	guardController.isInResearch = false
 
 func ReachedDestination():
-	if (guardController.isInResearch == true):
+	if (guardController.isInResearch):
 		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection))
 
 func _on_guard_damaged(direction: Vector2):
-	if (guardController.isInResearch == true):
+	if (guardController.isInResearch):
 		StopResearch()
 		guardController.enemyStunned.start_stun(direction)
+
+func OnGuardRepelled():
+	if (guardController.isInResearch):
+		StopResearch()
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration

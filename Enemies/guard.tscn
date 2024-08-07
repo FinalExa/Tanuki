@@ -120,6 +120,8 @@ guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
 guardDistraction = NodePath("Rotator/GuardDistraction")
 enemyAttack = NodePath("Rotator/GuardAttack")
+repelledTime = 0.3
+repelledDistance = 500.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -722,6 +724,10 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="damaged" from="." to="Rotator/GuardCheck" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardResearch" method="_on_guard_damaged"]
 [connection signal="damaged" from="." to="Rotator/GuardAlert" method="_on_guard_damaged"]
+[connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
+[connection signal="repelled" from="." to="Rotator/GuardCheck" method="OnGuardRepelled"]
+[connection signal="repelled" from="." to="Rotator/GuardResearch" method="OnGuardRepelled"]
+[connection signal="repelled" from="." to="Rotator/GuardAlert" method="OnGuardRepelled"]
 [connection signal="stop_attack" from="." to="Rotator/GuardAttack" method="ForceEndAttack"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="reached_destination" from="EnemyMovement" to="Rotator/GuardResearch" method="ReachedDestination"]

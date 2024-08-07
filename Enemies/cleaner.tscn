@@ -51,6 +51,8 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
+repelledTime = 0.3
+repelledDistance = 350.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -237,5 +239,6 @@ enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
 [connection signal="damaged_no_direction" from="." to="Rotator/CleanerAttackHitbox" method="SetHitboxOff"]
+[connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="end_stun_signal" from="EnemyStunned" to="Rotator/CleanerAttackHitbox" method="SetHitboxOn"]

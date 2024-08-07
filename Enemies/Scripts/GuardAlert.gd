@@ -116,6 +116,10 @@ func _on_guard_damaged(direction: Vector2):
 		stop_alert()
 		guardController.enemyStunned.start_stun(direction)
 
+func OnGuardRepelled():
+	if (guardController.isInAlert == true):
+		stop_alert()
+
 func remove_area():
 	if(screamAreaInstance != null):
 		remove_child(screamAreaInstance)

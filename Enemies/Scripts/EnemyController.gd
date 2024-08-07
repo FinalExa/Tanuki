@@ -3,13 +3,20 @@ extends CharacterBody2D
 
 signal damaged
 signal damaged_no_direction
+signal repelled
 signal stop_attack
 
 var isInPatrol: bool = true
 var isStunned: bool
+var isRepelled: bool
+var repelledTimer: float
+var repelledSpeed: float
+var repelledDirection: Vector2
 var characterRef
 
 @export var patrolIndicators: Array[PatrolIndicator]
+@export var repelledTime: float
+@export var repelledDistance: float
 @export var startingIndex: int
 @export var guardProperties: Array[String]
 @export var enemyMovement: EnemyMovement
@@ -26,11 +33,15 @@ var guardsLookingForMe: Array[GuardResearch]
 
 func _ready():
 	spriteRef.play("idle")
+	repelledSpeed = 0
+	if (repelledTime > 0):
+		repelledSpeed = repelledDistance / repelledTime
 
 func _process(_delta):
 	GuardAnimations()
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	Repelled(delta)
 	move_and_slide()
 
 func GuardAnimations():
@@ -41,14 +52,27 @@ func GuardAnimations():
 			spriteRef.flip_h = false
 
 func is_damaged(direction: Vector2):
-	SetDamaged(direction)
-
-func SetDamaged(direction: Vector2):
 	hitByPlayerSound.play()
 	stunnedHit.play()
 	emit_signal("damaged", direction)
 	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
+
+func IsRepelled(direction: Vector2):
+	if (repelledSpeed > 0):
+		isRepelled = true
+		emit_signal("stop_attack")
+		velocity = Vector2.ZERO
+		repelledTimer = repelledTime
+		repelledDirection = direction
+
+func Repelled(delta):
+	if (isRepelled):
+		if (repelledTimer > 0):
+			repelledTimer -= delta
+			velocity = repelledSpeed * repelledDirection
+			return
+		isRepelled = false
 
 func GetRotator():
 	return enemyRotator
