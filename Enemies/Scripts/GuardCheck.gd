@@ -94,9 +94,13 @@ func resume_check():
 	activate_reduction_over_time()
 
 func _on_guard_damaged(direction: Vector2):
-	if (guardController.isChecking == true || checkActive == true):
+	if (guardController.isChecking || checkActive):
 		stop_guardCheck()
 		guardController.enemyStunned.start_stun(direction)
+
+func OnGuardRepelled():
+	if (guardController.isChecking || checkActive):
+		stop_guardCheck()
 
 func send_alert_value():
 	guardController.enemyStatus.updateValue(currentAlertValue, maxAlertValue)

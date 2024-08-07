@@ -122,6 +122,10 @@ func _on_enemy_damaged(direction: Vector2):
 		stop_patrol()
 		enemyController.enemyStunned.start_stun(direction)
 
+func OnEnemyRepelled():
+	if (enemyController.isInPatrol):
+		stop_patrol()
+
 func initialize_startup():
 	startupTimer = startupDuration
 	startupActive = true

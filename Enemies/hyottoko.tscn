@@ -72,6 +72,8 @@ hyottokoPushDistanceFromPlayer = 200.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
 hyottokoNormalAttack = NodePath("Rotator/HyottokoAttackNormal")
 hyottokoRageAttack = NodePath("Rotator/HyottokoAttackRage")
+repelledTime = 0.3
+repelledDistance = 200.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -352,6 +354,8 @@ enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
 [connection signal="damaged" from="." to="HyottokoReachPoint" method="_on_hyottoko_damaged"]
+[connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
+[connection signal="repelled" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
 [connection signal="stop_attack" from="." to="Rotator/HyottokoAttackNormal" method="ForceEndAttack"]
 [connection signal="stop_attack" from="." to="Rotator/HyottokoAttackRage" method="ForceEndAttack"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
