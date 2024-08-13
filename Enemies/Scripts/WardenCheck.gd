@@ -56,7 +56,23 @@ func DecreaseCheckValue(delta):
 	UpdateLabelValue()
 
 func AddArea():
-	add_child(alertGuardsArea)
+	if (alertGuardsArea.get_parent() == null):
+		add_child(alertGuardsArea)
 
 func RemoveArea():
-	alertGuardsArea.get_parent().remove_child(alertGuardsArea)
+	if (alertGuardsArea.get_parent() != null):
+		alertGuardsArea.get_parent().remove_child(alertGuardsArea)
+
+func EndWardenCheck():
+	checkCurrentValue = 0
+	CheckToRemoveArea()
+
+func CheckToRemoveArea():
+	RemoveArea()
+	if (enemyController.enemyRotator.isLookingAtNode && enemyController.enemyRotator.target is PlayerCharacter):
+		enemyController.enemyRotator.stopLooking()
+
+func _on_warden_damaged(direction: Vector2):
+	if (raycastResult is PlayerCharacter):
+		EndWardenCheck()
+		enemyController.enemyStunned.start_stun(direction)

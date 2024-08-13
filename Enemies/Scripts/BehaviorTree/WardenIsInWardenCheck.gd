@@ -12,10 +12,7 @@ func Evaluate(delta):
 			return NodeState.FAILURE
 	playerSpotted = false
 	wardenCheck.DecreaseCheckValue(delta)
-	if (enemyController.enemyRotator.isLookingAtNode && enemyController.enemyRotator.target is PlayerCharacter):
-		enemyController.enemyRotator.stopLooking()
-	if (wardenCheck.alertGuardsArea.get_parent() == wardenCheck):
-		wardenCheck.RemoveArea()
+	wardenCheck.CheckToRemoveArea()
 	if (!enemyController.isInPatrol):
 		enemyController.enemyPatrol.resume_patrol()
 	return NodeState.SUCCESS

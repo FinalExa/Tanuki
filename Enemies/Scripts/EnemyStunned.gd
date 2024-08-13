@@ -15,6 +15,9 @@ var stunnedFromAlert: bool = false
 var lookDirectionAfterStun: Vector2
 
 func start_stun(direction: Vector2):
+	ExecuteStunStartup(direction)
+
+func ExecuteStunStartup(direction: Vector2):
 	stunTimer = stunDuration
 	lookDirectionAfterStun = direction
 	enemyController.enemyMovement.set_new_target(null)
@@ -26,6 +29,9 @@ func start_stun(direction: Vector2):
 		stunnedFromAlert = false
 
 func end_stun():
+	ExecuteStunEnd()
+
+func ExecuteStunEnd():
 	clear_guards_looking_for_me()
 	enemyController.enemyRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + enemyController.global_position)
 	enemyController.isStunned = false

@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_aa0al"]
 [ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="13_cqou3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_gs4mp"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="15_v11rc"]
+[ext_resource type="Script" path="res://Enemies/Scripts/WardenStunned.gd" id="15_pt584"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="17_60did"]
 [ext_resource type="Script" path="res://Enemies/Scripts/WardenCheck.gd" id="18_c47oq"]
@@ -59,7 +59,7 @@ enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
-enemyStunned = NodePath("EnemyStunned")
+enemyStunned = NodePath("WardenStunned")
 spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("WardenMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
@@ -135,8 +135,9 @@ enemyController = NodePath("..")
 startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
-[node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
-script = ExtResource("15_v11rc")
+[node name="WardenStunned" type="Node" parent="." node_paths=PackedStringArray("enemyCollider", "stunnedSound", "enemyController")]
+script = ExtResource("15_pt584")
+enemyCollider = NodePath("../CollisionShape2D")
 stunDuration = 10.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedChirp")
@@ -211,7 +212,7 @@ enemyController = NodePath("../../../..")
 
 [node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyStunned", "enemyController")]
 script = ExtResource("23_v3eb6")
-enemyStunned = NodePath("../../../../EnemyStunned")
+enemyStunned = NodePath("../../../../WardenStunned")
 enemyController = NodePath("../../../..")
 
 [node name="SelectorWardenCheck" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
@@ -278,6 +279,7 @@ enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
+[connection signal="damaged" from="." to="Rotator/WardenCheck" method="_on_warden_damaged"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_exited"]

@@ -19,7 +19,7 @@ func StunNearbyEnemies():
 				if (stunnedEnemies.has(enemiesInRange[i])):
 					stunnedEnemies.erase(enemiesInRange[i])
 				if (!stunnedEnemies.has(enemiesInRange[i])):
-					enemiesInRange[i].SetDamaged(enemiesInRange[i].global_position.direction_to(self.global_position))
+					enemiesInRange[i].is_damaged(enemiesInRange[i].global_position.direction_to(self.global_position))
 					stunnedEnemies.push_back(enemiesInRange[i])
 
 func SetAuraActive():
