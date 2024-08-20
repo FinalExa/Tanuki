@@ -18,6 +18,8 @@ var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
 var deactivationButton: DeactivationButton
 var transformationInvincibility: bool
+var isTraveling: bool
+var travelId: int
 
 func _ready():
 	sceneRef = self.get_parent()
@@ -68,3 +70,7 @@ func GameOver(receivedNode: Node2D):
 
 func ForceGameOver():
 	playerHUD.GameOverScreen()
+
+func SetTraveling(id: int):
+	isTraveling = true
+	travelId = id

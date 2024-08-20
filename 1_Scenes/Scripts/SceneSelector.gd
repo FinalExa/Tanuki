@@ -12,7 +12,7 @@ func ChangeScene(newPath: String):
 	playerRef.global_position = safePosition
 	if (currentScene != null):
 		remove_child(currentScene)
-		currentScene.queue_free()
+		currentScene.free()
 		currentScene = null
 	currentScenePath = newPath
 	var obj_scene = load(currentScenePath)
