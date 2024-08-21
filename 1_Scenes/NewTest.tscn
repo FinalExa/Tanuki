@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://utlodytykkas"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
+
+[node name="NewTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
+script = ExtResource("1_p0l7p")
+playerSpawnPoint = NodePath("PlayerSpawnPoint")
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="."]
