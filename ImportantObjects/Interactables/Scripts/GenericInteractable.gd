@@ -14,6 +14,7 @@ var sceneMaster: SceneMaster
 var activated: bool
 
 func _ready():
+	parentRef = get_parent()
 	sceneMaster = get_tree().root.get_child(0)
 	if (!activated): FirstStartup()
 
@@ -23,14 +24,13 @@ func _process(delta):
 			cooldownTimer -= delta
 			return
 		SendInteractSignal()
-		RestoreToParent()
 		cooldownActive = false
 
 func FirstStartup():
 	pass
 
 func AttackInteraction(receivedString):
-	if (neededString == receivedString && !activated):
+	if (neededString == receivedString && !activated && !cooldownActive):
 		ExecuteExtraEffect()
 		SendInteractSignal()
 		SaveOnDestroy()
@@ -41,18 +41,16 @@ func ExecuteLoadOperation():
 	activated = true
 	FinalState()
 
-func RestoreToParent():
-	if (get_parent() == null):
-		reparent(parentRef)
-
 func FinalState():
-	parentRef = get_parent()
-	parentRef.remove_child(self)
 	if (!hasCooldown):
+		call_deferred("RemoveChild")
 		queue_free()
 		return
 	cooldownTimer = cooldownDuration
 	cooldownActive = true
+
+func RemoveChild():
+	parentRef.remove_child(self)
 
 func ExecuteExtraEffect():
 	pass

@@ -1,34 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="4_h1vlp"]
+[ext_resource type="PackedScene" uid="uid://b42phioa6uwif" path="res://ImportantObjects/Interactables/rope.tscn" id="6_0cavc"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="7_cs8xe"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
-[ext_resource type="PackedScene" uid="uid://bxx57nr5xmatr" path="res://ImportantObjects/ActivationObjects/leaves.tscn" id="8_y4frf"]
-[ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="9_u1tvc"]
-[ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="11_se0y0"]
-[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="12_6a3pv"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
-[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="13_m11pi"]
-[ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="13_p5q4h"]
-[ext_resource type="PackedScene" uid="uid://caopd3umhybtt" path="res://ImportantObjects/TransformationObjects/Keys/key_1b.tscn" id="13_s8sdr"]
-[ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="18_xv7oc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1616, -224, 160, -2800, -1520, -312, -88, -312, 88, -288, 88, -288, 160, -224, 88)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(8, 9, 10, 4), PackedInt32Array(5, 11, 2), PackedInt32Array(5, 4, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3048, 1616, -2800, -1520, 1024, -1272, 1584, 1688), PackedVector2Array(-312, -88, -8, -88, -8, 88, -224, 88, -224, 160, -288, 160, -288, 88, -312, 88)])
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_22l4x"]
-size = Vector2(896, 512)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1s36"]
-size = Vector2(640, 128)
-
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
-travelingAreas = [NodePath("TravelingArea")]
+travelingAreas = [null]
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(-1016, -24)
@@ -65,51 +53,10 @@ patrolIndicators = [NodePath("../PatrolIndicator")]
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
 
-[node name="TaikoDrum" parent="." instance=ExtResource("18_xv7oc")]
-position = Vector2(-704, 56)
-transformedProperties = null
-transformedAttackPath = null
+[node name="Rope" parent="." node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("6_0cavc")]
+position = Vector2(-1056, 480)
+objectoToSendInteractSignal = NodePath("../StunArea")
+cooldownDuration = 10.0
 
-[node name="Leaves" parent="." instance=ExtResource("8_y4frf")]
-position = Vector2(-256, 128)
-
-[node name="TaikoSpecialArea" type="Area2D" parent="." groups=["TaikoGroup"]]
-position = Vector2(-624, -560)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TaikoSpecialArea"]
-position = Vector2(432, 240)
-shape = SubResource("RectangleShape2D_22l4x")
-debug_color = Color(0.886275, 0.294118, 0.384314, 0.25098)
-
-[node name="Log" parent="." instance=ExtResource("9_u1tvc")]
-position = Vector2(-864, -184)
-transformedProperties = null
-transformedPassivePath = null
-
-[node name="Teapot" parent="." instance=ExtResource("11_se0y0")]
-position = Vector2(-1360, 0)
-
-[node name="HeatSource" parent="." instance=ExtResource("12_6a3pv")]
-
-[node name="Key1" parent="." instance=ExtResource("13_s8sdr")]
-position = Vector2(-1168, 440)
-transformedName = "Key1"
-
-[node name="Door" parent="." node_paths=PackedStringArray("objectToSendDestoySignal") instance=ExtResource("13_p5q4h")]
-position = Vector2(-1464, 400)
-neededString = "Key1"
-objectToSendDestoySignal = NodePath("../Key1")
-
-[node name="TravelingArea" type="Area2D" parent="." node_paths=PackedStringArray("spawnLocation")]
-position = Vector2(-1024, 896)
-script = ExtResource("13_m11pi")
-sceneToLoad = "res://1_Scenes/PlayTestMap.tscn"
-spawnLocation = NodePath("Destination")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
-shape = SubResource("RectangleShape2D_g1s36")
-
-[node name="Destination" type="Node2D" parent="TravelingArea"]
-position = Vector2(0, -192)
-
-[connection signal="body_entered" from="TravelingArea" to="TravelingArea" method="_on_body_entered"]
+[node name="StunArea" parent="." instance=ExtResource("7_cs8xe")]
+position = Vector2(-128, 320)
