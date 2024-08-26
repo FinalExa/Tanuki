@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="4_h1vlp"]
 [ext_resource type="PackedScene" uid="uid://b42phioa6uwif" path="res://ImportantObjects/Interactables/rope.tscn" id="6_0cavc"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
-[ext_resource type="PackedScene" uid="uid://h3tw1o6olxe5" path="res://ImportantObjects/PuzzleObjects/TrapDeactivator.tscn" id="7_g86mu"]
+[ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="7_umy6b"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
-[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="8_xc0m1"]
+[ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="11_se0y0"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
@@ -56,23 +56,11 @@ position = Vector2(-1160, 232)
 
 [node name="Rope" parent="." node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("6_0cavc")]
 position = Vector2(-1056, 480)
-objectoToSendInteractSignal = NodePath("../TrapDeactivator")
+objectoToSendInteractSignal = NodePath("../HeatSourceActivator")
 cooldownDuration = 10.0
 
-[node name="TrapDeactivator" parent="." instance=ExtResource("7_g86mu")]
-position = Vector2(-448, 768)
+[node name="HeatSourceActivator" parent="." instance=ExtResource("7_umy6b")]
+position = Vector2(-960, 256)
 
-[node name="DeathTrapInteractionObject" parent="." instance=ExtResource("8_xc0m1")]
-position = Vector2(-512, 704)
-
-[node name="DeathTrapInteractionObject2" parent="." node_paths=PackedStringArray("effect") instance=ExtResource("8_xc0m1")]
-position = Vector2(-384, 704)
-effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
-
-[node name="DeathTrapInteractionObject3" parent="." node_paths=PackedStringArray("effect") instance=ExtResource("8_xc0m1")]
-position = Vector2(-384, 832)
-effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
-
-[node name="DeathTrapInteractionObject4" parent="." node_paths=PackedStringArray("effect") instance=ExtResource("8_xc0m1")]
-position = Vector2(-512, 832)
-effect = NodePath("../DeathTrapInteractionObject/DeathTrapEffect")
+[node name="Teapot" parent="." instance=ExtResource("11_se0y0")]
+position = Vector2(-1280, 448)
