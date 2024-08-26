@@ -6,6 +6,7 @@
 
 [node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7s3bv")
+attackTag = "Leaf"
 attackDuration = 30
 attackCooldown = 180
 attackPhasesLaunch = Array[int]([0, 10])
@@ -26,4 +27,5 @@ rotation = -1.57079
 scale = Vector2(0.154553, 0.58333)
 texture = ExtResource("3_meg5f")
 
+[connection signal="area_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_body_entered"]
