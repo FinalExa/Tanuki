@@ -14,7 +14,6 @@ func check_if_target(body):
 		body.IsRepelled(characterRef.global_position.direction_to(body.global_position))
 		hitTargets.push_back(body)
 
-
 func _on_area_entered(area):
 	if (area.is_in_group("Interactable")):
 		area.attackInteraction(attackTag)
