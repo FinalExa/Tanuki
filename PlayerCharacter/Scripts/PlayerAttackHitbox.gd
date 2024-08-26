@@ -16,4 +16,4 @@ func check_if_target(body):
 
 func _on_area_entered(area):
 	if (area.is_in_group("Interactable")):
-		area.attackInteraction(attackTag)
+		area.AttackInteraction(attackTag)

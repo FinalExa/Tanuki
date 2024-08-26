@@ -2,8 +2,10 @@ class_name PuzzleObject
 extends Node2D
 
 @export var activated: bool
+var parentRef: Node2D
 
 func _ready():
+	parentRef = get_parent()
 	ExecuteActivationStatus()
 
 func InteractSignal():
