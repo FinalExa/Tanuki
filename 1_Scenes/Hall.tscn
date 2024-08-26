@@ -188,6 +188,7 @@ position = Vector2(-1224, 320)
 [node name="TravelingArea" type="Area2D" parent="." node_paths=PackedStringArray("spawnLocation")]
 position = Vector2(-1224, -64)
 script = ExtResource("10_cfxl3")
+sceneToLoad = "res://1_Scenes/NewTest.tscn"
 spawnLocation = NodePath("Destination")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
