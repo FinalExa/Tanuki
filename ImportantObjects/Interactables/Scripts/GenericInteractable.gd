@@ -29,7 +29,11 @@ func _process(delta):
 func FirstStartup():
 	pass
 
-func AttackInteraction(receivedString):
+func InteractionWithRef(receivedString: String, receivedRef):
+	if (neededString == receivedString && !activated && !cooldownActive):
+		ExecuteRefEffect(receivedRef)
+
+func AttackInteraction(receivedString: String):
 	if (neededString == receivedString && !activated && !cooldownActive):
 		ExecuteExtraEffect()
 		SendInteractSignal()
@@ -53,6 +57,9 @@ func RemoveChild():
 	parentRef.remove_child(self)
 
 func ExecuteExtraEffect():
+	pass
+
+func ExecuteRefEffect(receivedRef):
 	pass
 
 func SaveOnDestroy():

@@ -52,6 +52,9 @@ func GuardAnimations():
 			spriteRef.flip_h = false
 
 func is_damaged(direction: Vector2):
+	Damaged(direction)
+
+func Damaged(direction: Vector2):
 	hitByPlayerSound.play()
 	stunnedHit.play()
 	emit_signal("damaged", direction)

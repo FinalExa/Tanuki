@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=70 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
 [ext_resource type="Script" path="res://Enemies/Scripts/GuardDistractionDiffuseArea.gd" id="27_4smyn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchPriorityActions.gd" id="27_dxtmq"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRepelled.gd" id="30_d0vf3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="34_rmphj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="35_bky16"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="36_fj3dh"]
@@ -110,6 +111,9 @@ size = Vector2(144, 144)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnfgo"]
 radius = 577.997
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cw366"]
+radius = 96.3328
 
 [node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardDistraction", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -523,6 +527,14 @@ position = Vector2(-112, 0)
 [node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
 position = Vector2(112, 0)
 
+[node name="EnemyRepelled" type="Area2D" parent="." node_paths=PackedStringArray("enemyController")]
+script = ExtResource("30_d0vf3")
+attackTag = "Repelled"
+enemyController = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyRepelled"]
+shape = SubResource("CircleShape2D_cw366")
+
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("10_ixflf")
 root = NodePath("Sequence")
@@ -739,3 +751,7 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="body_exited" from="Rotator/GuardDistraction" to="Rotator/GuardDistraction" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_exited"]
+[connection signal="area_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_entered"]
+[connection signal="area_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_exited"]
+[connection signal="body_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_exited"]

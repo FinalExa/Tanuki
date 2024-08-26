@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=48 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/NormalMovement/Step 1 Walking - Hyottoko.wav" id="2_jtylh"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsReachingPoint.gd" id="23_ayyf4"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointMovement.gd" id="24_j62r5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskIsSpottingPlayer.gd" id="24_ygfbv"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRepelled.gd" id="25_8h521"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoApproachPlayer.gd" id="25_qwomu"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointTimer.gd" id="25_rj14d"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoStartAttack.gd" id="26_t3707"]
@@ -62,6 +63,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 448.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8omln"]
+radius = 96.3328
 
 [node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoNormalAttack", "hyottokoRageAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -240,6 +244,14 @@ position = Vector2(-112, 0)
 [node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
 position = Vector2(112, 0)
 
+[node name="EnemyRepelled" type="Area2D" parent="." node_paths=PackedStringArray("enemyController")]
+script = ExtResource("25_8h521")
+attackTag = "Repelled"
+enemyController = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyRepelled"]
+shape = SubResource("CircleShape2D_8omln")
+
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("13_inx1f")
 root = NodePath("Sequence")
@@ -361,3 +373,7 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_exited"]
+[connection signal="area_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_entered"]
+[connection signal="area_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_exited"]
+[connection signal="body_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_exited"]
