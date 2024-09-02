@@ -30,7 +30,7 @@ func _on_body_entered(body):
 		interactablesInRange.push_back(body)
 
 func _on_body_exited(body):
-	if (interactablesInRange.has(body)):
+	if (body is GenericInteractable && interactablesInRange.has(body)):
 		interactablesInRange.erase(body)
 		if (activatedInteractables.has(body)):
 			activatedInteractables.erase(body)
@@ -40,7 +40,7 @@ func _on_area_entered(area):
 		interactablesInRange.push_back(area)
 
 func _on_area_exited(area):
-	if (interactablesInRange.has(area)):
+	if (area is GenericInteractable && interactablesInRange.has(area)):
 		interactablesInRange.erase(area)
 		if (activatedInteractables.has(area)):
 			activatedInteractables.erase(area)
