@@ -21,14 +21,14 @@ func HelpStunnedGuards():
 			guardResearch.researchTarget = guardResearch.stunnedGuardsList[0]
 			guardResearch.set_research_target(guardResearch.researchTarget.global_position)
 		if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) <= guardResearch.stunnedGuardsThresholdDistance):
-			guardResearch.guardMovement.set_location_target(enemyController.global_position)
+			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			var id: int = 0
 			for i in guardResearch.stunnedGuardsList[0].guardsLookingForMe.size():
 				if (guardResearch.stunnedGuardsList[0].guardsLookingForMe[i] == guardResearch):
 					id = i
 					break
 			guardResearch.stunnedGuardsList[0].guardsLookingForMe.remove_at(id)
-			guardResearch.stunnedGuardsList[0].guardStunned.end_stun()
+			guardResearch.stunnedGuardsList[0].enemyStunned.end_stun()
 			guardResearch.stunnedGuardsList.remove_at(0)
 		return true
 	return false

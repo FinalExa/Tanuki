@@ -35,6 +35,18 @@ position = Vector2(-360, -200)
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-169, 525)
 
+[node name="1" type="Node2D" parent="."]
+position = Vector2(512, 576)
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(960, 448)
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(1216, 1088)
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(-64, 896)
+
 [node name="PatrolIndicator" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
 script = ExtResource("8_n2toe")
 patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
@@ -42,9 +54,19 @@ waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
 moveActions = [NodePath("../FirstCheckPoint"), NodePath("../SecondCheckPoint"), NodePath("../FirstCheckPoint"), NodePath("../ThirdCheckPoint")]
 lookActions = Array[int]([1, 2, 0])
 
+[node name="PatrolIndicator2" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
+position = Vector2(704, 768)
+script = ExtResource("8_n2toe")
+patrolActions = Array[int]([1, 1, 1, 1])
+moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
+
 [node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_6b65h")]
 position = Vector2(264, 80)
 patrolIndicators = [NodePath("../PatrolIndicator")]
+
+[node name="Guard2" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_6b65h")]
+position = Vector2(376, 576)
+patrolIndicators = [NodePath("../PatrolIndicator2")]
 
 [node name="Wall" parent="." instance=ExtResource("6_qwx0y")]
 position = Vector2(-160, 0)

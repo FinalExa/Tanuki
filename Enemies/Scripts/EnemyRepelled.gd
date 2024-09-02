@@ -6,7 +6,7 @@ extends Area2D
 var interactablesInRange: Array[GenericInteractable]
 var activatedInteractables: Array[GenericInteractable]
 
-func _process(delta):
+func _process(_delta):
 	ActivateInteractables()
 	ClearArrays()
 

@@ -15,7 +15,15 @@ func CallGuards(guardToExclude: EnemyController):
 		exclude = true
 	for i in guardsIn.size():
 		if (exclude && guardToExclude != guardsIn[i]):
-			guardsIn[i].guardResearch.InitializeResearchWithLocation(researchLocation.global_position)
+			AttractGuard(guardsIn[i])
+
+func AttractGuard(guard: GuardController):
+	if (!guard.isStunned && !guard.isInAlert && !guard.isInResearch):
+		if (guard.isChecking):
+			guard.guardCheck.stop_guardCheck()
+		if (guard.isInPatrol):
+			guard.enemyPatrol.stop_patrol()
+		guard.guardResearch.InitializeResearchWithLocation(researchLocation.global_position)
 
 func AddGuardInArea(body):
 	if (body is GuardController && !guardsIn.has(body)):
