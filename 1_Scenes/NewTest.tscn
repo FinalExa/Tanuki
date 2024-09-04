@@ -248,6 +248,42 @@ position = Vector2(640, 2496)
 
 [node name="Patrol" type="Node2D" parent="RoomA"]
 
+[node name="LeftWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="1" type="Node2D" parent="RoomA/Patrol/LeftWoman"]
+position = Vector2(256, 2240)
+
+[node name="2" type="Node2D" parent="RoomA/Patrol/LeftWoman"]
+position = Vector2(256, 320)
+
+[node name="UpperGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="3" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
+position = Vector2(640, 320)
+
+[node name="4" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
+position = Vector2(2048, 320)
+
+[node name="RightTopWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="5" type="Node2D" parent="RoomA/Patrol/RightTopWoman"]
+position = Vector2(2240, 320)
+
+[node name="6" type="Node2D" parent="RoomA/Patrol/RightTopWoman"]
+position = Vector2(2240, 1088)
+
+[node name="RightDownWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="RightDownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="MiddelGuard1" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="MiddleGuard2" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="DownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="LeftDownGuard" type="Node2D" parent="RoomA/Patrol"]
+
 [node name="TransformationObjects" type="Node2D" parent="RoomA"]
 
 [node name="Vase" parent="RoomA/TransformationObjects" instance=ExtResource("7_c8y8t")]
