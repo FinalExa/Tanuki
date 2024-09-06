@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://utlodytykkas"]
+[gd_scene load_steps=29 format=3 uid="uid://utlodytykkas"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="14_vmt1e"]
 [ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="15_nb7aw"]
 [ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="16_2djil"]
+[ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="16_hng1h"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="18_6ltjf"]
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="19_dhef6"]
 
@@ -292,7 +293,7 @@ position = Vector2(2040, 1992)
 [node name="RightDownGuard" type="Node2D" parent="RoomA/Patrol"]
 
 [node name="10" type="Node2D" parent="RoomA/Patrol/RightDownGuard"]
-position = Vector2(2368, 2176)
+position = Vector2(2368, 2112)
 
 [node name="MiddelGuard1" type="Node2D" parent="RoomA/Patrol"]
 
@@ -377,6 +378,9 @@ position = Vector2(1024, 1112)
 [node name="Table2" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
 position = Vector2(1768, 1112)
 dropPoints = [NodePath("../Table/DropPoint1")]
+
+[node name="Gong" parent="RoomA/Objects" instance=ExtResource("16_hng1h")]
+position = Vector2(2368, 2368)
 
 [node name="Teleports" type="Node2D" parent="RoomA"]
 
@@ -515,7 +519,7 @@ position = Vector2(-1920, 1856)
 [node name="GuardMiddle1" type="Node2D" parent="RoomB/Patrols"]
 
 [node name="5" type="Node2D" parent="RoomB/Patrols/GuardMiddle1"]
-position = Vector2(-256, 320)
+position = Vector2(-256, 432)
 
 [node name="6" type="Node2D" parent="RoomB/Patrols/GuardMiddle1"]
 position = Vector2(-256, 952)
@@ -646,6 +650,11 @@ position = Vector2(-664, -136)
 transformedCollider = NodePath("../../../RoomA/TransformationObjects/Statue/CollisionShape2D")
 transformedTexture = NodePath("../../../RoomA/TransformationObjects/Statue/TransformedSprite")
 transformedTailLocation = NodePath("../../../RoomA/TransformationObjects/Statue/TailLocation")
+
+[node name="Objects" type="Node2D" parent="RoomB"]
+
+[node name="Gong" parent="RoomB/Objects" instance=ExtResource("16_hng1h")]
+position = Vector2(-256, 320)
 
 [node name="RoomC" type="Node2D" parent="."]
 
