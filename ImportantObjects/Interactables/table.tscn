@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3rw0v4vypf14"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DropperInteractable.gd" id="1_86j8m"]
-[ext_resource type="Texture2D" uid="uid://du2oybsfxm7fk" path="res://ImportantObjects/Interactables/Sprites/Placeholder/drawer.png" id="2_nm4y7"]
+[ext_resource type="Texture2D" uid="uid://bpod17rpp6fbo" path="res://ImportantObjects/Interactables/Sprites/Tavolo lungo.png" id="2_xj0mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o8ro"]
-size = Vector2(256, 128)
+size = Vector2(128, 384)
 
 [node name="Table" type="StaticBody2D" node_paths=PackedStringArray("dropPoints") groups=["Interactable"]]
 script = ExtResource("1_86j8m")
@@ -16,8 +16,6 @@ neededString = "StunArea"
 shape = SubResource("RectangleShape2D_3o8ro")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, 1.025)
-scale = Vector2(0.224365, 0.101655)
-texture = ExtResource("2_nm4y7")
+texture = ExtResource("2_xj0mo")
 
 [node name="DropPoint1" type="Node2D" parent="."]

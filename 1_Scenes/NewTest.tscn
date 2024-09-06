@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://utlodytykkas"]
+[gd_scene load_steps=32 format=3 uid="uid://utlodytykkas"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
@@ -19,8 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="15_nb7aw"]
 [ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="16_2djil"]
 [ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="16_hng1h"]
+[ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="17_wxso2"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="18_6ltjf"]
+[ext_resource type="PackedScene" uid="uid://b42phioa6uwif" path="res://ImportantObjects/Interactables/rope.tscn" id="18_frd5b"]
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="19_dhef6"]
+[ext_resource type="PackedScene" uid="uid://yverqrhsnw5x" path="res://ImportantObjects/Interactables/fragile_wall.tscn" id="19_dig51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqgu"]
 texture = ExtResource("12_ebpru")
@@ -93,6 +96,9 @@ position = Vector2(1152, 64)
 [node name="Wall6" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
 position = Vector2(1408, 64)
 
+[node name="Wall12" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1424, -192)
+
 [node name="Wall8" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
 position = Vector2(1680, -192)
 
@@ -139,7 +145,10 @@ position = Vector2(2552, 192)
 position = Vector2(2056, -64)
 
 [node name="WallVertical34" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
-position = Vector2(1304, -64)
+position = Vector2(1288, -64)
+
+[node name="WallVertical35" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(1288, -192)
 
 [node name="WallVertical2" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
 position = Vector2(2552, 320)
@@ -242,9 +251,6 @@ position = Vector2(2432, 2496)
 
 [node name="WallWithLeftVertical2" parent="RoomA/Walls" instance=ExtResource("5_5wxke")]
 position = Vector2(128, 64)
-
-[node name="WallWithLeftVertical3" parent="RoomA/Walls" instance=ExtResource("5_5wxke")]
-position = Vector2(1424, -192)
 
 [node name="WallWithRightVertical4" parent="RoomA/Walls" instance=ExtResource("3_q87dw")]
 position = Vector2(640, 2496)
@@ -368,7 +374,8 @@ position = Vector2(1608, 2368)
 [node name="PassiveObjects" type="Node2D" parent="RoomA"]
 
 [node name="HeatSourceActivator" parent="RoomA/PassiveObjects" instance=ExtResource("14_ho07g")]
-position = Vector2(1464, -64)
+position = Vector2(1472, -64)
+activated = true
 
 [node name="Objects" type="Node2D" parent="RoomA"]
 
@@ -379,8 +386,26 @@ position = Vector2(1024, 1112)
 position = Vector2(1768, 1112)
 dropPoints = [NodePath("../Table/DropPoint1")]
 
-[node name="Gong" parent="RoomA/Objects" instance=ExtResource("16_hng1h")]
+[node name="Gong" parent="RoomA/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
 position = Vector2(2368, 2368)
+researchLocation = NodePath("ResearchLocation")
+
+[node name="ResearchLocation" type="Node2D" parent="RoomA/Objects/Gong"]
+position = Vector2(0, -128)
+
+[node name="StunArea" parent="RoomA/Objects" instance=ExtResource("17_wxso2")]
+position = Vector2(0, 896)
+
+[node name="StunArea2" parent="RoomA/Objects" instance=ExtResource("17_wxso2")]
+position = Vector2(1024, 1112)
+
+[node name="Rope" parent="RoomA/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(896, 2400)
+objectoToSendInteractSignal = NodePath("../StunArea")
+cooldownDuration = 20.0
+
+[node name="FragileWall" parent="RoomA/Objects" instance=ExtResource("19_dig51")]
+position = Vector2(1920, 64)
 
 [node name="Teleports" type="Node2D" parent="RoomA"]
 
@@ -653,8 +678,12 @@ transformedTailLocation = NodePath("../../../RoomA/TransformationObjects/Statue/
 
 [node name="Objects" type="Node2D" parent="RoomB"]
 
-[node name="Gong" parent="RoomB/Objects" instance=ExtResource("16_hng1h")]
-position = Vector2(-256, 320)
+[node name="Gong" parent="RoomB/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
+position = Vector2(-256, 128)
+researchLocation = NodePath("ResearchLocation")
+
+[node name="ResearchLocation" type="Node2D" parent="RoomB/Objects/Gong"]
+position = Vector2(0, 160)
 
 [node name="RoomC" type="Node2D" parent="."]
 

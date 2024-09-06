@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bexegw6irvqji"]
+[gd_scene load_steps=4 format=3 uid="uid://bexegw6irvqji"]
 
 [ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/StunArea.gd" id="1_j2b17"]
+[ext_resource type="Texture2D" uid="uid://gx2c32aqtchu" path="res://ImportantObjects/PuzzleObjects/Sprites/Chochin-001-asset.png" id="2_mo3ip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdy76"]
 size = Vector2(256, 256)
@@ -11,6 +12,10 @@ attackTag = "StunArea"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cdy76")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("2_mo3ip")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

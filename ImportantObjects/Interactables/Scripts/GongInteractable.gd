@@ -30,5 +30,5 @@ func AddGuardInArea(body):
 		guardsIn.push_back(body)
 
 func RemoveGuardFromArea(body):
-	if (guardsIn.has(body)):
+	if (body is GuardController && guardsIn.has(body)):
 		guardsIn.erase(body)

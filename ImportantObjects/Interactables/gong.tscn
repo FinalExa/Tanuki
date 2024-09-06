@@ -1,35 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3o080xoxsodx"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GongInteractable.gd" id="1_bcv0m"]
-[ext_resource type="Texture2D" uid="uid://bhjxhuobwkrni" path="res://ImportantObjects/Interactables/Sprites/Placeholder/shoji.png" id="2_5e8qs"]
+[ext_resource type="Texture2D" uid="uid://mg0sf2lwuauj" path="res://ImportantObjects/Interactables/Sprites/Gong.png" id="2_kqlan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
-size = Vector2(128, 256)
+size = Vector2(128, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldaem"]
 radius = 1216.0
 
-[node name="Gong" type="StaticBody2D" node_paths=PackedStringArray("researchLocation") groups=["Interactable"]]
+[node name="Gong" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_bcv0m")
-researchLocation = NodePath("ResearchLocation")
 neededString = "Repelled"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_kufeo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, -64)
-scale = Vector2(0.128, 0.408946)
-texture = ExtResource("2_5e8qs")
+position = Vector2(0, -16)
+texture = ExtResource("2_kqlan")
 
 [node name="SendGuardsToCurrentLocation" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SendGuardsToCurrentLocation"]
 shape = SubResource("CircleShape2D_ldaem")
-
-[node name="ResearchLocation" type="Node2D" parent="."]
-position = Vector2(0, 128)
 
 [connection signal="body_entered" from="SendGuardsToCurrentLocation" to="." method="AddGuardInArea"]
 [connection signal="body_exited" from="SendGuardsToCurrentLocation" to="." method="RemoveGuardFromArea"]

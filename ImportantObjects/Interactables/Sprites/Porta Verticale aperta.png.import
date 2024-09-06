@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yyrp601thkea"
-path="res://.godot/imported/Porta Verticale chusa .png-d94ef39af7c3b589493f7121e2b02c03.ctex"
+uid="uid://d0p0bsjuohxvv"
+path="res://.godot/imported/Porta Verticale aperta.png-e4c2b838dedfd94bd0ed8180cedd0294.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta Verticale chusa .png"
-dest_files=["res://.godot/imported/Porta Verticale chusa .png-d94ef39af7c3b589493f7121e2b02c03.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/Porta Verticale aperta.png"
+dest_files=["res://.godot/imported/Porta Verticale aperta.png-e4c2b838dedfd94bd0ed8180cedd0294.ctex"]
 
 [params]
 
