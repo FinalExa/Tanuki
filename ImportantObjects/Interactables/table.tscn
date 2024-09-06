@@ -6,10 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o8ro"]
 size = Vector2(128, 384)
 
-[node name="Table" type="StaticBody2D" node_paths=PackedStringArray("dropPoints") groups=["Interactable"]]
+[node name="Table" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_86j8m")
 droppedObjectsOnInteraction = Array[String]([""])
-dropPoints = [NodePath("DropPoint1")]
 neededString = "StunArea"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,5 +16,3 @@ shape = SubResource("RectangleShape2D_3o8ro")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xj0mo")
-
-[node name="DropPoint1" type="Node2D" parent="."]

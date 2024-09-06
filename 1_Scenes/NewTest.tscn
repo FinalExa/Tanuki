@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://utlodytykkas"]
+[gd_scene load_steps=34 format=3 uid="uid://utlodytykkas"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpj3ppuxsg6ro" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_e24sv"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="9_vtgrm"]
 [ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="10_pwxt5"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="12_3kt38"]
 [ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="12_ebpru"]
 [ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="13_3hky4"]
 [ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="14_8o8tg"]
@@ -56,6 +57,9 @@ sources/1 = SubResource("TileSetAtlasSource_uwkvh")
 sources/2 = SubResource("TileSetAtlasSource_huu02")
 sources/3 = SubResource("TileSetAtlasSource_gvpbi")
 sources/4 = SubResource("TileSetAtlasSource_t5b8y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4aekd"]
+size = Vector2(1280, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlp3u"]
 size = Vector2(64, 128)
@@ -257,6 +261,16 @@ position = Vector2(640, 2496)
 
 [node name="Enemies" type="Node2D" parent="RoomA"]
 
+[node name="AllowedItems" type="Node2D" parent="RoomA"]
+
+[node name="AllowedItems1" type="Area2D" parent="RoomA/AllowedItems"]
+position = Vector2(1600, 2336)
+script = ExtResource("12_3kt38")
+allowedObjects = Array[String](["Vase", "Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomA/AllowedItems/AllowedItems1"]
+shape = SubResource("RectangleShape2D_4aekd")
+
 [node name="Patrol" type="Node2D" parent="RoomA"]
 
 [node name="WardenUpLeft" type="Node2D" parent="RoomA/Patrol"]
@@ -379,12 +393,18 @@ activated = true
 
 [node name="Objects" type="Node2D" parent="RoomA"]
 
-[node name="Table" parent="RoomA/Objects" instance=ExtResource("14_vmt1e")]
+[node name="Table" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
 position = Vector2(1024, 1112)
+dropActive = true
+droppedObjectsOnInteraction = Array[String](["res://ImportantObjects/TransformationObjects/teapot.tscn"])
+dropPoints = [NodePath("DropPoint1")]
+
+[node name="DropPoint1" type="Node2D" parent="RoomA/Objects/Table"]
+position = Vector2(0, -152)
 
 [node name="Table2" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
 position = Vector2(1768, 1112)
-dropPoints = [NodePath("../Table/DropPoint1")]
+dropPoints = [null]
 
 [node name="Gong" parent="RoomA/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
 position = Vector2(2368, 2368)
@@ -403,6 +423,11 @@ position = Vector2(1024, 1112)
 position = Vector2(896, 2400)
 objectoToSendInteractSignal = NodePath("../StunArea")
 cooldownDuration = 20.0
+
+[node name="Rope2" parent="RoomA/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(2512, 192)
+objectoToSendInteractSignal = NodePath("../StunArea2")
+hasCooldown = false
 
 [node name="FragileWall" parent="RoomA/Objects" instance=ExtResource("19_dig51")]
 position = Vector2(1920, 64)

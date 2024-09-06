@@ -11,6 +11,7 @@ func ExecuteExtraEffect():
 			if (droppedObjectsOnInteraction[i] != ""):
 				var obj_scene = load(droppedObjectsOnInteraction[i])
 				var obj = obj_scene.instantiate()
+				parentRef.add_child(obj)
 				obj.global_position = dropPoints[i].global_position
 
 func DestroyedSignal():
