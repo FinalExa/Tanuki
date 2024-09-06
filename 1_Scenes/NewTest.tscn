@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://utlodytykkas"]
+[gd_scene load_steps=37 format=3 uid="uid://utlodytykkas"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
@@ -13,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="10_pwxt5"]
 [ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="12_3kt38"]
 [ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="12_ebpru"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="12_x8fc0"]
 [ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="13_3hky4"]
 [ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="14_8o8tg"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="14_ho07g"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="14_krb15"]
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="14_vmt1e"]
 [ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="15_nb7aw"]
 [ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="16_2djil"]
@@ -25,6 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://b42phioa6uwif" path="res://ImportantObjects/Interactables/rope.tscn" id="18_frd5b"]
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="19_dhef6"]
 [ext_resource type="PackedScene" uid="uid://yverqrhsnw5x" path="res://ImportantObjects/Interactables/fragile_wall.tscn" id="19_dig51"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dxuu8"]
+vertices = PackedVector2Array(2544, 1024, 2544, 2432, 2432, 2368, 1800, 1768, 1800, 920, 2047.69, 128, 2544, 128, 2544, 896, 2784, 896, 2784, 1024, 1088, 1768, 1088, 920, 1664, 920, 1664, 1768, 1648, 2304, 1568, 2304, 2432, 2432, 2304, 2368, 2176, 2304, 2304, 2432, 2176, 2432, 2048, 2304, 2048, 2432, 1920, 2432, 1920, 2304, 1792, 2304, 1792, 2432, 1648, 2432, 1568, 2432, 1408, 2432, 1408, 2304, 1280, 2304, 1280, 2432, 1152, 2432, 1152, 2304, 1024, 2304, 960, 1768, 1024, 2432, 928, 2432, 928, 2368, 864, 2368, 864, 2432, 16, 2432, 16, 128, 1792, 0, 1296, 0, 1296, -128, 2048, -128, 1792, 128, 960, 920)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 4), PackedInt32Array(7, 8, 9, 0, 4), PackedInt32Array(10, 11, 12, 13, 14, 15), PackedInt32Array(1, 16, 2), PackedInt32Array(3, 2, 17, 18), PackedInt32Array(17, 19, 20, 18), PackedInt32Array(3, 18, 21), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(3, 21, 24), PackedInt32Array(3, 24, 25, 13), PackedInt32Array(25, 26, 27, 14, 13), PackedInt32Array(15, 28, 29, 30), PackedInt32Array(10, 15, 30), PackedInt32Array(10, 30, 31), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(10, 31, 34), PackedInt32Array(10, 34, 35, 36), PackedInt32Array(35, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 44, 47, 5, 4), PackedInt32Array(48, 4, 12, 43), PackedInt32Array(43, 12, 11), PackedInt32Array(43, 11, 49), PackedInt32Array(40, 43, 49, 36), PackedInt32Array(40, 36, 35, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2544, 128, 2544, 896, 2784, 896, 2784, 1024, 2544, 1024, 2544, 2432, 2432, 2432, 2432, 2368, 2304, 2368, 2304, 2432, 2176, 2432, 2176, 2304, 2048, 2304, 2048, 2432, 1920, 2432, 1920, 2304, 1792, 2304, 1792, 2432, 1648, 2432, 1648, 2304, 1568, 2304, 1568, 2432, 1408, 2432, 1408, 2304, 1280, 2304, 1280, 2432, 1152, 2432, 1152, 2304, 1024, 2304, 1024, 2432, 928, 2432, 928, 2368, 864, 2368, 864, 2432, 16, 2432, 16, 128, 1792, 128, 1792, 0, 1296, 0, 1296, -128, 2048, -128, 2047.69, 128), PackedVector2Array(960, 920, 960, 1768, 1088, 1768, 1088, 920), PackedVector2Array(1800, 920, 1800, 1768, 1664, 1768, 1664, 920)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqgu"]
 texture = ExtResource("12_ebpru")
@@ -68,6 +75,9 @@ size = Vector2(64, 128)
 script = ExtResource("1_p0l7p")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
 travelingAreas = [NodePath("RoomA/Teleports/TravelingArea")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_dxuu8")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1000
@@ -261,6 +271,14 @@ position = Vector2(640, 2496)
 
 [node name="Enemies" type="Node2D" parent="RoomA"]
 
+[node name="Guard" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1216, 936)
+patrolIndicators = [NodePath("../../Patrol/MiddelGuard1/PatrolIndicator")]
+
+[node name="Guard2" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1536, 1744)
+patrolIndicators = [NodePath("../../Patrol/MiddleGuard2/PatrolIndicator2")]
+
 [node name="AllowedItems" type="Node2D" parent="RoomA"]
 
 [node name="AllowedItems1" type="Area2D" parent="RoomA/AllowedItems"]
@@ -317,6 +335,12 @@ position = Vector2(2368, 2112)
 
 [node name="MiddelGuard1" type="Node2D" parent="RoomA/Patrol"]
 
+[node name="PatrolIndicator" parent="RoomA/Patrol/MiddelGuard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../13"), NodePath("../14"), NodePath("../11"), NodePath("../12")]
+lookActions = Array[int]([0, 3, 1, 2])
+
 [node name="11" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
 position = Vector2(768, 712)
 
@@ -324,15 +348,21 @@ position = Vector2(768, 712)
 position = Vector2(1216, 712)
 
 [node name="13" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
-position = Vector2(1216, 1600)
+position = Vector2(1216, 1856)
 
 [node name="14" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
-position = Vector2(768, 1600)
+position = Vector2(768, 1856)
 
 [node name="MiddleGuard2" type="Node2D" parent="RoomA/Patrol"]
 
+[node name="PatrolIndicator2" parent="RoomA/Patrol/MiddleGuard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../16"), NodePath("../17"), NodePath("../18"), NodePath("../15")]
+lookActions = Array[int]([1, 2, 0, 3])
+
 [node name="15" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
-position = Vector2(1536, 1600)
+position = Vector2(1536, 1856)
 
 [node name="16" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
 position = Vector2(1536, 712)
@@ -341,7 +371,7 @@ position = Vector2(1536, 712)
 position = Vector2(1920, 712)
 
 [node name="18" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
-position = Vector2(1920, 1600)
+position = Vector2(1920, 1856)
 
 [node name="DownGuard" type="Node2D" parent="RoomA/Patrol"]
 
@@ -402,8 +432,21 @@ dropPoints = [NodePath("DropPoint1")]
 [node name="DropPoint1" type="Node2D" parent="RoomA/Objects/Table"]
 position = Vector2(0, -152)
 
+[node name="Table3" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1024, 1584)
+dropActive = true
+droppedObjectsOnInteraction = Array[String](["res://ImportantObjects/TransformationObjects/teapot.tscn"])
+dropPoints = [NodePath("../Table/DropPoint1")]
+
+[node name="DropPoint1" type="Node2D" parent="RoomA/Objects/Table3"]
+position = Vector2(0, -152)
+
 [node name="Table2" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
-position = Vector2(1768, 1112)
+position = Vector2(1736, 1112)
+dropPoints = [null]
+
+[node name="Table4" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1736, 1584)
 dropPoints = [null]
 
 [node name="Gong" parent="RoomA/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
