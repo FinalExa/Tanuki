@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://utlodytykkas"]
+[gd_scene load_steps=39 format=3 uid="uid://utlodytykkas"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="12_ebpru"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="12_x8fc0"]
 [ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="13_3hky4"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="13_lqk5o"]
 [ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="14_8o8tg"]
+[ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="14_fl5w8"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="14_ho07g"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="14_krb15"]
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="14_vmt1e"]
@@ -221,6 +223,9 @@ position = Vector2(8, 576)
 [node name="WallVertical21" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
 position = Vector2(8, 704)
 
+[node name="WallVertical36" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 736)
+
 [node name="WallVertical22" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
 position = Vector2(8, 1216)
 
@@ -279,6 +284,38 @@ patrolIndicators = [NodePath("../../Patrol/MiddelGuard1/PatrolIndicator")]
 position = Vector2(1536, 1744)
 patrolIndicators = [NodePath("../../Patrol/MiddleGuard2/PatrolIndicator2")]
 
+[node name="Guard3" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1907, 328)
+patrolIndicators = [NodePath("../../Patrol/UpperGuard/PatrolIndicator")]
+
+[node name="Guard4" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(2368, 2040)
+patrolIndicators = [NodePath("../../Patrol/RightDownGuard/PatrolIndicator")]
+
+[node name="Guard5" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(936, 2192)
+patrolIndicators = [NodePath("../../Patrol/DownGuard/PatrolIndicator")]
+
+[node name="Guard6" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(752, 2352)
+patrolIndicators = [NodePath("../../Patrol/LeftDownGuard/PatrolIndicator")]
+
+[node name="Cleaner" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(264, 2128)
+patrolIndicators = [NodePath("../../Patrol/LeftWoman/PatrolIndicator3")]
+
+[node name="Cleaner2" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(2240, 864)
+patrolIndicators = [NodePath("../../Patrol/RightTopWoman/PatrolIndicator2")]
+
+[node name="Cleaner3" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(2240, 1560)
+patrolIndicators = [NodePath("../../Patrol/RightDownWoman/PatrolIndicator")]
+
+[node name="Warden" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(128, 936)
+patrolIndicators = [NodePath("../../Patrol/WardenUpLeft/PatrolIndicator")]
+
 [node name="AllowedItems" type="Node2D" parent="RoomA"]
 
 [node name="AllowedItems1" type="Area2D" parent="RoomA/AllowedItems"]
@@ -293,10 +330,21 @@ shape = SubResource("RectangleShape2D_4aekd")
 
 [node name="WardenUpLeft" type="Node2D" parent="RoomA/Patrol"]
 
+[node name="PatrolIndicator" parent="RoomA/Patrol/WardenUpLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 2])
+waitActions = Array[float]([4.0])
+moveActions = [NodePath("../2")]
+lookActions = Array[int]([3])
+
 [node name="2" type="Node2D" parent="RoomA/Patrol/WardenUpLeft"]
-position = Vector2(8, 920)
+position = Vector2(8, 912)
 
 [node name="LeftWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator3" parent="RoomA/Patrol/LeftWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../2"), NodePath("../1")]
 
 [node name="1" type="Node2D" parent="RoomA/Patrol/LeftWoman"]
 position = Vector2(256, 2240)
@@ -306,13 +354,24 @@ position = Vector2(256, 320)
 
 [node name="UpperGuard" type="Node2D" parent="RoomA/Patrol"]
 
+[node name="PatrolIndicator" parent="RoomA/Patrol/UpperGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../3"), NodePath("../4")]
+lookActions = Array[int]([3, 2])
+
 [node name="3" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
-position = Vector2(640, 320)
+position = Vector2(960, 320)
 
 [node name="4" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
 position = Vector2(2048, 320)
 
 [node name="RightTopWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator2" parent="RoomA/Patrol/RightTopWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../5"), NodePath("../6")]
 
 [node name="5" type="Node2D" parent="RoomA/Patrol/RightTopWoman"]
 position = Vector2(2240, 320)
@@ -322,13 +381,24 @@ position = Vector2(2240, 1088)
 
 [node name="RightDownWoman" type="Node2D" parent="RoomA/Patrol"]
 
+[node name="PatrolIndicator" parent="RoomA/Patrol/RightDownWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../8"), NodePath("../7")]
+
 [node name="7" type="Node2D" parent="RoomA/Patrol/RightDownWoman"]
-position = Vector2(2040, 1416)
+position = Vector2(2240, 1216)
 
 [node name="8" type="Node2D" parent="RoomA/Patrol/RightDownWoman"]
-position = Vector2(2040, 1992)
+position = Vector2(2240, 2016)
 
 [node name="RightDownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/RightDownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../10")]
+lookActions = Array[int]([0, 2])
 
 [node name="10" type="Node2D" parent="RoomA/Patrol/RightDownGuard"]
 position = Vector2(2368, 2112)
@@ -375,19 +445,25 @@ position = Vector2(1920, 1856)
 
 [node name="DownGuard" type="Node2D" parent="RoomA/Patrol"]
 
-[node name="19" type="Node2D" parent="RoomA/Patrol/DownGuard"]
-position = Vector2(1088, 2240)
+[node name="PatrolIndicator" parent="RoomA/Patrol/DownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../20")]
+lookActions = Array[int]([0, 2])
 
 [node name="20" type="Node2D" parent="RoomA/Patrol/DownGuard"]
 position = Vector2(896, 2240)
 
 [node name="LeftDownGuard" type="Node2D" parent="RoomA/Patrol"]
 
-[node name="21" type="Node2D" parent="RoomA/Patrol/LeftDownGuard"]
-position = Vector2(808, 2368)
+[node name="PatrolIndicator" parent="RoomA/Patrol/LeftDownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../21")]
+lookActions = Array[int]([2, 0])
 
-[node name="22" type="Node2D" parent="RoomA/Patrol/LeftDownGuard"]
-position = Vector2(512, 2368)
+[node name="21" type="Node2D" parent="RoomA/Patrol/LeftDownGuard"]
+position = Vector2(790, 2368)
 
 [node name="TransformationObjects" type="Node2D" parent="RoomA"]
 
