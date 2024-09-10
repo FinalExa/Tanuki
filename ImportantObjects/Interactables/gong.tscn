@@ -7,7 +7,7 @@
 size = Vector2(128, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldaem"]
-radius = 1216.0
+radius = 1728.67
 
 [node name="Gong" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_bcv0m")
