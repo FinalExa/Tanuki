@@ -59,7 +59,7 @@ func RemoveChild():
 func ExecuteExtraEffect():
 	pass
 
-func ExecuteRefEffect(receivedRef):
+func ExecuteRefEffect(_receivedRef):
 	pass
 
 func SaveOnDestroy():

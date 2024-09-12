@@ -8,7 +8,7 @@ func _on_body_entered(body):
 		var guardRef: GuardController = body
 		if (!guardRef.isInAlert && !guardRef.isStunned):
 			if (guardRef.isInPatrol):
-				guardRef.guardPatrol.stop_patrol()
+				guardRef.enemyPatrol.stop_patrol()
 			if (guardRef.isChecking):
 				guardRef.guardCheck.stop_guardCheck()
 			if (guardRef.isInResearch):
