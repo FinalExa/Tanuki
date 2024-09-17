@@ -65,6 +65,8 @@ func LoadOperations():
 		var new_trs: TransformationObjectData = new_trs_scene.instantiate()
 		new_trs.GetScale()
 		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
+	else:
+		playerRef.transformationChangeRef.SetNoTransformation()
 	if savedDeletePaths.size() > 0:
 		for i in savedDeletePaths.size():
 			TranslateStringIntoPathResult(sceneSelector.get_child(0), savedDeletePaths[i])

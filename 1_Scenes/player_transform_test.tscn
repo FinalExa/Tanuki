@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=11 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_6b65h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="5_dc0wf"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+[ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="9_i2svm"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
@@ -80,3 +81,6 @@ position = Vector2(704, 192)
 
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
+
+[node name="Vase" parent="." instance=ExtResource("9_i2svm")]
+position = Vector2(-904, 336)

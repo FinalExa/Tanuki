@@ -334,6 +334,7 @@ playerTransformedSprite = NodePath("../TransformedSprite")
 objectSavedSound = NodePath("../../Sounds/ObjectSaved")
 transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 tailAppearsSound = NodePath("../../Sounds/TailAppears")
+noTransformationText = "No Transformation"
 transformationLockDuration = 0.3
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
