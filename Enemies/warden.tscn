@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=37 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_uyk4v"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="19_4rlqf"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
-[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRepelled.gd" id="20_evwyc"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_hewu6"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="21_fki5k"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="22_l4lsm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
@@ -52,18 +52,17 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nbei0"]
-radius = 96.3328
-
-[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_b1hac")
+repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("WardenStunned")
+enemyRepelled = NodePath("EnemyRepelled")
 spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("WardenMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
@@ -197,13 +196,8 @@ position = Vector2(-112, 0)
 [node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
 position = Vector2(112, 0)
 
-[node name="EnemyRepelled" type="Area2D" parent="." node_paths=PackedStringArray("enemyController")]
-script = ExtResource("20_evwyc")
-attackTag = "Repelled"
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("20_hewu6")]
 enemyController = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyRepelled"]
-shape = SubResource("CircleShape2D_nbei0")
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("19_4rlqf")
@@ -294,7 +288,3 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_exited"]
-[connection signal="area_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_entered"]
-[connection signal="area_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_area_exited"]
-[connection signal="body_entered" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_entered"]
-[connection signal="body_exited" from="EnemyRepelled" to="EnemyRepelled" method="_on_body_exited"]

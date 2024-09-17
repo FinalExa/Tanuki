@@ -12,11 +12,13 @@ var isRepelled: bool
 var repelledTimer: float
 var repelledSpeed: float
 var repelledDirection: Vector2
+var repelledPosition: Vector2
 var characterRef
 
 @export var patrolIndicators: Array[PatrolIndicator]
 @export var repelledTime: float
 @export var repelledDistance: float
+@export var repelledOffset: float
 @export var startingIndex: int
 @export var guardProperties: Array[String]
 @export var enemyMovement: EnemyMovement
@@ -24,6 +26,7 @@ var characterRef
 @export var enemyPatrol: EnemyPatrol
 @export var enemyStatus: EnemyStatus
 @export var enemyStunned: EnemyStunned
+@export var enemyRepelled: EnemyRepelled
 @export var spriteRef: AnimatedSprite2D
 @export var enemyMovementSounds: MovementSounds
 @export var hitByPlayerSound: AudioStreamPlayer2D
@@ -68,6 +71,9 @@ func IsRepelled(direction: Vector2):
 		velocity = Vector2.ZERO
 		repelledTimer = repelledTime
 		repelledDirection = direction
+		repelledPosition = self.global_position
+		enemyRepelled.look_at(enemyRepelled.global_position + repelledDirection)
+		enemyRepelled.rotation_degrees += repelledOffset
 
 func Repelled(delta):
 	if (isRepelled):
@@ -75,7 +81,15 @@ func Repelled(delta):
 			repelledTimer -= delta
 			velocity = repelledSpeed * repelledDirection
 			return
-		isRepelled = false
+		EndRepel()
+
+func EndRepel():
+	velocity = Vector2.ZERO
+	RepelExtraOperation()
+	isRepelled = false
+
+func RepelExtraOperation():
+	pass
 
 func GetRotator():
 	return enemyRotator
