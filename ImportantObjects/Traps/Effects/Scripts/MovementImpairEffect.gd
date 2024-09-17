@@ -12,34 +12,40 @@ func _ready():
 
 func execute_effect_normally(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
-		var playerRef: PlayerCharacter = receivedBody
-		if (!hitboxActive):
-			add_call_hitbox(playerRef)
-		if (!playerHasBeenCaptured):
-			playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
-			if (!playerHasBeenMoved):
-				playerRef.global_position = self.get_parent().global_position
-				playerHasBeenMoved = true
-			playerHasBeenCaptured = true
-		if (playerRef.transformationChangeRef.isTransformed):
-			playerRef.transformationChangeRef.DeactivateTransformation()
-			playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
+		SlowAndKeepToCenter(receivedBody)
+
+func SlowAndKeepToCenter(playerRef: PlayerCharacter):
+	if (!hitboxActive):
+		add_call_hitbox(playerRef)
+	if (!playerHasBeenCaptured):
+		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
+		if (!playerHasBeenMoved):
+			playerRef.global_position = self.get_parent().global_position
+			playerHasBeenMoved = true
+		playerHasBeenCaptured = true
+	if (playerRef.transformationChangeRef.isTransformed):
+		playerRef.transformationChangeRef.DeactivateTransformation()
+		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
 
 func execute_negated_effect(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
-		if (playerHasBeenCaptured):
-			var playerRef: PlayerCharacter = receivedBody
-			playerRef.movementRef.reset_max_speed()
-			playerHasBeenCaptured = false
+		LetPlayerMove(receivedBody)
+
+func LetPlayerMove(playerRef: PlayerCharacter):
+	if (playerHasBeenCaptured):
+		playerRef.movementRef.reset_max_speed()
+		playerHasBeenCaptured = false
 
 func execute_leave_effect(receivedBody):
 	if (receivedBody is PlayerCharacter):
-		var playerRef: PlayerCharacter = receivedBody
-		playerRef.movementRef.reset_max_speed()
-		playerHasBeenCaptured = false
-		playerHasBeenMoved = false
-		if (hitboxActive):
-			remove_call_hitbox()
+		PlayerLeftArea(receivedBody)
+
+func PlayerLeftArea(playerRef: PlayerCharacter):
+	playerRef.movementRef.reset_max_speed()
+	playerHasBeenCaptured = false
+	playerHasBeenMoved = false
+	if (hitboxActive):
+		remove_call_hitbox()
 
 func remove_call_hitbox():
 	if(callGuardHitboxInstance == null):

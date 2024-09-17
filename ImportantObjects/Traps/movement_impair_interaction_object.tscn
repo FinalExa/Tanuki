@@ -74,6 +74,7 @@ animations = [{
 }]
 
 [node name="MovementImpairInteractionObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_du1o7")]
+z_index = -1
 effectNegateProperty = "Heavy"
 effect = NodePath("MovementImpairEffect")
 

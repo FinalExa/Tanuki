@@ -29,6 +29,15 @@ func StartCooldown():
 	attackFrame = 0
 	characterRef.playerMovement.EnableMovement()
 
+func ForceStopAttack():
+	ForceEndAttack()
+	ForceEndCooldown()
+
+func ForceEndCooldown():
+	if (attackInCooldown):
+		attackInCooldown = false
+		attackFrame = 0
+
 func ActiveCooldownFeedback():
 	playerHUD.UpdateAttackCooldown(true, attackFrame, attackCooldown)
 

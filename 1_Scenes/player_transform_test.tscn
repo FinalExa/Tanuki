@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_6b65h"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="3_377lo"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="3_sohkn"]
 [ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="5_dc0wf"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
@@ -13,10 +14,9 @@ vertices = PackedVector2Array(1024, -1272, 1584, 1688, -8, 88, -8, -88, -3048, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(8, 9, 10, 4), PackedInt32Array(5, 11, 2), PackedInt32Array(5, 4, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3048, 1616, -2800, -1520, 1024, -1272, 1584, 1688), PackedVector2Array(-312, -88, -8, -88, -8, 88, -224, 88, -224, 160, -288, 160, -288, 88, -312, 88)])
 
-[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas")]
+[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
-travelingAreas = [null]
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(-1016, -24)
@@ -60,6 +60,9 @@ position = Vector2(704, 768)
 script = ExtResource("8_n2toe")
 patrolActions = Array[int]([1, 1, 1, 1])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
+
+[node name="MovementImpairInteractionObject" parent="." instance=ExtResource("3_sohkn")]
+position = Vector2(0, 704)
 
 [node name="Warden" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_377lo")]
 position = Vector2(-16, 232)

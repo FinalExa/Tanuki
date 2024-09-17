@@ -21,7 +21,6 @@ func SwapScenes():
 	var sceneMaster: SceneMaster = obj_scene.instantiate()
 	sceneMaster.sceneSelector.ChangeScene(gameScenePath)
 	rootRef.add_child(sceneMaster)
-	sceneMaster.sceneSelector.ReloadScene()
 	menuRef.queue_free()
 
 func _on_continue_button_button_up():
