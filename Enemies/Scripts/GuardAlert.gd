@@ -88,7 +88,7 @@ func set_last_target_info(receivedTarget: Node2D):
 	lastTargetDirection = receivedTarget.velocity
 
 func set_movement_destination(destination: Vector2):
-	guardController.enemyMovement.reset_movement_speed()
+	guardController.enemyMovement.set_movement_speed(alertMovementSpeed)
 	guardController.enemyMovement.set_location_target(destination)
 	guardController.enemyRotator.setLookingAtPosition(destination)
 

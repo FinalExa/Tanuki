@@ -7,14 +7,13 @@ extends Area2D
 @export var checkIncreasePerSecond: float
 @export var checkDecreasePerSecond: float
 @export var enemyStatus: EnemyStatus
-@export var alertGuardsArea: ScreamArea
+@export var wardenAlertArea: WardenAlertArea
 var checkCurrentValue: float
 var raycastResult: Node2D
 var playerRef: PlayerCharacter
 var playerIn: bool
 
 func _ready():
-	alertGuardsArea.SetMaxAreaSize()
 	RemoveArea()
 	checkCurrentValue = 0
 
@@ -56,12 +55,12 @@ func DecreaseCheckValue(delta):
 	UpdateLabelValue()
 
 func AddArea():
-	if (alertGuardsArea.get_parent() == null):
-		add_child(alertGuardsArea)
+	if (wardenAlertArea.get_parent() == null):
+		add_child(wardenAlertArea)
 
 func RemoveArea():
-	if (alertGuardsArea.get_parent() != null):
-		alertGuardsArea.get_parent().remove_child(alertGuardsArea)
+	if (wardenAlertArea.get_parent() != null):
+		wardenAlertArea.get_parent().remove_child(wardenAlertArea)
 
 func EndWardenCheck():
 	checkCurrentValue = 0
