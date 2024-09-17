@@ -27,11 +27,13 @@ func FinalizeAttack():
 func StartCooldown():
 	attackInCooldown = true
 	attackFrame = 0
+	EndCooldownFeedback()
 	characterRef.playerMovement.EnableMovement()
 
 func ForceStopAttack():
 	ForceEndAttack()
 	ForceEndCooldown()
+	attackLaunched = false
 
 func ForceEndCooldown():
 	if (attackInCooldown):

@@ -79,6 +79,7 @@ func CheckForCooldown():
 
 func ForceEndAttack():
 	if (attackLaunched && !attackInCooldown):
+		StopAllSounds()
 		RemoveAttackHitboxes()
 		currentPhase = 0
 		CheckForCooldown()
@@ -126,6 +127,12 @@ func AttackMovement(index: int):
 	if (attackMovements.size() > 0 && index < attackMovements.size() && attackMovements[index] != null):
 		var translateValue: Vector2 = movementValue * movementDirection
 		characterRef.translate(translateValue)
+
+func StopAllSounds():
+	if (attackSounds.size() > 0):
+		for i in attackSounds.size():
+			if (attackSounds[i] != null && attackSounds[i].playing):
+				attackSounds[i].stop()
 
 func ActiveCooldownFeedback():
 	pass
