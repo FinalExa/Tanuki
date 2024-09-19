@@ -20,6 +20,7 @@ var preChaseTimer: float
 var catchPreparationActive: bool
 var targetNotSeenActive: bool
 var chaseStart: bool
+var goToAlertStartLocation: bool
 var firstLocationReached: bool
 var secondLocationReached: bool
 var secondLocationTargetCheckLaunched: bool
@@ -47,6 +48,7 @@ func start_alert(target):
 	call_deferred("AddAreas")
 	chaseStart = false
 	guardController.enemyMovement.set_new_target(null)
+	goToAlertStartLocation = true
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false

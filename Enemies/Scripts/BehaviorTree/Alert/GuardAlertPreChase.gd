@@ -10,5 +10,4 @@ func Evaluate(delta):
 		else:
 			guardAlert.screamArea.SetReducedAreaSize()
 			guardAlert.chaseStart = true
-			enemyController.enemyMovement.set_new_target(guardAlert.alertTarget)
 	return NodeState.SUCCESS

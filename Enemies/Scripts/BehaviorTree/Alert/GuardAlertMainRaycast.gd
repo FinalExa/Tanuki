@@ -41,27 +41,40 @@ func BackToResearch():
 	return false
 
 func TrackTarget(receivedTarget: Node2D):
+	SetTrackData(receivedTarget)
+	TargetType(receivedTarget)
+	AlertChase(receivedTarget)
+
+func SetTrackData(receivedTarget: Node2D):
 	enemyController.enemyRotator.setLookingAtPosition(receivedTarget.global_position)
 	guardAlert.firstLocationReached = false
 	guardAlert.secondLocationReached = false
 	guardAlert.secondLocationTargetCheckLaunched = false
 	guardAlert.lostSightOfPlayer = false
+
+func TargetType(receivedTarget: Node2D):
 	if (receivedTarget is PlayerCharacter):
 		guardAlert.SetAlertTargetLastInfo(receivedTarget)
 	else:
 		if (receivedTarget is TailFollow):
 			guardAlert.SetAlertTargetLastInfo(receivedTarget.playerRef)
+
+func AlertChase(receivedTarget: Node2D):
 	if (guardAlert.chaseStart):
 		guardAlert.targetNotSeenActive = false
+		guardAlert.goToAlertStartLocation = false
 		if (enemyController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
-			guardAlert.catchPreparationActive = false
-			enemyController.enemyMovement.set_movement_speed(guardAlert.alertMovementSpeed)
-			enemyController.enemyMovement.set_location_target(receivedTarget.global_position)
-		else:
-			enemyController.enemyMovement.set_location_target(enemyController.global_position)
-			if (!guardAlert.catchPreparationActive):
-				StartCatchPlayer()
+			FollowPlayer(receivedTarget)
+			return
+		CatchPlayer()
 
-func StartCatchPlayer():
-	guardAlert.catchPreparationTimer = guardAlert.catchPreparationDuration
-	guardAlert.catchPreparationActive = true
+func FollowPlayer(receivedTarget: Node2D):
+	guardAlert.catchPreparationActive = false
+	enemyController.enemyMovement.set_movement_speed(guardAlert.alertMovementSpeed)
+	enemyController.enemyMovement.set_location_target(receivedTarget.global_position)
+
+func CatchPlayer():
+	enemyController.enemyMovement.set_new_target(null)
+	if (!guardAlert.catchPreparationActive):
+		guardAlert.catchPreparationTimer = guardAlert.catchPreparationDuration
+		guardAlert.catchPreparationActive = true
