@@ -92,10 +92,6 @@ func set_movement_destination(destination: Vector2):
 	guardController.enemyMovement.set_location_target(destination)
 	guardController.enemyRotator.setLookingAtPosition(destination)
 
-func start_not_seen_timer():
-	targetNotSeenTimer = targetNotSeenDuration
-	targetNotSeenActive = true
-
 func start_catch_preparation():
 	catchPreparationTimer = catchPreparationDuration
 	catchPreparationActive = true
