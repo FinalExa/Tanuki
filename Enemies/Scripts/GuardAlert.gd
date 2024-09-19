@@ -42,10 +42,11 @@ func _physics_process(_delta):
 func start_alert(target):
 	guardController.enemyStatus.updateText(alertText)
 	alertTarget = target
+	SetAlertTargetLastInfo(alertTarget)
 	preChaseTimer = preChaseDuration
 	call_deferred("AddAreas")
 	chaseStart = false
-	guardController.enemyMovement.set_location_target(guardController.global_position)
+	guardController.enemyMovement.set_new_target(null)
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
@@ -57,11 +58,11 @@ func start_alert(target):
 func AlertRaycasts():
 	if (guardController.isInAlert):
 		var space_state = guardController.get_world_2d().direct_space_state
-		main_alert_raycast(space_state)
+		AlertRaycast(space_state)
 		if (secondLocationTargetCheckLaunched && !extraLocationSet):
-			extraTargetLocation = set_possible_second_destination(space_state)
+			extraTargetLocation = GetSecondDestination(space_state)
 
-func main_alert_raycast(space_state):
+func AlertRaycast(space_state):
 	raycastResult.clear()
 	for i in rayTargets.size():
 		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
@@ -71,7 +72,7 @@ func main_alert_raycast(space_state):
 		else:
 			raycastResult.push_back(null)
 
-func set_possible_second_destination(space_state):
+func GetSecondDestination(space_state):
 	var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
 	var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
 	var result = space_state.intersect_ray(query)
@@ -80,22 +81,9 @@ func set_possible_second_destination(space_state):
 		return result.position
 	return searchPosition
 
-func set_last_target_info(receivedTarget: Node2D):
+func SetAlertTargetLastInfo(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
-
-func set_movement_destination(destination: Vector2):
-	guardController.enemyMovement.set_movement_speed(alertMovementSpeed)
-	guardController.enemyMovement.set_location_target(destination)
-	guardController.enemyRotator.setLookingAtPosition(destination)
-
-func start_catch_preparation():
-	catchPreparationTimer = catchPreparationDuration
-	catchPreparationActive = true
-
-func capture_player():
-	guardController.enemyMovement.set_new_target(null)
-	guardController.enemyAttack.launch_attack()
 
 func stop_alert():
 	guardController.isInAlert = false

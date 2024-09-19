@@ -1,6 +1,10 @@
 extends GuardNode
 
 @export var guardAlert: GuardAlert
+var guardController: GuardController
+
+func _ready():
+	guardController = enemyController
 
 func Evaluate(_delta):
 	TargetNotSeen()
@@ -21,7 +25,7 @@ func TargetNotSeen():
 func MoveToFirstLocation():
 	var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
 	if (distance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.set_movement_destination(guardAlert.lastTargetPosition)
+		guardAlert.SetNotSeenDestination(guardAlert.lastTargetPosition)
 	else:
 		guardAlert.firstLocationReached = true
 
@@ -31,10 +35,15 @@ func MoveToSecondLocation():
 		guardAlert.extraLocationSet = false
 	var extraDistance: float = enemyController.global_position.distance_to(guardAlert.extraTargetLocation)
 	if (extraDistance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.set_movement_destination(guardAlert.extraTargetLocation)
+		guardAlert.SetNotSeenDestination(guardAlert.extraTargetLocation)
 	else:
 		guardAlert.secondLocationReached = true
 
 func StartNotSeenTimer():
 	guardAlert.targetNotSeenTimer = guardAlert.targetNotSeenDuration
 	guardAlert.targetNotSeenActive = true
+
+func SetNotSeenDestination(destination: Vector2):
+	guardController.enemyMovement.set_movement_speed(guardAlert.alertMovementSpeed)
+	guardController.enemyMovement.set_location_target(destination)
+	guardController.enemyRotator.setLookingAtPosition(destination)

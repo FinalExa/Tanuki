@@ -47,10 +47,10 @@ func TrackTarget(receivedTarget: Node2D):
 	guardAlert.secondLocationTargetCheckLaunched = false
 	guardAlert.lostSightOfPlayer = false
 	if (receivedTarget is PlayerCharacter):
-		guardAlert.set_last_target_info(receivedTarget)
+		guardAlert.SetAlertTargetLastInfo(receivedTarget)
 	else:
 		if (receivedTarget is TailFollow):
-			guardAlert.set_last_target_info(receivedTarget.playerRef)
+			guardAlert.SetAlertTargetLastInfo(receivedTarget.playerRef)
 	if (guardAlert.chaseStart):
 		guardAlert.targetNotSeenActive = false
 		if (enemyController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
@@ -60,4 +60,8 @@ func TrackTarget(receivedTarget: Node2D):
 		else:
 			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			if (!guardAlert.catchPreparationActive):
-				guardAlert.start_catch_preparation()
+				StartCatchPlayer()
+
+func StartCatchPlayer():
+	guardAlert.catchPreparationTimer = guardAlert.catchPreparationDuration
+	guardAlert.catchPreparationActive = true
