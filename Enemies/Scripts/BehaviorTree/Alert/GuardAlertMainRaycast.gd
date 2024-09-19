@@ -10,10 +10,11 @@ func Evaluate(_delta):
 	return state
 
 func AlertOperations():
-	state = NodeState.SUCCESS
+	state = NodeState.FAILURE
 	for i in guardAlert.raycastResult.size():
-		if (AnalyzeResult(guardAlert.raycastResult[i])): return
-	TargetNotSeen()
+		if (AnalyzeResult(guardAlert.raycastResult[i])):
+			state = NodeState.SUCCESS
+			return
 
 func AnalyzeResult(result):
 	if (result != null && result == guardAlert.alertTarget):
@@ -60,36 +61,3 @@ func TrackTarget(receivedTarget: Node2D):
 			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			if (!guardAlert.catchPreparationActive):
 				guardAlert.start_catch_preparation()
-
-func TargetNotSeen():
-	guardAlert.catchPreparationActive = false
-	guardAlert.lostSightOfPlayer = true
-	if (!guardAlert.firstLocationReached):
-		MoveToFirstLocation()
-		return
-	if (!guardAlert.secondLocationReached):
-		MoveToSecondLocation()
-		return
-	if (!guardAlert.targetNotSeenActive):
-		StartNotSeenTimer()
-
-func MoveToFirstLocation():
-	var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
-	if (distance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.set_movement_destination(guardAlert.lastTargetPosition)
-	else:
-		guardAlert.firstLocationReached = true
-
-func MoveToSecondLocation():
-	if (guardAlert.secondLocationTargetCheckLaunched == false):
-		guardAlert.secondLocationTargetCheckLaunched = true
-		guardAlert.extraLocationSet = false
-	var extraDistance: float = enemyController.global_position.distance_to(guardAlert.extraTargetLocation)
-	if (extraDistance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.set_movement_destination(guardAlert.extraTargetLocation)
-	else:
-		guardAlert.secondLocationReached = true
-
-func StartNotSeenTimer():
-	guardAlert.targetNotSeenTimer = guardAlert.targetNotSeenDuration
-	guardAlert.targetNotSeenActive = true
