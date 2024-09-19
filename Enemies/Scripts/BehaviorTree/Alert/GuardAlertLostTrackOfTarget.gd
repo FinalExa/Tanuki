@@ -25,7 +25,7 @@ func TargetNotSeen():
 func MoveToFirstLocation():
 	var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
 	if (distance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.SetNotSeenDestination(guardAlert.lastTargetPosition)
+		SetNotSeenDestination(guardAlert.lastTargetPosition)
 	else:
 		guardAlert.firstLocationReached = true
 
@@ -35,7 +35,7 @@ func MoveToSecondLocation():
 		guardAlert.extraLocationSet = false
 	var extraDistance: float = enemyController.global_position.distance_to(guardAlert.extraTargetLocation)
 	if (extraDistance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
-		guardAlert.SetNotSeenDestination(guardAlert.extraTargetLocation)
+		SetNotSeenDestination(guardAlert.extraTargetLocation)
 	else:
 		guardAlert.secondLocationReached = true
 
