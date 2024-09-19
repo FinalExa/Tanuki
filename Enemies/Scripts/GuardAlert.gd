@@ -14,8 +14,6 @@ extends Node2D
 @export var returnToCheckAlertValue: float
 @export var alertAreaFeedback: Node2D
 @export var alertStartSound: AudioStreamPlayer2D
-var alertAreaFeedbackInstance: Node2D
-var screamAreaInstance: ScreamArea
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
 var preChaseTimer: float
@@ -36,17 +34,16 @@ var extraLocationSet: bool
 @export var guardController: GuardController
 
 func _ready():
-	setup_areas()
+	RemoveAreas()
 
 func _physics_process(_delta):
-	alert_raycasts()
+	AlertRaycasts()
 
 func start_alert(target):
 	guardController.enemyStatus.updateText(alertText)
 	alertTarget = target
 	preChaseTimer = preChaseDuration
-	call_deferred("add_area")
-	call_deferred("add_feedback")
+	call_deferred("AddAreas")
 	chaseStart = false
 	guardController.enemyMovement.set_location_target(guardController.global_position)
 	targetNotSeenActive = false
@@ -57,7 +54,7 @@ func start_alert(target):
 	guardController.isInAlert = true
 	alertStartSound.play()
 
-func alert_raycasts():
+func AlertRaycasts():
 	if (guardController.isInAlert):
 		var space_state = guardController.get_world_2d().direct_space_state
 		main_alert_raycast(space_state)
@@ -65,23 +62,23 @@ func alert_raycasts():
 			extraTargetLocation = set_possible_second_destination(space_state)
 
 func main_alert_raycast(space_state):
-		raycastResult.clear()
-		for i in rayTargets.size():
-			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
-			var result = space_state.intersect_ray(query)
-			if (result && result != { }): 
-				raycastResult.push_back(result.collider)
-			else:
-				raycastResult.push_back(null)
+	raycastResult.clear()
+	for i in rayTargets.size():
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+		var result = space_state.intersect_ray(query)
+		if (result && result != { }): 
+			raycastResult.push_back(result.collider)
+		else:
+			raycastResult.push_back(null)
 
 func set_possible_second_destination(space_state):
-		var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
-		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
-		var result = space_state.intersect_ray(query)
-		extraLocationSet = true
-		if (result && result != { }):
-			return result.position
-		return searchPosition
+	var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
+	var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
+	var result = space_state.intersect_ray(query)
+	extraLocationSet = true
+	if (result && result != { }):
+		return result.position
+	return searchPosition
 
 func set_last_target_info(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
@@ -103,8 +100,7 @@ func capture_player():
 func stop_alert():
 	guardController.isInAlert = false
 	chaseStart = false
-	remove_area()
-	remove_feedback()
+	RemoveAreas()
 	guardController.enemyMovement.reset_movement_speed()
 
 func _on_guard_damaged(direction: Vector2):
@@ -116,33 +112,11 @@ func OnGuardRepelled():
 	if (guardController.isInAlert == true):
 		stop_alert()
 
-func remove_area():
-	if(screamAreaInstance != null):
-		remove_child(screamAreaInstance)
-		screamAreaInstance = null
+func RemoveAreas():
+	remove_child(screamArea)
+	remove_child(alertAreaFeedback)
 
-func remove_feedback():
-	if (alertAreaFeedbackInstance != null):
-		remove_child(alertAreaFeedbackInstance)
-		alertAreaFeedbackInstance = null
-
-func add_area():
+func AddAreas():
 	add_child(screamArea)
-	for i in get_child_count():
-		if (get_child(i) == screamArea):
-			screamAreaInstance = get_child(i)
-			break
-	screamAreaInstance.set_controller_ref(guardController)
-
-func add_feedback():
+	screamArea.set_controller_ref(guardController)
 	add_child(alertAreaFeedback)
-	for i in get_child_count():
-		if (get_child(i) == alertAreaFeedback):
-			alertAreaFeedbackInstance = get_child(i)
-			break
-
-func setup_areas():
-	screamAreaInstance = screamArea
-	remove_area()
-	alertAreaFeedbackInstance = alertAreaFeedback
-	remove_feedback()

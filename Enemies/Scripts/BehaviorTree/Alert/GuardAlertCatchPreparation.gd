@@ -3,7 +3,7 @@ extends GuardNode
 @export var guardAlert: GuardAlert
 
 func Evaluate(delta):
-	if (guardAlert.catchPreparationActive == true):
+	if (guardAlert.catchPreparationActive):
 		if(guardAlert.catchPreparationTimer > 0):
 			guardAlert.catchPreparationTimer -= delta
 		else:
