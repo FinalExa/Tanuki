@@ -12,7 +12,7 @@ func Evaluate(delta):
 			guardAlert.catchPreparationTimer -= delta
 		else:
 			guardAlert.SetAlertTargetLastInfo(guardAlert.alertTarget)
-			guardAlert.Capture()
+			Capture()
 	return NodeState.FAILURE
 
 func Capture():
