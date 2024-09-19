@@ -60,6 +60,7 @@ func AddArea():
 
 func RemoveArea():
 	if (wardenAlertArea.get_parent() != null):
+		wardenAlertArea.ClearGuardsInArea()
 		wardenAlertArea.get_parent().remove_child(wardenAlertArea)
 
 func EndWardenCheck():
