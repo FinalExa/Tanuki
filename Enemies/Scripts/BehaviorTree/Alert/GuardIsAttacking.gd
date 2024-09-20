@@ -4,7 +4,7 @@ extends GuardNode
 
 func Evaluate(_delta):
 	if (enemyAttack.attackLaunched):
-		enemyController.guardAlert.set_last_target_info(enemyController.guardAlert.alertTarget)
+		enemyController.guardAlert.SetAlertTargetLastInfo(enemyController.guardAlert.alertTarget)
 		if(enemyController.enemyMovement.locationTargetEnabled || enemyController.enemyMovement.target != null):
 			enemyController.enemyMovement.set_new_target(null)
 		return NodeState.FAILURE
