@@ -1728,4 +1728,6 @@ position = Vector2(-632, 4032)
 [node name="MovementImpairInteractionObject4" parent="RoomC/MovementTraps" instance=ExtResource("18_6ltjf")]
 position = Vector2(-1248, 4032)
 
+[connection signal="body_entered" from="RoomA/AllowedItems/AllowedItems1" to="RoomA/AllowedItems/AllowedItems1" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomA/AllowedItems/AllowedItems1" to="RoomA/AllowedItems/AllowedItems1" method="_on_body_exited"]
 [connection signal="body_entered" from="RoomA/Teleports/TravelingArea" to="RoomA/Teleports/TravelingArea" method="_on_body_entered"]

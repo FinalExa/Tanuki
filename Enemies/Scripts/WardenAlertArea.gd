@@ -4,7 +4,7 @@ extends Area2D
 var guardsInArea: Array[GuardController]
 @export var wardenCheck: WardenCheck
 
-func _process(delta):
+func _process(_delta):
 	UpdatePlayerPositionToGuardsInArea()
 
 func UpdatePlayerPositionToGuardsInArea():
