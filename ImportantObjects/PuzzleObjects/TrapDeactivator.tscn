@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://h3tw1o6olxe5"]
+
+[ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/TrapDeactivator.gd" id="1_8tkh6"]
+[ext_resource type="Texture2D" uid="uid://to0skofa64cf" path="res://ImportantObjects/PuzzleObjects/Sprites/Asse soffitto.png" id="2_lc1hf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdy76"]
+size = Vector2(128, 64)
+
+[node name="TrapDeactivator" type="Area2D"]
+script = ExtResource("1_8tkh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdy76")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lc1hf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

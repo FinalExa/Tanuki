@@ -35,6 +35,7 @@ var isTransformed: bool = false
 @export var objectSavedSound: AudioStreamPlayer
 @export var transformationTimeLowSound: AudioStreamPlayer
 @export var tailAppearsSound: AudioStreamPlayer
+@export var noTransformationText: String
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
@@ -49,6 +50,9 @@ var sceneRef: Node2D
 var localAllowedItemsRef: LocalAllowedItems
 
 func _ready():
+	InitialSetup()
+
+func InitialSetup():
 	transformationTimer = 0
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	baseTextureInfo = playerSprite.sprite_frames
@@ -91,6 +95,10 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	tailLocation.position = trsObjectToSave.transformedTailLocation.position
 	emit_signal("send_transformation_name", currentTransformationName)
+
+func SetNoTransformation():
+	currentTransformationSet = false
+	emit_signal("send_transformation_name", noTransformationText)
 
 func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):

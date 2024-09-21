@@ -7,6 +7,6 @@ func Evaluate(delta):
 	if (wardenCheck.checkCurrentValue == wardenCheck.checkMaxValue):
 		return NodeState.SUCCESS
 	else:
-		if (wardenCheck.alertGuardsArea.get_parent() == wardenCheck):
+		if (wardenCheck.wardenAlertArea.get_parent() == wardenCheck):
 			wardenCheck.RemoveArea()
 	return NodeState.FAILURE

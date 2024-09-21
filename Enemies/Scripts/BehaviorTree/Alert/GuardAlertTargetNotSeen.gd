@@ -3,7 +3,7 @@ extends GuardNode
 @export var guardAlert: GuardAlert
 
 func Evaluate(delta):
-	if (guardAlert.targetNotSeenActive == true):
+	if (guardAlert.targetNotSeenActive):
 		if(guardAlert.targetNotSeenTimer > 0):
 			guardAlert.targetNotSeenTimer -= delta
 		else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=47 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/NormalMovement/Step 1 Walking - Hyottoko.wav" id="2_jtylh"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskIsSpottingPlayer.gd" id="24_ygfbv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoApproachPlayer.gd" id="25_qwomu"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointTimer.gd" id="25_rj14d"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="25_wfjgg"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoStartAttack.gd" id="26_t3707"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
@@ -63,7 +64,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 448.0
 
-[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoNormalAttack", "hyottokoRageAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoNormalAttack", "hyottokoRageAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ukclv")
@@ -74,11 +75,13 @@ hyottokoNormalAttack = NodePath("Rotator/HyottokoAttackNormal")
 hyottokoRageAttack = NodePath("Rotator/HyottokoAttackRage")
 repelledTime = 0.3
 repelledDistance = 200.0
+repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
+enemyRepelled = NodePath("EnemyRepelled")
 spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("HyottokoMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
@@ -225,6 +228,9 @@ characterRef = NodePath("../..")
 [node name="HyottokoAttackRage" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_mqt1m")]
 attackSounds = [null, NodePath("../../Sounds/RageAttack")]
 characterRef = NodePath("../..")
+
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("25_wfjgg")]
+enemyController = NodePath("..")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

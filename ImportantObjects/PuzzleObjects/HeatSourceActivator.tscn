@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2bsr66d307mn"]
+
+[ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/HeatSourceActivator.gd" id="1_rs8r3"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="2_sj5fq"]
+
+[node name="HeatSourceActivator" type="Node2D" node_paths=PackedStringArray("heatSourceRef")]
+script = ExtResource("1_rs8r3")
+heatSourceRef = NodePath("HeatSource")
+
+[node name="HeatSource" parent="." instance=ExtResource("2_sj5fq")]

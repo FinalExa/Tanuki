@@ -17,6 +17,8 @@ var researchLaunched: bool
 var researchLaunchTimer: float
 var researchEndTimer: float
 var researchTarget: Node2D
+var researchLocation: Vector2
+var researchPosition: Vector2
 var researchLastPosition: Vector2
 var researchLastDirection: Vector2
 @export var suspiciousItemsThresholdDistance: float
@@ -55,6 +57,19 @@ func initialize_guard_research(target: Node2D):
 	researchLaunched = false
 	researchEnterSound.play()
 
+func InitializeResearchWithLocation(location: Vector2):
+	stunnedGuardsList.clear()
+	suspiciousItemsList.clear()
+	guardController.enemyStatus.updateText(researchActiveText)
+	add_feedback(mainAreaFeedback)
+	add_feedback(secondaryAreaFeedback)
+	reset_research_end_timer()
+	SaveLocationInfo(location, false)
+	guardController.isInResearch = true
+	researchLaunchTimer = researchLaunchDuration
+	researchLaunched = false
+	researchEnterSound.play()
+
 func ResearchRaycasts():
 	if (guardController.isInResearch):
 		var space_state = guardController.get_world_2d().direct_space_state
@@ -73,11 +88,17 @@ func LaunchRaycast(rayList: Array[Node2D], space_state):
 			raycastResult.push_back(null)
 	return raycastResult
 
-func save_target_info(target: Node2D, isPriotityTarget: bool):
+func save_target_info(target: Node2D, isPriorityTarget: bool):
 	researchTarget = target
 	researchLastPosition = researchTarget.position
 	researchLastDirection = researchTarget.velocity
-	isTrackingPriorityTarget = isPriotityTarget
+	isTrackingPriorityTarget = isPriorityTarget
+
+func SaveLocationInfo(location: Vector2, isPriorityTarget: bool):
+	researchLocation = location
+	researchLastPosition = researchLocation
+	researchLastDirection = Vector2.ZERO
+	isTrackingPriorityTarget = isPriorityTarget
 
 func set_research_target(target: Vector2):
 	guardController.enemyMovement.set_location_target(target)

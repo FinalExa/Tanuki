@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b58p4qwcqetqi"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DoorInteractable.gd" id="1_d7y0m"]
-[ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale chiusa.png" id="2_yd8ma"]
-[ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale aperta.png" id="3_qrn1x"]
+[ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale chiusa.png" id="2_yd8ma"]
+[ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale aperta.png" id="3_qrn1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdla0"]
 size = Vector2(112, 128)

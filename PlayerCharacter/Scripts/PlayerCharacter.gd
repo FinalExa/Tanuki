@@ -13,6 +13,7 @@ var sceneRef: Node2D
 @export var playerMovement: PCMovement
 @export var playerRotator: PlayerRotator
 @export var playerRepelled: PlayerRepelled
+@export var playerAttack: PlayerAttack
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint

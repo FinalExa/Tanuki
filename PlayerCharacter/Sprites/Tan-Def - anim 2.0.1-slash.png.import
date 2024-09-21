@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0p0bsjuohxvv"
-path="res://.godot/imported/Porta Verticale aperta.png-ff1d686d3c4fa259670c98c6cd65a6f3.ctex"
+uid="uid://ckt65dtgbup6n"
+path="res://.godot/imported/Tan-Def - anim 2.0.1-slash.png-7ccffd6cca2533ad56a4df96971cec44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta Verticale aperta.png"
-dest_files=["res://.godot/imported/Porta Verticale aperta.png-ff1d686d3c4fa259670c98c6cd65a6f3.ctex"]
+source_file="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-slash.png"
+dest_files=["res://.godot/imported/Tan-Def - anim 2.0.1-slash.png-7ccffd6cca2533ad56a4df96971cec44.ctex"]
 
 [params]
 

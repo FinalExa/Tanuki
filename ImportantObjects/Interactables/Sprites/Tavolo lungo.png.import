@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3y4c20fd35tk"
-path="res://.godot/imported/Porta orizzontale chiusa.png-7af5d7291ad73da26beb95f39a5acb37.ctex"
+uid="uid://bpod17rpp6fbo"
+path="res://.godot/imported/Tavolo lungo.png-57d921f44d0366d2429015de1c6a7c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/Porta orizzontale chiusa.png"
-dest_files=["res://.godot/imported/Porta orizzontale chiusa.png-7af5d7291ad73da26beb95f39a5acb37.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/Tavolo lungo.png"
+dest_files=["res://.godot/imported/Tavolo lungo.png-57d921f44d0366d2429015de1c6a7c31.ctex"]
 
 [params]
 

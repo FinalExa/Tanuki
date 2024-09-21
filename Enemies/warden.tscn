@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=37 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_uyk4v"]
@@ -18,9 +18,10 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="17_60did"]
 [ext_resource type="Script" path="res://Enemies/Scripts/WardenCheck.gd" id="18_c47oq"]
-[ext_resource type="PackedScene" uid="uid://wggb00rfdwgw" path="res://Enemies/alert_scream_area.tscn" id="18_ijymp"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="19_4rlqf"]
+[ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_hewu6"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="21_fki5k"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="22_l4lsm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
@@ -51,15 +52,17 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_b1hac")
+repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("WardenStunned")
+enemyRepelled = NodePath("EnemyRepelled")
 spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("WardenMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
@@ -164,21 +167,20 @@ rotationSpeed = 30.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "alertGuardsArea")]
+[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "wardenAlertArea")]
 script = ExtResource("18_c47oq")
 enemyController = NodePath("../..")
 checkMaxValue = 100.0
 checkIncreasePerSecond = 50.0
 checkDecreasePerSecond = 50.0
 enemyStatus = NodePath("../../EnemyStatus")
-alertGuardsArea = NodePath("AlertScreamArea")
+wardenAlertArea = NodePath("WardenAlertArea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
 polygon = PackedVector2Array(-64, 0, 64, 0, 320, -704, -320, -704)
 
-[node name="AlertScreamArea" parent="Rotator/WardenCheck" instance=ExtResource("18_ijymp")]
-maxAreaSize = 1500.0
-reducedAreaSize = 1500.0
+[node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck") instance=ExtResource("19_ocxxy")]
+wardenCheck = NodePath("..")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
@@ -193,6 +195,9 @@ position = Vector2(-112, 0)
 
 [node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
 position = Vector2(112, 0)
+
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("20_hewu6")]
+enemyController = NodePath("..")
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("19_4rlqf")

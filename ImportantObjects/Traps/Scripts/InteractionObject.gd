@@ -7,8 +7,10 @@ extends Area2D
 @export var objectToSendDestoySignal: Node2D
 var sceneMaster: SceneMaster
 var objectsInArea: Array[Node2D]
+var activated: bool
 
 func _ready():
+	activated = true
 	sceneMaster = get_tree().root.get_child(0)
 
 func _on_body_entered(body):
@@ -23,7 +25,8 @@ func _on_body_exited(body):
 			objectsInArea.erase(body)
 
 func _physics_process(delta):
-	execute_effects(delta)
+	if (activated):
+		execute_effects(delta)
 
 func execute_effects(delta):
 	if (objectsInArea.size()>0):

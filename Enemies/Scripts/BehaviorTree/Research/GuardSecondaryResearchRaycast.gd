@@ -28,5 +28,5 @@ func SpotPlayerFromAfar(target):
 				guardResearch.save_target_info(target, true)
 			else:
 				guardResearch.save_target_info(target, false)
-		return true
+			return true
 	return false

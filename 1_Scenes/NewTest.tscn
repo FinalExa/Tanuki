@@ -1,0 +1,1733 @@
+[gd_scene load_steps=45 format=3 uid="uid://utlodytykkas"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_p0l7p"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_ewadc"]
+[ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="3_q87dw"]
+[ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="4_7ptb6"]
+[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="4_birm8"]
+[ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="5_5wxke"]
+[ext_resource type="PackedScene" uid="uid://dqnx2m3ih7q48" path="res://Level/Prefabs/wall_end_right.tscn" id="6_75rp8"]
+[ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="7_c8y8t"]
+[ext_resource type="PackedScene" uid="uid://bpj3ppuxsg6ro" path="res://ImportantObjects/TransformationObjects/statue.tscn" id="8_e24sv"]
+[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="9_vtgrm"]
+[ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="10_pwxt5"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItems.gd" id="12_3kt38"]
+[ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="12_ebpru"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="12_x8fc0"]
+[ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="13_3hky4"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="13_lqk5o"]
+[ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="14_8o8tg"]
+[ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="14_fl5w8"]
+[ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="14_ho07g"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="14_krb15"]
+[ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="14_vmt1e"]
+[ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="15_nb7aw"]
+[ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="16_2djil"]
+[ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="16_hng1h"]
+[ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="17_wxso2"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="18_6ltjf"]
+[ext_resource type="PackedScene" uid="uid://b42phioa6uwif" path="res://ImportantObjects/Interactables/rope.tscn" id="18_frd5b"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="19_dhef6"]
+[ext_resource type="PackedScene" uid="uid://yverqrhsnw5x" path="res://ImportantObjects/Interactables/fragile_wall.tscn" id="19_dig51"]
+[ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="27_murcf"]
+[ext_resource type="PackedScene" uid="uid://s0yf4ksieiki" path="res://ImportantObjects/TransformationObjects/heavy_box.tscn" id="28_q5cwy"]
+[ext_resource type="PackedScene" uid="uid://h3tw1o6olxe5" path="res://ImportantObjects/PuzzleObjects/TrapDeactivator.tscn" id="28_wwiv6"]
+[ext_resource type="PackedScene" uid="uid://0tjmhpqcox2v" path="res://ImportantObjects/Traps/small_gap_object.tscn" id="33_dwx0a"]
+[ext_resource type="PackedScene" uid="uid://drbx66jhb0gu2" path="res://ImportantObjects/TransformationObjects/coin.tscn" id="33_vso5y"]
+[ext_resource type="PackedScene" uid="uid://b5lxw87oc4f6o" path="res://ImportantObjects/TransformationObjects/log.tscn" id="34_rmews"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dxuu8"]
+vertices = PackedVector2Array(752, 2816, 752, 3712, 688, 3712, 256, 2816, 256, 4096, 688, 3776, 752, 3776, 752, 3968, 688, 3968, 688, 4032, 752, 4096, 752, 4032, -1920, 4224, -2288, 4224, -2288, 2176, -1920, 2176, -1216, 1024, -704, 256, -320, 192, -192, 192, 0, 800, -1088, 1024, 0, 2048, -1024, 2048, -1216, 1152, -1088, 1152, 2544, 1024, 2544, 2432, 2432, 2368, 1800, 1768, 1800, 928, -512, -256, -512, 128, -704, 128, -776, -64, -776, -192, -1280, -256, -1032, -192, -448, 1152, -448, 1024, 0, 1024, -1280, 128, -1032, -64, -1088, 128, 2047.69, 128, 2544, 128, 2544, 896, 2784, 896, 2784, 1024, 1088, 1768, 1088, 928, 1672, 928, 1672, 1768, 1648, 2304, 1568, 2304, 2432, 2432, 2304, 2368, 2176, 2304, 2304, 2432, 2176, 2432, 2048, 2304, 2048, 2432, 1920, 2432, 1920, 2304, 1792, 2304, 1792, 2432, 1648, 2432, 1568, 2432, 1408, 2432, 1408, 2304, 1280, 2304, 1280, 2432, 1152, 2432, 1152, 2304, 1024, 2304, 960, 1768, 1024, 2432, 928, 2432, 928, 2368, 864, 2368, 864, 2432, 16, 2432, 16, 1024, -576, 1024, -576, 1152, -704, 1152, -704, 1024, -1024, 2176, 0, 2176, 0, 2560, 128, 2560, 128, 4352, 752, 4352, 752, 4992, -2288, 4992, -1664, 4480, -2288, 4480, -1664, 2176, -1520, 2176, -1520, 2048, -1344, 1152, -1344, 1024, -2288, 2048, -2288, 128, -1944, 192, -1944, 128, -1816, 192, -1816, 128, -320, 128, -832, 128, -960, 256, -832, 256, -960, 128, -1088, 256, -192, 128, -0.058197, 128, 16, 800, 16, 128, 1792, 128, 1792, 0, 1296, 0, 1296, -128, 2048, -128, 960, 928, -832, 1152, -960, 1152, -832, 1024, -960, 1024)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 5, 8), PackedInt32Array(4, 8, 9), PackedInt32Array(10, 4, 9, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(36, 31, 35, 37), PackedInt32Array(38, 39, 40, 22), PackedInt32Array(41, 36, 37, 42, 43), PackedInt32Array(18, 17, 33, 32), PackedInt32Array(44, 45, 46, 30), PackedInt32Array(46, 47, 48, 26, 30), PackedInt32Array(49, 50, 51, 52, 53, 54), PackedInt32Array(27, 55, 28), PackedInt32Array(29, 28, 56, 57), PackedInt32Array(56, 58, 59, 57), PackedInt32Array(29, 57, 60), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(29, 60, 63), PackedInt32Array(29, 63, 64, 52), PackedInt32Array(64, 65, 66, 53, 52), PackedInt32Array(54, 67, 68, 69), PackedInt32Array(49, 54, 69), PackedInt32Array(49, 69, 70), PackedInt32Array(70, 71, 72, 73), PackedInt32Array(49, 70, 73), PackedInt32Array(49, 73, 74, 75), PackedInt32Array(74, 76, 77, 78, 75), PackedInt32Array(79, 80, 81, 82), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(87, 88, 89), PackedInt32Array(89, 90, 91), PackedInt32Array(91, 92, 93, 94, 95), PackedInt32Array(94, 96, 95), PackedInt32Array(89, 91, 95, 97, 98), PackedInt32Array(87, 89, 98), PackedInt32Array(24, 23, 87, 98, 99, 100), PackedInt32Array(101, 100, 99, 102, 103, 104), PackedInt32Array(103, 105, 104), PackedInt32Array(101, 104, 106), PackedInt32Array(101, 106, 107, 41, 16), PackedInt32Array(32, 108, 18), PackedInt32Array(34, 33, 109, 42), PackedInt32Array(110, 109, 111, 16), PackedInt32Array(109, 110, 112), PackedInt32Array(42, 109, 112), PackedInt32Array(42, 112, 43), PackedInt32Array(16, 41, 43, 113), PackedInt32Array(19, 114, 115, 20), PackedInt32Array(116, 117, 118, 30, 51), PackedInt32Array(119, 120, 121, 122), PackedInt32Array(118, 119, 122, 44, 30), PackedInt32Array(116, 51, 50), PackedInt32Array(116, 50, 123), PackedInt32Array(79, 82, 116, 123, 75, 78), PackedInt32Array(16, 113, 110), PackedInt32Array(84, 38, 22), PackedInt32Array(16, 111, 17), PackedInt32Array(116, 82, 40, 20), PackedInt32Array(20, 40, 39), PackedInt32Array(85, 84, 22), PackedInt32Array(124, 85, 22), PackedInt32Array(124, 22, 125), PackedInt32Array(126, 124, 125, 127), PackedInt32Array(25, 125, 22), PackedInt32Array(21, 25, 24, 16), PackedInt32Array(127, 21, 20), PackedInt32Array(126, 127, 20), PackedInt32Array(86, 126, 20), PackedInt32Array(83, 86, 20), PackedInt32Array(20, 39, 83)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2544, 128, 2544, 896, 2784, 896, 2784, 1024, 2544, 1024, 2544, 2432, 2432, 2432, 2432, 2368, 2304, 2368, 2304, 2432, 2176, 2432, 2176, 2304, 2048, 2304, 2048, 2432, 1920, 2432, 1920, 2304, 1792, 2304, 1792, 2432, 1648, 2432, 1648, 2304, 1568, 2304, 1568, 2432, 1408, 2432, 1408, 2304, 1280, 2304, 1280, 2432, 1152, 2432, 1152, 2304, 1024, 2304, 1024, 2432, 928, 2432, 928, 2368, 864, 2368, 864, 2432, 16, 2432, 16, 1024, 0, 1024, 0, 2048, -1024, 2048, -1024, 2176, 0, 2176, 0, 2560, 128, 2560, 128, 4352, 752, 4352, 752, 4992, -2288, 4992, -2288, 4480, -1664, 4480, -1664, 2176, -1520, 2176, -1520, 2048, -2288, 2048, -2288, 128, -1944, 128, -1944, 192, -1816, 192, -1816, 128, -1280, 128, -1280, -256, -512, -256, -512, 128, -320, 128, -320, 192, -192, 192, -192, 128, -0.058197, 128, 0, 800, 16, 800, 16, 128, 1792, 128, 1792, 0, 1296, 0, 1296, -128, 2048, -128, 2047.69, 128), PackedVector2Array(960, 928, 960, 1768, 1088, 1768, 1088, 928), PackedVector2Array(1800, 928, 1800, 1768, 1672, 1768, 1672, 928), PackedVector2Array(-1344, 1024, -1216, 1024, -1216, 1152, -1344, 1152), PackedVector2Array(-1088, 1024, -960, 1024, -960, 1152, -1088, 1152), PackedVector2Array(-704, 1024, -704, 1152, -832, 1152, -832, 1024), PackedVector2Array(-576, 1024, -576, 1152, -448, 1152, -448, 1024), PackedVector2Array(-1088, 256, -960, 256, -960, 128, -1088, 128), PackedVector2Array(-832, 128, -704, 128, -704, 256, -832, 256), PackedVector2Array(-1032, -192, -776, -192, -776, -64, -1032, -64), PackedVector2Array(752, 2816, 256, 2816, 256, 4096, 752, 4096, 752, 4032, 688, 4032, 688, 3968, 752, 3968, 752, 3776, 688, 3776, 688, 3712, 752, 3712), PackedVector2Array(-1920, 2176, -2288, 2176, -2288, 4224, -1920, 4224)])
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqgu"]
+texture = ExtResource("12_ebpru")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwkvh"]
+texture = ExtResource("13_3hky4")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_huu02"]
+texture = ExtResource("14_8o8tg")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvpbi"]
+texture = ExtResource("15_nb7aw")
+texture_region_size = Vector2i(256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5b8y"]
+texture = ExtResource("16_2djil")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gj4cv"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_ejqgu")
+sources/1 = SubResource("TileSetAtlasSource_uwkvh")
+sources/2 = SubResource("TileSetAtlasSource_huu02")
+sources/3 = SubResource("TileSetAtlasSource_gvpbi")
+sources/4 = SubResource("TileSetAtlasSource_t5b8y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4aekd"]
+size = Vector2(1280, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlp3u"]
+size = Vector2(64, 128)
+
+[node name="NewTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas")]
+script = ExtResource("1_p0l7p")
+playerSpawnPoint = NodePath("PlayerSpawnPoint")
+travelingAreas = [NodePath("RoomA/Teleports/TravelingArea")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_dxuu8")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1000
+position = Vector2(0, 64)
+tile_set = SubResource("TileSet_gj4cv")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65531, 0, 0, -65530, 0, 0, -65529, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 196618, 0, 0, 589833, 2, 0, 589832, 2, 0, 589831, 2, 0, 589830, 2, 0, 589829, 2, 0, 589828, 2, 0, 589827, 2, 0, 589826, 0, 0, 589825, 0, 0, 589824, 0, 0, 655359, 0, 0, 589823, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 655358, 0, 0, 655357, 0, 0, 655356, 0, 0, 524279, 0, 0, 65527, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 524293, 0, 0, 524292, 0, 0, 524291, 0, 0, 524290, 0, 0, 524289, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 458759, 0, 0, 458758, 0, 0, 458757, 0, 0, 458756, 0, 0, 458755, 0, 0, 458754, 0, 0, 458753, 0, 0, 393217, 0, 0, 327681, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 327682, 0, 0, 262146, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 196614, 0, 0, 196613, 0, 0, 262147, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327683, 0, 0, 1245174, 0, 0, 1179638, 0, 0, 1114102, 0, 0, 1048566, 0, 0, 983030, 0, 0, 917494, 0, 0, 851958, 0, 0, 851959, 0, 0, 851960, 0, 0, 851961, 0, 0, 851962, 0, 0, 851963, 0, 0, 851964, 0, 0, 851965, 0, 0, 851966, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 851970, 0, 0, 917506, 0, 0, 983042, 0, 0, 1048578, 0, 0, 1114114, 0, 0, 1179650, 0, 0, 1179649, 0, 0, 1179648, 0, 0, 1245183, 0, 0, 1245182, 0, 0, 1245181, 0, 0, 1245180, 0, 0, 1245179, 0, 0, 1245178, 0, 0, 1245177, 0, 0, 1245176, 0, 0, 1245175, 0, 0, 1179639, 0, 0, 1179640, 0, 0, 1179641, 0, 0, 1179642, 0, 0, 1179643, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1048577, 0, 0, 983041, 0, 0, 917505, 0, 0, 851969, 0, 0, 851968, 0, 0, 917503, 0, 0, 917502, 0, 0, 917501, 0, 0, 917500, 0, 0, 917499, 0, 0, 917498, 0, 0, 917497, 0, 0, 917496, 0, 0, 917495, 0, 0, 983031, 0, 0, 983032, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 983038, 0, 0, 983039, 0, 0, 917504, 0, 0, 1048567, 0, 0, 1048568, 0, 0, 1048569, 0, 0, 1048570, 0, 0, 1048571, 0, 0, 1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114111, 0, 0, 1114110, 0, 0, 1114109, 0, 0, 1114108, 0, 0, 1114107, 0, 0, 1114106, 0, 0, 1114105, 0, 0, 1114104, 0, 0, 1114103, 0, 0, 786423, 0, 0, 720887, 0, 0, 655351, 0, 0, 589815, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 589819, 0, 0, 589818, 0, 0, 589817, 0, 0, 589816, 0, 0, 655352, 0, 0, 720888, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 655362, 0, 0, 655361, 0, 0, 655360, 0, 0, 720895, 0, 0, 720894, 0, 0, 720893, 0, 0, 720892, 0, 0, 720891, 0, 0, 720890, 0, 0, 720889, 0, 0, 655353, 0, 0, 655354, 0, 0, 655355, 0, 0, 458743, 0, 0, 393207, 0, 0, 327671, 0, 0, 327672, 0, 0, 262136, 0, 0, 196600, 0, 0, 131064, 0, 0, 131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, 65533, 0, 0, 65532, 0, 0, 65534, 0, 0, 131070, 0, 0, 131071, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 458750, 0, 0, 458749, 0, 0, 458748, 0, 0, 458747, 0, 0, 458746, 0, 0, 458745, 0, 0, 458744, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 327678, 0, 0, 262142, 0, 0, 262141, 0, 0, 262140, 0, 0, 262139, 0, 0, 262138, 0, 0, 262137, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 1310710, 2, 0, 1310711, 2, 0, 1310712, 2, 0, 1310713, 2, 0, 1310714, 2, 0, 1310715, 2, 0, 1310716, 2, 0, 1310717, 2, 0, 1310718, 2, 0, 1310719, 2, 0, 1245184, 2, 0, 1245185, 2, 0, 1245186, 2, 0, 786422, 1, 0, -65541, 1, 0, -65540, 1, 0, -65539, 1, 0)
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="."]
+position = Vector2(2720, 960)
+
+[node name="RoomStart" type="Node2D" parent="."]
+
+[node name="RoomA" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="RoomA"]
+
+[node name="Wall2" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(384, 64)
+
+[node name="Wall3" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(640, 64)
+
+[node name="Wall4" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(896, 64)
+
+[node name="Wall5" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1152, 64)
+
+[node name="Wall6" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1408, 64)
+
+[node name="Wall12" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1424, -192)
+
+[node name="Wall8" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1680, -192)
+
+[node name="Wall7" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1664, 64)
+
+[node name="Wall9" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(2176, 64)
+
+[node name="Wall10" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(128, 2496)
+
+[node name="Wall11" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(384, 2496)
+
+[node name="Wall13" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(896, 2496)
+
+[node name="Wall14" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1152, 2496)
+
+[node name="Wall15" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1408, 2496)
+
+[node name="Wall16" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1664, 2496)
+
+[node name="Wall17" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(1920, 2496)
+
+[node name="Wall18" parent="RoomA/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(2176, 2496)
+
+[node name="WallWithRightVertical" parent="RoomA/Walls" instance=ExtResource("3_q87dw")]
+position = Vector2(2432, 64)
+
+[node name="WallWithRightVertical3" parent="RoomA/Walls" instance=ExtResource("3_q87dw")]
+position = Vector2(1936, -192)
+
+[node name="WallVertical" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 192)
+
+[node name="WallVertical33" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2056, -64)
+
+[node name="WallVertical34" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(1288, -64)
+
+[node name="WallVertical35" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(1288, -192)
+
+[node name="WallVertical2" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 320)
+
+[node name="WallVertical3" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 448)
+
+[node name="WallVertical4" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 576)
+
+[node name="WallVertical5" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 704)
+
+[node name="WallVertical7" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1216)
+
+[node name="WallVertical8" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1344)
+
+[node name="WallVertical9" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1472)
+
+[node name="WallVertical10" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1600)
+
+[node name="WallVertical11" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1728)
+
+[node name="WallVertical12" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1856)
+
+[node name="WallVertical13" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 1984)
+
+[node name="WallVertical14" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 2112)
+
+[node name="WallVertical15" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 2240)
+
+[node name="WallVertical16" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(2552, 2368)
+
+[node name="WallVertical6" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 192)
+
+[node name="WallVertical17" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 320)
+
+[node name="WallVertical19" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 448)
+
+[node name="WallVertical20" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 576)
+
+[node name="WallVertical21" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 704)
+
+[node name="WallVertical36" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 736)
+
+[node name="WallVertical22" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1216)
+
+[node name="WallVertical32" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1088)
+
+[node name="WallVertical23" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1344)
+
+[node name="WallVertical24" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1472)
+
+[node name="WallVertical25" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1600)
+
+[node name="WallVertical26" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1728)
+
+[node name="WallVertical27" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1856)
+
+[node name="WallVertical28" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 1984)
+
+[node name="WallVertical29" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 2112)
+
+[node name="WallVertical30" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 2240)
+
+[node name="WallVertical31" parent="RoomA/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(8, 2368)
+
+[node name="WallWithRightVertical2" parent="RoomA/Walls" instance=ExtResource("3_q87dw")]
+position = Vector2(2672, 832)
+
+[node name="WallWithLeftVertical" parent="RoomA/Walls" instance=ExtResource("5_5wxke")]
+position = Vector2(2672, 1088)
+
+[node name="WallEndRight" parent="RoomA/Walls" instance=ExtResource("6_75rp8")]
+position = Vector2(2432, 2496)
+
+[node name="WallWithLeftVertical2" parent="RoomA/Walls" instance=ExtResource("5_5wxke")]
+position = Vector2(128, 64)
+
+[node name="WallWithRightVertical4" parent="RoomA/Walls" instance=ExtResource("3_q87dw")]
+position = Vector2(640, 2496)
+
+[node name="Enemies" type="Node2D" parent="RoomA"]
+
+[node name="Guard" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1216, 936)
+patrolIndicators = [NodePath("../../Patrol/MiddelGuard1/PatrolIndicator")]
+
+[node name="Guard2" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1536, 1744)
+patrolIndicators = [NodePath("../../Patrol/MiddleGuard2/PatrolIndicator2")]
+
+[node name="Guard3" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(1907, 328)
+patrolIndicators = [NodePath("../../Patrol/UpperGuard/PatrolIndicator")]
+
+[node name="Guard4" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(2368, 2040)
+patrolIndicators = [NodePath("../../Patrol/RightDownGuard/PatrolIndicator")]
+
+[node name="Guard5" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(936, 2192)
+patrolIndicators = [NodePath("../../Patrol/DownGuard/PatrolIndicator")]
+
+[node name="Guard6" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(752, 2352)
+patrolIndicators = [NodePath("../../Patrol/LeftDownGuard/PatrolIndicator")]
+
+[node name="Cleaner" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(264, 2128)
+patrolIndicators = [NodePath("../../Patrol/LeftWoman/PatrolIndicator3")]
+
+[node name="Cleaner2" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(2240, 864)
+patrolIndicators = [NodePath("../../Patrol/RightTopWoman/PatrolIndicator2")]
+
+[node name="Cleaner3" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(2240, 1560)
+patrolIndicators = [NodePath("../../Patrol/RightDownWoman/PatrolIndicator")]
+
+[node name="Warden" parent="RoomA/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(128, 936)
+patrolIndicators = [NodePath("../../Patrol/WardenUpLeft/PatrolIndicator")]
+
+[node name="AllowedItems" type="Node2D" parent="RoomA"]
+
+[node name="AllowedItems1" type="Area2D" parent="RoomA/AllowedItems"]
+position = Vector2(1600, 2336)
+script = ExtResource("12_3kt38")
+allowedObjects = Array[String](["Vase", "Statue"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomA/AllowedItems/AllowedItems1"]
+shape = SubResource("RectangleShape2D_4aekd")
+
+[node name="Patrol" type="Node2D" parent="RoomA"]
+
+[node name="WardenUpLeft" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/WardenUpLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 2])
+waitActions = Array[float]([4.0])
+moveActions = [NodePath("../2")]
+lookActions = Array[int]([3])
+
+[node name="2" type="Node2D" parent="RoomA/Patrol/WardenUpLeft"]
+position = Vector2(8, 912)
+
+[node name="LeftWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator3" parent="RoomA/Patrol/LeftWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../2"), NodePath("../1")]
+
+[node name="1" type="Node2D" parent="RoomA/Patrol/LeftWoman"]
+position = Vector2(256, 2240)
+
+[node name="2" type="Node2D" parent="RoomA/Patrol/LeftWoman"]
+position = Vector2(256, 320)
+
+[node name="UpperGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/UpperGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../3"), NodePath("../4")]
+lookActions = Array[int]([3, 2])
+
+[node name="3" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
+position = Vector2(960, 320)
+
+[node name="4" type="Node2D" parent="RoomA/Patrol/UpperGuard"]
+position = Vector2(2048, 320)
+
+[node name="RightTopWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator2" parent="RoomA/Patrol/RightTopWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../5"), NodePath("../6")]
+
+[node name="5" type="Node2D" parent="RoomA/Patrol/RightTopWoman"]
+position = Vector2(2240, 320)
+
+[node name="6" type="Node2D" parent="RoomA/Patrol/RightTopWoman"]
+position = Vector2(2240, 1088)
+
+[node name="RightDownWoman" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/RightDownWoman" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../8"), NodePath("../7")]
+
+[node name="7" type="Node2D" parent="RoomA/Patrol/RightDownWoman"]
+position = Vector2(2240, 1216)
+
+[node name="8" type="Node2D" parent="RoomA/Patrol/RightDownWoman"]
+position = Vector2(2240, 2016)
+
+[node name="RightDownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/RightDownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../10")]
+lookActions = Array[int]([0, 2])
+
+[node name="10" type="Node2D" parent="RoomA/Patrol/RightDownGuard"]
+position = Vector2(2368, 2112)
+
+[node name="MiddelGuard1" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/MiddelGuard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../13"), NodePath("../14"), NodePath("../11"), NodePath("../12")]
+lookActions = Array[int]([0, 3, 1, 2])
+
+[node name="11" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
+position = Vector2(768, 712)
+
+[node name="12" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
+position = Vector2(1216, 712)
+
+[node name="13" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
+position = Vector2(1216, 1856)
+
+[node name="14" type="Node2D" parent="RoomA/Patrol/MiddelGuard1"]
+position = Vector2(768, 1856)
+
+[node name="MiddleGuard2" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator2" parent="RoomA/Patrol/MiddleGuard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../16"), NodePath("../17"), NodePath("../18"), NodePath("../15")]
+lookActions = Array[int]([1, 2, 0, 3])
+
+[node name="15" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
+position = Vector2(1536, 1856)
+
+[node name="16" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
+position = Vector2(1536, 712)
+
+[node name="17" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
+position = Vector2(1920, 712)
+
+[node name="18" type="Node2D" parent="RoomA/Patrol/MiddleGuard2"]
+position = Vector2(1920, 1856)
+
+[node name="DownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/DownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../20")]
+lookActions = Array[int]([0, 2])
+
+[node name="20" type="Node2D" parent="RoomA/Patrol/DownGuard"]
+position = Vector2(896, 2240)
+
+[node name="LeftDownGuard" type="Node2D" parent="RoomA/Patrol"]
+
+[node name="PatrolIndicator" parent="RoomA/Patrol/LeftDownGuard" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../21")]
+lookActions = Array[int]([2, 0])
+
+[node name="21" type="Node2D" parent="RoomA/Patrol/LeftDownGuard"]
+position = Vector2(790, 2368)
+
+[node name="TransformationObjects" type="Node2D" parent="RoomA"]
+
+[node name="Vase" parent="RoomA/TransformationObjects" instance=ExtResource("7_c8y8t")]
+position = Vector2(2112, 2368)
+
+[node name="Vase2" parent="RoomA/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("7_c8y8t")]
+position = Vector2(1853, 2368)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase4" parent="RoomA/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("7_c8y8t")]
+position = Vector2(1344, 2368)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase5" parent="RoomA/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("7_c8y8t")]
+position = Vector2(1085, 2368)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Statue" parent="RoomA/TransformationObjects" instance=ExtResource("8_e24sv")]
+position = Vector2(1608, 2368)
+
+[node name="PassiveObjects" type="Node2D" parent="RoomA"]
+
+[node name="HeatSourceActivator" parent="RoomA/PassiveObjects" instance=ExtResource("14_ho07g")]
+position = Vector2(1472, -64)
+activated = true
+
+[node name="HeatSource" parent="RoomA/PassiveObjects" instance=ExtResource("19_dhef6")]
+position = Vector2(1472, 192)
+
+[node name="Objects" type="Node2D" parent="RoomA"]
+
+[node name="Table" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1024, 1112)
+dropActive = true
+droppedObjectsOnInteraction = Array[String](["res://ImportantObjects/TransformationObjects/teapot.tscn"])
+dropPoints = [NodePath("DropPoint1")]
+
+[node name="DropPoint1" type="Node2D" parent="RoomA/Objects/Table"]
+position = Vector2(0, -152)
+
+[node name="Table3" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1024, 1584)
+dropActive = true
+droppedObjectsOnInteraction = Array[String](["res://ImportantObjects/TransformationObjects/teapot.tscn"])
+dropPoints = [NodePath("../Table/DropPoint1")]
+
+[node name="DropPoint1" type="Node2D" parent="RoomA/Objects/Table3"]
+position = Vector2(0, -152)
+
+[node name="Table2" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1736, 1112)
+dropPoints = [null]
+
+[node name="Table4" parent="RoomA/Objects" node_paths=PackedStringArray("dropPoints") instance=ExtResource("14_vmt1e")]
+position = Vector2(1736, 1584)
+dropPoints = [null]
+
+[node name="Gong" parent="RoomA/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
+position = Vector2(2368, 2368)
+researchLocation = NodePath("ResearchLocation")
+
+[node name="ResearchLocation" type="Node2D" parent="RoomA/Objects/Gong"]
+position = Vector2(0, -128)
+
+[node name="StunArea" parent="RoomA/Objects" instance=ExtResource("17_wxso2")]
+position = Vector2(0, 896)
+
+[node name="StunArea2" parent="RoomA/Objects" instance=ExtResource("17_wxso2")]
+position = Vector2(1024, 1112)
+
+[node name="Rope" parent="RoomA/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(896, 2400)
+objectoToSendInteractSignal = NodePath("../StunArea")
+cooldownDuration = 20.0
+
+[node name="Rope2" parent="RoomA/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(2512, 192)
+objectoToSendInteractSignal = NodePath("../StunArea2")
+hasCooldown = false
+
+[node name="FragileWall" parent="RoomA/Objects" instance=ExtResource("19_dig51")]
+position = Vector2(1920, 64)
+
+[node name="Teleports" type="Node2D" parent="RoomA"]
+
+[node name="TravelingArea" type="Area2D" parent="RoomA/Teleports" node_paths=PackedStringArray("spawnLocation")]
+position = Vector2(2840, 960)
+script = ExtResource("9_vtgrm")
+sceneToLoad = "res://1_Scenes/Hall.tscn"
+spawnLocation = NodePath("Destination")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomA/Teleports/TravelingArea"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_vlp3u")
+
+[node name="Destination" type="Node2D" parent="RoomA/Teleports/TravelingArea"]
+position = Vector2(-120, 0)
+
+[node name="RoomB" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="RoomB"]
+
+[node name="Wall19" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-128, 64)
+
+[node name="Wall20" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-384, 64)
+
+[node name="Wall25" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-640, -320)
+
+[node name="Wall26" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-896, -320)
+
+[node name="Wall27" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1152, -320)
+
+[node name="Wall21" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1408, 64)
+
+[node name="Wall22" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1664, 64)
+
+[node name="Wall23" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1920, 64)
+
+[node name="Wall24" parent="RoomB/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-2176, 64)
+
+[node name="WallVertical" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-1288, -64)
+
+[node name="WallVertical7" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 64)
+
+[node name="WallVertical8" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 192)
+
+[node name="WallVertical9" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 320)
+
+[node name="WallVertical10" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 448)
+
+[node name="WallVertical11" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 576)
+
+[node name="WallVertical12" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 704)
+
+[node name="WallVertical13" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 832)
+
+[node name="WallVertical14" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 960)
+
+[node name="WallVertical15" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1088)
+
+[node name="WallVertical16" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1216)
+
+[node name="WallVertical17" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1344)
+
+[node name="WallVertical18" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1472)
+
+[node name="WallVertical19" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1600)
+
+[node name="WallVertical20" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1728)
+
+[node name="WallVertical21" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1856)
+
+[node name="WallVertical22" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 1984)
+
+[node name="WallVertical2" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-1288, -192)
+
+[node name="WallVertical3" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-1288, -320)
+
+[node name="WallVertical4" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-504, -64)
+
+[node name="WallVertical5" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-504, -192)
+
+[node name="WallVertical6" parent="RoomB/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-504, -320)
+
+[node name="FragileWall" parent="RoomB/Walls" instance=ExtResource("19_dig51")]
+position = Vector2(-1392, 2112)
+
+[node name="FragileWall2" parent="RoomB/Walls" instance=ExtResource("19_dig51")]
+position = Vector2(-1136, 2112)
+
+[node name="Enemies" type="Node2D" parent="RoomB"]
+
+[node name="Guard" parent="RoomB/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-1936, 280)
+patrolIndicators = [NodePath("../../Patrols/GuardUpLeft1/PatrolIndicator")]
+
+[node name="Guard2" parent="RoomB/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-1712, 224)
+patrolIndicators = [NodePath("../../Patrols/GuardUpLeft2/PatrolIndicator2")]
+
+[node name="Guard3" parent="RoomB/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-256, 512)
+patrolIndicators = [NodePath("../../Patrols/GuardMiddle1/PatrolIndicator")]
+
+[node name="Guard4" parent="RoomB/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-384, 1636)
+patrolIndicators = [NodePath("../../Patrols/GuardMiddle2/PatrolIndicator2")]
+
+[node name="Hyottoko" parent="RoomB/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_murcf")]
+position = Vector2(-1920, 936)
+patrolIndicators = [NodePath("../../Patrols/HyottokoLeft/PatrolIndicator3")]
+
+[node name="Patrols" type="Node2D" parent="RoomB"]
+
+[node name="GuardUpLeft1" type="Node2D" parent="RoomB/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomB/Patrols/GuardUpLeft1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+position = Vector2(-1992, 0)
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([5.0])
+moveActions = [NodePath("../1")]
+lookActions = Array[int]([1])
+
+[node name="1" type="Node2D" parent="RoomB/Patrols/GuardUpLeft1"]
+position = Vector2(-1936, 216)
+
+[node name="GuardUpLeft2" type="Node2D" parent="RoomB/Patrols"]
+
+[node name="PatrolIndicator2" parent="RoomB/Patrols/GuardUpLeft2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+position = Vector2(-1992, 0)
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([5.0])
+moveActions = [NodePath("../2")]
+lookActions = Array[int]([1])
+
+[node name="2" type="Node2D" parent="RoomB/Patrols/GuardUpLeft2"]
+position = Vector2(-1784, 264)
+
+[node name="HyottokoLeft" type="Node2D" parent="RoomB/Patrols"]
+
+[node name="PatrolIndicator3" parent="RoomB/Patrols/HyottokoLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+position = Vector2(-1305, 1003)
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../4"), NodePath("../3")]
+
+[node name="3" type="Node2D" parent="RoomB/Patrols/HyottokoLeft"]
+position = Vector2(-1920, 576)
+
+[node name="4" type="Node2D" parent="RoomB/Patrols/HyottokoLeft"]
+position = Vector2(-1920, 1856)
+
+[node name="GuardMiddle1" type="Node2D" parent="RoomB/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomB/Patrols/GuardMiddle1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+position = Vector2(-1305, 1003)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../6"), NodePath("../7"), NodePath("../6"), NodePath("../5")]
+lookActions = Array[int]([0, 3, 2, 1])
+
+[node name="5" type="Node2D" parent="RoomB/Patrols/GuardMiddle1"]
+position = Vector2(-256, 432)
+
+[node name="6" type="Node2D" parent="RoomB/Patrols/GuardMiddle1"]
+position = Vector2(-256, 952)
+
+[node name="7" type="Node2D" parent="RoomB/Patrols/GuardMiddle1"]
+position = Vector2(-1408, 952)
+
+[node name="GuardMiddle2" type="Node2D" parent="RoomB/Patrols"]
+
+[node name="PatrolIndicator2" parent="RoomB/Patrols/GuardMiddle2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+position = Vector2(-1305, 1003)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../11"), NodePath("../8"), NodePath("../9"), NodePath("../10")]
+lookActions = Array[int]([1, 3, 0, 2])
+
+[node name="8" type="Node2D" parent="RoomB/Patrols/GuardMiddle2"]
+position = Vector2(-1408, 1280)
+
+[node name="9" type="Node2D" parent="RoomB/Patrols/GuardMiddle2"]
+position = Vector2(-1408, 1856)
+
+[node name="10" type="Node2D" parent="RoomB/Patrols/GuardMiddle2"]
+position = Vector2(-384, 1856)
+
+[node name="11" type="Node2D" parent="RoomB/Patrols/GuardMiddle2"]
+position = Vector2(-384, 1280)
+
+[node name="Traps" type="Node2D" parent="RoomB"]
+
+[node name="DeathTraps" type="Node2D" parent="RoomB/Traps"]
+
+[node name="DeathTrapInteractionObject" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-2224, 2112)
+
+[node name="DeathTrapInteractionObject2" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-2096, 2112)
+
+[node name="DeathTrapInteractionObject3" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-1968, 2112)
+
+[node name="DeathTrapInteractionObject4" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-1840, 2112)
+
+[node name="DeathTrapInteractionObject5" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-1712, 2112)
+
+[node name="DeathTrapInteractionObject6" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-1584, 2112)
+
+[node name="DeathTrapInteractionObject7" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-960, 2112)
+
+[node name="DeathTrapInteractionObject8" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-832, 2112)
+
+[node name="DeathTrapInteractionObject9" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-704, 2112)
+
+[node name="DeathTrapInteractionObject10" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-576, 2112)
+
+[node name="DeathTrapInteractionObject11" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-448, 2112)
+
+[node name="DeathTrapInteractionObject12" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-320, 2112)
+
+[node name="DeathTrapInteractionObject13" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-192, 2112)
+
+[node name="DeathTrapInteractionObject14" parent="RoomB/Traps/DeathTraps" instance=ExtResource("4_7ptb6")]
+position = Vector2(-64, 2112)
+
+[node name="BlockTraps" type="Node2D" parent="RoomB/Traps"]
+
+[node name="MovementImpairInteractionObject" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-1144, 448)
+
+[node name="MovementImpairInteractionObject2" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-888, 448)
+
+[node name="MovementImpairInteractionObject3" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-640, 448)
+
+[node name="MovementImpairInteractionObject4" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-640, 712)
+
+[node name="MovementImpairInteractionObject5" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-896, 712)
+
+[node name="MovementImpairInteractionObject6" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-1152, 712)
+
+[node name="MovementImpairInteractionObject7" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-1144, 1592)
+
+[node name="MovementImpairInteractionObject8" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-888, 1592)
+
+[node name="MovementImpairInteractionObject9" parent="RoomB/Traps/BlockTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-640, 1592)
+
+[node name="TransformationObjects" type="Node2D" parent="RoomB"]
+
+[node name="Statue2" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("8_e24sv")]
+position = Vector2(-1128, -136)
+transformedCollider = NodePath("../../../RoomA/TransformationObjects/Statue/CollisionShape2D")
+transformedTexture = NodePath("../../../RoomA/TransformationObjects/Statue/TransformedSprite")
+transformedTailLocation = NodePath("../../../RoomA/TransformationObjects/Statue/TailLocation")
+
+[node name="Statue3" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("8_e24sv")]
+position = Vector2(-664, -136)
+transformedCollider = NodePath("../../../RoomA/TransformationObjects/Statue/CollisionShape2D")
+transformedTexture = NodePath("../../../RoomA/TransformationObjects/Statue/TransformedSprite")
+transformedTailLocation = NodePath("../../../RoomA/TransformationObjects/Statue/TailLocation")
+
+[node name="HeavyBox" parent="RoomB/TransformationObjects" instance=ExtResource("28_q5cwy")]
+position = Vector2(-1280, 1088)
+
+[node name="HeavyBox2" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-1024, 1088)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox3" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-768, 1088)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox4" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-512, 1088)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox5" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-768, 189)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox6" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-1024, 189)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox7" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-968, -128)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="HeavyBox8" parent="RoomB/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("28_q5cwy")]
+position = Vector2(-840, -128)
+transformedCollider = NodePath("../HeavyBox/CollisionShape2D")
+transformedTexture = NodePath("../HeavyBox/Sprite2D")
+transformedTailLocation = NodePath("../HeavyBox/TailLocation")
+
+[node name="Objects" type="Node2D" parent="RoomB"]
+
+[node name="Gong" parent="RoomB/Objects" node_paths=PackedStringArray("researchLocation") instance=ExtResource("16_hng1h")]
+position = Vector2(-256, 128)
+researchLocation = NodePath("ResearchLocation")
+
+[node name="ResearchLocation" type="Node2D" parent="RoomB/Objects/Gong"]
+position = Vector2(0, 160)
+
+[node name="Rope" parent="RoomB/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(-1912, 160)
+objectoToSendInteractSignal = NodePath("../TrapDeactivator")
+cooldownDuration = 20.0
+
+[node name="Rope2" parent="RoomB/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(-1848, 160)
+objectoToSendInteractSignal = NodePath("../TrapDeactivator2")
+cooldownDuration = 20.0
+
+[node name="TrapDeactivator" parent="RoomB/Objects" instance=ExtResource("28_wwiv6")]
+position = Vector2(-960, 2080)
+
+[node name="TrapDeactivator2" parent="RoomB/Objects" instance=ExtResource("28_wwiv6")]
+position = Vector2(-960, 2144)
+
+[node name="RoomC" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="RoomC"]
+
+[node name="WallVertical23" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2112)
+
+[node name="WallVertical24" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2240)
+
+[node name="WallVertical25" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2368)
+
+[node name="WallVertical26" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2496)
+
+[node name="WallVertical27" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2624)
+
+[node name="WallVertical28" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2752)
+
+[node name="WallVertical29" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 2880)
+
+[node name="WallVertical30" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 3008)
+
+[node name="WallVertical31" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 3520)
+
+[node name="WallVertical32" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 3648)
+
+[node name="WallVertical62" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3008)
+
+[node name="WallVertical63" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3136)
+
+[node name="WallVertical64" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3264)
+
+[node name="WallVertical65" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3392)
+
+[node name="WallVertical66" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3520)
+
+[node name="WallVertical67" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3648)
+
+[node name="WallVertical69" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4032)
+
+[node name="WallVertical70" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4160)
+
+[node name="WallVertical71" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4288)
+
+[node name="WallVertical72" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4416)
+
+[node name="WallVertical73" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4544)
+
+[node name="WallVertical74" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4672)
+
+[node name="WallVertical75" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4800)
+
+[node name="WallVertical76" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 4928)
+
+[node name="WallVertical77" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 5056)
+
+[node name="WallVertical68" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2568, 3904)
+
+[node name="WallVertical33" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 3776)
+
+[node name="WallVertical34" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 3904)
+
+[node name="WallVertical35" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4032)
+
+[node name="WallVertical36" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4160)
+
+[node name="WallVertical37" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4288)
+
+[node name="WallVertical38" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4416)
+
+[node name="WallVertical39" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4544)
+
+[node name="WallVertical40" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4672)
+
+[node name="WallVertical42" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(-2296, 4928)
+
+[node name="WallVertical43" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 2752)
+
+[node name="WallVertical61" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 2624)
+
+[node name="WallVertical44" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 2880)
+
+[node name="WallVertical45" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3008)
+
+[node name="WallVertical46" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3136)
+
+[node name="WallVertical47" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3264)
+
+[node name="WallVertical48" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3392)
+
+[node name="WallVertical49" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3520)
+
+[node name="WallVertical50" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3648)
+
+[node name="WallVertical51" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3776)
+
+[node name="WallVertical52" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 3904)
+
+[node name="WallVertical53" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4032)
+
+[node name="WallVertical54" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4160)
+
+[node name="WallVertical55" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4288)
+
+[node name="WallVertical56" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4416)
+
+[node name="WallVertical57" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4544)
+
+[node name="WallVertical58" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4672)
+
+[node name="WallVertical59" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4800)
+
+[node name="WallVertical60" parent="RoomC/Walls" instance=ExtResource("4_birm8")]
+position = Vector2(760, 4928)
+
+[node name="Wall" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-2176, 5056)
+
+[node name="Wall14" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-2432, 5056)
+
+[node name="Wall13" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-2432, 3008)
+
+[node name="Wall2" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1920, 5056)
+
+[node name="Wall3" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1664, 5056)
+
+[node name="Wall4" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1408, 5056)
+
+[node name="Wall5" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-1152, 5056)
+
+[node name="Wall6" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-896, 5056)
+
+[node name="Wall7" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-640, 5056)
+
+[node name="Wall8" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-384, 5056)
+
+[node name="Wall9" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(-128, 5056)
+
+[node name="Wall10" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(128, 5056)
+
+[node name="Wall11" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(384, 5056)
+
+[node name="Wall12" parent="RoomC/Walls" instance=ExtResource("2_ewadc")]
+position = Vector2(640, 5056)
+
+[node name="WallVerticalEnd" parent="RoomC/Walls" instance=ExtResource("10_pwxt5")]
+position = Vector2(-2568, 5056)
+
+[node name="SmallGapObject" parent="RoomC/Walls" instance=ExtResource("33_dwx0a")]
+position = Vector2(-2296, 4800)
+
+[node name="DeathTraps" type="Node2D" parent="RoomC"]
+
+[node name="DeathTrapInteractionObject15" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2240)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject16" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2240)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject17" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2368)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject18" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2368)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject19" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2496)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject20" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2496)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject21" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject22" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject23" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject24" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject25" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 2880)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject26" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 2880)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject27" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3008)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject28" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3008)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject29" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3136)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject30" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3136)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject31" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3264)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject32" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3264)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject33" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3392)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject34" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3392)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject35" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3520)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject36" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3520)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject37" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3648)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject38" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3648)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject39" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3776)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject40" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3776)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject41" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 3904)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject42" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 3904)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject43" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 4032)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject44" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 4032)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject45" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject46" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject47" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject48" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject49" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1728, 4416)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject50" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1856, 4416)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject51" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1984, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject52" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-2112, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject53" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-1984, 4416)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject54" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-2112, 4416)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject57" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(688, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject58" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(560, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject59" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(688, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject60" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(560, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject61" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(432, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject62" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(304, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject63" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(432, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject64" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(304, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject65" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 2624)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject67" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 2752)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject69" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 2880)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject71" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3008)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject73" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3136)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject75" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3264)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject77" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3392)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject79" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3520)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject81" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3648)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject83" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3776)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject85" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 3904)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject87" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 4032)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject89" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject91" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(192, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject93" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(448, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject94" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(320, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject95" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(448, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject96" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(320, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject97" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(688, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject98" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(560, 4160)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject99" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(688, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject100" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(560, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject55" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-2224, 4288)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="DeathTrapInteractionObject56" parent="RoomC/DeathTraps" node_paths=PackedStringArray("effect") instance=ExtResource("4_7ptb6")]
+position = Vector2(-2224, 4416)
+effect = NodePath("../../../RoomB/Traps/DeathTraps/DeathTrapInteractionObject/DeathTrapEffect")
+
+[node name="Enemies" type="Node2D" parent="RoomC"]
+
+[node name="Cleaner" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(-1920, 4672)
+patrolIndicators = [NodePath("../../Patrols/WomanBottomLeft/PatrolIndicator")]
+
+[node name="Cleaner2" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_lqk5o")]
+position = Vector2(-360, 4680)
+patrolIndicators = [NodePath("../../Patrols/WomanBottomRight/PatrolIndicator2")]
+
+[node name="Hyottoko" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_murcf")]
+position = Vector2(-256, 2736)
+patrolIndicators = [NodePath("../../Patrols/HyottokoUpRight/PatrolIndicator")]
+
+[node name="Hyottoko2" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_murcf")]
+position = Vector2(-102, 3896)
+patrolIndicators = [NodePath("../../Patrols/HyottokoUpRight2/PatrolIndicator")]
+
+[node name="Guard" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-392, 4048)
+patrolIndicators = [NodePath("../../Patrols/GuardMiddle1/PatrolIndicator")]
+
+[node name="Guard2" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-1312, 3712)
+patrolIndicators = [NodePath("../../Patrols/GuardMiddle2/PatrolIndicator2")]
+
+[node name="Guard3" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("12_x8fc0")]
+position = Vector2(-1000, 2880)
+patrolIndicators = [NodePath("../../Patrols/GuardMiddle3/PatrolIndicator3")]
+
+[node name="Warden" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(-2032, 2440)
+patrolIndicators = [NodePath("../../Patrols/Warden1/PatrolIndicator")]
+
+[node name="Warden2" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(-2040, 2880)
+patrolIndicators = [NodePath("../../Patrols/Warden2/PatrolIndicator2")]
+
+[node name="Warden3" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(-2104, 3264)
+patrolIndicators = [NodePath("../../Patrols/Warden3/PatrolIndicator3")]
+
+[node name="Warden4" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(-2104, 3680)
+patrolIndicators = [NodePath("../../Patrols/Warden4/PatrolIndicator4")]
+
+[node name="Warden5" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(-2104, 4040)
+patrolIndicators = [NodePath("../../Patrols/Warden5/PatrolIndicator5")]
+
+[node name="Warden6" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(424, 3136)
+patrolIndicators = [NodePath("../../Patrols/Warden6/PatrolIndicator6")]
+
+[node name="Warden7" parent="RoomC/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("14_fl5w8")]
+position = Vector2(424, 3512)
+patrolIndicators = [NodePath("../../Patrols/Warden7/PatrolIndicator7")]
+
+[node name="Patrols" type="Node2D" parent="RoomC"]
+
+[node name="Warden1" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomC/Patrols/Warden1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../1")]
+lookActions = Array[int]([3])
+
+[node name="1" type="Node2D" parent="RoomC/Patrols/Warden1"]
+position = Vector2(-2152, 2456)
+
+[node name="Warden2" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator2" parent="RoomC/Patrols/Warden2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../2")]
+lookActions = Array[int]([3])
+
+[node name="2" type="Node2D" parent="RoomC/Patrols/Warden2"]
+position = Vector2(-2152, 2880)
+
+[node name="Warden3" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator3" parent="RoomC/Patrols/Warden3" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../3")]
+lookActions = Array[int]([3])
+
+[node name="3" type="Node2D" parent="RoomC/Patrols/Warden3"]
+position = Vector2(-2152, 3264)
+
+[node name="Warden4" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator4" parent="RoomC/Patrols/Warden4" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../4")]
+lookActions = Array[int]([3])
+
+[node name="4" type="Node2D" parent="RoomC/Patrols/Warden4"]
+position = Vector2(-2152, 3664)
+
+[node name="Warden5" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator5" parent="RoomC/Patrols/Warden5" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../5")]
+lookActions = Array[int]([3])
+
+[node name="5" type="Node2D" parent="RoomC/Patrols/Warden5"]
+position = Vector2(-2152, 4040)
+
+[node name="Warden6" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator6" parent="RoomC/Patrols/Warden6" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../6")]
+lookActions = Array[int]([2])
+
+[node name="6" type="Node2D" parent="RoomC/Patrols/Warden6"]
+position = Vector2(512, 3144)
+
+[node name="Warden7" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator7" parent="RoomC/Patrols/Warden7" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0])
+waitActions = Array[float]([10.0])
+moveActions = [NodePath("../7")]
+lookActions = Array[int]([2])
+
+[node name="7" type="Node2D" parent="RoomC/Patrols/Warden7"]
+position = Vector2(512, 3488)
+
+[node name="HyottokoUpRight" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomC/Patrols/HyottokoUpRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0])
+waitActions = Array[float]([1.0])
+moveActions = [NodePath("../8")]
+
+[node name="8" type="Node2D" parent="RoomC/Patrols/HyottokoUpRight"]
+position = Vector2(-256, 2744)
+
+[node name="HyottokoUpRight2" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomC/Patrols/HyottokoUpRight2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../9"), NodePath("../10")]
+
+[node name="9" type="Node2D" parent="RoomC/Patrols/HyottokoUpRight2"]
+position = Vector2(-96, 4360)
+
+[node name="10" type="Node2D" parent="RoomC/Patrols/HyottokoUpRight2"]
+position = Vector2(-96, 3720)
+
+[node name="GuardMiddle1" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomC/Patrols/GuardMiddle1" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../11"), NodePath("../14"), NodePath("../13"), NodePath("../12")]
+lookActions = Array[int]([0, 3, 1, 2])
+
+[node name="11" type="Node2D" parent="RoomC/Patrols/GuardMiddle1"]
+position = Vector2(-392, 4352)
+
+[node name="12" type="Node2D" parent="RoomC/Patrols/GuardMiddle1"]
+position = Vector2(-392, 3712)
+
+[node name="13" type="Node2D" parent="RoomC/Patrols/GuardMiddle1"]
+position = Vector2(-848, 3712)
+
+[node name="14" type="Node2D" parent="RoomC/Patrols/GuardMiddle1"]
+position = Vector2(-848, 4352)
+
+[node name="GuardMiddle2" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator2" parent="RoomC/Patrols/GuardMiddle2" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../17"), NodePath("../18"), NodePath("../15"), NodePath("../16")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="15" type="Node2D" parent="RoomC/Patrols/GuardMiddle2"]
+position = Vector2(-1472, 4352)
+
+[node name="16" type="Node2D" parent="RoomC/Patrols/GuardMiddle2"]
+position = Vector2(-1472, 3712)
+
+[node name="17" type="Node2D" parent="RoomC/Patrols/GuardMiddle2"]
+position = Vector2(-1043, 3712)
+
+[node name="18" type="Node2D" parent="RoomC/Patrols/GuardMiddle2"]
+position = Vector2(-1043, 4352)
+
+[node name="GuardMiddle3" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator3" parent="RoomC/Patrols/GuardMiddle3" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../21"), NodePath("../20"), NodePath("../19"), NodePath("../22")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="19" type="Node2D" parent="RoomC/Patrols/GuardMiddle3"]
+position = Vector2(-1176, 3392)
+
+[node name="20" type="Node2D" parent="RoomC/Patrols/GuardMiddle3"]
+position = Vector2(-512, 3392)
+
+[node name="21" type="Node2D" parent="RoomC/Patrols/GuardMiddle3"]
+position = Vector2(-512, 2880)
+
+[node name="22" type="Node2D" parent="RoomC/Patrols/GuardMiddle3"]
+position = Vector2(-1176, 2880)
+
+[node name="WomanBottomLeft" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator" parent="RoomC/Patrols/WomanBottomLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.5, 1.5])
+moveActions = [NodePath("../24"), NodePath("../23")]
+
+[node name="23" type="Node2D" parent="RoomC/Patrols/WomanBottomLeft"]
+position = Vector2(-2136, 4672)
+
+[node name="24" type="Node2D" parent="RoomC/Patrols/WomanBottomLeft"]
+position = Vector2(-1024, 4672)
+
+[node name="WomanBottomRight" type="Node2D" parent="RoomC/Patrols"]
+
+[node name="PatrolIndicator2" parent="RoomC/Patrols/WomanBottomRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("14_krb15")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.5, 1.5])
+moveActions = [NodePath("../26"), NodePath("../25")]
+
+[node name="25" type="Node2D" parent="RoomC/Patrols/WomanBottomRight"]
+position = Vector2(-512, 4672)
+
+[node name="26" type="Node2D" parent="RoomC/Patrols/WomanBottomRight"]
+position = Vector2(512, 4672)
+
+[node name="TransformationObjects" type="Node2D" parent="RoomC"]
+
+[node name="Coin" parent="RoomC/TransformationObjects" instance=ExtResource("33_vso5y")]
+position = Vector2(600, 3608)
+
+[node name="Log" parent="RoomC/TransformationObjects" instance=ExtResource("34_rmews")]
+position = Vector2(-1824, 4928)
+
+[node name="Objects" type="Node2D" parent="RoomC"]
+
+[node name="Rope" parent="RoomC/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(720, 3744)
+objectoToSendInteractSignal = NodePath("../TrapDeactivator")
+hasCooldown = false
+
+[node name="Rope2" parent="RoomC/Objects" node_paths=PackedStringArray("objectoToSendInteractSignal") instance=ExtResource("18_frd5b")]
+position = Vector2(720, 4000)
+objectoToSendInteractSignal = NodePath("../StunArea")
+cooldownDuration = 30.0
+
+[node name="TrapDeactivator" parent="RoomC/Objects" instance=ExtResource("28_wwiv6")]
+position = Vector2(192, 3808)
+
+[node name="StunArea" parent="RoomC/Objects" instance=ExtResource("17_wxso2")]
+position = Vector2(-2256, 3256)
+
+[node name="MovementTraps" type="Node2D" parent="RoomC"]
+
+[node name="MovementImpairInteractionObject" parent="RoomC/MovementTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-952, 3136)
+
+[node name="MovementImpairInteractionObject2" parent="RoomC/MovementTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-704, 3136)
+
+[node name="MovementImpairInteractionObject3" parent="RoomC/MovementTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-632, 4032)
+
+[node name="MovementImpairInteractionObject4" parent="RoomC/MovementTraps" instance=ExtResource("18_6ltjf")]
+position = Vector2(-1248, 4032)
+
+[connection signal="body_entered" from="RoomA/AllowedItems/AllowedItems1" to="RoomA/AllowedItems/AllowedItems1" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomA/AllowedItems/AllowedItems1" to="RoomA/AllowedItems/AllowedItems1" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomA/Teleports/TravelingArea" to="RoomA/Teleports/TravelingArea" method="_on_body_entered"]

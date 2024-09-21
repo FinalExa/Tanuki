@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b7kmimphyyi8y"]
+[gd_scene load_steps=33 format=3 uid="uid://b7kmimphyyi8y"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_lfxg5"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_8u2y5"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="9_wuphi"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
 [ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="19_e0463"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="19_joed8"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="20_ssalh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="21_kkbnv"]
@@ -47,17 +48,19 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Cleaner" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
 repelledTime = 0.3
 repelledDistance = 350.0
+repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
 enemyStatus = NodePath("EnemyStatus")
 enemyStunned = NodePath("EnemyStunned")
+enemyRepelled = NodePath("EnemyRepelled")
 spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("CleanerMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
@@ -175,6 +178,9 @@ position = Vector2(-112, 0)
 
 [node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
 position = Vector2(112, 0)
+
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("19_e0463")]
+enemyController = NodePath("..")
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("18_7fx25")

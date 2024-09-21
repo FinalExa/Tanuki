@@ -9,7 +9,7 @@ var stunnedEnemies: Array[EnemyController]
 func _ready():
 	hide()
 
-func _process(delta):
+func _process(_delta):
 	StunNearbyEnemies()
 
 func StunNearbyEnemies():

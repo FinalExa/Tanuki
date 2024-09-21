@@ -27,4 +27,3 @@ func _on_body_entered(body):
 		if (!controller.isInAlert && !controller.isStunned):
 			controller.guardCheck.stop_guardCheck()
 			controller.guardAlert.start_alert(controllerRef.guardAlert.alertTarget)
-			controller.guardAlert.set_last_target_info(controllerRef.guardAlert.alertTarget)

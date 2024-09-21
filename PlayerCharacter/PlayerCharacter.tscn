@@ -213,7 +213,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 40.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -225,6 +225,7 @@ playerHUD = NodePath("CanvasLayer/HBoxContainer/UI")
 playerMovement = NodePath("Rotator/PlayerMovement")
 playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
+playerAttack = NodePath("Rotator/PlayerAttack")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -319,7 +320,7 @@ playerCollider = NodePath("../CollisionShape2D")
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound", "tailAppearsSound")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 20.0
-tailActivationTime = 7.0
+tailActivationTime = 14.0
 lowTimeRemaining = 17.0
 timeRefundOnReactivation = 1.0
 tailRef = NodePath("Tail")
@@ -333,6 +334,7 @@ playerTransformedSprite = NodePath("../TransformedSprite")
 objectSavedSound = NodePath("../../Sounds/ObjectSaved")
 transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 tailAppearsSound = NodePath("../../Sounds/TailAppears")
+noTransformationText = "No Transformation"
 transformationLockDuration = 0.3
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
