@@ -104,16 +104,20 @@ func GetClosestMovementLocation():
 	var selectedIndex: int = 0
 	var selectedMoveIndex: int = 0
 	var firstMoveSet: bool = false
+	var distanceToSelectedIndex: float
 	for i in loadedPatrolIndicator.patrolActions.size():
 		var currentAction: PatrolIndicator.ActionTypes = loadedPatrolIndicator.patrolActions[i]
 		if (currentAction == PatrolIndicator.ActionTypes.MOVE):
 			if (!firstMoveSet):
 				selectedIndex = i
 				firstMoveSet = true
+				distanceToSelectedIndex = enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[selectedMoveIndex].global_position)
 			else:
-				if (enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[moveIndex].global_position) > enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[selectedMoveIndex].global_position)):
+				var distanceToNewIndex: float = enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[moveIndex].global_position)
+				if (distanceToNewIndex < distanceToSelectedIndex):
 					selectedIndex = i
 					selectedMoveIndex = moveIndex
+					distanceToSelectedIndex = distanceToNewIndex
 			moveIndex += 1
 	return selectedIndex
 
