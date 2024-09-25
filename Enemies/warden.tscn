@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="8_ldvhh"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="9_vbtee"]
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="10_nqx0w"]
-[ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="11_ur1sm"]
+[ext_resource type="Texture2D" uid="uid://8v1cci0fcjgx" path="res://Enemies/Sprites/Enemy-warden-001.png" id="11_ss25q"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_aa0al"]
 [ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="13_cqou3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_gs4mp"]
@@ -37,15 +37,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 48.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gnbpq"]
-atlas = ExtResource("11_ur1sm")
-region = Rect2(0, 0, 144, 159)
+[sub_resource type="AtlasTexture" id="AtlasTexture_63inc"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(0, 0, 128, 116)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gnbpq")
+"texture": SubResource("AtlasTexture_63inc")
 }],
 "loop": true,
 "name": &"idle",
@@ -114,7 +114,7 @@ stream = ExtResource("10_nqx0w")
 max_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.941176, 0.560784, 0.0196078, 1)
+position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
