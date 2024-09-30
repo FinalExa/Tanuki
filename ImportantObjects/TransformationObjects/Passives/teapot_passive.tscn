@@ -1,14 +1,79 @@
-[gd_scene load_steps=6 format=3 uid="uid://yh8trjrdfafp"]
+[gd_scene load_steps=16 format=3 uid="uid://yh8trjrdfafp"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotPassive.gd" id="1_wjoe1"]
 [ext_resource type="Script" path="res://WeaponTool/Scripts/ExecuteAttack.gd" id="2_t68bk"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotAura.gd" id="3_ak6tv"]
+[ext_resource type="Texture2D" uid="uid://dqe8xaw2lkk2q" path="res://ImportantObjects/TransformationObjects/Sprites/Teapot-over-001-sprite.png" id="4_yh14w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dek76"]
 radius = 192.167
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
 radius = 128.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gqbb"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(0, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu7f4"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(100, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdw3x"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(200, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhio1"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(300, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fllct"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(400, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pccu8"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(500, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psv8j"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(600, 0, 100, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw186"]
+atlas = ExtResource("4_yh14w")
+region = Rect2(700, 0, 100, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6g8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gqbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu7f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdw3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhio1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fllct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pccu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psv8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw186")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("teapotWeapon", "teapotAura")]
 script = ExtResource("1_wjoe1")
@@ -38,6 +103,10 @@ shape = SubResource("CircleShape2D_dek76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAbsorbHeat"]
 shape = SubResource("CircleShape2D_4ph7j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c6g8s")
 
 [connection signal="on_attack_end" from="TeapotWeapon" to="." method="_on_teapot_weapon_on_attack_end"]
 [connection signal="body_entered" from="TeapotAura" to="TeapotAura" method="_on_body_entered"]

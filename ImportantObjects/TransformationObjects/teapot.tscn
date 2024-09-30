@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgato2gssm4xh"]
+[gd_scene load_steps=7 format=3 uid="uid://bgato2gssm4xh"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_a48ek"]
-[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/transformObject.png" id="2_m0qm7"]
+[ext_resource type="Texture2D" uid="uid://c2oxy8ngqkl4n" path="res://ImportantObjects/TransformationObjects/Sprites/Teapot-normal-001.png" id="2_ixswd"]
+[ext_resource type="Texture2D" uid="uid://b1pohmtevlb45" path="res://ImportantObjects/TransformationObjects/Sprites/Teapot-002-sprite.png" id="3_dlnek"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_s5wk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
@@ -16,7 +17,7 @@ script = ExtResource("1_a48ek")
 transformedName = "Teapot"
 transformedMaxSpeed = 500.0
 transformedCollider = NodePath("CollisionShape2D")
-transformedTexture = NodePath("Sprite2D")
+transformedTexture = NodePath("PlayerSprite")
 transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/teapot_passive.tscn"
 transformedTailLocation = NodePath("TailLocation")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/teapot.tscn"
@@ -28,7 +29,13 @@ position = Vector2(0, 72)
 shape = SubResource("RectangleShape2D_3gx12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_m0qm7")
+scale = Vector2(2, 2)
+texture = ExtResource("2_ixswd")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_dlnek")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
 script = ExtResource("3_s5wk0")
