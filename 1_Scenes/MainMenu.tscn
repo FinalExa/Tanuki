@@ -22,7 +22,6 @@ offset_left = 832.0
 offset_top = 352.0
 offset_right = 1088.0
 offset_bottom = 736.0
-gameScenePath = "res://1_Scenes/Hall.tscn"
 continuePanel = NodePath("../ContinuePanel")
 optionsPanel = NodePath("../OptionsPanel")
 controlsPanel = NodePath("../ControlsPanel")

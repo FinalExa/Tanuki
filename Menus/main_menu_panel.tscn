@@ -8,7 +8,7 @@ offset_right = 256.0
 offset_bottom = 384.0
 script = ExtResource("1_h434p")
 activeLevelPath = "res://1_Scenes/ActiveLevel.tscn"
-gameScenePath = "res://1_Scenes/FirstImplementation.tscn"
+gameScenePath = "res://1_Scenes/Kitchen.tscn"
 
 [node name="NewGame" type="PanelContainer" parent="."]
 layout_mode = 0

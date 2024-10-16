@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ihe2khn4xat8"]
+[gd_scene load_steps=4 format=3 uid="uid://ihe2khn4xat8"]
 
+[ext_resource type="Texture2D" uid="uid://cks60248pxoqy" path="res://Level/Sprites/Placeholder/Muro chiaro.png" id="1_e8fhx"]
 [ext_resource type="Texture2D" uid="uid://bs4gu5uxjoa3q" path="res://Level/Sprites/Placeholder/Muro ombreggiato.png" id="1_ird3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd402"]
-size = Vector2(16, 128)
+size = Vector2(16, 256)
 
 [node name="WallVerticalEnd" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bd402")
 
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_e8fhx")
+
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 64)
 texture = ExtResource("1_ird3g")
