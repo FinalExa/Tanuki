@@ -1,0 +1,205 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4hsk72bqemll"]
+
+[ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_fq73p"]
+[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="3_1s836"]
+[ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="4_34tre"]
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="RoomA" type="Node2D" parent="."]
+
+[node name="RoomB" type="Node2D" parent="."]
+
+[node name="RoomC" type="Node2D" parent="."]
+
+[node name="RoomD" type="Node2D" parent="."]
+
+[node name="SpawningPoint" type="Node2D" parent="RoomD"]
+position = Vector2(646, 120)
+
+[node name="DoorAndEndingpoint" type="Node2D" parent="RoomD"]
+position = Vector2(656, 3307)
+
+[node name="Topolino" type="Node2D" parent="RoomD"]
+position = Vector2(3729, 3307)
+
+[node name="Walls" type="Node2D" parent="RoomD"]
+
+[node name="WallWithLeftVertical" parent="RoomD/Walls" instance=ExtResource("1_3f76x")]
+position = Vector2(128, 64)
+
+[node name="Wall2" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(385, 64)
+
+[node name="Wall3" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1153, 64)
+
+[node name="Wall4" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(897, 64)
+
+[node name="WallVertical" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 192)
+
+[node name="WallVertical2" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 320)
+
+[node name="WallVertical3" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 448)
+
+[node name="WallVertical4" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 576)
+
+[node name="WallVertical5" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 704)
+
+[node name="WallVertical6" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1088)
+
+[node name="WallVertical7" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 960)
+
+[node name="WallVertical8" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1344)
+
+[node name="WallVertical9" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1216)
+
+[node name="WallVertical10" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1600)
+
+[node name="WallVertical11" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1472)
+
+[node name="WallVertical12" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1728)
+
+[node name="WallVertical13" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2111)
+
+[node name="WallVertical14" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 1983)
+
+[node name="WallVertical15" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2367)
+
+[node name="WallVertical16" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2239)
+
+[node name="WallVertical17" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2623)
+
+[node name="WallVertical18" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2495)
+
+[node name="WallVertical19" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2879)
+
+[node name="WallVertical20" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 2751)
+
+[node name="WallVertical21" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 3007)
+
+[node name="WallVertical23" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(8, 3135)
+
+[node name="WallVerticalEnd" parent="RoomD/Walls" instance=ExtResource("4_34tre")]
+position = Vector2(8, 3263)
+
+[node name="Wall" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(144, 3263)
+
+[node name="Wall5" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(400, 3263)
+
+[node name="Wall6" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1165, 3263)
+
+[node name="Wall7" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(910, 3263)
+
+[node name="Wall8" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1676, 3263)
+
+[node name="Wall9" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1421, 3263)
+
+[node name="Wall10" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2187, 3263)
+
+[node name="Wall11" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1932, 3263)
+
+[node name="Wall12" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2698, 3263)
+
+[node name="Wall13" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2443, 3263)
+
+[node name="Wall14" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(3209, 3263)
+
+[node name="Wall16" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(3465, 3263)
+
+[node name="Wall17" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(4233, 3263)
+
+[node name="Wall18" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(3977, 3263)
+
+[node name="Wall19" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(4745, 3263)
+
+[node name="Wall20" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(4489, 3263)
+
+[node name="Wall21" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(5257, 3263)
+
+[node name="Wall22" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(5001, 3263)
+
+[node name="Wall23" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(5769, 3263)
+
+[node name="Wall24" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(5513, 3263)
+
+[node name="Wall25" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(6025, 3263)
+
+[node name="Wall26" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(6537, 3263)
+
+[node name="Wall27" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(6281, 3263)
+
+[node name="Wall15" parent="RoomD/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2954, 3263)
+
+[node name="WallVerticalEnd2" parent="RoomD/Walls" instance=ExtResource("4_34tre")]
+position = Vector2(6673, 3263)
+
+[node name="WallVertical22" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(6673, 3135)
+
+[node name="WallVertical24" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(6673, 3007)
+
+[node name="WallVertical25" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(6673, 2879)
+
+[node name="WallVertical26" parent="RoomD/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(6673, 2751)
+
+[node name="RoomE" type="Node2D" parent="."]
+
+[node name="RoomF" type="Node2D" parent="."]
+
+[node name="RoomG" type="Node2D" parent="."]
+
+[node name="RoomH" type="Node2D" parent="."]
+
+[node name="Roof" type="Node2D" parent="."]
