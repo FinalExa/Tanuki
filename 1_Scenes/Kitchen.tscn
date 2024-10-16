@@ -22,7 +22,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 position = Vector2(512, -2944)
 
 [node name="EndPoint" type="Node2D" parent="Teleports"]
-position = Vector2(656, 3436)
+position = Vector2(512, 3520)
 
 [node name="Roof" type="Node2D" parent="Teleports"]
 
