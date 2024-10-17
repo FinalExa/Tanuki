@@ -9,7 +9,8 @@ extends Node2D
 @export var openState: Node2D
 
 func _ready():
-	openState.get_parent().remove_child(openState)
+	if (openState != null):
+		openState.get_parent().remove_child(openState)
 
 func RegisterKey(keyID: int):
 	if (!registeredKeys.has(keyID)):
@@ -18,5 +19,13 @@ func RegisterKey(keyID: int):
 			call_deferred("OpenDoor")
 
 func OpenDoor():
-	closedState.get_parent().remove_child(closedState)
-	openState.reparent(self)
+	closedState.queue_free()
+	if (openState != null):
+		openState.reparent(self)
+
+func _on_area_2d_body_entered(body):
+	if (body is PlayerCharacter):
+		ContactWithplayer(body)
+
+func ContactWithplayer(playerRef: PlayerCharacter):
+	playerRef.playerProgressionTrack.AssignKeysToDoor(self)

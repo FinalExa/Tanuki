@@ -27,8 +27,11 @@ func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 	if (levelUnlockKeys.size() > 0):
 		playerRef.playerProgressionTrack.GenerateCurrentIDArray(sceneType)
 		var currentIDArray: Array[int] = playerRef.playerProgressionTrack.currentIDArray
+		var currentUsedArray: Array[int] = playerRef.playerProgressionTrack.currentUsedKeysArray
 		for i in currentIDArray.size():
 			levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
+			if (currentUsedArray[i] != -1):
+				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 
 func SetPlayerSpawn(playerRef: PlayerCharacter):
 	if (playerRef.isTraveling && travelingAreas.size() > 0):

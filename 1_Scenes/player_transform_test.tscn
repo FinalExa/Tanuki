@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=11 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="8_7t8fv"]
+[ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="8_ksf3n"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="9_h3a0c"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="9_i2svm"]
@@ -16,11 +17,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-10272, 6032, -7952, -6
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxo8o"]
 size = Vector2(64, 128)
 
-[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "travelingAreas")]
+[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "travelingAreas")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
-sceneType = null
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
+levelUnlockKeyDoors = [NodePath("LevelUnlockKeyDoor")]
 travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
@@ -100,5 +101,9 @@ shape = SubResource("RectangleShape2D_pxo8o")
 
 [node name="Destination" type="Node2D" parent="TravelingArea"]
 position = Vector2(160, 0)
+
+[node name="LevelUnlockKeyDoor" parent="." instance=ExtResource("8_ksf3n")]
+position = Vector2(-1024, -192)
+requiredKeys = 3
 
 [connection signal="body_entered" from="TravelingArea" to="TravelingArea" method="_on_body_entered"]

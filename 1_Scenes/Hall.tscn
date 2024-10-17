@@ -49,7 +49,6 @@ size = Vector2(64, 256)
 [node name="Hall" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas")]
 script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("PlayerSpawn")
-sceneType = null
 travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
