@@ -8,42 +8,29 @@ offset_right = 256.0
 offset_bottom = 192.0
 script = ExtResource("1_kvkd7")
 activeLevelPath = "res://1_Scenes/ActiveLevel.tscn"
-playtestMapPath = "res://1_Scenes/PlayTestMap.tscn"
-playerMapPath = "res://1_Scenes/player_transform_test.tscn"
+testMapPath = "res://1_Scenes/player_transform_test.tscn"
 
-[node name="PlayTestMap" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 8.0
-offset_right = 184.0
-offset_bottom = 56.0
-
-[node name="PlayTestMapButton" type="Button" parent="PlayTestMap"]
-layout_mode = 2
-text = "Playtest Map"
-
-[node name="PlayerMap" type="PanelContainer" parent="."]
+[node name="TestMap" type="PanelContainer" parent="."]
 layout_mode = 2
 offset_left = 72.0
-offset_top = 72.0
+offset_top = 32.0
 offset_right = 184.0
-offset_bottom = 120.0
+offset_bottom = 80.0
 
-[node name="PlayerMapButton" type="Button" parent="PlayerMap"]
+[node name="TestMapButton" type="Button" parent="TestMap"]
 layout_mode = 2
-text = "Player Map"
+text = "Test Map"
 
 [node name="Back" type="PanelContainer" parent="."]
 layout_mode = 2
 offset_left = 72.0
-offset_top = 136.0
+offset_top = 112.0
 offset_right = 184.0
-offset_bottom = 184.0
+offset_bottom = 160.0
 
 [node name="BackButton" type="Button" parent="Back"]
 layout_mode = 2
 text = "Back"
 
-[connection signal="button_up" from="PlayTestMap/PlayTestMapButton" to="." method="_on_play_test_map_button_button_up"]
-[connection signal="button_up" from="PlayerMap/PlayerMapButton" to="." method="_on_player_map_button_button_up"]
+[connection signal="button_up" from="TestMap/TestMapButton" to="." method="_on_test_map_button_button_up"]
 [connection signal="button_up" from="Back/BackButton" to="." method="_on_back_button_button_up"]
