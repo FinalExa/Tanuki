@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=10 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_6b65h"]
 [ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="5_dc0wf"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="8_7t8fv"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="9_i2svm"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
@@ -16,6 +17,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-10272, 6032, -7952, -6
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
+sceneType = null
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(-1016, -24)
@@ -79,3 +81,5 @@ position = Vector2(-1160, 232)
 
 [node name="Vase" parent="." instance=ExtResource("9_i2svm")]
 position = Vector2(-904, 336)
+
+[node name="UnlockKey" parent="." instance=ExtResource("8_7t8fv")]
