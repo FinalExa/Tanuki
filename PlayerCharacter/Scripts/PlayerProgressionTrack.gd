@@ -46,10 +46,13 @@ func GetCurrentDoorID(gameplayScene: GameplayScene, keyDoor: LevelUnlockKeyDoor)
 			return i
 
 func FillUseForDoors(doorID: int, keyDoor: LevelUnlockKeyDoor):
-	for i in usedUnlockKeyForDoors.size():
-		if (unlockKeyTypes[i] == currentUnlockKeyType && usedUnlockKeyForDoors[i] == -1):
-			usedUnlockKeyForDoors[i] = doorID
-			keyDoor.RegisterKey(unlockKeyIDs[i])
+	if (keyDoor.registeredKeys.size() < keyDoor.requiredKeys):
+		for i in usedUnlockKeyForDoors.size():
+			if (unlockKeyTypes[i] == currentUnlockKeyType && usedUnlockKeyForDoors[i] == -1):
+				usedUnlockKeyForDoors[i] = doorID
+				keyDoor.RegisterKey(unlockKeyIDs[i])
+				if (keyDoor.registeredKeys.size() == keyDoor.requiredKeys):
+					break
 
 func RegisterQuestWithStage(questName: String, questStage: int):
 	if (!activeQuests.has(questName)):
