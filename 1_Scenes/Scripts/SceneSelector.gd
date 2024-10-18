@@ -38,6 +38,7 @@ func ContinueAfterDelete(delta):
 func SetPlayerDataOnReload():
 	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.transformationChangeRef.DeactivateTransformation()
+	playerRef.playerProgressionTrack.ClearAll()
 	playerRef.transformationChangeRef.transformationTimer = 0
 	playerRef.playerMovement.SetToZero()
 	playerRef.global_position = safePosition

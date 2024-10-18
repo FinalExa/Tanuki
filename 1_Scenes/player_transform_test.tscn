@@ -21,11 +21,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-10272, 6032, -7952, -6
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxo8o"]
 size = Vector2(64, 128)
 
-[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "travelingAreas")]
+[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("LevelUnlockKeyDoor")]
+mapQuests = [NodePath("OniQuest")]
 travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]

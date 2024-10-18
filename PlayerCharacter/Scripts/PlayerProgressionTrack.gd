@@ -12,6 +12,15 @@ var currentUsedKeysArray: Array[int]
 var activeQuests: Array[String]
 var activeQuestsStages: Array[int]
 
+func ClearAll():
+	unlockKeyTypes.clear()
+	unlockKeyIDs.clear()
+	usedUnlockKeyForDoors.clear()
+	currentIDArray.clear()
+	currentUsedKeysArray.clear()
+	activeQuests.clear()
+	activeQuestsStages.clear()
+
 func GenerateCurrentIDArray(newType: GameplayScene.SceneType):
 	currentUnlockKeyType = newType
 	currentIDArray.clear()
@@ -52,4 +61,5 @@ func RegisterQuestWithStage(questName: String, questStage: int):
 		if (activeQuests[i] == questName):
 			questIndex = i
 			break
-	activeQuestsStages[questIndex] = questStage
+	if (activeQuestsStages[questIndex] < questStage):
+		activeQuestsStages[questIndex] = questStage

@@ -28,8 +28,23 @@ func SetKeys():
 
 func SetQuests():
 	if (mapQuests.size() > 0):
+		var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 		for i in mapQuests.size():
 			mapQuests[i].gameplayScene = self
+			mapQuests[i].SetLastStage()
+			mapQuests[i].ExecuteCurrentStage()
+			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
+
+func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressionTrack):
+	if (progression.activeQuests.has(quest.questName)):
+		for i in progression.activeQuests.size():
+			if (progression.activeQuests[i] == quest.questName):
+				quest.AdvanceToStage(progression.activeQuestsStages[i])
+				return
+
+func SaveQuestProgressToPlayer(questName: String, questStage: int):
+	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
+	playerRef.playerProgressionTrack.RegisterQuestWithStage(questName, questStage)
 
 func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 	if (levelUnlockKeys.size() > 0):

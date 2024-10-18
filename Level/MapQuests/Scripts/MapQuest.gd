@@ -12,23 +12,29 @@ var gameplayScene: GameplayScene
 var currentQuestStage: int = 0
 var lastStage: int
 
-func _ready():
-	GetLastStage()
-	ExecuteCurrentStage()
-
-func GetLastStage():
+func SetLastStage():
 	lastStage = questItemsStages[questItemsStages.size() - 1] + 1
 
 func ExecuteCurrentStage():
+	if (currentQuestStage == 0):
+		gameplayScene.SaveQuestProgressToPlayer(questName, currentQuestStage)
 	if (currentQuestStage < lastStage):
 		for i in questItemsStages.size():
 			if (questItemsStages[i] == currentQuestStage):
-				
-				OnOff(questItemsToOperate[i], questItemsOnOffState[i])
+				call_deferred("OnOff", questItemsToOperate[i], questItemsOnOffState[i])
 				continue
 			if (questItemsStages[i] > currentQuestStage):
 				break
+		CheckForLastStage()
 		return
+
+func CheckForLastStage():
+	if (currentQuestStage + 1 == lastStage):
+		currentQuestStage = lastStage
+		gameplayScene.SaveQuestProgressToPlayer(questName, currentQuestStage)
+		CleanUpAfterQuestComplete()
+
+func CleanUpAfterQuestComplete():
 	for i in objectsToDeleteAtQuestComplete.size():
 		if (objectsToDeleteAtQuestComplete[i] != null):
 			objectsToDeleteAtQuestComplete[i].queue_free()
