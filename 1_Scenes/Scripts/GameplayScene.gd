@@ -14,6 +14,7 @@ enum SceneType
 @export var levelUnlockKeyDoors: Array[LevelUnlockKeyDoor]
 
 @export var mapQuests: Array[MapQuest]
+@export var unlocksAfterQuestStages: Array[UnlocksAfterQuestStage]
 
 @export var travelingAreas: Array[TravelingArea]
 
@@ -34,6 +35,7 @@ func SetQuests():
 			mapQuests[i].SetLastStage()
 			mapQuests[i].ExecuteCurrentStage()
 			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
+			CheckForUnlocksAfterQuest(mapQuests[i].questName, mapQuests[i].currentQuestStage)
 
 func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressionTrack):
 	if (progression.activeQuests.has(quest.questName)):
@@ -45,6 +47,13 @@ func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressio
 func SaveQuestProgressToPlayer(questName: String, questStage: int):
 	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 	playerRef.playerProgressionTrack.RegisterQuestWithStage(questName, questStage)
+	CheckForUnlocksAfterQuest(questName, questStage)
+
+func CheckForUnlocksAfterQuest(questName: String, questStage: int):
+	for i in unlocksAfterQuestStages.size():
+		if (questName == unlocksAfterQuestStages[i].requiredQuest):
+			unlocksAfterQuestStages[i].CheckForCompletion(questStage)
+			break
 
 func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 	if (levelUnlockKeys.size() > 0):
