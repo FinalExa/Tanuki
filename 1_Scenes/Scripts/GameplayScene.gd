@@ -13,15 +13,23 @@ enum SceneType
 @export var levelUnlockKeys: Array[LevelUnlockKey]
 @export var levelUnlockKeyDoors: Array[LevelUnlockKeyDoor]
 
+@export var mapQuests: Array[MapQuest]
+
 @export var travelingAreas: Array[TravelingArea]
 
 func _ready():
 	SetKeys()
+	SetQuests()
 
 func SetKeys():
 	if (levelUnlockKeys.size() > 0):
 		for i in levelUnlockKeys.size():
 			levelUnlockKeys[i].gameplayScene = self
+
+func SetQuests():
+	if (mapQuests.size() > 0):
+		for i in mapQuests.size():
+			mapQuests[i].gameplayScene = self
 
 func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 	if (levelUnlockKeys.size() > 0):

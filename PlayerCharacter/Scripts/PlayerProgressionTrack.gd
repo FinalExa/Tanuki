@@ -9,6 +9,9 @@ var currentUnlockKeyType: GameplayScene.SceneType
 var currentIDArray: Array[int]
 var currentUsedKeysArray: Array[int]
 
+var activeQuests: Array[String]
+var activeQuestsStages: Array[int]
+
 func GenerateCurrentIDArray(newType: GameplayScene.SceneType):
 	currentUnlockKeyType = newType
 	currentIDArray.clear()
@@ -38,3 +41,15 @@ func FillUseForDoors(doorID: int, keyDoor: LevelUnlockKeyDoor):
 		if (unlockKeyTypes[i] == currentUnlockKeyType && usedUnlockKeyForDoors[i] == -1):
 			usedUnlockKeyForDoors[i] = doorID
 			keyDoor.RegisterKey(unlockKeyIDs[i])
+
+func RegisterQuestWithStage(questName: String, questStage: int):
+	if (!activeQuests.has(questName)):
+		activeQuests.push_back(questName)
+		activeQuestsStages.push_back(questStage)
+		return
+	var questIndex: int
+	for i in activeQuests.size():
+		if (activeQuests[i] == questName):
+			questIndex = i
+			break
+	activeQuestsStages[questIndex] = questStage
