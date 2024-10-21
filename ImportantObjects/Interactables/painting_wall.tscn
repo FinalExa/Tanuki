@@ -8,7 +8,7 @@ size = Vector2(512, 128)
 
 [node name="PaintingWall" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_s6p3a")
-neededString = "Slice"
+neededString = "Cut"
 savedOnDestroy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=48 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="15_wdsu2"]
 [ext_resource type="PackedScene" uid="uid://dw1hwjif77sfj" path="res://ImportantObjects/Interactables/painting_wall.tscn" id="15_y35by"]
 [ext_resource type="PackedScene" uid="uid://yverqrhsnw5x" path="res://ImportantObjects/Interactables/fragile_wall.tscn" id="16_q0emh"]
+[ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="17_pif6t"]
+[ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="17_wlcap"]
 [ext_resource type="PackedScene" uid="uid://b12eyc848b6l2" path="res://ImportantObjects/Interactables/fragile_wall_vertical.tscn" id="17_y8fjl"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="19_j74hm"]
 [ext_resource type="PackedScene" uid="uid://dwgotngbjqr82" path="res://ImportantObjects/Interactables/ice_wall.tscn" id="19_qojnu"]
@@ -104,7 +106,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife")]
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -226,6 +228,22 @@ position = Vector2(-3967, -3648)
 
 [node name="PaintingWall" parent="Quests/KitchenHiddenRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("15_y35by")]
 position = Vector2(-3072, -1856)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenObtainKnife"
+questItemsToOperate = [NodePath("Knife"), NodePath("Knife")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
+
+[node name="Knife" parent="Quests/KitchenObtainKnife" instance=ExtResource("17_pif6t")]
+position = Vector2(-1856, 384)
+
+[node name="ButtonToPush" parent="Quests/KitchenObtainKnife" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
+position = Vector2(-2088, 392)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
