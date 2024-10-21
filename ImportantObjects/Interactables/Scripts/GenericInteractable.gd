@@ -5,9 +5,10 @@ extends Node2D
 @export var savedOnDestroy: bool
 @export var objectToSendDestoySignal: Node2D
 @export var objectoToSendInteractSignal: PuzzleObject
-@export var questToSendProgressSignal: MapQuest
 @export var hasCooldown: bool
 @export var cooldownDuration: float
+@export var questToSendProgressSignal: MapQuest
+@export var sendSignalToQuestOnDestroyed: bool
 var parentRef: Node2D
 var cooldownActive: bool
 var cooldownTimer: float
@@ -49,7 +50,7 @@ func ExecuteLoadOperation():
 func FinalState():
 	if (!hasCooldown):
 		call_deferred("RemoveChild")
-		QuestSignal()
+		if (sendSignalToQuestOnDestroyed): QuestSignal()
 		queue_free()
 		return
 	cooldownTimer = cooldownDuration

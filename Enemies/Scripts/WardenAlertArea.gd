@@ -10,6 +10,7 @@ func _process(_delta):
 func UpdatePlayerPositionToGuardsInArea():
 	if (wardenCheck.playerIn && guardsInArea.size() > 0):
 		for i in guardsInArea.size():
+			SetGuardInAlert(guardsInArea[i])
 			UpdateGuardWithInfo(guardsInArea[i])
 
 func UpdateGuardWithInfo(guard: GuardController):
@@ -17,7 +18,7 @@ func UpdateGuardWithInfo(guard: GuardController):
 		guard.guardAlert.goToAlertStartLocation = true
 		guard.guardAlert.SetAlertTargetLastInfo(wardenCheck.playerRef)
 
-func SetGuardAlerted(guard: GuardController):
+func SetGuardInAlert(guard: GuardController):
 	if (!guard.isInAlert && !guard.isStunned):
 		if (guard.isInPatrol):
 			guard.enemyPatrol.stop_patrol()
@@ -26,16 +27,14 @@ func SetGuardAlerted(guard: GuardController):
 		if (guard.isInResearch):
 			guard.guardResearch.StopResearch()
 		guard.guardAlert.start_alert(wardenCheck.playerRef)
-	if (!guardsInArea.has(guard)):
-		guardsInArea.push_back(guard)
 
 func ClearGuardsInArea():
 	guardsInArea.clear()
 
 func _on_body_entered(body):
-	if (body is GuardController):
-		SetGuardAlerted(body)
+	if (body is GuardController && !guardsInArea.has(body)):
+		guardsInArea.push_back(body)
 
 func _on_body_exited(body):
-	if (guardsInArea.has(body)):
+	if (body is GuardController && guardsInArea.has(body)):
 		guardsInArea.erase(body)

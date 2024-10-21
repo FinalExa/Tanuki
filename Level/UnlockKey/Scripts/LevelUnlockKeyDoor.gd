@@ -3,7 +3,7 @@ extends Node2D
 
 @export var sceneType: GameplayScene.SceneType
 @export var requiredKeys: int
-@export var registeredKeys: Array[int]
+var registeredKeys: Array[int]
 
 @export var closedState: Node2D
 @export var openState: Node2D

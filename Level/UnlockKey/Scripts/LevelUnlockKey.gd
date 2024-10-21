@@ -2,7 +2,6 @@ class_name LevelUnlockKey
 extends Area2D
 
 var gameplayScene: GameplayScene
-@export var sourceObject: Node2D
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
@@ -17,6 +16,4 @@ func FindID():
 		if (gameplayScene.levelUnlockKeys[i] == self): return i
 
 func AlreadyGotThisKey():
-	if (sourceObject != null):
-		pass
 	queue_free()

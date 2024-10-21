@@ -51,8 +51,9 @@ func AdvanceToStage(stageToAdvance: int):
 		AdvanceStage()
 
 func OnOff(objectToOperate: Node2D, status: bool):
-	if (status):
-		self.add_child(objectToOperate)
-		return
-	if (objectToOperate.get_parent() != null):
-		objectToOperate.get_parent().remove_child(objectToOperate)
+	if (objectToOperate != null):
+		if (status):
+			self.add_child(objectToOperate)
+			return
+		if (objectToOperate.get_parent() != null):
+			objectToOperate.get_parent().remove_child(objectToOperate)

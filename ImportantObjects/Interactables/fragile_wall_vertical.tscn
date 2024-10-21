@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b12eyc848b6l2"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_33gsw"]
+[ext_resource type="Texture2D" uid="uid://cks60248pxoqy" path="res://Level/Sprites/Placeholder/Muro chiaro.png" id="2_hwsj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(16, 256)
+
+[node name="FragileWallVertical" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_33gsw")
+neededString = "Pound"
+savedOnDestroy = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Wall" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 1, 0.301961, 1)
+position = Vector2(0, -64)
+texture = ExtResource("2_hwsj2")
+
+[node name="Wall2" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 1, 0.301961, 1)
+position = Vector2(0, 64)
+texture = ExtResource("2_hwsj2")
+
+[node name="Cracks" type="Sprite2D" parent="."]
