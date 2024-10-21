@@ -1,14 +1,10 @@
 extends StandardInactivePanel
 
 @export var activeLevelPath: String
-@export var playtestMapPath: String
-@export var playerMapPath: String
+@export var testMapPath: String
 
-func _on_play_test_map_button_button_up():
-	call_deferred("SwapScenes", playtestMapPath)
-
-func _on_player_map_button_button_up():
-	call_deferred("SwapScenes", playerMapPath)
+func _on_test_map_button_button_up():
+	call_deferred("SwapScenes", testMapPath)
 
 func _on_back_button_button_up():
 	BackToPreviousPanel()

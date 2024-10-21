@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=51 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -213,7 +214,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 32.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -226,6 +227,7 @@ playerMovement = NodePath("Rotator/PlayerMovement")
 playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
+playerProgressionTrack = NodePath("PlayerProgressionTrack")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -286,6 +288,9 @@ playerRef = NodePath("..")
 currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
 normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5")]
 transformedMovementSound = NodePath("../Sounds/TransformedMovement")
+
+[node name="PlayerProgressionTrack" type="Node" parent="."]
+script = ExtResource("17_pusai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5la1i")

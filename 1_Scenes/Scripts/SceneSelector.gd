@@ -50,6 +50,7 @@ func InstantiateNewScene():
 	add_child(currentScene)
 	sceneMaster.UpdatePathAndLoad()
 	currentScene.SetPlayerSpawn(playerRef)
+	currentScene.SetCurrentKeysForPlayer(playerRef)
 
 func ReloadScene():
 	ChangeScene(currentScenePath)
