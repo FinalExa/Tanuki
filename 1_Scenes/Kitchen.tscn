@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=55 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -39,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
 [ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
+[ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
+[ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
@@ -313,6 +315,20 @@ spawnLocation = NodePath("Destination")
 [node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomG/VaseGrown"]
 position = Vector2(0, -72)
 
+[node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenClearDirtyFloor"
+questItemsToOperate = [null]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
+
+[node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
+position = Vector2(2688, 2816)
+scale = Vector2(2, 4)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 
 [node name="UnlocksAfterKitchenRoofDropChest" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
@@ -375,6 +391,9 @@ navigation_polygon = SubResource("NavigationPolygon_7n0o3")
 
 [node name="Mouse" type="Node2D" parent="Rooms/RoomD/Objects"]
 position = Vector2(3712, 3392)
+
+[node name="Broom" parent="Rooms/RoomD/Objects" instance=ExtResource("23_2lu15")]
+position = Vector2(992, 1984)
 
 [node name="RoomE" type="Node2D" parent="Rooms"]
 
