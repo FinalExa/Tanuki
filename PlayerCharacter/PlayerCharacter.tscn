@@ -352,7 +352,7 @@ position = Vector2(0, 80)
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
 accelerationPerSecond = 700.0
-defaultMaxSpeed = 500.0
+defaultMaxSpeed = 1000.0
 playerRef = NodePath("../..")
 
 [node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]

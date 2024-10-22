@@ -19,7 +19,7 @@ enum SceneType
 
 @export var travelingAreas: Array[TravelingArea]
 
-func _ready():
+func Initialize():
 	SetKeys()
 	SetQuests()
 

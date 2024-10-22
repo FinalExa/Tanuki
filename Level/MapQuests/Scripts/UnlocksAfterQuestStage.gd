@@ -25,8 +25,9 @@ func CompleteUnlockAfterQuest():
 	if (objectsToAdd.size() > 0):
 		for i in objectsToAdd.size():
 			if (objectsToAdd[i] != null):
-				print("done")
-				self.add_child(objectsToAdd[i])
+				if (objectsToAdd[i] is PuzzleObject):
+					objectsToAdd[i].InteractSignal()
+				else: self.add_child(objectsToAdd[i])
 	if (objectsToRemove.size() > 0):
 		for i in objectsToRemove.size():
 			if (objectsToRemove[i] != null):

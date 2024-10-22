@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=53 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
+[ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
@@ -110,9 +111,9 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD")]
-unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest")]
-travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
+travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown"), NodePath("Quests/KitchenGrowPlantInRoomG/VaseGrown")]
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -290,6 +291,28 @@ spawnLocation = NodePath("Destination")
 [node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomD/VaseGrown"]
 position = Vector2(0, -72)
 
+[node name="KitchenGrowPlantInRoomG" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenGrowPlantInRoomG"
+questItemsToOperate = [NodePath("VaseGrown"), NodePath("VaseGrown")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
+
+[node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
+position = Vector2(2816, 1040)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomG" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("20_0oc42")]
+position = Vector2(2816, 1040)
+sendToTravelID = 1
+sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
+spawnLocation = NodePath("Destination")
+
+[node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomG/VaseGrown"]
+position = Vector2(0, -72)
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 
 [node name="UnlocksAfterKitchenRoofDropChest" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
@@ -297,6 +320,16 @@ script = ExtResource("20_hgt0f")
 requiredQuest = "KitchenRoofDropChest"
 requiredQuestStage = 1
 objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
+
+[node name="UnlocksAfterKitchenRoofDropLantern" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
+script = ExtResource("20_hgt0f")
+requiredQuest = "KitchenRoofDropLantern"
+requiredQuestStage = 1
+objectsToAdd = [NodePath("StunArea")]
+
+[node name="StunArea" parent="QuestUnlocks/UnlocksAfterKitchenRoofDropLantern" instance=ExtResource("21_bxa72")]
+position = Vector2(2192, -336)
+stunDuration = 10.0
 
 [node name="Teleports" type="Node2D" parent="."]
 
@@ -376,6 +409,9 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(1032, 1536)
 questToSendProgressSignal = NodePath("../../../../Quests/KitchenDestroyVerticalFragileWall")
 sendSignalToQuestOnDestroyed = true
+
+[node name="Hammer2" parent="Rooms/RoomG/Objects" instance=ExtResource("26_3pbsd")]
+position = Vector2(3264, 1152)
 
 [node name="RoomH" type="Node2D" parent="Rooms"]
 
