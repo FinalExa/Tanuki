@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=57 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -41,7 +41,9 @@
 [ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
+[ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="24_u6tss"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
+[ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
 texture = ExtResource("2_v41y6")
@@ -113,7 +115,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenFeedRat")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown"), NodePath("Quests/KitchenGrowPlantInRoomG/VaseGrown")]
 
@@ -129,7 +131,7 @@ position = Vector2(2176, -128)
 position = Vector2(-3072, -2112)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("2_8niet")]
-position = Vector2(3712, 3328)
+position = Vector2(3712, 3432)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("2_8niet")]
 position = Vector2(512, 832)
@@ -329,6 +331,19 @@ scale = Vector2(2, 4)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenFeedRat"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("../../Keys/UnlockKey4")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("Rat")]
+
+[node name="Rat" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_acuu4")]
+position = Vector2(3712, 3392)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 
 [node name="UnlocksAfterKitchenRoofDropChest" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
@@ -380,6 +395,9 @@ navigation_polygon = SubResource("NavigationPolygon_ey8e0")
 [node name="Teapot" parent="Rooms/RoomC" instance=ExtResource("15_wdsu2")]
 position = Vector2(-72, 192)
 
+[node name="Dish" parent="Rooms/RoomC" instance=ExtResource("24_u6tss")]
+position = Vector2(-320, -1216)
+
 [node name="Objects" type="Node2D" parent="Rooms/RoomC"]
 
 [node name="RoomD" type="Node2D" parent="Rooms"]
@@ -388,9 +406,6 @@ position = Vector2(-72, 192)
 navigation_polygon = SubResource("NavigationPolygon_7n0o3")
 
 [node name="Objects" type="Node2D" parent="Rooms/RoomD"]
-
-[node name="Mouse" type="Node2D" parent="Rooms/RoomD/Objects"]
-position = Vector2(3712, 3392)
 
 [node name="Broom" parent="Rooms/RoomD/Objects" instance=ExtResource("23_2lu15")]
 position = Vector2(992, 1984)

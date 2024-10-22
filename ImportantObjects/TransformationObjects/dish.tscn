@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://yfra1ioctgjr"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_l1s5u"]
+[ext_resource type="Texture2D" uid="uid://cu8kqo2agbwsu" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/dish.png" id="2_u0fav"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_1vouq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(80, 64)
+
+[node name="Dish" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+collision_layer = 3
+script = ExtResource("1_l1s5u")
+transformedName = "Dish"
+transformedMaxSpeed = 500.0
+transformedProperties = Array[String](["Food"])
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/broom.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3gx12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -4.76837e-07)
+texture = ExtResource("2_u0fav")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_1vouq")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

@@ -28,7 +28,8 @@ func Initialize():
 	stunTimer = stunDuration
 
 func TurnOff():
-	parentRef.remove_child(self)
+	if (self.get_parent() != null):
+		parentRef.remove_child(self)
 
 func _on_body_entered(body):
 	if (stunActive):

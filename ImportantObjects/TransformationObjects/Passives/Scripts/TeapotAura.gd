@@ -54,7 +54,8 @@ func _on_body_entered(body):
 			interactablesInRange.push_back(body)
 
 func _on_body_exited(body):
-	if (enemiesInRange.has(body)):
+	if (body is EnemyController && enemiesInRange.has(body)):
 		enemiesInRange.erase(body)
-	if (interactablesInRange.has(body)):
+		return
+	if (body is GenericInteractable && interactablesInRange.has(body)):
 		interactablesInRange.erase(body)

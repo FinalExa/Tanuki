@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var dirtyFloorInteractable: GenericInteractable
+@export var ratInteractable: GenericInteractable
 
 var playerRef: PlayerCharacter
 
@@ -11,13 +11,14 @@ func CheckForRightTransformationTag(playerRef: PlayerCharacter):
 	if (playerRef != null && playerRef.transformationChangeRef.isTransformed):
 		var selectedProperty: String
 		for i in playerRef.transformationChangeRef.currentTransformationProperties.size():
-			if (dirtyFloorInteractable.neededString == playerRef.transformationChangeRef.currentTransformationProperties[i]):
+			if (ratInteractable.neededString == playerRef.transformationChangeRef.currentTransformationProperties[i]):
 				selectedProperty = playerRef.transformationChangeRef.currentTransformationProperties[i]
 				break
 		if (selectedProperty != ""):
-			dirtyFloorInteractable.AttackInteraction(selectedProperty)
-		else:
+			ratInteractable.AttackInteraction(selectedProperty)
 			playerRef.transformationChangeRef.DeactivateTransformation()
+			playerRef.transformationChangeRef.SetNoTransformation()
+
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):

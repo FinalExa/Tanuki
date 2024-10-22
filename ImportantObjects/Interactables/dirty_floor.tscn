@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_0rewg"]
 [ext_resource type="Texture2D" uid="uid://yyrp601thkea" path="res://ImportantObjects/Interactables/Sprites/Porta Verticale chusa .png" id="2_5nxiu"]
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/DirtyFloorInteractionCheck.gd" id="2_hpvn3"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DirtyFloorInteractionCheck.gd" id="2_vy8xm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
 size = Vector2(128, 256)
@@ -12,7 +12,7 @@ script = ExtResource("1_0rewg")
 neededString = "Clean"
 
 [node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
-script = ExtResource("2_hpvn3")
+script = ExtResource("2_vy8xm")
 dirtyFloorInteractable = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DirtyFloorInteractionCheck"]

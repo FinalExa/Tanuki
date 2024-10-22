@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://neav8r5sh8bm"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_iabjc"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/RatInteractionCheck.gd" id="2_bv888"]
+[ext_resource type="Texture2D" uid="uid://bvl58gcj5b11a" path="res://ImportantObjects/Interactables/Sprites/rat.png" id="3_pgy0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(128, 128)
+
+[node name="Rat" type="Node2D" groups=["Interactable"]]
+script = ExtResource("1_iabjc")
+neededString = "Food"
+
+[node name="RatInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("ratInteractable")]
+script = ExtResource("2_bv888")
+ratInteractable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatInteractionCheck"]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_pgy0e")
+
+[connection signal="body_entered" from="RatInteractionCheck" to="RatInteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="RatInteractionCheck" to="RatInteractionCheck" method="_on_body_exited"]
