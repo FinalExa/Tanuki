@@ -106,7 +106,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall")]
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -247,6 +247,22 @@ position = Vector2(-2088, 392)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="KitchenDestroyHorizontalFragileWall" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenDestroyHorizontalFragileWall"
+questItemsToOperate = [null]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("../../Rooms/RoomG/Objects/FragileWall")]
+
+[node name="KitchenDestroyVerticalFragileWall" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenDestroyVerticalFragileWall"
+questItemsToOperate = [null]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("../../Rooms/RoomG/Objects/FragileWallVertical")]
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 
 [node name="Teleports" type="Node2D" parent="."]
@@ -312,11 +328,15 @@ position = Vector2(-1936, 3040)
 
 [node name="Objects" type="Node2D" parent="Rooms/RoomG"]
 
-[node name="FragileWall" parent="Rooms/RoomG/Objects" instance=ExtResource("16_q0emh")]
+[node name="FragileWall" parent="Rooms/RoomG/Objects" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_q0emh")]
 position = Vector2(2176, 2240)
+questToSendProgressSignal = NodePath("../../../../Quests/KitchenDestroyHorizontalFragileWall")
+sendSignalToQuestOnDestroyed = true
 
-[node name="FragileWallVertical" parent="Rooms/RoomG/Objects" instance=ExtResource("17_y8fjl")]
+[node name="FragileWallVertical" parent="Rooms/RoomG/Objects" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_y8fjl")]
 position = Vector2(1032, 1536)
+questToSendProgressSignal = NodePath("../../../../Quests/KitchenDestroyVerticalFragileWall")
+sendSignalToQuestOnDestroyed = true
 
 [node name="RoomH" type="Node2D" parent="Rooms"]
 
