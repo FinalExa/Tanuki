@@ -4,7 +4,8 @@ extends Node2D
 enum SceneType
 {
 	TEST,
-	KITCHEN
+	KITCHEN,
+	KITCHEN_ROOF
 }
 
 @export var playerSpawnPoint: Node2D
@@ -28,14 +29,16 @@ func SetKeys():
 			levelUnlockKeys[i].gameplayScene = self
 
 func SetQuests():
+	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 	if (mapQuests.size() > 0):
-		var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 		for i in mapQuests.size():
 			mapQuests[i].gameplayScene = self
 			mapQuests[i].SetLastStage()
 			mapQuests[i].ExecuteCurrentStage()
 			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
-			CheckForUnlocksAfterQuest(mapQuests[i].questName, mapQuests[i].currentQuestStage)
+	if (unlocksAfterQuestStages.size() > 0):
+		for i in playerRef.playerProgressionTrack.activeQuests.size():
+			CheckForUnlocksAfterQuest(playerRef.playerProgressionTrack.activeQuests[i], playerRef.playerProgressionTrack.activeQuestsStages[i])
 
 func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressionTrack):
 	if (progression.activeQuests.has(quest.questName)):

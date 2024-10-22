@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=52 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -29,9 +29,13 @@
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="17_pif6t"]
 [ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="17_wlcap"]
 [ext_resource type="PackedScene" uid="uid://b12eyc848b6l2" path="res://ImportantObjects/Interactables/fragile_wall_vertical.tscn" id="17_y8fjl"]
+[ext_resource type="PackedScene" uid="uid://7inmeac4ftku" path="res://ImportantObjects/Interactables/vase_empty.tscn" id="19_h26va"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="19_j74hm"]
 [ext_resource type="PackedScene" uid="uid://dwgotngbjqr82" path="res://ImportantObjects/Interactables/ice_wall.tscn" id="19_qojnu"]
+[ext_resource type="PackedScene" uid="uid://cukij2xc6hdaf" path="res://ImportantObjects/TransformationObjects/watering_can.tscn" id="19_smh4r"]
+[ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://ImportantObjects/Interactables/vase_grown.tscn" id="20_0oc42"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="20_fuftr"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
@@ -100,13 +104,15 @@ vertices = PackedVector2Array(-1016, 2432, -1016, 1664, -16, 1792, -16, 3328, -2
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 8, 9, 1), PackedInt32Array(2, 1, 9, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2032, 641, -16, 641, -16, 1537, 0, 1537, 0, 1792, -16, 1792, -16, 3328, -2032, 3328), PackedVector2Array(-1032, 1664, -1016, 1664, -1016, 2432, -1032, 2432)])
 
-[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests")]
+[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas")]
 script = ExtResource("1_fluk2")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest")]
+travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown")]
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -263,7 +269,34 @@ questItemsStages = Array[int]([1])
 questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("../../Rooms/RoomG/Objects/FragileWallVertical")]
 
+[node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenGrowPlantInRoomD"
+questItemsToOperate = [NodePath("VaseGrown"), NodePath("VaseGrown")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
+
+[node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
+position = Vector2(64, 3208)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("20_0oc42")]
+position = Vector2(64, 3208)
+sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
+spawnLocation = NodePath("Destination")
+
+[node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomD/VaseGrown"]
+position = Vector2(0, -72)
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
+
+[node name="UnlocksAfterKitchenRoofDropChest" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
+script = ExtResource("20_hgt0f")
+requiredQuest = "KitchenRoofDropChest"
+requiredQuestStage = 1
+objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
 
 [node name="Teleports" type="Node2D" parent="."]
 
@@ -302,16 +335,23 @@ position = Vector2(-72, 192)
 
 [node name="RoomD" type="Node2D" parent="Rooms"]
 
-[node name="Mouse" type="Node2D" parent="Rooms/RoomD"]
-position = Vector2(3729, 3436)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Rooms/RoomD"]
 navigation_polygon = SubResource("NavigationPolygon_7n0o3")
+
+[node name="Objects" type="Node2D" parent="Rooms/RoomD"]
+
+[node name="Mouse" type="Node2D" parent="Rooms/RoomD/Objects"]
+position = Vector2(3712, 3392)
 
 [node name="RoomE" type="Node2D" parent="Rooms"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Rooms/RoomE"]
 navigation_polygon = SubResource("NavigationPolygon_ln46g")
+
+[node name="Objects" type="Node2D" parent="Rooms/RoomE"]
+
+[node name="WateringCan" parent="Rooms/RoomE/Objects" instance=ExtResource("19_smh4r")]
+position = Vector2(1536, -1728)
 
 [node name="RoomF" type="Node2D" parent="Rooms"]
 
@@ -346,6 +386,9 @@ position = Vector2(4480, 1472)
 
 [node name="Icewall2" parent="Rooms/RoomH/Objects" instance=ExtResource("19_qojnu")]
 position = Vector2(4736, 1472)
+
+[node name="WateringCan2" parent="Rooms/RoomH/Objects" instance=ExtResource("19_smh4r")]
+position = Vector2(5824, 1344)
 
 [node name="MapWalls" type="Node2D" parent="."]
 

@@ -1,37 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://bix4iybhoeexb"]
+[gd_scene load_steps=6 format=3 uid="uid://cukij2xc6hdaf"]
 
-[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_822jx"]
-[ext_resource type="Texture2D" uid="uid://cjm6u7d768kd3" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/hammer.png" id="2_63ifo"]
-[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_cn374"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_4lapw"]
+[ext_resource type="Texture2D" uid="uid://bega7jwomfcft" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/wateringCan.png" id="2_ijpdd"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_4trfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
-size = Vector2(128, 128)
+size = Vector2(64, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
-size = Vector2(160, 160)
+size = Vector2(96, 96)
 
-[node name="Hammer" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+[node name="WateringCan" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
 collision_layer = 3
-script = ExtResource("1_822jx")
-transformedName = "Hammer"
+script = ExtResource("1_4lapw")
+transformedName = "Watering Can"
 transformedMaxSpeed = 500.0
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
-transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/hammer_attack.tscn"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/watering_can_attack.tscn"
 transformedTailLocation = NodePath("TailLocation")
-originalObjectPath = "res://ImportantObjects/TransformationObjects/hammer.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/watering_can.tscn"
 
 [node name="TailLocation" type="Node2D" parent="."]
 position = Vector2(0, 88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_3gx12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_63ifo")
+texture = ExtResource("2_ijpdd")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
-script = ExtResource("3_cn374")
+script = ExtResource("3_4trfh")
 transformationObjectData = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]

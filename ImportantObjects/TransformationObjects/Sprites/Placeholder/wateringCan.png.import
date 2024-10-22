@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du2oybsfxm7fk"
-path="res://.godot/imported/drawer.png-5a1880e982a6f3aa15e845e20f34a3dd.ctex"
+uid="uid://bega7jwomfcft"
+path="res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/drawer.png"
-dest_files=["res://.godot/imported/drawer.png-5a1880e982a6f3aa15e845e20f34a3dd.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/wateringCan.png"
+dest_files=["res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"]
 
 [params]
 
