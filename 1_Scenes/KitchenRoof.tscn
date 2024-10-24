@@ -30,19 +30,19 @@ travelingAreas = [NodePath("Teleports/VaseGrown"), NodePath("Teleports/VaseGrown
 position = Vector2(512, -2944)
 
 [node name="EndPoint" type="Node2D" parent="Teleports"]
-position = Vector2(656, 3436)
+position = Vector2(656, 2284)
 
 [node name="Roof" type="Node2D" parent="Teleports"]
 
 [node name="VaseGrown" parent="Teleports" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("2_syr3w")]
-position = Vector2(-1088, 3208)
+position = Vector2(-1088, 2056)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 spawnLocation = NodePath("Destination")
 
 [node name="Destination" type="Node2D" parent="Teleports/VaseGrown"]
 
 [node name="VaseGrown2" parent="Teleports" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("2_syr3w")]
-position = Vector2(-504, 2240)
+position = Vector2(-504, 1088)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 spawnLocation = NodePath("Destination")
@@ -60,7 +60,7 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/KitchenRoofDropChest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_cxjtd")]
-position = Vector2(-1088, 2944)
+position = Vector2(-1088, 1792)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -73,7 +73,7 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/KitchenRoofDropLantern" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_cxjtd")]
-position = Vector2(-768, 2240)
+position = Vector2(-768, 1088)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -86,7 +86,7 @@ requiredQuestStage = 2
 objectsToAdd = [NodePath("HeatSource")]
 
 [node name="HeatSource" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" instance=ExtResource("6_5cmri")]
-position = Vector2(-704, 2168)
+position = Vector2(-704, 1016)
 
 [node name="MapWalls" type="Node2D" parent="."]
 
@@ -178,34 +178,34 @@ position = Vector2(2056, -2688)
 position = Vector2(2056, -2944)
 
 [node name="Wall6" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1152, 3392)
+position = Vector2(1152, 2240)
 
 [node name="Wall7" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(128, 3392)
+position = Vector2(128, 2240)
 
 [node name="Wall26" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-128, 3392)
+position = Vector2(-128, 2240)
 
 [node name="Wall27" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-384, 3392)
+position = Vector2(-384, 2240)
 
 [node name="Wall43" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-640, 3392)
+position = Vector2(-640, 2240)
 
 [node name="Wall44" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-896, 3392)
+position = Vector2(-896, 2240)
 
 [node name="Wall45" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1152, 3392)
+position = Vector2(-1152, 2240)
 
 [node name="Wall46" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1408, 3392)
+position = Vector2(-1408, 2240)
 
 [node name="Wall47" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1664, 3392)
+position = Vector2(-1664, 2240)
 
 [node name="Wall101" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1920, 3392)
+position = Vector2(-1920, 2240)
 
 [node name="Wall64" parent="MapWalls" instance=ExtResource("2_rbj3t")]
 position = Vector2(2176, -1984)
@@ -222,113 +222,80 @@ position = Vector2(2944, -1984)
 [node name="Wall68" parent="MapWalls" instance=ExtResource("2_rbj3t")]
 position = Vector2(3200, -1984)
 
-[node name="Wall69" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3968, -1984)
-
-[node name="Wall71" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4224, -1984)
-
-[node name="Wall72" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4480, -1984)
-
-[node name="Wall73" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4736, -1984)
-
-[node name="Wall74" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4992, -1984)
-
-[node name="Wall75" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5248, -1984)
-
-[node name="Wall76" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5504, -1984)
-
-[node name="Wall77" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5760, -1984)
-
 [node name="Wall78" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(6016, -1984)
+position = Vector2(3456, -1984)
+
+[node name="Wall69" parent="MapWalls" instance=ExtResource("2_rbj3t")]
+position = Vector2(3696, -704)
 
 [node name="Wall70" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3712, -1984)
+position = Vector2(3952, -704)
+
+[node name="Wall71" parent="MapWalls" instance=ExtResource("2_rbj3t")]
+position = Vector2(4208, -704)
+
+[node name="Wall72" parent="MapWalls" instance=ExtResource("2_rbj3t")]
+position = Vector2(4464, -704)
+
+[node name="Wall73" parent="MapWalls" instance=ExtResource("2_rbj3t")]
+position = Vector2(4720, -704)
+
+[node name="Wall79" parent="MapWalls" instance=ExtResource("2_rbj3t")]
+position = Vector2(4976, -704)
 
 [node name="Wall8" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1664, 3392)
+position = Vector2(1664, 2240)
 
 [node name="Wall9" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1408, 3392)
+position = Vector2(1408, 2240)
 
 [node name="Wall10" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2176, 3392)
+position = Vector2(2176, 2240)
 
 [node name="Wall11" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1920, 3392)
+position = Vector2(1920, 2240)
 
 [node name="Wall12" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2688, 3392)
+position = Vector2(2688, 2240)
 
 [node name="Wall13" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2432, 3392)
+position = Vector2(2432, 2240)
 
 [node name="Wall14" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3200, 3392)
+position = Vector2(3200, 2240)
 
 [node name="Wall17" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4224, 3392)
+position = Vector2(4224, 2240)
 
 [node name="Wall18" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3968, 3392)
+position = Vector2(3968, 2240)
 
 [node name="Wall29" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3456, 3392)
+position = Vector2(3456, 2240)
 
 [node name="WallWithRightVertical5" parent="MapWalls" instance=ExtResource("4_iuhbo")]
 position = Vector2(-128, -3136)
 
 [node name="Wall28" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3712, 3392)
+position = Vector2(3712, 2240)
 
 [node name="Wall19" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4736, 3392)
+position = Vector2(4736, 2240)
 
 [node name="Wall20" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4480, 3392)
-
-[node name="Wall21" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5248, 3392)
+position = Vector2(4480, 2240)
 
 [node name="Wall22" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(4992, 3392)
-
-[node name="Wall23" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5760, 3392)
-
-[node name="Wall24" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(5504, 3392)
-
-[node name="Wall25" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(6016, 3392)
+position = Vector2(4992, 2240)
 
 [node name="Wall15" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2944, 3392)
+position = Vector2(2944, 2240)
 
 [node name="WallVertical62" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, 1792)
 
 [node name="WallVertical63" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, 2048)
-
-[node name="WallVertical64" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, 2304)
-
-[node name="WallVertical65" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, 2560)
-
-[node name="WallVertical66" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, 2816)
-
-[node name="WallVertical67" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, 3072)
 
 [node name="WallVertical77" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, 256)
@@ -385,13 +352,10 @@ position = Vector2(-4856, -2688)
 position = Vector2(-4856, -2944)
 
 [node name="WallEndRight2" parent="MapWalls" instance=ExtResource("8_jf1p0")]
-position = Vector2(512, 3392)
+position = Vector2(512, 2240)
 
 [node name="WallEndLeft3" parent="MapWalls" instance=ExtResource("7_6w5gu")]
-position = Vector2(896, 3392)
-
-[node name="WallVerticalHalf" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(-2040, 3264)
+position = Vector2(896, 2240)
 
 [node name="WallVerticalHalf2" parent="MapWalls" instance=ExtResource("9_551yb")]
 position = Vector2(-2040, -704)
@@ -402,74 +366,56 @@ position = Vector2(-4736, -3136)
 [node name="WallWithLeftVertical6" parent="MapWalls" instance=ExtResource("6_bvvkp")]
 position = Vector2(-1920, -3136)
 
-[node name="WallWithLeftVertical4" parent="MapWalls" instance=ExtResource("6_bvvkp")]
-position = Vector2(3456, -1984)
-
 [node name="WallVerticalHalf3" parent="MapWalls" instance=ExtResource("9_551yb")]
 position = Vector2(2056, -3136)
 
 [node name="WallVertical22" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -128)
+position = Vector2(5112, -128)
 
 [node name="WallVertical27" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 128)
+position = Vector2(5112, 128)
 
 [node name="WallVertical28" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 384)
+position = Vector2(5112, 384)
 
 [node name="WallVertical23" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -384)
+position = Vector2(5112, -384)
 
 [node name="WallVertical29" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -640)
+position = Vector2(5112, -640)
 
 [node name="WallVertical24" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -896)
+position = Vector2(3576, -896)
 
 [node name="WallVertical25" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -1152)
+position = Vector2(3576, -1152)
 
 [node name="WallVertical26" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -1408)
+position = Vector2(3576, -1408)
 
 [node name="WallVertical30" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -1664)
+position = Vector2(3576, -1664)
 
 [node name="WallVertical31" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, -1920)
+position = Vector2(3576, -1920)
 
 [node name="WallVertical75" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 1920)
-
-[node name="WallVertical76" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 2176)
-
-[node name="WallVertical91" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 2432)
-
-[node name="WallVertical99" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 2688)
-
-[node name="WallVertical100" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 2944)
-
-[node name="WallVertical101" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 3200)
+position = Vector2(5112, 1920)
 
 [node name="WallVertical102" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 640)
+position = Vector2(5112, 640)
 
 [node name="WallVertical103" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 1152)
+position = Vector2(5112, 1152)
 
 [node name="WallVertical104" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 896)
+position = Vector2(5112, 896)
 
 [node name="WallVertical105" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 1664)
+position = Vector2(5112, 1664)
 
 [node name="WallVertical106" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(6136, 1408)
+position = Vector2(5112, 1408)
 
 [node name="WallHalfLeftVertical" parent="MapWalls" instance=ExtResource("10_k2toq")]
 position = Vector2(1088, -3136)
@@ -478,10 +424,10 @@ position = Vector2(1088, -3136)
 position = Vector2(320, -3136)
 
 [node name="WallHalf3" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(320, 3392)
+position = Vector2(320, 2240)
 
 [node name="WallHalf4" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(704, 3392)
+position = Vector2(704, 2240)
 
 [node name="WallHalf2" parent="MapWalls" instance=ExtResource("11_q3x2b")]
 position = Vector2(704, -3136)
@@ -489,62 +435,47 @@ position = Vector2(704, -3136)
 [node name="WallHalf5" parent="MapWalls" instance=ExtResource("11_q3x2b")]
 position = Vector2(1216, -3136)
 
-[node name="WallVertical" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical4" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, -3328)
 
-[node name="WallVertical2" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical56" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, -3584)
 
-[node name="WallVertical3" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical57" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2040, -3840)
 
-[node name="WallVertical4" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, -4096)
-
-[node name="WallVertical56" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, -4352)
-
-[node name="WallVertical57" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2040, -4608)
-
-[node name="WallVertical58" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical61" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-4104, -3328)
 
-[node name="WallVertical59" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical125" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-4104, -3584)
 
-[node name="WallVertical60" parent="MapWalls" instance=ExtResource("3_uvc7n")]
+[node name="WallVertical126" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-4104, -3840)
 
-[node name="WallVertical61" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4104, -4096)
-
-[node name="WallVertical125" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4104, -4352)
-
-[node name="WallVertical126" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4104, -4608)
-
 [node name="Wall" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2176, -4672)
+position = Vector2(-2176, -3904)
 
 [node name="Wall2" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2432, -4672)
+position = Vector2(-2432, -3904)
 
 [node name="Wall61" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2688, -4672)
+position = Vector2(-2688, -3904)
 
 [node name="Wall106" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2944, -4672)
+position = Vector2(-2944, -3904)
 
 [node name="Wall107" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3200, -4672)
+position = Vector2(-3200, -3904)
 
 [node name="Wall108" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3456, -4672)
+position = Vector2(-3456, -3904)
 
 [node name="Wall109" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3712, -4672)
+position = Vector2(-3712, -3904)
+
+[node name="WallVerticalHalf" parent="MapWalls" instance=ExtResource("9_551yb")]
+position = Vector2(5112, 2112)
 
 [node name="Wall110" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3968, -4672)
+position = Vector2(-3968, -3904)
