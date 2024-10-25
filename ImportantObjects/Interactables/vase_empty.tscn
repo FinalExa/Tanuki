@@ -8,7 +8,7 @@ size = Vector2(16, 16)
 
 [node name="VaseEmpty" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_iri44")
-neededString = "Water"
+neededProperties = Array[String](["Water"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 56)

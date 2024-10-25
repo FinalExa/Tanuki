@@ -9,7 +9,7 @@ size = Vector2(128, 384)
 [node name="Table" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_86j8m")
 droppedObjectsOnInteraction = Array[String]([""])
-neededString = "StunArea"
+neededProperties = Array[String](["Pound"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3o8ro")
