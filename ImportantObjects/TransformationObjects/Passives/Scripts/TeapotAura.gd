@@ -50,7 +50,7 @@ func _on_body_entered(body):
 	if (body is EnemyController && !enemiesInRange.has(body)):
 		enemiesInRange.push_back(body)
 	if (body.is_in_group(interactableGroup)):
-		if (body is GenericInteractable && !interactablesInRange.has(body) && body.neededString == auraInteractTag):
+		if (body is GenericInteractable && !interactablesInRange.has(body) && body.neededProperties.has(auraInteractTag)):
 			interactablesInRange.push_back(body)
 
 func _on_body_exited(body):
