@@ -4,10 +4,10 @@ extends Area2D
 
 var playerRef: PlayerCharacter
 
-func _process(delta):
-	CheckForRightTransformationTag(playerRef)
+func _process(_delta):
+	CheckForRightTransformationTag()
 
-func CheckForRightTransformationTag(playerRef: PlayerCharacter):
+func CheckForRightTransformationTag():
 	if (playerRef != null): 
 		if (playerRef.transformationChangeRef.isTransformed):
 			var selectedProperty: String
@@ -21,7 +21,6 @@ func CheckForRightTransformationTag(playerRef: PlayerCharacter):
 			else:
 				playerRef.transformationChangeRef.DeactivateTransformation()
 		playerRef.transformationChangeRef.SetNoTransformation()
-
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):

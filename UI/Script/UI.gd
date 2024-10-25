@@ -6,6 +6,7 @@ signal timer_value
 signal attack_cooldown
 
 @export var playerInputs: PlayerInputs
+@export var timerText: TimerText
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
@@ -26,8 +27,8 @@ func _process(_delta):
 func _on_transformation_change_send_transformation_name(trsName):
 	emit_signal("transformation_name", trsName)
 
-func _on_transformation_change_send_transformation_active_info(status, timer, duration):
-	emit_signal("timer_value", status, timer, duration)
+func _on_transformation_change_send_transformation_active_info(timer, duration):
+	timerText.UpdateTimer(timer, duration)
 
 func UpdateAttackCooldown(status, currentFrame, duration):
 	emit_signal("attack_cooldown", status, currentFrame, duration)

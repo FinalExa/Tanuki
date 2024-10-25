@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
 [ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerText", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
+timerText = NodePath("Timer")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
@@ -57,21 +58,22 @@ transformationChosenText = "Current tranformation: "
 
 [node name="Timer" type="Label" parent="."]
 layout_mode = 0
-offset_left = 224.0
+offset_left = 72.0
 offset_top = 56.0
-offset_right = 272.0
+offset_right = 120.0
 offset_bottom = 82.0
 text = "TIMER"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_ipm4y")
+frontText = "Remaining: "
 
 [node name="AttackCooldown" type="Label" parent="."]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 80.0
+offset_top = 88.0
 offset_right = 176.0
-offset_bottom = 106.0
+offset_bottom = 114.0
 text = "ATTACK COOLDOWN"
 horizontal_alignment = 1
 vertical_alignment = 1
