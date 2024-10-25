@@ -23,7 +23,6 @@ var isTransformed: bool = false
 @export var transformationDuration: float
 @export var tailActivationTime: float
 @export var lowTimeRemaining: float
-@export var timeRefundOnReactivation: float
 @export var tailRef: TailFollow
 @export var tailLocation: Node2D
 @export var playerRef: PlayerCharacter
@@ -82,6 +81,7 @@ func SetNewTransformation():
 		if (!objectSavedSound.playing): objectSavedSound.play()
 
 func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
+	transformationTimer = 0
 	currentTransformationSet = true
 	currentTransformationName = trsObjectToSave.transformedName
 	currentTransformationSpeed = trsObjectToSave.transformedMaxSpeed
@@ -103,7 +103,6 @@ func SetNoTransformation():
 func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
-		transformationTimer = clamp(transformationTimer - timeRefundOnReactivation, 0, transformationDuration)
 		baseCollisionShape.shape = currentTransformationCollisionShape.shape
 		playerSprite.hide()
 		playerTransformedSprite.show()
@@ -141,10 +140,8 @@ func TransformationActive(delta):
 				timeLowSoundPlayed = true
 		else:
 			DeactivateTransformation()
-	else:
-		if (transformationTimer > 0):
-			transformationTimer = clamp(transformationTimer-delta,0,transformationDuration)
-	emit_signal("send_transformation_active_info", isTransformed, transformationTimer, transformationDuration)
+			SetNoTransformation()
+	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func AddTail():
 	sceneRef.add_child(tailRef)

@@ -1,9 +1,8 @@
+class_name TimerText
 extends Label
 
+@export var frontText: String
 
-func _on_ui_timer_value(status, timer, duration):
-	timer = abs(duration-timer)
-	if (status):
-		self.text = str("Transformed: ", duration, "/", "%1.1f" % timer)
-	else:
-		self.text = str("Not transformed: ", duration, "/", "%1.1f" % timer)
+func UpdateTimer(timer, duration):
+	timer = abs(duration - timer)
+	self.text = str(frontText, duration, "/", snapped(timer, 0.1))
