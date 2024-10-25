@@ -11,7 +11,7 @@ func CheckForRightTransformationTag(playerRef: PlayerCharacter):
 	if (playerRef != null && playerRef.transformationChangeRef.isTransformed):
 		var selectedProperty: String
 		for i in playerRef.transformationChangeRef.currentTransformationProperties.size():
-			if (ratInteractable.neededString == playerRef.transformationChangeRef.currentTransformationProperties[i]):
+			if (ratInteractable.neededProperties.has(playerRef.transformationChangeRef.currentTransformationProperties[i])):
 				selectedProperty = playerRef.transformationChangeRef.currentTransformationProperties[i]
 				break
 		if (selectedProperty != ""):

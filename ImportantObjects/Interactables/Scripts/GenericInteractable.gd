@@ -1,7 +1,7 @@
 class_name GenericInteractable
 extends Node2D
 
-@export var neededString: String
+@export var neededProperties: Array[String]
 @export var savedOnDestroy: bool
 @export var objectToSendDestoySignal: Node2D
 @export var objectoToSendInteractSignal: PuzzleObject
@@ -32,11 +32,11 @@ func FirstStartup():
 	pass
 
 func InteractionWithRef(receivedString: String, receivedRef):
-	if (neededString == receivedString && !activated && !cooldownActive):
+	if (neededProperties.has(receivedString) && !activated && !cooldownActive):
 		ExecuteRefEffect(receivedRef)
 
 func AttackInteraction(receivedString: String):
-	if (neededString == receivedString && !activated && !cooldownActive):
+	if (neededProperties.has(receivedString) && !activated && !cooldownActive):
 		ExecuteExtraEffect()
 		SendInteractSignal()
 		SaveOnDestroy()

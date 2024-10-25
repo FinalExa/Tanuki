@@ -9,7 +9,7 @@ size = Vector2(128, 128)
 
 [node name="Rat" type="Node2D" groups=["Interactable"]]
 script = ExtResource("1_iabjc")
-neededString = "Food"
+neededProperties = Array[String](["Food"])
 
 [node name="RatInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("ratInteractable")]
 script = ExtResource("2_bv888")

@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 
 [node name="Rope" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_fa25a")
-neededString = "Leaf"
+neededProperties = Array[String](["Leaf"])
 hasCooldown = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

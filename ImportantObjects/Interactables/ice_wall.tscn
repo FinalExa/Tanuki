@@ -8,7 +8,7 @@ size = Vector2(256, 128)
 
 [node name="Icewall" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_fsgxf")
-neededString = "Hot"
+neededProperties = Array[String](["Hot"])
 savedOnDestroy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

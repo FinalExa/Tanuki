@@ -12,7 +12,7 @@ func CheckForRightTransformationTag(playerRef: PlayerCharacter):
 		if (playerRef.transformationChangeRef.isTransformed):
 			var selectedProperty: String
 			for i in playerRef.transformationChangeRef.currentTransformationProperties.size():
-				if (dirtyFloorInteractable.neededString == playerRef.transformationChangeRef.currentTransformationProperties[i]):
+				if (dirtyFloorInteractable.neededProperties.has(playerRef.transformationChangeRef.currentTransformationProperties[i])):
 					selectedProperty = playerRef.transformationChangeRef.currentTransformationProperties[i]
 					break
 			if (selectedProperty != ""):

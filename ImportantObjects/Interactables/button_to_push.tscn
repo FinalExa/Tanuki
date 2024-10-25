@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 
 [node name="ButtonToPush" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_a4b3q")
-neededString = "Leaf"
+neededProperties = Array[String](["Leaf"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kufeo")

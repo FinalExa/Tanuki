@@ -9,7 +9,7 @@ size = Vector2(128, 256)
 
 [node name="DirtyFloor" type="Node2D" groups=["Interactable"]]
 script = ExtResource("1_0rewg")
-neededString = "Clean"
+neededProperties = Array[String](["Clean"])
 
 [node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
 script = ExtResource("2_vy8xm")

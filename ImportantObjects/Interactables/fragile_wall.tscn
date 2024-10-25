@@ -8,7 +8,7 @@ size = Vector2(256, 128)
 
 [node name="FragileWall" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_tfpow")
-neededString = "Pound"
+neededProperties = Array[String](["Pound"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kufeo")
