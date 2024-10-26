@@ -70,8 +70,9 @@ func _on_resume_button_button_up():
 
 func _on_reload_button_button_up():
 	Resume()
-	var sceneSelector: SceneSelector = get_tree().root.get_child(0).sceneSelector
-	sceneSelector.ReloadScene()
+	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
+	sceneMaster.load = true
+	sceneMaster.sceneSelector.ReloadScene()
 
 func _on_options_button_button_up():
 	optionsPanel.show()
@@ -101,7 +102,8 @@ func GameOverScreen():
 	gameOverPanel.show()
 
 func _on_gameover_reload_button_button_up():
+	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
+	sceneMaster.load = true
 	EndForcePause()
 	gameOverPanel.hide()
-	var sceneSelector: SceneSelector = get_tree().root.get_child(0).sceneSelector
-	sceneSelector.ReloadScene()
+	sceneMaster.sceneSelector.ReloadScene()

@@ -5,10 +5,11 @@
 [ext_resource type="Script" path="res://1_Scenes/Scripts/SceneSelector.gd" id="3_7g2cs"]
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="4_ew33i"]
 
-[node name="ActiveLevel" type="Node2D" node_paths=PackedStringArray("frameMaster", "sceneSelector")]
+[node name="ActiveLevel" type="Node2D" node_paths=PackedStringArray("frameMaster", "sceneSelector", "playerRef")]
 script = ExtResource("1_0lavq")
 frameMaster = NodePath("FrameMaster")
 sceneSelector = NodePath("SceneSelector")
+playerRef = NodePath("PlayerCharacter")
 
 [node name="FrameMaster" type="Node" parent="."]
 script = ExtResource("2_cdn4e")
