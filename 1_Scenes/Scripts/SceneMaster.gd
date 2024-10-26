@@ -1,7 +1,6 @@
 class_name SceneMaster
 extends Node2D
 
-var savedDeletePaths: Array[String]
 var savePath: String
 var playerDataSavePath: String = "user://PlayerData.save"
 var stopResetPosition: bool
@@ -12,9 +11,9 @@ var lastObjectOriginalPath: String
 
 @export var frameMaster: FrameMaster
 @export var sceneSelector: SceneSelector
+@export var playerRef: PlayerCharacter
 var isInGameplayScene: bool
 var currentlyLoadedGameplayScene: String
-var playerRef: PlayerCharacter
 
 func _ready():
 	if (get_tree().paused):
@@ -22,41 +21,54 @@ func _ready():
 
 func UpdatePathAndLoad():
 	savePath = "user://" + sceneSelector.get_child(0).name + ".save"
-	for i in get_child_count():
-		if (get_child(i) is PlayerCharacter):
-			playerRef = get_child(i)
-			break
 	Load()
 
-func AddDeletePath(newPath: String):
-	if(!savedDeletePaths.has(newPath)):
-		savedDeletePaths.push_back(newPath)
-
 func Save():
-	var file = FileAccess.open(savePath, FileAccess.WRITE)
-	file.store_var(savedDeletePaths)
+	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE))
+	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
+
+func SaveMapData(file):
 	file.store_var(playerRef.global_position)
-	file = FileAccess.open(playerDataSavePath, FileAccess.WRITE)
+
+func SavePlayerData(file):
 	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
 	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
+	file.store_var(playerRef.playerProgressionTrack.unlockKeyTypes)
+	file.store_var(playerRef.playerProgressionTrack.unlockKeyIDs)
+	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
+	file.store_var(playerRef.playerProgressionTrack.activeQuests)
+	file.store_var(playerRef.playerProgressionTrack.activeQuestsStages)
 
 func Load():
+	LoadMapData()
+	LoadPlayerData()
+	LoadOperations()
+
+func LoadMapData():
 	if (FileAccess.file_exists(savePath)):
 		var file = FileAccess.open(savePath, FileAccess.READ)
-		var result = file.get_var()
-		if (result != null):
-			savedDeletePaths.clear()
-			for i in result.size():
-				savedDeletePaths.push_back(result[i])
 		lastPos = file.get_var()
 		stopResetPosition = false
 	else:
 		stopResetPosition = true
+
+func LoadPlayerData():
 	if (FileAccess.file_exists(playerDataSavePath)):
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
-	LoadOperations()
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyTypes)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyIDs)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuests)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestsStages)
+
+func ExtractArray(result, currentArray):
+	currentArray.clear()
+	if (result != null):
+		for i in result.size():
+			currentArray.push_back(result[i])
+	return currentArray
 
 func LoadOperations():
 	if (!stopResetPosition): playerRef.global_position = lastPos
@@ -67,44 +79,3 @@ func LoadOperations():
 		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
-	if savedDeletePaths.size() > 0:
-		for i in savedDeletePaths.size():
-			TranslateStringIntoPathResult(sceneSelector.get_child(0), savedDeletePaths[i])
-
-func TranslateStringIntoPathResult(currentNode: Node2D,string: String):
-	var newString: String = ""
-	while (string[0] != "/"):
-		newString += string[0]
-		string = string.right(string.length()-1)
-	string = string.right(string.length()-1)
-	if (newString == currentNode.name):
-		TranslateStringIntoPathResult(currentNode, string)
-	else:
-		for i in currentNode.get_child_count():
-			if (currentNode.get_child(i).name == newString):
-				currentNode = currentNode.get_child(i)
-				break
-		if (string.is_empty()):
-			currentNode.ExecuteLoadOperation()
-		else:
-			TranslateStringIntoPathResult(currentNode, string)
-
-func SetCurrentNodeInPath(node: Node2D):
-	var path: Array[String] = []
-	path.push_front(node.name)
-	var reached: bool = false
-	while (!reached):
-		node = node.get_parent()
-		path.push_front(node.name)
-		if (node is SceneMaster):
-			reached = true
-	return path
-
-func ComposePathString(path: Array[String]):
-	var pathString: String = ""
-	for i in path.size():
-		pathString += path[i] + "/"
-	return pathString
-
-func AddPathString(baseNode: Node2D):
-	AddDeletePath(ComposePathString(SetCurrentNodeInPath(baseNode)))
