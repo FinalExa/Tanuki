@@ -26,7 +26,6 @@ func DeleteCurrentScene(sceneToDelete: GameplayScene):
 	deleteTimer = deleteICD
 	deleteActive = true
 
-
 func ContinueAfterDelete(delta):
 	if (deleteActive):
 		if (deleteTimer > 0):
