@@ -49,12 +49,12 @@ func _ready():
 	InitialSetup()
 
 func InitialSetup():
-	transformationTimer = 0
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
 	playerTransformedSprite.hide()
 	self.remove_child(tailRef)
+	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func _process(delta):
 	SetNewTransformation()
@@ -90,10 +90,10 @@ func GenerateTransformationObject():
 		currentTransformationPassive = SpawnTransformationSpecialObject(currentTransformationObject.transformedPassivePath, currentTransformationPassive)
 		if (currentTransformationPassive != null): currentTransformationPassive.SetTransformationChangeRef(self)
 		tailLocation.position = currentTransformationObject.transformedTailLocation.position
-		print("generated")
 
 func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
-	transformationTimer = 0
+	if (trsObjectToSave.scene_file_path != currentOriginalObjectPath):
+		transformationTimer = 0
 	currentTransformationSet = true
 	currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	GenerateTransformationObject()
@@ -147,7 +147,7 @@ func TransformationActive(delta):
 		else:
 			DeactivateTransformation()
 			SetNoTransformation()
-	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
+		emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func AddTail():
 	sceneRef.add_child(tailRef)
@@ -161,8 +161,8 @@ func ActivateLock():
 
 func LockTimer(delta):
 	if (transformationLock):
-		if (transformationLockTimer<transformationLockDuration):
-			transformationLockTimer+=delta
+		if (transformationLockTimer < transformationLockDuration):
+			transformationLockTimer += delta
 		else:
 			transformationLock = false
 
