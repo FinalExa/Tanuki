@@ -2,9 +2,13 @@ class_name LocalAllowedItems
 extends Area2D
 
 @export var allowedObjects: Array[String]
+@export var feedbacks: Array[LocalAllowedItemsFeedback]
 var assignedObjects: Array[Node2D]
 var playerRef: PlayerCharacter
 var playerIsIn: bool
+
+func _ready():
+	AssignToGameplayScene()
 
 func _process(_delta):
 	player_inside_area_checks()
@@ -33,6 +37,10 @@ func player_inside_area_checks():
 			if (playerRef.transformationChangeRef.isTransformed == false):
 				RemoveItemFromList(playerRef.transformationChangeRef)
 
+func AssignToGameplayScene():
+	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
+	sceneMaster.sceneSelector.currentScene.localAllowedItems.push_back(self)
+
 func AddItemToList(item: Node2D):
 	if (!assignedObjects.has(item)):
 		assignedObjects.push_back(item)
@@ -45,3 +53,11 @@ func RemoveItemFromList(item: Node2D):
 
 func _on_player_character_give_self_reference(ref):
 	playerRef = ref
+
+func ActivateFeedbacks():
+	for i in feedbacks.size():
+		feedbacks[i].ActivateFeedback()
+
+func DeactivateFeedbacks():
+	for i in feedbacks.size():
+		feedbacks[i].DeactivateFeedback()

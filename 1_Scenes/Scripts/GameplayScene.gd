@@ -19,6 +19,8 @@ enum SceneType
 
 @export var travelingAreas: Array[TravelingArea]
 
+var localAllowedItems: Array[LocalAllowedItems]
+
 func Initialize():
 	SetKeys()
 	SetQuests()
@@ -73,3 +75,11 @@ func SetPlayerSpawn(playerRef: PlayerCharacter):
 		playerRef.global_position = travelingAreas[playerRef.travelId].spawnLocation.global_position
 		return
 	playerRef.global_position = playerSpawnPoint.global_position
+
+func ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationName: String, status: bool):
+	for i in localAllowedItems.size():
+		if (localAllowedItems[i].allowedObjects.has(transformationName)):
+			if (status):
+				localAllowedItems[i].ActivateFeedbacks()
+			else:
+				localAllowedItems[i].DeactivateFeedbacks()
