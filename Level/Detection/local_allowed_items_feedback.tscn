@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5ak5ylvsclo"]
+
+[ext_resource type="Texture2D" uid="uid://c3vsc02pmsjlf" path="res://Level/Detection/Sprites/localAllowedItemsFeedback.png" id="1_npfo3"]
+[ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItemsFeedback.gd" id="2_pqx05"]
+
+[node name="LocalAllowedItemsFeedback" type="Sprite2D"]
+texture = ExtResource("1_npfo3")
+script = ExtResource("2_pqx05")

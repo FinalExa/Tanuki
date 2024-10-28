@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=18 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="6_vioum"]
+[ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="7_lkfp5"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="8_7t8fv"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="8_ksf3n"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
@@ -17,6 +19,9 @@
 vertices = PackedVector2Array(7744, -4888, 7048, 6336, -8, 88, -8, -88, -10272, 6032, -224, 160, -7952, -6008, -312, -88, -312, 88, -288, 88, -288, 160, -224, 88)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(6, 0, 3, 7), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(8, 9, 10, 4), PackedInt32Array(5, 11, 2), PackedInt32Array(5, 4, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-10272, 6032, -7952, -6008, 7744, -4888, 7048, 6336), PackedVector2Array(-312, -88, -8, -88, -8, 88, -224, 88, -224, 160, -288, 160, -288, 88, -312, 88)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shnw2"]
+size = Vector2(768, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxo8o"]
 size = Vector2(64, 128)
@@ -91,6 +96,106 @@ position = Vector2(-160, 0)
 
 [node name="Vase" parent="." instance=ExtResource("9_i2svm")]
 position = Vector2(-904, 336)
+
+[node name="Vase2" parent="." node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("9_i2svm")]
+position = Vector2(-1856, 768)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="." node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("9_i2svm")]
+position = Vector2(-1472, 768)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="LocalAllowedItems" parent="." node_paths=PackedStringArray("feedbacks") instance=ExtResource("6_vioum")]
+position = Vector2(-1664, 768)
+allowedObjects = Array[String](["Vase"])
+feedbacks = [NodePath("LocalAllowedItemsFeedback"), NodePath("LocalAllowedItemsFeedback2"), NodePath("LocalAllowedItemsFeedback3"), NodePath("LocalAllowedItemsFeedback4"), NodePath("LocalAllowedItemsFeedback5"), NodePath("LocalAllowedItemsFeedback6"), NodePath("LocalAllowedItemsFeedback7"), NodePath("LocalAllowedItemsFeedback8"), NodePath("LocalAllowedItemsFeedback9"), NodePath("LocalAllowedItemsFeedback10"), NodePath("LocalAllowedItemsFeedback11"), NodePath("LocalAllowedItemsFeedback12")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_shnw2")
+
+[node name="LocalAllowedItemsFeedback" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback5" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, -64)
+
+[node name="LocalAllowedItemsFeedback6" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, -64)
+
+[node name="LocalAllowedItemsFeedback7" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, 64)
+
+[node name="LocalAllowedItemsFeedback8" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, 64)
+
+[node name="LocalAllowedItemsFeedback9" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback10" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, 64)
+
+[node name="LocalAllowedItemsFeedback11" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, 64)
+
+[node name="LocalAllowedItemsFeedback12" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, 64)
+
+[node name="LocalAllowedItems2" parent="." node_paths=PackedStringArray("feedbacks") instance=ExtResource("6_vioum")]
+position = Vector2(-1792, -320)
+allowedObjects = Array[String](["Hammer"])
+feedbacks = [NodePath("LocalAllowedItemsFeedback"), NodePath("LocalAllowedItemsFeedback2"), NodePath("LocalAllowedItemsFeedback3"), NodePath("LocalAllowedItemsFeedback4"), NodePath("LocalAllowedItemsFeedback5"), NodePath("LocalAllowedItemsFeedback6"), NodePath("LocalAllowedItemsFeedback7"), NodePath("LocalAllowedItemsFeedback8"), NodePath("LocalAllowedItemsFeedback9"), NodePath("LocalAllowedItemsFeedback10"), NodePath("LocalAllowedItemsFeedback11"), NodePath("LocalAllowedItemsFeedback12")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_shnw2")
+
+[node name="LocalAllowedItemsFeedback" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback5" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, -64)
+
+[node name="LocalAllowedItemsFeedback6" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, -64)
+
+[node name="LocalAllowedItemsFeedback7" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, 64)
+
+[node name="LocalAllowedItemsFeedback8" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, 64)
+
+[node name="LocalAllowedItemsFeedback9" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback10" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, 64)
+
+[node name="LocalAllowedItemsFeedback11" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, 64)
+
+[node name="LocalAllowedItemsFeedback12" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, 64)
 
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
