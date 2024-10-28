@@ -14,5 +14,6 @@ func _on_body_entered(body):
 		Travel(body)
 
 func Travel(playerRef: PlayerCharacter):
+	playerRef.transformationChangeRef.CheckForDeactivateTransformation()
 	playerRef.SetTraveling(sendToTravelID)
 	sceneMasterRef.sceneSelector.call_deferred("ChangeScene", sceneToLoad)
