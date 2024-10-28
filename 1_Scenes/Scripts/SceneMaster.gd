@@ -15,18 +15,18 @@ var lastObjectOriginalPath: String
 var isInGameplayScene: bool
 var currentlyLoadedGameplayScene: String
 
-var load: bool
+var loadActive: bool
 
 func _ready():
-	load = true
+	loadActive = true
 	if (get_tree().paused):
 		get_tree().paused = false
 
 func UpdatePathAndLoad():
 	savePath = "user://" + sceneSelector.get_child(0).name + ".save"
-	if (load):
+	if (loadActive):
 		Load()
-		load = false
+		loadActive = false
 
 func Save():
 	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE))
