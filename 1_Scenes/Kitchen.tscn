@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=66 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -44,7 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="24_u6tss"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
+[ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
 texture = ExtResource("2_v41y6")
@@ -111,6 +113,22 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2032, 641, -784, 641, -784, 1537, -768, 1537, -768, 1792, -784, 1792, -784, 2816, -2032, 2816), PackedVector2Array(-1397, 1350, -1381, 1350, -1381, 2118, -1397, 2118)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj35e"]
+size = Vector2(276, 624)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys317"]
+size = Vector2(767, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6pkp"]
+size = Vector2(1520, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eql3"]
+size = Vector2(119, 1222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcg7"]
+size = Vector2(118, 706)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kjif"]
+size = Vector2(108, 1795)
 
 [node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas")]
 script = ExtResource("1_fluk2")
@@ -140,7 +158,7 @@ position = Vector2(1168, 2920)
 position = Vector2(-256, 832)
 
 [node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("3_4p3bg")]
-position = Vector2(-256, 2880)
+position = Vector2(-240, 2880)
 sceneType = 1
 requiredKeys = 3
 
@@ -202,7 +220,7 @@ z_index = -999
 position = Vector2(0, 64)
 tile_set = SubResource("TileSet_vpy0r")
 format = 2
-layer_0/tile_data = PackedInt32Array(-458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -524297, 0, 0, -524298, 0, 0, -524299, 0, 0, -524300, 0, 0, -524301, 0, 0, -524302, 0, 0, -524303, 0, 0, -524304, 0, 0, -589840, 0, 0, -589839, 0, 0, -589838, 0, 0, -589837, 0, 0, -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -524296, 0, 0)
+layer_0/tile_data = PackedInt32Array(-458768, 4, 0, -458767, 4, 0, -458766, 4, 0, -458765, 4, 0, -458764, 4, 0, -458763, 4, 0, -458762, 4, 0, -458761, 4, 0, -524297, 0, 0, -524298, 0, 0, -524299, 0, 0, -524300, 0, 0, -524301, 0, 0, -524302, 0, 0, -524303, 0, 0, -524304, 0, 0, -589840, 0, 0, -589839, 0, 0, -589838, 0, 0, -589837, 0, 0, -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -524296, 0, 0)
 
 [node name="Walls" type="Node2D" parent="Quests/KitchenHiddenRoom/RoomA"]
 position = Vector2(0, 1281)
@@ -258,10 +276,10 @@ questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Knife" parent="Quests/KitchenObtainKnife" instance=ExtResource("17_pif6t")]
-position = Vector2(-1856, 384)
+position = Vector2(-1080, 356)
 
 [node name="ButtonToPush" parent="Quests/KitchenObtainKnife" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
-position = Vector2(-2088, 392)
+position = Vector2(-1312, 364)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -383,7 +401,7 @@ stunDuration = 10.0
 position = Vector2(-256, -1151)
 
 [node name="EndPoint" type="Node2D" parent="Teleports"]
-position = Vector2(-256, 3008)
+position = Vector2(-240, 3008)
 
 [node name="Roof" type="Node2D" parent="Teleports"]
 position = Vector2(-768, 1281)
@@ -623,22 +641,22 @@ position = Vector2(-776, -895)
 position = Vector2(-776, -1151)
 
 [node name="Wall7" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-640, 2880)
+position = Vector2(-624, 2880)
 
 [node name="Wall26" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-896, 2880)
+position = Vector2(-880, 2880)
 
 [node name="Wall27" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1152, 2880)
+position = Vector2(-1136, 2880)
 
 [node name="Wall43" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1408, 2880)
+position = Vector2(-1392, 2880)
 
 [node name="Wall44" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1664, 2880)
+position = Vector2(-1648, 2880)
 
 [node name="Wall45" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1920, 2880)
+position = Vector2(-1904, 2880)
 
 [node name="Wall50" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-1152, 577)
@@ -710,10 +728,10 @@ position = Vector2(1680, 2240)
 position = Vector2(1424, 2240)
 
 [node name="Wall10" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(640, 2880)
+position = Vector2(656, 2880)
 
 [node name="Wall11" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(384, 2880)
+position = Vector2(400, 2880)
 
 [node name="Wall13" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(1664, 2880)
@@ -890,7 +908,7 @@ position = Vector2(2192, 2240)
 position = Vector2(1936, 2240)
 
 [node name="WallEndLeft3" parent="MapWalls" instance=ExtResource("6_0l2yj")]
-position = Vector2(128, 2880)
+position = Vector2(144, 2880)
 
 [node name="WallVerticalHalf" parent="MapWalls" instance=ExtResource("9_3j3v3")]
 position = Vector2(-2040, 2752)
@@ -976,6 +994,9 @@ position = Vector2(1304, 3008)
 [node name="WallVerticalEndHalf2" parent="MapWalls" instance=ExtResource("15_u2jog")]
 position = Vector2(1032, 3008)
 
+[node name="WallVerticalEndHalf4" parent="MapWalls" instance=ExtResource("15_u2jog")]
+position = Vector2(-2040, 2880)
+
 [node name="WallVerticalEndHalf3" parent="MapWalls" instance=ExtResource("15_u2jog")]
 position = Vector2(264, 2240)
 
@@ -992,10 +1013,10 @@ position = Vector2(320, -1343)
 position = Vector2(-448, -1343)
 
 [node name="WallHalf3" parent="MapWalls" instance=ExtResource("11_fwcna")]
-position = Vector2(-448, 2880)
+position = Vector2(-432, 2880)
 
 [node name="WallHalf4" parent="MapWalls" instance=ExtResource("11_fwcna")]
-position = Vector2(-64, 2880)
+position = Vector2(-48, 2880)
 
 [node name="WallHalf2" parent="MapWalls" instance=ExtResource("11_fwcna")]
 position = Vector2(-64, -1343)
@@ -1046,6 +1067,10 @@ patrolIndicators = [NodePath("../../PatrolPoints/GuardD1/PatrolIndicator")]
 [node name="GuardD2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-604, 1691)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardD2/PatrolIndicator")]
+
+[node name="Cleaner" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("44_pmp80")]
+position = Vector2(-251, -552)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerD1/PatrolIndicator")]
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 
@@ -1227,8 +1252,172 @@ position = Vector2(2432, 2618)
 [node name="30" type="Node2D" parent="PatrolPoints/GuardD2"]
 position = Vector2(2435, 2142)
 
-[node name="LocalAllowedItems" parent="." instance=ExtResource("45_bnhoq")]
-position = Vector2(1576, 1688)
+[node name="CleanerD1" type="Node2D" parent="PatrolPoints"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems"]
+[node name="PatrolIndicator" parent="PatrolPoints/CleanerD1" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+patrolActions = Array[int]([1, 0, 1, 0])
+waitActions = Array[float]([1.0, 1.0])
+moveActions = [NodePath("../32"), NodePath("../31")]
+
+[node name="31" type="Node2D" parent="PatrolPoints/CleanerD1"]
+position = Vector2(-251, -448)
+
+[node name="32" type="Node2D" parent="PatrolPoints/CleanerD1"]
+position = Vector2(-251, 2371)
+
+[node name="TransformationsObjects" type="Node2D" parent="."]
+
+[node name="Vase" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-4792, -832)
+
+[node name="Vase2" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-4792, -473)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-2767, 234)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase4" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-2097, 234)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase5" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-2430, 234)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase6" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, -191)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase8" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, 552)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase9" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, 1475)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase10" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, 1858)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase11" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, 2434)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase12" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(327, 707)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase16" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(202, 707)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase17" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(202, 1276)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase18" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(202, 1796)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase15" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(206, 318)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase13" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(1041, 707)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase14" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(1738, 707)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase7" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("46_jhbof")]
+position = Vector2(-714, -575)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="AllowedZones" type="Node2D" parent="."]
+
+[node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(-4719, -666)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems"]
+position = Vector2(8, 82)
 shape = SubResource("RectangleShape2D_mj35e")
+
+[node name="LocalAllowedItems2" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(-2455, 271)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems2"]
+position = Vector2(23.5, 78)
+shape = SubResource("RectangleShape2D_ys317")
+
+[node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(642, 527)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems3"]
+position = Vector2(390, 177.5)
+shape = SubResource("RectangleShape2D_o6pkp")
+
+[node name="LocalAllowedItems4" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(-189, 527)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems4"]
+position = Vector2(385.5, 724)
+shape = SubResource("RectangleShape2D_7eql3")
+
+[node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(-600, 1994)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems5"]
+position = Vector2(-109, 151)
+shape = SubResource("RectangleShape2D_5xcg7")
+
+[node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
+position = Vector2(-600, -52)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems6"]
+position = Vector2(-114, 694.5)
+shape = SubResource("RectangleShape2D_6kjif")
