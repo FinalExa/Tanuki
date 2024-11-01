@@ -117,7 +117,7 @@ func ActivateTransformation():
 
 func CheckForDeactivateTransformation():
 	if (playerRef.playerInputs.transformInput && isTransformed && !transformationLock):
-		DeactivateTransformation()
+		call_deferred("DeactivateTransformation")
 
 func DeactivateTransformation():
 	TransformationFeedbackActivation(false)

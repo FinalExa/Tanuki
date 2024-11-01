@@ -71,7 +71,7 @@ func _on_resume_button_button_up():
 func _on_reload_button_button_up():
 	Resume()
 	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
-	sceneMaster.load = true
+	sceneMaster.loadActive = true
 	sceneMaster.sceneSelector.ReloadScene()
 
 func _on_options_button_button_up():
