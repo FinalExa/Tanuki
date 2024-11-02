@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://Level/Detection/Scripts/LocalAllowedItemsFeedback.gd" id="2_pqx05"]
 
 [node name="LocalAllowedItemsFeedback" type="Sprite2D"]
+z_index = -1
 texture = ExtResource("1_npfo3")
 script = ExtResource("2_pqx05")
