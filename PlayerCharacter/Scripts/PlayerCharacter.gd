@@ -21,7 +21,9 @@ var savedSavePoint: SavePoint
 var deactivationButton: DeactivationButton
 var transformationInvincibility: bool
 var isTraveling: bool
+var positionalTraveling: bool
 var travelId: int
+var positionalDestination: Vector2
 
 func _ready():
 	sceneRef = self.get_parent()
@@ -73,6 +75,10 @@ func GameOver(receivedNode: Node2D):
 func ForceGameOver():
 	playerHUD.GameOverScreen()
 
-func SetTraveling(id: int):
+func SetTraveling(id: int, positional: bool):
 	isTraveling = true
+	positionalTraveling = positional
+	if (positionalTraveling):
+		positionalDestination = self.global_position
+		return
 	travelId = id

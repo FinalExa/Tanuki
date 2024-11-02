@@ -72,9 +72,13 @@ func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 
 func SetPlayerSpawn(playerRef: PlayerCharacter):
-	if (playerRef.isTraveling && travelingReceivers.size() > 0):
-		playerRef.global_position = travelingReceivers[playerRef.travelId].global_position
-		return
+	if (playerRef.isTraveling):
+		if (playerRef.positionalTraveling):
+			playerRef.global_position = playerRef.positionalDestination
+			return
+		if (travelingReceivers.size() > 0):
+			playerRef.global_position = travelingReceivers[playerRef.travelId].global_position
+			return
 	playerRef.global_position = playerSpawnPoint.global_position
 
 func ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationName: String, status: bool):
