@@ -11,6 +11,8 @@ var currentUsedKeysArray: Array[int]
 
 var activeQuests: Array[String]
 var activeQuestsStages: Array[int]
+var activeQuestNameForAdvancers: Array[String]
+var activeQuestsAdvancers: Array[int]
 
 func ClearAll():
 	unlockKeyTypes.clear()
@@ -66,3 +68,7 @@ func RegisterQuestWithStage(questName: String, questStage: int):
 			break
 	if (activeQuestsStages[questIndex] < questStage):
 		activeQuestsStages[questIndex] = questStage
+
+func RegisterAdvancers(questName: String, questAdvancer: int):
+	activeQuestNameForAdvancers.push_back(questName)
+	activeQuestsAdvancers.push_back(questAdvancer)

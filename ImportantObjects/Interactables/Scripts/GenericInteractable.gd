@@ -59,4 +59,4 @@ func SendInteractSignal():
 
 func QuestSignal():
 	if (questToSendProgressSignal != null):
-		questToSendProgressSignal.AdvanceStage()
+		questToSendProgressSignal.AdvanceStageByObject(self)

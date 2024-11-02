@@ -109,10 +109,9 @@ transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 transformedTailLocation = NodePath("../Vase/TailLocation")
 
-[node name="LocalAllowedItems" parent="." node_paths=PackedStringArray("feedbacks") instance=ExtResource("6_vioum")]
+[node name="LocalAllowedItems" parent="." instance=ExtResource("6_vioum")]
 position = Vector2(-1664, 768)
 allowedObjects = Array[String](["Vase"])
-feedbacks = [NodePath("LocalAllowedItemsFeedback"), NodePath("LocalAllowedItemsFeedback2"), NodePath("LocalAllowedItemsFeedback3"), NodePath("LocalAllowedItemsFeedback4"), NodePath("LocalAllowedItemsFeedback5"), NodePath("LocalAllowedItemsFeedback6"), NodePath("LocalAllowedItemsFeedback7"), NodePath("LocalAllowedItemsFeedback8"), NodePath("LocalAllowedItemsFeedback9"), NodePath("LocalAllowedItemsFeedback10"), NodePath("LocalAllowedItemsFeedback11"), NodePath("LocalAllowedItemsFeedback12")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems"]
 shape = SubResource("RectangleShape2D_shnw2")
@@ -153,10 +152,9 @@ position = Vector2(192, 64)
 [node name="LocalAllowedItemsFeedback12" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
 position = Vector2(320, 64)
 
-[node name="LocalAllowedItems2" parent="." node_paths=PackedStringArray("feedbacks") instance=ExtResource("6_vioum")]
+[node name="LocalAllowedItems2" parent="." instance=ExtResource("6_vioum")]
 position = Vector2(-1792, -320)
 allowedObjects = Array[String](["Hammer"])
-feedbacks = [NodePath("LocalAllowedItemsFeedback"), NodePath("LocalAllowedItemsFeedback2"), NodePath("LocalAllowedItemsFeedback3"), NodePath("LocalAllowedItemsFeedback4"), NodePath("LocalAllowedItemsFeedback5"), NodePath("LocalAllowedItemsFeedback6"), NodePath("LocalAllowedItemsFeedback7"), NodePath("LocalAllowedItemsFeedback8"), NodePath("LocalAllowedItemsFeedback9"), NodePath("LocalAllowedItemsFeedback10"), NodePath("LocalAllowedItemsFeedback11"), NodePath("LocalAllowedItemsFeedback12")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems2"]
 shape = SubResource("RectangleShape2D_shnw2")
@@ -200,11 +198,10 @@ position = Vector2(320, 64)
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
 
-[node name="TravelingArea" type="Area2D" parent="." node_paths=PackedStringArray("spawnLocation")]
+[node name="TravelingArea" type="Area2D" parent="."]
 position = Vector2(-1504, 256)
 script = ExtResource("9_h3a0c")
 sceneToLoad = "res://1_Scenes/Hall.tscn"
-spawnLocation = NodePath("Destination")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
 shape = SubResource("RectangleShape2D_pxo8o")
@@ -219,12 +216,13 @@ requiredKeys = 3
 [node name="Hammer" parent="." instance=ExtResource("9_u6pno")]
 position = Vector2(-1536, 0)
 
-[node name="OniQuest" type="Node2D" parent="." node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="OniQuest" type="Node2D" parent="." node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("11_1jdkp")
 questName = "OniQuest"
 questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator3"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator3")]
 questItemsStages = Array[int]([0, 0, 0, 1, 2, 3])
 questItemsOnOffState = Array[bool]([false, false, false, true, true, true])
+questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
 objectsToDeleteAtQuestComplete = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
 
 [node name="Furnace" parent="OniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_mhr2d")]

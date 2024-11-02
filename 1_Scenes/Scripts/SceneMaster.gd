@@ -43,6 +43,8 @@ func SavePlayerData(file):
 	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
 	file.store_var(playerRef.playerProgressionTrack.activeQuests)
 	file.store_var(playerRef.playerProgressionTrack.activeQuestsStages)
+	file.store_var(playerRef.playerProgressionTrack.activeQuestNameForAdvancers)
+	file.store_var(playerRef.playerProgressionTrack.activeQuestsAdvancers)
 
 func Load():
 	LoadMapData()
@@ -67,6 +69,8 @@ func LoadPlayerData():
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuests)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestsStages)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestNameForAdvancers)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestsAdvancers)
 
 func ExtractArray(result, currentArray):
 	currentArray.clear()

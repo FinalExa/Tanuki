@@ -48,11 +48,9 @@ sources/4 = SubResource("TileSetAtlasSource_t5b8y")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxh7q"]
 size = Vector2(64, 256)
 
-[node name="Hall" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "unlocksAfterQuestStages", "travelingAreas")]
+[node name="Hall" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
 script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("PlayerSpawn")
-unlocksAfterQuestStages = [NodePath("UnlocksAfterQuestStage")]
-travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 

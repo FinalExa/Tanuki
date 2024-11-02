@@ -37,7 +37,7 @@ func SetQuests():
 		for i in mapQuests.size():
 			mapQuests[i].gameplayScene = self
 			mapQuests[i].SetLastStage()
-			mapQuests[i].ExecuteCurrentStage()
+			mapQuests[i].ExecuteCurrentStage(false)
 			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
 	if (unlocksAfterQuestStages.size() > 0):
 		for i in playerRef.playerProgressionTrack.activeQuests.size():
@@ -45,14 +45,18 @@ func SetQuests():
 
 func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressionTrack):
 	if (progression.activeQuests.has(quest.questName)):
+		for i in progression.activeQuestsAdvancers.size():
+			if (progression.activeQuestNameForAdvancers[i] == quest.questName && progression.activeQuestsAdvancers[i] > -1):
+				quest.questStageAdvancers[progression.activeQuestsAdvancers[i]].queue_free()
 		for i in progression.activeQuests.size():
 			if (progression.activeQuests[i] == quest.questName):
 				quest.AdvanceToStage(progression.activeQuestsStages[i])
 				return
 
-func SaveQuestProgressToPlayer(questName: String, questStage: int):
+func SaveQuestProgressToPlayer(questName: String, questStage: int, questStageAdvancer: int):
 	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 	playerRef.playerProgressionTrack.RegisterQuestWithStage(questName, questStage)
+	playerRef.playerProgressionTrack.RegisterAdvancers(questName, questStageAdvancer)
 	CheckForUnlocksAfterQuest(questName, questStage)
 
 func CheckForUnlocksAfterQuest(questName: String, questStage: int):
