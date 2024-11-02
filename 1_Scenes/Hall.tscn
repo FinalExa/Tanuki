@@ -152,11 +152,10 @@ position = Vector2(-1224, -256)
 [node name="WallVerticalEnd2" parent="Walls" instance=ExtResource("9_al3i0")]
 position = Vector2(-1224, 256)
 
-[node name="TravelingArea" type="Area2D" parent="." node_paths=PackedStringArray("spawnLocation")]
+[node name="TravelingArea" type="Area2D" parent="."]
 position = Vector2(-1248, 0)
 script = ExtResource("10_cfxl3")
 sceneToLoad = "res://1_Scenes/player_transform_test.tscn"
-spawnLocation = NodePath("Destination")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
 shape = SubResource("RectangleShape2D_sxh7q")

@@ -3,7 +3,6 @@ extends Area2D
 
 @export var sendToTravelID: int
 @export var sceneToLoad: String
-@export var spawnLocation: Node2D
 var sceneMasterRef: SceneMaster
 
 func _ready():

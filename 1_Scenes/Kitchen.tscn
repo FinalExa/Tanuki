@@ -131,7 +131,7 @@ size = Vector2(118, 706)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kjif"]
 size = Vector2(108, 1795)
 
-[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas")]
+[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 script = ExtResource("1_fluk2")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
@@ -140,6 +140,7 @@ levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenFeedRat")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown"), NodePath("Quests/KitchenGrowPlantInRoomG/VaseGrown")]
+travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -316,13 +317,9 @@ position = Vector2(106, 2223)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("20_0oc42")]
+[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
 position = Vector2(106, 2223)
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
-spawnLocation = NodePath("Destination")
-
-[node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomD/VaseGrown"]
-position = Vector2(0, -72)
 
 [node name="KitchenGrowPlantInRoomG" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
@@ -338,14 +335,10 @@ position = Vector2(2444, 595)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomG" node_paths=PackedStringArray("spawnLocation") instance=ExtResource("20_0oc42")]
+[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomG" instance=ExtResource("20_0oc42")]
 position = Vector2(2444, 595)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
-spawnLocation = NodePath("Destination")
-
-[node name="Destination" type="Node2D" parent="Quests/KitchenGrowPlantInRoomG/VaseGrown"]
-position = Vector2(0, -72)
 
 [node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
@@ -402,11 +395,11 @@ stunDuration = 10.0
 [node name="PlayerSpawn" type="Node2D" parent="Teleports"]
 position = Vector2(-256, -639)
 
-[node name="EndPoint" type="Node2D" parent="Teleports"]
-position = Vector2(-240, 3008)
+[node name="VaseGrownReceiver0" type="Node2D" parent="Teleports"]
+position = Vector2(-662, 2663)
 
-[node name="Roof" type="Node2D" parent="Teleports"]
-position = Vector2(-768, 1281)
+[node name="VaseGrownReceiver1" type="Node2D" parent="Teleports"]
+position = Vector2(1676, 1035)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1000
@@ -616,10 +609,10 @@ position = Vector2(-4480, 576)
 position = Vector2(-4736, 576)
 
 [node name="Wall92" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-2433, -832)
+position = Vector2(-2432, -832)
 
 [node name="Wall93" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-2689, -832)
+position = Vector2(-2688, -832)
 
 [node name="Wall96" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-2944, -1152)

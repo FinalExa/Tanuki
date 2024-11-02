@@ -18,6 +18,7 @@ enum SceneType
 @export var unlocksAfterQuestStages: Array[UnlocksAfterQuestStage]
 
 @export var travelingAreas: Array[TravelingArea]
+@export var travelingReceivers: Array[Node2D]
 
 var localAllowedItems: Array[LocalAllowedItems]
 
@@ -71,8 +72,8 @@ func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 
 func SetPlayerSpawn(playerRef: PlayerCharacter):
-	if (playerRef.isTraveling && travelingAreas.size() > 0):
-		playerRef.global_position = travelingAreas[playerRef.travelId].spawnLocation.global_position
+	if (playerRef.isTraveling && travelingReceivers.size() > 0):
+		playerRef.global_position = travelingReceivers[playerRef.travelId].global_position
 		return
 	playerRef.global_position = playerSpawnPoint.global_position
 

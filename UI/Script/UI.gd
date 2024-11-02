@@ -103,7 +103,7 @@ func GameOverScreen():
 
 func _on_gameover_reload_button_button_up():
 	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
-	sceneMaster.load = true
+	sceneMaster.loadActive = true
 	EndForcePause()
 	gameOverPanel.hide()
 	sceneMaster.sceneSelector.ReloadScene()
