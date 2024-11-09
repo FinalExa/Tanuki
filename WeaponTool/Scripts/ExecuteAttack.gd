@@ -30,22 +30,23 @@ func _ready():
 func ExtraReadyOperations():
 	pass
 
-func add_attack_hitbox(index):
+func AddAttackHitbox(index):
 	if (index < attackHitboxes.size()):
 		if (attackHitboxes[index] != null):
-			self.add_child(attackHitboxes[index])
-			attackHitboxInstance = self.get_child(0)
+			attackHitboxInstance = attackHitboxes[index]
 			if (attackHitboxInstance is AttackHitbox):
+				attackHitboxInstance.StartAttack()
 				attackHitboxInstance.characterRef = characterRef
 			if (attackHitboxInstance is ObjectSpawner):
 				attackHitboxInstance.SpawnObject()
 		if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
 
-func remove_attack_hitbox(index):
+func RemoveAttackHitbox(index):
 	if (index < attackHitboxes.size() && attackHitboxes[index] != null):
 		attackHitboxInstance = attackHitboxes[index]
 		if (attackHitboxInstance is AttackHitbox):
-			attackHitboxInstance.attack_end()
+			attackHitboxInstance.EndAttack()
+			return
 		if (attackHitboxInstance.get_parent() != null):
 			self.remove_child(attackHitboxInstance)
 
@@ -62,12 +63,12 @@ func ExecuteAttackPhase():
 
 func PrepareHitboxes():
 	if (currentPhase > 0):
-		remove_attack_hitbox(currentPhase-1)
-	add_attack_hitbox(currentPhase)
+		RemoveAttackHitbox(currentPhase - 1)
+	AddAttackHitbox(currentPhase)
 
 func EndAttack():
 	if (currentPhase >= attackPhasesLaunch.size()):
-		remove_attack_hitbox(attackPhasesLaunch.size() - 1)
+		RemoveAttackHitbox(attackPhasesLaunch.size() - 1)
 		currentPhase = 0
 		CheckForCooldown()
 
@@ -112,7 +113,7 @@ func Attacking():
 
 func RemoveAttackHitboxes():
 	for i in attackHitboxes.size():
-		remove_attack_hitbox(i)
+		RemoveAttackHitbox(i)
 
 func CalculateCurrentAttackMovement(index: int):
 	if (attackMovements.size() > 0 && attackMovements[index] != null):
