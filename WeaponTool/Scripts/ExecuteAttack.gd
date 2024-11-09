@@ -32,14 +32,18 @@ func ExtraReadyOperations():
 
 func AddAttackHitbox(index):
 	if (index < attackHitboxes.size()):
+		if (attackSounds[index] != null && !attackSounds[index].playing):
+			attackSounds[index].play()
 		if (attackHitboxes[index] != null):
 			attackHitboxInstance = attackHitboxes[index]
 			if (attackHitboxInstance is AttackHitbox):
 				attackHitboxInstance.StartAttack()
 				attackHitboxInstance.characterRef = characterRef
+				return
 			if (attackHitboxInstance is ObjectSpawner):
 				attackHitboxInstance.SpawnObject()
-		if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
+				return
+			ActivateOtherTypeOfAttackHitbox()
 
 func RemoveAttackHitbox(index):
 	if (index < attackHitboxes.size() && attackHitboxes[index] != null):
@@ -47,8 +51,21 @@ func RemoveAttackHitbox(index):
 		if (attackHitboxInstance is AttackHitbox):
 			attackHitboxInstance.EndAttack()
 			return
-		if (attackHitboxInstance.get_parent() != null):
-			self.remove_child(attackHitboxInstance)
+		if (attackHitboxInstance is ObjectSpawner):
+			return
+		DeactivateOtherTypeOfAttackHitbox()
+
+func ActivateOtherTypeOfAttackHitbox():
+	attackHitboxInstance.show()
+	for i in attackHitboxInstance.get_child_count():
+		if (attackHitboxInstance.get_child(i) is CollisionShape2D || attackHitboxInstance.get_child(i) is CollisionPolygon2D):
+			attackHitboxInstance.get_child(i).disabled = false
+
+func DeactivateOtherTypeOfAttackHitbox():
+	attackHitboxInstance.hide()
+	for i in attackHitboxInstance.get_child_count():
+		if (attackHitboxInstance.get_child(i) is CollisionShape2D || attackHitboxInstance.get_child(i) is CollisionPolygon2D):
+			attackHitboxInstance.get_child(i).disabled = true
 
 func start_attack():
 	attackLaunched = true
