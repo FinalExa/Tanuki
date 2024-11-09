@@ -84,7 +84,7 @@ func GenerateTransformationObject():
 			var oldObjectToDelete: TransformationObjectData = currentTransformationObject
 			oldObjectToDelete.queue_free()
 		currentTransformationObject = InstantiateScene(currentOriginalObjectPath)
-		self.remove_child(currentTransformationObject)
+		DeactivateObjectToOperate(currentTransformationObject)
 		playerTransformedSprite.texture = currentTransformationObject.transformedTexture.texture
 		playerTransformedSprite.scale = currentTransformationObject.transformedTextureScale
 		currentAttack = SpawnTransformationSpecialObject(currentTransformationObject.transformedAttackPath, currentAttack)
@@ -217,3 +217,12 @@ func TransformationFeedbackActivation(status: bool):
 func _on_player_character_transformation_invincibility_interacted(receivedNode: Node2D):
 	if (currentTransformationPassive != null):
 		currentTransformationPassive.TransformationInvincibilityInteracted(receivedNode)
+
+func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Deactivation()
+		return
+	objectToOperate.hide()
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = true
