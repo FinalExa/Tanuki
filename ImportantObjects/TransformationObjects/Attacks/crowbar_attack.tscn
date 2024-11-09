@@ -20,4 +20,6 @@ stunsGuard = true
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, -256, -64, -256)
 
 [connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_exited"]
 [connection signal="body_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_exited"]

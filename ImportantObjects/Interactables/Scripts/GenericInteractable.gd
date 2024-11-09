@@ -37,15 +37,11 @@ func AttackInteraction(receivedString: String):
 
 func FinalState():
 	if (!hasCooldown):
-		call_deferred("RemoveChild")
 		if (sendSignalToQuestOnDestroyed): QuestSignal()
 		queue_free()
 		return
 	cooldownTimer = cooldownDuration
 	cooldownActive = true
-
-func RemoveChild():
-	parentRef.remove_child(self)
 
 func ExecuteExtraEffect():
 	pass

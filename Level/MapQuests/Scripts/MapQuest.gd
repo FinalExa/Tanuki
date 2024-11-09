@@ -74,7 +74,26 @@ func AdvanceToStage(stageToAdvance: int):
 func OnOff(objectToOperate: Node2D, status: bool):
 	if (objectToOperate != null):
 		if (status):
-			self.add_child(objectToOperate)
+			ActivateObjectToOperate(objectToOperate)
 			return
-		if (objectToOperate.get_parent() != null):
-			objectToOperate.get_parent().remove_child(objectToOperate)
+		DeactivateObjectToOperate(objectToOperate)
+
+func ActivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Activation()
+		return
+	objectToOperate.show()
+	objectToOperate.set_process(true)
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = false
+
+func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Deactivation()
+		return
+	objectToOperate.hide()
+	objectToOperate.set_process(false)
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = true

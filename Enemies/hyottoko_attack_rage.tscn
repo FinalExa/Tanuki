@@ -33,4 +33,7 @@ shape = SubResource("RectangleShape2D_1ia6b")
 position = Vector2(0, -108)
 texture = ExtResource("2_fugkj")
 
+[connection signal="area_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_area_exited"]
 [connection signal="body_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_body_exited"]

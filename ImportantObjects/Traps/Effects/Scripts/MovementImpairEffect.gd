@@ -2,7 +2,6 @@ extends InteractionObjectEffect
 
 @export var playerSpeedWhileCaptured: float
 @export var callGuardHitbox: CallGuardHitbox
-var callGuardHitboxInstance: CallGuardHitbox
 var playerHasBeenMoved: bool = false
 var playerHasBeenCaptured: bool = false
 var hitboxActive: bool = false
@@ -16,7 +15,7 @@ func execute_effect_normally(receivedBody, _delta):
 
 func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 	if (!hitboxActive):
-		add_call_hitbox(playerRef)
+		add_call_hitbox()
 	if (!playerHasBeenCaptured):
 		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
 		if (!playerHasBeenMoved):
@@ -48,14 +47,9 @@ func PlayerLeftArea(playerRef: PlayerCharacter):
 		remove_call_hitbox()
 
 func remove_call_hitbox():
-	if(callGuardHitboxInstance == null):
-		callGuardHitboxInstance = callGuardHitbox
-	remove_child(callGuardHitboxInstance)
-	callGuardHitboxInstance = null
+	callGuardHitbox.SetInactive()
 	hitboxActive = false
 
-func add_call_hitbox(playerRef: PlayerCharacter):
-	callGuardHitboxInstance = callGuardHitbox
-	add_child(callGuardHitboxInstance)
-	callGuardHitboxInstance.targetObject = playerRef
+func add_call_hitbox():
+	callGuardHitbox.SetActive()
 	hitboxActive = true

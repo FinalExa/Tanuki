@@ -2,15 +2,18 @@ class_name PuzzleObject
 extends Node2D
 
 @export var activated: bool
-var parentRef: Node2D
+@export var collisionShapeRef: CollisionShape2D
 
 func _ready():
-	parentRef = get_parent()
+	ReadyOperations()
 	ExecuteActivationStatus()
 
 func InteractSignal():
 	activated = !activated
 	ExecuteActivationStatus()
+
+func ReadyOperations():
+	pass
 
 func ExecuteActivationStatus():
 	if (activated):
@@ -19,7 +22,9 @@ func ExecuteActivationStatus():
 	Deactivation()
 
 func Activation():
-	pass
+	self.show()
+	collisionShapeRef.disabled = false
 
 func Deactivation():
-	pass
+	self.hide()
+	collisionShapeRef.disabled = true

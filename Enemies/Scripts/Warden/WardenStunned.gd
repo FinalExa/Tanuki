@@ -5,8 +5,8 @@ extends EnemyStunned
 
 func start_stun(direction: Vector2):
 	ExecuteStunStartup(direction)
-	enemyController.remove_child(enemyCollider)
+	enemyCollider.disabled = true
 
 func end_stun():
 	ExecuteStunEnd()
-	enemyCollider.add_child(enemyCollider)
+	enemyCollider.disabled = false

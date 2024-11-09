@@ -53,7 +53,8 @@ func InitialSetup():
 	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
 	playerTransformedSprite.hide()
-	self.remove_child(tailRef)
+	tailRef.SetInfo(tailLocation, playerRef)
+	tailRef.SetInactive()
 	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func _process(delta):
@@ -83,7 +84,7 @@ func GenerateTransformationObject():
 			var oldObjectToDelete: TransformationObjectData = currentTransformationObject
 			oldObjectToDelete.queue_free()
 		currentTransformationObject = InstantiateScene(currentOriginalObjectPath)
-		self.remove_child(currentTransformationObject)
+		DeactivateObjectToOperate(currentTransformationObject)
 		playerTransformedSprite.texture = currentTransformationObject.transformedTexture.texture
 		playerTransformedSprite.scale = currentTransformationObject.transformedTextureScale
 		currentAttack = SpawnTransformationSpecialObject(currentTransformationObject.transformedAttackPath, currentAttack)
@@ -130,8 +131,7 @@ func DeactivateTransformation():
 	playerSprite.show()
 	isTransformed = false
 	timeLowSoundPlayed = false
-	if (tailRef.get_parent() != null):
-		sceneRef.remove_child(tailRef)
+	tailRef.SetInactive()
 	clear_guards_looking_for_me()
 	ActivateLock()
 
@@ -139,7 +139,7 @@ func TransformationActive(delta):
 	if (isTransformed):
 		if (transformationTimer < transformationDuration):
 			transformationTimer = clamp(transformationTimer + delta, 0, transformationDuration)
-			if(transformationTimer >= tailActivationTime && tailRef.get_parent() == null):
+			if(transformationTimer >= tailActivationTime):
 				AddTail()
 			if (transformationTimer >= lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
 				transformationTimeLowSound.play()
@@ -150,10 +150,10 @@ func TransformationActive(delta):
 		emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func AddTail():
-	sceneRef.add_child(tailRef)
-	tailRef.playerRef = playerRef
-	tailRef.objectToTrack = tailLocation
-	if (!tailAppearsSound.playing): tailAppearsSound.play()
+	if (tailRef.collisionShapeRef.disabled == true):
+		tailRef.SetInfo(tailLocation, playerRef)
+		tailRef.SetActive()
+		if (!tailAppearsSound.playing): tailAppearsSound.play()
 
 func ActivateLock():
 	transformationLock = true
@@ -217,3 +217,12 @@ func TransformationFeedbackActivation(status: bool):
 func _on_player_character_transformation_invincibility_interacted(receivedNode: Node2D):
 	if (currentTransformationPassive != null):
 		currentTransformationPassive.TransformationInvincibilityInteracted(receivedNode)
+
+func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Deactivation()
+		return
+	objectToOperate.hide()
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = true

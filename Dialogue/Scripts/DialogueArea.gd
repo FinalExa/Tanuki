@@ -23,11 +23,11 @@ func StartDialogue(playerRef: PlayerCharacter):
 func DeleteOnDone():
 	if (deleteOnDone):
 		SaveOnDestroy()
-		get_parent().remove_child(self)
+		queue_free()
 
 func SaveOnDestroy():
 	if (savedOnDestroy):
 		sceneMaster.AddPathString(self)
 
 func ExecuteLoadOperation():
-	get_parent().remove_child(self)
+	queue_free()
