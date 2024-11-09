@@ -25,14 +25,14 @@
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="21_fki5k"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="22_l4lsm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/WardenIsInWardenCheck.gd" id="24_dvl1s"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="24_fumfp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="25_g5tml"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/WardenIsLookingAtPlayer.gd" id="25_smwnn"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/WardenScreaming.gd" id="26_e0cot"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenIsInWardenCheck.gd" id="26_d77c5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="26_f5u8l"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenIsLookingAtPlayer.gd" id="27_q8bol"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="27_vboko"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="28_p6ww2"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenScreaming.gd" id="28_t7cwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 48.0
@@ -225,7 +225,7 @@ script = ExtResource("21_fki5k")
 children = [NodePath("WardenIsInWardenCheck"), NodePath("Sequence")]
 
 [node name="WardenIsInWardenCheck" type="Node" parent="BehaviorTree/Sequence/SelectorWardenCheck" node_paths=PackedStringArray("wardenCheck", "enemyController")]
-script = ExtResource("24_dvl1s")
+script = ExtResource("26_d77c5")
 wardenCheck = NodePath("../../../../Rotator/WardenCheck")
 enemyController = NodePath("../../../..")
 
@@ -234,12 +234,12 @@ script = ExtResource("20_aq2r1")
 children = [NodePath("WardenIsLookingAtPlayer"), NodePath("WardenScreaming")]
 
 [node name="WardenIsLookingAtPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorWardenCheck/Sequence" node_paths=PackedStringArray("wardenCheck", "enemyController")]
-script = ExtResource("25_smwnn")
+script = ExtResource("27_q8bol")
 wardenCheck = NodePath("../../../../../Rotator/WardenCheck")
 enemyController = NodePath("../../../../..")
 
 [node name="WardenScreaming" type="Node" parent="BehaviorTree/Sequence/SelectorWardenCheck/Sequence" node_paths=PackedStringArray("wardenCheck", "enemyController")]
-script = ExtResource("26_e0cot")
+script = ExtResource("28_t7cwp")
 wardenCheck = NodePath("../../../../../Rotator/WardenCheck")
 enemyController = NodePath("../../../../..")
 

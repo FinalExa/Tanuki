@@ -103,10 +103,10 @@ func OnGuardRepelled():
 		stop_alert()
 
 func RemoveAreas():
-	remove_child(screamArea)
-	remove_child(alertAreaFeedback)
+	screamArea.SetInactive()
+	alertAreaFeedback.hide()
 
 func AddAreas():
-	add_child(screamArea)
-	screamArea.set_controller_ref(guardController)
-	add_child(alertAreaFeedback)
+	screamArea.SetActive()
+	screamArea.SetControllerRef(guardController)
+	alertAreaFeedback.show()
