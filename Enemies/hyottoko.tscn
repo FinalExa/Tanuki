@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://cdkro5e6qvfs4"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoController.gd" id="1_ukclv"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoController.gd" id="1_v2k34"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/NormalMovement/Step 1 Walking - Hyottoko.wav" id="2_jtylh"]
 [ext_resource type="AudioStream" uid="uid://t8j1a4fgh4xm" path="res://Enemies/Sounds/Hyottoko/AngryMovement/Step 1 Rage Walking - Hyottoko.wav" id="2_ud0u5"]
 [ext_resource type="AudioStream" uid="uid://ck01bg6oo21cg" path="res://Enemies/Sounds/Hyottoko/AngryMovement/Step 2 Rage Walking - Hyottoko.wav" id="3_4jgnk"]
@@ -19,20 +19,20 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_rcli2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_5jpci"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_o85p4"]
-[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoReachPoint.gd" id="11_rrbes"]
 [ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/hyottoko_attack_normal.tscn" id="12_ap1sf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="13_inx1f"]
-[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoRange.gd" id="13_mbevb"]
 [ext_resource type="PackedScene" uid="uid://d2omvq0oadart" path="res://Enemies/hyottoko_attack_rage.tscn" id="13_mqt1m"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_h7btj"]
-[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoMovementSounds.gd" id="16_kuoly"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoMovementSounds.gd" id="16_18g3t"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_up2r5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_jo8pb"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="18_l37p7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="19_3r3qj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoReachPoint.gd" id="19_w7wg4"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="20_wvsmk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="21_2kget"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoRange.gd" id="22_7gqey"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="22_plihh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsAttacking.gd" id="22_r2nck"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsReachingPoint.gd" id="23_ayyf4"]
@@ -67,7 +67,7 @@ radius = 448.0
 [node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoNormalAttack", "hyottokoRageAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_ukclv")
+script = ExtResource("1_v2k34")
 hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 200.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
@@ -167,7 +167,7 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="HyottokoMovementSounds" type="Node" parent="." node_paths=PackedStringArray("hyottokoController", "normalMovementSounds", "rageMovementSounds", "currentMovementSound")]
-script = ExtResource("16_kuoly")
+script = ExtResource("16_18g3t")
 hyottokoController = NodePath("..")
 normalMovementSounds = [NodePath("../Sounds/NormalMovement/Step1"), NodePath("../Sounds/NormalMovement/Step2"), NodePath("../Sounds/NormalMovement/Step3"), NodePath("../Sounds/NormalMovement/Step4")]
 rageMovementSounds = [NodePath("../Sounds/RageMovement/Step1"), NodePath("../Sounds/RageMovement/Step2"), NodePath("../Sounds/RageMovement/Step3"), NodePath("../Sounds/RageMovement/Step4")]
@@ -187,7 +187,7 @@ stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
 
 [node name="HyottokoReachPoint" type="Node" parent="." node_paths=PackedStringArray("hyottokoController", "enemyMovement")]
-script = ExtResource("11_rrbes")
+script = ExtResource("19_w7wg4")
 hyottokoController = NodePath("..")
 enemyMovement = NodePath("../EnemyMovement")
 distanceFromPointToReach = 50.0
@@ -215,7 +215,7 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController")]
-script = ExtResource("13_mbevb")
+script = ExtResource("22_7gqey")
 hyottokoController = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]

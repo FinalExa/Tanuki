@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk30k5u3802jv"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/HyottokoRageArea.gd" id="1_x3bnd"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoRageArea.gd" id="1_x3bnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_in5ia"]
 size = Vector2(128, 128)

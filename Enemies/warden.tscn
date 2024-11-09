@@ -12,12 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="10_nqx0w"]
 [ext_resource type="Texture2D" uid="uid://8v1cci0fcjgx" path="res://Enemies/Sprites/Enemy-warden-001.png" id="11_ss25q"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_aa0al"]
-[ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="13_cqou3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerMovementSounds.gd" id="13_cqou3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_gs4mp"]
-[ext_resource type="Script" path="res://Enemies/Scripts/WardenStunned.gd" id="15_pt584"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenStunned.gd" id="15_glp0b"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="17_60did"]
-[ext_resource type="Script" path="res://Enemies/Scripts/WardenCheck.gd" id="18_c47oq"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenCheck.gd" id="18_d02ip"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="19_4rlqf"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
@@ -139,7 +139,7 @@ startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
 [node name="WardenStunned" type="Node" parent="." node_paths=PackedStringArray("enemyCollider", "stunnedSound", "enemyController")]
-script = ExtResource("15_pt584")
+script = ExtResource("15_glp0b")
 enemyCollider = NodePath("../CollisionShape2D")
 stunDuration = 10.0
 stunnedText = "STUNNED"
@@ -168,7 +168,7 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "wardenAlertArea")]
-script = ExtResource("18_c47oq")
+script = ExtResource("18_d02ip")
 enemyController = NodePath("../..")
 checkMaxValue = 100.0
 checkIncreasePerSecond = 50.0

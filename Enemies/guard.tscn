@@ -1,25 +1,20 @@
 [gd_scene load_steps=70 format=3 uid="uid://b26bn2ct5upyr"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardController.gd" id="1_loc1f"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardController.gd" id="1_lw4ue"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
 [ext_resource type="Texture2D" uid="uid://do8l2lp53dypk" path="res://Enemies/Sprites/Enemy-smoker-test-300.png" id="2_k7bgq"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardContact.gd" id="2_n1dev"]
 [ext_resource type="AudioStream" uid="uid://nxr7wvrb5q1c" path="res://Enemies/Sounds/Guard/NormalSteps/Step 2-Patrol_movement.wav" id="3_3jkdn"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardResearch.gd" id="4_j1yk0"]
 [ext_resource type="AudioStream" uid="uid://bx35lcc5ugoop" path="res://Enemies/Sounds/Guard/Checking.wav" id="4_l66y0"]
 [ext_resource type="AudioStream" uid="uid://daxh6bffoi00s" path="res://Enemies/Sounds/Guard/NormalSteps/Step 3-Patrol_movement.wav" id="4_y3eua"]
 [ext_resource type="AudioStream" uid="uid://ca7s3x676py5x" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 1-Patrol_movement.wav" id="5_pg4nj"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardAlert.gd" id="5_t7kgq"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardAlert.gd" id="5_t7kgq"]
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="5_whpac"]
 [ext_resource type="AudioStream" uid="uid://tuux58c5hira" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 2-Patrol_movement.wav" id="6_3pvk0"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardCheck.gd" id="6_8v6qf"]
 [ext_resource type="AudioStream" uid="uid://chrfxplethqng" path="res://Enemies/Sounds/Guard/Resarch-interact.wav" id="6_db6xf"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
 [ext_resource type="AudioStream" uid="uid://cy7nkj3ihx0p6" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 3-Patrol_movement.wav" id="7_bpryv"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardMovementSounds.gd" id="7_qthhg"]
 [ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardStunned.gd" id="8_73ftb"]
 [ext_resource type="AudioStream" uid="uid://b8pgt6cy2b5j" path="res://Enemies/Sounds/Guard/Running-Esclamation.wav" id="8_svg5n"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="9_3egjy"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_erwln"]
@@ -30,26 +25,31 @@
 [ext_resource type="PackedScene" uid="uid://bv386oatrmsc" path="res://Enemies/guard_attack.tscn" id="13_3c0sx"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_ixdn1"]
 [ext_resource type="PackedScene" uid="uid://wggb00rfdwgw" path="res://Enemies/alert_scream_area.tscn" id="16_22bn2"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardMovementSounds.gd" id="16_i6y0f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_slhsl"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_tw0pk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsInAlert.gd" id="18_aenx3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardStunned.gd" id="18_v785f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertPreChase.gd" id="19_03pbj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertMainRaycast.gd" id="20_r5o6v"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertTargetNotSeen.gd" id="21_6cr5u"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsAttacking.gd" id="21_uu2lk"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardContact.gd" id="22_apy6b"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardIsInResearch.gd" id="22_m4ta3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertCatchPreparation.gd" id="22_spoys"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardSecondaryResearchRaycast.gd" id="23_0dmw8"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardCheck.gd" id="23_emrch"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchLaunch.gd" id="23_logam"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckHitboxChecker.gd" id="23_wfykk"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistraction.gd" id="24_dy37m"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardMainResearchRaycast.gd" id="24_s705y"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckReduction.gd" id="24_wi1hx"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistractionDiffuseArea.gd" id="25_7n1xk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardMainCheckExecution.gd" id="25_83w75"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardPreCheck.gd" id="25_ydjbr"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardDistraction.gd" id="26_24461"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardResearch.gd" id="26_kna6o"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardSuspicionValue.gd" id="26_q20lg"]
-[ext_resource type="Script" path="res://Enemies/Scripts/GuardDistractionDiffuseArea.gd" id="27_4smyn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchPriorityActions.gd" id="27_dxtmq"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="30_tkhpn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="34_rmphj"]
@@ -116,7 +116,7 @@ radius = 577.997
 [node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardDistraction", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_loc1f")
+script = ExtResource("1_lw4ue")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
@@ -208,7 +208,7 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="GuardMovementSounds" type="Node" parent="." node_paths=PackedStringArray("guardController", "patrolMovementSounds", "alertMovementSounds", "currentMovementSound")]
-script = ExtResource("7_qthhg")
+script = ExtResource("16_i6y0f")
 guardController = NodePath("..")
 patrolMovementSounds = [NodePath("../Sounds/NormalSteps/Step1"), NodePath("../Sounds/NormalSteps/Step2"), NodePath("../Sounds/NormalSteps/Step3")]
 alertMovementSounds = [NodePath("../Sounds/AlertSteps/Step1"), NodePath("../Sounds/AlertSteps/Step2"), NodePath("../Sounds/AlertSteps/Step3")]
@@ -221,7 +221,7 @@ startupDuration = 0.1
 timeSpentDoingExtraPatrol = 60.0
 
 [node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
-script = ExtResource("8_73ftb")
+script = ExtResource("18_v785f")
 stunDuration = 10.0
 stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
@@ -257,7 +257,7 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("8_7mxgb")
 
 [node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "enemyRotator")]
-script = ExtResource("2_n1dev")
+script = ExtResource("22_apy6b")
 guardController = NodePath("../..")
 enemyRotator = NodePath("..")
 checkValue = 20.0
@@ -269,7 +269,7 @@ shape = SubResource("RectangleShape2D_fbjn8")
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
-script = ExtResource("6_8v6qf")
+script = ExtResource("23_emrch")
 guardController = NodePath("../..")
 maxAlertValue = 100.0
 researchValueThreshold = 50.0
@@ -310,7 +310,7 @@ position = Vector2(95.9989, 448)
 rotation = -3.14159
 
 [node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
-script = ExtResource("26_24461")
+script = ExtResource("24_dy37m")
 guardController = NodePath("../..")
 guardDistractionDiffuseArea = NodePath("GuardDistractionDiffuseArea")
 guardCheckValueOnEnd = 35.0
@@ -322,13 +322,13 @@ possibleDistractionGroup = "PossibleGuardAttract"
 polygon = PackedVector2Array(48, -56, -48, -56, -96, -464, 96, -464)
 
 [node name="GuardDistractionDiffuseArea" type="Area2D" parent="Rotator/GuardDistraction"]
-script = ExtResource("27_4smyn")
+script = ExtResource("25_7n1xk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
 shape = SubResource("CircleShape2D_pnfgo")
 
 [node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "researchEnterSound", "guardController")]
-script = ExtResource("4_j1yk0")
+script = ExtResource("26_kna6o")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
 buildUpDuration = 2.0
