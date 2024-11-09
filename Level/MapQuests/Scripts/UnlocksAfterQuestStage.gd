@@ -14,8 +14,8 @@ func _ready():
 func RemoveObjectsToAddAtStart():
 	if (objectsToAdd.size() > 0):
 		for i in objectsToAdd.size():
-			if (objectsToAdd[i] != null && objectsToAdd[i].get_parent() != null):
-				objectsToAdd[i].get_parent().remove_child(objectsToAdd[i])
+			if (objectsToAdd[i] != null):
+				DeactivateObjectToOperate(objectsToAdd[i])
 
 func CheckForCompletion(questStage: int):
 	if (questStage >= requiredQuestStage):
@@ -27,8 +27,27 @@ func CompleteUnlockAfterQuest():
 			if (objectsToAdd[i] != null):
 				if (objectsToAdd[i] is PuzzleObject):
 					objectsToAdd[i].InteractSignal()
-				else: self.add_child(objectsToAdd[i])
+				else:
+					ActivateObjectToOperate(objectsToAdd[i])
 	if (objectsToRemove.size() > 0):
 		for i in objectsToRemove.size():
 			if (objectsToRemove[i] != null):
-				objectsToRemove[i].queue_free()
+				DeactivateObjectToOperate(objectsToRemove[i])
+
+func ActivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Activation()
+		return
+	objectToOperate.show()
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = false
+
+func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is PuzzleObject):
+		objectToOperate.Deactivation()
+		return
+	objectToOperate.hide()
+	for i in objectToOperate.get_child_count():
+		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
+			objectToOperate.get_child(i).disabled = true
