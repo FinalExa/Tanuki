@@ -2,13 +2,22 @@ class_name WardenAlertArea
 extends Area2D
 
 var guardsInArea: Array[GuardController]
+var activated: bool
 @export var wardenCheck: WardenCheck
 
 func _process(_delta):
 	UpdatePlayerPositionToGuardsInArea()
 
+func SetActive():
+	self.show()
+	activated = true
+
+func SetInactive():
+	self.hide()
+	activated = false
+
 func UpdatePlayerPositionToGuardsInArea():
-	if (wardenCheck.playerIn && guardsInArea.size() > 0):
+	if (activated && wardenCheck.playerIn && guardsInArea.size() > 0):
 		for i in guardsInArea.size():
 			SetGuardInAlert(guardsInArea[i])
 			UpdateGuardWithInfo(guardsInArea[i])

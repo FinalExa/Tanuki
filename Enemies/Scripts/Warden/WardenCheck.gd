@@ -55,13 +55,11 @@ func DecreaseCheckValue(delta):
 	UpdateLabelValue()
 
 func AddArea():
-	if (wardenAlertArea.get_parent() == null):
-		add_child(wardenAlertArea)
+	wardenAlertArea.SetActive()
 
 func RemoveArea():
-	if (wardenAlertArea.get_parent() != null):
-		wardenAlertArea.ClearGuardsInArea()
-		wardenAlertArea.get_parent().remove_child(wardenAlertArea)
+	wardenAlertArea.ClearGuardsInArea()
+	wardenAlertArea.SetInactive()
 
 func EndWardenCheck():
 	checkCurrentValue = 0
