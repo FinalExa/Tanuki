@@ -2,19 +2,10 @@ extends PuzzleObject
 
 var trapsInArea: Array[InteractionObject]
 
-func Activation():
-	if (get_parent() == null):
-		call_deferred("AddChild")
-
 func Deactivation():
-	call_deferred("RemoveChild")
-
-func AddChild():
-	parentRef.add_child(self)
-
-func RemoveChild():
 	RemoveAllTrapsInArea()
-	parentRef.remove_child(self)
+	self.hide()
+	collisionShapeRef.disabled = true
 
 func _on_body_entered(body):
 	if (body is InteractionObject && !trapsInArea.has(body)):
