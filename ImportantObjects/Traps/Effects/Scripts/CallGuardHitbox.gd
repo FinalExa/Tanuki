@@ -8,7 +8,7 @@ var guardsInRange: Array[GuardController]
 func _ready():
 	SetInactive()
 
-func _process(delta):
+func _process(_delta):
 	CallOtherGuards()
 
 func SetActive():
@@ -19,12 +19,8 @@ func SetInactive():
 	self.hide()
 	activated = false
 
-func _on_body_entered(body):
-	if (body is GuardController):
-		var guardRef: GuardController = body
-
 func CallOtherGuards():
-	if (activated):
+	if (activated && targetObject != null):
 		for i in guardsInRange.size():
 			GuardLaunchAlert(guardsInRange[i])
 
@@ -37,4 +33,18 @@ func GuardLaunchAlert(guardRef: GuardController):
 		if (guardRef.isInResearch):
 			guardRef.guardResearch.StopResearch()
 		guardRef.guardAlert.start_alert(targetObject)
-		guardRef.guardAlert.set_movement_destination(targetObject.global_position)
+		guardRef.guardAlert.SetAlertTargetLastInfo(targetObject)
+
+func _on_body_entered(body):
+	if (body is PlayerCharacter && targetObject == null):
+		targetObject = body
+		return
+	if (body is GuardController && !guardsInRange.has(body)):
+		guardsInRange.push_back(body)
+
+func _on_body_exited(body):
+	if (body is PlayerCharacter && targetObject == body):
+		targetObject = null
+		return
+	if (body is GuardController && guardsInRange.has(body)):
+		guardsInRange.erase(body)

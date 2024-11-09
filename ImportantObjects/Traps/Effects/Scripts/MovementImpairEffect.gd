@@ -50,6 +50,6 @@ func remove_call_hitbox():
 	callGuardHitbox.SetInactive()
 	hitboxActive = false
 
-func add_call_hitbox(playerRef: PlayerCharacter):
+func add_call_hitbox():
 	callGuardHitbox.SetActive()
 	hitboxActive = true
