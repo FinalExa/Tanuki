@@ -15,7 +15,7 @@ func execute_effect_normally(receivedBody, _delta):
 
 func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 	if (!hitboxActive):
-		add_call_hitbox(playerRef)
+		add_call_hitbox()
 	if (!playerHasBeenCaptured):
 		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
 		if (!playerHasBeenMoved):
