@@ -19,6 +19,7 @@ func SetHitboxOn():
 	self.show()
 
 func ActivateGameOver():
+	hitboxOff = true
 	playerRef.GameOver(self)
 
 func _on_body_entered(body):

@@ -456,7 +456,7 @@ navigation_polygon = SubResource("NavigationPolygon_b82ri")
 navigation_polygon = SubResource("NavigationPolygon_ey8e0")
 
 [node name="Teapot" parent="Rooms/RoomC" instance=ExtResource("15_wdsu2")]
-position = Vector2(-840, 192)
+position = Vector2(-832, 320)
 
 [node name="Dish" parent="Rooms/RoomC" instance=ExtResource("24_u6tss")]
 position = Vector2(-977, -605)

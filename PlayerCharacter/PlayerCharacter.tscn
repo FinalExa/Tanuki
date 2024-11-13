@@ -354,9 +354,8 @@ accelerationPerSecond = 700.0
 defaultMaxSpeed = 500.0
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
-attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
