@@ -43,6 +43,8 @@ func _physics_process(_delta):
 func start_alert(target):
 	guardController.enemyStatus.updateText(alertText)
 	alertTarget = target
+	if (alertTarget is TailFollow):
+		alertTarget = target.playerRef
 	SetAlertTargetLastInfo(alertTarget)
 	preChaseTimer = preChaseDuration
 	call_deferred("AddAreas")
