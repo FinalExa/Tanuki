@@ -339,6 +339,7 @@ objectSavedSound = NodePath("../../Sounds/ObjectSaved")
 transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 tailAppearsSound = NodePath("../../Sounds/TailAppears")
 noTransformationText = "No Transformation"
+transformationObjectSafeCoords = Vector2(-100000, -100000)
 transformationLockDuration = 1.5
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]

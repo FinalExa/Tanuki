@@ -32,6 +32,7 @@ var isTransformed: bool = false
 @export var transformationTimeLowSound: AudioStreamPlayer
 @export var tailAppearsSound: AudioStreamPlayer
 @export var noTransformationText: String
+@export var transformationObjectSafeCoords: Vector2
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
@@ -84,6 +85,8 @@ func GenerateTransformationObject():
 			var oldObjectToDelete: TransformationObjectData = currentTransformationObject
 			oldObjectToDelete.queue_free()
 		currentTransformationObject = InstantiateScene(currentOriginalObjectPath)
+		currentTransformationObject.reparent(get_tree().root.get_child(0).sceneSelector.currentScene)
+		currentTransformationObject.global_position = transformationObjectSafeCoords
 		DeactivateObjectToOperate(currentTransformationObject)
 		playerTransformedSprite.texture = currentTransformationObject.transformedTexture.texture
 		playerTransformedSprite.scale = currentTransformationObject.transformedTextureScale
