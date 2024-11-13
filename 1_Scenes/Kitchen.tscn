@@ -134,10 +134,16 @@ size = Vector2(108, 1795)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_027ww"]
 size = Vector2(430, 129)
 
-[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
+[node name="Kitchen" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 script = ExtResource("1_fluk2")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
+levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
+levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenDestroyHorizontalFragileWall"), NodePath("Quests/KitchenDestroyVerticalFragileWall"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenFeedRat")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
+travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0"), NodePath("Quests/KitchenGrowPlantInRoomG/VaseGrown1")]
+travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -211,20 +217,22 @@ requiredKeys = 3
 
 [node name="Quests" type="Node2D" parent="."]
 
-[node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questStageAdvancers")]
+[node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenSaveTheOni"
+questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2")]
 questItemsStages = Array[int]([0, 0, 1, 3])
 questItemsOnOffState = Array[bool]([false, false, true, true])
 questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
+objectsToDeleteAtQuestComplete = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
 
 [node name="HeatSourceActivator" parent="Quests/KitchenSaveTheOni" instance=ExtResource("3_fj7m5")]
 position = Vector2(-2776, -1248)
 activated = true
 
 [node name="HeatSourceActivator2" parent="Quests/KitchenSaveTheOni" instance=ExtResource("3_fj7m5")]
-position = Vector2(3615, 1568)
+position = Vector2(3584, 1056)
 activated = true
 
 [node name="Furnace" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("4_80pyi")]
@@ -242,19 +250,22 @@ position = Vector2(-824, -768)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenStunWarden" type="Node2D" parent="Quests"]
+[node name="KitchenStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenStunWarden"
+questItemsToOperate = [null, NodePath("../../Enemies/WardenE1")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 
-[node name="KitchenHiddenRoom" type="Node2D" parent="Quests"]
+[node name="KitchenHiddenRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenHiddenRoom"
+questItemsToOperate = [NodePath("RoomA"), NodePath("../../Keys/UnlockKey3"), NodePath("RoomA"), NodePath("../../Keys/UnlockKey3")]
 questItemsStages = Array[int]([0, 0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true, true])
+objectsToDeleteAtQuestComplete = [NodePath("PaintingWall")]
 
 [node name="RoomA" type="Node2D" parent="Quests/KitchenHiddenRoom"]
 
@@ -291,12 +302,14 @@ position = Vector2(-3072, -1344)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenObtainKnife" type="Node2D" parent="Quests"]
+[node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainKnife"
+questItemsToOperate = [NodePath("Knife"), NodePath("Knife")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Knife" parent="Quests/KitchenObtainKnife" instance=ExtResource("17_pif6t")]
 position = Vector2(-1080, -146)
@@ -306,60 +319,70 @@ position = Vector2(-1328, -128)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenDestroyHorizontalFragileWall" type="Node2D" parent="Quests"]
+[node name="KitchenDestroyHorizontalFragileWall" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenDestroyHorizontalFragileWall"
+questItemsToOperate = [NodePath("../../Rooms/RoomG/Objects/FragileWall")]
 questItemsStages = Array[int]([1])
 questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("../../Rooms/RoomG/Objects/FragileWall")]
 
-[node name="KitchenDestroyVerticalFragileWall" type="Node2D" parent="Quests"]
+[node name="KitchenDestroyVerticalFragileWall" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenDestroyVerticalFragileWall"
+questItemsToOperate = [NodePath("../../Rooms/RoomG/Objects/FragileWallVertical")]
 questItemsStages = Array[int]([1])
 questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("../../Rooms/RoomG/Objects/FragileWallVertical")]
 
-[node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests"]
+[node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenGrowPlantInRoomD"
+questItemsToOperate = [NodePath("VaseGrown0"), NodePath("VaseGrown0")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
 
 [node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
 position = Vector2(106, 2223)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
+[node name="VaseGrown0" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
 position = Vector2(106, 2223)
 sendToTravelID = null
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
-[node name="KitchenGrowPlantInRoomG" type="Node2D" parent="Quests"]
+[node name="KitchenGrowPlantInRoomG" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenGrowPlantInRoomG"
+questItemsToOperate = [NodePath("VaseGrown1"), NodePath("VaseGrown1")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
 
 [node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
 position = Vector2(2444, 595)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="VaseGrown" parent="Quests/KitchenGrowPlantInRoomG" instance=ExtResource("20_0oc42")]
+[node name="VaseGrown1" parent="Quests/KitchenGrowPlantInRoomG" instance=ExtResource("20_0oc42")]
 position = Vector2(2444, 595)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
-[node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests"]
+[node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor"
+questItemsToOperate = [NodePath("DirtyFloor")]
 questItemsStages = Array[int]([1])
 questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
 position = Vector2(2176, 2048)
@@ -367,12 +390,14 @@ scale = Vector2(2, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenFeedRat" type="Node2D" parent="Quests"]
+[node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenFeedRat"
+questItemsToOperate = [NodePath("Rat"), NodePath("Rat")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("Rat")]
 
 [node name="Rat" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_acuu4")]
 position = Vector2(2680, 2368)
