@@ -99,9 +99,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2048, -768, -2048, -256, -2056, -256, -2056, 0, -2048, 0, -2048, 512, -784, 512, -784, 257, -768, 257, -768, 1, -784, 1, -784, -768)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7n0o3"]
-vertices = PackedVector2Array(-768, 2816, -768, -767, 256, -767, 256, 2304, 3312, 2816, 2320, 2304, 2320, 2176, 1808, 2176, 1808, 1536, 2303, 1536, 2303, 1408, 1808, 1408, 1808, 896, 3312, 896, 3312, 1408, 2815, 1408, 2815, 1536, 3312, 1536, 3312, 2176, 2824, 2176, 2824, 2304, 3312, 2304)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(13, 14, 15), PackedInt32Array(10, 13, 15, 9), PackedInt32Array(9, 15, 16, 6), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(5, 6, 16, 19, 20), PackedInt32Array(4, 5, 20), PackedInt32Array(4, 20, 21)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-768, -767, 256, -767, 256, 2304, 2320, 2304, 2320, 2176, 1808, 2176, 1808, 1536, 2303, 1536, 2303, 1408, 1808, 1408, 1808, 896, 3312, 896, 3312, 1408, 2815, 1408, 2815, 1536, 3312, 1536, 3312, 2176, 2824, 2176, 2824, 2304, 3312, 2304, 3312, 2816, -768, 2816)])
+vertices = PackedVector2Array(-768, 2816, -768, -767, 256, -767, 256, 2304, 3312, 2816, 2320, 2304, 2320, 2176, 1808, 2176, 1808, 1536, 3312, 1536, 3312, 2176, 2816, 2176, 2816, 2304, 3312, 2304)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(6, 9, 11, 5), PackedInt32Array(5, 11, 12), PackedInt32Array(4, 5, 12), PackedInt32Array(4, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-768, -767, 256, -767, 256, 2304, 2320, 2304, 2320, 2176, 1808, 2176, 1808, 1536, 3312, 1536, 3312, 2176, 2816, 2176, 2816, 2304, 3312, 2304, 3312, 2816, -768, 2816)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ln46g"]
 vertices = PackedVector2Array(272, 383, 272, -767, 1280, -767, 1280, -127, 1792, -127, 1792, 769, 272, 769, 272, 640, 256, 640, 256, 383)
@@ -254,7 +254,7 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenStunWarden"
-questItemsToOperate = [null, NodePath("../../Enemies/WardenE1")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 
@@ -394,7 +394,7 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenFeedRat"
-questItemsToOperate = [NodePath("Rat"), NodePath("Rat")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("../../Keys/UnlockKey4")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("Rat")]
