@@ -190,7 +190,7 @@ position = Vector2(-909, 1691)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardD2/PatrolIndicator")]
 
 [node name="Cleaner" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("44_pmp80")]
-position = Vector2(-251, -552)
+position = Vector2(-256, 1344)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerD1/PatrolIndicator")]
 
 [node name="Keys" type="Node2D" parent="."]
