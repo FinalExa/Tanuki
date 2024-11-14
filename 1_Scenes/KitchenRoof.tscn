@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3to5xrejw3mr"]
+[gd_scene load_steps=43 format=3 uid="uid://d3to5xrejw3mr"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_4ebhp"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_rbj3t"]
@@ -15,6 +15,82 @@
 [ext_resource type="PackedScene" uid="uid://bw48t0tdvroe5" path="res://Level/Prefabs/wall_half.tscn" id="11_q3x2b"]
 [ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="12_cxjtd"]
 [ext_resource type="PackedScene" uid="uid://my36yr7at71l" path="res://Level/Prefabs/wall_vertical_end_half.tscn" id="15_myiro"]
+[ext_resource type="PackedScene" uid="uid://bt7a7jiw1pgtx" path="res://Level/Prefabs/roof_beam.tscn" id="16_5l88a"]
+[ext_resource type="PackedScene" uid="uid://bq317nim1c310" path="res://Level/Prefabs/roof_beam_vertical.tscn" id="17_qgin6"]
+[ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="18_hrnga"]
+[ext_resource type="Texture2D" uid="uid://tl34upms1ggm" path="res://Level/Sprites/Placeholder/blackTile.png" id="19_33yd0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vjjk"]
+texture = ExtResource("19_33yd0")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4wjad"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_2vjjk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffb34"]
+size = Vector2(928, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b25ca"]
+size = Vector2(416, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqnb"]
+size = Vector2(416, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0xi"]
+size = Vector2(864, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ors3b"]
+size = Vector2(864, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd5k"]
+size = Vector2(1104, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_284ex"]
+size = Vector2(1096, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knc1n"]
+size = Vector2(1136, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgaab"]
+size = Vector2(1136, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pciy"]
+size = Vector2(1200, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nye33"]
+size = Vector2(1200, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsf1h"]
+size = Vector2(880, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf3j"]
+size = Vector2(872, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc22"]
+size = Vector2(880, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx183"]
+size = Vector2(880, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m1d5"]
+size = Vector2(920, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad836"]
+size = Vector2(1440, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shfw6"]
+size = Vector2(1376, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5e13"]
+size = Vector2(1376, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lqje"]
+size = Vector2(1424, 672)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peiyn"]
+size = Vector2(1424, 832)
 
 [node name="KitchenRoof" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 script = ExtResource("1_4ebhp")
@@ -22,8 +98,14 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenSaveTheOni"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
-travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1")]
+travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20"), NodePath("TeleportFall/TravelingArea21")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource("TileSet_4wjad")
+format = 2
+layer_0/tile_data = PackedInt32Array(-786458, 0, 0, 1048596, 0, 0, 851968, 0, 0, 786432, 0, 0, 720896, 0, 0, 655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 0, 0, 0, -65536, 0, 0, -131072, 0, 0, -196608, 0, 0, -262144, 0, 0, -327680, 0, 0, -393216, 0, 0, -458752, 0, 0, -524288, 0, 0, -589824, 0, 0, -655360, 0, 0, -720896, 0, 0, -786432, 0, 0, -851968, 0, 0, -786433, 0, 0, -786434, 0, 0, -786435, 0, 0, -786436, 0, 0, -786437, 0, 0, -786438, 0, 0, -786439, 0, 0, -786440, 0, 0, -786441, 0, 0, -786442, 0, 0, -786443, 0, 0, -786444, 0, 0, -786445, 0, 0, -786446, 0, 0, -786447, 0, 0, -786448, 0, 0, -786449, 0, 0, -786450, 0, 0, -786451, 0, 0, -786452, 0, 0, -786453, 0, 0, -786454, 0, 0, -786455, 0, 0, -786456, 0, 0, -786457, 0, 0, -720921, 0, 0, -720922, 0, 0, -655386, 0, 0, -589850, 0, 0, -524314, 0, 0, -458778, 0, 0, -393242, 0, 0, -327706, 0, 0, -262170, 0, 0, -196634, 0, 0, -131098, 0, 0, -65562, 0, 0, -26, 0, 0, 65510, 0, 0, 131046, 0, 0, 196582, 0, 0, 262118, 0, 0, 327654, 0, 0, 393190, 0, 0, 458726, 0, 0, 524262, 0, 0, 589798, 0, 0, 655334, 0, 0, 720870, 0, 0, 786406, 0, 0, 851942, 0, 0, 917478, 0, 0, 983014, 0, 0, 1048550, 0, 0, 1114086, 0, 0, 1114087, 0, 0, 1048551, 0, 0, 983015, 0, 0, 917479, 0, 0, 851943, 0, 0, 786407, 0, 0, 720871, 0, 0, 655335, 0, 0, 589799, 0, 0, 524263, 0, 0, 458727, 0, 0, 393191, 0, 0, 327655, 0, 0, 262119, 0, 0, 196583, 0, 0, 131047, 0, 0, 65511, 0, 0, -25, 0, 0, -65561, 0, 0, -131097, 0, 0, -196633, 0, 0, -262169, 0, 0, -327705, 0, 0, -393241, 0, 0, -458777, 0, 0, -524313, 0, 0, -589849, 0, 0, -655385, 0, 0, -655384, 0, 0, -720920, 0, 0, -720919, 0, 0, -655383, 0, 0, -589847, 0, 0, -589848, 0, 0, -524312, 0, 0, -458776, 0, 0, -393240, 0, 0, -327704, 0, 0, -262168, 0, 0, -196632, 0, 0, -131096, 0, 0, -65560, 0, 0, -24, 0, 0, 65512, 0, 0, 131048, 0, 0, 196584, 0, 0, 262120, 0, 0, 327656, 0, 0, 393192, 0, 0, 458728, 0, 0, 524264, 0, 0, 589800, 0, 0, 655336, 0, 0, 720872, 0, 0, 786408, 0, 0, 851944, 0, 0, 917480, 0, 0, 983016, 0, 0, 1048552, 0, 0, 1114088, 0, 0, 1114089, 0, 0, 1048553, 0, 0, 983017, 0, 0, 917481, 0, 0, 851945, 0, 0, 786409, 0, 0, 720873, 0, 0, 655337, 0, 0, 589801, 0, 0, 524265, 0, 0, 458729, 0, 0, 393193, 0, 0, 327657, 0, 0, 262121, 0, 0, 196585, 0, 0, 131049, 0, 0, 65513, 0, 0, -23, 0, 0, -65559, 0, 0, -131095, 0, 0, -196631, 0, 0, -262167, 0, 0, -327703, 0, 0, -393239, 0, 0, -458775, 0, 0, -524311, 0, 0, -524310, 0, 0, -589846, 0, 0, -655382, 0, 0, -720918, 0, 0, -720917, 0, 0, -655381, 0, 0, -589845, 0, 0, -524309, 0, 0, -458773, 0, 0, -458774, 0, 0, -393238, 0, 0, -327702, 0, 0, -262166, 0, 0, -196630, 0, 0, -131094, 0, 0, -65558, 0, 0, -22, 0, 0, 65514, 0, 0, 131050, 0, 0, 196586, 0, 0, 262122, 0, 0, 327658, 0, 0, 393194, 0, 0, 458730, 0, 0, 524266, 0, 0, 589802, 0, 0, 655338, 0, 0, 720874, 0, 0, 786410, 0, 0, 851946, 0, 0, 917482, 0, 0, 983018, 0, 0, 1048554, 0, 0, 1114090, 0, 0, 1114091, 0, 0, 1048555, 0, 0, 983019, 0, 0, 917483, 0, 0, 851947, 0, 0, 786411, 0, 0, 720875, 0, 0, 655339, 0, 0, 589803, 0, 0, 524267, 0, 0, 458731, 0, 0, 393195, 0, 0, 327659, 0, 0, 262123, 0, 0, 196587, 0, 0, 131051, 0, 0, 65515, 0, 0, -21, 0, 0, -65557, 0, 0, -131093, 0, 0, -196629, 0, 0, -262165, 0, 0, -327701, 0, 0, -393237, 0, 0, -393236, 0, 0, -458772, 0, 0, -524308, 0, 0, -589844, 0, 0, -655380, 0, 0, -720916, 0, 0, -720915, 0, 0, -655379, 0, 0, -589843, 0, 0, -524307, 0, 0, -458771, 0, 0, -393235, 0, 0, -327699, 0, 0, -327700, 0, 0, -262164, 0, 0, -196628, 0, 0, -131092, 0, 0, -65556, 0, 0, -20, 0, 0, 65516, 0, 0, 131052, 0, 0, 196588, 0, 0, 262124, 0, 0, 327660, 0, 0, 393196, 0, 0, 458732, 0, 0, 524268, 0, 0, 589804, 0, 0, 655340, 0, 0, 720876, 0, 0, 786412, 0, 0, 851948, 0, 0, 917484, 0, 0, 983020, 0, 0, 1048556, 0, 0, 1114092, 0, 0, 1114093, 0, 0, 1048557, 0, 0, 983021, 0, 0, 917485, 0, 0, 851949, 0, 0, 786413, 0, 0, 720877, 0, 0, 655341, 0, 0, 589805, 0, 0, 524269, 0, 0, 458733, 0, 0, 393197, 0, 0, 327661, 0, 0, 262125, 0, 0, 196589, 0, 0, 131053, 0, 0, 65517, 0, 0, -19, 0, 0, -65555, 0, 0, -131091, 0, 0, -196627, 0, 0, -262163, 0, 0, -262162, 0, 0, -327698, 0, 0, -393234, 0, 0, -458770, 0, 0, -524306, 0, 0, -589842, 0, 0, -655378, 0, 0, -720914, 0, 0, -720913, 0, 0, -655377, 0, 0, -589841, 0, 0, -524305, 0, 0, -458769, 0, 0, -393233, 0, 0, -327697, 0, 0, -262161, 0, 0, -196625, 0, 0, -196626, 0, 0, -131090, 0, 0, -65554, 0, 0, -18, 0, 0, 65518, 0, 0, 131054, 0, 0, 196590, 0, 0, 262126, 0, 0, 327662, 0, 0, 393198, 0, 0, 458734, 0, 0, 524270, 0, 0, 589806, 0, 0, 655342, 0, 0, 720878, 0, 0, 786414, 0, 0, 851950, 0, 0, 917486, 0, 0, 983022, 0, 0, 1048558, 0, 0, 1114094, 0, 0, 1114095, 0, 0, 1048559, 0, 0, 983023, 0, 0, 917487, 0, 0, 851951, 0, 0, 786415, 0, 0, 720879, 0, 0, 655343, 0, 0, 589807, 0, 0, 524271, 0, 0, 458735, 0, 0, 393199, 0, 0, 327663, 0, 0, 262127, 0, 0, 196591, 0, 0, 131055, 0, 0, 65519, 0, 0, -17, 0, 0, -65553, 0, 0, -131089, 0, 0, -131088, 0, 0, -196624, 0, 0, -262160, 0, 0, -327696, 0, 0, -393232, 0, 0, -458768, 0, 0, -524304, 0, 0, -589840, 0, 0, -655376, 0, 0, -720912, 0, 0, -720911, 0, 0, -655375, 0, 0, -589839, 0, 0, -524303, 0, 0, -458767, 0, 0, -393231, 0, 0, -327695, 0, 0, -262159, 0, 0, -196623, 0, 0, -131087, 0, 0, -65551, 0, 0, -65552, 0, 0, -16, 0, 0, 65520, 0, 0, 131056, 0, 0, 196592, 0, 0, 262128, 0, 0, 327664, 0, 0, 393200, 0, 0, 458736, 0, 0, 524272, 0, 0, 589808, 0, 0, 655344, 0, 0, 720880, 0, 0, 786416, 0, 0, 851952, 0, 0, 917488, 0, 0, 983024, 0, 0, 1048560, 0, 0, 1114096, 0, 0, 1114097, 0, 0, 1048561, 0, 0, 983025, 0, 0, 917489, 0, 0, 851953, 0, 0, 786417, 0, 0, 720881, 0, 0, 655345, 0, 0, 589809, 0, 0, 524273, 0, 0, 458737, 0, 0, 393201, 0, 0, 327665, 0, 0, 262129, 0, 0, 196593, 0, 0, 131057, 0, 0, 65521, 0, 0, -15, 0, 0, -14, 0, 0, -65550, 0, 0, -131086, 0, 0, -196622, 0, 0, -262158, 0, 0, -327694, 0, 0, -393230, 0, 0, -458766, 0, 0, -524302, 0, 0, -589838, 0, 0, -655374, 0, 0, -720910, 0, 0, -720909, 0, 0, -655373, 0, 0, -589837, 0, 0, -524301, 0, 0, -458765, 0, 0, -393229, 0, 0, -327693, 0, 0, -262157, 0, 0, -196621, 0, 0, -131085, 0, 0, -65549, 0, 0, -13, 0, 0, 65523, 0, 0, 65522, 0, 0, 131058, 0, 0, 196594, 0, 0, 262130, 0, 0, 327666, 0, 0, 393202, 0, 0, 458738, 0, 0, 524274, 0, 0, 589810, 0, 0, 655346, 0, 0, 720882, 0, 0, 786418, 0, 0, 851954, 0, 0, 917490, 0, 0, 983026, 0, 0, 1048562, 0, 0, 1114098, 0, 0, 1114099, 0, 0, 1048563, 0, 0, 983027, 0, 0, 917491, 0, 0, 851955, 0, 0, 786419, 0, 0, 720883, 0, 0, 655347, 0, 0, 589811, 0, 0, 524275, 0, 0, 458739, 0, 0, 393203, 0, 0, 327667, 0, 0, 262131, 0, 0, 196595, 0, 0, 131059, 0, 0, 131060, 0, 0, 65524, 0, 0, -12, 0, 0, -65548, 0, 0, -131084, 0, 0, -196620, 0, 0, -262156, 0, 0, -327692, 0, 0, -393228, 0, 0, -458764, 0, 0, -524300, 0, 0, -589836, 0, 0, -655372, 0, 0, -720908, 0, 0, -720907, 0, 0, -655371, 0, 0, -589835, 0, 0, -524299, 0, 0, -458763, 0, 0, -393227, 0, 0, -327691, 0, 0, -262155, 0, 0, -196619, 0, 0, -131083, 0, 0, -65547, 0, 0, -11, 0, 0, 65525, 0, 0, 131061, 0, 0, 196597, 0, 0, 196596, 0, 0, 262132, 0, 0, 327668, 0, 0, 393204, 0, 0, 458740, 0, 0, 524276, 0, 0, 589812, 0, 0, 655348, 0, 0, 720884, 0, 0, 786420, 0, 0, 851956, 0, 0, 917492, 0, 0, 983028, 0, 0, 1048564, 0, 0, 1114100, 0, 0, 1114101, 0, 0, 1048565, 0, 0, 983029, 0, 0, 917493, 0, 0, 851957, 0, 0, 786421, 0, 0, 720885, 0, 0, 655349, 0, 0, 589813, 0, 0, 524277, 0, 0, 458741, 0, 0, 393205, 0, 0, 327669, 0, 0, 262133, 0, 0, 262134, 0, 0, 196598, 0, 0, 131062, 0, 0, 65526, 0, 0, -10, 0, 0, -65546, 0, 0, -131082, 0, 0, -196618, 0, 0, -262154, 0, 0, -327690, 0, 0, -393226, 0, 0, -458762, 0, 0, -524298, 0, 0, -589834, 0, 0, -655370, 0, 0, -720906, 0, 0, -720905, 0, 0, -655369, 0, 0, -589833, 0, 0, -524297, 0, 0, -458761, 0, 0, -393225, 0, 0, -327689, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -65545, 0, 0, -9, 0, 0, 65527, 0, 0, 131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 327671, 0, 0, 327670, 0, 0, 393206, 0, 0, 458742, 0, 0, 524278, 0, 0, 589814, 0, 0, 655350, 0, 0, 720886, 0, 0, 786422, 0, 0, 851958, 0, 0, 917494, 0, 0, 983030, 0, 0, 1048566, 0, 0, 1114102, 0, 0, 1114103, 0, 0, 1048567, 0, 0, 983031, 0, 0, 917495, 0, 0, 851959, 0, 0, 786423, 0, 0, 720887, 0, 0, 655351, 0, 0, 589815, 0, 0, 524279, 0, 0, 458743, 0, 0, 393207, 0, 0, 393208, 0, 0, 327672, 0, 0, 262136, 0, 0, 196600, 0, 0, 131064, 0, 0, 65528, 0, 0, -8, 0, 0, -65544, 0, 0, -131080, 0, 0, -196616, 0, 0, -262152, 0, 0, -327688, 0, 0, -393224, 0, 0, -458760, 0, 0, -524296, 0, 0, -589832, 0, 0, -655368, 0, 0, -720904, 0, 0, -720903, 0, 0, -655367, 0, 0, -589831, 0, 0, -524295, 0, 0, -458759, 0, 0, -393223, 0, 0, -327687, 0, 0, -262151, 0, 0, -196615, 0, 0, -131079, 0, 0, -65543, 0, 0, -7, 0, 0, 65529, 0, 0, 131065, 0, 0, 196601, 0, 0, 262137, 0, 0, 327673, 0, 0, 393209, 0, 0, 458745, 0, 0, 458744, 0, 0, 524280, 0, 0, 589816, 0, 0, 655352, 0, 0, 720888, 0, 0, 786424, 0, 0, 851960, 0, 0, 917496, 0, 0, 983032, 0, 0, 1048568, 0, 0, 1114104, 0, 0, 1114105, 0, 0, 1048569, 0, 0, 983033, 0, 0, 917497, 0, 0, 851961, 0, 0, 786425, 0, 0, 720889, 0, 0, 655353, 0, 0, 589817, 0, 0, 524281, 0, 0, 524282, 0, 0, 458746, 0, 0, 393210, 0, 0, 327674, 0, 0, 262138, 0, 0, 196602, 0, 0, 131066, 0, 0, 65530, 0, 0, -6, 0, 0, -65542, 0, 0, -131078, 0, 0, -196614, 0, 0, -262150, 0, 0, -327686, 0, 0, -393222, 0, 0, -458758, 0, 0, -524294, 0, 0, -589830, 0, 0, -655366, 0, 0, -720902, 0, 0, -720901, 0, 0, -655365, 0, 0, -589829, 0, 0, -524293, 0, 0, -458757, 0, 0, -393221, 0, 0, -327685, 0, 0, -262149, 0, 0, -196613, 0, 0, -131077, 0, 0, -65541, 0, 0, -5, 0, 0, 65531, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 393211, 0, 0, 458747, 0, 0, 524283, 0, 0, 589819, 0, 0, 589818, 0, 0, 655354, 0, 0, 720890, 0, 0, 786426, 0, 0, 851962, 0, 0, 917498, 0, 0, 983034, 0, 0, 1048570, 0, 0, 1114106, 0, 0, 1114107, 0, 0, 1048571, 0, 0, 983035, 0, 0, 917499, 0, 0, 851963, 0, 0, 786427, 0, 0, 720891, 0, 0, 655355, 0, 0, 655356, 0, 0, 589820, 0, 0, 524284, 0, 0, 458748, 0, 0, 393212, 0, 0, 327676, 0, 0, 262140, 0, 0, 196604, 0, 0, 131068, 0, 0, 65532, 0, 0, -4, 0, 0, -65540, 0, 0, -131076, 0, 0, -196612, 0, 0, -262148, 0, 0, -327684, 0, 0, -393220, 0, 0, -458756, 0, 0, -524292, 0, 0, -589828, 0, 0, -655364, 0, 0, -720900, 0, 0, -720899, 0, 0, -655363, 0, 0, -589827, 0, 0, -524291, 0, 0, -458755, 0, 0, -393219, 0, 0, -327683, 0, 0, -262147, 0, 0, -196611, 0, 0, -131075, 0, 0, -65539, 0, 0, -3, 0, 0, 65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 327677, 0, 0, 393213, 0, 0, 458749, 0, 0, 524285, 0, 0, 589821, 0, 0, 655357, 0, 0, 720893, 0, 0, 720892, 0, 0, 786428, 0, 0, 851964, 0, 0, 917500, 0, 0, 983036, 0, 0, 1048572, 0, 0, 1114108, 0, 0, 1114109, 0, 0, 1048573, 0, 0, 983037, 0, 0, 917501, 0, 0, 851965, 0, 0, 786429, 0, 0, 786430, 0, 0, 720894, 0, 0, 655358, 0, 0, 589822, 0, 0, 524286, 0, 0, 458750, 0, 0, 393214, 0, 0, 327678, 0, 0, 262142, 0, 0, 196606, 0, 0, 131070, 0, 0, 65534, 0, 0, -2, 0, 0, -65538, 0, 0, -131074, 0, 0, -196610, 0, 0, -262146, 0, 0, -327682, 0, 0, -393218, 0, 0, -458754, 0, 0, -524290, 0, 0, -589826, 0, 0, -655362, 0, 0, -720898, 0, 0, -720897, 0, 0, -655361, 0, 0, -589825, 0, 0, -524289, 0, 0, -458753, 0, 0, -393217, 0, 0, -327681, 0, 0, -262145, 0, 0, -196609, 0, 0, -131073, 0, 0, -65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 851966, 0, 0, 917502, 0, 0, 983038, 0, 0, 1048574, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048575, 0, 0, 983039, 0, 0, 917503, 0, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 983041, 0, 0, 917505, 0, 0, 851969, 0, 0, 786433, 0, 0, 720897, 0, 0, 655361, 0, 0, 589825, 0, 0, 524289, 0, 0, 458753, 0, 0, 393217, 0, 0, 327681, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, -65535, 0, 0, -131071, 0, 0, -196607, 0, 0, -262143, 0, 0, -327679, 0, 0, -393215, 0, 0, -458751, 0, 0, -524287, 0, 0, -589823, 0, 0, -655359, 0, 0, -720895, 0, 0, -786431, 0, 0, -851967, 0, 0, -851966, 0, 0, -786430, 0, 0, -720894, 0, 0, -655358, 0, 0, -589822, 0, 0, -524286, 0, 0, -458750, 0, 0, -393214, 0, 0, -327678, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 524290, 0, 0, 589826, 0, 0, 655362, 0, 0, 720898, 0, 0, 786434, 0, 0, 851970, 0, 0, 917506, 0, 0, 983042, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 983043, 0, 0, 917507, 0, 0, 851971, 0, 0, 786435, 0, 0, 720899, 0, 0, 655363, 0, 0, 589827, 0, 0, 524291, 0, 0, 458755, 0, 0, 393219, 0, 0, 327683, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, -65533, 0, 0, -131069, 0, 0, -196605, 0, 0, -262141, 0, 0, -327677, 0, 0, -393213, 0, 0, -458749, 0, 0, -524285, 0, 0, -589821, 0, 0, -655357, 0, 0, -720893, 0, 0, -786429, 0, 0, -851965, 0, 0, -851964, 0, 0, -786428, 0, 0, -720892, 0, 0, -655356, 0, 0, -589820, 0, 0, -524284, 0, 0, -458748, 0, 0, -393212, 0, 0, -327676, 0, 0, -262140, 0, 0, -196604, 0, 0, -131068, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 655364, 0, 0, 720900, 0, 0, 786436, 0, 0, 851972, 0, 0, 917508, 0, 0, 983044, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 983045, 0, 0, 917509, 0, 0, 851973, 0, 0, 786437, 0, 0, 720901, 0, 0, 655365, 0, 0, 589829, 0, 0, 524293, 0, 0, 458757, 0, 0, 393221, 0, 0, 327685, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, -65531, 0, 0, -131067, 0, 0, -196603, 0, 0, -262139, 0, 0, -327675, 0, 0, -393211, 0, 0, -458747, 0, 0, -524283, 0, 0, -589819, 0, 0, -655355, 0, 0, -720891, 0, 0, -786427, 0, 0, -851963, 0, 0, -851962, 0, 0, -786426, 0, 0, -720890, 0, 0, -655354, 0, 0, -589818, 0, 0, -524282, 0, 0, -458746, 0, 0, -393210, 0, 0, -327674, 0, 0, -262138, 0, 0, -196602, 0, 0, -131066, 0, 0, -65530, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 524294, 0, 0, 589830, 0, 0, 655366, 0, 0, 720902, 0, 0, 786438, 0, 0, 851974, 0, 0, 917510, 0, 0, 983046, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 983047, 0, 0, 917511, 0, 0, 851975, 0, 0, 786439, 0, 0, 720903, 0, 0, 655367, 0, 0, 589831, 0, 0, 524295, 0, 0, 458759, 0, 0, 393223, 0, 0, 327687, 0, 0, 262151, 0, 0, 196615, 0, 0, 131079, 0, 0, 65543, 0, 0, 7, 0, 0, -65529, 0, 0, -131065, 0, 0, -196601, 0, 0, -262137, 0, 0, -327673, 0, 0, -393209, 0, 0, -458745, 0, 0, -524281, 0, 0, -589817, 0, 0, -655353, 0, 0, -720889, 0, 0, -786425, 0, 0, -851961, 0, 0, -851960, 0, 0, -786424, 0, 0, -720888, 0, 0, -655352, 0, 0, -589816, 0, 0, -524280, 0, 0, -458744, 0, 0, -393208, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -131064, 0, 0, -65528, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 655368, 0, 0, 720904, 0, 0, 786440, 0, 0, 851976, 0, 0, 917512, 0, 0, 983048, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 983049, 0, 0, 917513, 0, 0, 851977, 0, 0, 786441, 0, 0, 720905, 0, 0, 655369, 0, 0, 589833, 0, 0, 524297, 0, 0, 458761, 0, 0, 393225, 0, 0, 327689, 0, 0, 262153, 0, 0, 196617, 0, 0, 131081, 0, 0, 65545, 0, 0, 9, 0, 0, -65527, 0, 0, -131063, 0, 0, -196599, 0, 0, -262135, 0, 0, -327671, 0, 0, -393207, 0, 0, -458743, 0, 0, -524279, 0, 0, -589815, 0, 0, -655351, 0, 0, -720887, 0, 0, -786423, 0, 0, -851959, 0, 0, -851958, 0, 0, -786422, 0, 0, -720886, 0, 0, -655350, 0, 0, -589814, 0, 0, -524278, 0, 0, -458742, 0, 0, -393206, 0, 0, -327670, 0, 0, -262134, 0, 0, -196598, 0, 0, -131062, 0, 0, -65526, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 524298, 0, 0, 589834, 0, 0, 655370, 0, 0, 720906, 0, 0, 786442, 0, 0, 851978, 0, 0, 917514, 0, 0, 983050, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 983051, 0, 0, 917515, 0, 0, 851979, 0, 0, 786443, 0, 0, 720907, 0, 0, 655371, 0, 0, 589835, 0, 0, 524299, 0, 0, 458763, 0, 0, 393227, 0, 0, 327691, 0, 0, 262155, 0, 0, 196619, 0, 0, 131083, 0, 0, 65547, 0, 0, 11, 0, 0, -65525, 0, 0, -131061, 0, 0, -196597, 0, 0, -262133, 0, 0, -327669, 0, 0, -393205, 0, 0, -458741, 0, 0, -524277, 0, 0, -589813, 0, 0, -655349, 0, 0, -720885, 0, 0, -786421, 0, 0, -851957, 0, 0, -851956, 0, 0, -786420, 0, 0, -720884, 0, 0, -655348, 0, 0, -589812, 0, 0, -524276, 0, 0, -458740, 0, 0, -393204, 0, 0, -327668, 0, 0, -262132, 0, 0, -196596, 0, 0, -131060, 0, 0, -65524, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 524300, 0, 0, 589836, 0, 0, 655372, 0, 0, 720908, 0, 0, 786444, 0, 0, 851980, 0, 0, 917516, 0, 0, 983052, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 983053, 0, 0, 917517, 0, 0, 851981, 0, 0, 786445, 0, 0, 720909, 0, 0, 655373, 0, 0, 589837, 0, 0, 524301, 0, 0, 458765, 0, 0, 393229, 0, 0, 327693, 0, 0, 262157, 0, 0, 196621, 0, 0, 131085, 0, 0, 65549, 0, 0, 13, 0, 0, -65523, 0, 0, -131059, 0, 0, -196595, 0, 0, -262131, 0, 0, -327667, 0, 0, -393203, 0, 0, -458739, 0, 0, -524275, 0, 0, -589811, 0, 0, -655347, 0, 0, -720883, 0, 0, -786419, 0, 0, -851955, 0, 0, -851954, 0, 0, -786418, 0, 0, -720882, 0, 0, -655346, 0, 0, -589810, 0, 0, -524274, 0, 0, -458738, 0, 0, -393202, 0, 0, -327666, 0, 0, -262130, 0, 0, -196594, 0, 0, -131058, 0, 0, -65522, 0, 0, 14, 0, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 589838, 0, 0, 655374, 0, 0, 720910, 0, 0, 786446, 0, 0, 851982, 0, 0, 917518, 0, 0, 983054, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 983055, 0, 0, 917519, 0, 0, 851983, 0, 0, 786447, 0, 0, 720911, 0, 0, 655375, 0, 0, 589839, 0, 0, 524303, 0, 0, 458767, 0, 0, 393231, 0, 0, 327695, 0, 0, 262159, 0, 0, 196623, 0, 0, 131087, 0, 0, 65551, 0, 0, 15, 0, 0, -65521, 0, 0, -131057, 0, 0, -196593, 0, 0, -262129, 0, 0, -327665, 0, 0, -393201, 0, 0, -458737, 0, 0, -524273, 0, 0, -589809, 0, 0, -655345, 0, 0, -720881, 0, 0, -786417, 0, 0, -851953, 0, 0, -851952, 0, 0, -786416, 0, 0, -720880, 0, 0, -655344, 0, 0, -589808, 0, 0, -524272, 0, 0, -458736, 0, 0, -393200, 0, 0, -327664, 0, 0, -262128, 0, 0, -196592, 0, 0, -131056, 0, 0, -65520, 0, 0, 16, 0, 0, 65552, 0, 0, 131088, 0, 0, 196624, 0, 0, 262160, 0, 0, 327696, 0, 0, 393232, 0, 0, 458768, 0, 0, 524304, 0, 0, 589840, 0, 0, 655376, 0, 0, 720912, 0, 0, 786448, 0, 0, 851984, 0, 0, 917520, 0, 0, 983056, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 983057, 0, 0, 917521, 0, 0, 851985, 0, 0, 786449, 0, 0, 720913, 0, 0, 655377, 0, 0, 589841, 0, 0, 524305, 0, 0, 458769, 0, 0, 393233, 0, 0, 327697, 0, 0, 262161, 0, 0, 196625, 0, 0, 131089, 0, 0, 65553, 0, 0, 17, 0, 0, -65519, 0, 0, -131055, 0, 0, -196591, 0, 0, -262127, 0, 0, -327663, 0, 0, -393199, 0, 0, -458735, 0, 0, -524271, 0, 0, -589807, 0, 0, -655343, 0, 0, -720879, 0, 0, -786415, 0, 0, -851951, 0, 0, -851950, 0, 0, -786414, 0, 0, -720878, 0, 0, -655342, 0, 0, -589806, 0, 0, -524270, 0, 0, -458734, 0, 0, -393198, 0, 0, -327662, 0, 0, -262126, 0, 0, -196590, 0, 0, -131054, 0, 0, -65518, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 0, 0, 196626, 0, 0, 262162, 0, 0, 327698, 0, 0, 393234, 0, 0, 458770, 0, 0, 524306, 0, 0, 589842, 0, 0, 655378, 0, 0, 720914, 0, 0, 786450, 0, 0, 851986, 0, 0, 917522, 0, 0, 983058, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 983059, 0, 0, 917523, 0, 0, 851987, 0, 0, 786451, 0, 0, 720915, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 196627, 0, 0, 131091, 0, 0, 65555, 0, 0, 19, 0, 0, -65517, 0, 0, -131053, 0, 0, -196589, 0, 0, -262125, 0, 0, -327661, 0, 0, -393197, 0, 0, -458733, 0, 0, -524269, 0, 0, -589805, 0, 0, -655341, 0, 0, -720877, 0, 0, -786413, 0, 0, -851949, 0, 0, -851948, 0, 0, -786412, 0, 0, -720876, 0, 0, -655340, 0, 0, -589804, 0, 0, -524268, 0, 0, -458732, 0, 0, -393196, 0, 0, -327660, 0, 0, -262124, 0, 0, -196588, 0, 0, -131052, 0, 0, -65516, 0, 0, 20, 0, 0, 65556, 0, 0, 131092, 0, 0, 196628, 0, 0, 262164, 0, 0, 327700, 0, 0, 393236, 0, 0, 458772, 0, 0, 524308, 0, 0, 589844, 0, 0, 655380, 0, 0, 720916, 0, 0, 786452, 0, 0, 851988, 0, 0, 917524, 0, 0, 983060, 0, 0)
 
 [node name="Teleports" type="Node2D" parent="."]
 
@@ -31,10 +113,10 @@ travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Telepo
 position = Vector2(512, -2944)
 
 [node name="VaseGrownReceiver0" type="Node2D" parent="Teleports"]
-position = Vector2(-1088, 1984)
+position = Vector2(-768, 2184)
 
 [node name="VaseGrownReceiver1" type="Node2D" parent="Teleports"]
-position = Vector2(-640, 1152)
+position = Vector2(1576, 528)
 
 [node name="Quests" type="Node2D" parent="."]
 
@@ -47,7 +129,7 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/KitchenRoofDropChest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_cxjtd")]
-position = Vector2(-1088, 1792)
+position = Vector2(-720, 768)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -60,7 +142,7 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/KitchenRoofDropLantern" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_cxjtd")]
-position = Vector2(-768, 1088)
+position = Vector2(968, -224)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -73,7 +155,7 @@ requiredQuestStage = 2
 objectsToAdd = [NodePath("HeatSource")]
 
 [node name="HeatSource" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" instance=ExtResource("6_5cmri")]
-position = Vector2(-704, 1016)
+position = Vector2(1040, -312)
 
 [node name="UnlocksAfterKitchenGrowPlantInRoomD" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
 script = ExtResource("5_o2xhk")
@@ -82,7 +164,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("VaseGrown0")]
 
 [node name="VaseGrown0" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD" instance=ExtResource("2_syr3w")]
-position = Vector2(-1088, 2056)
+position = Vector2(-728, 2240)
 sendToTravelID = null
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 
@@ -93,7 +175,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("VaseGrown1")]
 
 [node name="VaseGrown1" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG" instance=ExtResource("2_syr3w")]
-position = Vector2(-512, 1096)
+position = Vector2(1592, 608)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 
@@ -172,22 +254,22 @@ position = Vector2(1288, -639)
 position = Vector2(1288, -383)
 
 [node name="Wall7" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-640, 2880)
+position = Vector2(-640, 2369)
 
 [node name="Wall26" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-896, 2880)
+position = Vector2(-896, 2369)
 
 [node name="Wall27" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1152, 2880)
+position = Vector2(-1152, 2369)
 
 [node name="Wall43" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1408, 2880)
+position = Vector2(-1408, 2369)
 
 [node name="Wall44" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1664, 2880)
+position = Vector2(-1664, 2369)
 
 [node name="Wall45" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1920, 2880)
+position = Vector2(-1920, 2369)
 
 [node name="Wall64" parent="MapWalls" instance=ExtResource("2_rbj3t")]
 position = Vector2(1408, -191)
@@ -196,34 +278,34 @@ position = Vector2(1408, -191)
 position = Vector2(1664, -191)
 
 [node name="Wall69" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2432, 832)
+position = Vector2(2432, 576)
 
 [node name="Wall71" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2688, 832)
+position = Vector2(2688, 576)
 
 [node name="Wall72" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2944, 832)
+position = Vector2(2944, 576)
 
 [node name="Wall70" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2176, 832)
+position = Vector2(2176, 576)
 
 [node name="Wall10" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(640, 2880)
+position = Vector2(640, 2369)
 
 [node name="Wall11" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(384, 2880)
+position = Vector2(384, 2369)
 
 [node name="Wall13" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1152, 2880)
+position = Vector2(1152, 2369)
 
 [node name="Wall17" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(896, 2880)
+position = Vector2(896, 2369)
 
 [node name="WallWithRightVertical8" parent="MapWalls" instance=ExtResource("4_iuhbo")]
 position = Vector2(-2176, -832)
 
 [node name="WallWithRightVertical7" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(3200, 832)
+position = Vector2(3200, 576)
 
 [node name="WallWithRightVertical2" parent="MapWalls" instance=ExtResource("4_iuhbo")]
 position = Vector2(-2176, 576)
@@ -232,55 +314,49 @@ position = Vector2(-2176, 576)
 position = Vector2(-896, -831)
 
 [node name="Wall28" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-256, 2880)
+position = Vector2(-256, 2369)
 
 [node name="Wall29" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1920, 2880)
+position = Vector2(1920, 2369)
 
 [node name="Wall30" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1664, 2880)
+position = Vector2(1664, 2369)
 
 [node name="Wall31" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2176, 2880)
+position = Vector2(2176, 2369)
 
 [node name="Wall21" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2432, 2880)
+position = Vector2(2432, 2369)
 
 [node name="Wall22" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2688, 2880)
+position = Vector2(2688, 2369)
 
 [node name="Wall23" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2944, 2880)
+position = Vector2(2944, 2369)
 
 [node name="Wall24" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3200, 2880)
+position = Vector2(3200, 2369)
 
 [node name="Wall20" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1408, 2880)
+position = Vector2(1408, 2369)
 
 [node name="WallVertical62" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1791)
+position = Vector2(-2056, 1535)
 
 [node name="WallVertical63" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 2047)
-
-[node name="WallVertical64" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 2303)
+position = Vector2(-2056, 1791)
 
 [node name="WallVertical65" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 2559)
+position = Vector2(-2056, 2048)
 
 [node name="WallVertical81" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1024)
-
-[node name="WallVertical86" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-2056, 768)
 
 [node name="WallVertical82" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1280)
+position = Vector2(-2056, 1024)
 
 [node name="WallVertical84" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1535)
+position = Vector2(-2056, 1279)
 
 [node name="WallVertical46" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-4856, 385)
@@ -298,37 +374,37 @@ position = Vector2(-4856, -127)
 position = Vector2(-4736, -832)
 
 [node name="WallEndLeft3" parent="MapWalls" instance=ExtResource("7_6w5gu")]
-position = Vector2(128, 2880)
+position = Vector2(128, 2369)
 
 [node name="WallVerticalHalf" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(-2056, 2751)
+position = Vector2(-2056, 2240)
 
 [node name="WallVerticalHalf6" parent="MapWalls" instance=ExtResource("9_551yb")]
 position = Vector2(1800, 448)
 
 [node name="WallWithLeftVertical4" parent="MapWalls" instance=ExtResource("6_bvvkp")]
-position = Vector2(1920, 832)
+position = Vector2(1920, 576)
 
 [node name="WallVerticalHalf3" parent="MapWalls" instance=ExtResource("9_551yb")]
 position = Vector2(1288, -831)
 
 [node name="WallVertical75" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1920)
+position = Vector2(3320, 1536)
 
 [node name="WallVertical91" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 2432)
+position = Vector2(3320, 1920)
 
 [node name="WallVertical99" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 2688)
+position = Vector2(3320, 2176)
 
 [node name="WallVertical103" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1024)
+position = Vector2(3320, 768)
 
 [node name="WallVertical105" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1664)
+position = Vector2(3320, 1280)
 
 [node name="WallVertical106" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1280)
+position = Vector2(3320, 1024)
 
 [node name="WallVertical34" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(1800, 128)
@@ -339,11 +415,8 @@ position = Vector2(1800, 384)
 [node name="WallVertical125" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(1800, -127)
 
-[node name="WallVertical111" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1800, 640)
-
 [node name="WallVerticalEndHalf4" parent="MapWalls" instance=ExtResource("15_myiro")]
-position = Vector2(-2056, 2879)
+position = Vector2(-2056, 2368)
 
 [node name="WallHalfLeftVertical" parent="MapWalls" instance=ExtResource("10_k2toq")]
 position = Vector2(320, -831)
@@ -352,10 +425,10 @@ position = Vector2(320, -831)
 position = Vector2(-448, -831)
 
 [node name="WallHalf3" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-448, 2880)
+position = Vector2(-448, 2369)
 
 [node name="WallHalf4" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-64, 2880)
+position = Vector2(-64, 2369)
 
 [node name="WallHalf2" parent="MapWalls" instance=ExtResource("11_q3x2b")]
 position = Vector2(-64, -831)
@@ -364,7 +437,7 @@ position = Vector2(-64, -831)
 position = Vector2(448, -831)
 
 [node name="WallVerticalHalf5" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(3320, 2112)
+position = Vector2(3320, 1728)
 
 [node name="Wall" parent="MapWalls" instance=ExtResource("2_rbj3t")]
 position = Vector2(-2944, -832)
@@ -395,3 +468,859 @@ position = Vector2(-4224, -1216)
 
 [node name="WallVertical48" parent="MapWalls" instance=ExtResource("3_uvc7n")]
 position = Vector2(-4344, -1024)
+
+[node name="RoofBeams" type="Node2D" parent="."]
+
+[node name="RoofBeamsOrizontal" type="Node2D" parent="RoofBeams"]
+
+[node name="RoofBeam" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4288, -784)
+
+[node name="RoofBeam2" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4160, -784)
+
+[node name="RoofBeam3" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4032, -784)
+
+[node name="RoofBeam4" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3904, -784)
+
+[node name="RoofBeam5" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3776, -784)
+
+[node name="RoofBeam6" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3648, -784)
+
+[node name="RoofBeam7" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3520, -784)
+
+[node name="RoofBeam8" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3392, -784)
+
+[node name="RoofBeam9" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(320, -272)
+
+[node name="RoofBeam10" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(448, -272)
+
+[node name="RoofBeam11" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(576, -272)
+
+[node name="RoofBeam12" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(704, -272)
+
+[node name="RoofBeam13" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(832, -272)
+
+[node name="RoofBeam14" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(960, -272)
+
+[node name="RoofBeam15" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1088, -272)
+
+[node name="RoofBeam16" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1216, -272)
+
+[node name="RoofBeam17" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-704, -272)
+
+[node name="RoofBeam18" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-576, -272)
+
+[node name="RoofBeam19" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-448, -272)
+
+[node name="RoofBeam20" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-320, -272)
+
+[node name="RoofBeam21" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-192, -272)
+
+[node name="RoofBeam22" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-64, -272)
+
+[node name="RoofBeam23" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(64, -272)
+
+[node name="RoofBeam24" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(192, -272)
+
+[node name="RoofBeam25" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1728, -272)
+
+[node name="RoofBeam26" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1600, -272)
+
+[node name="RoofBeam27" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1472, -272)
+
+[node name="RoofBeam28" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1344, -272)
+
+[node name="RoofBeam29" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1216, -272)
+
+[node name="RoofBeam30" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1088, -272)
+
+[node name="RoofBeam31" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-960, -272)
+
+[node name="RoofBeam32" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-832, -272)
+
+[node name="RoofBeam33" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2752, -272)
+
+[node name="RoofBeam34" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2624, -272)
+
+[node name="RoofBeam35" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2496, -272)
+
+[node name="RoofBeam36" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2368, -272)
+
+[node name="RoofBeam41" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3264, -272)
+
+[node name="RoofBeam42" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3136, -272)
+
+[node name="RoofBeam43" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3008, -272)
+
+[node name="RoofBeam44" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2880, -272)
+
+[node name="RoofBeam45" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3792, -272)
+
+[node name="RoofBeam46" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3664, -272)
+
+[node name="RoofBeam47" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3536, -272)
+
+[node name="RoofBeam48" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3408, -272)
+
+[node name="RoofBeam49" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4304, -272)
+
+[node name="RoofBeam50" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4176, -272)
+
+[node name="RoofBeam51" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4048, -272)
+
+[node name="RoofBeam52" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-3920, -272)
+
+[node name="RoofBeam53" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4784, -272)
+
+[node name="RoofBeam54" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4656, -272)
+
+[node name="RoofBeam55" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4528, -272)
+
+[node name="RoofBeam56" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-4400, -272)
+
+[node name="RoofBeam37" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2240, -272)
+
+[node name="RoofBeam38" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-2112, -272)
+
+[node name="RoofBeam39" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1984, -272)
+
+[node name="RoofBeam40" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1856, -272)
+
+[node name="RoofBeam57" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(320, 528)
+
+[node name="RoofBeam58" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(448, 528)
+
+[node name="RoofBeam59" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(576, 528)
+
+[node name="RoofBeam60" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(704, 528)
+
+[node name="RoofBeam61" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(832, 528)
+
+[node name="RoofBeam62" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(960, 528)
+
+[node name="RoofBeam63" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1088, 528)
+
+[node name="RoofBeam64" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1216, 528)
+
+[node name="RoofBeam83" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1344, 528)
+
+[node name="RoofBeam84" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1472, 528)
+
+[node name="RoofBeam85" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1600, 528)
+
+[node name="RoofBeam86" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1728, 528)
+
+[node name="RoofBeam65" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-704, 528)
+
+[node name="RoofBeam66" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-576, 528)
+
+[node name="RoofBeam67" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-448, 528)
+
+[node name="RoofBeam68" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-320, 528)
+
+[node name="RoofBeam69" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-192, 528)
+
+[node name="RoofBeam70" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-64, 528)
+
+[node name="RoofBeam71" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(64, 528)
+
+[node name="RoofBeam72" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(192, 528)
+
+[node name="RoofBeam73" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1728, 528)
+
+[node name="RoofBeam74" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1600, 528)
+
+[node name="RoofBeam75" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1472, 528)
+
+[node name="RoofBeam76" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1344, 528)
+
+[node name="RoofBeam77" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1216, 528)
+
+[node name="RoofBeam78" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1088, 528)
+
+[node name="RoofBeam79" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-960, 528)
+
+[node name="RoofBeam80" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-832, 528)
+
+[node name="RoofBeam81" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1984, 528)
+
+[node name="RoofBeam82" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1856, 528)
+
+[node name="RoofBeam87" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(320, 1392)
+
+[node name="RoofBeam88" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(448, 1392)
+
+[node name="RoofBeam89" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(576, 1392)
+
+[node name="RoofBeam90" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(704, 1392)
+
+[node name="RoofBeam91" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(832, 1392)
+
+[node name="RoofBeam92" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(960, 1392)
+
+[node name="RoofBeam93" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1088, 1392)
+
+[node name="RoofBeam94" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1216, 1392)
+
+[node name="RoofBeam95" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1344, 1392)
+
+[node name="RoofBeam96" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1472, 1392)
+
+[node name="RoofBeam97" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1600, 1392)
+
+[node name="RoofBeam98" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1728, 1392)
+
+[node name="RoofBeam117" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1856, 1392)
+
+[node name="RoofBeam118" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1984, 1392)
+
+[node name="RoofBeam119" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2112, 1392)
+
+[node name="RoofBeam120" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2240, 1392)
+
+[node name="RoofBeam121" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2368, 1392)
+
+[node name="RoofBeam122" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2496, 1392)
+
+[node name="RoofBeam123" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2624, 1392)
+
+[node name="RoofBeam124" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2752, 1392)
+
+[node name="RoofBeam125" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2880, 1392)
+
+[node name="RoofBeam126" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(3008, 1392)
+
+[node name="RoofBeam127" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(3136, 1392)
+
+[node name="RoofBeam128" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(3248, 1392)
+
+[node name="RoofBeam99" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-704, 1392)
+
+[node name="RoofBeam100" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-576, 1392)
+
+[node name="RoofBeam101" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-448, 1392)
+
+[node name="RoofBeam102" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-320, 1392)
+
+[node name="RoofBeam103" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-192, 1392)
+
+[node name="RoofBeam104" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-64, 1392)
+
+[node name="RoofBeam105" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(64, 1392)
+
+[node name="RoofBeam106" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(192, 1392)
+
+[node name="RoofBeam107" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1728, 1392)
+
+[node name="RoofBeam108" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1600, 1392)
+
+[node name="RoofBeam109" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1472, 1392)
+
+[node name="RoofBeam110" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1344, 1392)
+
+[node name="RoofBeam111" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1216, 1392)
+
+[node name="RoofBeam112" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1088, 1392)
+
+[node name="RoofBeam113" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-960, 1392)
+
+[node name="RoofBeam114" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-832, 1392)
+
+[node name="RoofBeam115" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1984, 1392)
+
+[node name="RoofBeam116" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(-1856, 1392)
+
+[node name="RoofBeamsVertical" type="Node2D" parent="RoofBeams"]
+
+[node name="RoofBeamVertical" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -448)
+
+[node name="RoofBeamVertical2" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -320)
+
+[node name="RoofBeamVertical3" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -704)
+
+[node name="RoofBeamVertical4" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -576)
+
+[node name="RoofBeamVertical5" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, 64)
+
+[node name="RoofBeamVertical6" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, 192)
+
+[node name="RoofBeamVertical7" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -192)
+
+[node name="RoofBeamVertical8" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, -64)
+
+[node name="RoofBeamVertical11" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, 320)
+
+[node name="RoofBeamVertical12" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-4352, 448)
+
+[node name="RoofBeamVertical21" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -448)
+
+[node name="RoofBeamVertical22" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -320)
+
+[node name="RoofBeamVertical23" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -704)
+
+[node name="RoofBeamVertical24" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -576)
+
+[node name="RoofBeamVertical25" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, 64)
+
+[node name="RoofBeamVertical26" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, 192)
+
+[node name="RoofBeamVertical27" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -192)
+
+[node name="RoofBeamVertical28" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -64)
+
+[node name="RoofBeamVertical29" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, 320)
+
+[node name="RoofBeamVertical30" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, 448)
+
+[node name="RoofBeamVertical31" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -448)
+
+[node name="RoofBeamVertical32" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -320)
+
+[node name="RoofBeamVertical33" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -704)
+
+[node name="RoofBeamVertical34" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -576)
+
+[node name="RoofBeamVertical35" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 64)
+
+[node name="RoofBeamVertical36" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 192)
+
+[node name="RoofBeamVertical37" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -192)
+
+[node name="RoofBeamVertical38" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, -64)
+
+[node name="RoofBeamVertical39" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 320)
+
+[node name="RoofBeamVertical40" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 448)
+
+[node name="RoofBeamVertical41" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 864)
+
+[node name="RoofBeamVertical42" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 992)
+
+[node name="RoofBeamVertical43" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 608)
+
+[node name="RoofBeamVertical44" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 736)
+
+[node name="RoofBeamVertical45" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1376)
+
+[node name="RoofBeamVertical46" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1504)
+
+[node name="RoofBeamVertical47" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1120)
+
+[node name="RoofBeamVertical48" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1248)
+
+[node name="RoofBeamVertical49" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1632)
+
+[node name="RoofBeamVertical50" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1760)
+
+[node name="RoofBeamVertical51" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 1888)
+
+[node name="RoofBeamVertical52" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 2016)
+
+[node name="RoofBeamVertical53" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 2144)
+
+[node name="RoofBeamVertical54" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(272, 2240)
+
+[node name="RoofBeamVertical68" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -448)
+
+[node name="RoofBeamVertical69" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -320)
+
+[node name="RoofBeamVertical70" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -704)
+
+[node name="RoofBeamVertical71" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -576)
+
+[node name="RoofBeamVertical72" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 64)
+
+[node name="RoofBeamVertical73" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 192)
+
+[node name="RoofBeamVertical74" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -192)
+
+[node name="RoofBeamVertical75" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, -64)
+
+[node name="RoofBeamVertical76" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 320)
+
+[node name="RoofBeamVertical77" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 448)
+
+[node name="RoofBeamVertical78" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 864)
+
+[node name="RoofBeamVertical79" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 992)
+
+[node name="RoofBeamVertical80" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 608)
+
+[node name="RoofBeamVertical81" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 736)
+
+[node name="RoofBeamVertical82" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1376)
+
+[node name="RoofBeamVertical83" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1504)
+
+[node name="RoofBeamVertical84" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1120)
+
+[node name="RoofBeamVertical85" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1248)
+
+[node name="RoofBeamVertical86" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1632)
+
+[node name="RoofBeamVertical87" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1760)
+
+[node name="RoofBeamVertical88" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 1888)
+
+[node name="RoofBeamVertical89" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 2016)
+
+[node name="RoofBeamVertical90" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 2144)
+
+[node name="RoofBeamVertical91" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-768, 2240)
+
+[node name="RoofBeamVertical55" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 960)
+
+[node name="RoofBeamVertical56" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1088)
+
+[node name="RoofBeamVertical57" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 704)
+
+[node name="RoofBeamVertical58" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 832)
+
+[node name="RoofBeamVertical59" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1472)
+
+[node name="RoofBeamVertical60" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1600)
+
+[node name="RoofBeamVertical61" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1216)
+
+[node name="RoofBeamVertical62" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1344)
+
+[node name="RoofBeamVertical63" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1728)
+
+[node name="RoofBeamVertical64" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1856)
+
+[node name="RoofBeamVertical65" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 1984)
+
+[node name="RoofBeamVertical66" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 2112)
+
+[node name="RoofBeamVertical67" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 2240)
+
+[node name="RoofBeamVertical9" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -448)
+
+[node name="RoofBeamVertical10" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -320)
+
+[node name="RoofBeamVertical13" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -704)
+
+[node name="RoofBeamVertical14" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -576)
+
+[node name="RoofBeamVertical15" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, 64)
+
+[node name="RoofBeamVertical16" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, 192)
+
+[node name="RoofBeamVertical17" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -192)
+
+[node name="RoofBeamVertical18" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, -64)
+
+[node name="RoofBeamVertical19" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, 320)
+
+[node name="RoofBeamVertical20" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3328, 448)
+
+[node name="RoofBeamsNodes" type="Node2D" parent="RoofBeams"]
+
+[node name="TeleportFall" type="Node2D" parent="."]
+
+[node name="TravelingArea" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea"]
+position = Vector2(-2512, -1264)
+shape = SubResource("RectangleShape2D_ffb34")
+
+[node name="TravelingArea2" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea2"]
+position = Vector2(-3280, -816)
+shape = SubResource("RectangleShape2D_b25ca")
+
+[node name="TravelingArea3" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea3"]
+position = Vector2(-3280, -96)
+shape = SubResource("RectangleShape2D_hcqnb")
+
+[node name="TravelingArea4" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea4"]
+position = Vector2(-2480, -784)
+shape = SubResource("RectangleShape2D_lg0xi")
+
+[node name="TravelingArea5" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea5"]
+position = Vector2(-2480, -96)
+shape = SubResource("RectangleShape2D_ors3b")
+
+[node name="TravelingArea6" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea6"]
+position = Vector2(-1336, -816)
+shape = SubResource("RectangleShape2D_tmd5k")
+
+[node name="TravelingArea7" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea7"]
+position = Vector2(-1332, -96)
+shape = SubResource("RectangleShape2D_284ex")
+
+[node name="TravelingArea8" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea8"]
+position = Vector2(-56, -816)
+shape = SubResource("RectangleShape2D_knc1n")
+
+[node name="TravelingArea9" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea9"]
+position = Vector2(-56, -128)
+shape = SubResource("RectangleShape2D_qgaab")
+
+[node name="TravelingArea10" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea10"]
+position = Vector2(-88, 704)
+shape = SubResource("RectangleShape2D_0pciy")
+
+[node name="TravelingArea11" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea11"]
+position = Vector2(-88, 1632)
+shape = SubResource("RectangleShape2D_nye33")
+
+[node name="TravelingArea12" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea12"]
+position = Vector2(1112, -816)
+shape = SubResource("RectangleShape2D_qsf1h")
+
+[node name="TravelingArea13" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea13"]
+position = Vector2(1116, -128)
+shape = SubResource("RectangleShape2D_oxf3j")
+
+[node name="TravelingArea14" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea14"]
+position = Vector2(1112, 704)
+shape = SubResource("RectangleShape2D_2cc22")
+
+[node name="TravelingArea15" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea15"]
+position = Vector2(1112, 1632)
+shape = SubResource("RectangleShape2D_rx183")
+
+[node name="TravelingArea16" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea16"]
+position = Vector2(2180, -784)
+shape = SubResource("RectangleShape2D_5m1d5")
+
+[node name="TravelingArea17" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea17"]
+position = Vector2(2432, -128)
+shape = SubResource("RectangleShape2D_ad836")
+
+[node name="TravelingArea18" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea18"]
+position = Vector2(2400, 704)
+shape = SubResource("RectangleShape2D_shfw6")
+
+[node name="TravelingArea19" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea19"]
+position = Vector2(2400, 1632)
+shape = SubResource("RectangleShape2D_c5e13")
+
+[node name="TravelingArea20" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea20"]
+position = Vector2(3960, 720)
+shape = SubResource("RectangleShape2D_7lqje")
+
+[node name="TravelingArea21" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-1360, 256)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+usePositional = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea21"]
+position = Vector2(3960, 1632)
+shape = SubResource("RectangleShape2D_peiyn")
