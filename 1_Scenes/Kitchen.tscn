@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=68 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -48,9 +48,6 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
-
-[sub_resource type="TileSet" id="TileSet_vpy0r"]
-tile_size = Vector2i(256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
 texture = ExtResource("2_v41y6")
@@ -272,12 +269,11 @@ objectsToDeleteAtQuestComplete = [NodePath("PaintingWall")]
 
 [node name="RoomA" type="Node2D" parent="Quests/KitchenHiddenRoom"]
 
-[node name="TileMap2" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
+[node name="TileMap" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
 z_index = -999
-position = Vector2(0, 64)
-tile_set = SubResource("TileSet_vpy0r")
+tile_set = SubResource("TileSet_ho5ex")
 format = 2
-layer_0/tile_data = PackedInt32Array(-327691, 1, 0, -327692, 1, 0, -327693, 1, 0, -327694, 1, 0, -393230, 1, 0, -393229, 1, 0, -393228, 1, 0, -393227, 1, 0)
+layer_0/tile_data = PackedInt32Array(-327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -327691, 1, 0, -393227, 4, 0, -393228, 4, 0, -393229, 4, 0, -393230, 4, 0)
 
 [node name="Walls" type="Node2D" parent="Quests/KitchenHiddenRoom/RoomA"]
 position = Vector2(0, 1281)
