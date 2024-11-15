@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=71 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -39,7 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
 [ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
+[ext_resource type="PackedScene" uid="uid://cj1jvlww6aeog" path="res://ImportantObjects/Interactables/activated_by_player.tscn" id="22_csqpj"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
+[ext_resource type="PackedScene" uid="uid://ctqyxkjed20u6" path="res://ImportantObjects/Interactables/Tools/player_in_check.tscn" id="23_7inwt"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
 [ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="24_u6tss"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
@@ -87,6 +89,9 @@ sources/5 = SubResource("TileSetAtlasSource_tnkda")
 sources/6 = SubResource("TileSetAtlasSource_m0l6r")
 sources/7 = SubResource("TileSetAtlasSource_24v7i")
 sources/0 = SubResource("TileSetAtlasSource_q10bg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmcs5"]
+size = Vector2(992, 256)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b82ri"]
 vertices = PackedVector2Array(-2816, -383, -2064, -384, -2064, -256, -2816, 256, -4848, 512, -4848, -384, -4080, -383, -2816, 128, -4848, -512, -4848, -768, -2064, -768, -2064, -512, -2816, -511, -4080, -511, -2056, -256, -2056, 0, -2064, 0, -2064, 128, -2064, 256, -2064, 512)
@@ -265,7 +270,7 @@ questName = "KitchenHiddenRoom"
 questItemsToOperate = [NodePath("RoomA"), NodePath("../../Keys/UnlockKey3"), NodePath("RoomA"), NodePath("../../Keys/UnlockKey3")]
 questItemsStages = Array[int]([0, 0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("PaintingWall")]
+objectsToDeleteAtQuestComplete = [NodePath("PaintingWall"), NodePath("ActivatedByPlayer"), NodePath("ActivatedByPlayer")]
 
 [node name="RoomA" type="Node2D" parent="Quests/KitchenHiddenRoom"]
 
@@ -300,6 +305,17 @@ position = Vector2(-3576, -2817)
 position = Vector2(-3072, -1344)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="ActivatedByPlayer" parent="Quests/KitchenHiddenRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_csqpj")]
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="PlayerInCheck" parent="Quests/KitchenHiddenRoom" node_paths=PackedStringArray("connectedInteractable") instance=ExtResource("23_7inwt")]
+position = Vector2(-3072, -1536)
+connectedInteractable = NodePath("../ActivatedByPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHiddenRoom/PlayerInCheck"]
+shape = SubResource("RectangleShape2D_hmcs5")
 
 [node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
