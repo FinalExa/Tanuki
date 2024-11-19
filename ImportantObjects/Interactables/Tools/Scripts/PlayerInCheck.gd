@@ -5,4 +5,4 @@ extends Area2D
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
-		connectedInteractable.FinalState()
+		if (connectedInteractable != null): connectedInteractable.FinalState()
