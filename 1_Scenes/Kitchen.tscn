@@ -553,9 +553,6 @@ position = Vector2(-1408, -831)
 [node name="Wall57" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-1664, -831)
 
-[node name="Wall58" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1920, -831)
-
 [node name="Wall81" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-2432, 576)
 
@@ -589,6 +586,18 @@ position = Vector2(-2056, 64)
 [node name="Wall83" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-2944, 576)
 
+[node name="WallEndLeft" parent="MapWalls" instance=ExtResource("6_0l2yj")]
+position = Vector2(-4736, 576)
+
+[node name="WallEndLeft2" parent="MapWalls" instance=ExtResource("6_0l2yj")]
+position = Vector2(-1920, -832)
+
+[node name="WallEndLeft4" parent="MapWalls" instance=ExtResource("6_0l2yj")]
+position = Vector2(1408, -192)
+
+[node name="WallEndLeft5" parent="MapWalls" instance=ExtResource("6_0l2yj")]
+position = Vector2(-4224, -832)
+
 [node name="Wall84" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-3200, 576)
 
@@ -606,9 +615,6 @@ position = Vector2(-4224, 576)
 
 [node name="Wall89" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-4480, 576)
-
-[node name="Wall90" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-4736, 576)
 
 [node name="Wall92" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-2432, -832)
@@ -703,14 +709,17 @@ position = Vector2(1408, 833)
 [node name="Wall39" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(1664, 833)
 
+[node name="WallEndRight2" parent="MapWalls" instance=ExtResource("7_1630c")]
+position = Vector2(1680, 2240)
+
+[node name="WallEndRight5" parent="MapWalls" instance=ExtResource("7_1630c")]
+position = Vector2(-3456, -832)
+
 [node name="Wall61" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(2175, 1472)
 
 [node name="Wall106" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(2943, 1472)
-
-[node name="Wall64" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(1408, -191)
 
 [node name="Wall65" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(1664, -191)
@@ -726,9 +735,6 @@ position = Vector2(2944, 832)
 
 [node name="Wall70" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(2176, 832)
-
-[node name="Wall30" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(1680, 2240)
 
 [node name="Wall34" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(1424, 2240)
@@ -1024,14 +1030,8 @@ position = Vector2(-2944, -832)
 [node name="Wall2" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-3200, -832)
 
-[node name="Wall6" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-3456, -832)
-
-[node name="Wall8" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-4223, -831)
-
 [node name="Wall9" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-4479, -831)
+position = Vector2(-4480, -832)
 
 [node name="WallVertical7" parent="MapWalls" instance=ExtResource("3_1s836")]
 position = Vector2(-4856, -384)

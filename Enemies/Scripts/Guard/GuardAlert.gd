@@ -50,6 +50,7 @@ func start_alert(target):
 	call_deferred("AddAreas")
 	chaseStart = false
 	guardController.enemyMovement.set_new_target(null)
+	guardController.enemyRotator.setLookingAtNode(alertTarget)
 	goToAlertStartLocation = true
 	targetNotSeenActive = false
 	firstLocationReached = false
@@ -88,6 +89,8 @@ func GetSecondDestination(space_state):
 func SetAlertTargetLastInfo(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
+	print(lastTargetPosition)
+	print(lastTargetDirection)
 
 func stop_alert():
 	guardController.isInAlert = false

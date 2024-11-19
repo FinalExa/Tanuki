@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bef06fxtdlujs"]
+[gd_scene load_steps=4 format=3 uid="uid://bef06fxtdlujs"]
 
 [ext_resource type="Texture2D" uid="uid://byseieggarxca" path="res://Level/Sprites/Placeholder/Half muro CUSTOM DX.png" id="1_xu83n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ern4j"]
 size = Vector2(128, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvk5s"]
+size = Vector2(16, 128)
+
 [node name="WallHalfRightVertical" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ern4j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(56, 0)
+shape = SubResource("RectangleShape2D_xvk5s")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_xu83n")

@@ -509,8 +509,7 @@ position = Vector2(-200, -272)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
 polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
-[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
-attackSounds = [null, null]
+[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("characterRef") instance=ExtResource("13_3c0sx")]
 characterRef = NodePath("../..")
 
 [node name="RotationPoints" type="Node2D" parent="."]
