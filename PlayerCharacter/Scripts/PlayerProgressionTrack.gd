@@ -22,6 +22,8 @@ func ClearAll():
 	currentUsedKeysArray.clear()
 	activeQuests.clear()
 	activeQuestsStages.clear()
+	activeQuestNameForAdvancers.clear()
+	activeQuestsAdvancers.clear()
 
 func GenerateCurrentIDArray(newType: GameplayScene.SceneType):
 	currentUnlockKeyType = newType

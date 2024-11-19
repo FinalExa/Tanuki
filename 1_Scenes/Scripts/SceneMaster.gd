@@ -60,6 +60,7 @@ func LoadMapData():
 		stopResetPosition = true
 
 func LoadPlayerData():
+	playerRef.playerProgressionTrack.ClearAll()
 	if (FileAccess.file_exists(playerDataSavePath)):
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
