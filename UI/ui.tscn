@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=13 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="7_aqx6o"]
 [ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
 [ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
+[ext_resource type="Texture2D" uid="uid://no5nmne32hgg" path="res://UI/Sprite/Ui_prova_QUADRATO.png" id="11_g5aig"]
+[ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("timerText", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
 process_mode = 3
@@ -249,6 +251,16 @@ offset_top = 952.0
 offset_right = 1000.0
 offset_bottom = 992.0
 playerHUD = NodePath("..")
+
+[node name="CurrentTransformationBorderSprite" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_g5aig")
+
+[node name="TransformationBarSprite" type="Sprite2D" parent="."]
+position = Vector2(504, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_xdw6c")
 
 [connection signal="attack_cooldown" from="." to="AttackCooldown" method="_on_ui_attack_cooldown"]
 [connection signal="timer_value" from="." to="Timer" method="_on_ui_timer_value"]
