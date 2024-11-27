@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=15 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
-[ext_resource type="Script" path="res://UI/Script/TimerText.gd" id="3_ipm4y"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
 [ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
+[ext_resource type="Texture2D" uid="uid://cuq2s1qrcjqq" path="res://UI/Sprite/UI_Bar_Under.png" id="4_rcdvg"]
 [ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="5_5if3a"]
+[ext_resource type="Script" path="res://UI/Script/TimerBar.gd" id="5_rk1ml"]
+[ext_resource type="Texture2D" uid="uid://cnlg21pc0klda" path="res://UI/Sprite/UI_Bar_Upper.png" id="6_0k1v5"]
 [ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="6_mc342"]
 [ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="7_aqx6o"]
 [ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
@@ -13,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://no5nmne32hgg" path="res://UI/Sprite/Ui_prova_QUADRATO.png" id="11_g5aig"]
 [ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerText", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -22,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
-timerText = NodePath("Timer")
+timerBar = NodePath("TransformationBar")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
@@ -36,9 +38,10 @@ stream = ExtResource("9_x7y7m")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1656.0
-offset_right = 1915.0
-offset_bottom = 104.0
+offset_left = 1640.0
+offset_top = 24.0
+offset_right = 1899.0
+offset_bottom = 128.0
 text = "WASD: movement
 Shift: get transformation
 E: transform/stop transformation
@@ -49,33 +52,35 @@ vertical_alignment = 1
 [node name="SavedTransformation" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 24.0
+offset_top = 120.0
 offset_right = 172.0
-offset_bottom = 50.0
+offset_bottom = 146.0
 text = "No Transformation"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_xm4oh")
 transformationChosenText = "Current tranformation: "
 
-[node name="Timer" type="Label" parent="."]
+[node name="TransformationBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 56.0
-offset_right = 120.0
-offset_bottom = 82.0
-text = "TIMER"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_ipm4y")
-frontText = "Remaining: "
+offset_left = 192.0
+offset_top = 72.0
+offset_right = 608.0
+offset_bottom = 112.0
+scale = Vector2(1.5, 1.5)
+texture_under = ExtResource("4_rcdvg")
+texture_over = ExtResource("12_xdw6c")
+texture_progress = ExtResource("6_0k1v5")
+tint_progress = Color(0, 0.745098, 0.345098, 1)
+script = ExtResource("5_rk1ml")
+multiplyOffset = 50.0
 
 [node name="AttackCooldown" type="Label" parent="."]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 88.0
+offset_top = 968.0
 offset_right = 176.0
-offset_bottom = 114.0
+offset_bottom = 994.0
 text = "ATTACK COOLDOWN"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -257,13 +262,12 @@ position = Vector2(96, 96)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_g5aig")
 
-[node name="TransformationBarSprite" type="Sprite2D" parent="."]
-position = Vector2(504, 96)
+[node name="CurrentTransformationBorderSprite2" type="Sprite2D" parent="."]
+position = Vector2(96, 984)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_xdw6c")
+texture = ExtResource("11_g5aig")
 
 [connection signal="attack_cooldown" from="." to="AttackCooldown" method="_on_ui_attack_cooldown"]
-[connection signal="timer_value" from="." to="Timer" method="_on_ui_timer_value"]
 [connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]
 [connection signal="button_up" from="PauseMenuPanel/Resume/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/Reload/ReloadButton" to="." method="_on_reload_button_button_up"]
