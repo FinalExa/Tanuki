@@ -61,4 +61,6 @@ func ClearTrash():
 			root.get_child(i).queue_free()
 
 func ReloadScene():
+	playerRef.transformationChangeRef.transformationTimer = 0
+	playerRef.playerHUD.timerBar.UpdateTimer(playerRef.transformationChangeRef.transformationTimer, playerRef.transformationChangeRef.transformationDuration)
 	ChangeScene(currentScenePath)
