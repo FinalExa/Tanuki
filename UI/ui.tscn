@@ -71,9 +71,11 @@ scale = Vector2(1.5, 1.5)
 texture_under = ExtResource("4_rcdvg")
 texture_over = ExtResource("12_xdw6c")
 texture_progress = ExtResource("6_0k1v5")
-tint_progress = Color(0, 0.745098, 0.345098, 1)
 script = ExtResource("5_rk1ml")
-multiplyOffset = 50.0
+multiplyOffset = 100.0
+startColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+endColor = Color(1, 0, 0, 1)
 
 [node name="AttackCooldown" type="Label" parent="."]
 layout_mode = 0
