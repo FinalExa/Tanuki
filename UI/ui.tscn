@@ -52,14 +52,13 @@ vertical_alignment = 1
 [node name="SavedTransformation" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 120.0
+offset_top = 80.0
 offset_right = 172.0
-offset_bottom = 146.0
+offset_bottom = 106.0
 text = "No Transformation"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_xm4oh")
-transformationChosenText = "Current tranformation: "
 
 [node name="TransformationBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
