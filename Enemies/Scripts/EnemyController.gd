@@ -31,6 +31,8 @@ var characterRef
 @export var enemyMovementSounds: MovementSounds
 @export var hitByPlayerSound: AudioStreamPlayer2D
 @export var stunnedHit: AudioStreamPlayer2D
+@export var questToSendProgressSignal: MapQuest
+@export var sendSignalToQuestOnStunned: bool
 
 var guardsLookingForMe: Array[GuardResearch]
 
@@ -60,6 +62,7 @@ func is_damaged(direction: Vector2):
 func Damaged(direction: Vector2):
 	hitByPlayerSound.play()
 	stunnedHit.play()
+	if (sendSignalToQuestOnStunned): QuestSignal()
 	emit_signal("damaged", direction)
 	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
@@ -93,3 +96,7 @@ func RepelExtraOperation():
 
 func GetRotator():
 	return enemyRotator
+
+func QuestSignal():
+	if (questToSendProgressSignal != null):
+		questToSendProgressSignal.AdvanceStageByObject(self)

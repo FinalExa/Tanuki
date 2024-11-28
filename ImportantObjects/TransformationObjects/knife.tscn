@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcd8adv84c82b"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_lgom5"]
+[ext_resource type="Texture2D" uid="uid://2by16gxs6pn0" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/knife.png" id="2_vj0oc"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_obgqc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55ity"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(80, 80)
+
+[node name="Knife" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+collision_layer = 3
+script = ExtResource("1_lgom5")
+transformedName = "Knife"
+transformedMaxSpeed = 500.0
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/knife_attack.tscn"
+transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/knife.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_55ity")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+texture = ExtResource("2_vj0oc")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_obgqc")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

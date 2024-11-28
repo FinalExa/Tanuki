@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwgotngbjqr82"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_fsgxf"]
+[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_b30ws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(256, 128)
+
+[node name="Icewall" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_fsgxf")
+neededProperties = Array[String](["Hot"])
+savedOnDestroy = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Wall" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 0.117647, 1, 1)
+texture = ExtResource("2_b30ws")

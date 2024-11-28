@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c273y8hyyc3hf"]
-
-[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_h4v5w"]
-
-[node name="Cup" instance=ExtResource("1_h4v5w")]
-transformedName = "Cup"
-transformedMaxSpeed = 700.0
-originalObjectPath = "res://ImportantObjects/TransformationObjects/cup.tscn"

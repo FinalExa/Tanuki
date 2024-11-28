@@ -3,7 +3,7 @@ extends Area2D
 
 @export var sendToTravelID: int
 @export var sceneToLoad: String
-@export var spawnLocation: Node2D
+@export var usePositional: bool
 var sceneMasterRef: SceneMaster
 
 func _ready():
@@ -14,5 +14,6 @@ func _on_body_entered(body):
 		Travel(body)
 
 func Travel(playerRef: PlayerCharacter):
-	playerRef.SetTraveling(sendToTravelID)
+	playerRef.transformationChangeRef.CheckForDeactivateTransformation()
+	playerRef.SetTraveling(sendToTravelID, usePositional)
 	sceneMasterRef.sceneSelector.call_deferred("ChangeScene", sceneToLoad)

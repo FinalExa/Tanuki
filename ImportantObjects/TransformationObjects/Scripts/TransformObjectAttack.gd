@@ -25,3 +25,15 @@ func StartCooldown():
 	attackInCooldown = true
 	attackFrame = 0
 	characterRef.playerMovement.EnableMovement()
+
+func ActiveCooldownFeedback():
+	if (characterRef is PlayerCharacter):
+		var playerRef: PlayerCharacter = characterRef
+		if (playerRef.transformationChangeRef.isTransformed):
+			playerRef.playerHUD.UpdateAttackCooldown(true, attackFrame, attackCooldown)
+
+func EndCooldownFeedback():
+	if (characterRef is PlayerCharacter):
+		var playerRef: PlayerCharacter = characterRef
+		if (playerRef.transformationChangeRef.isTransformed):
+			playerRef.playerHUD.UpdateAttackCooldown(false, 0, 0)

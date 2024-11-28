@@ -33,4 +33,4 @@ func UnsetLocalZone():
 	localAllowedItemsRef = null
 
 func DestroyedSignal():
-	get_parent().remove_child(self)
+	queue_free()

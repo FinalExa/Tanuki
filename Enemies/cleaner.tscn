@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_js8pp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_dcsvv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
-[ext_resource type="Script" path="res://Enemies/Scripts/CleanerMovementSounds.gd" id="9_wuphi"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerMovementSounds.gd" id="13_cniqb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
 [ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="19_e0463"]
@@ -124,7 +124,7 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="CleanerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
-script = ExtResource("9_wuphi")
+script = ExtResource("13_cniqb")
 enemyController = NodePath("..")
 cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
 currentMovementSound = NodePath("../Sounds/CurrentMovementSound")

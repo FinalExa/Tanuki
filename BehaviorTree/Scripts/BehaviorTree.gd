@@ -7,5 +7,5 @@ func _process(delta):
 	ExecuteBehaviorTree(delta)
 
 func ExecuteBehaviorTree(delta):
-	if (root!=null):
+	if (root != null):
 		root.Evaluate(delta)

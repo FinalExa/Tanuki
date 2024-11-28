@@ -6,6 +6,7 @@ signal timer_value
 signal attack_cooldown
 
 @export var playerInputs: PlayerInputs
+@export var timerBar: TimerBar
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
@@ -26,8 +27,8 @@ func _process(_delta):
 func _on_transformation_change_send_transformation_name(trsName):
 	emit_signal("transformation_name", trsName)
 
-func _on_transformation_change_send_transformation_active_info(status, timer, duration):
-	emit_signal("timer_value", status, timer, duration)
+func _on_transformation_change_send_transformation_active_info(timer, duration):
+	timerBar.UpdateTimer(timer, duration)
 
 func UpdateAttackCooldown(status, currentFrame, duration):
 	emit_signal("attack_cooldown", status, currentFrame, duration)
@@ -69,8 +70,9 @@ func _on_resume_button_button_up():
 
 func _on_reload_button_button_up():
 	Resume()
-	var sceneSelector: SceneSelector = get_tree().root.get_child(0).sceneSelector
-	sceneSelector.ReloadScene()
+	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
+	sceneMaster.loadActive = true
+	sceneMaster.sceneSelector.ReloadScene()
 
 func _on_options_button_button_up():
 	optionsPanel.show()
@@ -100,7 +102,8 @@ func GameOverScreen():
 	gameOverPanel.show()
 
 func _on_gameover_reload_button_button_up():
+	var sceneMaster: SceneMaster = get_tree().root.get_child(0)
+	sceneMaster.loadActive = true
 	EndForcePause()
 	gameOverPanel.hide()
-	var sceneSelector: SceneSelector = get_tree().root.get_child(0).sceneSelector
-	sceneSelector.ReloadScene()
+	sceneMaster.sceneSelector.ReloadScene()

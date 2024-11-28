@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cks60248pxoqy" path="res://Level/Sprites/Placeholder/Muro chiaro.png" id="1_ka7qy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd402"]
-size = Vector2(16, 128)
+size = Vector2(16, 256)
 
 [node name="WallVertical" type="StaticBody2D"]
 
@@ -11,4 +11,9 @@ size = Vector2(16, 128)
 shape = SubResource("RectangleShape2D_bd402")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_ka7qy")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 64)
 texture = ExtResource("1_ka7qy")

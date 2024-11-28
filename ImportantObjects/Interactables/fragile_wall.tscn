@@ -8,13 +8,13 @@ size = Vector2(256, 128)
 
 [node name="FragileWall" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_tfpow")
-neededString = "Pound"
-savedOnDestroy = true
+neededProperties = Array[String](["Pound"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kufeo")
 
 [node name="Wall" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 1, 0.301961, 1)
 texture = ExtResource("2_dccs0")
 
 [node name="Cracks" type="Sprite2D" parent="."]

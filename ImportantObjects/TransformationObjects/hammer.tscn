@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bix4iybhoeexb"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_822jx"]
+[ext_resource type="Texture2D" uid="uid://cjm6u7d768kd3" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/hammer.png" id="2_63ifo"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_cn374"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(160, 160)
+
+[node name="Hammer" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+collision_layer = 3
+script = ExtResource("1_822jx")
+transformedName = "Hammer"
+transformedMaxSpeed = 500.0
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/hammer_attack.tscn"
+transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/hammer.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3gx12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_63ifo")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_cn374")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

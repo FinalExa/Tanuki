@@ -1,8 +1,9 @@
 extends AttackHitbox
 
-func _on_body_entered(body):
-	if (body is PlayerCharacter):
-		ActivateGameOver(body)
+func LaunchAttackOnTargetInRange(targetInRange: Node2D):
+	if (targetInRange is PlayerCharacter && !hitTargets.has(targetInRange)):
+		hitTargets.push_back(targetInRange)
+		ActivateGameOver(targetInRange)
 
 func ActivateGameOver(playerRef: PlayerCharacter):
 	playerRef.GameOver(self)

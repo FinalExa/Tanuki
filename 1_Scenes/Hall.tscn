@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=20 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="2_t3dgl"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="8_fdslk"]
 [ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="9_al3i0"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="10_cfxl3"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="11_rrso8"]
+[ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="12_8qwob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqgu"]
 texture = ExtResource("2_t3dgl")
@@ -44,12 +46,11 @@ sources/3 = SubResource("TileSetAtlasSource_gvpbi")
 sources/4 = SubResource("TileSetAtlasSource_t5b8y")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxh7q"]
-size = Vector2(64, 128)
+size = Vector2(64, 256)
 
-[node name="Hall" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas")]
+[node name="Hall" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
 script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("PlayerSpawn")
-travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 
@@ -116,86 +117,58 @@ position = Vector2(-832, -1088)
 [node name="Wall18" parent="Walls" instance=ExtResource("7_3cluf")]
 position = Vector2(-1088, -1088)
 
-[node name="WallVertical" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -1088)
-
 [node name="WallVertical2" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -960)
+position = Vector2(1096, -1024)
 
 [node name="WallVertical3" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -832)
-
-[node name="WallVertical4" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -704)
-
-[node name="WallVertical5" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -576)
+position = Vector2(1096, -768)
 
 [node name="WallVertical6" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -448)
-
-[node name="WallVertical7" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -320)
+position = Vector2(1096, -512)
 
 [node name="WallVertical8" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -192)
-
-[node name="WallVertical9" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -64)
+position = Vector2(1096, -256)
 
 [node name="WallVertical10" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, 64)
-
-[node name="WallVertical11" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, 192)
+position = Vector2(1096, 0)
 
 [node name="WallVerticalEnd" parent="Walls" instance=ExtResource("9_al3i0")]
-position = Vector2(1096, 320)
-
-[node name="WallVertical12" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -1088)
+position = Vector2(1096, 256)
 
 [node name="WallVertical13" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -960)
+position = Vector2(-1224, -1024)
 
 [node name="WallVertical14" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -832)
-
-[node name="WallVertical15" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -704)
-
-[node name="WallVertical16" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -576)
+position = Vector2(-1224, -768)
 
 [node name="WallVertical17" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -448)
-
-[node name="WallVertical18" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -320)
+position = Vector2(-1224, -512)
 
 [node name="WallVertical19" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -192)
-
-[node name="WallVertical21" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, 64)
-
-[node name="WallVertical22" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, 192)
+position = Vector2(-1224, -256)
 
 [node name="WallVerticalEnd2" parent="Walls" instance=ExtResource("9_al3i0")]
-position = Vector2(-1224, 320)
+position = Vector2(-1224, 256)
 
-[node name="TravelingArea" type="Area2D" parent="." node_paths=PackedStringArray("spawnLocation")]
-position = Vector2(-1224, -64)
+[node name="TravelingArea" type="Area2D" parent="."]
+position = Vector2(-1248, 0)
 script = ExtResource("10_cfxl3")
-sceneToLoad = "res://1_Scenes/NewTest.tscn"
-spawnLocation = NodePath("Destination")
+sceneToLoad = "res://1_Scenes/player_transform_test.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
-position = Vector2(-24, 0)
 shape = SubResource("RectangleShape2D_sxh7q")
 
 [node name="Destination" type="Node2D" parent="TravelingArea"]
-position = Vector2(72, 0)
+position = Vector2(96, 0)
+
+[node name="UnlocksAfterQuestStage" type="Node2D" parent="." node_paths=PackedStringArray("objectsToAdd")]
+script = ExtResource("11_rrso8")
+requiredQuest = "OniQuest"
+requiredQuestStage = 3
+objectsToAdd = [NodePath("HeatSourceActivator4")]
+
+[node name="HeatSourceActivator4" parent="UnlocksAfterQuestStage" instance=ExtResource("12_8qwob")]
+position = Vector2(-968, -248)
+activated = true
 
 [connection signal="body_entered" from="TravelingArea" to="TravelingArea" method="_on_body_entered"]

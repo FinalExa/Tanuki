@@ -20,12 +20,10 @@ func ChangeScene(newPath: String):
 
 func DeleteCurrentScene(sceneToDelete: GameplayScene):
 	if (sceneToDelete != null):
-		remove_child(sceneToDelete)
 		sceneToDelete.queue_free()
 		sceneToDelete = null
 	deleteTimer = deleteICD
 	deleteActive = true
-
 
 func ContinueAfterDelete(delta):
 	if (deleteActive):
@@ -38,7 +36,6 @@ func ContinueAfterDelete(delta):
 func SetPlayerDataOnReload():
 	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.transformationChangeRef.DeactivateTransformation()
-	playerRef.transformationChangeRef.transformationTimer = 0
 	playerRef.playerMovement.SetToZero()
 	playerRef.global_position = safePosition
 	playerRef.playerAttack.ForceStopAttack()
@@ -48,8 +45,22 @@ func InstantiateNewScene():
 	var obj = obj_scene.instantiate()
 	currentScene = obj
 	add_child(currentScene)
+	ClearTrash()
 	sceneMaster.UpdatePathAndLoad()
+	currentScene.Initialize()
 	currentScene.SetPlayerSpawn(playerRef)
+	currentScene.SetCurrentKeysForPlayer(playerRef)
+
+func ClearTrash():
+	for i in self.get_child_count():
+		if (self.get_child(i) != currentScene):
+			self.get_child(0).queue_free()
+	var root = sceneMaster.get_parent()
+	for i in root.get_child_count():
+		if (root.get_child(i) != sceneMaster):
+			root.get_child(i).queue_free()
 
 func ReloadScene():
+	playerRef.transformationChangeRef.transformationTimer = 0
+	playerRef.playerHUD.timerBar.UpdateTimer(playerRef.transformationChangeRef.transformationTimer, playerRef.transformationChangeRef.transformationDuration)
 	ChangeScene(currentScenePath)

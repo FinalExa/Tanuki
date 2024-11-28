@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv04igefuaynb"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/CleanerOneShotArea.gd" id="1_je12p"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerOneShotArea.gd" id="1_je12p"]
 [ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="2_c40o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]

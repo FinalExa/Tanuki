@@ -4,16 +4,9 @@ extends AttackHitbox
 var attackTag: String
 @export var stunsGuard: bool
 
-func _on_body_entered(body):
-	check_if_target(body)
-
-func check_if_target(body):
-	if (body.is_in_group("Interactable")):
-		body.AttackInteraction(attackTag)
+func LaunchAttackOnTargetInRange(targetInRange: Node2D):
+	if (targetInRange.is_in_group("Interactable")):
+		targetInRange.AttackInteraction(attackTag)
 		return
-	if (stunsGuard && body is GuardController):
-		body.is_damaged(body.global_position.direction_to(self.global_position))
-
-func _on_area_entered(area):
-	if (area.is_in_group("Interactable")):
-		area.AttackInteraction(attackTag)
+	if (stunsGuard && targetInRange is GuardController):
+		targetInRange.is_damaged(targetInRange.global_position.direction_to(self.global_position))

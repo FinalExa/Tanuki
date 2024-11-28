@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5m62ht1r4lgo" path="res://PlayerCharacter/Sprites/Coda-tranf-200.png" id="2_lk5hv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfj45"]
-size = Vector2(48, 49)
+size = Vector2(16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r42q"]
 atlas = ExtResource("2_lk5hv")
@@ -91,13 +91,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tail" type="StaticBody2D" node_paths=PackedStringArray("spriteRef")]
+[node name="Tail" type="StaticBody2D" node_paths=PackedStringArray("spriteRef", "collisionShapeRef")]
 position = Vector2(0, 75)
-collision_layer = 11
 script = ExtResource("1_iym6t")
 spriteRef = NodePath("AnimatedSprite2D")
+collisionShapeRef = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_qfj45")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

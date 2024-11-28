@@ -16,19 +16,14 @@ func StunTimer(delta):
 		stunActive = false
 
 func Activation():
-	if (get_parent() == null):
-		call_deferred("Initialize")
-
-func Deactivation():
-	call_deferred("TurnOff")
-
-func Initialize():
-	parentRef.add_child(self)
+	self.show()
+	collisionShapeRef.disabled = false
 	stunActive = true
 	stunTimer = stunDuration
 
-func TurnOff():
-	parentRef.remove_child(self)
+func Deactivation():
+	self.hide()
+	collisionShapeRef.disabled = true
 
 func _on_body_entered(body):
 	if (stunActive):

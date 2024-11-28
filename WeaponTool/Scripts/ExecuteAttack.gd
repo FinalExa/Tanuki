@@ -30,24 +30,42 @@ func _ready():
 func ExtraReadyOperations():
 	pass
 
-func add_attack_hitbox(index):
+func AddAttackHitbox(index):
 	if (index < attackHitboxes.size()):
+		if (attackSounds[index] != null && !attackSounds[index].playing):
+			attackSounds[index].play()
 		if (attackHitboxes[index] != null):
-			self.add_child(attackHitboxes[index])
-			attackHitboxInstance = self.get_child(0)
+			attackHitboxInstance = attackHitboxes[index]
 			if (attackHitboxInstance is AttackHitbox):
+				attackHitboxInstance.StartAttack()
 				attackHitboxInstance.characterRef = characterRef
+				return
 			if (attackHitboxInstance is ObjectSpawner):
 				attackHitboxInstance.SpawnObject()
-		if (attackSounds[index] != null && !attackSounds[index].playing): attackSounds[index].play()
+				return
+			ActivateOtherTypeOfAttackHitbox()
 
-func remove_attack_hitbox(index):
+func RemoveAttackHitbox(index):
 	if (index < attackHitboxes.size() && attackHitboxes[index] != null):
 		attackHitboxInstance = attackHitboxes[index]
 		if (attackHitboxInstance is AttackHitbox):
-			attackHitboxInstance.attack_end()
-		if (attackHitboxInstance.get_parent() != null):
-			self.remove_child(attackHitboxInstance)
+			attackHitboxInstance.EndAttack()
+			return
+		if (attackHitboxInstance is ObjectSpawner):
+			return
+		DeactivateOtherTypeOfAttackHitbox()
+
+func ActivateOtherTypeOfAttackHitbox():
+	attackHitboxInstance.show()
+	for i in attackHitboxInstance.get_child_count():
+		if (attackHitboxInstance.get_child(i) is CollisionShape2D || attackHitboxInstance.get_child(i) is CollisionPolygon2D):
+			attackHitboxInstance.get_child(i).disabled = false
+
+func DeactivateOtherTypeOfAttackHitbox():
+	attackHitboxInstance.hide()
+	for i in attackHitboxInstance.get_child_count():
+		if (attackHitboxInstance.get_child(i) is CollisionShape2D || attackHitboxInstance.get_child(i) is CollisionPolygon2D):
+			attackHitboxInstance.get_child(i).disabled = true
 
 func start_attack():
 	attackLaunched = true
@@ -62,12 +80,12 @@ func ExecuteAttackPhase():
 
 func PrepareHitboxes():
 	if (currentPhase > 0):
-		remove_attack_hitbox(currentPhase-1)
-	add_attack_hitbox(currentPhase)
+		RemoveAttackHitbox(currentPhase - 1)
+	AddAttackHitbox(currentPhase)
 
 func EndAttack():
 	if (currentPhase >= attackPhasesLaunch.size()):
-		remove_attack_hitbox(attackPhasesLaunch.size() - 1)
+		RemoveAttackHitbox(attackPhasesLaunch.size() - 1)
 		currentPhase = 0
 		CheckForCooldown()
 
@@ -112,7 +130,7 @@ func Attacking():
 
 func RemoveAttackHitboxes():
 	for i in attackHitboxes.size():
-		remove_attack_hitbox(i)
+		RemoveAttackHitbox(i)
 
 func CalculateCurrentAttackMovement(index: int):
 	if (attackMovements.size() > 0 && attackMovements[index] != null):

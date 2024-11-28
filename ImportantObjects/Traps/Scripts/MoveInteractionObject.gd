@@ -5,7 +5,7 @@ extends InteractionObject
 func attackInteraction(receivedTag):
 	if (receivedTag == neededTagForAttackInteraction):
 		SaveOnDestroy()
-		get_parent().remove_child(self)
+		queue_free()
 
 func ExecuteLoadOperation():
-	get_parent().remove_child(self)
+	queue_free()

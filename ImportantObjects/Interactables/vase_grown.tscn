@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cikfv4vvc3wxp"]
+
+[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="1_l4hvq"]
+[ext_resource type="Texture2D" uid="uid://bsqtrv0vlwqkq" path="res://ImportantObjects/Interactables/Sprites/vaseGrown.png" id="2_e4f0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(16, 16)
+
+[node name="VaseGrown" type="Area2D"]
+script = ExtResource("1_l4hvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 56)
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+texture = ExtResource("2_e4f0l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

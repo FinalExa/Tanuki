@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdy76"]
 size = Vector2(128, 64)
 
-[node name="TrapDeactivator" type="Area2D"]
+[node name="TrapDeactivator" type="Area2D" node_paths=PackedStringArray("collisionShapeRef")]
 script = ExtResource("1_8tkh6")
+collisionShapeRef = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cdy76")
