@@ -85,3 +85,4 @@ func SetTraveling(id: int, positional: bool):
 
 func UnsetTraveling():
 	isTraveling = false
+	positionalTraveling = false
