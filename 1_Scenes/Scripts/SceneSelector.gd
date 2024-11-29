@@ -49,6 +49,7 @@ func InstantiateNewScene():
 	sceneMaster.UpdatePathAndLoad()
 	currentScene.Initialize()
 	currentScene.SetPlayerSpawn(playerRef)
+	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer(playerRef)
 
 func ClearTrash():

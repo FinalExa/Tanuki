@@ -82,3 +82,6 @@ func SetTraveling(id: int, positional: bool):
 		positionalDestination = self.global_position
 		return
 	travelId = id
+
+func UnsetTraveling():
+	isTraveling = false
