@@ -3,7 +3,7 @@ extends Node2D
 
 signal change_speed
 signal reset_speed
-signal send_transformation_name
+signal send_transformation_texture
 signal send_transformation_active_info
 
 var transformObjectsInRange: Array[TransformationObjectData]
@@ -101,11 +101,11 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	currentTransformationSet = true
 	currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	GenerateTransformationObject()
-	emit_signal("send_transformation_name", currentTransformationObject.transformedName)
+	emit_signal("send_transformation_texture", currentTransformationObject.transformedTexture.texture.resource_path)
 
 func SetNoTransformation():
 	currentTransformationSet = false
-	emit_signal("send_transformation_name", noTransformationText)
+	emit_signal("send_transformation_texture", "")
 
 func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):

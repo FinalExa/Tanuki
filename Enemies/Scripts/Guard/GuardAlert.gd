@@ -89,8 +89,6 @@ func GetSecondDestination(space_state):
 func SetAlertTargetLastInfo(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
-	print(lastTargetPosition)
-	print(lastTargetDirection)
 
 func stop_alert():
 	guardController.isInAlert = false

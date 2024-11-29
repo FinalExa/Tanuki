@@ -1,18 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=17 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
-[ext_resource type="Script" path="res://UI/Script/SavedTransformationText.gd" id="2_xm4oh"]
+[ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
 [ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
+[ext_resource type="Texture2D" uid="uid://djw6pacrdi88a" path="res://UI/Sprite/UI_Square.png" id="4_ep5f1"]
+[ext_resource type="Texture2D" uid="uid://cyc4xa8igfubb" path="res://UI/Sprite/UI_Cross.png" id="4_hkgms"]
 [ext_resource type="Texture2D" uid="uid://cuq2s1qrcjqq" path="res://UI/Sprite/UI_Bar_Under.png" id="4_rcdvg"]
 [ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="5_5if3a"]
+[ext_resource type="Texture2D" uid="uid://35d72jkukkoj" path="res://UI/Sprite/UI_Square_BG.png" id="5_qelf8"]
 [ext_resource type="Script" path="res://UI/Script/TimerBar.gd" id="5_rk1ml"]
 [ext_resource type="Texture2D" uid="uid://cnlg21pc0klda" path="res://UI/Sprite/UI_Bar_Upper.png" id="6_0k1v5"]
 [ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="6_mc342"]
 [ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="7_aqx6o"]
 [ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="8_pl0yk"]
 [ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
-[ext_resource type="Texture2D" uid="uid://no5nmne32hgg" path="res://UI/Sprite/Ui_prova_QUADRATO.png" id="11_g5aig"]
 [ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
 
 [node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
@@ -49,16 +51,26 @@ Esc: Pause Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SavedTransformation" type="Label" parent="."]
+[node name="CurrentTransformationBackground" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_qelf8")
+
+[node name="SavedTexture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 80.0
-offset_right = 172.0
-offset_bottom = 106.0
-text = "No Transformation"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_xm4oh")
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 144.0
+offset_bottom = 144.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_b5f0c")
+noTransformationTexture = ExtResource("4_hkgms")
+
+[node name="CurrentTransformationBorderSprite" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_ep5f1")
 
 [node name="TransformationBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
@@ -258,18 +270,13 @@ offset_right = 1000.0
 offset_bottom = 992.0
 playerHUD = NodePath("..")
 
-[node name="CurrentTransformationBorderSprite" type="Sprite2D" parent="."]
-position = Vector2(96, 96)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_g5aig")
-
-[node name="CurrentTransformationBorderSprite2" type="Sprite2D" parent="."]
+[node name="CurrentTransformationWeaponCooldown" type="Sprite2D" parent="."]
 position = Vector2(96, 984)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_g5aig")
+texture = ExtResource("4_ep5f1")
 
 [connection signal="attack_cooldown" from="." to="AttackCooldown" method="_on_ui_attack_cooldown"]
-[connection signal="transformation_name" from="." to="SavedTransformation" method="_on_ui_transformation_name"]
+[connection signal="transformation_texture" from="." to="SavedTexture" method="_on_ui_transformation_texture"]
 [connection signal="button_up" from="PauseMenuPanel/Resume/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/Reload/ReloadButton" to="." method="_on_reload_button_button_up"]
 [connection signal="button_up" from="PauseMenuPanel/Options/OptionsButton" to="." method="_on_options_button_button_up"]

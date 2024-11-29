@@ -1,7 +1,7 @@
 class_name PlayerHUD
 extends Control
 
-signal transformation_name
+signal transformation_texture
 signal timer_value
 signal attack_cooldown
 
@@ -24,8 +24,8 @@ func _ready():
 func _process(_delta):
 	PauseGame()
 
-func _on_transformation_change_send_transformation_name(trsName):
-	emit_signal("transformation_name", trsName)
+func _on_transformation_change_send_transformation_texture(trsTexture):
+	emit_signal("transformation_texture", trsTexture)
 
 func _on_transformation_change_send_transformation_active_info(timer, duration):
 	timerBar.UpdateTimer(timer, duration)

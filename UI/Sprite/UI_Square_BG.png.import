@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://no5nmne32hgg"
-path="res://.godot/imported/Ui_prova_QUADRATO.png-6231b3ad8725e7f8d9d62cdb903e3b27.ctex"
+uid="uid://35d72jkukkoj"
+path="res://.godot/imported/UI_Square_BG.png-8f7e172dd683dfee58ccc438142c7d19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Sprite/Ui_prova_QUADRATO.png"
-dest_files=["res://.godot/imported/Ui_prova_QUADRATO.png-6231b3ad8725e7f8d9d62cdb903e3b27.ctex"]
+source_file="res://UI/Sprite/UI_Square_BG.png"
+dest_files=["res://.godot/imported/UI_Square_BG.png-8f7e172dd683dfee58ccc438142c7d19.ctex"]
 
 [params]
 
