@@ -3,6 +3,7 @@ extends Control
 
 signal transformation_texture
 signal timer_value
+signal has_attack
 signal attack_cooldown
 
 @export var playerInputs: PlayerInputs
@@ -107,3 +108,6 @@ func _on_gameover_reload_button_button_up():
 	EndForcePause()
 	gameOverPanel.hide()
 	sceneMaster.sceneSelector.ReloadScene()
+
+func _on_transformation_change_send_transformation_has_attack(status):
+	emit_signal("has_attack", status)

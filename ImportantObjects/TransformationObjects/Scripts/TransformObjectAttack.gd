@@ -15,6 +15,7 @@ func start_attack():
 	attackLaunched = true
 	attackFrame = 0
 	characterRef.playerMovement.DisableMovement()
+	characterRef.velocity = Vector2.ZERO
 	ExecuteAttackPhase()
 
 func FinalizeAttack():

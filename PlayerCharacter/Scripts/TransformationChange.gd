@@ -4,6 +4,8 @@ extends Node2D
 signal change_speed
 signal reset_speed
 signal send_transformation_texture
+signal send_transformation_has_attack
+signal send_transformation_attack_info
 signal send_transformation_active_info
 
 var transformObjectsInRange: Array[TransformationObjectData]
@@ -111,6 +113,10 @@ func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
 		GenerateTransformationObject()
 		TransformationFeedbackActivation(true)
+		if (currentTransformationObject.transformedAttackPath != ""):
+			emit_signal("send_transformation_has_attack", true)
+		else:
+			emit_signal("send_transformation_has_attack", false)
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
 		baseCollisionShape.shape = currentTransformationObject.transformedCollider.shape
 		playerSprite.hide()
@@ -126,6 +132,7 @@ func CheckForDeactivateTransformation():
 func DeactivateTransformation():
 	TransformationFeedbackActivation(false)
 	emit_signal("reset_speed")
+	emit_signal("send_transformation_has_attack", true)
 	if (!exitTransformationSound.playing): exitTransformationSound.play()
 	if (transformationTimeLowSound.playing): transformationTimeLowSound.stop()
 	if (playerRef.transformationInvincibility): playerRef.transformationInvincibility = false
@@ -151,6 +158,8 @@ func TransformationActive(delta):
 			DeactivateTransformation()
 			SetNoTransformation()
 		emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
+		if (currentTransformationObject.transformedAttackPath != ""):
+			emit_signal("send_transformation_attack_info", currentAttack.attackFrame, currentAttack.attackDuration)
 
 func AddTail():
 	if (tailRef.collisionShapeRef.disabled == true):

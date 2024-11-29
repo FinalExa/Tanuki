@@ -1,13 +1,29 @@
-extends Label
+extends TextureProgressBar
 
-@export var attackReadyText: String
-@export var attackInCooldownText: String
+@export var attackReadyTexture: Texture2D
+@export var attackInCooldownTexture: Texture2D
+@export var attackNotAvailableTexture: Texture2D
 
 func _ready():
-	_on_ui_attack_cooldown(false, 0, 0)
+	ResetUI()
+
+func ResetUI():
+	_on_ui_attack_cooldown(false, 0, 1)
 
 func _on_ui_attack_cooldown(status, currentFrame, duration):
 	if (!status):
-		self.text = attackReadyText
+		self.texture_under = attackReadyTexture
+		self.value = 0
+		self.max_value = 1
 	else:
-		self.text = str(attackInCooldownText, currentFrame, "/", duration)
+		self.max_value = duration
+		self.value = currentFrame
+		self.texture_under = attackInCooldownTexture
+
+func SetAvailable(status: bool):
+	self.value = 0
+	self.max_value = 1
+	if (!status):
+		self.texture_under = attackNotAvailableTexture
+		return
+	self.texture_under = attackReadyTexture

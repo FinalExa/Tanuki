@@ -365,5 +365,6 @@ characterRef = NodePath("../..")
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_change_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_reset_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]
+[connection signal="send_transformation_has_attack" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_has_attack"]
 [connection signal="send_transformation_texture" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_texture"]
 [connection signal="movement_direction" from="Rotator/PlayerMovement" to="Rotator" method="_on_movement_movement_direction"]

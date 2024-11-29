@@ -41,7 +41,9 @@ func ForceEndCooldown():
 		attackFrame = 0
 
 func ActiveCooldownFeedback():
-	playerHUD.UpdateAttackCooldown(true, attackFrame, attackCooldown)
+	if (!characterRef.transformationChangeRef.isTransformed):
+		playerHUD.UpdateAttackCooldown(true, attackFrame, attackCooldown)
 
 func EndCooldownFeedback():
-	playerHUD.UpdateAttackCooldown(false, 0, 0)
+	if (!characterRef.transformationChangeRef.isTransformed):
+		playerHUD.UpdateAttackCooldown(false, 0, 1)
