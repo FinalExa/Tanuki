@@ -7,6 +7,7 @@ signal has_attack
 signal attack_cooldown
 
 @export var playerInputs: PlayerInputs
+@export var playerRef: PlayerCharacter
 @export var timerBar: TimerBar
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel

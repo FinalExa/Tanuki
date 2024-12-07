@@ -2,14 +2,24 @@
 
 [ext_resource type="Script" path="res://Dialogue/Scripts/DialogueArea.gd" id="1_fk7hj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1lg4"]
-size = Vector2(256, 128)
+[sub_resource type="LabelSettings" id="LabelSettings_gyclw"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
 
-[node name="DialogueArea" type="Area2D"]
+[node name="DialogueArea" type="Area2D" node_paths=PackedStringArray("interactionLabel")]
 process_mode = 3
 script = ExtResource("1_fk7hj")
+interactionLabel = NodePath("Label")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_v1lg4")
+[node name="Label" type="Label" parent="."]
+offset_left = -96.0
+offset_top = -128.0
+offset_right = 95.0
+offset_bottom = -91.0
+text = "PRESS SHIFT TO TALK"
+label_settings = SubResource("LabelSettings_gyclw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

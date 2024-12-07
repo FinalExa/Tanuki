@@ -15,6 +15,7 @@ var sceneRef: Node2D
 @export var playerRepelled: PlayerRepelled
 @export var playerAttack: PlayerAttack
 @export var playerProgressionTrack: PlayerProgressionTrack
+@export var cameraRef: Camera2D
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint

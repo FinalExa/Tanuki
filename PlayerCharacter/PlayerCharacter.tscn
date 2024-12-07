@@ -296,19 +296,18 @@ script = ExtResource("17_pusai")
 sprite_frames = SubResource("SpriteFrames_5la1i")
 animation = &"idle"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UI" parent="CanvasLayer/HBoxContainer" node_paths=PackedStringArray("playerInputs") instance=ExtResource("2_d3p1y")]
+[node name="UI" parent="CanvasLayer/HBoxContainer" node_paths=PackedStringArray("playerInputs", "playerRef") instance=ExtResource("2_d3p1y")]
 z_index = 1
 z_as_relative = false
 layout_mode = 2
 playerInputs = NodePath("../../../PlayerInputs")
+playerRef = NodePath("../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nxjry")
