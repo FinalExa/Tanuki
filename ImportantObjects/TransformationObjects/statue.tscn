@@ -19,7 +19,6 @@ transformedMaxSpeed = 300.0
 transformedProperties = Array[String](["Stable"])
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("TransformedSprite")
-transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/statue_attack.tscn"
 transformedTailLocation = NodePath("TailLocation")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/statue.tscn"
 

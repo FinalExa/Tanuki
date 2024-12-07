@@ -1,48 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://yh8trjrdfafp"]
+[gd_scene load_steps=3 format=3 uid="uid://yh8trjrdfafp"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotPassive.gd" id="1_wjoe1"]
-[ext_resource type="Script" path="res://WeaponTool/Scripts/ExecuteAttack.gd" id="2_t68bk"]
-[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotAura.gd" id="3_ak6tv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dek76"]
-radius = 192.167
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
 radius = 128.0
 
-[node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("teapotWeapon", "teapotAura")]
+[node name="TeapotPassive" type="Node2D"]
 script = ExtResource("1_wjoe1")
-teapotWeapon = NodePath("TeapotWeapon")
-teapotAura = NodePath("TeapotAura")
 maxHeatValue = 1000.0
 chargedHeatValue = 500.0
 heatIncreasePerSecondPerSource = 200.0
 heatDecreasePerSecondPerSource = 50.0
 heatGroup = "HeatSource"
-
-[node name="TeapotWeapon" type="Node2D" parent="." node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
-script = ExtResource("2_t68bk")
-attackDuration = 30
-attackPhasesLaunch = Array[int]([0])
-attackHitboxes = [null]
-attackSounds = [null]
-attackMovements = Array[float]([500.0])
-
-[node name="TeapotAura" type="Area2D" parent="."]
-script = ExtResource("3_ak6tv")
-interactableGroup = "Interactable"
-auraInteractTag = "Hot"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAura"]
-shape = SubResource("CircleShape2D_dek76")
+heatedProperty = "Hot"
 
 [node name="TeapotAbsorbHeat" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAbsorbHeat"]
 shape = SubResource("CircleShape2D_4ph7j")
 
-[connection signal="on_attack_end" from="TeapotWeapon" to="." method="_on_teapot_weapon_on_attack_end"]
-[connection signal="body_entered" from="TeapotAura" to="TeapotAura" method="_on_body_entered"]
-[connection signal="body_exited" from="TeapotAura" to="TeapotAura" method="_on_body_exited"]
 [connection signal="body_entered" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_entered"]
 [connection signal="body_exited" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_exited"]

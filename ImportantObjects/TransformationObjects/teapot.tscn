@@ -18,6 +18,7 @@ transformedName = "Teapot"
 transformedMaxSpeed = 500.0
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("PlayerSprite")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/teapot_attack.tscn"
 transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/teapot_passive.tscn"
 transformedTailLocation = NodePath("TailLocation")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/teapot.tscn"
