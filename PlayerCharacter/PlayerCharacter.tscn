@@ -296,8 +296,6 @@ script = ExtResource("17_pusai")
 sprite_frames = SubResource("SpriteFrames_5la1i")
 animation = &"idle"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
