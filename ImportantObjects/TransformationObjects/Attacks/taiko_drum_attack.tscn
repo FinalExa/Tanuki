@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwjy5n3f6gtxh"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_7lodv"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoSpecialHitbox.gd" id="2_4n41i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5gwa"]
+radius = 576.056
+
+[node name="TaikoDrumAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_7lodv")
+attackDuration = 30
+attackCooldown = 60
+attackPhasesLaunch = Array[int]([0, 0])
+attackHitboxes = [null, NodePath("")]
+attackSounds = [null, null]
+
+[node name="TaikoSpecialHitbox" type="Area2D" parent="."]
+script = ExtResource("2_4n41i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TaikoSpecialHitbox"]
+shape = SubResource("CircleShape2D_i5gwa")
+debug_color = Color(0.807843, 0.392157, 0.352941, 0.419608)
+
+[connection signal="body_entered" from="TaikoSpecialHitbox" to="TaikoSpecialHitbox" method="_on_body_entered"]

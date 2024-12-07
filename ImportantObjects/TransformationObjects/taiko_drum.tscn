@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bd2v04u24dqkg"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_0kga1"]
-[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/transformObject.png" id="2_w0hde"]
+[ext_resource type="Texture2D" uid="uid://4csli0cjh0eb" path="res://ImportantObjects/TransformationObjects/Sprites/taikodrum.png" id="2_yg5mu"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_a7cp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytmsg"]
@@ -17,7 +17,7 @@ transformedName = "Taiko Drum"
 transformedMaxSpeed = 500.0
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
-transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/taiko_drum_passive.tscn"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/taiko_drum_attack.tscn"
 transformedTailLocation = NodePath("TailLocation")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/taiko_drum.tscn"
 
@@ -28,9 +28,8 @@ position = Vector2(0, 80)
 shape = SubResource("RectangleShape2D_ytmsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_w0hde")
+scale = Vector2(0.184758, 0.15873)
+texture = ExtResource("2_yg5mu")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
 script = ExtResource("3_a7cp1")

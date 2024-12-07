@@ -12,9 +12,9 @@ script = ExtResource("1_fk7hj")
 interactionLabel = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -96.0
+offset_left = -120.0
 offset_top = -128.0
-offset_right = 95.0
+offset_right = 123.0
 offset_bottom = -91.0
 text = "PRESS SHIFT TO TALK"
 label_settings = SubResource("LabelSettings_gyclw")
