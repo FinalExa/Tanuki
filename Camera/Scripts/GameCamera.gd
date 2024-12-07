@@ -6,7 +6,11 @@ extends Camera2D
 var currentTarget: Node2D
 
 func _ready():
-	SetNewCameraTarget(playerRef, false)
+	ResetToPlayer(false)
+
+func ResetToPlayer(usePositionSmoothing: bool):
+	if (currentTarget != playerRef):
+		SetNewCameraTarget(playerRef, usePositionSmoothing)
 
 func AssignTarget(target: Node2D, usePositionSmoothing: bool):
 	currentTarget = target

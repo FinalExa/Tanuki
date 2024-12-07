@@ -29,17 +29,19 @@ enum DialogueEmotions {
 var currentDialogueText: Array[String]
 var currentCharacterTalking: Array[DialogueCharacters]
 var currentCharacterEmotion: Array[DialogueEmotions]
+var currentCameraFocuses: Array[Node2D]
 var currentString: String
 var currentIndex: int
 var currentSource: DialogueArea
 
-func  _ready():
+func _ready():
 	dialogueIntervalBetweenCharacters = 1 / charactersPerSecond
 
-func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions], source: DialogueArea):
+func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions], focus: Array[Node2D], source: DialogueArea):
 	currentDialogueText = text
 	currentCharacterTalking = characters
 	currentCharacterEmotion = emotions
+	currentCameraFocuses = focus
 	currentIndex = 0
 	currentSource = source
 	SetCurrentText()
@@ -83,6 +85,8 @@ func SetCurrentText():
 	internalTimer = 0
 	dialogueDoneShowing = false
 	currentTextIndex = 0
+	if (currentCameraFocuses[currentIndex] != null): playerHUD.playerRef.cameraRef.SetNewCameraTarget(currentCameraFocuses[currentIndex], true)
+	else: playerHUD.playerRef.cameraRef.ResetToPlayer(true)
 	currentTextLenght = currentDialogueText[currentIndex].length()
 	if (currentCharacterTalking[currentIndex] == DialogueCharacters.DAICHI):
 		leftSprite.show()
@@ -101,6 +105,7 @@ func WaitForContinue():
 
 func EndDialogue():
 	dialogueActive = false
+	playerHUD.playerRef.cameraRef.ResetToPlayer(false)
 	self.hide()
 	playerHUD.EndForcePause()
-	currentSource.DeleteOnDone()
+	currentSource.DialogueDone()
