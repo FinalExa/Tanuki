@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="3_uvc7n"]
 [ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="4_iuhbo"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="5_o2xhk"]
-[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="6_5cmri"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/PuzzleObjects/heat_source.tscn" id="6_5cmri"]
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="6_bvvkp"]
 [ext_resource type="PackedScene" uid="uid://bxq4vwdv3ac5s" path="res://Level/Prefabs/wall_end_left.tscn" id="7_6w5gu"]
 [ext_resource type="PackedScene" uid="uid://b0g5t8oo1xhrg" path="res://Level/Prefabs/wall_vertical_half.tscn" id="9_551yb"]
