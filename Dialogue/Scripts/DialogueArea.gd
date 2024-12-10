@@ -8,6 +8,8 @@ extends Area2D
 @export var isOnInteraction: bool
 @export var interactionLabel: Label
 @export var deleteOnDone: bool
+@export var advanceQuest: bool
+@export var questRef: MapQuest
 var dialogueExecuting: bool
 var player: PlayerCharacter
 
@@ -52,5 +54,7 @@ func StartDialogue(playerRef: PlayerCharacter):
 
 func DialogueDone():
 	dialogueExecuting = false
+	if (advanceQuest && questRef != null):
+		questRef.AdvanceStageByObject(self)
 	if (deleteOnDone):
 		queue_free()

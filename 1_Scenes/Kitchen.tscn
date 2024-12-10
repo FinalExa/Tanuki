@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=72 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="24_u6tss"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
@@ -91,6 +92,9 @@ sources/0 = SubResource("TileSetAtlasSource_q10bg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmcs5"]
 size = Vector2(992, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca16x"]
+size = Vector2(128, 256)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b82ri"]
 vertices = PackedVector2Array(-2816, -383, -2064, -384, -2064, -256, -2816, 256, -4848, 512, -4848, -384, -4080, -383, -2816, 128, -4848, -512, -4848, -768, -2064, -768, -2064, -512, -2816, -511, -4080, -511, -2056, -256, -2056, 0, -2064, 0, -2064, 128, -2064, 256, -2064, 512)
@@ -375,6 +379,27 @@ objectsToDeleteAtQuestComplete = [NodePath("Rat")]
 position = Vector2(2680, 960)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="Kitchen2DialogueSeen" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "Kitchen2DialogueSeen"
+questItemsToOperate = [NodePath("Kitchen2Dialogue")]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("Kitchen2Dialogue")]
+
+[node name="Kitchen2Dialogue" parent="Quests/Kitchen2DialogueSeen" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
+position = Vector2(320, 128)
+dialogueText = Array[String](["Ed è così che sono riuscito a difendere la villa da 100 ladri!", "Eh…? Ah, sì sì certo.", "Non mi credi? Guarda che la chiave che custodisco ne è la prova! Nessuno da allora è riuscito a prendermela!", "Nessuno? Molto bene… allora io sarò il primo, eheh..."])
+characterTalking = Array[int]([2, 2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0])
+cameraFocuses = [NodePath("../../../Enemies/WardenE1"), NodePath("../../../Enemies/HyottokoE1"), NodePath("../../../Enemies/WardenE1"), null]
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Kitchen2DialogueSeen/Kitchen2Dialogue"]
+shape = SubResource("RectangleShape2D_ca16x")
 
 [node name="QuestUnlocks" type="Node2D" parent="."]
 position = Vector2(0, 512)
