@@ -87,6 +87,8 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = false
+	if (objectToOperate is DialogueArea):
+		objectToOperate.ActivatedByQuest()
 
 func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):

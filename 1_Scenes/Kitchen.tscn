@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=82 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -75,6 +75,27 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(272, -767, 1792, -768, 
 vertices = PackedVector2Array(-2048, 1408, -2048, 640, -784, 641, -784, 1024, -776, 1024, -776, 1280, -784, 1280, -784, 1408)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2048, 640, -784, 641, -784, 1024, -776, 1024, -776, 1280, -784, 1280, -784, 1408, -2048, 1408)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mq0me"]
+radius = 88.3629
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uwes"]
+radius = 88.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oq5h6"]
+radius = 204.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfxnb"]
+radius = 156.051
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0qp6"]
+radius = 184.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7mm8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjjtr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_in7kl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
 texture = ExtResource("2_v41y6")
@@ -303,9 +324,9 @@ requiredKeys = 3
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenSaveTheOni"
-questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2")]
-questItemsStages = Array[int]([0, 0, 1, 3])
-questItemsOnOffState = Array[bool]([false, false, true, true])
+questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("OniStationaryDialogue1"), NodePath("HeatSourceActivator2"), NodePath("OniStationaryDialogue2"), NodePath("HeatSourceActivator"), NodePath("OniFreedDialogue1"), NodePath("OniStationaryDialogue1"), NodePath("OniFreedDialogue2"), NodePath("HeatSourceActivator2"), NodePath("OniFreedDialogue3"), NodePath("OniStationaryDialogue2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, true, true, true, true])
 questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
 objectsToDeleteAtQuestComplete = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
 
@@ -313,24 +334,112 @@ objectsToDeleteAtQuestComplete = [NodePath("Furnace"), NodePath("Furnace2"), Nod
 position = Vector2(-2776, -1248)
 activated = true
 
+[node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-2776, -1248)
+dialogueText = Array[String](["Eccoti! Vedi questo quadro? Neanche a me piace… ti posso aiutare a rovinarlo. Dietro c’è pure qualcosa secondo me.", "Dici sul serio? C’è solo un modo per scoprirlo allora!"])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../HeatSourceActivator"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniStationaryDialogue1"]
+shape = SubResource("CircleShape2D_mq0me")
+
 [node name="HeatSourceActivator2" parent="Quests/KitchenSaveTheOni" instance=ExtResource("3_fj7m5")]
 position = Vector2(3584, -353)
 activated = true
+
+[node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(3584, -352)
+dialogueText = Array[String](["Eccoti! Vedi questo quadro? Neanche a me piace… ti posso aiutare a rovinarlo. Dietro c’è pure qualcosa secondo me.", "Dici sul serio? C’è solo un modo per scoprirlo allora!"])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../HeatSourceActivator"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniStationaryDialogue2"]
+shape = SubResource("CircleShape2D_4uwes")
 
 [node name="Furnace" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("4_80pyi")]
 position = Vector2(1716, 80)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+dialogueText = Array[String](["Aiuto! Puoi tirarmi fuori di qui? E’ così stretto!! Ti servirà qualcosa di pesante per rompere la gabbia! Se lo farai ti aiuterò con il tuo compito… daiiii!", "Ma certo! Vedrò che cosa posso fare."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace/OniTrappedDialogue"]
+shape = SubResource("CircleShape2D_oq5h6")
+
 [node name="Furnace2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("4_80pyi")]
 position = Vector2(2212, -956)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+dialogueText = Array[String](["Aiuto! Puoi tirarmi fuori di qui? E’ così stretto!! Ti servirà qualcosa di pesante per rompere la gabbia! Se lo farai ti aiuterò con il tuo compito… daiiii!", "Ma certo! Vedrò che cosa posso fare."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace2/OniTrappedDialogue"]
+shape = SubResource("CircleShape2D_tfxnb")
+
 [node name="Furnace3" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("4_80pyi")]
 position = Vector2(-824, -768)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace3" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+dialogueText = Array[String](["Aiuto! Puoi tirarmi fuori di qui? E’ così stretto!! Ti servirà qualcosa di pesante per rompere la gabbia! Se lo farai ti aiuterò con il tuo compito… daiiii!", "Ma certo! Vedrò che cosa posso fare."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace3/OniTrappedDialogue"]
+shape = SubResource("CircleShape2D_v0qp6")
+
+[node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-4992, -3096)
+dialogueText = Array[String](["Aaaaah, libero! Ti ringrazio… come promesso ti aiuterò. Raggiungimi vicino al quadro della dispensa eheh.", "Oook, ma niente trucchetti."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [null, null]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniFreedDialogue1"]
+shape = SubResource("CircleShape2D_m7mm8")
+
+[node name="OniFreedDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-4992, -3096)
+dialogueText = Array[String](["Uff, finalmente! Ce ne hai messo eh? Vabbè dai, mantengo quasi sempre le promesse fatte. Trova un modo per arrivare al soffitto e ti aiuterò con quel Warden.", "Oook, ma niente trucchetti."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [null, null]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniFreedDialogue2"]
+shape = SubResource("CircleShape2D_gjjtr")
+
+[node name="OniFreedDialogue3" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-4992, -3096)
+dialogueText = Array[String](["Oooh, grazie mille! Non sapevo che cosa fare senza il tuo aiuto… vieni vieni! Voglio sdebitarmi, raggiungimi al frigo!", "Oook, ma niente trucchetti."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [null, null]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniFreedDialogue3"]
+shape = SubResource("CircleShape2D_in7kl")
 
 [node name="KitchenStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 position = Vector2(-768, 512)

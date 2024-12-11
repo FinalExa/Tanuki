@@ -11,6 +11,7 @@ extends Area2D
 @export var deleteOnDone: bool
 @export var advanceQuest: bool
 @export var questRef: MapQuest
+@export var activatedByQuest: bool
 var dialogueExecutingTimer: float
 var dialogueExecutingCooldownActive: bool
 var dialogueExecuting: bool
@@ -76,3 +77,8 @@ func DialogueExecutingICD(delta):
 			return
 		dialogueExecuting = false
 		dialogueExecutingCooldownActive = false
+
+func ActivatedByQuest():
+	if (activatedByQuest):
+		var playerRef: PlayerCharacter = get_tree().root.get_child(0).playerRef
+		StartDialogue(playerRef)

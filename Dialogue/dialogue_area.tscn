@@ -13,6 +13,7 @@ dialogueExecutingICD = 0.5
 interactionLabel = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]
+z_index = 1000
 offset_left = -120.0
 offset_top = -128.0
 offset_right = 123.0
