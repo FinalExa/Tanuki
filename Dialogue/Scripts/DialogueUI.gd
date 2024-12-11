@@ -107,5 +107,6 @@ func EndDialogue():
 	dialogueActive = false
 	playerHUD.playerRef.cameraRef.ResetToPlayer()
 	self.hide()
+	dialogueText.text = ""
 	currentSource.DialogueDone()
 	playerHUD.EndForcePause()

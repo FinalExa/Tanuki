@@ -351,10 +351,10 @@ activated = true
 
 [node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(3584, -352)
-dialogueText = Array[String](["Eccoti! Vedi questo quadro? Neanche a me piace… ti posso aiutare a rovinarlo. Dietro c’è pure qualcosa secondo me.", "Dici sul serio? C’è solo un modo per scoprirlo allora!"])
+dialogueText = Array[String](["Vedi questo blocco di ghiaccio? Dietro ci ho nascosto una chiave, per fare un dispetto alle guardie! Ti aiuto a scioglierlo, così posso ripagarti per la gentilezza!", "Magnifico! Ti ringrazio molto, è bello essere aiutati ogni tanto."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath("../HeatSourceActivator"), null]
+cameraFocuses = [NodePath("../HeatSourceActivator2"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniStationaryDialogue2"]

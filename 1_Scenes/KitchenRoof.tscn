@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d3to5xrejw3mr"]
+[gd_scene load_steps=45 format=3 uid="uid://d3to5xrejw3mr"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_4ebhp"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_rbj3t"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/PuzzleObjects/heat_source.tscn" id="6_5cmri"]
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="6_bvvkp"]
 [ext_resource type="PackedScene" uid="uid://bxq4vwdv3ac5s" path="res://Level/Prefabs/wall_end_left.tscn" id="7_6w5gu"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="7_7bomj"]
 [ext_resource type="PackedScene" uid="uid://b0g5t8oo1xhrg" path="res://Level/Prefabs/wall_vertical_half.tscn" id="9_551yb"]
 [ext_resource type="PackedScene" uid="uid://p8ojo7an42vu" path="res://Level/Prefabs/wall_half_left_vertical.tscn" id="10_k2toq"]
 [ext_resource type="PackedScene" uid="uid://bw48t0tdvroe5" path="res://Level/Prefabs/wall_half.tscn" id="11_q3x2b"]
@@ -28,6 +29,9 @@ texture_region_size = Vector2i(256, 256)
 [sub_resource type="TileSet" id="TileSet_4wjad"]
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_2vjjk")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vum0e"]
+radius = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffb34"]
 size = Vector2(928, 288)
@@ -152,10 +156,21 @@ sendSignalToQuestOnDestroyed = true
 script = ExtResource("5_o2xhk")
 requiredQuest = "KitchenSaveTheOni"
 requiredQuestStage = 2
-objectsToAdd = [NodePath("HeatSource")]
+objectsToAdd = [NodePath("HeatSource"), NodePath("OniStationaryDialogue3")]
 
 [node name="HeatSource" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" instance=ExtResource("6_5cmri")]
 position = Vector2(1040, -312)
+
+[node name="OniStationaryDialogue3" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("7_7bomj")]
+position = Vector2(1040, -312)
+dialogueText = Array[String](["Eccoti finalmente! Vedi quella lampada? Ti aiuto a tagliarla e cadrà perfettamente al Warden, rubagli la chiave poi!", "Questo sì che mi aiuta, eheh quel Warden non sospetta niente."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../HeatSource"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni/OniStationaryDialogue3"]
+shape = SubResource("CircleShape2D_vum0e")
 
 [node name="UnlocksAfterKitchenGrowPlantInRoomD" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
 script = ExtResource("5_o2xhk")
