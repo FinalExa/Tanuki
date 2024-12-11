@@ -9,6 +9,7 @@ font_color = Color(1, 0, 0, 1)
 [node name="DialogueArea" type="Area2D" node_paths=PackedStringArray("interactionLabel")]
 process_mode = 3
 script = ExtResource("1_fk7hj")
+dialogueExecutingICD = 0.5
 interactionLabel = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]

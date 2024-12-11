@@ -1,6 +1,7 @@
 class_name DialogueArea
 extends Area2D
 
+@export var dialogueExecutingICD: float
 @export var dialogueText: Array[String]
 @export var characterTalking: Array[DialogueUI.DialogueCharacters]
 @export var characterEmotion: Array[DialogueUI.DialogueEmotions]
@@ -10,6 +11,8 @@ extends Area2D
 @export var deleteOnDone: bool
 @export var advanceQuest: bool
 @export var questRef: MapQuest
+var dialogueExecutingTimer: float
+var dialogueExecutingCooldownActive: bool
 var dialogueExecuting: bool
 var player: PlayerCharacter
 
@@ -24,27 +27,29 @@ func _on_body_exited(body):
 	if (body is PlayerCharacter):
 		PlayerExited()
 
-func _process(_delta):
+func _process(delta):
+	DialogueExecutingICD(delta)
 	PlayerIn()
 
 func PlayerEntered(playerCharacter: PlayerCharacter):
+	player = playerCharacter
 	if (isOnInteraction):
 		interactionLabel.show()
-		player = playerCharacter
-		return
-	StartDialogue(playerCharacter)
 
 func PlayerExited():
 	interactionLabel.hide()
-	if (isOnInteraction):
-		player = null
+	player = null
+	if (!isOnInteraction):
+		StartDialogueExecutingICD()
 
 func PlayerIn():
 	if (player != null && !dialogueExecuting):
-		if (player.playerInputs.interactInput):
-			player.playerInputs.interactInput = false
-			StartDialogue(player)
+		if (isOnInteraction):
+			if (player.playerInputs.interactInput):
+				player.playerInputs.interactInput = false
+				StartDialogue(player)
 			return
+		StartDialogue(player)
 
 func StartDialogue(playerRef: PlayerCharacter):
 	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == characterEmotion.size() && dialogueText.size() == cameraFocuses.size() && dialogueText.size() > 0):
@@ -53,8 +58,21 @@ func StartDialogue(playerRef: PlayerCharacter):
 		dialogueExecuting = true
 
 func DialogueDone():
-	dialogueExecuting = false
 	if (advanceQuest && questRef != null):
 		questRef.AdvanceStageByObject(self)
 	if (deleteOnDone):
 		queue_free()
+	if (isOnInteraction):
+		dialogueExecuting = false
+
+func StartDialogueExecutingICD():
+	dialogueExecutingCooldownActive = true
+	dialogueExecutingTimer = dialogueExecutingICD
+
+func DialogueExecutingICD(delta):
+	if (dialogueExecutingCooldownActive):
+		if (dialogueExecutingTimer > 0):
+			dialogueExecutingTimer -= delta
+			return
+		dialogueExecuting = false
+		dialogueExecutingCooldownActive = false

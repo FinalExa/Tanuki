@@ -30,7 +30,7 @@ size = Vector2(768, 256)
 size = Vector2(64, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6kp"]
-radius = 128.25
+radius = 64.4981
 
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas")]
 script = ExtResource("1_lquag")
@@ -266,12 +266,11 @@ activated = true
 position = Vector2(8, 344)
 
 [node name="DialogueArea" parent="." node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("17_ykxfm")]
-position = Vector2(-1088, 768)
+position = Vector2(-1088, 896)
 dialogueText = Array[String](["1", "2", "3", "4"])
 characterTalking = Array[int]([0, 2, 0, 2])
 characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [null, NodePath("../Guard"), null, NodePath("../Guard")]
-isOnInteraction = true
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
