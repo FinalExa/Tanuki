@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://d3to5xrejw3mr"]
+[gd_scene load_steps=44 format=3 uid="uid://d3to5xrejw3mr"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_4ebhp"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_rbj3t"]
@@ -40,19 +40,19 @@ size = Vector2(416, 304)
 size = Vector2(928, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqnb"]
-size = Vector2(416, 704)
+size = Vector2(416, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0xi"]
 size = Vector2(352, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ors3b"]
-size = Vector2(864, 704)
+size = Vector2(864, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd5k"]
 size = Vector2(1104, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_284ex"]
-size = Vector2(1096, 704)
+size = Vector2(1104, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knc1n"]
 size = Vector2(1136, 416)
@@ -64,25 +64,22 @@ size = Vector2(1136, 640)
 size = Vector2(1200, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nye33"]
-size = Vector2(416, 320)
+size = Vector2(416, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsf1h"]
 size = Vector2(880, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf3j"]
-size = Vector2(872, 640)
+size = Vector2(880, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc22"]
 size = Vector2(880, 704)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx183"]
-size = Vector2(608, 568)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m1d5"]
-size = Vector2(1344, 352)
+size = Vector2(1376, 424)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad836"]
-size = Vector2(1360, 640)
+size = Vector2(1376, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfw6"]
 size = Vector2(1376, 704)
@@ -91,10 +88,10 @@ size = Vector2(1376, 704)
 size = Vector2(672, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lqje"]
-size = Vector2(608, 1872)
+size = Vector2(624, 1888)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peiyn"]
-size = Vector2(616, 1112)
+size = Vector2(638, 1700)
 
 [node name="KitchenRoof" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 script = ExtResource("1_4ebhp")
@@ -102,7 +99,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenSaveTheOni"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
-travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20"), NodePath("TeleportFall/TravelingArea21")]
+travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea1"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -190,7 +187,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("VaseGrown1")]
 
 [node name="VaseGrown1" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG" instance=ExtResource("2_syr3w")]
-position = Vector2(2520, -568)
+position = Vector2(2544, -664)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 
@@ -915,208 +912,179 @@ position = Vector2(-3328, 448)
 
 [node name="TeleportFall" type="Node2D" parent="."]
 
-[node name="TravelingArea" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+[node name="TravelingArea1" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-4128, -1000)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea"]
-position = Vector2(-2768, -1256)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea1"]
 shape = SubResource("RectangleShape2D_ffb34")
 
 [node name="TravelingArea2" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-4384, -528)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea2"]
-position = Vector2(-3024, -784)
 shape = SubResource("RectangleShape2D_b25ca")
 
 [node name="TravelingArea3" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-4648, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea3"]
-position = Vector2(-3280, -96)
 shape = SubResource("RectangleShape2D_hcqnb")
 
 [node name="TravelingArea4" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3584, -528)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea4"]
-position = Vector2(-2224, -784)
 shape = SubResource("RectangleShape2D_lg0xi")
 
 [node name="TravelingArea5" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3840, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea5"]
-position = Vector2(-2480, -96)
 shape = SubResource("RectangleShape2D_ors3b")
 
 [node name="TravelingArea6" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-2696, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea6"]
-position = Vector2(-1336, -816)
 shape = SubResource("RectangleShape2D_tmd5k")
 
 [node name="TravelingArea7" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-2696, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea7"]
-position = Vector2(-1332, -96)
 shape = SubResource("RectangleShape2D_284ex")
 
 [node name="TravelingArea8" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1416, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea8"]
-position = Vector2(-56, -816)
 shape = SubResource("RectangleShape2D_knc1n")
 
 [node name="TravelingArea9" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1416, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea9"]
-position = Vector2(-56, -128)
 shape = SubResource("RectangleShape2D_qgaab")
 
 [node name="TravelingArea10" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1448, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea10"]
-position = Vector2(-88, 704)
 shape = SubResource("RectangleShape2D_0pciy")
 
 [node name="TravelingArea11" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3552, -1000)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea11"]
-position = Vector2(-2192, -1264)
 shape = SubResource("RectangleShape2D_nye33")
 
 [node name="TravelingArea12" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea12"]
-position = Vector2(1112, -816)
 shape = SubResource("RectangleShape2D_qsf1h")
 
 [node name="TravelingArea13" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea13"]
-position = Vector2(1116, -128)
 shape = SubResource("RectangleShape2D_oxf3j")
 
 [node name="TravelingArea14" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea14"]
-position = Vector2(1112, 704)
 shape = SubResource("RectangleShape2D_2cc22")
 
 [node name="TravelingArea15" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea15"]
-position = Vector2(4368, -356)
-shape = SubResource("RectangleShape2D_rx183")
+shape = SubResource("RectangleShape2D_5m1d5")
 
 [node name="TravelingArea16" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea16"]
-position = Vector2(2392, -784)
-shape = SubResource("RectangleShape2D_5m1d5")
+shape = SubResource("RectangleShape2D_ad836")
 
 [node name="TravelingArea17" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea17"]
-position = Vector2(2392, -128)
-shape = SubResource("RectangleShape2D_ad836")
+shape = SubResource("RectangleShape2D_shfw6")
 
 [node name="TravelingArea18" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2224, -744)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea18"]
-position = Vector2(2400, 704)
-shape = SubResource("RectangleShape2D_shfw6")
+shape = SubResource("RectangleShape2D_c5e13")
 
 [node name="TravelingArea19" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2200, 368)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea19"]
-position = Vector2(3584, -1000)
-shape = SubResource("RectangleShape2D_c5e13")
+shape = SubResource("RectangleShape2D_7lqje")
 
 [node name="TravelingArea20" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2992, 464)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea20"]
-position = Vector2(3552, 120)
-shape = SubResource("RectangleShape2D_7lqje")
-
-[node name="TravelingArea21" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
-sceneToLoad = "res://1_Scenes/Kitchen.tscn"
-usePositional = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea21"]
-position = Vector2(4364, 500)
 shape = SubResource("RectangleShape2D_peiyn")
 
 [node name="MapWalls2" type="Node2D" parent="."]
 
 [node name="Wall3" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(-640, -831)
+position = Vector2(-640, -832)
 
 [node name="Wall5" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1152, -831)
+position = Vector2(-1152, -832)
 
 [node name="Wall56" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1408, -831)
+position = Vector2(-1408, -832)
 
 [node name="Wall57" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1664, -831)
+position = Vector2(-1664, -832)
 
 [node name="Wall81" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
 position = Vector2(-2432, 576)
@@ -1134,7 +1102,7 @@ position = Vector2(-4736, 576)
 position = Vector2(-1920, -832)
 
 [node name="WallEndLeft4" parent="MapWalls2" instance=ExtResource("7_6w5gu")]
-position = Vector2(1409, -831)
+position = Vector2(1409, -832)
 
 [node name="Wall84" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
 position = Vector2(-3200, 576)
@@ -1161,19 +1129,19 @@ position = Vector2(-2432, -832)
 position = Vector2(-2688, -832)
 
 [node name="Wall4" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(-256, -831)
+position = Vector2(-256, -832)
 
 [node name="Wall48" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(128, -831)
+position = Vector2(128, -832)
 
 [node name="Wall49" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(640, -831)
+position = Vector2(640, -832)
 
 [node name="Wall55" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(896, -831)
+position = Vector2(896, -832)
 
 [node name="Wall63" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
-position = Vector2(1152, -831)
+position = Vector2(1152, -832)
 
 [node name="Wall7" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
 position = Vector2(-640, 1472)
@@ -1233,7 +1201,7 @@ position = Vector2(3200, -449)
 position = Vector2(-2176, 576)
 
 [node name="WallWithRightVertical5" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
-position = Vector2(-896, -831)
+position = Vector2(-896, -832)
 
 [node name="Wall21" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
 position = Vector2(2432, 1472)
@@ -1320,10 +1288,10 @@ position = Vector2(3320, -129)
 position = Vector2(-2056, 1471)
 
 [node name="WallHalfLeftVertical" parent="MapWalls2" instance=ExtResource("10_k2toq")]
-position = Vector2(320, -831)
+position = Vector2(320, -832)
 
 [node name="WallHalf" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
-position = Vector2(-448, -831)
+position = Vector2(-448, -832)
 
 [node name="WallHalf3" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
 position = Vector2(-448, 1472)
@@ -1332,10 +1300,10 @@ position = Vector2(-448, 1472)
 position = Vector2(-64, 1472)
 
 [node name="WallHalf2" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
-position = Vector2(-64, -831)
+position = Vector2(-64, -832)
 
 [node name="WallHalf5" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
-position = Vector2(448, -831)
+position = Vector2(448, -832)
 
 [node name="WallVerticalEndHalf6" parent="MapWalls2" instance=ExtResource("15_myiro")]
 position = Vector2(-3336, -832)
