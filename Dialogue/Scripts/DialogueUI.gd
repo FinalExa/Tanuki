@@ -85,8 +85,8 @@ func SetCurrentText():
 	internalTimer = 0
 	dialogueDoneShowing = false
 	currentTextIndex = 0
-	if (currentCameraFocuses[currentIndex] != null): playerHUD.playerRef.cameraRef.SetNewCameraTarget(currentCameraFocuses[currentIndex], true)
-	else: playerHUD.playerRef.cameraRef.ResetToPlayer(true)
+	if (currentCameraFocuses[currentIndex] != null): playerHUD.playerRef.cameraRef.SetNewCameraTarget(currentCameraFocuses[currentIndex])
+	else: playerHUD.playerRef.cameraRef.ResetToPlayer()
 	currentTextLenght = currentDialogueText[currentIndex].length()
 	if (currentCharacterTalking[currentIndex] == DialogueCharacters.DAICHI):
 		leftSprite.show()
@@ -105,7 +105,8 @@ func WaitForContinue():
 
 func EndDialogue():
 	dialogueActive = false
-	playerHUD.playerRef.cameraRef.ResetToPlayer(false)
+	playerHUD.playerRef.cameraRef.ResetToPlayer()
 	self.hide()
-	playerHUD.EndForcePause()
+	dialogueText.text = ""
 	currentSource.DialogueDone()
+	playerHUD.EndForcePause()

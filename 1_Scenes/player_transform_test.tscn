@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=26 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="4_qtcec"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="15_ln2ye"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="17_ykxfm"]
+[ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="18_ckra0"]
+[ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="19_ayuvq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
 vertices = PackedVector2Array(7744, -4888, 7048, 6336, -8, 88, -8, -88, -10272, 6032, -312, 88, -7952, -6008, -312, -88)
@@ -30,14 +32,20 @@ size = Vector2(768, 256)
 size = Vector2(64, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6kp"]
-radius = 128.25
+radius = 64.4981
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grhrj"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ce4cs"]
+radius = 200.0
 
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("LevelUnlockKeyDoor")]
-mapQuests = [NodePath("OniQuest")]
+mapQuests = [NodePath("OniQuest"), NodePath("KitchenFeedRat")]
 travelingAreas = [NodePath("TravelingArea")]
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
@@ -266,15 +274,52 @@ activated = true
 position = Vector2(8, 344)
 
 [node name="DialogueArea" parent="." node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("17_ykxfm")]
-position = Vector2(-1088, 768)
+position = Vector2(-1088, 896)
 dialogueText = Array[String](["1", "2", "3", "4"])
 characterTalking = Array[int]([0, 2, 0, 2])
 characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [null, NodePath("../Guard"), null, NodePath("../Guard")]
-isOnInteraction = true
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
 shape = SubResource("CircleShape2D_mt6kp")
+
+[node name="KitchenFeedRat" type="Node2D" parent="." node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+position = Vector2(-1088, 576)
+script = ExtResource("11_1jdkp")
+questName = "KitchenFeedRat"
+questItemsToOperate = [NodePath("../Keys/UnlockKey4"), NodePath("RatSecondDialogue"), NodePath("RatFirstDialogue"), NodePath("RatSecondDialogue"), NodePath("../Keys/UnlockKey4")]
+questItemsStages = Array[int]([0, 0, 1, 1, 2])
+questItemsOnOffState = Array[bool]([false, false, false, true, true])
+objectsToDeleteAtQuestComplete = [NodePath("Rat"), NodePath("RatFirstDialogue"), NodePath("RatSecondDialogue")]
+
+[node name="Rat" parent="KitchenFeedRat" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("18_ckra0")]
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="RatFirstDialogue" parent="KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("17_ykxfm")]
+dialogueText = Array[String](["Ehi tu! Mi sembri uno che si è un po’ perso… mmmh facciamo così: tu mi porti del riso… e in cambio ti dò questa chiave lucente che ho trovato qui in giro.", "E visto che sono pure gentile magari ti dico pure un segreto.", "Eh, ti va bene che mi serve quella chiave"])
+characterTalking = Array[int]([2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [null, null, null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KitchenFeedRat/RatFirstDialogue"]
+shape = SubResource("CircleShape2D_grhrj")
+
+[node name="RatSecondDialogue" parent="KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("17_ykxfm")]
+dialogueText = Array[String](["Uuuu, gnam gnam gnam. Aaaah che bella mangiata, eccoti qui la tua chiave… non so se lo sai tra l’altro… ma puoi arrivare al soffitto con uno dei vasi qui in giro!", "Davvero? Uh, effettivamente questo mi è utile. Ti ringrazio."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [null, null]
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KitchenFeedRat/RatSecondDialogue"]
+shape = SubResource("CircleShape2D_ce4cs")
+
+[node name="Dish" parent="." instance=ExtResource("19_ayuvq")]
+position = Vector2(-1504, 464)
 
 [connection signal="body_entered" from="TravelingArea" to="TravelingArea" method="_on_body_entered"]

@@ -24,7 +24,8 @@ func EndAttack():
 func Attack():
 	if (activated):
 		for i in targetsInRange.size():
-			LaunchAttackOnTargetInRange(targetsInRange[i])
+			if (targetsInRange[i] != null):
+				LaunchAttackOnTargetInRange(targetsInRange[i])
 
 func LaunchAttackOnTargetInRange(_targetInRange: Node2D):
 	pass

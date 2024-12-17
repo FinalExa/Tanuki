@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d3to5xrejw3mr"]
+[gd_scene load_steps=44 format=3 uid="uid://d3to5xrejw3mr"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_4ebhp"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_rbj3t"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="3_uvc7n"]
 [ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="4_iuhbo"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="5_o2xhk"]
-[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/TransformationObjects/Passives/heat_source.tscn" id="6_5cmri"]
+[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/PuzzleObjects/heat_source.tscn" id="6_5cmri"]
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="6_bvvkp"]
 [ext_resource type="PackedScene" uid="uid://bxq4vwdv3ac5s" path="res://Level/Prefabs/wall_end_left.tscn" id="7_6w5gu"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="7_7bomj"]
 [ext_resource type="PackedScene" uid="uid://b0g5t8oo1xhrg" path="res://Level/Prefabs/wall_vertical_half.tscn" id="9_551yb"]
 [ext_resource type="PackedScene" uid="uid://p8ojo7an42vu" path="res://Level/Prefabs/wall_half_left_vertical.tscn" id="10_k2toq"]
 [ext_resource type="PackedScene" uid="uid://bw48t0tdvroe5" path="res://Level/Prefabs/wall_half.tscn" id="11_q3x2b"]
@@ -29,26 +30,29 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_2vjjk")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vum0e"]
+radius = 112.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffb34"]
-size = Vector2(928, 288)
+size = Vector2(416, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b25ca"]
-size = Vector2(416, 416)
+size = Vector2(928, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqnb"]
-size = Vector2(416, 704)
+size = Vector2(416, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg0xi"]
-size = Vector2(864, 352)
+size = Vector2(352, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ors3b"]
-size = Vector2(864, 704)
+size = Vector2(864, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmd5k"]
 size = Vector2(1104, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_284ex"]
-size = Vector2(1096, 704)
+size = Vector2(1104, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knc1n"]
 size = Vector2(1136, 416)
@@ -60,37 +64,34 @@ size = Vector2(1136, 640)
 size = Vector2(1200, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nye33"]
-size = Vector2(1200, 832)
+size = Vector2(416, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsf1h"]
 size = Vector2(880, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf3j"]
-size = Vector2(872, 640)
+size = Vector2(880, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc22"]
 size = Vector2(880, 704)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx183"]
-size = Vector2(880, 832)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m1d5"]
-size = Vector2(920, 352)
+size = Vector2(1376, 424)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad836"]
-size = Vector2(1440, 640)
+size = Vector2(1376, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfw6"]
 size = Vector2(1376, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5e13"]
-size = Vector2(1376, 832)
+size = Vector2(672, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lqje"]
-size = Vector2(1424, 672)
+size = Vector2(624, 1888)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peiyn"]
-size = Vector2(1424, 832)
+size = Vector2(638, 1700)
 
 [node name="KitchenRoof" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 script = ExtResource("1_4ebhp")
@@ -98,7 +99,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenSaveTheOni"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
-travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20"), NodePath("TeleportFall/TravelingArea21")]
+travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea1"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -113,10 +114,10 @@ layer_0/tile_data = PackedInt32Array(-786458, 0, 0, 1048596, 0, 0, 851968, 0, 0,
 position = Vector2(512, -2944)
 
 [node name="VaseGrownReceiver0" type="Node2D" parent="Teleports"]
-position = Vector2(-768, 2184)
+position = Vector2(-768, 1192)
 
 [node name="VaseGrownReceiver1" type="Node2D" parent="Teleports"]
-position = Vector2(1576, 528)
+position = Vector2(2512, -656)
 
 [node name="Quests" type="Node2D" parent="."]
 
@@ -152,10 +153,21 @@ sendSignalToQuestOnDestroyed = true
 script = ExtResource("5_o2xhk")
 requiredQuest = "KitchenSaveTheOni"
 requiredQuestStage = 2
-objectsToAdd = [NodePath("HeatSource")]
+objectsToAdd = [NodePath("HeatSource"), NodePath("OniStationaryDialogue3")]
 
 [node name="HeatSource" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" instance=ExtResource("6_5cmri")]
 position = Vector2(1040, -312)
+
+[node name="OniStationaryDialogue3" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("7_7bomj")]
+position = Vector2(1040, -312)
+dialogueText = Array[String](["Eccoti finalmente! Vedi quella lampada? Ti aiuto a tagliarla e cadrà perfettamente al Warden, rubagli la chiave poi!", "Questo sì che mi aiuta, eheh quel Warden non sospetta niente."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../HeatSource"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni/OniStationaryDialogue3"]
+shape = SubResource("CircleShape2D_vum0e")
 
 [node name="UnlocksAfterKitchenGrowPlantInRoomD" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
 script = ExtResource("5_o2xhk")
@@ -164,7 +176,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("VaseGrown0")]
 
 [node name="VaseGrown0" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD" instance=ExtResource("2_syr3w")]
-position = Vector2(-728, 2240)
+position = Vector2(-728, 1296)
 sendToTravelID = null
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 
@@ -175,299 +187,9 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("VaseGrown1")]
 
 [node name="VaseGrown1" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG" instance=ExtResource("2_syr3w")]
-position = Vector2(1592, 608)
+position = Vector2(2544, -664)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
-
-[node name="MapWalls" type="Node2D" parent="."]
-
-[node name="Wall3" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-640, -831)
-
-[node name="Wall5" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1152, -831)
-
-[node name="Wall56" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1408, -831)
-
-[node name="Wall57" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1664, -831)
-
-[node name="Wall58" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1920, -831)
-
-[node name="Wall81" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2432, 576)
-
-[node name="Wall82" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2688, 576)
-
-[node name="Wall83" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2944, 576)
-
-[node name="Wall84" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3200, 576)
-
-[node name="Wall85" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3456, 576)
-
-[node name="Wall86" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3712, 576)
-
-[node name="Wall87" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3968, 576)
-
-[node name="Wall88" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-4224, 576)
-
-[node name="Wall89" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-4480, 576)
-
-[node name="Wall90" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-4736, 576)
-
-[node name="Wall92" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2432, -832)
-
-[node name="Wall93" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2688, -832)
-
-[node name="Wall4" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-256, -831)
-
-[node name="Wall48" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(128, -831)
-
-[node name="Wall49" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(640, -831)
-
-[node name="Wall55" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(896, -831)
-
-[node name="Wall63" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1152, -831)
-
-[node name="WallVertical41" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1288, -639)
-
-[node name="WallVertical42" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1288, -383)
-
-[node name="Wall7" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-640, 2369)
-
-[node name="Wall26" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-896, 2369)
-
-[node name="Wall27" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1152, 2369)
-
-[node name="Wall43" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1408, 2369)
-
-[node name="Wall44" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1664, 2369)
-
-[node name="Wall45" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-1920, 2369)
-
-[node name="Wall64" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1408, -191)
-
-[node name="Wall65" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1664, -191)
-
-[node name="Wall69" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2432, 576)
-
-[node name="Wall71" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2688, 576)
-
-[node name="Wall72" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2944, 576)
-
-[node name="Wall70" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2176, 576)
-
-[node name="Wall10" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(640, 2369)
-
-[node name="Wall11" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(384, 2369)
-
-[node name="Wall13" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1152, 2369)
-
-[node name="Wall17" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(896, 2369)
-
-[node name="WallWithRightVertical8" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(-2176, -832)
-
-[node name="WallWithRightVertical7" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(3200, 576)
-
-[node name="WallWithRightVertical2" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(-2176, 576)
-
-[node name="WallWithRightVertical5" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(-896, -831)
-
-[node name="Wall28" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-256, 2369)
-
-[node name="Wall29" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1920, 2369)
-
-[node name="Wall30" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1664, 2369)
-
-[node name="Wall31" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2176, 2369)
-
-[node name="Wall21" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2432, 2369)
-
-[node name="Wall22" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2688, 2369)
-
-[node name="Wall23" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(2944, 2369)
-
-[node name="Wall24" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(3200, 2369)
-
-[node name="Wall20" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(1408, 2369)
-
-[node name="WallVertical62" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1535)
-
-[node name="WallVertical63" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1791)
-
-[node name="WallVertical65" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 2048)
-
-[node name="WallVertical81" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 768)
-
-[node name="WallVertical82" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1024)
-
-[node name="WallVertical84" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-2056, 1279)
-
-[node name="WallVertical46" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4856, 385)
-
-[node name="WallVertical47" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4856, -640)
-
-[node name="WallVertical51" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4856, 129)
-
-[node name="WallVertical52" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4856, -127)
-
-[node name="WallWithLeftVertical5" parent="MapWalls" instance=ExtResource("6_bvvkp")]
-position = Vector2(-4736, -832)
-
-[node name="WallEndLeft3" parent="MapWalls" instance=ExtResource("7_6w5gu")]
-position = Vector2(128, 2369)
-
-[node name="WallVerticalHalf" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(-2056, 2240)
-
-[node name="WallVerticalHalf6" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(1800, 448)
-
-[node name="WallWithLeftVertical4" parent="MapWalls" instance=ExtResource("6_bvvkp")]
-position = Vector2(1920, 576)
-
-[node name="WallVerticalHalf3" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(1288, -831)
-
-[node name="WallVertical75" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1536)
-
-[node name="WallVertical91" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1920)
-
-[node name="WallVertical99" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 2176)
-
-[node name="WallVertical103" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 768)
-
-[node name="WallVertical105" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1280)
-
-[node name="WallVertical106" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(3320, 1024)
-
-[node name="WallVertical34" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1800, 128)
-
-[node name="WallVertical109" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1800, 384)
-
-[node name="WallVertical125" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(1800, -127)
-
-[node name="WallVerticalEndHalf4" parent="MapWalls" instance=ExtResource("15_myiro")]
-position = Vector2(-2056, 2368)
-
-[node name="WallHalfLeftVertical" parent="MapWalls" instance=ExtResource("10_k2toq")]
-position = Vector2(320, -831)
-
-[node name="WallHalf" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-448, -831)
-
-[node name="WallHalf3" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-448, 2369)
-
-[node name="WallHalf4" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-64, 2369)
-
-[node name="WallHalf2" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(-64, -831)
-
-[node name="WallHalf5" parent="MapWalls" instance=ExtResource("11_q3x2b")]
-position = Vector2(448, -831)
-
-[node name="WallVerticalHalf5" parent="MapWalls" instance=ExtResource("9_551yb")]
-position = Vector2(3320, 1728)
-
-[node name="Wall" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-2944, -832)
-
-[node name="Wall2" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3200, -832)
-
-[node name="Wall9" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-4479, -831)
-
-[node name="WallVertical7" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4856, -384)
-
-[node name="WallVertical2" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-3336, -1024)
-
-[node name="Wall12" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3712, -1216)
-
-[node name="Wall14" parent="MapWalls" instance=ExtResource("2_rbj3t")]
-position = Vector2(-3968, -1216)
-
-[node name="WallWithRightVertical11" parent="MapWalls" instance=ExtResource("4_iuhbo")]
-position = Vector2(-3456, -1216)
-
-[node name="WallWithLeftVertical6" parent="MapWalls" instance=ExtResource("6_bvvkp")]
-position = Vector2(-4224, -1216)
-
-[node name="WallVertical48" parent="MapWalls" instance=ExtResource("3_uvc7n")]
-position = Vector2(-4344, -1024)
 
 [node name="RoofBeams" type="Node2D" parent="."]
 
@@ -520,6 +242,36 @@ position = Vector2(1088, -272)
 
 [node name="RoofBeam16" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
 position = Vector2(1216, -272)
+
+[node name="RoofBeam129" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1344, -272)
+
+[node name="RoofBeam130" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1472, -272)
+
+[node name="RoofBeam131" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1600, -272)
+
+[node name="RoofBeam132" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1728, -272)
+
+[node name="RoofBeam133" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(1888, -648)
+
+[node name="RoofBeam134" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2016, -648)
+
+[node name="RoofBeam135" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2144, -648)
+
+[node name="RoofBeam136" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2272, -648)
+
+[node name="RoofBeam137" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2400, -648)
+
+[node name="RoofBeam138" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
+position = Vector2(2528, -648)
 
 [node name="RoofBeam17" parent="RoofBeams/RoofBeamsOrizontal" instance=ExtResource("16_5l88a")]
 position = Vector2(-704, -272)
@@ -860,16 +612,25 @@ position = Vector2(-1856, 1392)
 [node name="RoofBeamsVertical" type="Node2D" parent="RoofBeams"]
 
 [node name="RoofBeamVertical" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-4352, -448)
+position = Vector2(-3840, -448)
 
 [node name="RoofBeamVertical2" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-4352, -320)
+position = Vector2(-3840, -320)
 
 [node name="RoofBeamVertical3" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-4352, -704)
+position = Vector2(-3840, -704)
 
 [node name="RoofBeamVertical4" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-4352, -576)
+position = Vector2(-3840, -576)
+
+[node name="RoofBeamVertical46" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3840, -992)
+
+[node name="RoofBeamVertical49" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3840, -864)
+
+[node name="RoofBeamVertical51" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-3840, -1120)
 
 [node name="RoofBeamVertical5" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-4352, 64)
@@ -890,16 +651,16 @@ position = Vector2(-4352, 320)
 position = Vector2(-4352, 448)
 
 [node name="RoofBeamVertical21" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -448)
+position = Vector2(-2064, -352)
 
 [node name="RoofBeamVertical22" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -320)
+position = Vector2(-2064, -480)
 
 [node name="RoofBeamVertical23" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -704)
+position = Vector2(-2064, -608)
 
 [node name="RoofBeamVertical24" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -576)
+position = Vector2(-2064, -736)
 
 [node name="RoofBeamVertical25" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-2064, 64)
@@ -907,17 +668,17 @@ position = Vector2(-2064, 64)
 [node name="RoofBeamVertical26" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-2064, 192)
 
-[node name="RoofBeamVertical27" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -192)
-
-[node name="RoofBeamVertical28" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-2064, -64)
-
 [node name="RoofBeamVertical29" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-2064, 320)
 
 [node name="RoofBeamVertical30" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-2064, 448)
+
+[node name="RoofBeamVertical27" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -192)
+
+[node name="RoofBeamVertical28" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(-2064, -64)
 
 [node name="RoofBeamVertical31" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(272, -448)
@@ -961,35 +722,50 @@ position = Vector2(272, 608)
 [node name="RoofBeamVertical44" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(272, 736)
 
+[node name="RoofBeamVertical50" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 64)
+
+[node name="RoofBeamVertical52" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 192)
+
+[node name="RoofBeamVertical53" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -64)
+
+[node name="RoofBeamVertical54" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 320)
+
+[node name="RoofBeamVertical92" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 448)
+
+[node name="RoofBeamVertical95" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -576)
+
+[node name="RoofBeamVertical96" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -448)
+
+[node name="RoofBeamVertical97" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -704)
+
+[node name="RoofBeamVertical98" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -320)
+
+[node name="RoofBeamVertical99" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, -192)
+
+[node name="RoofBeamVertical93" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 576)
+
+[node name="RoofBeamVertical94" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(1808, 704)
+
 [node name="RoofBeamVertical45" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(272, 1376)
-
-[node name="RoofBeamVertical46" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 1504)
 
 [node name="RoofBeamVertical47" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(272, 1120)
 
 [node name="RoofBeamVertical48" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(272, 1248)
-
-[node name="RoofBeamVertical49" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 1632)
-
-[node name="RoofBeamVertical50" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 1760)
-
-[node name="RoofBeamVertical51" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 1888)
-
-[node name="RoofBeamVertical52" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 2016)
-
-[node name="RoofBeamVertical53" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 2144)
-
-[node name="RoofBeamVertical54" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(272, 2240)
 
 [node name="RoofBeamVertical68" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-768, -448)
@@ -1036,32 +812,11 @@ position = Vector2(-768, 736)
 [node name="RoofBeamVertical82" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-768, 1376)
 
-[node name="RoofBeamVertical83" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 1504)
-
 [node name="RoofBeamVertical84" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-768, 1120)
 
 [node name="RoofBeamVertical85" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-768, 1248)
-
-[node name="RoofBeamVertical86" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 1632)
-
-[node name="RoofBeamVertical87" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 1760)
-
-[node name="RoofBeamVertical88" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 1888)
-
-[node name="RoofBeamVertical89" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 2016)
-
-[node name="RoofBeamVertical90" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 2144)
-
-[node name="RoofBeamVertical91" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(-768, 2240)
 
 [node name="RoofBeamVertical55" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 960)
@@ -1069,17 +824,11 @@ position = Vector2(1808, 960)
 [node name="RoofBeamVertical56" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 1088)
 
-[node name="RoofBeamVertical57" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 704)
-
 [node name="RoofBeamVertical58" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 832)
 
 [node name="RoofBeamVertical59" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 1472)
-
-[node name="RoofBeamVertical60" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 1600)
 
 [node name="RoofBeamVertical61" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 1216)
@@ -1087,20 +836,47 @@ position = Vector2(1808, 1216)
 [node name="RoofBeamVertical62" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(1808, 1344)
 
+[node name="RoofBeamVertical57" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 928)
+
+[node name="RoofBeamVertical60" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 1056)
+
 [node name="RoofBeamVertical63" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 1728)
+position = Vector2(2592, 1184)
 
 [node name="RoofBeamVertical64" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 1856)
+position = Vector2(2592, 1312)
 
 [node name="RoofBeamVertical65" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 1984)
+position = Vector2(2592, 416)
 
 [node name="RoofBeamVertical66" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 2112)
+position = Vector2(2592, 544)
 
 [node name="RoofBeamVertical67" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
-position = Vector2(1808, 2240)
+position = Vector2(2592, 672)
+
+[node name="RoofBeamVertical83" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 800)
+
+[node name="RoofBeamVertical86" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, -96)
+
+[node name="RoofBeamVertical90" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, -224)
+
+[node name="RoofBeamVertical91" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, -352)
+
+[node name="RoofBeamVertical87" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 32)
+
+[node name="RoofBeamVertical88" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 160)
+
+[node name="RoofBeamVertical89" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
+position = Vector2(2592, 288)
 
 [node name="RoofBeamVertical9" parent="RoofBeams/RoofBeamsVertical" instance=ExtResource("17_qgin6")]
 position = Vector2(-3328, -448)
@@ -1136,191 +912,437 @@ position = Vector2(-3328, 448)
 
 [node name="TeleportFall" type="Node2D" parent="."]
 
-[node name="TravelingArea" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+[node name="TravelingArea1" parent="TeleportFall" instance=ExtResource("18_hrnga")]
+position = Vector2(-4128, -1000)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea"]
-position = Vector2(-2512, -1264)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea1"]
 shape = SubResource("RectangleShape2D_ffb34")
 
 [node name="TravelingArea2" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-4384, -528)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea2"]
-position = Vector2(-3280, -816)
 shape = SubResource("RectangleShape2D_b25ca")
 
 [node name="TravelingArea3" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-4648, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea3"]
-position = Vector2(-3280, -96)
 shape = SubResource("RectangleShape2D_hcqnb")
 
 [node name="TravelingArea4" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3584, -528)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea4"]
-position = Vector2(-2480, -784)
 shape = SubResource("RectangleShape2D_lg0xi")
 
 [node name="TravelingArea5" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3840, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea5"]
-position = Vector2(-2480, -96)
 shape = SubResource("RectangleShape2D_ors3b")
 
 [node name="TravelingArea6" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-2696, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea6"]
-position = Vector2(-1336, -816)
 shape = SubResource("RectangleShape2D_tmd5k")
 
 [node name="TravelingArea7" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-2696, 192)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea7"]
-position = Vector2(-1332, -96)
 shape = SubResource("RectangleShape2D_284ex")
 
 [node name="TravelingArea8" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1416, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea8"]
-position = Vector2(-56, -816)
 shape = SubResource("RectangleShape2D_knc1n")
 
 [node name="TravelingArea9" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1416, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea9"]
-position = Vector2(-56, -128)
 shape = SubResource("RectangleShape2D_qgaab")
 
 [node name="TravelingArea10" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-1448, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea10"]
-position = Vector2(-88, 704)
 shape = SubResource("RectangleShape2D_0pciy")
 
 [node name="TravelingArea11" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-3552, -1000)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea11"]
-position = Vector2(-88, 1632)
 shape = SubResource("RectangleShape2D_nye33")
 
 [node name="TravelingArea12" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea12"]
-position = Vector2(1112, -816)
 shape = SubResource("RectangleShape2D_qsf1h")
 
 [node name="TravelingArea13" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea13"]
-position = Vector2(1116, -128)
 shape = SubResource("RectangleShape2D_oxf3j")
 
 [node name="TravelingArea14" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(-248, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea14"]
-position = Vector2(1112, 704)
 shape = SubResource("RectangleShape2D_2cc22")
 
 [node name="TravelingArea15" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, -560)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea15"]
-position = Vector2(1112, 1632)
-shape = SubResource("RectangleShape2D_rx183")
+shape = SubResource("RectangleShape2D_5m1d5")
 
 [node name="TravelingArea16" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, 128)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea16"]
-position = Vector2(2180, -784)
-shape = SubResource("RectangleShape2D_5m1d5")
+shape = SubResource("RectangleShape2D_ad836")
 
 [node name="TravelingArea17" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(1040, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea17"]
-position = Vector2(2432, -128)
-shape = SubResource("RectangleShape2D_ad836")
+shape = SubResource("RectangleShape2D_shfw6")
 
 [node name="TravelingArea18" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2224, -744)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea18"]
-position = Vector2(2400, 704)
-shape = SubResource("RectangleShape2D_shfw6")
+shape = SubResource("RectangleShape2D_c5e13")
 
 [node name="TravelingArea19" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2200, 368)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea19"]
-position = Vector2(2400, 1632)
-shape = SubResource("RectangleShape2D_c5e13")
+shape = SubResource("RectangleShape2D_7lqje")
 
 [node name="TravelingArea20" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
+position = Vector2(2992, 464)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 usePositional = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea20"]
-position = Vector2(3960, 720)
-shape = SubResource("RectangleShape2D_7lqje")
-
-[node name="TravelingArea21" parent="TeleportFall" instance=ExtResource("18_hrnga")]
-position = Vector2(-1360, 256)
-sceneToLoad = "res://1_Scenes/Kitchen.tscn"
-usePositional = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportFall/TravelingArea21"]
-position = Vector2(3960, 1632)
 shape = SubResource("RectangleShape2D_peiyn")
+
+[node name="MapWalls2" type="Node2D" parent="."]
+
+[node name="Wall3" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-640, -832)
+
+[node name="Wall5" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1152, -832)
+
+[node name="Wall56" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1408, -832)
+
+[node name="Wall57" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1664, -832)
+
+[node name="Wall81" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2432, 576)
+
+[node name="Wall82" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2688, 576)
+
+[node name="Wall83" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2944, 576)
+
+[node name="WallEndLeft" parent="MapWalls2" instance=ExtResource("7_6w5gu")]
+position = Vector2(-4736, 576)
+
+[node name="WallEndLeft2" parent="MapWalls2" instance=ExtResource("7_6w5gu")]
+position = Vector2(-1920, -832)
+
+[node name="WallEndLeft4" parent="MapWalls2" instance=ExtResource("7_6w5gu")]
+position = Vector2(1409, -832)
+
+[node name="Wall84" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3200, 576)
+
+[node name="Wall85" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3456, 576)
+
+[node name="Wall86" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3712, 576)
+
+[node name="Wall87" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3968, 576)
+
+[node name="Wall88" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-4224, 576)
+
+[node name="Wall89" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-4480, 576)
+
+[node name="Wall92" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2432, -832)
+
+[node name="Wall93" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2688, -832)
+
+[node name="Wall4" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-256, -832)
+
+[node name="Wall48" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(128, -832)
+
+[node name="Wall49" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(640, -832)
+
+[node name="Wall55" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(896, -832)
+
+[node name="Wall63" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1152, -832)
+
+[node name="Wall7" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-640, 1472)
+
+[node name="Wall8" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-256, 1472)
+
+[node name="Wall26" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-896, 1472)
+
+[node name="Wall27" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1152, 1472)
+
+[node name="Wall43" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1408, 1472)
+
+[node name="Wall44" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1664, 1472)
+
+[node name="Wall45" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-1920, 1472)
+
+[node name="Wall65" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1665, -832)
+
+[node name="Wall66" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1936, -832)
+
+[node name="Wall67" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2192, -832)
+
+[node name="Wall71" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2688, -449)
+
+[node name="Wall72" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2944, -449)
+
+[node name="Wall10" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(640, 1472)
+
+[node name="Wall11" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(384, 1472)
+
+[node name="Wall13" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1152, 1472)
+
+[node name="Wall17" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(896, 1472)
+
+[node name="WallWithRightVertical8" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(-2176, -832)
+
+[node name="WallWithRightVertical7" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(3200, -449)
+
+[node name="WallWithRightVertical2" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(-2176, 576)
+
+[node name="WallWithRightVertical5" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(-896, -832)
+
+[node name="Wall21" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2432, 1472)
+
+[node name="Wall28" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2176, 1472)
+
+[node name="Wall29" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1920, 1472)
+
+[node name="Wall22" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2688, 1472)
+
+[node name="Wall23" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(2944, 1472)
+
+[node name="Wall24" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(3200, 1472)
+
+[node name="Wall20" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1408, 1472)
+
+[node name="Wall25" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(1664, 1472)
+
+[node name="WallVertical81" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-2056, 1024)
+
+[node name="WallVertical86" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-2056, 768)
+
+[node name="WallVertical82" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-2056, 1280)
+
+[node name="WallVertical46" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4856, 385)
+
+[node name="WallVertical47" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4856, -640)
+
+[node name="WallVertical51" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4856, 129)
+
+[node name="WallVertical52" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4856, -127)
+
+[node name="WallWithLeftVertical5" parent="MapWalls2" instance=ExtResource("6_bvvkp")]
+position = Vector2(-4736, -832)
+
+[node name="WallEndLeft3" parent="MapWalls2" instance=ExtResource("7_6w5gu")]
+position = Vector2(128, 1472)
+
+[node name="WallVerticalHalf3" parent="MapWalls2" instance=ExtResource("9_551yb")]
+position = Vector2(1800, -832)
+
+[node name="WallVerticalHalf7" parent="MapWalls2" instance=ExtResource("9_551yb")]
+position = Vector2(2568, -704)
+
+[node name="WallVerticalHalf8" parent="MapWalls2" instance=ExtResource("9_551yb")]
+position = Vector2(2568, -576)
+
+[node name="WallVertical75" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, 640)
+
+[node name="WallVertical91" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, 1023)
+
+[node name="WallVertical99" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, 1279)
+
+[node name="WallVertical103" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, -385)
+
+[node name="WallVertical105" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, 384)
+
+[node name="WallVertical107" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, 128)
+
+[node name="WallVertical106" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(3320, -129)
+
+[node name="WallVerticalEndHalf4" parent="MapWalls2" instance=ExtResource("15_myiro")]
+position = Vector2(-2056, 1471)
+
+[node name="WallHalfLeftVertical" parent="MapWalls2" instance=ExtResource("10_k2toq")]
+position = Vector2(320, -832)
+
+[node name="WallHalf" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
+position = Vector2(-448, -832)
+
+[node name="WallHalf3" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
+position = Vector2(-448, 1472)
+
+[node name="WallHalf4" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
+position = Vector2(-64, 1472)
+
+[node name="WallHalf2" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
+position = Vector2(-64, -832)
+
+[node name="WallHalf5" parent="MapWalls2" instance=ExtResource("11_q3x2b")]
+position = Vector2(448, -832)
+
+[node name="WallVerticalEndHalf6" parent="MapWalls2" instance=ExtResource("15_myiro")]
+position = Vector2(-3336, -832)
+
+[node name="WallVerticalEndHalf9" parent="MapWalls2" instance=ExtResource("15_myiro")]
+position = Vector2(-4344, -832)
+
+[node name="WallVerticalHalf5" parent="MapWalls2" instance=ExtResource("9_551yb")]
+position = Vector2(3320, 832)
+
+[node name="Wall" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-2944, -832)
+
+[node name="Wall2" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3200, -832)
+
+[node name="Wall9" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-4480, -832)
+
+[node name="WallWithRightVertical11" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(2448, -832)
+
+[node name="WallVertical7" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4856, -384)
+
+[node name="WallVertical2" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-3336, -1024)
+
+[node name="Wall12" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3712, -1216)
+
+[node name="Wall14" parent="MapWalls2" instance=ExtResource("2_rbj3t")]
+position = Vector2(-3968, -1216)
+
+[node name="WallWithRightVertical12" parent="MapWalls2" instance=ExtResource("4_iuhbo")]
+position = Vector2(-3456, -1216)
+
+[node name="WallWithLeftVertical6" parent="MapWalls2" instance=ExtResource("6_bvvkp")]
+position = Vector2(-4224, -1216)
+
+[node name="WallVertical48" parent="MapWalls2" instance=ExtResource("3_uvc7n")]
+position = Vector2(-4344, -1024)
