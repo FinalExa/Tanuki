@@ -357,14 +357,18 @@ accelerationPerSecond = 700.0
 defaultMaxSpeed = 500.0
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerSubstitutionAttack", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
+playerSubstitutionAttack = NodePath("../PlayerSubstitution")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
-[node name="PlayerSubstitution" parent="Rotator" node_paths=PackedStringArray("UI", "characterRef") instance=ExtResource("25_nh844")]
+[node name="PlayerSubstitution" parent="Rotator" node_paths=PackedStringArray("playerAttack", "UI", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("25_nh844")]
+playerAttack = NodePath("../PlayerAttack")
 UI = NodePath("../../CanvasLayer/HBoxContainer/UI")
+attackHitboxes = [null, NodePath("ObjectSpawner")]
+attackSounds = [null, null]
 characterRef = NodePath("../..")
 
 [connection signal="transformationInvincibilityInteracted" from="." to="Rotator/TransformationChange" method="_on_player_character_transformation_invincibility_interacted"]
