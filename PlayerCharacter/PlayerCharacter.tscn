@@ -324,8 +324,8 @@ playerCollider = NodePath("../CollisionShape2D")
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound", "tailAppearsSound")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 20.0
-tailActivationTime = 10.0
-lowTimeRemaining = 12.0
+tailActivationTime = 15.0
+lowTimeRemaining = 17.0
 tailRef = NodePath("Tail")
 tailLocation = NodePath("TailLocation")
 playerRef = NodePath("../..")

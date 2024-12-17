@@ -223,9 +223,8 @@ func InstantiateScene(path: String):
 	return ref
 
 func CheckForAttackInput():
-	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput && abs(transformationDuration - transformationTimer) > (transformationDuration/3)):
+	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput):
 		currentAttack.start_attack()
-		transformationTimer = clamp(transformationTimer + transformationAttackTimerCost, 0, transformationDuration)
 
 func TransformationFeedbackActivation(status: bool):
 	get_tree().root.get_child(0).sceneSelector.currentScene.ActivateOrDeactivateFeedbackForLocalAllowedItems(currentTransformationObject.transformedName, status)
@@ -242,3 +241,7 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = true
+
+func AttackDetractTimer():
+	if (isTransformed):
+		transformationTimer = clamp(transformationTimer + transformationAttackTimerCost, 0, transformationDuration)

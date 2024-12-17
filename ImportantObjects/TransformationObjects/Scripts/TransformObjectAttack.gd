@@ -38,3 +38,6 @@ func EndCooldownFeedback():
 		var playerRef: PlayerCharacter = characterRef
 		if (playerRef.transformationChangeRef.isTransformed):
 			playerRef.playerHUD.UpdateAttackCooldown(false, 0, 0)
+
+func OnAttackEnd():
+	characterRef.transformationChangeRef.AttackDetractTimer()

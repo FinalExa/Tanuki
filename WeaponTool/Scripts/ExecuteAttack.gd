@@ -88,6 +88,7 @@ func EndAttack():
 		RemoveAttackHitbox(attackPhasesLaunch.size() - 1)
 		currentPhase = 0
 		CheckForCooldown()
+		OnAttackEnd()
 
 func CheckForCooldown():
 	if (attackCooldown == 0):
@@ -101,6 +102,7 @@ func ForceEndAttack():
 		RemoveAttackHitboxes()
 		currentPhase = 0
 		CheckForCooldown()
+		OnAttackEnd()
 
 func StartCooldown():
 	attackInCooldown = true
@@ -156,4 +158,7 @@ func ActiveCooldownFeedback():
 	pass
 
 func EndCooldownFeedback():
+	pass
+
+func OnAttackEnd():
 	pass
