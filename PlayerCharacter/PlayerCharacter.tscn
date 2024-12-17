@@ -323,9 +323,9 @@ playerCollider = NodePath("../CollisionShape2D")
 
 [node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound", "tailAppearsSound")]
 script = ExtResource("3_bjmh7")
-transformationDuration = 30.0
-tailActivationTime = 5.0
-lowTimeRemaining = 27.0
+transformationDuration = 15.0
+tailActivationTime = 10.0
+lowTimeRemaining = 12.0
 tailRef = NodePath("Tail")
 tailLocation = NodePath("TailLocation")
 playerRef = NodePath("../..")
@@ -339,6 +339,7 @@ transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 tailAppearsSound = NodePath("../../Sounds/TailAppears")
 noTransformationText = "No Transformation"
 transformationObjectSafeCoords = Vector2(-100000, -100000)
+transformationAttackTimerCost = 3.0
 transformationLockDuration = 1.5
 
 [node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]

@@ -34,6 +34,7 @@ var isTransformed: bool = false
 @export var tailAppearsSound: AudioStreamPlayer
 @export var noTransformationText: String
 @export var transformationObjectSafeCoords: Vector2
+@export var transformationAttackTimerCost: float
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
@@ -222,8 +223,9 @@ func InstantiateScene(path: String):
 	return ref
 
 func CheckForAttackInput():
-	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput):
+	if (isTransformed && currentAttack != null && !currentAttack.attackLaunched && !currentAttack.attackInCooldown && playerRef.playerInputs.attackInput && abs(transformationDuration - transformationTimer) > (transformationDuration/3)):
 		currentAttack.start_attack()
+		transformationTimer = clamp(transformationTimer + transformationAttackTimerCost, 0, transformationDuration)
 
 func TransformationFeedbackActivation(status: bool):
 	get_tree().root.get_child(0).sceneSelector.currentScene.ActivateOrDeactivateFeedbackForLocalAllowedItems(currentTransformationObject.transformedName, status)
