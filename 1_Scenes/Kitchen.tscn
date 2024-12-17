@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=81 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
+[ext_resource type="PackedScene" uid="uid://b12eyc848b6l2" path="res://ImportantObjects/Interactables/fragile_wall_vertical.tscn" id="36_ilmr6"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
@@ -173,9 +174,9 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen"), NodePath("Quests/KitchenSecretRoom")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
-travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0"), NodePath("Quests/KitchenGrowPlantInRoomG/VaseGrown1")]
+travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0"), NodePath("Quests/KitchenSecretRoom/RoomG/VaseGrown1")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -538,20 +539,10 @@ sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenGrowPlantInRoomG"
-questItemsToOperate = [NodePath("VaseGrown1"), NodePath("VaseGrown1")]
+questItemsToOperate = [NodePath("../KitchenSecretRoom/RoomG/VaseGrown1"), NodePath("../KitchenSecretRoom/RoomG/VaseGrown1")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
-
-[node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
-position = Vector2(3304, -1096)
-questToSendProgressSignal = NodePath("..")
-sendSignalToQuestOnDestroyed = true
-
-[node name="VaseGrown1" parent="Quests/KitchenGrowPlantInRoomG" instance=ExtResource("20_0oc42")]
-position = Vector2(3304, -1096)
-sendToTravelID = 1
-sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
+objectsToDeleteAtQuestComplete = [NodePath("../KitchenSecretRoom/RoomG/VaseEmpty")]
 
 [node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
@@ -642,6 +633,58 @@ questRef = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Kitchen2DialogueSeen/Kitchen2Dialogue"]
 shape = SubResource("RectangleShape2D_ca16x")
 
+[node name="KitchenSecretRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenSecretRoom"
+questItemsToOperate = [NodePath("RoomG"), NodePath("RoomG")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("FragileWallVertical")]
+
+[node name="RoomG" type="Node2D" parent="Quests/KitchenSecretRoom"]
+
+[node name="TileMap" type="TileMap" parent="Quests/KitchenSecretRoom/RoomG"]
+z_index = -999
+position = Vector2(0, 64)
+tile_set = SubResource("TileSet_ho5ex")
+format = 2
+layer_0/tile_data = PackedInt32Array(327692, 5, 0, 327691, 5, 0, 327690, 5, 0, 327689, 5, 0, 327688, 5, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -262137, 4, 0, -262136, 4, 0, -262135, 4, 0)
+
+[node name="VaseEmpty" parent="Quests/KitchenSecretRoom/RoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
+position = Vector2(2536, -584)
+questToSendProgressSignal = NodePath("../../../KitchenGrowPlantInRoomG")
+sendSignalToQuestOnDestroyed = true
+
+[node name="VaseGrown1" parent="Quests/KitchenSecretRoom/RoomG" instance=ExtResource("20_0oc42")]
+position = Vector2(2536, -584)
+sendToTravelID = 1
+sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
+
+[node name="Hammer" parent="Quests/KitchenSecretRoom/RoomG" instance=ExtResource("26_3pbsd")]
+position = Vector2(2176, -576)
+
+[node name="Walls" type="Node2D" parent="Quests/KitchenSecretRoom/RoomG"]
+
+[node name="Wall" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(1936, -832)
+
+[node name="Wall2" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2192, -832)
+
+[node name="Wall3" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
+position = Vector2(2432, -832)
+
+[node name="WallVertical" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("3_1s836")]
+position = Vector2(2568, -768)
+
+[node name="WallVerticalHalf" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("9_3j3v3")]
+position = Vector2(2568, -576)
+
+[node name="FragileWallVertical" parent="Quests/KitchenSecretRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("36_ilmr6")]
+position = Vector2(1800, -640)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 position = Vector2(0, 512)
 
@@ -684,16 +727,16 @@ position = Vector2(2536, -656)
 [node name="MapWalls" type="Node2D" parent="."]
 
 [node name="Wall3" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-640, -831)
+position = Vector2(-640, -832)
 
 [node name="Wall5" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1152, -831)
+position = Vector2(-1152, -832)
 
 [node name="Wall56" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1408, -831)
+position = Vector2(-1408, -832)
 
 [node name="Wall57" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-1664, -831)
+position = Vector2(-1664, -832)
 
 [node name="Wall81" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-2432, 576)
@@ -735,7 +778,7 @@ position = Vector2(-4736, 576)
 position = Vector2(-1920, -832)
 
 [node name="WallEndLeft4" parent="MapWalls" instance=ExtResource("6_0l2yj")]
-position = Vector2(1409, -831)
+position = Vector2(1409, -832)
 
 [node name="WallEndLeft5" parent="MapWalls" instance=ExtResource("6_0l2yj")]
 position = Vector2(-4224, -832)
@@ -765,25 +808,22 @@ position = Vector2(-2432, -832)
 position = Vector2(-2688, -832)
 
 [node name="Wall4" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(-256, -831)
+position = Vector2(-256, -832)
 
 [node name="Wall48" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(128, -831)
+position = Vector2(128, -832)
 
 [node name="Wall49" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(640, -831)
+position = Vector2(640, -832)
 
 [node name="Wall55" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(896, -831)
+position = Vector2(896, -832)
 
 [node name="Wall63" parent="MapWalls" instance=ExtResource("2_fq73p")]
-position = Vector2(1152, -831)
+position = Vector2(1152, -832)
 
 [node name="WallVerticalEnd" parent="MapWalls" instance=ExtResource("4_34tre")]
 position = Vector2(-776, 896)
-
-[node name="WallVertical42" parent="MapWalls" instance=ExtResource("3_1s836")]
-position = Vector2(1800, -383)
 
 [node name="WallVertical9" parent="MapWalls" instance=ExtResource("3_1s836")]
 position = Vector2(-776, 385)
@@ -792,10 +832,10 @@ position = Vector2(-776, 385)
 position = Vector2(-776, 1344)
 
 [node name="WallVertical10" parent="MapWalls" instance=ExtResource("3_1s836")]
-position = Vector2(-776, -639)
+position = Vector2(-776, -640)
 
 [node name="WallVertical11" parent="MapWalls" instance=ExtResource("3_1s836")]
-position = Vector2(-776, -383)
+position = Vector2(-776, -384)
 
 [node name="Wall7" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(-640, 1472)
@@ -909,7 +949,7 @@ position = Vector2(-2176, 576)
 position = Vector2(-896, 577)
 
 [node name="WallWithRightVertical5" parent="MapWalls" instance=ExtResource("5_3w12a")]
-position = Vector2(-896, -831)
+position = Vector2(-896, -832)
 
 [node name="Wall28" parent="MapWalls" instance=ExtResource("2_fq73p")]
 position = Vector2(1920, 1600)
@@ -951,7 +991,7 @@ position = Vector2(264, -383)
 position = Vector2(264, -639)
 
 [node name="WallVerticalEnd8" parent="MapWalls" instance=ExtResource("4_34tre")]
-position = Vector2(-776, -127)
+position = Vector2(-776, -128)
 
 [node name="WallVertical53" parent="MapWalls" instance=ExtResource("3_1s836")]
 position = Vector2(-2056, -640)
@@ -1010,6 +1050,9 @@ position = Vector2(-776, 705)
 [node name="WallVerticalHalf3" parent="MapWalls" instance=ExtResource("9_3j3v3")]
 position = Vector2(1800, -832)
 
+[node name="WallVerticalHalf7" parent="MapWalls" instance=ExtResource("9_3j3v3")]
+position = Vector2(1800, -320)
+
 [node name="WallVertical75" parent="MapWalls" instance=ExtResource("3_1s836")]
 position = Vector2(3320, 511)
 
@@ -1050,10 +1093,10 @@ position = Vector2(1784, 1600)
 position = Vector2(-2056, 1471)
 
 [node name="WallHalfLeftVertical" parent="MapWalls" instance=ExtResource("10_q6sv0")]
-position = Vector2(320, -831)
+position = Vector2(320, -832)
 
 [node name="WallHalf" parent="MapWalls" instance=ExtResource("11_fwcna")]
-position = Vector2(-448, -831)
+position = Vector2(-448, -832)
 
 [node name="WallHalf3" parent="MapWalls" instance=ExtResource("11_fwcna")]
 position = Vector2(-448, 1472)
@@ -1062,10 +1105,10 @@ position = Vector2(-448, 1472)
 position = Vector2(-64, 1472)
 
 [node name="WallHalf2" parent="MapWalls" instance=ExtResource("11_fwcna")]
-position = Vector2(-64, -831)
+position = Vector2(-64, -832)
 
 [node name="WallHalf5" parent="MapWalls" instance=ExtResource("11_fwcna")]
-position = Vector2(448, -831)
+position = Vector2(448, -832)
 
 [node name="WallVerticalEndHalf6" parent="MapWalls" instance=ExtResource("15_u2jog")]
 position = Vector2(-2056, -320)
