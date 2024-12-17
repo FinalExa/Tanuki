@@ -2,7 +2,6 @@ class_name PlayerHUD
 extends Control
 
 signal transformation_texture
-signal timer_value
 signal has_attack
 signal attack_cooldown
 

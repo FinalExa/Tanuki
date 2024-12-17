@@ -5,7 +5,6 @@ signal change_speed
 signal reset_speed
 signal send_transformation_texture
 signal send_transformation_has_attack
-signal send_transformation_attack_info
 signal send_transformation_active_info
 
 var transformObjectsInRange: Array[TransformationObjectData]
@@ -80,6 +79,7 @@ func SetNewTransformation():
 	if (playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0 && !isTransformed):
 		SaveNewTransformation(transformObjectsInRange[transformObjectsInRange.size() - 1])
 		objectSavedSound.play()
+		emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func GenerateTransformationObject():
 	if (currentTransformationObject == null || (currentOriginalObjectPath != currentTransformationObject.scene_file_path)):
@@ -107,7 +107,11 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 
 func SetNoTransformation():
 	currentTransformationSet = false
+	if (currentTransformationObject != null):
+		currentTransformationObject.queue_free()
+	transformationTimer = 0
 	emit_signal("send_transformation_texture", "")
+	emit_signal("send_transformation_active_info", transformationTimer, 1)
 
 func ActivateTransformation():
 	if (playerRef.playerInputs.transformInput && currentTransformationSet && !isTransformed && !transformationLock):
@@ -158,8 +162,6 @@ func TransformationActive(delta):
 			DeactivateTransformation()
 			SetNoTransformation()
 		emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
-		if (currentTransformationObject.transformedAttackPath != ""):
-			emit_signal("send_transformation_attack_info", currentAttack.attackFrame, currentAttack.attackDuration)
 
 func AddTail():
 	if (tailRef.collisionShapeRef.disabled == true):
