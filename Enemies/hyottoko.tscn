@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=41 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoController.gd" id="1_v2k34"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_m52v4"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_rcli2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_5jpci"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_o85p4"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_rlnxy"]
 [ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/hyottoko_attack.tscn" id="12_ap1sf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="13_inx1f"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
@@ -137,7 +138,11 @@ defaultMovementSpeed = 200.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
-[node name="HyottokoMovementSounds" type="Node" parent="."]
+[node name="HyottokoMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
+script = ExtResource("11_rlnxy")
+enemyController = NodePath("..")
+cleanerMovementSounds = [NodePath("../Sounds/Movement/Step1"), NodePath("../Sounds/Movement/Step2"), NodePath("../Sounds/Movement/Step3"), NodePath("../Sounds/Movement/Step4")]
+currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
 script = ExtResource("7_m3bc0")
@@ -229,9 +234,9 @@ script = ExtResource("17_jo8pb")
 enemyStunned = NodePath("../../../../EnemyStunned")
 enemyController = NodePath("../../../..")
 
-[node name="TaskHyottokoIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttackNormal", "enemyController")]
+[node name="TaskHyottokoIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttack", "enemyController")]
 script = ExtResource("22_r2nck")
-enemyAttackNormal = NodePath("../../../Rotator/HyottokoAttack")
+enemyAttack = NodePath("../../../Rotator/HyottokoAttack")
 enemyController = NodePath("../../..")
 
 [node name="SelectorReachPoint" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
@@ -273,9 +278,9 @@ children = [NodePath("TaskHyottokoApproachPlayer"), NodePath("TaskHyottokoStartA
 script = ExtResource("25_qwomu")
 enemyController = NodePath("../../../../..")
 
-[node name="TaskHyottokoStartAttack" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("normalAttack", "enemyController")]
+[node name="TaskHyottokoStartAttack" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("hyottokoAttack", "enemyController")]
 script = ExtResource("26_t3707")
-normalAttack = NodePath("../../../../../Rotator/HyottokoAttack")
+hyottokoAttack = NodePath("../../../../../Rotator/HyottokoAttack")
 enemyController = NodePath("../../../../..")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
