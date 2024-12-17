@@ -52,12 +52,12 @@ func check_raycast():
 				raycastResult.push_back(null)
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter || body is TailFollow):
+	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = true
 		bodySave = body
 
 func _on_body_exited(body):
-	if (body is PlayerCharacter || body is TailFollow):
+	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = false
 
 func activate_reduction_over_time():

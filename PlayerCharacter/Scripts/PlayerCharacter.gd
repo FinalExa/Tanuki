@@ -5,7 +5,6 @@ signal transformationInvincibilityInteracted
 
 var sceneRef: Node2D
 @export var playerInputs: PlayerInputs
-@export var tailRef: Node2D
 @export var transformationChangeRef: TransformationChange
 @export var movementRef: PCMovement
 @export var spriteRef: AnimatedSprite2D

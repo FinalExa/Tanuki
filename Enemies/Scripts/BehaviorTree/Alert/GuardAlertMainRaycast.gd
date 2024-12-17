@@ -18,14 +18,9 @@ func AlertOperations():
 
 func AnalyzeResult(result):
 	if (result != null && result == guardAlert.alertTarget):
-		TargetIsTail()
 		if (TargetIsVisible(result)): return true
 		if (BackToResearch()): return true
 	return false
-
-func TargetIsTail():
-	if (guardAlert.alertTarget is TailFollow):
-		guardAlert.alertTarget = guardAlert.alertTarget.playerRef
 
 func TargetIsVisible(result):
 	if (!guardAlert.lostSightOfPlayer || (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
@@ -55,9 +50,6 @@ func SetTrackData(receivedTarget: Node2D):
 func TargetType(receivedTarget: Node2D):
 	if (receivedTarget is PlayerCharacter):
 		guardAlert.SetAlertTargetLastInfo(receivedTarget)
-	else:
-		if (receivedTarget is TailFollow):
-			guardAlert.SetAlertTargetLastInfo(receivedTarget.playerRef)
 
 func AlertChase(receivedTarget: Node2D):
 	if (guardAlert.chaseStart):
