@@ -67,4 +67,4 @@ position = Vector2(-160, 0)
 position = Vector2(-1160, 232)
 
 [node name="SubstitutionGiver" parent="." instance=ExtResource("6_2dxd0")]
-position = Vector2(-896, 144)
+position = Vector2(-816, 152)
