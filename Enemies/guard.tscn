@@ -222,7 +222,7 @@ timeSpentDoingExtraPatrol = 60.0
 
 [node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
 script = ExtResource("18_v785f")
-stunDuration = 10.0
+stunDuration = 5.0
 stunEndAlertValue = 35.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedChirp")

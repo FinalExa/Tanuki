@@ -137,7 +137,7 @@ timeSpentDoingExtraPatrol = 60.0
 
 [node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
 script = ExtResource("8_js8pp")
-stunDuration = 10.0
+stunDuration = 5.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
