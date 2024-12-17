@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcutqjhdgpo5s"]
+
+[ext_resource type="Script" path="res://ImportantObjects/ActivationObjects/Scripts/SubstitutionGiver.gd" id="1_aqiwu"]
+[ext_resource type="Texture2D" uid="uid://b1c75rfnpya55" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/transformObject.png" id="2_4l468"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="3_nd21u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txrcj"]
+size = Vector2(128, 56)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fji7c"]
+font = ExtResource("3_nd21u")
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jhxy"]
+radius = 128.0
+
+[node name="SubstitutionGiver" type="StaticBody2D" node_paths=PackedStringArray("playerInLabel")]
+script = ExtResource("1_aqiwu")
+playerInLabel = NodePath("PlayerInLabel")
+cooldown = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.06812e-06, -4)
+scale = Vector2(1.28, 0.56)
+texture = ExtResource("2_4l468")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_txrcj")
+
+[node name="PlayerInLabel" type="Label" parent="."]
+offset_left = -192.0
+offset_top = -128.0
+offset_right = 192.0
+offset_bottom = -65.0
+text = "PRESS SHIFT TO GAIN SUBSTITUTION STACK"
+label_settings = SubResource("LabelSettings_fji7c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_3jhxy")
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="CheckIfPlayerIsIn"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="CheckifPlayerIsOut"]

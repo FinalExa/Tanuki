@@ -5,7 +5,6 @@
 
 [node name="PlayerSubstitution" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_0lsmd")
-startingSubstitutionStacks = 1
 maxSubstitutionStacks = 3
 attackDuration = 15
 attackPhasesLaunch = Array[int]([0, 10])

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d34wwl7yqbe5r"]
+[gd_scene load_steps=8 format=3 uid="uid://d34wwl7yqbe5r"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="4_qtcec"]
+[ext_resource type="PackedScene" uid="uid://bcutqjhdgpo5s" path="res://ImportantObjects/ActivationObjects/substitution_giver.tscn" id="6_2dxd0"]
 [ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
@@ -64,3 +65,6 @@ position = Vector2(-160, 0)
 
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
+
+[node name="SubstitutionGiver" parent="." instance=ExtResource("6_2dxd0")]
+position = Vector2(-896, 144)
