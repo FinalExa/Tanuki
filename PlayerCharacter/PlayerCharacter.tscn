@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=52 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
+[ext_resource type="PackedScene" uid="uid://b3nxtb2o3nvhv" path="res://PlayerCharacter/Substitution/player_substitution.tscn" id="25_nh844"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -214,7 +215,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 32.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerSubstitutionAttack", "playerProgressionTrack")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -227,6 +228,7 @@ playerMovement = NodePath("Rotator/PlayerMovement")
 playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
+playerSubstitutionAttack = NodePath("Rotator/PlayerSubstitution")
 playerProgressionTrack = NodePath("PlayerProgressionTrack")
 
 [node name="Sounds" type="Node" parent="."]
@@ -359,6 +361,10 @@ playerRef = NodePath("../..")
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
+characterRef = NodePath("../..")
+
+[node name="PlayerSubstitution" parent="Rotator" node_paths=PackedStringArray("UI", "characterRef") instance=ExtResource("25_nh844")]
+UI = NodePath("../../CanvasLayer/HBoxContainer/UI")
 characterRef = NodePath("../..")
 
 [connection signal="transformationInvincibilityInteracted" from="." to="Rotator/TransformationChange" method="_on_player_character_transformation_invincibility_interacted"]
