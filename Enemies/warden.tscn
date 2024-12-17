@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="10_nqx0w"]
 [ext_resource type="Texture2D" uid="uid://8v1cci0fcjgx" path="res://Enemies/Sprites/Enemy-warden-001.png" id="11_ss25q"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_aa0al"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerMovementSounds.gd" id="13_cqou3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="13_g1db0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_gs4mp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenStunned.gd" id="15_glp0b"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
@@ -78,24 +78,24 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sounds" type="Node2D" parent="."]
 
-[node name="Node" type="Node2D" parent="Sounds"]
+[node name="Movement" type="Node2D" parent="Sounds"]
 
-[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("2_uyk4v")
 
-[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("3_eell1")
 
-[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("4_3jrc0")
 
-[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("5_jvd46")
 
-[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("6_yy106")
 
-[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("7_0o81m")
 
 [node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
@@ -127,9 +127,9 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="WardenMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
-script = ExtResource("13_cqou3")
+script = ExtResource("13_g1db0")
 enemyController = NodePath("..")
-cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
+cleanerMovementSounds = [NodePath("../Sounds/Movement/Step1"), NodePath("../Sounds/Movement/Step2"), NodePath("../Sounds/Movement/Step3"), NodePath("../Sounds/Movement/Step4"), NodePath("../Sounds/Movement/Step5"), NodePath("../Sounds/Movement/Step6")]
 currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]

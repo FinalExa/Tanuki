@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
 size = Vector2(144, 184)
 
-[node name="HyottokoAttackNormal" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+[node name="HyottokoAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_26npr")
 attackDuration = 60
 attackCooldown = 15
