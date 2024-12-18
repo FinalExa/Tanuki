@@ -56,6 +56,7 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_b1hac")
+enemyName = "Warden"
 repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")

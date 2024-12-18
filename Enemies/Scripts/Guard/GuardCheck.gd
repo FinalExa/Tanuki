@@ -93,10 +93,10 @@ func resume_check():
 	guardController.isChecking = true
 	activate_reduction_over_time()
 
-func _on_guard_damaged(direction: Vector2):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isChecking || checkActive):
 		stop_guardCheck()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isChecking || checkActive):

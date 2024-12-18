@@ -118,10 +118,10 @@ func ReachedDestination():
 	if (guardController.isInResearch):
 		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection))
 
-func _on_guard_damaged(direction: Vector2):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isInResearch):
 		StopResearch()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isInResearch):

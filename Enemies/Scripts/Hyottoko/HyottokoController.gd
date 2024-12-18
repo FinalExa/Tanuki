@@ -15,9 +15,9 @@ func InterruptAttacks():
 	if (hyottokoAttack.attackLaunched):
 		hyottokoAttack.ForceEndAttack()
 
-func SetDamaged(direction: Vector2):
+func SetDamaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	hitByPlayerSound.play()
 	stunnedHit.play()
 	InterruptAttacks()
 	emit_signal("damaged", direction)
-	enemyStunned.start_stun(direction)
+	enemyStunned.start_stun(direction, tier)

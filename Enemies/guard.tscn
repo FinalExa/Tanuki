@@ -122,6 +122,7 @@ guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
 guardDistraction = NodePath("Rotator/GuardDistraction")
 enemyAttack = NodePath("Rotator/GuardAttack")
+enemyName = "Guard"
 repelledTime = 0.3
 repelledDistance = 500.0
 repelledOffset = -90.0
@@ -423,7 +424,7 @@ targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
 searchForMissingTargetDistance = 1.0
-rayTargets = [NodePath("Targets/Target"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21"), NodePath("Targets/Target22"), NodePath("Targets/Target23")]
+rayTargets = [NodePath("Targets/Target1"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21"), NodePath("Targets/Target22"), NodePath("Targets/Target23")]
 alertText = "ALERT"
 screamArea = NodePath("AlertScreamArea")
 returnToCheckAlertValue = 35.0
@@ -433,7 +434,7 @@ guardController = NodePath("../..")
 
 [node name="Targets" type="Node2D" parent="Rotator/GuardAlert"]
 
-[node name="Target" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+[node name="Target1" type="Node2D" parent="Rotator/GuardAlert/Targets"]
 position = Vector2(168, -48)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardAlert/Targets"]

@@ -94,10 +94,10 @@ func stop_alert():
 	RemoveAreas()
 	guardController.enemyMovement.reset_movement_speed()
 
-func _on_guard_damaged(direction: Vector2):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isInAlert == true):
 		stop_alert()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isInAlert == true):

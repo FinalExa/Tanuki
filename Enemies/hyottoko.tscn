@@ -66,6 +66,7 @@ hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 200.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
 hyottokoAttack = NodePath("Rotator/HyottokoAttack")
+enemyName = "Hyottoko"
 repelledTime = 0.3
 repelledDistance = 200.0
 repelledOffset = -90.0
