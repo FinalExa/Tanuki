@@ -338,8 +338,7 @@ transformationLockDuration = 1.5
 [node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
-accelerationPerSecond = 700.0
-defaultMaxSpeed = 500.0
+defaultSpeedTier = 1
 playerRef = NodePath("../..")
 
 [node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerSubstitutionAttack", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]

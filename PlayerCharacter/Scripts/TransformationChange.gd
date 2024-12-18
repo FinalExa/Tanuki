@@ -119,7 +119,7 @@ func ActivateTransformation():
 		baseCollisionShape.shape = currentTransformationObject.transformedCollider.shape
 		playerSprite.hide()
 		playerTransformedSprite.show()
-		emit_signal("change_speed", currentTransformationObject.transformedMaxSpeed)
+		emit_signal("change_speed", currentTransformationObject.transformedSpeedTier)
 		isTransformed = true
 		ActivateLock()
 
