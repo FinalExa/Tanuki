@@ -1,12 +1,13 @@
 extends GenericInteractable
 
 @export var researchLocation: Node2D
+@export var stunTier: EnemyStunned.StunTier
 var guardsIn: Array[GuardController]
 
 func ExecuteRefEffect(receivedRef):
 	if (receivedRef is EnemyController):
 		receivedRef.isRepelled = false
-		receivedRef.is_damaged(Vector2.ZERO)
+		receivedRef.is_damaged(Vector2.ZERO, stunTier)
 		CallGuards(receivedRef)
 
 func CallGuards(guardToExclude: EnemyController):

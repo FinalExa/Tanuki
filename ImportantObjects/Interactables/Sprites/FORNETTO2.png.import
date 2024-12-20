@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcuwlkp05y7t1"
-path="res://.godot/imported/Chiave.png-687d3a1be0506d3c3e26c9a940093bf6.ctex"
+uid="uid://b8mal02xpx7kp"
+path="res://.godot/imported/FORNETTO2.png-ef8f300c577fc5424a8a916aa9542787.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Chiave.png"
-dest_files=["res://.godot/imported/Chiave.png-687d3a1be0506d3c3e26c9a940093bf6.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/FORNETTO2.png"
+dest_files=["res://.godot/imported/FORNETTO2.png-ef8f300c577fc5424a8a916aa9542787.ctex"]
 
 [params]
 

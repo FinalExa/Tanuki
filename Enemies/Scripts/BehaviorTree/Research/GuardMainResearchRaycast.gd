@@ -32,8 +32,7 @@ func SpotOperations(trackedObject: Node2D):
 
 func PlayerDetect(trackedObject: Node2D):
 	if ((trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.isTransformed == false) ||
-	trackedObject is TailFollow):
+	trackedObject.transformationChangeRef.isTransformed == false)):
 		guardResearch.StopResearch()
 		if (trackedObject is PlayerCharacter):
 			enemyController.guardAlert.start_alert(trackedObject)

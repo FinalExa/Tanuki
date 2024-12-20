@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=51 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -10,13 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://dvfsa3rk5d6nt" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 03.wav" id="4_ssnr2"]
 [ext_resource type="AudioStream" uid="uid://f4uw1q51on1" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 04.wav" id="5_mbc8e"]
 [ext_resource type="AudioStream" uid="uid://c0fyrvpn5gydq" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 05.wav" id="6_87xno"]
-[ext_resource type="PackedScene" uid="uid://bqguar4cro7y5" path="res://PlayerCharacter/tail.tscn" id="6_gubbw"]
 [ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="7_r4d5s"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="8_bhedw"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
-[ext_resource type="AudioStream" uid="uid://cioi8ccilonij" path="res://PlayerCharacter/Sounds/Tail appears while transformed.wav" id="9_3jagt"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="Texture2D" uid="uid://c81psw8hrc3xj" path="res://PlayerCharacter/Sprites/Tan-2.0.1-200.png" id="14_6hj2i"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerInputs.gd" id="14_tgchp"]
@@ -24,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
+[ext_resource type="PackedScene" uid="uid://dpbslxr6hgwhx" path="res://PlayerCharacter/low_transformation_noise.tscn" id="24_7cbxt"]
 [ext_resource type="PackedScene" uid="uid://b3nxtb2o3nvhv" path="res://PlayerCharacter/Substitution/player_substitution.tscn" id="25_nh844"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
@@ -215,11 +214,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 32.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "tailRef", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerSubstitutionAttack", "playerProgressionTrack")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerSubstitutionAttack", "playerProgressionTrack")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
-tailRef = NodePath("Rotator/TransformationChange/Tail")
 transformationChangeRef = NodePath("Rotator/TransformationChange")
 movementRef = NodePath("Rotator/PlayerMovement")
 spriteRef = NodePath("AnimatedSprite2D")
@@ -272,9 +270,6 @@ stream = ExtResource("7_r4d5s")
 [node name="TransformationTimeLow" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("8_bhedw")
 
-[node name="TailAppears" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("9_3jagt")
-
 [node name="PlayerInputs" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("14_tgchp")
@@ -323,13 +318,10 @@ playerCollider = NodePath("../CollisionShape2D")
 
 [node name="TransformedSprite" type="Sprite2D" parent="Rotator"]
 
-[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("tailRef", "tailLocation", "playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound", "tailAppearsSound")]
+[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound")]
 script = ExtResource("3_bjmh7")
 transformationDuration = 20.0
-tailActivationTime = 15.0
 lowTimeRemaining = 17.0
-tailRef = NodePath("Tail")
-tailLocation = NodePath("TailLocation")
 playerRef = NodePath("../..")
 baseCollisionShape = NodePath("../../CollisionShape2D")
 playerSprite = NodePath("../../AnimatedSprite2D")
@@ -338,23 +330,15 @@ exitTransformationSound = NodePath("../../Sounds/ExitTransformation")
 playerTransformedSprite = NodePath("../TransformedSprite")
 objectSavedSound = NodePath("../../Sounds/ObjectSaved")
 transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
-tailAppearsSound = NodePath("../../Sounds/TailAppears")
 noTransformationText = "No Transformation"
 transformationObjectSafeCoords = Vector2(-100000, -100000)
 transformationAttackTimerCost = 3.0
 transformationLockDuration = 1.5
 
-[node name="TailLocation" type="Node2D" parent="Rotator/TransformationChange"]
-position = Vector2(0, 80)
-
-[node name="Tail" parent="Rotator/TransformationChange" instance=ExtResource("6_gubbw")]
-position = Vector2(0, 80)
-
 [node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
 script = ExtResource("1_7j0ss")
 rigidbodyRef = NodePath("../..")
-accelerationPerSecond = 700.0
-defaultMaxSpeed = 500.0
+defaultSpeedTier = 1
 playerRef = NodePath("../..")
 
 [node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerSubstitutionAttack", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
@@ -370,6 +354,10 @@ UI = NodePath("../../CanvasLayer/HBoxContainer/UI")
 attackHitboxes = [null, NodePath("ObjectSpawner")]
 attackSounds = [null, null]
 characterRef = NodePath("../..")
+
+[node name="LowTransformationNoise" parent="." node_paths=PackedStringArray("playerRef", "transformationChange") instance=ExtResource("24_7cbxt")]
+playerRef = NodePath("..")
+transformationChange = NodePath("../Rotator/TransformationChange")
 
 [connection signal="transformationInvincibilityInteracted" from="." to="Rotator/TransformationChange" method="_on_player_character_transformation_invincibility_interacted"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_change_speed"]

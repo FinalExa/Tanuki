@@ -12,13 +12,21 @@ var stunnedFromAlert: bool = false
 
 @export var enemyController: EnemyController
 
+enum StunTier {
+	LOW,
+	MEDIUM,
+	HIGH
+}
+
+var stunTierValues: Array[float] = [3.0, 5.0, 10.0]
+
 var lookDirectionAfterStun: Vector2
 
-func start_stun(direction: Vector2):
-	ExecuteStunStartup(direction)
+func start_stun(direction: Vector2, tier: StunTier):
+	ExecuteStunStartup(direction, tier)
 
-func ExecuteStunStartup(direction: Vector2):
-	stunTimer = stunDuration
+func ExecuteStunStartup(direction: Vector2, tier: StunTier):
+	stunTimer = stunTierValues[tier]
 	lookDirectionAfterStun = direction
 	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyStatus.updateText(stunnedText)

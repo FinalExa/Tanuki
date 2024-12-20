@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpbslxr6hgwhx"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/LowTransformationNoise.gd" id="1_c3j13"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvwmi"]
+radius = 192.666
+
+[node name="LowTransformationNoise" type="Area2D"]
+script = ExtResource("1_c3j13")
+activationMultiplier = 1.0
+activationDivider = 3.0
+executeTime = 2.0
+executeOffTime = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fvwmi")
+
+[connection signal="body_entered" from="." to="." method="CheckIfEnemyEntered"]
+[connection signal="body_exited" from="." to="." method="CheckIfEnemyExited"]

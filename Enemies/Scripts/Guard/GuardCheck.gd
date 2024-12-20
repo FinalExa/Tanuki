@@ -52,12 +52,12 @@ func check_raycast():
 				raycastResult.push_back(null)
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter || body is TailFollow):
+	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = true
 		bodySave = body
 
 func _on_body_exited(body):
-	if (body is PlayerCharacter || body is TailFollow):
+	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = false
 
 func activate_reduction_over_time():
@@ -93,10 +93,10 @@ func resume_check():
 	guardController.isChecking = true
 	activate_reduction_over_time()
 
-func _on_guard_damaged(direction: Vector2):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isChecking || checkActive):
 		stop_guardCheck()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isChecking || checkActive):

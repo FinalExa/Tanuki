@@ -13,7 +13,7 @@ func main_check():
 	if (guardCheck.checkWithRayCast):
 		var foundSomething: bool = false
 		for i in guardCheck.raycastResult.size():
-			if (guardCheck.raycastResult[i] is PlayerCharacter || guardCheck.raycastResult[i] is TailFollow):
+			if (guardCheck.raycastResult[i] is PlayerCharacter):
 				foundSomething = true
 				determine_suspicion_type(guardCheck.raycastResult[i])
 				break
@@ -48,12 +48,6 @@ func determine_suspicion_type(target):
 		if (guardCheck.playerSeen):
 			suspicion_active(target, guardCheck.playerIsNotSeenMultiplier)
 			guardCheck.researchOutcome = false
-		return
-	if (target is TailFollow):
-		enemyController.enemyRotator.setLookingAtPosition(target.global_position)
-		guardCheck.playerSeen = true
-		guardCheck.researchOutcome = true
-		suspicion_active(target, guardCheck.playerIsSeenMultiplier)
 		return
 	state = NodeState.FAILURE
 

@@ -121,10 +121,10 @@ func GetClosestMovementLocation():
 			moveIndex += 1
 	return selectedIndex
 
-func _on_enemy_damaged(direction: Vector2):
+func _on_enemy_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (enemyController.isInPatrol):
 		stop_patrol()
-		enemyController.enemyStunned.start_stun(direction)
+		enemyController.enemyStunned.start_stun(direction, tier)
 
 func OnEnemyRepelled():
 	if (enemyController.isInPatrol):
