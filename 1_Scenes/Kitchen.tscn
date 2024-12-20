@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=82 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
+[ext_resource type="PackedScene" uid="uid://oard8kicaobm" path="res://Level/Temporary/magic_cube.tscn" id="50_pthv7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b82ri"]
 vertices = PackedVector2Array(-3488, -688, -3488.08, -752, -2080, -752, -2240, -696, -2080, -696, -2240, -528, -2832, -528, -2832, -368, -2080, -368, -2080, -240, -2056, -240, -2056, -16, -2080, -16, -4712, -240, -4064, -368, -2080, 112, -2832, 112, -4712, -40, -2672, 336, -2672, 272, -2512, 272, -2512, 336, -2352, 336, -2352, 272, -2208, 272, -2208, 344, -2144, 344, -2144, 432, -4832, 496, -2080, 432, -2080, 496, -2832, 336, -4832, 120, -4712, 120, -4832, -40, -4832, -240, -4712, -368, -4064, -528, -4832, -528, -4832, -752, -3600, -752, -3600, -688)
@@ -1629,3 +1630,7 @@ position = Vector2(35, -9)
 
 [node name="LocalAllowedItemsFeedback62" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_5utxs")]
 position = Vector2(150, -10)
+
+[node name="MagicCubes" type="Node2D" parent="."]
+
+[node name="MagicCube" parent="MagicCubes" instance=ExtResource("50_pthv7")]
