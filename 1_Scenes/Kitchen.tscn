@@ -209,8 +209,9 @@ questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
 
 [node name="GuardE1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-position = Vector2(672, -304)
+position = Vector2(-1240, 128)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardE1/PatrolIndicator")]
+startingIndex = 6
 
 [node name="HyottokoE1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
 position = Vector2(1640, -152)
