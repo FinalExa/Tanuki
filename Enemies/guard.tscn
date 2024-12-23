@@ -281,7 +281,7 @@ reductionOverTimeValue = 15.0
 minimumIncreaseValue = 5.0
 distanceMultiplier = 0.4
 preCheckDuration = 0.05
-rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9")]
+rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9"), NodePath("RayTargets/Target10"), NodePath("RayTargets/Target11"), NodePath("RayTargets/Target12"), NodePath("RayTargets/Target13"), NodePath("RayTargets/Target14"), NodePath("RayTargets/Target15"), NodePath("RayTargets/Target16"), NodePath("RayTargets/Target17")]
 checkingSound = NodePath("../../Sounds/Checking")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
