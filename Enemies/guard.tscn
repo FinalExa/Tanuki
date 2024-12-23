@@ -281,13 +281,13 @@ reductionOverTimeValue = 15.0
 minimumIncreaseValue = 5.0
 distanceMultiplier = 0.4
 preCheckDuration = 0.05
-rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9"), NodePath("RayTargets/Target10"), NodePath("RayTargets/Target11"), NodePath("RayTargets/Target12"), NodePath("RayTargets/Target13"), NodePath("RayTargets/Target14"), NodePath("RayTargets/Target15"), NodePath("RayTargets/Target16"), NodePath("RayTargets/Target17")]
+rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9"), NodePath("RayTargets/Target10"), NodePath("RayTargets/Target11"), NodePath("RayTargets/Target12"), NodePath("RayTargets/Target13"), NodePath("RayTargets/Target14"), NodePath("RayTargets/Target15"), NodePath("RayTargets/Target16"), NodePath("RayTargets/Target17"), NodePath("RayTargets/Target18"), NodePath("RayTargets/Target19"), NodePath("RayTargets/Target20"), NodePath("RayTargets/Target21"), NodePath("RayTargets/Target22"), NodePath("RayTargets/Target23")]
 checkingSound = NodePath("../../Sounds/Checking")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
-polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.56235, -78.4149, 79.2639, 69.1883, 79.264, 41.5133, 5.56242, 55.3511, 1.39064, 64.5764, -9.73412)
+polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.56235, -96.8649, 34.7648, -115.316, 79.2639, 106.089, 79.264, 87.639, 34.765, 41.5133, 5.56242, 55.3511, 1.39064, 64.5764, -9.73412)
 
 [node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
 
@@ -357,6 +357,30 @@ rotation = -3.14159
 
 [node name="Target17" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(120, -15.9997)
+rotation = -3.14159
+
+[node name="Target18" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-160.001, 496)
+rotation = -3.14159
+
+[node name="Target19" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(159.999, 496)
+rotation = -3.14159
+
+[node name="Target20" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-192.001, 496)
+rotation = -3.14159
+
+[node name="Target21" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(191.999, 496)
+rotation = -3.14159
+
+[node name="Target22" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-160.001, 240)
+rotation = -3.14159
+
+[node name="Target23" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(159.999, 240)
 rotation = -3.14159
 
 [node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
