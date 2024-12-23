@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyLaunchHitbox.gd" id="3_lyp7r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
-size = Vector2(144, 184)
+size = Vector2(224, 208)
 
 [node name="HyottokoAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_26npr")
@@ -28,11 +28,12 @@ launchDistance = 500.0
 launchTime = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyLaunchHitbox"]
-position = Vector2(0, -108)
+position = Vector2(0, -120)
 shape = SubResource("RectangleShape2D_1ia6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyLaunchHitbox"]
-position = Vector2(0, -108)
+position = Vector2(-3.8147e-06, -120)
+scale = Vector2(1.55556, 1.13043)
 texture = ExtResource("2_r5eip")
 
 [connection signal="body_entered" from="EnemyLaunchHitbox" to="EnemyLaunchHitbox" method="_on_body_entered"]

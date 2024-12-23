@@ -36,7 +36,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenScreaming.gd" id="28_t7cwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 48.0
+radius = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63inc"]
 atlas = ExtResource("11_ss25q")
@@ -71,6 +71,7 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
 shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

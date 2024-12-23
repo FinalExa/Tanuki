@@ -212,7 +212,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
-radius = 32.0
+radius = 24.0
 
 [node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerSubstitutionAttack", "playerProgressionTrack")]
 collision_layer = 11
@@ -307,6 +307,7 @@ playerInputs = NodePath("../../../PlayerInputs")
 playerRef = NodePath("../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_nxjry")
 
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("playerCollider")]

@@ -12,7 +12,6 @@ extends Node2D
 @export var alertText: String
 @export var screamArea: ScreamArea
 @export var returnToCheckAlertValue: float
-@export var alertAreaFeedback: Node2D
 @export var alertStartSound: AudioStreamPlayer2D
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
@@ -105,9 +104,7 @@ func OnGuardRepelled():
 
 func RemoveAreas():
 	screamArea.SetInactive()
-	alertAreaFeedback.hide()
 
 func AddAreas():
 	screamArea.SetActive()
 	screamArea.SetControllerRef(guardController)
-	alertAreaFeedback.show()

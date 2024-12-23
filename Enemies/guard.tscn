@@ -62,7 +62,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Distracted/TaskGuardMoveToDistractionItem.gd" id="54_ox2aj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 48.0
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jmn3"]
 atlas = ExtResource("2_k7bgq")
@@ -138,6 +138,7 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
 shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -247,7 +248,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 5.0
+rotationSpeed = 2.5
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
@@ -280,34 +281,50 @@ reductionOverTimeValue = 15.0
 minimumIncreaseValue = 5.0
 distanceMultiplier = 0.4
 preCheckDuration = 0.05
-rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5")]
+rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9")]
 checkingSound = NodePath("../../Sounds/Checking")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
-polygon = PackedVector2Array(23.0629, 2.67029e-05, -32.2883, -1.52588e-05, -59.9645, 70.9203, 50.7379, 70.9204)
+polygon = PackedVector2Array(23.063, -9.73415, -27.6756, -9.73419, -78.4149, 79.2639, 69.1883, 79.264)
 
 [node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
 
 [node name="Target1" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-0.00119019, 448)
+position = Vector2(-0.00125745, 496)
 rotation = -3.14159
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-48.0012, 448)
+position = Vector2(-32.0013, 496)
 rotation = -3.14159
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(47.9989, 448)
+position = Vector2(31.9987, 496)
 rotation = -3.14159
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-96.0012, 448)
+position = Vector2(-64.0013, 496)
 rotation = -3.14159
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(95.9989, 448)
+position = Vector2(63.9987, 496)
+rotation = -3.14159
+
+[node name="Target6" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-96.0013, 496)
+rotation = -3.14159
+
+[node name="Target7" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(95.9987, 496)
+rotation = -3.14159
+
+[node name="Target8" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(-128.001, 496)
+rotation = -3.14159
+
+[node name="Target9" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
+position = Vector2(127.999, 496)
 rotation = -3.14159
 
 [node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
@@ -328,7 +345,7 @@ script = ExtResource("25_7n1xk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
 shape = SubResource("CircleShape2D_pnfgo")
 
-[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "mainAreaFeedback", "secondaryAreaFeedback", "researchEnterSound", "guardController")]
+[node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "researchEnterSound", "guardController")]
 script = ExtResource("26_kna6o")
 researchSpotThreshold = 200.0
 researchFollowThreshold = 700.0
@@ -340,8 +357,6 @@ rayTargets = [NodePath("MainTargets/Target"), NodePath("MainTargets/Target2"), N
 secondaryRayTargets = [NodePath("SecondaryTargets/Target"), NodePath("SecondaryTargets/Target2"), NodePath("SecondaryTargets/Target3"), NodePath("SecondaryTargets/Target4"), NodePath("SecondaryTargets/Target5"), NodePath("SecondaryTargets/Target6"), NodePath("SecondaryTargets/Target7"), NodePath("SecondaryTargets/Target8"), NodePath("SecondaryTargets/Target9"), NodePath("SecondaryTargets/Target10"), NodePath("SecondaryTargets/Target11"), NodePath("SecondaryTargets/Target12"), NodePath("SecondaryTargets/Target13")]
 researchActiveText = "RESEARCHING"
 researchLaunchDuration = 1.5
-mainAreaFeedback = NodePath("PrimaryAreaFeedback")
-secondaryAreaFeedback = NodePath("SecondaryAreaFeedback")
 suspiciousItemsThresholdDistance = 100.0
 stunnedGuardsThresholdDistance = 100.0
 researchEnterSound = NodePath("../../Sounds/ResearchStart")
@@ -405,17 +420,7 @@ position = Vector2(88, -656)
 [node name="Target13" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
 position = Vector2(0, -656)
 
-[node name="PrimaryAreaFeedback" type="Area2D" parent="Rotator/GuardResearch"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/PrimaryAreaFeedback"]
-polygon = PackedVector2Array(0, 0, 128, -528, -128, -528)
-
-[node name="SecondaryAreaFeedback" type="Area2D" parent="Rotator/GuardResearch"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardResearch/SecondaryAreaFeedback"]
-polygon = PackedVector2Array(0, 0, 152, -208, 200, -528, 168, -608, 88, -656, -88, -656, -168, -608, -200, -528, -152, -208)
-
-[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertAreaFeedback", "alertStartSound", "guardController")]
+[node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertStartSound", "guardController")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 375.0
 catchDistanceThreshold = 200.0
@@ -428,7 +433,6 @@ rayTargets = [NodePath("Targets/Target1"), NodePath("Targets/Target2"), NodePath
 alertText = "ALERT"
 screamArea = NodePath("AlertScreamArea")
 returnToCheckAlertValue = 35.0
-alertAreaFeedback = NodePath("AlertAreaFeedback")
 alertStartSound = NodePath("../../Sounds/AlertExclamation")
 guardController = NodePath("../..")
 
@@ -504,11 +508,6 @@ position = Vector2(200, -272)
 position = Vector2(-200, -272)
 
 [node name="AlertScreamArea" parent="Rotator/GuardAlert" instance=ExtResource("16_22bn2")]
-
-[node name="AlertAreaFeedback" type="Area2D" parent="Rotator/GuardAlert"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardAlert/AlertAreaFeedback"]
-polygon = PackedVector2Array(-168, -48, 0, 0, 168, -48, 232, -528, 200, -624, 88, -720, -88, -720, -200, -624, -232, -528)
 
 [node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
 attackSounds = [null, null]
