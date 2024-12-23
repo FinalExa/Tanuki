@@ -9,7 +9,7 @@ func Evaluate(delta):
 func increase_suspicion_value(delta, multiplier):
 	if (guardCheck.checkTarget != null):
 		var distance: float = enemyController.position.distance_to(guardCheck.checkTarget.position)
-		var multValue: float = (abs(distance-(guardCheck.rayTargets[0].global_position.distance_to(enemyController.global_position))))
+		var multValue: float = (abs(distance-(guardCheck.designatedTarget.global_position.distance_to(enemyController.global_position))))
 		multValue = multValue * guardCheck.distanceMultiplier * multiplier * delta
 		if (guardCheck.currentAlertValue < guardCheck.maxAlertValue):
 			if (multValue <= guardCheck.minimumIncreaseValue * multiplier * delta):

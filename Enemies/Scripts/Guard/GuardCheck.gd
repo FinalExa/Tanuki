@@ -6,6 +6,7 @@ extends Area2D
 @export var researchValueThreshold: float
 @export var playerIsSeenMultiplier: float
 @export var playerIsNotSeenMultiplier: float
+@export var designatedTarget: Node2D
 @export var reductionOverTimeValue: float
 @export var minimumIncreaseValue: float
 @export var distanceMultiplier: float

@@ -267,7 +267,7 @@ checkValue = 20.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardContact"]
 shape = SubResource("RectangleShape2D_fbjn8")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "rayTargets", "checkingSound")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "designatedTarget", "rayTargets", "checkingSound")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -277,6 +277,7 @@ maxAlertValue = 100.0
 researchValueThreshold = 50.0
 playerIsSeenMultiplier = 3.0
 playerIsNotSeenMultiplier = 1.5
+designatedTarget = NodePath("RayTargets/Target21")
 reductionOverTimeValue = 15.0
 minimumIncreaseValue = 5.0
 distanceMultiplier = 0.4
