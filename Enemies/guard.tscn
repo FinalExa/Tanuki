@@ -293,98 +293,76 @@ polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.
 [node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
 
 [node name="Target1" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
-position = Vector2(-0.00125745, 496)
-rotation = -3.14159
+position = Vector2(0, 496)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-32.0013, 496)
-rotation = -3.14159
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(31.9987, 496)
-rotation = -3.14159
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-64.0013, 496)
-rotation = -3.14159
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(63.9987, 496)
-rotation = -3.14159
 
 [node name="Target6" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-96.0013, 496)
-rotation = -3.14159
 
 [node name="Target7" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(95.9987, 496)
-rotation = -3.14159
 
 [node name="Target8" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-128.001, 496)
-rotation = -3.14159
 
 [node name="Target9" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(127.999, 496)
-rotation = -3.14159
 
 [node name="Target10" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-80.0002, 71.9998)
-rotation = -3.14159
 
 [node name="Target11" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(79.9998, 72.0002)
-rotation = -3.14159
 
 [node name="Target12" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-104, 47.9998)
-rotation = -3.14159
 
 [node name="Target13" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(104, 48.0003)
-rotation = -3.14159
 
 [node name="Target14" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-112, 15.9997)
-rotation = -3.14159
 
 [node name="Target15" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(112, 16.0003)
-rotation = -3.14159
 
 [node name="Target16" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-120, -16.0003)
-rotation = -3.14159
 
 [node name="Target17" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(120, -15.9997)
-rotation = -3.14159
 
 [node name="Target18" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-160.001, 496)
-rotation = -3.14159
 
 [node name="Target19" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(159.999, 496)
-rotation = -3.14159
 
 [node name="Target20" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-192.001, 496)
-rotation = -3.14159
 
 [node name="Target21" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(191.999, 496)
-rotation = -3.14159
 
 [node name="Target22" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(-160.001, 240)
-rotation = -3.14159
 
 [node name="Target23" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(159.999, 240)
-rotation = -3.14159
 
 [node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
+visible = false
 script = ExtResource("24_dy37m")
 guardController = NodePath("../..")
 guardDistractionDiffuseArea = NodePath("GuardDistractionDiffuseArea")
@@ -410,8 +388,8 @@ buildUpDuration = 2.0
 onReturnToCheckAlertValue = 35.0
 objectInterationDistanceThreshold = 200.0
 researchEndDuration = 5.0
-rayTargets = [NodePath("MainTargets/Target"), NodePath("MainTargets/Target2"), NodePath("MainTargets/Target3"), NodePath("MainTargets/Target4"), NodePath("MainTargets/Target5")]
-secondaryRayTargets = [NodePath("SecondaryTargets/Target"), NodePath("SecondaryTargets/Target2"), NodePath("SecondaryTargets/Target3"), NodePath("SecondaryTargets/Target4"), NodePath("SecondaryTargets/Target5"), NodePath("SecondaryTargets/Target6"), NodePath("SecondaryTargets/Target7"), NodePath("SecondaryTargets/Target8"), NodePath("SecondaryTargets/Target9"), NodePath("SecondaryTargets/Target10"), NodePath("SecondaryTargets/Target11"), NodePath("SecondaryTargets/Target12"), NodePath("SecondaryTargets/Target13")]
+rayTargets = [NodePath("MainTargets/Target1"), NodePath("MainTargets/Target2"), NodePath("MainTargets/Target3"), NodePath("MainTargets/Target4"), NodePath("MainTargets/Target5"), NodePath("MainTargets/Target6"), NodePath("MainTargets/Target7"), NodePath("MainTargets/Target8"), NodePath("MainTargets/Target9"), NodePath("MainTargets/Target10"), NodePath("MainTargets/Target11"), NodePath("MainTargets/Target12"), NodePath("MainTargets/Target13"), NodePath("MainTargets/Target14"), NodePath("MainTargets/Target15"), NodePath("MainTargets/Target16"), NodePath("MainTargets/Target17"), NodePath("MainTargets/Target18"), NodePath("MainTargets/Target19"), NodePath("MainTargets/Target20"), NodePath("MainTargets/Target21"), NodePath("MainTargets/Target22"), NodePath("MainTargets/Target23")]
+secondaryRayTargets = [NodePath("SecondaryTargets/Target1"), NodePath("SecondaryTargets/Target2"), NodePath("SecondaryTargets/Target3"), NodePath("SecondaryTargets/Target4"), NodePath("SecondaryTargets/Target5"), NodePath("SecondaryTargets/Target6"), NodePath("SecondaryTargets/Target7"), NodePath("SecondaryTargets/Target8"), NodePath("SecondaryTargets/Target9"), NodePath("SecondaryTargets/Target10"), NodePath("SecondaryTargets/Target11"), NodePath("SecondaryTargets/Target12"), NodePath("SecondaryTargets/Target13"), NodePath("SecondaryTargets/Target14"), NodePath("SecondaryTargets/Target15"), NodePath("SecondaryTargets/Target16"), NodePath("SecondaryTargets/Target17"), NodePath("SecondaryTargets/Target18"), NodePath("SecondaryTargets/Target19"), NodePath("SecondaryTargets/Target20"), NodePath("SecondaryTargets/Target21"), NodePath("SecondaryTargets/Target22"), NodePath("SecondaryTargets/Target23"), NodePath("SecondaryTargets/Target24"), NodePath("SecondaryTargets/Target25"), NodePath("SecondaryTargets/Target26"), NodePath("SecondaryTargets/Target27"), NodePath("SecondaryTargets/Target28"), NodePath("SecondaryTargets/Target29"), NodePath("SecondaryTargets/Target30"), NodePath("SecondaryTargets/Target31"), NodePath("SecondaryTargets/Target32"), NodePath("SecondaryTargets/Target33")]
 researchActiveText = "RESEARCHING"
 researchLaunchDuration = 1.5
 suspiciousItemsThresholdDistance = 100.0
@@ -420,62 +398,200 @@ researchEnterSound = NodePath("../../Sounds/ResearchStart")
 guardController = NodePath("../..")
 
 [node name="MainTargets" type="Node2D" parent="Rotator/GuardResearch"]
+position = Vector2(0, -16)
 
-[node name="Target" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(-128, -528)
+[node name="Target1" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-4.33617e-05, -496)
+rotation = 3.14159
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(128, -528)
+position = Vector2(32.0013, -496)
+rotation = 3.14159
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(-64, -528)
+position = Vector2(-31.9987, -496)
+rotation = 3.14159
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(64, -528)
+position = Vector2(64.0013, -496)
+rotation = 3.14159
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
-position = Vector2(0, -528)
+position = Vector2(-63.9987, -496)
+rotation = 3.14159
+
+[node name="Target6" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(96.0013, -496)
+rotation = 3.14159
+
+[node name="Target7" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-95.9987, -496)
+rotation = 3.14159
+
+[node name="Target8" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(128.001, -496)
+rotation = 3.14159
+
+[node name="Target9" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-127.999, -496)
+rotation = 3.14159
+
+[node name="Target10" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(80.0002, -71.9998)
+rotation = 3.14159
+
+[node name="Target11" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-79.9998, -72.0002)
+rotation = 3.14159
+
+[node name="Target12" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(104, -47.9998)
+rotation = 3.14159
+
+[node name="Target13" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-104, -48.0003)
+rotation = 3.14159
+
+[node name="Target14" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(112, -15.9997)
+rotation = 3.14159
+
+[node name="Target15" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-112, -16.0003)
+rotation = 3.14159
+
+[node name="Target16" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(120, 16.0003)
+rotation = 3.14159
+
+[node name="Target17" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-120, 15.9997)
+rotation = 3.14159
+
+[node name="Target18" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(160.001, -496)
+rotation = 3.14159
+
+[node name="Target19" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-159.999, -496)
+rotation = 3.14159
+
+[node name="Target20" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(192.001, -496)
+rotation = 3.14159
+
+[node name="Target21" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-191.999, -496)
+rotation = 3.14159
+
+[node name="Target22" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(160.001, -240)
+rotation = 3.14159
+
+[node name="Target23" type="Node2D" parent="Rotator/GuardResearch/MainTargets"]
+position = Vector2(-159.999, -240)
+rotation = 3.14159
 
 [node name="SecondaryTargets" type="Node2D" parent="Rotator/GuardResearch"]
 
-[node name="Target" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-152, -208)
+[node name="Target1" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(0, -720)
 
 [node name="Target2" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(152, -208)
+position = Vector2(256, -288)
 
 [node name="Target3" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-176, -368)
+position = Vector2(-272, -368)
 
 [node name="Target4" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(176, -368)
+position = Vector2(272, -368)
 
 [node name="Target5" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-200, -528)
+position = Vector2(-304, -528)
 
 [node name="Target6" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(200, -528)
+position = Vector2(304, -528)
 
 [node name="Target7" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-168, -608)
+position = Vector2(-272, -608)
 
 [node name="Target8" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(168, -608)
+position = Vector2(272, -608)
 
 [node name="Target9" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-128, -632)
+position = Vector2(-232, -632)
 
 [node name="Target10" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(128, -632)
+position = Vector2(232, -632)
 
 [node name="Target11" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(-88, -656)
+position = Vector2(-192, -656)
 
 [node name="Target12" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(88, -656)
+position = Vector2(192, -656)
 
 [node name="Target13" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
-position = Vector2(0, -656)
+position = Vector2(-256, -288)
+
+[node name="Target14" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(160, -672)
+
+[node name="Target15" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-160, -672)
+
+[node name="Target16" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(128, -688)
+
+[node name="Target17" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-128, -688)
+
+[node name="Target18" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(96, -704)
+
+[node name="Target19" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-96, -704)
+
+[node name="Target20" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(64, -720)
+
+[node name="Target21" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-64, -720)
+
+[node name="Target22" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(32, -720)
+
+[node name="Target23" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-32, -720)
+
+[node name="Target24" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(288, -448)
+
+[node name="Target25" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-288, -448)
+
+[node name="Target26" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-240, -208)
+
+[node name="Target27" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(240, -208)
+
+[node name="Target28" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-224, -128)
+
+[node name="Target29" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(224, -128)
+
+[node name="Target30" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-208, -48)
+
+[node name="Target31" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(208, -48)
+
+[node name="Target32" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(160, 0)
+
+[node name="Target33" type="Node2D" parent="Rotator/GuardResearch/SecondaryTargets"]
+position = Vector2(-160, 0)
 
 [node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertStartSound", "guardController")]
 script = ExtResource("5_t7kgq")
@@ -486,7 +602,7 @@ targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
 preChaseDuration = 1.0
 searchForMissingTargetDistance = 1.0
-rayTargets = [NodePath("Targets/Target1"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21"), NodePath("Targets/Target22"), NodePath("Targets/Target23")]
+rayTargets = [NodePath("Targets/Target1"), NodePath("Targets/Target2"), NodePath("Targets/Target3"), NodePath("Targets/Target4"), NodePath("Targets/Target5"), NodePath("Targets/Target6"), NodePath("Targets/Target7"), NodePath("Targets/Target8"), NodePath("Targets/Target9"), NodePath("Targets/Target10"), NodePath("Targets/Target11"), NodePath("Targets/Target12"), NodePath("Targets/Target13"), NodePath("Targets/Target14"), NodePath("Targets/Target15"), NodePath("Targets/Target16"), NodePath("Targets/Target17"), NodePath("Targets/Target18"), NodePath("Targets/Target19"), NodePath("Targets/Target20"), NodePath("Targets/Target21"), NodePath("Targets/Target22"), NodePath("Targets/Target23"), NodePath("Targets/Target24"), NodePath("Targets/Target25"), NodePath("Targets/Target26"), NodePath("Targets/Target27"), NodePath("Targets/Target28"), NodePath("Targets/Target29"), NodePath("Targets/Target30"), NodePath("Targets/Target31"), NodePath("Targets/Target32"), NodePath("Targets/Target33")]
 alertText = "ALERT"
 screamArea = NodePath("AlertScreamArea")
 returnToCheckAlertValue = 35.0
@@ -496,75 +612,106 @@ guardController = NodePath("../..")
 [node name="Targets" type="Node2D" parent="Rotator/GuardAlert"]
 
 [node name="Target1" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(168, -48)
-
-[node name="Target2" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-168, -48)
-
-[node name="Target3" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-184, -144)
-
-[node name="Target4" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(184, -144)
-
-[node name="Target5" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-216, -400)
-
-[node name="Target6" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(216, -400)
-
-[node name="Target7" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-232, -528)
-
-[node name="Target8" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(232, -528)
-
-[node name="Target9" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-216, -576)
-
-[node name="Target10" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(216, -576)
-
-[node name="Target11" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-200, -624)
-
-[node name="Target12" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(200, -624)
-
-[node name="Target13" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-120, -688)
-
-[node name="Target14" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(120, -688)
-
-[node name="Target15" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-88, -720)
-
-[node name="Target16" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(88, -720)
-
-[node name="Target17" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-48, -720)
-
-[node name="Target18" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(48, -720)
-
-[node name="Target19" type="Node2D" parent="Rotator/GuardAlert/Targets"]
 position = Vector2(0, -720)
 
+[node name="Target2" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(256, -288)
+
+[node name="Target3" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-272, -368)
+
+[node name="Target4" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(272, -368)
+
+[node name="Target5" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-304, -528)
+
+[node name="Target6" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(304, -528)
+
+[node name="Target7" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-272, -608)
+
+[node name="Target8" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(272, -608)
+
+[node name="Target9" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-232, -632)
+
+[node name="Target10" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(232, -632)
+
+[node name="Target11" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-192, -656)
+
+[node name="Target12" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(192, -656)
+
+[node name="Target13" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-256, -288)
+
+[node name="Target14" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(160, -672)
+
+[node name="Target15" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-160, -672)
+
+[node name="Target16" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(128, -688)
+
+[node name="Target17" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-128, -688)
+
+[node name="Target18" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(96, -704)
+
+[node name="Target19" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-96, -704)
+
 [node name="Target20" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-160, -656)
+position = Vector2(64, -720)
 
 [node name="Target21" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(160, -656)
+position = Vector2(-64, -720)
 
 [node name="Target22" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(200, -272)
+position = Vector2(32, -720)
 
 [node name="Target23" type="Node2D" parent="Rotator/GuardAlert/Targets"]
-position = Vector2(-200, -272)
+position = Vector2(-32, -720)
+
+[node name="Target24" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(288, -448)
+
+[node name="Target25" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-288, -448)
+
+[node name="Target26" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-240, -208)
+
+[node name="Target27" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(240, -208)
+
+[node name="Target28" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-224, -128)
+
+[node name="Target29" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(224, -128)
+
+[node name="Target30" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-208, -48)
+
+[node name="Target31" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(208, -48)
+
+[node name="Target32" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(160, 0)
+
+[node name="Target33" type="Node2D" parent="Rotator/GuardAlert/Targets"]
+position = Vector2(-160, 0)
 
 [node name="AlertScreamArea" parent="Rotator/GuardAlert" instance=ExtResource("16_22bn2")]
+visible = false
 
 [node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
 attackSounds = [null, null]
