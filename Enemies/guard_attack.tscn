@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://wlsph2g2id7h" path="res://Enemies/Sprites/Rete nemico.png" id="2_b26ba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
-size = Vector2(144, 184)
+size = Vector2(256, 184)
 
 [node name="GuardAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_krrw3")
@@ -30,7 +30,8 @@ position = Vector2(0, -108)
 shape = SubResource("RectangleShape2D_1ia6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyAttackHitbox"]
-position = Vector2(0, -108)
+position = Vector2(-3.8147e-06, -108)
+scale = Vector2(1.77778, 1)
 texture = ExtResource("2_b26ba")
 
 [connection signal="area_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_area_entered"]
