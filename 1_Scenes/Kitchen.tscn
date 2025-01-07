@@ -112,7 +112,6 @@ travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0"), NodePat
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
 [node name="Enemies" type="Node2D" parent="."]
-visible = false
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-4535, -632)
@@ -154,7 +153,6 @@ position = Vector2(-256, 16)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerD1/PatrolIndicator")]
 
 [node name="Rooms" type="Node2D" parent="."]
-visible = false
 
 [node name="RoomB" type="Node2D" parent="Rooms"]
 
@@ -217,7 +215,6 @@ sceneType = 1
 requiredKeys = 3
 
 [node name="Quests" type="Node2D" parent="."]
-visible = false
 
 [node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
@@ -842,7 +839,6 @@ position = Vector2(2880, 960)
 position = Vector2(-704, -64)
 
 [node name="AllowedZones" type="Node2D" parent="."]
-visible = false
 
 [node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-4719, 312)
