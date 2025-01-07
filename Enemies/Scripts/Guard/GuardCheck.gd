@@ -7,12 +7,14 @@ extends Area2D
 @export var playerIsSeenMultiplier: float
 @export var playerIsNotSeenMultiplier: float
 @export var designatedTarget: Node2D
+@export var designatedTargetDistanceOverflow: float
 @export var reductionOverTimeValue: float
 @export var minimumIncreaseValue: float
 @export var distanceMultiplier: float
+@export var rayTargetsContainer: Node2D
 @export var preCheckDuration: float
-@export var rayTargets: Array[Node2D]
 @export var checkingSound: AudioStreamPlayer2D
+var rayTargets: Array[Node2D]
 var checkActive: bool
 var checkTarget: Node2D
 var currentAlertValue: float
@@ -27,14 +29,25 @@ var playerSeen: bool
 var detectedTarget: Node2D
 var selectedMultiplier: float
 var raycastResult: Array[Node2D]
+var designatedTargetDistance: float
 
 func _physics_process(_delta):
 	check_raycast()
 
 func _ready():
+	GetRayTargets()
 	reset_alert_value()
 	send_alert_value()
+	CalculateDistanceToSelectedPoint()
 	checkActive = true
+
+func CalculateDistanceToSelectedPoint():
+	designatedTargetDistance = guardController.global_position.distance_to(designatedTarget.global_position) + designatedTargetDistanceOverflow
+
+func GetRayTargets():
+	rayTargets.clear()
+	for i in rayTargetsContainer.get_child_count():
+		rayTargets.push_back(rayTargetsContainer.get_child(i))
 
 func reset_alert_value():
 	currentAlertValue = 0

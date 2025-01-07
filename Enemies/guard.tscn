@@ -62,7 +62,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Distracted/TaskGuardMoveToDistractionItem.gd" id="54_ox2aj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 32.0
+radius = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jmn3"]
 atlas = ExtResource("2_k7bgq")
@@ -107,8 +107,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn8"]
-size = Vector2(144, 144)
+[sub_resource type="CircleShape2D" id="CircleShape2D_45eyc"]
+radius = 96.3328
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnfgo"]
 radius = 577.997
@@ -265,9 +265,9 @@ enemyRotator = NodePath("..")
 checkValue = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardContact"]
-shape = SubResource("RectangleShape2D_fbjn8")
+shape = SubResource("CircleShape2D_45eyc")
 
-[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "designatedTarget", "rayTargets", "checkingSound")]
+[node name="GuardCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "designatedTarget", "rayTargetsContainer", "checkingSound")]
 position = Vector2(0, -16)
 rotation = 3.14159
 collision_layer = 12
@@ -278,17 +278,18 @@ researchValueThreshold = 50.0
 playerIsSeenMultiplier = 3.0
 playerIsNotSeenMultiplier = 1.5
 designatedTarget = NodePath("RayTargets/Target21")
+designatedTargetDistanceOverflow = 20.0
 reductionOverTimeValue = 15.0
-minimumIncreaseValue = 5.0
+minimumIncreaseValue = 1.0
 distanceMultiplier = 0.4
+rayTargetsContainer = NodePath("RayTargets")
 preCheckDuration = 0.05
-rayTargets = [NodePath("RayTargets/Target1"), NodePath("RayTargets/Target2"), NodePath("RayTargets/Target3"), NodePath("RayTargets/Target4"), NodePath("RayTargets/Target5"), NodePath("RayTargets/Target6"), NodePath("RayTargets/Target7"), NodePath("RayTargets/Target8"), NodePath("RayTargets/Target9"), NodePath("RayTargets/Target10"), NodePath("RayTargets/Target11"), NodePath("RayTargets/Target12"), NodePath("RayTargets/Target13"), NodePath("RayTargets/Target14"), NodePath("RayTargets/Target15"), NodePath("RayTargets/Target16"), NodePath("RayTargets/Target17"), NodePath("RayTargets/Target18"), NodePath("RayTargets/Target19"), NodePath("RayTargets/Target20"), NodePath("RayTargets/Target21"), NodePath("RayTargets/Target22"), NodePath("RayTargets/Target23")]
 checkingSound = NodePath("../../Sounds/Checking")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
-polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.56235, -96.8649, 34.7648, -115.316, 79.2639, 106.089, 79.264, 87.639, 34.765, 41.5133, 5.56242, 55.3511, 1.39064, 64.5764, -9.73412)
+polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.56235, -96.8649, 34.7648, -115.316, 79.2639, 106.089, 79.264, 87.639, 34.765, 41.5133, 5.56242, 55.3511, 1.39064, 64.5764, -9.73412, -4.61263, -4.17179)
 
 [node name="RayTargets" type="Node2D" parent="Rotator/GuardCheck"]
 
@@ -371,7 +372,7 @@ distractionGroup = "GuardAttract"
 possibleDistractionGroup = "PossibleGuardAttract"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardDistraction"]
-polygon = PackedVector2Array(48, -56, -48, -56, -96, -464, 96, -464)
+polygon = PackedVector2Array(80, -88, -80, -88, -160, -256, -192, -512, 192, -512, 160, -256)
 
 [node name="GuardDistractionDiffuseArea" type="Area2D" parent="Rotator/GuardDistraction"]
 script = ExtResource("25_7n1xk")
@@ -711,7 +712,8 @@ position = Vector2(-160, 0)
 
 [node name="AlertScreamArea" parent="Rotator/GuardAlert" instance=ExtResource("16_22bn2")]
 
-[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("characterRef") instance=ExtResource("13_3c0sx")]
+[node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
+attackSounds = [null, null]
 characterRef = NodePath("../..")
 
 [node name="RotationPoints" type="Node2D" parent="."]
