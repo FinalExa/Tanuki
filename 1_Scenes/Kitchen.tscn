@@ -1,22 +1,11 @@
-[gd_scene load_steps=75 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=57 format=3 uid="uid://d4hsk72bqemll"]
 
-[ext_resource type="PackedScene" uid="uid://gjkhghuswh45" path="res://Level/Prefabs/wall_with_left_vertical.tscn" id="1_3f76x"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
-[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="2_fq73p"]
-[ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="2_lndym"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="2_pyt2b"]
-[ext_resource type="Texture2D" uid="uid://tl34upms1ggm" path="res://Level/Sprites/Placeholder/blackTile.png" id="2_v41y6"]
-[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="3_1s836"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="3_4p3bg"]
-[ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="3_bu8xn"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="3_fj7m5"]
 [ext_resource type="PackedScene" uid="uid://c8u3gvs7ip0p" path="res://ImportantObjects/Interactables/furnace.tscn" id="4_80pyi"]
-[ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="4_ocsji"]
-[ext_resource type="PackedScene" uid="uid://dhlmpnqmfri6o" path="res://Level/Prefabs/wall_with_right_vertical.tscn" id="5_3w12a"]
-[ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="5_l5xou"]
-[ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="6_fvmjb"]
-[ext_resource type="PackedScene" uid="uid://b0g5t8oo1xhrg" path="res://Level/Prefabs/wall_vertical_half.tscn" id="9_3j3v3"]
 [ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="15_wdsu2"]
 [ext_resource type="PackedScene" uid="uid://dw1hwjif77sfj" path="res://ImportantObjects/Interactables/painting_wall.tscn" id="15_y35by"]
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="17_pif6t"]
@@ -65,45 +54,6 @@ radius = 184.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjjtr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_in7kl"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q10bg"]
-texture = ExtResource("2_v41y6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y33e5"]
-texture = ExtResource("2_lndym")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5gk6i"]
-texture = ExtResource("3_bu8xn")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnkda"]
-texture = ExtResource("4_ocsji")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0l6r"]
-texture = ExtResource("5_l5xou")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24v7i"]
-texture = ExtResource("6_fvmjb")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ho5ex"]
-tile_size = Vector2i(256, 256)
-sources/1 = SubResource("TileSetAtlasSource_y33e5")
-sources/4 = SubResource("TileSetAtlasSource_5gk6i")
-sources/5 = SubResource("TileSetAtlasSource_tnkda")
-sources/6 = SubResource("TileSetAtlasSource_m0l6r")
-sources/7 = SubResource("TileSetAtlasSource_24v7i")
-sources/0 = SubResource("TileSetAtlasSource_q10bg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmcs5"]
 size = Vector2(992, 256)
@@ -407,32 +357,17 @@ objectsToDeleteAtQuestComplete = [NodePath("PaintingWall"), NodePath("ActivatedB
 
 [node name="RoomA" type="Node2D" parent="Quests/KitchenHiddenRoom"]
 
-[node name="TileMap" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
+[node name="RoomAStructureFloor" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
 z_index = -999
-tile_set = SubResource("TileSet_ho5ex")
+tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(-327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -327691, 1, 0, -393227, 4, 0, -393228, 4, 0, -393229, 4, 0, -393230, 4, 0)
+layer_0/tile_data = PackedInt32Array(-786460, 65536, 3, -720924, 65536, 4, -786459, 131072, 3, -720923, 131072, 4, -786458, 65536, 3, -720922, 65536, 4, -786457, 131072, 3, -720921, 131072, 4, -786456, 65536, 3, -720920, 65536, 4, -786455, 131072, 3, -720919, 131072, 4, -786454, 65536, 3, -720918, 65536, 4, -786453, 131072, 3, -720917, 131072, 4)
 
-[node name="Walls" type="Node2D" parent="Quests/KitchenHiddenRoom/RoomA"]
-position = Vector2(0, 1281)
-
-[node name="WallVertical2" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("3_1s836")]
-position = Vector2(-2568, -2817)
-
-[node name="Wall4" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("2_fq73p")]
-position = Vector2(-2944, -3009)
-
-[node name="Wall5" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("2_fq73p")]
-position = Vector2(-3200, -3009)
-
-[node name="WallWithRightVertical11" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("5_3w12a")]
-position = Vector2(-2688, -3009)
-
-[node name="WallWithLeftVertical5" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("1_3f76x")]
-position = Vector2(-3456, -3009)
-
-[node name="WallVertical48" parent="Quests/KitchenHiddenRoom/RoomA/Walls" instance=ExtResource("3_1s836")]
-position = Vector2(-3576, -2817)
+[node name="RoomAStructureWalls" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
+z_index = -998
+tile_set = ExtResource("40_wejvi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-851989, 131072, 0, -851996, 65536, 0, -851995, 131072, 1, -851994, 131072, 1, -851993, 131072, 1, -851992, 131072, 1, -851991, 131072, 1, -851990, 131072, 1, -720917, 0, 1, -786453, 0, 1, -720924, 262144, 1, -786460, 262144, 1)
 
 [node name="PaintingWall" parent="Quests/KitchenHiddenRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("15_y35by")]
 position = Vector2(-3072, -1344)
@@ -611,12 +546,17 @@ objectsToDeleteAtQuestComplete = [NodePath("FragileWallVertical")]
 
 [node name="RoomG" type="Node2D" parent="Quests/KitchenSecretRoom"]
 
-[node name="TileMap" type="TileMap" parent="Quests/KitchenSecretRoom/RoomG"]
+[node name="RoomGStructureFloor" type="TileMap" parent="Quests/KitchenSecretRoom/RoomG"]
 z_index = -999
-position = Vector2(0, 64)
-tile_set = SubResource("TileSet_ho5ex")
+tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(327692, 5, 0, 327691, 5, 0, 327690, 5, 0, 327689, 5, 0, 327688, 5, 0, -196601, 1, 0, -196600, 1, 0, -196599, 1, 0, -262137, 4, 0, -262136, 4, 0, -262135, 4, 0)
+layer_0/tile_data = PackedInt32Array(-327666, 65536, 4, -262130, 65536, 2, -327665, 131072, 4, -262129, 131072, 2, -327664, 65536, 4, -262128, 65536, 2, -327663, 131072, 4, -262127, 131072, 2, -327662, 65536, 4, -262126, 65536, 2, -327661, 131072, 4, -262125, 131072, 2, -393202, 65536, 3, -393201, 131072, 3, -393200, 65536, 3, -393199, 131072, 3, -393198, 65536, 3, -393197, 131072, 3)
+
+[node name="RoomGStructureWalls" type="TileMap" parent="Quests/KitchenSecretRoom/RoomG"]
+z_index = -998
+tile_set = ExtResource("40_wejvi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-458738, 65536, 0, -458737, 131072, 1, -458736, 131072, 1, -458735, 131072, 1, -458734, 131072, 1, -458733, 131072, 1, -458732, 262144, 1, -393196, 262144, 1, -327660, 262144, 1, -262124, 262144, 1)
 
 [node name="VaseEmpty" parent="Quests/KitchenSecretRoom/RoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
 position = Vector2(2536, -584)
@@ -630,23 +570,6 @@ sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
 [node name="Hammer" parent="Quests/KitchenSecretRoom/RoomG" instance=ExtResource("26_3pbsd")]
 position = Vector2(2176, -464)
-
-[node name="Walls" type="Node2D" parent="Quests/KitchenSecretRoom/RoomG"]
-
-[node name="Wall" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
-position = Vector2(1936, -832)
-
-[node name="Wall2" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
-position = Vector2(2192, -832)
-
-[node name="Wall3" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("2_fq73p")]
-position = Vector2(2432, -832)
-
-[node name="WallVertical" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("3_1s836")]
-position = Vector2(2568, -768)
-
-[node name="WallVerticalHalf" parent="Quests/KitchenSecretRoom/RoomG/Walls" instance=ExtResource("9_3j3v3")]
-position = Vector2(2568, -576)
 
 [node name="FragileWallVertical" parent="Quests/KitchenSecretRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("36_ilmr6")]
 position = Vector2(1800, -512)
@@ -684,7 +607,7 @@ layer_0/tile_data = PackedInt32Array(-327686, 65536, 3, -262150, 65536, 4, -3276
 z_index = -999
 tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(851953, 131072, 1, 851954, 131072, 1, 851955, 131072, 1, 851956, 131072, 1, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 851963, 131072, 1, 851964, 131072, 1, 851967, 131072, 1, 786432, 131072, 1, 786433, 131072, 1, 786434, 131072, 1, 786435, 131072, 1, 786436, 131072, 1, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 786444, 131072, 1, 786449, 131072, 1, 786450, 131072, 1, 786451, 131072, 1, 786452, 131072, 1, 786453, 131072, 1, 786454, 131072, 1, 786455, 131072, 1, 786456, 131072, 1, 786457, 196608, 1, 851952, 65536, 1, -196584, 131072, 1, -196585, 131072, 1, -196586, 131072, 1, -196587, 131072, 1, -196588, 131072, 1, -196589, 131072, 1, -196590, 131072, 1, -196591, 131072, 1, -196592, 131072, 1, -196593, 131072, 1, -393252, 131072, 1, -393253, 131072, 1, -393241, 131072, 1, -393240, 131072, 1, -393239, 131072, 1, -393238, 131072, 1, -393237, 131072, 1, -393236, 131072, 1, -393235, 131072, 1, -393234, 131072, 1, -393233, 131072, 1, -393232, 131072, 1, -393231, 131072, 1, -393230, 131072, 1, -393229, 131072, 1, -393228, 131072, 1, -393227, 131072, 1, -393226, 131072, 1, -393225, 131072, 1, -393224, 131072, 1, -393223, 131072, 1, -393221, 131072, 1, -393220, 131072, 1, -393217, 131072, 1, -458752, 131072, 1, -458751, 131072, 1, -458750, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 131072, 1, -458739, 131072, 1, -393218, 131072, 1, -393219, 131072, 1, 393229, 131072, 1, 393230, 131072, 1, 393231, 131072, 1, 393232, 131072, 1, 393233, 131072, 1, 393228, 131072, 1, 393227, 131072, 1, 393226, 131072, 1, 393225, 131072, 1, 393224, 131072, 1, 393223, 131072, 1, 393222, 131072, 1, 393221, 131072, 1, 393220, 131072, 1, 393219, 131072, 1, 393218, 131072, 1, 17, 131072, 1, 16, 131072, 1, 15, 131072, 1, 22, 131072, 1, 23, 131072, 1, 24, 131072, 1, 393239, 131072, 1, 393240, 131072, 1, 327672, 131072, 1, 327671, 131072, 1, 327670, 131072, 1, 327669, 131072, 1, 327668, 131072, 1, 327667, 131072, 1, 327666, 131072, 1, 327665, 131072, 1, 327664, 131072, 1, 327662, 131072, 1, 327661, 131072, 1, 327660, 131072, 1, 327659, 131072, 1, 327658, 131072, 1, 327657, 131072, 1, 327656, 131072, 1, 327655, 131072, 1, 327654, 131072, 1, 327653, 131072, 1, 327652, 131072, 1, 327651, 131072, 1, 327650, 131072, 1, 327649, 131072, 1, 327648, 131072, 1, 327647, 131072, 1, 327646, 131072, 1, 327645, 131072, 1, 327644, 131072, 1, 327643, 131072, 1, -327686, 262144, 1, -262150, 262144, 1, -196614, 262144, 1, -131078, 262144, 1, -65542, 262144, 1, -6, 262144, 2, -393222, 65536, 0, -393215, 0, 1, -327679, 0, 1, -262143, 0, 1, -196607, 0, 1, -131071, 0, 1, -65535, 0, 2, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 393217, 0, 2, 327681, 0, 1, 327673, 131072, 0, 262137, 0, 1, 196601, 0, 1, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, 786425, 0, 1, 720889, 0, 1, 786415, 0, 1, 720879, 0, 1, 655343, 0, 1, 589807, 0, 1, 524271, 0, 1, 458735, 0, 1, 393199, 0, 1, 327663, 131072, 0, 851951, 0, 2, 262127, 0, 1, 196591, 0, 1, -327697, 0, 1, -262161, 0, 1, -196625, 0, 1, -131090, 131072, 1, -131091, 131072, 1, -131092, 131072, 1, -131093, 131072, 1, -131094, 65536, 1, 327642, 65536, 1, 327641, 0, 2, 262105, 0, 1, 196569, 0, 1, 131033, 0, 1, 65497, 0, 1, -39, 0, 1, -65575, 0, 1, -131111, 0, 1, -196647, 0, 1, -262183, 0, 1, -327719, 0, 1, -393254, 65536, 1, -393255, 0, 1, -393251, 131072, 1, -393250, 131072, 1, -393243, 131072, 1, -393242, 131072, 1, -393244, 65536, 1, -393249, 196608, 1, 131055, 0, 1, 65519, 131072, 0, 65518, 131072, 1, 65517, 131072, 1, 65516, 131072, 1, 65515, 131072, 1, 65514, 65536, 1, -131089, 196608, 1, 786458, 262144, 2, 720922, 262144, 1, 655386, 262144, 1, 589850, 262144, 1, 524314, 262144, 1, 458778, 262144, 1, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196583, 196608, 1, -196582, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 65536, 0, -65522, 262144, 1, -131058, 262144, 1, -196594, 65536, 0, -393202, 262144, 1, -458738, 65536, 0, 393241, 196608, 1, 393238, 65536, 1, 25, 196608, 1, -131110, 65536, 1, -131109, 131072, 1, -131108, 131072, 1, -131107, 131072, 1, -131106, 131072, 1, -131105, 196608, 1, 786445, 131072, 0, 786448, 65536, 0, 851983, 196608, 1, 851982, 65536, 1, 851981, 0, 2, 851984, 262144, 2)
+layer_0/tile_data = PackedInt32Array(851953, 131072, 1, 851954, 131072, 1, 851955, 131072, 1, 851956, 131072, 1, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 851963, 131072, 1, 851964, 131072, 1, 851967, 131072, 1, 786432, 131072, 1, 786433, 131072, 1, 786434, 131072, 1, 786435, 131072, 1, 786436, 131072, 1, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 786444, 131072, 1, 786449, 131072, 1, 786450, 131072, 1, 786451, 131072, 1, 786452, 131072, 1, 786453, 131072, 1, 786454, 131072, 1, 786455, 131072, 1, 786456, 131072, 1, 786457, 196608, 1, 851952, 65536, 1, -196584, 131072, 1, -196585, 131072, 1, -196586, 131072, 1, -196587, 131072, 1, -196588, 131072, 1, -196589, 131072, 1, -196590, 131072, 1, -196591, 131072, 1, -196592, 131072, 1, -196593, 131072, 1, -393252, 131072, 1, -393253, 131072, 1, -393241, 131072, 1, -393240, 131072, 1, -393239, 131072, 1, -393238, 131072, 1, -393237, 131072, 1, -393236, 131072, 1, -393235, 131072, 1, -393234, 131072, 1, -393233, 131072, 1, -393232, 131072, 1, -393231, 131072, 1, -393230, 131072, 1, -393229, 131072, 1, -393228, 131072, 1, -393227, 131072, 1, -393226, 131072, 1, -393225, 131072, 1, -393224, 131072, 1, -393223, 131072, 1, -393221, 131072, 1, -393220, 131072, 1, -393217, 131072, 1, -458752, 131072, 1, -458751, 131072, 1, -458750, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 131072, 1, -458739, 131072, 1, -393218, 131072, 1, -393219, 131072, 1, 393229, 131072, 1, 393230, 131072, 1, 393231, 131072, 1, 393232, 131072, 1, 393233, 131072, 1, 393228, 131072, 1, 393227, 131072, 1, 393226, 131072, 1, 393225, 131072, 1, 393224, 131072, 1, 393223, 131072, 1, 393222, 131072, 1, 393221, 131072, 1, 393220, 131072, 1, 393219, 131072, 1, 393218, 131072, 1, 17, 131072, 1, 16, 131072, 1, 15, 131072, 1, 22, 131072, 1, 23, 131072, 1, 24, 131072, 1, 393239, 131072, 1, 393240, 131072, 1, 327672, 131072, 1, 327671, 131072, 1, 327670, 131072, 1, 327669, 131072, 1, 327668, 131072, 1, 327667, 131072, 1, 327666, 131072, 1, 327665, 131072, 1, 327664, 131072, 1, 327662, 131072, 1, 327661, 131072, 1, 327660, 131072, 1, 327659, 131072, 1, 327658, 131072, 1, 327657, 131072, 1, 327656, 131072, 1, 327655, 131072, 1, 327654, 131072, 1, 327653, 131072, 1, 327652, 131072, 1, 327651, 131072, 1, 327650, 131072, 1, 327649, 131072, 1, 327648, 131072, 1, 327647, 131072, 1, 327646, 131072, 1, 327645, 131072, 1, 327644, 131072, 1, 327643, 131072, 1, -327686, 262144, 1, -262150, 262144, 1, -196614, 262144, 1, -131078, 262144, 1, -65542, 262144, 1, -6, 262144, 2, -393222, 65536, 0, -393215, 0, 1, -327679, 0, 1, -262143, 0, 1, -196607, 0, 1, -131071, 0, 1, -65535, 0, 2, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 393217, 0, 2, 327681, 0, 1, 327673, 131072, 0, 262137, 0, 1, 196601, 0, 1, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, 786425, 0, 1, 720889, 0, 1, 786415, 0, 1, 720879, 0, 1, 655343, 0, 1, 589807, 0, 1, 524271, 0, 1, 458735, 0, 1, 393199, 0, 1, 327663, 131072, 0, 851951, 0, 2, 262127, 0, 1, 196591, 0, 1, -327697, 0, 1, -262161, 0, 1, -196625, 0, 1, -131090, 131072, 1, -131091, 131072, 1, -131092, 131072, 1, -131093, 131072, 1, -131094, 65536, 1, 327642, 65536, 1, 327641, 0, 2, 262105, 0, 1, 196569, 0, 1, 131033, 0, 1, 65497, 0, 1, -39, 0, 1, -65575, 0, 1, -131111, 0, 1, -196647, 0, 1, -262183, 0, 1, -327719, 0, 1, -393254, 65536, 1, -393255, 0, 1, -393251, 131072, 1, -393250, 131072, 1, -393243, 131072, 1, -393242, 131072, 1, -393244, 65536, 1, -393249, 196608, 1, 131055, 0, 1, 65519, 131072, 0, 65518, 131072, 1, 65517, 131072, 1, 65516, 131072, 1, 65515, 131072, 1, 65514, 65536, 1, -131089, 196608, 1, 786458, 262144, 2, 720922, 262144, 1, 655386, 262144, 1, 589850, 262144, 1, 524314, 262144, 1, 458778, 262144, 1, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196583, 196608, 1, -196582, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 65536, 0, -65522, 262144, 1, -131058, 262144, 1, -196594, 65536, 0, -393202, 262144, 1, 393241, 196608, 1, 393238, 65536, 1, 25, 196608, 1, -131110, 65536, 1, -131109, 131072, 1, -131108, 131072, 1, -131107, 131072, 1, -131106, 131072, 1, -131105, 196608, 1, 786445, 131072, 0, 786448, 65536, 0, 851983, 196608, 1, 851982, 65536, 1, 851981, 0, 2, 851984, 262144, 2, -458738, 262144, 1)
 
 [node name="Teleports" type="Node2D" parent="."]
 
