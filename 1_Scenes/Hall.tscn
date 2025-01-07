@@ -1,49 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=7 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
-[ext_resource type="Texture2D" uid="uid://b27l51f0mtwdm" path="res://Level/Sprites/Placeholder/Pavimento bellino.png" id="2_t3dgl"]
-[ext_resource type="Texture2D" uid="uid://dmkhfkc68lsbc" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale DN.png" id="3_5k2ib"]
-[ext_resource type="Texture2D" uid="uid://4onqna80pp4b" path="res://Level/Sprites/Placeholder/Pavimento bellino half orizzontale UP.png" id="4_vqk51"]
-[ext_resource type="Texture2D" uid="uid://btiuesii2vufq" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale DX.png" id="5_bdh7s"]
-[ext_resource type="Texture2D" uid="uid://6khx0lgb020a" path="res://Level/Sprites/Placeholder/Pavimento bellino half verticale SX.png" id="6_ryv3y"]
-[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="7_3cluf"]
-[ext_resource type="PackedScene" uid="uid://bkhi3we41gevu" path="res://Level/Prefabs/wall_vertical.tscn" id="8_fdslk"]
-[ext_resource type="PackedScene" uid="uid://ihe2khn4xat8" path="res://Level/Prefabs/wall_vertical_end.tscn" id="9_al3i0"]
+[ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="10_cfxl3"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="11_rrso8"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="12_8qwob"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqgu"]
-texture = ExtResource("2_t3dgl")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwkvh"]
-texture = ExtResource("3_5k2ib")
-texture_region_size = Vector2i(256, 256)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_huu02"]
-texture = ExtResource("4_vqk51")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvpbi"]
-texture = ExtResource("5_bdh7s")
-texture_region_size = Vector2i(256, 256)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5b8y"]
-texture = ExtResource("6_ryv3y")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_7n8pr"]
-tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_ejqgu")
-sources/1 = SubResource("TileSetAtlasSource_uwkvh")
-sources/2 = SubResource("TileSetAtlasSource_huu02")
-sources/3 = SubResource("TileSetAtlasSource_gvpbi")
-sources/4 = SubResource("TileSetAtlasSource_t5b8y")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxh7q"]
 size = Vector2(64, 256)
@@ -56,99 +17,9 @@ playerSpawnPoint = NodePath("PlayerSpawn")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1000
-position = Vector2(0, 64)
-tile_set = SubResource("TileSet_7n8pr")
+tile_set = ExtResource("2_v7hkh")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 0, 0, 1, 0, 0, 65533, 0, 0, 65531, 0, 0, 65529, 0, 0, 3, 0, 0, 5, 0, 0, 7, 0, 0, -131065, 0, 0, -131067, 0, 0, -131069, 0, 0, -131071, 0, 0, -65537, 0, 0, -65539, 0, 0, -65541, 0, 0, -65543, 0, 0, -196615, 0, 0, -196613, 0, 0, -196611, 0, 0, -196609, 0, 0, -262143, 0, 0, -262141, 0, 0, -262139, 0, 0, -262137, 0, 0, -393209, 0, 0, -393211, 0, 0, -393213, 0, 0, -393215, 0, 0, -327681, 0, 0, -327683, 0, 0, -327685, 0, 0, -327687, 0, 0, -458759, 0, 0, -458757, 0, 0, -458755, 0, 0, -458753, 0, 0, -524287, 0, 0, -524285, 0, 0, -524283, 0, 0, -524281, 0, 0, -458761, 0, 0, -327689, 0, 0, -196617, 0, 0, -65545, 0, 0, 65527, 0, 0)
-
-[node name="Walls" type="Node2D" parent="."]
-
-[node name="Wall" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(960, 320)
-
-[node name="Wall2" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(704, 320)
-
-[node name="Wall3" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(448, 320)
-
-[node name="Wall4" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(192, 320)
-
-[node name="Wall5" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-64, 320)
-
-[node name="Wall6" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-320, 320)
-
-[node name="Wall7" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-576, 320)
-
-[node name="Wall8" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-832, 320)
-
-[node name="Wall9" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-1088, 320)
-
-[node name="Wall10" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(960, -1088)
-
-[node name="Wall11" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(704, -1088)
-
-[node name="Wall12" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(448, -1088)
-
-[node name="Wall13" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(192, -1088)
-
-[node name="Wall14" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-64, -1088)
-
-[node name="Wall15" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-320, -1088)
-
-[node name="Wall16" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-576, -1088)
-
-[node name="Wall17" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-832, -1088)
-
-[node name="Wall18" parent="Walls" instance=ExtResource("7_3cluf")]
-position = Vector2(-1088, -1088)
-
-[node name="WallVertical2" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -1024)
-
-[node name="WallVertical3" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -768)
-
-[node name="WallVertical6" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -512)
-
-[node name="WallVertical8" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, -256)
-
-[node name="WallVertical10" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(1096, 0)
-
-[node name="WallVerticalEnd" parent="Walls" instance=ExtResource("9_al3i0")]
-position = Vector2(1096, 256)
-
-[node name="WallVertical13" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -1024)
-
-[node name="WallVertical14" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -768)
-
-[node name="WallVertical17" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -512)
-
-[node name="WallVertical19" parent="Walls" instance=ExtResource("8_fdslk")]
-position = Vector2(-1224, -256)
-
-[node name="WallVerticalEnd2" parent="Walls" instance=ExtResource("9_al3i0")]
-position = Vector2(-1224, 256)
+layer_0/tile_data = PackedInt32Array(65535, 65536, 3, 1, 65536, 3, 65533, 65536, 3, 65531, 65536, 3, 65529, 65536, 3, 3, 65536, 3, 5, 65536, 3, 7, 65536, 3, -131065, 65536, 3, -131067, 65536, 3, -131069, 65536, 3, -131071, 65536, 3, -65537, 65536, 3, -65539, 65536, 3, -65541, 65536, 3, -65543, 65536, 3, -196615, 65536, 3, -196613, 65536, 3, -196611, 65536, 3, -196609, 65536, 3, -262143, 65536, 3, -262141, 65536, 3, -262139, 65536, 3, -262137, 65536, 3, -393209, 65536, 3, -393211, 65536, 3, -393213, 65536, 3, -393215, 65536, 3, -327681, 65536, 3, -327683, 65536, 3, -327685, 65536, 3, -327687, 65536, 3, -458759, 65536, 3, -458757, 65536, 3, -458755, 65536, 3, -458753, 65536, 3, -524287, 65536, 3, -524285, 65536, 3, -524283, 65536, 3, -524281, 65536, 3, -458761, 65536, 3, -327689, 65536, 3, -196617, 65536, 3, -65545, 65536, 3, 65527, 65536, 3, -393225, 65536, 4, -458760, 131072, 3, -393224, 131072, 4, -393223, 65536, 4, -458758, 131072, 3, -393222, 131072, 4, -393221, 65536, 4, -458756, 131072, 3, -393220, 131072, 4, -393219, 65536, 4, -458754, 131072, 3, -393218, 131072, 4, -393217, 65536, 4, -524288, 131072, 3, -458752, 131072, 4, -458751, 65536, 4, -524286, 131072, 3, -458750, 131072, 4, -458749, 65536, 4, -524284, 131072, 3, -458748, 131072, 4, -458747, 65536, 4, -524282, 131072, 3, -458746, 131072, 4, -327675, 65536, 4, -393210, 131072, 3, -327674, 131072, 4, -458745, 65536, 4, -524280, 131072, 3, -458744, 131072, 4, -327673, 65536, 4, -393208, 131072, 3, -327672, 131072, 4, -196601, 65536, 4, -262136, 131072, 3, -196600, 131072, 4, -65529, 65536, 4, -131064, 131072, 3, -65528, 131072, 4, 65543, 65536, 4, 8, 131072, 3, 65544, 131072, 4, 65541, 65536, 4, 6, 131072, 3, 65542, 131072, 4, 65539, 65536, 4, 4, 131072, 3, 65540, 131072, 4, 65537, 65536, 4, 2, 131072, 3, 65538, 131072, 4, 131071, 65536, 4, 0, 131072, 3, 65536, 131072, 4, 131069, 65536, 4, 65534, 131072, 3, 131070, 131072, 4, 131067, 65536, 4, 65532, 131072, 3, 131068, 131072, 4, 131065, 65536, 4, 65530, 131072, 3, 131066, 131072, 4, 131063, 65536, 4, 65528, 131072, 3, 131064, 131072, 4, -262153, 65536, 4, -327688, 131072, 3, -262152, 131072, 4, -262151, 65536, 4, -327686, 131072, 3, -262150, 131072, 4, -262149, 65536, 4, -327684, 131072, 3, -262148, 131072, 4, -262147, 65536, 4, -327682, 131072, 3, -262146, 131072, 4, -262145, 65536, 4, -393216, 131072, 3, -327680, 131072, 4, -327679, 65536, 4, -393214, 131072, 3, -327678, 131072, 4, -196607, 65536, 4, -262142, 131072, 3, -196606, 131072, 4, -196605, 65536, 4, -262140, 131072, 3, -196604, 131072, 4, -196603, 65536, 4, -262138, 131072, 3, -196602, 131072, 4, -65531, 65536, 4, -131066, 131072, 3, -65530, 131072, 4, -65533, 65536, 4, -131068, 131072, 3, -65532, 131072, 4, -65535, 65536, 4, -131070, 131072, 3, -65534, 131072, 4, -1, 65536, 4, -131072, 131072, 3, -65536, 131072, 4, -3, 65536, 4, -65538, 131072, 3, -2, 131072, 4, -5, 65536, 4, -65540, 131072, 3, -4, 131072, 4, -7, 65536, 4, -65542, 131072, 3, -6, 131072, 4, -9, 65536, 4, -65544, 131072, 3, -8, 131072, 4, -131081, 65536, 4, -196616, 131072, 3, -131080, 131072, 4, -131079, 65536, 4, -196614, 131072, 3, -131078, 131072, 4, -131077, 65536, 4, -196612, 131072, 3, -131076, 131072, 4, -131075, 65536, 4, -196610, 131072, 3, -131074, 131072, 4, -131073, 65536, 4, -262144, 131072, 3, -196608, 131072, 4, -327677, 65536, 4, -393212, 131072, 3, -327676, 131072, 4, 131062, 0, 1, -65546, 0, 2, -131082, 0, 1, -196618, 0, 1, -262154, 0, 1, -327690, 0, 1)
 
 [node name="TravelingArea" type="Area2D" parent="."]
 position = Vector2(-1248, 0)
