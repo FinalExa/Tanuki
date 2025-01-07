@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5fp16tkl44ys"]
+[gd_scene load_steps=4 format=3 uid="uid://b5fp16tkl44ys"]
 
 [ext_resource type="Script" path="res://Dialogue/Scripts/DialogueArea.gd" id="1_fk7hj"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_dqylb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyclw"]
+font = ExtResource("2_dqylb")
 font_size = 24
 font_color = Color(1, 0, 0, 1)
 

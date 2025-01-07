@@ -257,7 +257,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_4uwes")
 
 [node name="Furnace" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("4_80pyi")]
-position = Vector2(2128, 32)
+position = Vector2(2112, 64)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
