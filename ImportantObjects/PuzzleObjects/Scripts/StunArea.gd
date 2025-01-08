@@ -31,7 +31,7 @@ func _on_body_entered(body):
 			body.AttackInteraction(attackTag)
 			return
 		if (body is EnemyController):
-			body.is_damaged(Vector2.ZERO)
+			body.is_damaged(Vector2.ZERO, EnemyStunned.StunTier.HIGH)
 
 func _on_area_entered(area):
 	if (area.is_in_group("Interactable")):
