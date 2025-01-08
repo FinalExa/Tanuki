@@ -167,7 +167,7 @@ rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
 rotationSpeed = 45.0
-rotationWeight = 0.1
+rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
 [node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "wardenAlertArea")]

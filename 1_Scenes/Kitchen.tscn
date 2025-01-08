@@ -457,8 +457,8 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
-position = Vector2(2176, 640)
-scale = Vector2(2, 2)
+position = Vector2(2176, 704)
+scale = Vector2(2, 2.5)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
