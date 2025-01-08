@@ -19,20 +19,23 @@ func SetStartingSubstitutionStacks():
 func CheckForInput():
 	if (!attackLaunched && !playerAttack.attackLaunched && characterRef.playerInputs.substitutionInput && !characterRef.transformationChangeRef.isTransformed && currentSubstitutionStacks > 0):
 		characterRef.playerMovement.DisableMovement()
+		characterRef.transformationInvincibility = true
 		start_attack()
 		UpdateSubstitutionStacksValue(-1)
 
 func OnAttackEnd():
 	characterRef.playerMovement.EnableMovement()
+	characterRef.transformationInvincibility = false
 
 func UpdateSubstitutionStacksValue(receivedValue: int):
-	currentSubstitutionStacks = clamp (currentSubstitutionStacks + receivedValue, 0, maxSubstitutionStacks)
+	currentSubstitutionStacks = clamp(currentSubstitutionStacks + receivedValue, 0, maxSubstitutionStacks)
 	UpdateUI()
 
 func ForceStopAttack():
 	ForceEndAttack()
 	ForceEndCooldown()
 	attackLaunched = false
+	characterRef.transformationInvincibility = false
 
 func ForceEndCooldown():
 	if (attackInCooldown):
