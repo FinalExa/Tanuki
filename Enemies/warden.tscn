@@ -182,8 +182,9 @@ wardenAlertArea = NodePath("WardenAlertArea")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
 polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 576, -1216, -576, -1216)
 
-[node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck") instance=ExtResource("19_ocxxy")]
+[node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck", "wardenLocation") instance=ExtResource("19_ocxxy")]
 wardenCheck = NodePath("..")
+wardenLocation = NodePath("../../../CollisionShape2D")
 
 [node name="Lantern" type="Sprite2D" parent="Rotator"]
 position = Vector2(0, -104)
