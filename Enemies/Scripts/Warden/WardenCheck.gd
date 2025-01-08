@@ -58,7 +58,6 @@ func AddArea():
 	wardenAlertArea.SetActive()
 
 func RemoveArea():
-	wardenAlertArea.ClearGuardsInArea()
 	wardenAlertArea.SetInactive()
 
 func EndWardenCheck():
