@@ -60,7 +60,7 @@ position = Vector2(-1160, 232)
 position = Vector2(-816, 152)
 
 [node name="Warden" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_myx1q")]
-position = Vector2(512, 576)
+position = Vector2(592, 576)
 patrolIndicators = [NodePath("../PatrolIndicator2")]
 
 [node name="DeathTrapInteractionObject" parent="." instance=ExtResource("8_bh5e8")]
