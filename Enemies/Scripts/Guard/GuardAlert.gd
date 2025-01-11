@@ -19,7 +19,6 @@ var preChaseTimer: float
 var catchPreparationActive: bool
 var targetNotSeenActive: bool
 var chaseStart: bool
-var goToAlertStartLocation: bool
 var firstLocationReached: bool
 var secondLocationReached: bool
 var secondLocationTargetCheckLaunched: bool
@@ -48,7 +47,6 @@ func start_alert(target):
 	chaseStart = false
 	guardController.enemyMovement.set_new_target(null)
 	guardController.enemyRotator.setLookingAtNode(alertTarget)
-	goToAlertStartLocation = true
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
@@ -94,12 +92,12 @@ func stop_alert():
 	guardController.enemyMovement.reset_movement_speed()
 
 func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
-	if (guardController.isInAlert == true):
+	if (guardController.isInAlert):
 		stop_alert()
 		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
-	if (guardController.isInAlert == true):
+	if (guardController.isInAlert):
 		stop_alert()
 
 func RemoveAreas():

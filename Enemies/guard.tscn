@@ -596,7 +596,7 @@ position = Vector2(-160, 0)
 [node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertStartSound", "guardController")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 450.0
-catchDistanceThreshold = 250.0
+catchDistanceThreshold = 225.0
 catchPreparationDuration = 0.1
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
