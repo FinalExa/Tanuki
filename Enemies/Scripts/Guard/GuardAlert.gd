@@ -21,6 +21,7 @@ var targetNotSeenActive: bool
 var chaseStart: bool
 var firstLocationReached: bool
 var secondLocationReached: bool
+var goToAlertStartLocation: bool
 var secondLocationTargetCheckLaunched: bool
 var lostSightOfPlayer: bool
 var alertTarget: Node2D
@@ -47,6 +48,7 @@ func start_alert(target):
 	chaseStart = false
 	guardController.enemyMovement.set_new_target(null)
 	guardController.enemyRotator.setLookingAtNode(alertTarget)
+	goToAlertStartLocation = true
 	targetNotSeenActive = false
 	firstLocationReached = false
 	secondLocationReached = false
@@ -66,6 +68,7 @@ func AlertRaycast(space_state):
 	raycastResult.clear()
 	for i in rayTargets.size():
 		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+		query.exclude = [guardController]
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }): 
 			raycastResult.push_back(result.collider)

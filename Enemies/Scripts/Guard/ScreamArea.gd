@@ -39,11 +39,17 @@ func LaunchAlertForGuardsInRange():
 	if (activated):
 		for i in guardsInRange.size():
 			LaunchGuardAlert(guardsInRange[i])
+			UpdateWithLatestPosition(guardsInRange[i])
 
 func LaunchGuardAlert(guardRef: GuardController):
 	if (!guardRef.isInAlert && !guardRef.isStunned):
 		guardRef.guardCheck.stop_guardCheck()
 		guardRef.guardAlert.start_alert(controllerRef.guardAlert.alertTarget)
+
+func UpdateWithLatestPosition(guardRef: GuardController):
+	if (guardRef.isInAlert && guardRef.guardAlert.targetNotSeenActive && controllerRef.guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
+		guardRef.guardAlert.goToAlertStartLocation = true
+		guardRef.guardAlert.SetAlertTargetLastInfo(controllerRef.guardAlert.alertTarget)
 
 func _on_body_entered(body):
 	if (controllerRef != null && body != controllerRef && body is GuardController && !guardsInRange.has(body)):

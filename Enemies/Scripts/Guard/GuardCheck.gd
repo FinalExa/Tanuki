@@ -59,6 +59,7 @@ func check_raycast():
 		raycastResult.clear()
 		for i in rayTargets.size():
 			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+			query.exclude = [guardController]
 			var result = space_state.intersect_ray(query)
 			if (result && result != { }):
 				raycastResult.push_back(result.collider)

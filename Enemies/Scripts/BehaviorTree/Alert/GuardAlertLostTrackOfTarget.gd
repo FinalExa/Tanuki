@@ -13,6 +13,9 @@ func Evaluate(_delta):
 func TargetNotSeen():
 	guardAlert.catchPreparationActive = false
 	guardAlert.lostSightOfPlayer = true
+	if (guardAlert.goToAlertStartLocation):
+		GoToAlertStartLocation()
+		return
 	if (!guardAlert.firstLocationReached):
 		MoveToFirstLocation()
 		return
@@ -21,6 +24,15 @@ func TargetNotSeen():
 		return
 	if (!guardAlert.targetNotSeenActive):
 		StartNotSeenTimer()
+
+func GoToAlertStartLocation():
+	var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
+	if (distance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
+		SetNotSeenDestination(guardAlert.lastTargetPosition)
+	else:
+		guardAlert.goToAlertStartLocation = false
+		guardAlert.firstLocationReached = true
+		guardAlert.secondLocationReached = true
 
 func MoveToFirstLocation():
 	var distance: float = enemyController.global_position.distance_to(guardAlert.lastTargetPosition)
