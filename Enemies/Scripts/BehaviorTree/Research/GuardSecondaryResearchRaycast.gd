@@ -10,7 +10,6 @@ func Evaluate(_delta):
 	return NodeState.SUCCESS
 
 func ResearchSecondaryRaycast():
-	var checkForPlayer: bool = false
 	for i in guardResearch.secondaryRaycastResult.size():
 		if (guardResearch.secondaryRaycastResult[i] != null):
 			if (SpotPlayerFromAfar(guardResearch.secondaryRaycastResult[i])):

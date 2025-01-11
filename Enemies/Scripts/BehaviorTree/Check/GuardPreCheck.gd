@@ -8,7 +8,7 @@ func Evaluate(delta):
 	return NodeState.FAILURE
 
 func PreCheck(target: Node2D, delta):
-	if (guardCheck.preCheckTimer>0):
+	if (guardCheck.preCheckTimer > 0):
 		guardCheck.preCheckTimer -= delta
 		return NodeState.SUCCESS
 	else:

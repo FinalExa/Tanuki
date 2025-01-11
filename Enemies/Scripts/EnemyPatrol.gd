@@ -27,7 +27,7 @@ func _ready():
 	set_current_patrol_routine()
 
 func set_current_patrol_routine():
-	if(enemyController.isInPatrol == true):
+	if (enemyController.isInPatrol):
 		var currentAction: PatrolIndicator.ActionTypes  = loadedPatrolIndicator.patrolActions[patrolIndex]
 		if (currentAction == loadedPatrolIndicator.ActionTypes.WAIT):
 			wait_patrol_action(loadedPatrolIndicator.waitActions[patrolWaitIndex])
