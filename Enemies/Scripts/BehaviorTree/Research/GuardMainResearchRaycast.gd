@@ -32,12 +32,9 @@ func SpotOperations(trackedObject: Node2D):
 
 func PlayerDetect(trackedObject: Node2D):
 	if ((trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.isTransformed == false)):
+	trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
 		guardResearch.StopResearch()
-		if (trackedObject is PlayerCharacter):
-			enemyController.guardAlert.start_alert(trackedObject)
-		else:
-			enemyController.guardAlert.start_alert(trackedObject.playerRef)
+		enemyController.guardAlert.start_alert(trackedObject)
 		return true
 	return false
 

@@ -13,12 +13,10 @@ func ResearchSecondaryRaycast():
 	var checkForPlayer: bool = false
 	for i in guardResearch.secondaryRaycastResult.size():
 		if (guardResearch.secondaryRaycastResult[i] != null):
-			checkForPlayer = SpotPlayerFromAfar(guardResearch.secondaryRaycastResult[i])
-			if (checkForPlayer):
+			if (SpotPlayerFromAfar(guardResearch.secondaryRaycastResult[i])):
 				guardResearch.researchHasFoundSomething = true
-				break
-	if (!checkForPlayer):
-		guardResearch.researchHasFoundSomething = false
+				return
+	guardResearch.researchHasFoundSomething = false
 
 func SpotPlayerFromAfar(target):
 	if (target is PlayerCharacter):
