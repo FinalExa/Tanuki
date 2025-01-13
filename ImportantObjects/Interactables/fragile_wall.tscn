@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yverqrhsnw5x"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_tfpow"]
-[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_dccs0"]
+[ext_resource type="Texture2D" uid="uid://cmgxnede7drou" path="res://ImportantObjects/Interactables/Sprites/Crepa nel muro.png" id="2_8lwpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
 size = Vector2(256, 128)
@@ -14,7 +14,4 @@ neededProperties = Array[String](["Pound"])
 shape = SubResource("RectangleShape2D_kufeo")
 
 [node name="Wall" type="Sprite2D" parent="."]
-modulate = Color(0.0980392, 1, 0.301961, 1)
-texture = ExtResource("2_dccs0")
-
-[node name="Cracks" type="Sprite2D" parent="."]
+texture = ExtResource("2_8lwpd")
