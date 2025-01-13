@@ -114,7 +114,6 @@ radius = 96.3328
 radius = 577.997
 
 [node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardDistraction", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
-visible = false
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lw4ue")
