@@ -137,7 +137,6 @@ spriteRef = NodePath("AnimatedSprite2D")
 enemyMovementSounds = NodePath("GuardMovementSounds")
 hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
-debug = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
