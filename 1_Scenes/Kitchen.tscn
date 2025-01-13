@@ -114,12 +114,10 @@ travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Telepo
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-visible = true
 position = Vector2(-4535, -632)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardB1/PatrolIndicator")]
 
 [node name="GuardB2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-visible = true
 position = Vector2(-3744, 216)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardB2/PatrolIndicator")]
 
@@ -130,7 +128,6 @@ questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
 
 [node name="GuardE1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-visible = true
 position = Vector2(-1240, 128)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardE1/PatrolIndicator")]
 startingIndex = 6
@@ -144,12 +141,10 @@ position = Vector2(2558, 618)
 patrolIndicators = [NodePath("../../PatrolPoints/WardenD1/PatrolIndicator")]
 
 [node name="GuardD1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-visible = true
 position = Vector2(2694, 865)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardD1/PatrolIndicator")]
 
 [node name="GuardD2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-visible = true
 position = Vector2(-456, 1080)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardD2/PatrolIndicator")]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=39 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_uyk4v"]
@@ -20,10 +20,11 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenCheck.gd" id="18_d02ip"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="19_4rlqf"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
-[ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="20_0h20t"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_hewu6"]
+[ext_resource type="Texture2D" uid="uid://beqdchybbxs75" path="res://Enemies/Sprites/Lanterna blu.png" id="20_uxiq3"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="21_fki5k"]
+[ext_resource type="Script" path="res://Enemies/Scripts/LanternRotation.gd" id="21_l056x"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="22_l4lsm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="24_fumfp"]
@@ -187,9 +188,10 @@ wardenCheck = NodePath("..")
 wardenLocation = NodePath("../../../CollisionShape2D")
 
 [node name="Lantern" type="Sprite2D" parent="Rotator"]
-position = Vector2(0, -104)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("20_0h20t")
+position = Vector2(0, -80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_uxiq3")
+script = ExtResource("21_l056x")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=71 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardController.gd" id="1_lw4ue"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="6_xnjjn"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="7_2tf71"]
 [ext_resource type="AudioStream" uid="uid://cy7nkj3ihx0p6" path="res://Enemies/Sounds/Guard/AlertSteps/Runstep 3-Patrol_movement.wav" id="7_bpryv"]
-[ext_resource type="Texture2D" uid="uid://d2joymjufhbgg" path="res://Enemies/Sprites/Placeholder/lantern.png" id="8_7mxgb"]
 [ext_resource type="AudioStream" uid="uid://b8pgt6cy2b5j" path="res://Enemies/Sounds/Guard/Running-Esclamation.wav" id="8_svg5n"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="9_3egjy"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_erwln"]
@@ -34,6 +33,8 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertMainRaycast.gd" id="20_r5o6v"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertTargetNotSeen.gd" id="21_6cr5u"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsAttacking.gd" id="21_uu2lk"]
+[ext_resource type="Texture2D" uid="uid://cppp4nc66r55q" path="res://Enemies/Sprites/Lanterna rossa.png" id="21_yeuj8"]
+[ext_resource type="Script" path="res://Enemies/Scripts/LanternRotation.gd" id="22_3ukpx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardContact.gd" id="22_apy6b"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardIsInResearch.gd" id="22_m4ta3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertCatchPreparation.gd" id="22_spoys"]
@@ -253,10 +254,10 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="Lantern" type="Sprite2D" parent="Rotator"]
-modulate = Color(0.0705882, 0.541176, 0.156863, 1)
-position = Vector2(0, -104)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_7mxgb")
+position = Vector2(0, -80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_yeuj8")
+script = ExtResource("22_3ukpx")
 
 [node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "enemyRotator")]
 script = ExtResource("22_apy6b")
