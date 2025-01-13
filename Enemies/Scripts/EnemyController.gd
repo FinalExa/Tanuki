@@ -21,7 +21,7 @@ var characterRef
 @export var repelledDistance: float
 @export var repelledOffset: float
 @export var startingIndex: int
-@export var guardProperties: Array[String]
+@export var enemyProperties: Array[String]
 @export var enemyMovement: EnemyMovement
 @export var enemyRotator: EnemyRotator
 @export var enemyPatrol: EnemyPatrol

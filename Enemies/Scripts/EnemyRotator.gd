@@ -53,10 +53,10 @@ func stopLooking():
 	isDoneRotating = true
 
 func LookAtTarget(delta):
-	if (isLookingAtNode == true && target != null):
+	if (isLookingAtNode && target != null):
 		execute_rotation(target.global_position, delta)
 	else:
-		if (isLookingAtPosition == true):
+		if (isLookingAtPosition):
 			execute_rotation(vectorTarget, delta)
 
 func execute_rotation(rotationDestination: Vector2, delta):

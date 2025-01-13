@@ -6,7 +6,7 @@ func Evaluate(delta):
 	return startup(delta)
 
 func startup(delta):
-	if (enemyPatrol.startupActive == true):
+	if (enemyPatrol.startupActive):
 		if (enemyPatrol.startupTimer > 0):
 			enemyPatrol.startupTimer -= delta
 			return NodeState.SUCCESS

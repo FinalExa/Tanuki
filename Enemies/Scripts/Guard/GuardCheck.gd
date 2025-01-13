@@ -16,16 +16,16 @@ extends Area2D
 @export var checkingSound: AudioStreamPlayer2D
 var rayTargets: Array[Node2D]
 var checkActive: bool
-var checkTarget: Node2D
-var currentAlertValue: float
 var checkWithRayCast: bool
 var preCheckActive: bool
-var preCheckTimer: float
 var reductionOverTimeActive: bool
-var researchOutcome: bool
-var bodySave: Node2D
 var playerInsideCheckHitbox: bool
 var playerSeen: bool
+var checkTarget: Node2D
+var currentAlertValue: float
+var preCheckTimer: float
+var researchOutcome: bool
+var bodySave: Node2D
 var detectedTarget: Node2D
 var selectedMultiplier: float
 var raycastResult: Array[Node2D]
@@ -65,6 +65,15 @@ func check_raycast():
 				raycastResult.push_back(result.collider)
 			else:
 				raycastResult.push_back(null)
+
+func PrintCheckBool():
+	if (guardController.debug):
+		print(str("checkActive: ", checkActive))
+		print(str("checkWithRayCast: ", checkWithRayCast))
+		print(str("preCheckActive: ", preCheckActive))
+		print(str("reductionOverTimeActive: ", reductionOverTimeActive))
+		print(str("playerInsideCheckHitbox: ", playerInsideCheckHitbox))
+		print(str("playerSeen: ", playerSeen))
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):

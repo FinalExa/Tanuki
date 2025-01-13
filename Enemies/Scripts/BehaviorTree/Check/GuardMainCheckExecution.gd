@@ -35,15 +35,13 @@ func DetermineSuspicionType(target: PlayerCharacter):
 		if (target.velocity != Vector2.ZERO):
 			PlayerSuspiciousWhileTransformed(target)
 			return
-		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
-			enemyController.enemyRotator.setLookingAtNode(null)
-			return
 		if (playerHiddenStatus == 2):
 			PlayerSuspiciousWhileTransformed(target)
 			return
+		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
+			return
 		if (guardCheck.playerSeen):
-			SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
-			guardCheck.researchOutcome = false
+			PlayerSeenBeforeTransformation(target)
 		return
 	state = NodeState.FAILURE
 
@@ -54,6 +52,10 @@ func PlayerNotTransformed(target: PlayerCharacter):
 
 func PlayerSuspiciousWhileTransformed(target: PlayerCharacter):
 	guardCheck.playerSeen = true
+	SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
+	guardCheck.researchOutcome = false
+
+func PlayerSeenBeforeTransformation(target: PlayerCharacter):
 	SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
 	guardCheck.researchOutcome = false
 
