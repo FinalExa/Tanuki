@@ -122,7 +122,7 @@ position = Vector2(-3744, 216)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardB2/PatrolIndicator")]
 
 [node name="WardenE1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
-position = Vector2(1274, 200)
+position = Vector2(1274, -128)
 patrolIndicators = [NodePath("../../PatrolPoints/WardenE1/PatrolIndicator")]
 questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
@@ -683,7 +683,7 @@ moveActions = [NodePath("../13")]
 lookActions = Array[int]([1, 2])
 
 [node name="13" type="Node2D" parent="PatrolPoints/WardenE1"]
-position = Vector2(1311, -332)
+position = Vector2(1272, -640)
 
 [node name="GuardE1" type="Node2D" parent="PatrolPoints"]
 position = Vector2(0, 512)
@@ -725,12 +725,12 @@ position = Vector2(0, 512)
 [node name="PatrolIndicator" parent="PatrolPoints/WardenD1" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-768, 0)
 patrolActions = Array[int]([1, 2, 0, 2, 0])
-waitActions = Array[float]([2.0, 2.0])
+waitActions = Array[float]([3.5, 3.5])
 moveActions = [NodePath("../20")]
-lookActions = Array[int]([2, 3])
+lookActions = Array[int]([1, 2])
 
 [node name="20" type="Node2D" parent="PatrolPoints/WardenD1"]
-position = Vector2(2562, 61)
+position = Vector2(2720, 152)
 
 [node name="GuardD1" type="Node2D" parent="PatrolPoints"]
 position = Vector2(0, 512)
