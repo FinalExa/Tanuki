@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=73 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardController.gd" id="1_lw4ue"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsInAlert.gd" id="18_aenx3"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardStunned.gd" id="18_v785f"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertPreChase.gd" id="19_03pbj"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="19_sklpe"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertMainRaycast.gd" id="20_r5o6v"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertTargetNotSeen.gd" id="21_6cr5u"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardIsAttacking.gd" id="21_uu2lk"]
@@ -108,8 +109,12 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_03ume"]
+font = ExtResource("19_sklpe")
+font_color = Color(1, 0, 1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_45eyc"]
-radius = 96.3328
+radius = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnfgo"]
 radius = 577.997
@@ -232,11 +237,13 @@ stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
 
 [node name="EnemyStatus" type="Label" parent="."]
+z_index = 1000
 offset_left = -80.0
 offset_top = -96.0
 offset_right = 80.0
 offset_bottom = -73.0
 text = "ALERT VALUE"
+label_settings = SubResource("LabelSettings_03ume")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_erwln")

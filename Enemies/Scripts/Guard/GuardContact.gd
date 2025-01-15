@@ -7,7 +7,7 @@ var playerIn: bool = false
 var playerSave: Node2D
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter && body.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
+	if (body is PlayerCharacter):
 		playerIn = true
 		playerSave = body
 
@@ -16,10 +16,10 @@ func _on_body_exited(body):
 		playerIn = false
 
 func _process(_delta):
-	playerTouching()
+	PlayerTouching()
 
-func playerTouching():
-	if (playerIn):
+func PlayerTouching():
+	if (playerIn && playerSave.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
 		if (guardController.isInAlert):
 			guardController.guardAlert.lastTargetPosition = playerSave.global_position
 			guardController.guardAlert.extraTargetLocation = playerSave.global_position
