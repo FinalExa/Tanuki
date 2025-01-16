@@ -80,7 +80,7 @@ size = Vector2(1520, 129)
 size = Vector2(119, 583)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcg7"]
-size = Vector2(118, 772)
+size = Vector2(118, 508)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kjif"]
 size = Vector2(108, 763)
@@ -795,10 +795,38 @@ position = Vector2(-251, 608)
 [node name="Vase" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-704, -448)
 
-[node name="Vase2" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
+[node name="Vase2" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-704, -64)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase3" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-712, 336)
+
+[node name="Vase4" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-712, 976)
+
+[node name="Vase5" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(200, 960)
+
+[node name="Vase12" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(200, 336)
+
+[node name="Vase6" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(2248, 976)
+
+[node name="Vase7" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(184, -56)
+
+[node name="Vase8" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(184, -496)
+
+[node name="Vase9" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-2752, 208)
+
+[node name="Vase10" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-2448, 208)
+
+[node name="Vase11" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
+position = Vector2(-2120, 208)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 
@@ -910,6 +938,9 @@ shape = SubResource("RectangleShape2D_o6pkp")
 [node name="LocalAllowedItemsFeedback26" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_5utxs")]
 position = Vector2(-186, 177)
 
+[node name="LocalAllowedItemsFeedback36" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_5utxs")]
+position = Vector2(-306, 177)
+
 [node name="LocalAllowedItemsFeedback27" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_5utxs")]
 position = Vector2(-60, 179)
 
@@ -968,7 +999,7 @@ position = Vector2(-696, -264)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems5"]
-position = Vector2(0, 134)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_5xcg7")
 
 [node name="LocalAllowedItemsFeedback44" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
@@ -983,12 +1014,6 @@ position = Vector2(0, 72)
 [node name="LocalAllowedItemsFeedback47" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
 position = Vector2(0, 200)
 
-[node name="LocalAllowedItemsFeedback48" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, 328)
-
-[node name="LocalAllowedItemsFeedback49" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, 456)
-
 [node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-160, 512)
 allowedObjects = Array[String](["Vase"])
@@ -1002,6 +1027,9 @@ position = Vector2(352, 80)
 
 [node name="LocalAllowedItemsFeedback49" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_5utxs")]
 position = Vector2(360, 192)
+
+[node name="LocalAllowedItemsFeedback50" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_5utxs")]
+position = Vector2(360, 320)
 
 [node name="LocalAllowedItems7" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-600, 456)
