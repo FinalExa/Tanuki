@@ -10,15 +10,10 @@ size = Vector2(96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
 size = Vector2(128, 128)
 
-[node name="TransformationObject" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
-collision_layer = 3
+[node name="TransformationObject" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
 script = ExtResource("1_a53xs")
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
-transformedTailLocation = NodePath("TailLocation")
-
-[node name="TailLocation" type="Node2D" parent="."]
-position = Vector2(0, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3gx12")

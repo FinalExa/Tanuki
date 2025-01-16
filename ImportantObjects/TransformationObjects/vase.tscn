@@ -1,12 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4bpnku1o4lma"]
+[gd_scene load_steps=6 format=3 uid="uid://c2ugywobfjyne"]
 
-[ext_resource type="PackedScene" uid="uid://dkix8gwtvv1ki" path="res://ImportantObjects/TransformationObjects/transformation_object.tscn" id="1_grjbp"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_7h2c1"]
 [ext_resource type="Texture2D" uid="uid://beuhnrgsl0tw6" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Vaso.png" id="2_k5gfd"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_xabus"]
 
-[node name="Vase" instance=ExtResource("1_grjbp")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ica0"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvtmt"]
+radius = 88.0
+
+[node name="Vase" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_7h2c1")
 transformedName = "Vase"
-transformedMaxSpeed = 700.0
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/vase.tscn"
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ica0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.69407e-21, -16)
+scale = Vector2(0.96, 0.96)
 texture = ExtResource("2_k5gfd")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+position = Vector2(0, -16)
+script = ExtResource("3_xabus")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_bvtmt")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]
