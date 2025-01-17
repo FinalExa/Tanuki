@@ -11,18 +11,15 @@ func Evaluate(_delta):
 
 func MainCheck():
 	if (guardCheck.checkWithRayCast):
-		var foundSomething: bool = false
+		var foundSomething: bool
 		for i in guardCheck.raycastResult.size():
 			if (guardCheck.raycastResult[i] is PlayerCharacter):
-				foundSomething = true
-				DetermineSuspicionType(guardCheck.raycastResult[i])
-				return
-		if (!foundSomething):
-			state = NodeState.FAILURE
-			guardCheck.playerSeen = false
-			return
-	else:
+				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
+				if (foundSomething): return
 		state = NodeState.FAILURE
+		guardCheck.playerSeen = false
+		return
+	state = NodeState.FAILURE
 
 func DetermineSuspicionType(target: PlayerCharacter):
 	if (target is PlayerCharacter):
@@ -31,18 +28,18 @@ func DetermineSuspicionType(target: PlayerCharacter):
 			enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 		if (playerHiddenStatus == 0):
 			PlayerNotTransformed(target)
-			return
+			return true
 		if (target.velocity != Vector2.ZERO):
 			PlayerSuspiciousWhileTransformed(target)
-			return
+			return true
 		if (playerHiddenStatus == 2):
 			PlayerSuspiciousWhileTransformed(target)
-			return
+			return true
 		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
-			return
+			return false
 		if (guardCheck.playerSeen):
 			PlayerSeenBeforeTransformation(target)
-		return
+		return true
 	state = NodeState.FAILURE
 
 func PlayerNotTransformed(target: PlayerCharacter):

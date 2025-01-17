@@ -66,15 +66,6 @@ func check_raycast():
 			else:
 				raycastResult.push_back(null)
 
-func PrintCheckBool():
-	if (guardController.debug):
-		print(str("checkActive: ", checkActive))
-		print(str("checkWithRayCast: ", checkWithRayCast))
-		print(str("preCheckActive: ", preCheckActive))
-		print(str("reductionOverTimeActive: ", reductionOverTimeActive))
-		print(str("playerInsideCheckHitbox: ", playerInsideCheckHitbox))
-		print(str("playerSeen: ", playerSeen))
-
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = true
