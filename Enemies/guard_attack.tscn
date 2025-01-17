@@ -17,20 +17,20 @@ attackSounds = [null, null]
 attackMovements = Array[float]([0.0, 200.0])
 
 [node name="Feedback" type="Node2D" parent="."]
+position = Vector2(0, -32)
 
 [node name="Sprite2D" type="Sprite2D" parent="Feedback"]
 modulate = Color(0, 0.431373, 0.321569, 1)
 texture = ExtResource("2_b26ba")
 
 [node name="EnemyAttackHitbox" type="Area2D" parent="."]
+position = Vector2(0, -136)
 script = ExtResource("2_4o2q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttackHitbox"]
-position = Vector2(0, -104)
 shape = SubResource("RectangleShape2D_1ia6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyAttackHitbox"]
-position = Vector2(-3.8147e-06, -108)
 scale = Vector2(1.77778, 1)
 texture = ExtResource("2_b26ba")
 

@@ -72,7 +72,6 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
 shape = SubResource("CircleShape2D_2aaw5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -118,7 +117,7 @@ stream = ExtResource("10_nqx0w")
 max_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 0)
+position = Vector2(16, -32)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 

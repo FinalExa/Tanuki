@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="2_c40o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs1ow"]
-size = Vector2(192, 64)
+size = Vector2(176, 48)
 
 [node name="CleanerAttackHitbox" type="Area2D"]
 script = ExtResource("1_je12p")

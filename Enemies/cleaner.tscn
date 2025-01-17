@@ -31,7 +31,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="44_8gufd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 48.0
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddvlc"]
 atlas = ExtResource("7_ptt57")
