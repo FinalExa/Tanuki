@@ -31,7 +31,7 @@ func TargetIsVisible():
 func BackToResearch():
 	if (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 		guardAlert.stop_alert()
-		enemyController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
+		enemyController.guardResearch.StartResearchWithSuspiciousItem(guardAlert.alertTarget)
 		return true
 	return false
 

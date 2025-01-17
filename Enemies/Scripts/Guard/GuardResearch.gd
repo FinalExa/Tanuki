@@ -11,6 +11,10 @@ extends Node2D
 @export var secondaryRayTargets: Array[Node2D]
 @export var researchActiveText: String
 @export var researchLaunchDuration: float
+@export var suspiciousItemsThresholdDistance: float
+@export var stunnedGuardsThresholdDistance: float
+@export var priorityTargetThresholdDistance: float
+@export var researchEnterSound: AudioStreamPlayer2D
 var researchLaunched: bool
 var researchLaunchTimer: float
 var researchEndTimer: float
@@ -19,17 +23,13 @@ var researchLocation: Vector2
 var researchPosition: Vector2
 var researchLastPosition: Vector2
 var researchLastDirection: Vector2
-@export var suspiciousItemsThresholdDistance: float
 var suspiciousItemsList: Array[Node2D]
-@export var stunnedGuardsThresholdDistance: float
 var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
-@export var priorityTargetThresholdDistance: float
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
-@export var researchEnterSound: AudioStreamPlayer2D
 
 @export var guardController: GuardController
 
@@ -60,6 +60,10 @@ func InitializeResearchWithLocation(location: Vector2):
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
 	researchEnterSound.play()
+
+func StartResearchWithSuspiciousItem(target: Node2D):
+	initialize_guard_research(target)
+	suspiciousItemsList.push_front(target)
 
 func ResearchRaycasts():
 	if (guardController.isInResearch):
