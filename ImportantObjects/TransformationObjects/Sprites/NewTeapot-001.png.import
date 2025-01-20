@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2oxy8ngqkl4n"
-path="res://.godot/imported/Teapot-normal-001.png-556f64fdb563ace6eb67c75f002f5fb7.ctex"
+uid="uid://1wd0dc4sf6go"
+path="res://.godot/imported/NewTeapot-001.png-8a56afa65a64f464e723e3c26756e54e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Teapot-normal-001.png"
-dest_files=["res://.godot/imported/Teapot-normal-001.png-556f64fdb563ace6eb67c75f002f5fb7.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/NewTeapot-001.png"
+dest_files=["res://.godot/imported/NewTeapot-001.png-8a56afa65a64f464e723e3c26756e54e.ctex"]
 
 [params]
 

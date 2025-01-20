@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqe8xaw2lkk2q"
-path="res://.godot/imported/Teapot-over-001-sprite.png-4218ba4be1a64df41850c27df2ff53de.ctex"
+uid="uid://bu0apdgwxwxmx"
+path="res://.godot/imported/Canvas-001.png-608cc352e1d0680eff53895863314070.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Teapot-over-001-sprite.png"
-dest_files=["res://.godot/imported/Teapot-over-001-sprite.png-4218ba4be1a64df41850c27df2ff53de.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/Canvas-001.png"
+dest_files=["res://.godot/imported/Canvas-001.png-608cc352e1d0680eff53895863314070.ctex"]
 
 [params]
 

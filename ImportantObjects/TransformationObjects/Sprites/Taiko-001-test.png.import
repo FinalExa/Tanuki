@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4csli0cjh0eb"
-path="res://.godot/imported/taikodrum.png-a39c83ed4ee5eed844f0a372277a8841.ctex"
+uid="uid://bor8xisgfwf43"
+path="res://.godot/imported/Taiko-001-test.png-6a277e277bb1e6095e6742ca0e023767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/taikodrum.png"
-dest_files=["res://.godot/imported/taikodrum.png-a39c83ed4ee5eed844f0a372277a8841.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Taiko-001-test.png"
+dest_files=["res://.godot/imported/Taiko-001-test.png-6a277e277bb1e6095e6742ca0e023767.ctex"]
 
 [params]
 
