@@ -13,7 +13,7 @@ var active: bool
 var executing: bool
 var executeTimer: float
 
-func _process(delta):
+func _physics_process(delta):
 	CheckIfActive()
 	ExecuteTimer(delta)
 	ExecuteActive()
@@ -53,8 +53,18 @@ func ExecuteTimer(delta):
 func ExecuteActive():
 	if (active && executing):
 		for i in enemiesIn.size():
-			if (enemiesIn[i] != null):
+			if (VerifyIfTargetIsHittable(enemiesIn[i])):
 				ProcessEnemy(enemiesIn[i])
+
+func VerifyIfTargetIsHittable(target: Node2D):
+	if (target != null):
+		var space_state = playerRef.get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(playerRef.global_position, target.global_position)
+		query.exclude = [playerRef]
+		var result = space_state.intersect_ray(query)
+		if (result && result != { } && result.collider == target):
+			return true
+	return false
 
 func ProcessEnemy(enemy: EnemyController):
 	if (enemy is GuardController):
