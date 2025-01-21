@@ -11,7 +11,7 @@ func _ready():
 	frameTime = 1 / framesPerSecond
 	frameTimer = 0
 
-func _process(delta):
+func _physics_process(delta):
 	FrameTimer(delta)
 
 func FrameTimer(delta):
