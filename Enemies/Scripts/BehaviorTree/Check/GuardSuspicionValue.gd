@@ -18,11 +18,10 @@ func IncreaseSuspicionValue(delta, multiplier):
 			guardCheck.send_alert_value()
 			return NodeState.FAILURE
 		else:
+			guardCheck.stop_guardCheck()
 			if (guardCheck.researchOutcome):
-				guardCheck.stop_guardCheck()
 				enemyController.guardAlert.start_alert(guardCheck.checkTarget)
 			else:
-				guardCheck.stop_guardCheck()
-				enemyController.guardResearch.initialize_guard_research(guardCheck.checkTarget)
+				enemyController.guardResearch.StartResearchWithSuspiciousItem(guardCheck.checkTarget)
 			return NodeState.SUCCESS
 	return NodeState.FAILURE
