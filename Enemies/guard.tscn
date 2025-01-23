@@ -111,7 +111,10 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_03ume"]
 font = ExtResource("19_sklpe")
+font_size = 18
 font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45eyc"]
 radius = 64.0
@@ -239,9 +242,9 @@ enemyController = NodePath("..")
 [node name="EnemyStatus" type="Label" parent="."]
 z_index = 1000
 offset_left = -80.0
-offset_top = -96.0
+offset_top = -144.0
 offset_right = 80.0
-offset_bottom = -73.0
+offset_bottom = -121.0
 text = "ALERT VALUE"
 label_settings = SubResource("LabelSettings_03ume")
 horizontal_alignment = 1

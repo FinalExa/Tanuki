@@ -48,7 +48,7 @@ func LaunchGuardAlert(guardRef: GuardController):
 		guardRef.guardAlert.start_alert(controllerRef.guardAlert.alertTarget)
 
 func UpdateWithLatestPosition(guardRef: GuardController):
-	if (guardRef.isInAlert && controllerRef.guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
+	if (guardRef.isInAlert && controllerRef.guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() != 1 && !controllerRef.guardAlert.lostSightOfPlayer):
 		guardRef.guardAlert.goToAlertStartLocation = true
 		guardRef.guardAlert.SetAlertTargetLastInfo(controllerRef.guardAlert.alertTarget)
 
