@@ -768,7 +768,7 @@ moveActions = [NodePath("../28"), NodePath("../29"), NodePath("../30"), NodePath
 lookActions = Array[int]([3, 2, 1, 0])
 
 [node name="28" type="Node2D" parent="PatrolPoints/GuardD2"]
-position = Vector2(-1024, 576)
+position = Vector2(-1376, 608)
 
 [node name="29" type="Node2D" parent="PatrolPoints/GuardD2"]
 position = Vector2(2432, 576)

@@ -165,6 +165,7 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="CleanerAttackHitbox" parent="Rotator" instance=ExtResource("18_kg6tm")]
+position = Vector2(0, -64)
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
