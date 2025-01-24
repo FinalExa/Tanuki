@@ -17,7 +17,8 @@ func MainCheck():
 				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
 				if (foundSomething): return
 				else: break
-		state = NodeState.FAILURE
+		SuspicionStop()
+		state = NodeState.SUCCESS
 		guardCheck.playerSeen = false
 		return
 	state = NodeState.FAILURE
@@ -69,3 +70,9 @@ func StartPreCheck(target, multiplier):
 	guardCheck.preCheckTimer = guardCheck.preCheckDuration
 	guardCheck.detectedTarget = target
 	guardCheck.selectedMultiplier = multiplier
+
+func SuspicionStop():
+	if (guardCheck.preCheckActive):
+		guardCheck.preCheckActive = false
+	if (enemyController.isChecking):
+		enemyController.isChecking = false

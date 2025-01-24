@@ -120,7 +120,7 @@ animation = &"idle"
 script = ExtResource("6_tgxdo")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
-defaultMovementSpeed = 500.0
+defaultMovementSpeed = 600.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
