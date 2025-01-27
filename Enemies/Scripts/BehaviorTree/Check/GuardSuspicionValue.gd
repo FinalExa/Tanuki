@@ -5,7 +5,6 @@ extends GuardNode
 func Evaluate(delta):
 	if (!guardCheck.preCheckActive && enemyController.isChecking):
 		return IncreaseSuspicionValue(delta, guardCheck.selectedMultiplier)
-	return NodeState.SUCCESS
 
 func IncreaseSuspicionValue(delta, multiplier):
 	if (guardCheck.checkTarget != null):

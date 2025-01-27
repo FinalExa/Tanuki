@@ -17,7 +17,7 @@ func MainCheck():
 				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
 				if (foundSomething): return
 				else: break
-		state = NodeState.SUCCESS
+		state = NodeState.FAILURE
 		guardCheck.playerSeen = false
 		return
 	state = NodeState.FAILURE
