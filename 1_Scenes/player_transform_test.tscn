@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_i10ud"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="4_qtcec"]
+[ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="5_42h3g"]
 [ext_resource type="PackedScene" uid="uid://bcutqjhdgpo5s" path="res://ImportantObjects/ActivationObjects/substitution_giver.tscn" id="6_2dxd0"]
-[ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="7_myx1q"]
 [ext_resource type="PackedScene" uid="uid://mgclvfoe0n3l" path="res://ImportantObjects/Traps/death_trap_interaction_object.tscn" id="8_bh5e8"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
@@ -38,30 +38,18 @@ position = Vector2(448, 192)
 [node name="ThirdCheckPoint" type="Node2D" parent="PatrolIndicator"]
 position = Vector2(-360, -200)
 
-[node name="PatrolIndicator2" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
-position = Vector2(704, 768)
-script = ExtResource("8_n2toe")
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
-waitActions = Array[float]([0.5, 0.5, 0.5, 0.5])
-moveActions = [NodePath("1")]
-lookActions = Array[int]([0, 3, 1, 2])
-
-[node name="1" type="Node2D" parent="PatrolIndicator2"]
-position = Vector2(-192, -192)
-
 [node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("4_qtcec")]
 position = Vector2(408, -32)
 patrolIndicators = [NodePath("../PatrolIndicator")]
+
+[node name="Vase" parent="." instance=ExtResource("5_42h3g")]
+position = Vector2(128, 192)
 
 [node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
 position = Vector2(-1160, 232)
 
 [node name="SubstitutionGiver" parent="." instance=ExtResource("6_2dxd0")]
 position = Vector2(-816, 152)
-
-[node name="Warden" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("7_myx1q")]
-position = Vector2(592, 576)
-patrolIndicators = [NodePath("../PatrolIndicator2")]
 
 [node name="DeathTrapInteractionObject" parent="." instance=ExtResource("8_bh5e8")]
 position = Vector2(-448, 192)
