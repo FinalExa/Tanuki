@@ -799,34 +799,34 @@ position = Vector2(-704, -448)
 position = Vector2(-704, -64)
 
 [node name="Vase3" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-712, 336)
+position = Vector2(-720, 336)
 
 [node name="Vase4" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-712, 976)
+position = Vector2(-720, 976)
 
 [node name="Vase5" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(200, 960)
+position = Vector2(208, 928)
 
 [node name="Vase12" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(200, 336)
 
 [node name="Vase6" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(2248, 976)
+position = Vector2(2248, 944)
 
 [node name="Vase7" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(184, -56)
+position = Vector2(192, -56)
 
 [node name="Vase8" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(184, -496)
+position = Vector2(192, -496)
 
 [node name="Vase9" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-2752, 208)
+position = Vector2(-2752, 176)
 
 [node name="Vase10" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-2448, 208)
+position = Vector2(-2448, 176)
 
 [node name="Vase11" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-2120, 208)
+position = Vector2(-2136, 176)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 

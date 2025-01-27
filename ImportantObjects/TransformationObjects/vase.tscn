@@ -18,13 +18,13 @@ transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/vase.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1ica0")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.69407e-21, -16)
 scale = Vector2(0.96, 0.96)
 texture = ExtResource("2_k5gfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ica0")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
 position = Vector2(0, -16)
