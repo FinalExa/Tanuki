@@ -12,14 +12,16 @@ func Evaluate(_delta):
 func MainCheck():
 	if (guardCheck.checkWithRayCast):
 		var foundSomething: bool
+		var playerInRaycast: bool = false
 		for i in guardCheck.raycastResult.size():
 			if (guardCheck.raycastResult[i] is PlayerCharacter):
+				playerInRaycast = true
 				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
-				if (foundSomething): return
-				else: break
-		state = NodeState.FAILURE
-		guardCheck.playerSeen = false
-		return
+				if (!foundSomething): PlayerNotSeen()
+				return
+		if (!playerInRaycast):
+			state = NodeState.SUCCESS
+			return
 	state = NodeState.FAILURE
 
 func DetermineSuspicionType(target: PlayerCharacter):
@@ -30,10 +32,7 @@ func DetermineSuspicionType(target: PlayerCharacter):
 		if (playerHiddenStatus == 0):
 			PlayerNotTransformed(target)
 			return true
-		if (target.velocity != Vector2.ZERO):
-			PlayerSuspiciousWhileTransformed(target)
-			return true
-		if (playerHiddenStatus == 2):
+		if (target.velocity != Vector2.ZERO || playerHiddenStatus == 2):
 			PlayerSuspiciousWhileTransformed(target)
 			return true
 		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
@@ -56,6 +55,10 @@ func PlayerSuspiciousWhileTransformed(target: PlayerCharacter):
 func PlayerSeenBeforeTransformation(target: PlayerCharacter):
 	SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
 	guardCheck.researchOutcome = false
+
+func PlayerNotSeen():
+	state = NodeState.FAILURE
+	guardCheck.playerSeen = false
 
 func SuspicionActive(target: Node2D, multiplier):
 	if (guardCheck.reductionOverTimeActive):
