@@ -15,9 +15,7 @@ func MainCheck():
 		for i in guardCheck.raycastResult.size():
 			if (guardCheck.raycastResult[i] is PlayerCharacter):
 				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
-				if (foundSomething):
-					state = NodeState.SUCCESS
-					return
+				if (foundSomething): return
 				else: break
 		state = NodeState.SUCCESS
 		guardCheck.playerSeen = false
