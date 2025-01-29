@@ -259,7 +259,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 5.0
+rotationSpeed = 7.5
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
@@ -607,7 +607,7 @@ position = Vector2(-160, 0)
 [node name="GuardAlert" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "screamArea", "alertStartSound", "guardController")]
 script = ExtResource("5_t7kgq")
 alertMovementSpeed = 425.0
-catchDistanceThreshold = 225.0
+catchDistanceThreshold = 250.0
 catchPreparationDuration = 0.1
 targetNotSeenDuration = 5.0
 targetNotSeenLastLocationThreshold = 100.0
