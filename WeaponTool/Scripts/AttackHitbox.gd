@@ -24,7 +24,7 @@ func EndAttack():
 func Attack():
 	if (activated):
 		for i in targetsInRange.size():
-			if (VerifyIfTargetIsHittable(targetsInRange[i])):
+			if (targetsInRange[i] != null && VerifyIfTargetIsHittable(targetsInRange[i])):
 				LaunchAttackOnTargetInRange(targetsInRange[i])
 
 func VerifyIfTargetIsHittable(target: Node2D):

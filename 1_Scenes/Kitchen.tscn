@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=62 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -33,8 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_63it3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tg1ch"]
 vertices = PackedVector2Array(-2096, 448, -2096, 480, -4064, 480, -2160, 448, -2240, 256, -2160, 320, -4064, 352, -2328, 256, -2848, 256, -4688, 352, -4688, 208, -4064, -32, -2848, -32, -4832, 208, -4832, -32, -4064, -480, -4832, -480, -4832, -736, -3616, -736, -3616, -672, -3472, -672, -3472, -736, -2096, -736, -2096, -480, -2848, -480, -2848, -224, -2048, -224, -2048, -32, -2656, 256, -2656, 168, -2552, 168, -2552, 256, -2328, 168, -2240, 168, -2096, 256, -2096, 320)
@@ -137,9 +135,6 @@ mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunW
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0"), NodePath("Quests/KitchenSecretRoom/RoomG/VaseGrown1")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_63it3")
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -474,12 +469,12 @@ questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
 
 [node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
-position = Vector2(40, 936)
+position = Vector2(40, 984)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="VaseGrown0" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
-position = Vector2(40, 936)
+position = Vector2(40, 984)
 sendToTravelID = null
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
@@ -604,12 +599,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-458738, 65536, 0, -458737, 131072, 1, -458736, 131072, 1, -458735, 131072, 1, -458734, 131072, 1, -458733, 131072, 1, -458732, 262144, 1, -393196, 262144, 1, -327660, 262144, 1, -262124, 262144, 1)
 
 [node name="VaseEmpty" parent="Quests/KitchenSecretRoom/RoomG" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
-position = Vector2(2536, -584)
+position = Vector2(2536, -528)
 questToSendProgressSignal = NodePath("../../../KitchenGrowPlantInRoomG")
 sendSignalToQuestOnDestroyed = true
 
 [node name="VaseGrown1" parent="Quests/KitchenSecretRoom/RoomG" instance=ExtResource("20_0oc42")]
-position = Vector2(2536, -584)
+position = Vector2(2536, -528)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
@@ -671,7 +666,6 @@ position = Vector2(-728, 1376)
 position = Vector2(2536, -656)
 
 [node name="PatrolPoints" type="Node2D" parent="."]
-visible = false
 
 [node name="GuardB1" type="Node2D" parent="PatrolPoints"]
 position = Vector2(0, 512)
