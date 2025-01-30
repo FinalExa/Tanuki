@@ -17,14 +17,14 @@ func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 	if (!hitboxActive):
 		add_call_hitbox()
 	if (!playerHasBeenCaptured):
-		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
+		playerRef.movementRef.set_max_speed(PCMovement.SpeedTier.SLOW)
 		if (!playerHasBeenMoved):
 			playerRef.global_position = self.get_parent().global_position
 			playerHasBeenMoved = true
 		playerHasBeenCaptured = true
 	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.transformationChangeRef.DeactivateTransformation()
-		playerRef.movementRef.set_max_speed(playerSpeedWhileCaptured)
+		playerRef.movementRef.set_max_speed(PCMovement.SpeedTier.SLOW)
 
 func execute_negated_effect(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
