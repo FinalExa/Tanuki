@@ -4,16 +4,16 @@ extends InteractionObjectEffect
 @export var guardLaunchDistance: float
 
 func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
-	if (receivedBody!=null):
+	if (receivedBody != null):
 		if (receivedBody is PlayerCharacter):
 			receivedBody.GameOver(self)
-		else:
-			if(!receivedBody.isStunned):
-				receivedBody.is_damaged(self.global_position)
-				var destination: Vector2 = self.get_parent().global_position.direction_to(receivedBody.global_position)
-				destination *= guardLaunchDistance
-				receivedBody.translate(destination)
-				receivedBody.enemyMovement.set_location_target(receivedBody.global_position)
+			return
+		if (receivedBody is EnemyController && !receivedBody.isStunned):
+			var destination: Vector2 = self.get_parent().global_position.direction_to(receivedBody.global_position)
+			receivedBody.is_damaged(self.global_position, EnemyStunned.StunTier.MEDIUM)
+			destination *= guardLaunchDistance
+			receivedBody.translate(destination)
+			receivedBody.enemyMovement.set_location_target(receivedBody.global_position)
 
 func execute_negated_effect(receivedBody: CharacterBody2D, delta):
 	if (receivedBody is PlayerCharacter):

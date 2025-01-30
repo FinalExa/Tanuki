@@ -3,8 +3,8 @@ extends EnemyStunned
 
 @export var enemyCollider: CollisionShape2D
 
-func start_stun(direction: Vector2):
-	ExecuteStunStartup(direction)
+func start_stun(direction: Vector2, tier: EnemyStunned.StunTier):
+	ExecuteStunStartup(direction, tier)
 	enemyCollider.disabled = true
 
 func end_stun():

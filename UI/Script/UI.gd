@@ -2,13 +2,13 @@ class_name PlayerHUD
 extends Control
 
 signal transformation_texture
-signal timer_value
 signal has_attack
 signal attack_cooldown
 
 @export var playerInputs: PlayerInputs
 @export var playerRef: PlayerCharacter
 @export var timerBar: TimerBar
+@export var substitutionStacksLabel: Label
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
@@ -112,3 +112,6 @@ func _on_gameover_reload_button_button_up():
 
 func _on_transformation_change_send_transformation_has_attack(status):
 	emit_signal("has_attack", status)
+
+func UpdateSubstitutionStacksLabel(value: int):
+	substitutionStacksLabel.text = str(value)

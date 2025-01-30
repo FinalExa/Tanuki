@@ -88,6 +88,7 @@ func EndAttack():
 		RemoveAttackHitbox(attackPhasesLaunch.size() - 1)
 		currentPhase = 0
 		CheckForCooldown()
+		OnAttackEnd()
 
 func CheckForCooldown():
 	if (attackCooldown == 0):
@@ -101,6 +102,7 @@ func ForceEndAttack():
 		RemoveAttackHitboxes()
 		currentPhase = 0
 		CheckForCooldown()
+		OnAttackEnd()
 
 func StartCooldown():
 	attackInCooldown = true
@@ -135,16 +137,11 @@ func RemoveAttackHitboxes():
 func CalculateCurrentAttackMovement(index: int):
 	if (attackMovements.size() > 0 && attackMovements[index] != null):
 		movementDirection = characterRef.GetRotator().get_current_look_direction()
-		if (index == attackPhasesLaunch.size() - 1):
-			movementValue = attackMovements[index] / float(attackDuration - attackPhasesLaunch[index])
-			return
-		if (index < attackPhasesLaunch.size() - 1):
-			movementValue = attackMovements[index] / float(attackPhasesLaunch[index + 1] - attackPhasesLaunch[index])
 
 func AttackMovement(index: int):
 	if (attackMovements.size() > 0 && index < attackMovements.size() && attackMovements[index] != null):
-		var translateValue: Vector2 = movementValue * movementDirection
-		characterRef.translate(translateValue)
+		var velocityValue: Vector2 = attackMovements[index] * movementDirection
+		characterRef.velocity = velocityValue
 
 func StopAllSounds():
 	if (attackSounds.size() > 0):
@@ -156,4 +153,7 @@ func ActiveCooldownFeedback():
 	pass
 
 func EndCooldownFeedback():
+	pass
+
+func OnAttackEnd():
 	pass

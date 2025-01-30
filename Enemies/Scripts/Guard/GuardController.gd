@@ -11,10 +11,11 @@ var isInResearch: bool
 @export var guardDistraction: GuardDistraction
 @export var enemyAttack: EnemyAttack
 
-func is_damaged(direction: Vector2):
+func is_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (isInAlert):
 		enemyStunned.stunnedFromAlert = true
-	Damaged(direction)
+	Damaged(direction, tier)
 
 func RepelExtraOperation():
-	guardResearch.InitializeResearchWithLocation(repelledPosition)
+	if (!isStunned && !isInAlert):
+		guardResearch.InitializeResearchWithLocation(repelledPosition)

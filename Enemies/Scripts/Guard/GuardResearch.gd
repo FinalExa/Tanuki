@@ -11,8 +11,10 @@ extends Node2D
 @export var secondaryRayTargets: Array[Node2D]
 @export var researchActiveText: String
 @export var researchLaunchDuration: float
-@export var mainAreaFeedback: Node2D
-@export var secondaryAreaFeedback: Node2D
+@export var suspiciousItemsThresholdDistance: float
+@export var stunnedGuardsThresholdDistance: float
+@export var priorityTargetThresholdDistance: float
+@export var researchEnterSound: AudioStreamPlayer2D
 var researchLaunched: bool
 var researchLaunchTimer: float
 var researchEndTimer: float
@@ -21,22 +23,15 @@ var researchLocation: Vector2
 var researchPosition: Vector2
 var researchLastPosition: Vector2
 var researchLastDirection: Vector2
-@export var suspiciousItemsThresholdDistance: float
 var suspiciousItemsList: Array[Node2D]
-@export var stunnedGuardsThresholdDistance: float
 var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
-@export var priorityTargetThresholdDistance: float
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
-@export var researchEnterSound: AudioStreamPlayer2D
 
 @export var guardController: GuardController
-
-func _ready():
-	ClearFeedbacks()
 
 func _physics_process(_delta):
 	ResearchRaycasts()
@@ -45,8 +40,6 @@ func initialize_guard_research(target: Node2D):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.enemyStatus.updateText(researchActiveText)
-	add_feedback(mainAreaFeedback)
-	add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
 	if (target is PlayerCharacter):
 		save_target_info(target, true)
@@ -61,14 +54,16 @@ func InitializeResearchWithLocation(location: Vector2):
 	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.enemyStatus.updateText(researchActiveText)
-	add_feedback(mainAreaFeedback)
-	add_feedback(secondaryAreaFeedback)
 	reset_research_end_timer()
 	SaveLocationInfo(location, false)
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
 	researchEnterSound.play()
+
+func StartResearchWithSuspiciousItem(target: Node2D):
+	initialize_guard_research(target)
+	suspiciousItemsList.push_front(target)
 
 func ResearchRaycasts():
 	if (guardController.isInResearch):
@@ -81,6 +76,7 @@ func LaunchRaycast(rayList: Array[Node2D], space_state):
 	raycastResult.clear()
 	for i in rayList.size():
 		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayList[i].global_position)
+		query.exclude = [guardController]
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }): 
 			raycastResult.push_back(result.collider)
@@ -111,17 +107,16 @@ func research_to_check():
 	guardController.guardCheck.resume_check()
 
 func StopResearch():
-	ClearFeedbacks()
 	guardController.isInResearch = false
 
 func ReachedDestination():
 	if (guardController.isInResearch):
 		guardController.enemyRotator.setLookingAtPosition(researchLastPosition + (researchLastDirection))
 
-func _on_guard_damaged(direction: Vector2):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isInResearch):
 		StopResearch()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isInResearch):
@@ -129,13 +124,3 @@ func OnGuardRepelled():
 
 func reset_research_end_timer():
 	researchEndTimer = researchEndDuration
-
-func ClearFeedbacks():
-	remove_feedback(mainAreaFeedback)
-	remove_feedback(secondaryAreaFeedback)
-
-func add_feedback(feedback: Node2D):
-	feedback.show()
-
-func remove_feedback(feedback: Node2D):
-	feedback.hide()

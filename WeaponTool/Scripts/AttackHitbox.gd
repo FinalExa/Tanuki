@@ -9,7 +9,7 @@ var activated: bool
 func _ready():
 	EndAttack()
 
-func _process(_delta):
+func _physics_process(_delta):
 	Attack()
 
 func StartAttack():
@@ -24,7 +24,18 @@ func EndAttack():
 func Attack():
 	if (activated):
 		for i in targetsInRange.size():
-			LaunchAttackOnTargetInRange(targetsInRange[i])
+			if (targetsInRange[i] != null && VerifyIfTargetIsHittable(targetsInRange[i])):
+				LaunchAttackOnTargetInRange(targetsInRange[i])
+
+func VerifyIfTargetIsHittable(target: Node2D):
+	if (target != null && !hitTargets.has(target)):
+		var space_state = characterRef.get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(characterRef.global_position, target.global_position)
+		query.exclude = [characterRef]
+		var result = space_state.intersect_ray(query)
+		if (result && result != { } && result.collider == target):
+			return true
+	return false
 
 func LaunchAttackOnTargetInRange(_targetInRange: Node2D):
 	pass

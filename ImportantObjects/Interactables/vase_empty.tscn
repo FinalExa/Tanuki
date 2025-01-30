@@ -3,17 +3,16 @@
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_iri44"]
 [ext_resource type="Texture2D" uid="uid://de2s73hvajbw0" path="res://ImportantObjects/Interactables/Sprites/vaseEmpty.png" id="2_1syol"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctk7x"]
+radius = 8.0
 
 [node name="VaseEmpty" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_iri44")
 neededProperties = Array[String](["Water"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 56)
-shape = SubResource("RectangleShape2D_kufeo")
+shape = SubResource("CircleShape2D_ctk7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.8147e-06, 0)
+position = Vector2(0, -56)
 texture = ExtResource("2_1syol")

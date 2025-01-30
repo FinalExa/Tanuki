@@ -12,7 +12,6 @@ extends Node2D
 @export var alertText: String
 @export var screamArea: ScreamArea
 @export var returnToCheckAlertValue: float
-@export var alertAreaFeedback: Node2D
 @export var alertStartSound: AudioStreamPlayer2D
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
@@ -20,9 +19,9 @@ var preChaseTimer: float
 var catchPreparationActive: bool
 var targetNotSeenActive: bool
 var chaseStart: bool
-var goToAlertStartLocation: bool
 var firstLocationReached: bool
 var secondLocationReached: bool
+var goToAlertStartLocation: bool
 var secondLocationTargetCheckLaunched: bool
 var lostSightOfPlayer: bool
 var alertTarget: Node2D
@@ -43,8 +42,6 @@ func _physics_process(_delta):
 func start_alert(target):
 	guardController.enemyStatus.updateText(alertText)
 	alertTarget = target
-	if (alertTarget is TailFollow):
-		alertTarget = target.playerRef
 	SetAlertTargetLastInfo(alertTarget)
 	preChaseTimer = preChaseDuration
 	call_deferred("AddAreas")
@@ -71,6 +68,7 @@ func AlertRaycast(space_state):
 	raycastResult.clear()
 	for i in rayTargets.size():
 		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, rayTargets[i].global_position)
+		query.exclude = [guardController]
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }): 
 			raycastResult.push_back(result.collider)
@@ -96,20 +94,18 @@ func stop_alert():
 	RemoveAreas()
 	guardController.enemyMovement.reset_movement_speed()
 
-func _on_guard_damaged(direction: Vector2):
-	if (guardController.isInAlert == true):
+func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
+	if (guardController.isInAlert):
 		stop_alert()
-		guardController.enemyStunned.start_stun(direction)
+		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
-	if (guardController.isInAlert == true):
+	if (guardController.isInAlert):
 		stop_alert()
 
 func RemoveAreas():
 	screamArea.SetInactive()
-	alertAreaFeedback.hide()
 
 func AddAreas():
 	screamArea.SetActive()
 	screamArea.SetControllerRef(guardController)
-	alertAreaFeedback.show()

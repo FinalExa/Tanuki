@@ -38,6 +38,7 @@ func SaveMapData(file):
 func SavePlayerData(file):
 	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
 	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
+	file.store_var(playerRef.playerSubstitutionAttack.currentSubstitutionStacks)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyTypes)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyIDs)
 	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
@@ -65,6 +66,7 @@ func LoadPlayerData():
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
+		playerRef.playerSubstitutionAttack.currentSubstitutionStacks = file.get_var()
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyTypes)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyIDs)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)

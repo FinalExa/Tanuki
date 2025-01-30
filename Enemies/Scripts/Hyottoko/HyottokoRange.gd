@@ -22,8 +22,6 @@ func RangeRaycast():
 				if (!CheckPlayerTransformationStatus(result.collider)):
 					SetSpottingPlayer()
 					return
-			if (result.collider is TailFollow):
-				SetSpottingPlayer()
 		UnsetSpottingPlayer()
 
 func _on_body_entered(body):

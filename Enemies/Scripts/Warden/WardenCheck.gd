@@ -58,7 +58,6 @@ func AddArea():
 	wardenAlertArea.SetActive()
 
 func RemoveArea():
-	wardenAlertArea.ClearGuardsInArea()
 	wardenAlertArea.SetInactive()
 
 func EndWardenCheck():
@@ -70,7 +69,7 @@ func CheckToRemoveArea():
 	if (enemyController.enemyRotator.isLookingAtNode && enemyController.enemyRotator.target is PlayerCharacter):
 		enemyController.enemyRotator.stopLooking()
 
-func _on_warden_damaged(direction: Vector2):
+func _on_warden_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (raycastResult is PlayerCharacter):
 		EndWardenCheck()
-		enemyController.enemyStunned.start_stun(direction)
+		enemyController.enemyStunned.start_stun(direction, tier)

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt7a7jiw1pgtx"]
-
-[ext_resource type="Texture2D" uid="uid://2luv4ek0ujun" path="res://Level/Sprites/Placeholder/Trave Orizzontale.png" id="1_uk3mu"]
-
-[node name="RoofBeam" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
-texture = ExtResource("1_uk3mu")

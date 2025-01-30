@@ -14,7 +14,6 @@ size = Vector2(80, 64)
 collision_layer = 3
 script = ExtResource("1_l1s5u")
 transformedName = "Dish"
-transformedMaxSpeed = 500.0
 transformedProperties = Array[String](["Food"])
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")

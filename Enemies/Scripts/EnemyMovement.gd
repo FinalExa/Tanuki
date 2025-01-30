@@ -14,6 +14,7 @@ var currentMovementSpeed: float
 var target: Node2D
 var locationTarget: Vector2
 var locationTargetEnabled: bool
+var waitNextFrame: bool
 
 func _ready():
 	repathTimer = 0
@@ -26,6 +27,9 @@ func _update_navigation_path(end_position):
 
 func _physics_process(delta):
 	if((target != null || locationTargetEnabled)):
+		if (!waitNextFrame):
+			waitNextFrame = true
+			return
 		navigation(delta)
 		navigate_on_path()
 

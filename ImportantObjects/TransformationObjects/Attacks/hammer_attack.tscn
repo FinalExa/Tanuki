@@ -15,7 +15,8 @@ attackMovements = Array[float]([0.0, 0.0])
 
 [node name="ObjectAttackHitbox" type="Area2D" parent="."]
 script = ExtResource("2_1cfow")
-stunsGuard = true
+stunList = Array[String](["Guard", "Cleaner", "Hyottoko", "Warden"])
+stunTier = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
 polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)

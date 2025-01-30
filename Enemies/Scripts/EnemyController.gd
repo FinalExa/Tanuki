@@ -15,12 +15,13 @@ var repelledDirection: Vector2
 var repelledPosition: Vector2
 var characterRef
 
+@export var enemyName: String
 @export var patrolIndicators: Array[PatrolIndicator]
 @export var repelledTime: float
 @export var repelledDistance: float
 @export var repelledOffset: float
 @export var startingIndex: int
-@export var guardProperties: Array[String]
+@export var enemyProperties: Array[String]
 @export var enemyMovement: EnemyMovement
 @export var enemyRotator: EnemyRotator
 @export var enemyPatrol: EnemyPatrol
@@ -56,14 +57,14 @@ func GuardAnimations():
 		if (velocity.x > 0):
 			spriteRef.flip_h = false
 
-func is_damaged(direction: Vector2):
-	Damaged(direction)
+func is_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
+	Damaged(direction, tier)
 
-func Damaged(direction: Vector2):
+func Damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	hitByPlayerSound.play()
 	stunnedHit.play()
 	if (sendSignalToQuestOnStunned): QuestSignal()
-	emit_signal("damaged", direction)
+	emit_signal("damaged", direction, tier)
 	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=39 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_uyk4v"]
@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="10_nqx0w"]
 [ext_resource type="Texture2D" uid="uid://8v1cci0fcjgx" path="res://Enemies/Sprites/Enemy-warden-001.png" id="11_ss25q"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_aa0al"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerMovementSounds.gd" id="13_cqou3"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="13_g1db0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_gs4mp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenStunned.gd" id="15_glp0b"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
@@ -22,7 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_hewu6"]
+[ext_resource type="Texture2D" uid="uid://beqdchybbxs75" path="res://Enemies/Sprites/Lanterna blu.png" id="20_uxiq3"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="21_fki5k"]
+[ext_resource type="Script" path="res://Enemies/Scripts/LanternRotation.gd" id="21_l056x"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="22_l4lsm"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="24_fumfp"]
@@ -35,7 +37,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenScreaming.gd" id="28_t7cwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 48.0
+radius = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63inc"]
 atlas = ExtResource("11_ss25q")
@@ -56,6 +58,7 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_b1hac")
+enemyName = "Warden"
 repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
@@ -78,24 +81,24 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sounds" type="Node2D" parent="."]
 
-[node name="Node" type="Node2D" parent="Sounds"]
+[node name="Movement" type="Node2D" parent="Sounds"]
 
-[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("2_uyk4v")
 
-[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("3_eell1")
 
-[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("4_3jrc0")
 
-[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("5_jvd46")
 
-[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("6_yy106")
 
-[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
 stream = ExtResource("7_0o81m")
 
 [node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
@@ -114,7 +117,7 @@ stream = ExtResource("10_nqx0w")
 max_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 0)
+position = Vector2(16, -32)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
@@ -127,9 +130,9 @@ distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="WardenMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
-script = ExtResource("13_cqou3")
+script = ExtResource("13_g1db0")
 enemyController = NodePath("..")
-cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
+cleanerMovementSounds = [NodePath("../Sounds/Movement/Step1"), NodePath("../Sounds/Movement/Step2"), NodePath("../Sounds/Movement/Step3"), NodePath("../Sounds/Movement/Step4"), NodePath("../Sounds/Movement/Step5"), NodePath("../Sounds/Movement/Step6")]
 currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 
 [node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
@@ -141,7 +144,7 @@ timeSpentDoingExtraPatrol = 60.0
 [node name="WardenStunned" type="Node" parent="." node_paths=PackedStringArray("enemyCollider", "stunnedSound", "enemyController")]
 script = ExtResource("15_glp0b")
 enemyCollider = NodePath("../CollisionShape2D")
-stunDuration = 10.0
+stunDuration = 5.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
@@ -163,8 +166,8 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 30.0
-rotationWeight = 0.1
+rotationSpeed = 45.0
+rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
 [node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "wardenAlertArea")]
@@ -177,10 +180,17 @@ enemyStatus = NodePath("../../EnemyStatus")
 wardenAlertArea = NodePath("WardenAlertArea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
-polygon = PackedVector2Array(-64, 0, 64, 0, 320, -704, -320, -704)
+polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 576, -1216, -576, -1216)
 
-[node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck") instance=ExtResource("19_ocxxy")]
+[node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck", "wardenLocation") instance=ExtResource("19_ocxxy")]
 wardenCheck = NodePath("..")
+wardenLocation = NodePath("../../../CollisionShape2D")
+
+[node name="Lantern" type="Sprite2D" parent="Rotator"]
+position = Vector2(0, -80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_uxiq3")
+script = ExtResource("21_l056x")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

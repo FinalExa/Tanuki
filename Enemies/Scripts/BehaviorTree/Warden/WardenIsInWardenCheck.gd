@@ -4,7 +4,7 @@ extends GuardNode
 var playerSpotted: bool
 
 func Evaluate(delta):
-	if (wardenCheck.raycastResult is PlayerCharacter):
+	if (wardenCheck.raycastResult != null && wardenCheck.raycastResult is PlayerCharacter):
 		playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
 		if (playerSpotted):
 			enemyController.enemyPatrol.stop_patrol()

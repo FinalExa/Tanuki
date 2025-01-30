@@ -27,31 +27,31 @@ func _ready():
 	set_current_patrol_routine()
 
 func set_current_patrol_routine():
-	if(enemyController.isInPatrol == true):
+	if (enemyController.isInPatrol):
 		var currentAction: PatrolIndicator.ActionTypes  = loadedPatrolIndicator.patrolActions[patrolIndex]
 		if (currentAction == loadedPatrolIndicator.ActionTypes.WAIT):
-			wait_patrol_action(loadedPatrolIndicator.waitActions[patrolWaitIndex])
+			Wait(loadedPatrolIndicator.waitActions[patrolWaitIndex])
 		else:
 			if (currentAction == loadedPatrolIndicator.ActionTypes.MOVE):
-				move_patrol_action(loadedPatrolIndicator.moveActions[patrolMovementIndex])
+				Move(loadedPatrolIndicator.moveActions[patrolMovementIndex])
 			else:
-				look_around_patrol_action(loadedPatrolIndicator.lookActions[patrolLookAroundIndex])
+				LookAround(loadedPatrolIndicator.lookActions[patrolLookAroundIndex])
 		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
-func move_patrol_action(target):
+func Move(target):
 	enemyController.enemyMovement.set_location_target(target.global_position)
 	enemyController.enemyMovement.reset_movement_speed()
 	enemyController.enemyRotator.setLookingAtPosition(target.global_position)
 	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
-func wait_patrol_action(timer):
+func Wait(timer):
 	waitTimer = timer
 	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyRotator.stopLooking()
 	isWaiting = true
 	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 
-func look_around_patrol_action(rotationPoint):
+func LookAround(rotationPoint):
 	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyRotator.stopLooking()
 	enemyController.enemyRotator.rotateTo(rotationPoint)
@@ -113,18 +113,19 @@ func GetClosestMovementLocation():
 				firstMoveSet = true
 				distanceToSelectedIndex = enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[selectedMoveIndex].global_position)
 			else:
-				var distanceToNewIndex: float = enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[moveIndex].global_position)
-				if (distanceToNewIndex < distanceToSelectedIndex):
-					selectedIndex = i
-					selectedMoveIndex = moveIndex
-					distanceToSelectedIndex = distanceToNewIndex
+				if (moveIndex < loadedPatrolIndicator.moveActions.size()):
+					var distanceToNewIndex: float = enemyController.global_position.distance_to(loadedPatrolIndicator.moveActions[moveIndex].global_position)
+					if (distanceToNewIndex < distanceToSelectedIndex):
+						selectedIndex = i
+						selectedMoveIndex = moveIndex
+						distanceToSelectedIndex = distanceToNewIndex
 			moveIndex += 1
 	return selectedIndex
 
-func _on_enemy_damaged(direction: Vector2):
+func _on_enemy_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (enemyController.isInPatrol):
 		stop_patrol()
-		enemyController.enemyStunned.start_stun(direction)
+		enemyController.enemyStunned.start_stun(direction, tier)
 
 func OnEnemyRepelled():
 	if (enemyController.isInPatrol):
@@ -154,6 +155,10 @@ func select_new_patrol_indicator():
 			extraPatrolTimer = timeSpentDoingExtraPatrol
 
 func AdvanceIndexTo(targetIndex: int):
+	patrolIndex = 0
+	patrolMovementIndex = 0
+	patrolWaitIndex = 0
+	patrolLookAroundIndex = 0
 	for i in targetIndex:
 		var currentAction: PatrolIndicator.ActionTypes = loadedPatrolIndicator.patrolActions[patrolIndex]
 		if (currentAction == PatrolIndicator.ActionTypes.MOVE):

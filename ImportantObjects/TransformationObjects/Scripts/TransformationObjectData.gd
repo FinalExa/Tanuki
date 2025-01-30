@@ -2,13 +2,12 @@ class_name  TransformationObjectData
 extends StaticBody2D
 
 @export var transformedName: String
-@export var transformedMaxSpeed: float
+@export var transformedSpeedTier: PCMovement.SpeedTier
 @export var transformedProperties: Array[String]
 @export var transformedCollider: CollisionShape2D
 @export var transformedTexture: Sprite2D
 @export var transformedAttackPath: String
 @export var transformedPassivePath: String
-@export var transformedTailLocation: Node2D
 @export var originalObjectPath: String
 var transformedTextureScale: Vector2
 

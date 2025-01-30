@@ -50,6 +50,7 @@ func MoveToSecondLocation():
 		SetNotSeenDestination(guardAlert.extraTargetLocation)
 	else:
 		guardAlert.secondLocationReached = true
+		StopGuardMovement()
 
 func StartNotSeenTimer():
 	guardAlert.targetNotSeenTimer = guardAlert.targetNotSeenDuration
@@ -59,3 +60,7 @@ func SetNotSeenDestination(destination: Vector2):
 	guardController.enemyMovement.set_movement_speed(guardAlert.alertMovementSpeed)
 	guardController.enemyMovement.set_location_target(destination)
 	guardController.enemyRotator.setLookingAtPosition(destination)
+
+func StopGuardMovement():
+	guardController.enemyMovement.set_new_target(null)
+	guardController.enemyRotator.setLookingAtNode(null)

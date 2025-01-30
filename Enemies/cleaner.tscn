@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="8_js8pp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_dcsvv"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="9_u1qet"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerMovementSounds.gd" id="13_cniqb"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="13_onumf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
 [ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="19_e0463"]
@@ -31,7 +31,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="44_8gufd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 48.0
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddvlc"]
 atlas = ExtResource("7_ptt57")
@@ -52,6 +52,7 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
+enemyName = "Cleaner"
 repelledTime = 0.3
 repelledDistance = 350.0
 repelledOffset = -90.0
@@ -119,12 +120,12 @@ animation = &"idle"
 script = ExtResource("6_tgxdo")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
-defaultMovementSpeed = 500.0
+defaultMovementSpeed = 600.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
 [node name="CleanerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
-script = ExtResource("13_cniqb")
+script = ExtResource("13_onumf")
 enemyController = NodePath("..")
 cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
 currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
@@ -137,7 +138,7 @@ timeSpentDoingExtraPatrol = 60.0
 
 [node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
 script = ExtResource("8_js8pp")
-stunDuration = 10.0
+stunDuration = 5.0
 stunnedText = "STUNNED"
 stunnedSound = NodePath("../Sounds/StunnedChirp")
 enemyController = NodePath("..")
@@ -159,11 +160,12 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 30.0
+rotationSpeed = 60.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="CleanerAttackHitbox" parent="Rotator" instance=ExtResource("18_kg6tm")]
+position = Vector2(0, -64)
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

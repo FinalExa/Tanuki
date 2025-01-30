@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=22 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="3_gk6g8"]
 [ext_resource type="PackedScene" uid="uid://cy3jgrp1re64e" path="res://Dialogue/dialogue_ui.tscn" id="4_4n6p0"]
 [ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
 [ext_resource type="Texture2D" uid="uid://djw6pacrdi88a" path="res://UI/Sprite/UI_Square.png" id="4_ep5f1"]
@@ -19,7 +20,14 @@
 [ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
 [ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
+[sub_resource type="LabelSettings" id="LabelSettings_sl7vy"]
+font = ExtResource("3_gk6g8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bx60d"]
+font = ExtResource("3_gk6g8")
+font_size = 32
+
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -29,6 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
 timerBar = NodePath("TransformationBar")
+substitutionStacksLabel = NodePath("SubstitutionStacks")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
@@ -49,7 +58,21 @@ offset_bottom = 128.0
 text = "WASD: movement
 Shift: get transformation
 E: transform/stop transformation
+LEFT CLICK: attack
+SPACE: use substitution
 Esc: Pause Menu"
+label_settings = SubResource("LabelSettings_sl7vy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubstitutionStacks" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 232.0
+offset_bottom = 151.0
+text = "2"
+label_settings = SubResource("LabelSettings_bx60d")
 horizontal_alignment = 1
 vertical_alignment = 1
 

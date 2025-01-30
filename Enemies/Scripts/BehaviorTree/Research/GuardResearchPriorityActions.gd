@@ -10,13 +10,12 @@ func PriorityActions():
 	if (guardResearch.isTrackingPriorityTarget):
 		TrackPriorityTarget()
 		return
-	var check: bool = false
-	check = HelpStunnedGuards()
+	var check: bool = HelpStunnedGuards()
 	if (!check):
 		InvestigateSuspiciousObjects()
 
 func HelpStunnedGuards():
-	if (guardResearch.stunnedGuardsList.size()>0):
+	if (guardResearch.stunnedGuardsList.size() > 0):
 		if (guardResearch.researchTarget != guardResearch.stunnedGuardsList[0]):
 			guardResearch.researchTarget = guardResearch.stunnedGuardsList[0]
 			guardResearch.set_research_target(guardResearch.researchTarget.global_position)

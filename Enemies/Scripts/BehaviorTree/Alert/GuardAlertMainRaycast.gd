@@ -18,53 +18,40 @@ func AlertOperations():
 
 func AnalyzeResult(result):
 	if (result != null && result == guardAlert.alertTarget):
-		TargetIsTail()
-		if (TargetIsVisible(result)): return true
+		if (TargetIsVisible()): return true
 		if (BackToResearch()): return true
 	return false
 
-func TargetIsTail():
-	if (guardAlert.alertTarget is TailFollow):
-		guardAlert.alertTarget = guardAlert.alertTarget.playerRef
-
-func TargetIsVisible(result):
+func TargetIsVisible():
 	if (!guardAlert.lostSightOfPlayer || (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
-		TrackTarget(result)
+		TrackTarget()
 		return true
 	return false
 
 func BackToResearch():
 	if (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
 		guardAlert.stop_alert()
-		enemyController.guardResearch.initialize_guard_research(guardAlert.alertTarget)
+		enemyController.guardResearch.StartResearchWithSuspiciousItem(guardAlert.alertTarget)
 		return true
 	return false
 
-func TrackTarget(receivedTarget: Node2D):
-	SetTrackData(receivedTarget)
-	TargetType(receivedTarget)
-	AlertChase(receivedTarget)
+func TrackTarget():
+	SetTrackData()
+	AlertChase()
 
-func SetTrackData(receivedTarget: Node2D):
-	enemyController.enemyRotator.setLookingAtPosition(receivedTarget.global_position)
+func SetTrackData():
+	enemyController.enemyRotator.setLookingAtPosition(guardAlert.alertTarget.global_position)
 	guardAlert.firstLocationReached = false
 	guardAlert.secondLocationReached = false
 	guardAlert.secondLocationTargetCheckLaunched = false
 	guardAlert.lostSightOfPlayer = false
+	guardAlert.SetAlertTargetLastInfo(guardAlert.alertTarget)
 
-func TargetType(receivedTarget: Node2D):
-	if (receivedTarget is PlayerCharacter):
-		guardAlert.SetAlertTargetLastInfo(receivedTarget)
-	else:
-		if (receivedTarget is TailFollow):
-			guardAlert.SetAlertTargetLastInfo(receivedTarget.playerRef)
-
-func AlertChase(receivedTarget: Node2D):
+func AlertChase():
 	if (guardAlert.chaseStart):
 		guardAlert.targetNotSeenActive = false
-		guardAlert.goToAlertStartLocation = false
-		if (enemyController.position.distance_to(receivedTarget.global_position) > guardAlert.catchDistanceThreshold):
-			FollowPlayer(receivedTarget)
+		if (enemyController.position.distance_to(guardAlert.alertTarget.global_position) > guardAlert.catchDistanceThreshold):
+			FollowPlayer(guardAlert.alertTarget)
 			return
 		CatchPlayer()
 

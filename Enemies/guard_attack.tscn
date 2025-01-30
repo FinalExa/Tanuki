@@ -5,32 +5,33 @@
 [ext_resource type="Texture2D" uid="uid://wlsph2g2id7h" path="res://Enemies/Sprites/Rete nemico.png" id="2_b26ba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ia6b"]
-size = Vector2(144, 184)
+size = Vector2(240, 160)
 
 [node name="GuardAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_krrw3")
-attackDuration = 60
+attackDuration = 50
 attackCooldown = 15
-attackPhasesLaunch = Array[int]([0, 30])
+attackPhasesLaunch = Array[int]([0, 20])
 attackHitboxes = [NodePath("Feedback"), NodePath("EnemyAttackHitbox")]
 attackSounds = [null, null]
 attackMovements = Array[float]([0.0, 200.0])
 
 [node name="Feedback" type="Node2D" parent="."]
+position = Vector2(0, -32)
 
 [node name="Sprite2D" type="Sprite2D" parent="Feedback"]
 modulate = Color(0, 0.431373, 0.321569, 1)
 texture = ExtResource("2_b26ba")
 
 [node name="EnemyAttackHitbox" type="Area2D" parent="."]
+position = Vector2(0, -136)
 script = ExtResource("2_4o2q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttackHitbox"]
-position = Vector2(0, -108)
 shape = SubResource("RectangleShape2D_1ia6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyAttackHitbox"]
-position = Vector2(0, -108)
+scale = Vector2(1.77778, 1)
 texture = ExtResource("2_b26ba")
 
 [connection signal="area_entered" from="EnemyAttackHitbox" to="EnemyAttackHitbox" method="_on_area_entered"]

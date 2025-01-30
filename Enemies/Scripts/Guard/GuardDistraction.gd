@@ -23,6 +23,7 @@ func ScanForDistractionSources():
 		closestSource = null
 		for i in distractionSources.size():
 			var query = PhysicsRayQueryParameters2D.create(guardController.global_position, distractionSources[i].global_position)
+			query.exclude = [guardController]
 			var result = space_state.intersect_ray(query)
 			if (result && result != { } && result.collider == distractionSources[i]):
 				SetClosestDistractionSource(result.collider) 
