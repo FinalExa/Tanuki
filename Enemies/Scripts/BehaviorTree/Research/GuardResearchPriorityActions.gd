@@ -30,6 +30,7 @@ func HelpStunnedGuards():
 			guardResearch.stunnedGuardsList[0].enemyStunned.end_stun()
 			guardResearch.stunnedGuardsList.remove_at(0)
 		return true
+		
 	return false
 
 func InvestigateSuspiciousObjects():
@@ -40,16 +41,23 @@ func InvestigateSuspiciousObjects():
 		if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) <= guardResearch.suspiciousItemsThresholdDistance):
 			enemyController.enemyMovement.set_location_target(enemyController.global_position)
 			if (guardResearch.researchTarget is PlayerCharacter):
-				var tempPlayerReference: PlayerCharacter = guardResearch.researchTarget
-				guardResearch.suspiciousItemsList.remove_at(0)
-				tempPlayerReference.transformationChangeRef.DeactivateTransformation()
-				guardResearch.StopResearch()
-				enemyController.guardAlert.start_alert(tempPlayerReference)
+				Uncover(guardResearch.researchTarget)
 
 func TrackPriorityTarget():
-	if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) > guardResearch.priorityTargetThresholdDistance):
-		if (guardResearch.researchTarget is PlayerCharacter && !guardResearch.researchTarget.transformationChangeRef.isTransformed):
+	if (guardResearch.researchTarget is PlayerCharacter):
+		var playerValue: int = guardResearch.researchTarget.transformationChangeRef.get_if_transformed_in_right_zone()
+		if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) > guardResearch.priorityTargetThresholdDistance):
 			guardResearch.set_research_target(guardResearch.researchLastPosition)
 			guardResearch.isTrackingPriorityTarget = true
-			return
+		else:
+			if (playerValue == 2):
+				Uncover(guardResearch.researchTarget)
+		return
 	guardResearch.isTrackingPriorityTarget = false
+
+func Uncover(ref: PlayerCharacter):
+	if (guardResearch.suspiciousItemsList.has(ref)):
+		guardResearch.suspiciousItemsList.erase(ref)
+	ref.transformationChangeRef.DeactivateTransformation()
+	guardResearch.StopResearch()
+	enemyController.guardAlert.start_alert(ref)

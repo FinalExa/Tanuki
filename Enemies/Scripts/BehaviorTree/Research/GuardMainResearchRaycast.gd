@@ -31,11 +31,15 @@ func SpotOperations(trackedObject: Node2D):
 	return
 
 func PlayerDetect(trackedObject: Node2D):
-	if ((trackedObject is PlayerCharacter &&
-	trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
-		guardResearch.StopResearch()
-		enemyController.guardAlert.start_alert(trackedObject)
-		return true
+	if (trackedObject is PlayerCharacter):
+		var playerValue: int = trackedObject.transformationChangeRef.get_if_transformed_in_right_zone()
+		if (playerValue == 0):
+			guardResearch.StopResearch()
+			enemyController.guardAlert.start_alert(trackedObject)
+			return true
+		if (playerValue == 2 || trackedObject.velocity != Vector2.ZERO):
+			guardResearch.set_research_target(trackedObject.global_position)
+			guardResearch.isTrackingPriorityTarget = true
 	return false
 
 func SuspiciousObjectsDetect(trackedObject: Node2D):
