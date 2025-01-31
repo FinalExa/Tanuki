@@ -31,6 +31,9 @@ var isTransformed: bool = false
 @export var noTransformationText: String
 @export var transformationObjectSafeCoords: Vector2
 @export var transformationAttackTimerCost: float
+@export var undetectableDuration: float
+var undetectableTimer: float
+var undetectableActive: bool
 var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
@@ -60,6 +63,7 @@ func _process(delta):
 	CheckForDeactivateTransformation()
 	TransformationActive(delta)
 	LockTimer(delta)
+	UndetectableTimer(delta)
 	CheckForAttackInput()
 
 func SetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
@@ -122,6 +126,7 @@ func ActivateTransformation():
 		emit_signal("change_speed", currentTransformationObject.transformedSpeedTier)
 		isTransformed = true
 		ActivateLock()
+		UndetectableActivate()
 
 func CheckForDeactivateTransformation():
 	if (playerRef.playerInputs.transformInput && isTransformed && !transformationLock):
@@ -180,6 +185,7 @@ func clear_guards_looking_for_me():
 	guardsLookingForMe.clear()
 
 func get_if_transformed_in_right_zone():
+	if (undetectableActive): return 1
 	if (isTransformed):
 		if (localAllowedItemsRef != null):
 			if (localAllowedItemsRef.allowedObjects.has(currentTransformationObject.transformedName)):
@@ -229,3 +235,15 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 func AttackDetractTimer():
 	if (isTransformed):
 		transformationTimer = clamp(transformationTimer + transformationAttackTimerCost, 0, transformationDuration)
+
+func UndetectableActivate():
+	if (!undetectableActive):
+		undetectableTimer = undetectableDuration
+		undetectableActive = true
+
+func UndetectableTimer(delta):
+	if (undetectableActive):
+		if (undetectableTimer > 0):
+			undetectableTimer -= delta
+			return
+		undetectableActive = false
