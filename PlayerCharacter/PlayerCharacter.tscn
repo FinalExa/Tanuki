@@ -334,7 +334,7 @@ transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
 noTransformationText = "No Transformation"
 transformationObjectSafeCoords = Vector2(-100000, -100000)
 transformationAttackTimerCost = 3.0
-undetectableDuration = 0.3
+undetectableDuration = 0.1
 transformationLockDuration = 1.5
 
 [node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]

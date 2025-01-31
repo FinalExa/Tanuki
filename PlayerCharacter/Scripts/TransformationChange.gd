@@ -63,8 +63,10 @@ func _process(delta):
 	CheckForDeactivateTransformation()
 	TransformationActive(delta)
 	LockTimer(delta)
-	UndetectableTimer(delta)
 	CheckForAttackInput()
+
+func _physics_process(delta):
+	UndetectableTimer(delta)
 
 func SetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
 	if (!transformObjectsInRange.has(trsObjectRef)):
