@@ -9,8 +9,8 @@ func Evaluate(_delta):
 	if (guardResearch.researchLaunched):
 		AnalyzeResearchMainRaycast()
 		return NodeState.SUCCESS
-	else:
-		return NodeState.FAILURE
+	guardResearch.playerWasSpottedTransformed = false
+	return NodeState.FAILURE
 
 func AnalyzeResearchMainRaycast():
 	for i in guardResearch.mainRaycastResult.size():
@@ -24,6 +24,7 @@ func SpotOperations(trackedObject: Node2D):
 	spotting_result = PlayerDetect(trackedObject)
 	if (spotting_result):
 		return
+	guardResearch.isTrackingPriorityTarget = false
 	spotting_result = StunnedGuardsDetect(trackedObject)
 	if (spotting_result):
 		return
@@ -33,6 +34,8 @@ func SpotOperations(trackedObject: Node2D):
 func PlayerDetect(trackedObject: Node2D):
 	if (trackedObject is PlayerCharacter):
 		var playerValue: int = trackedObject.transformationChangeRef.get_if_transformed_in_right_zone()
+		if (playerValue != 1):
+			guardResearch.playerWasSpottedTransformed = true
 		if (playerValue == 0):
 			guardResearch.StopResearch()
 			enemyController.guardAlert.start_alert(trackedObject)
@@ -40,6 +43,7 @@ func PlayerDetect(trackedObject: Node2D):
 		if (playerValue == 2 || trackedObject.velocity != Vector2.ZERO):
 			guardResearch.set_research_target(trackedObject.global_position)
 			guardResearch.isTrackingPriorityTarget = true
+			return true
 	return false
 
 func SuspiciousObjectsDetect(trackedObject: Node2D):

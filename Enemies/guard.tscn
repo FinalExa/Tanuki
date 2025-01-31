@@ -405,7 +405,7 @@ researchActiveText = "RESEARCHING"
 researchLaunchDuration = 1.5
 suspiciousItemsThresholdDistance = 100.0
 stunnedGuardsThresholdDistance = 100.0
-priorityTargetThresholdDistance = 200.0
+priorityTargetThresholdDistance = 100.0
 researchEnterSound = NodePath("../../Sounds/ResearchStart")
 guardController = NodePath("../..")
 

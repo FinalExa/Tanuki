@@ -45,13 +45,12 @@ func InvestigateSuspiciousObjects():
 
 func TrackPriorityTarget():
 	if (guardResearch.researchTarget is PlayerCharacter):
-		var playerValue: int = guardResearch.researchTarget.transformationChangeRef.get_if_transformed_in_right_zone()
 		if (enemyController.global_position.distance_to(guardResearch.researchLastPosition) > guardResearch.priorityTargetThresholdDistance):
 			guardResearch.set_research_target(guardResearch.researchLastPosition)
 			guardResearch.isTrackingPriorityTarget = true
-		else:
-			if (playerValue == 2):
-				Uncover(guardResearch.researchTarget)
+			return
+		if (guardResearch.playerWasSpottedTransformed):
+			Uncover(guardResearch.researchTarget)
 		return
 	guardResearch.isTrackingPriorityTarget = false
 

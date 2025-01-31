@@ -28,6 +28,7 @@ var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
+var playerWasSpottedTransformed: bool
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
 
@@ -48,6 +49,7 @@ func initialize_guard_research(target: Node2D):
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
+	playerWasSpottedTransformed = false
 	researchEnterSound.play()
 
 func InitializeResearchWithLocation(location: Vector2):
@@ -59,6 +61,7 @@ func InitializeResearchWithLocation(location: Vector2):
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
+	playerWasSpottedTransformed = false
 	researchEnterSound.play()
 
 func StartResearchWithSuspiciousItem(target: Node2D):
