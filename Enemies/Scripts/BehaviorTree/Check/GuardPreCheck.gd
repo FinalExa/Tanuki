@@ -11,5 +11,5 @@ func PreCheck(target: Node2D, delta):
 	if (guardCheck.preCheckTimer > 0):
 		guardCheck.preCheckTimer -= delta
 		return NodeState.SUCCESS
-	guardCheck.activate_check(target)
+	guardCheck.StartCheck(target)
 	return NodeState.FAILURE

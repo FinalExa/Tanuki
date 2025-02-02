@@ -2,70 +2,58 @@ extends GuardNode
 
 @export var guardCheck: GuardCheck
 
-func _ready():
-	state = NodeState.FAILURE
+func Evaluate(delta):
+	return MainCheck(delta)
 
-func Evaluate(_delta):
-	MainCheck()
-	return state
-
-func MainCheck():
+func MainCheck(delta):
 	if (guardCheck.checkWithRayCast):
-		var foundSomething: bool
-		var playerInRaycast: bool = false
 		for i in guardCheck.raycastResult.size():
 			if (guardCheck.raycastResult[i] is PlayerCharacter):
-				playerInRaycast = true
-				foundSomething = DetermineSuspicionType(guardCheck.raycastResult[i])
-				if (!foundSomething): PlayerNotSeen()
-				return
-		if (!playerInRaycast):
-			state = NodeState.SUCCESS
-			return
-	state = NodeState.FAILURE
+				return DetermineSuspicionType(guardCheck.raycastResult[i])
+		if (guardCheck.currentAlertValue > 0):
+			guardCheck.ActivateReduction()
+			return NodeState.FAILURE
+	return NodeState.SUCCESS
 
 func DetermineSuspicionType(target: PlayerCharacter):
-	if (target is PlayerCharacter):
-		var playerHiddenStatus = target.transformationChangeRef.get_if_transformed_in_right_zone()
-		if (!(!guardCheck.playerSeen && playerHiddenStatus == 1)):
-			enemyController.enemyRotator.setLookingAtPosition(target.global_position)
-		if (playerHiddenStatus == 0):
-			PlayerNotTransformed(target)
-			return true
-		if (target.velocity != Vector2.ZERO || playerHiddenStatus == 2):
-			PlayerSuspiciousWhileTransformed(target)
-			return true
-		if (!guardCheck.playerSeen && playerHiddenStatus == 1):
-			return false
-		if (guardCheck.playerSeen):
-			PlayerSeenBeforeTransformation(target)
-		return true
-	state = NodeState.FAILURE
+	var playerHiddenStatus = target.transformationChangeRef.get_if_transformed_in_right_zone()
+	if (!guardCheck.playerSeen && playerHiddenStatus == 1 && target.velocity == Vector2.ZERO):
+		return PlayerNotSeen()
+	enemyController.enemyRotator.setLookingAtPosition(target.global_position)
+	if (playerHiddenStatus == 0):
+		return PlayerNotTransformed(target)
+	if (target.velocity != Vector2.ZERO || playerHiddenStatus == 2):
+		return PlayerSuspiciousWhileTransformed(target)
+	if (guardCheck.playerSeen):
+		return PlayerSeenBeforeTransformation(target)
+	return NodeState.FAILURE
 
 func PlayerNotTransformed(target: PlayerCharacter):
 	guardCheck.playerSeen = true
 	SuspicionActive(target, guardCheck.playerIsSeenMultiplier)
 	guardCheck.researchOutcome = true
+	return NodeState.FAILURE
 
 func PlayerSuspiciousWhileTransformed(target: PlayerCharacter):
 	guardCheck.playerSeen = true
 	SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
 	guardCheck.researchOutcome = false
+	return NodeState.FAILURE
 
 func PlayerSeenBeforeTransformation(target: PlayerCharacter):
 	SuspicionActive(target, guardCheck.playerIsNotSeenMultiplier)
 	guardCheck.researchOutcome = false
+	return NodeState.FAILURE
 
 func PlayerNotSeen():
-	state = NodeState.FAILURE
-	guardCheck.playerSeen = false
+	if (!guardCheck.reductionOverTimeActive): guardCheck.ActivateReduction()
+	return NodeState.FAILURE
 
 func SuspicionActive(target: Node2D, multiplier):
 	if (guardCheck.reductionOverTimeActive):
 		guardCheck.reductionOverTimeActive = false
 	if (!guardCheck.preCheckActive && !enemyController.isChecking):
 		StartPreCheck(target, multiplier)
-	state = NodeState.SUCCESS
 
 func StartPreCheck(target, multiplier):
 	guardCheck.preCheckActive = true

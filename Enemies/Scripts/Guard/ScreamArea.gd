@@ -44,7 +44,7 @@ func LaunchAlertForGuardsInRange():
 
 func LaunchGuardAlert(guardRef: GuardController):
 	if (!guardRef.isInAlert && !guardRef.isStunned):
-		guardRef.guardCheck.stop_guardCheck()
+		guardRef.guardCheck.StopCheck()
 		guardRef.guardAlert.start_alert(controllerRef.guardAlert.alertTarget)
 
 func UpdateWithLatestPosition(guardRef: GuardController):

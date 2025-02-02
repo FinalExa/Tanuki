@@ -75,11 +75,11 @@ func _on_body_exited(body):
 	if (body is PlayerCharacter):
 		playerInsideCheckHitbox = false
 
-func activate_reduction_over_time():
+func ActivateReduction():
 	reductionOverTimeActive = true
 	playerSeen = false
 
-func activate_check(target: Node2D):
+func StartCheck(target: Node2D):
 	preCheckActive = false
 	guardController.isChecking = true
 	checkingSound.play()
@@ -91,12 +91,12 @@ func ForceActivateCheck():
 	guardController.isChecking = true
 	checkingSound.play()
 
-func end_check():
+func EndCheck():
 	reductionOverTimeActive = false
 	guardController.isChecking = false
 	guardController.enemyPatrol.resume_patrol()
 
-func stop_guardCheck():
+func StopCheck():
 	checkActive = false
 	checkWithRayCast = false
 	reductionOverTimeActive = false
@@ -106,16 +106,16 @@ func stop_guardCheck():
 func resume_check():
 	checkActive = true
 	guardController.isChecking = true
-	activate_reduction_over_time()
+	ActivateReduction()
 
 func _on_guard_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (guardController.isChecking || checkActive):
-		stop_guardCheck()
+		StopCheck()
 		guardController.enemyStunned.start_stun(direction, tier)
 
 func OnGuardRepelled():
 	if (guardController.isChecking || checkActive):
-		stop_guardCheck()
+		StopCheck()
 
 func send_alert_value():
 	guardController.enemyStatus.updateValue(currentAlertValue, maxAlertValue)
