@@ -26,4 +26,7 @@ func SpotPlayerFromAfar(target):
 			else:
 				guardResearch.save_target_info(target, false)
 			return true
+		else:
+			enemyController.enemyMovement.set_new_target(null)
+			enemyController.enemyRotator.setLookingAtNode(null)
 	return false
