@@ -91,3 +91,4 @@ func LoadOperations():
 		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
+	playerRef.playerHUD.emit_signal("has_attack", true)

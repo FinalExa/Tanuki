@@ -2,10 +2,10 @@ extends GuardNode
 
 @export var guardCheck: GuardCheck
 
-func Evaluate(delta):
-	return MainCheck(delta)
+func Evaluate(_delta):
+	return MainCheck()
 
-func MainCheck(delta):
+func MainCheck():
 	if (guardCheck.checkWithRayCast):
 		for i in guardCheck.raycastResult.size():
 			if (guardCheck.raycastResult[i] is PlayerCharacter):

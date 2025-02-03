@@ -50,9 +50,9 @@ func InstantiateNewScene():
 	ClearTrash()
 	sceneMaster.UpdatePathAndLoad()
 	currentScene.Initialize()
-	currentScene.SetPlayerSpawn(playerRef)
+	currentScene.SetPlayerSpawn()
 	playerRef.UnsetTraveling()
-	currentScene.SetCurrentKeysForPlayer(playerRef)
+	currentScene.SetCurrentKeysForPlayer()
 
 func ClearTrash():
 	for i in self.get_child_count():

@@ -21,8 +21,10 @@ enum SceneType
 @export var travelingReceivers: Array[Node2D]
 
 var localAllowedItems: Array[LocalAllowedItems]
+var playerRef: PlayerCharacter
 
 func Initialize():
+	playerRef = get_tree().root.get_child(0).sceneSelector.playerRef
 	SetKeys()
 	SetQuests()
 
@@ -32,7 +34,6 @@ func SetKeys():
 			levelUnlockKeys[i].gameplayScene = self
 
 func SetQuests():
-	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 	if (mapQuests.size() > 0):
 		for i in mapQuests.size():
 			mapQuests[i].gameplayScene = self
@@ -54,7 +55,6 @@ func AdvanceQuestToPlayerProgress(quest: MapQuest, progression: PlayerProgressio
 				return
 
 func SaveQuestProgressToPlayer(questName: String, questStage: int, questStageAdvancer: int):
-	var playerRef: PlayerCharacter = get_tree().root.get_child(0).sceneSelector.playerRef
 	playerRef.playerProgressionTrack.RegisterQuestWithStage(questName, questStage)
 	playerRef.playerProgressionTrack.RegisterAdvancers(questName, questStageAdvancer)
 	CheckForUnlocksAfterQuest(questName, questStage)
@@ -65,7 +65,7 @@ func CheckForUnlocksAfterQuest(questName: String, questStage: int):
 			unlocksAfterQuestStages[i].CheckForCompletion(questStage)
 			break
 
-func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
+func SetCurrentKeysForPlayer():
 	if (levelUnlockKeys.size() > 0):
 		playerRef.playerProgressionTrack.GenerateCurrentIDArray(sceneType)
 		var currentIDArray: Array[int] = playerRef.playerProgressionTrack.currentIDArray
@@ -75,7 +75,7 @@ func SetCurrentKeysForPlayer(playerRef: PlayerCharacter):
 			if (currentUsedArray[i] != -1):
 				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 
-func SetPlayerSpawn(playerRef: PlayerCharacter):
+func SetPlayerSpawn():
 	if (playerRef.isTraveling):
 		if (playerRef.positionalTraveling):
 			playerRef.global_position = playerRef.positionalDestination

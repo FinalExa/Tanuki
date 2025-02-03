@@ -300,8 +300,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="UI" parent="CanvasLayer/HBoxContainer" node_paths=PackedStringArray("playerInputs", "playerRef") instance=ExtResource("2_d3p1y")]
-z_index = 1
-z_as_relative = false
 layout_mode = 2
 playerInputs = NodePath("../../../PlayerInputs")
 playerRef = NodePath("../../..")
