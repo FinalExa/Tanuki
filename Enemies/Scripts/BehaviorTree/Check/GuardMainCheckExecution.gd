@@ -13,7 +13,9 @@ func MainCheck():
 		if (guardCheck.currentAlertValue > 0):
 			guardCheck.ActivateReduction()
 			return NodeState.FAILURE
-	return NodeState.SUCCESS
+	if (guardCheck.currentAlertValue > 0):
+		guardCheck.ActivateReduction()
+	return NodeState.FAILURE
 
 func DetermineSuspicionType(target: PlayerCharacter):
 	var playerHiddenStatus = target.transformationChangeRef.get_if_transformed_in_right_zone()
