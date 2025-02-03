@@ -20,7 +20,7 @@ func Evaluate(delta):
 				else:
 					state = NodeState.SUCCESS
 					return state
-	if (anyChildIsRunning == true):
+	if (anyChildIsRunning):
 		state = NodeState.SUCCESS
 	else:
 		state = NodeState.FAILURE
