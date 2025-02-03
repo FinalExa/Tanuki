@@ -21,6 +21,9 @@ func ExecuteCurrentStage(save: bool):
 	SaveQuestStatus(save)
 	if (currentQuestStage < lastStage):
 		for i in questItemsStages.size():
+			if (!save && questItemsToOperate[i] is DialogueArea):
+				questItemsToOperate[i].queue_free()
+				continue
 			if (questItemsStages[i] == currentQuestStage):
 				call_deferred("OnOff", questItemsToOperate[i], questItemsOnOffState[i])
 				continue

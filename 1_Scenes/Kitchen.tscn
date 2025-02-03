@@ -581,6 +581,7 @@ dialogueText = Array[String](["Ed è così che sono riuscito a difendere la vill
 characterTalking = Array[int]([2, 2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [NodePath("../../../Enemies/WardenE1"), NodePath("../../../Enemies/HyottokoE1"), NodePath("../../../Enemies/WardenE1"), null]
+isOnInteraction = true
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
