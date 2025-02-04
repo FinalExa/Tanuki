@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2by16gxs6pn0"
-path="res://.godot/imported/knife.png-c61c24245cb0912dc7b1ff8a7043bf9d.ctex"
+uid="uid://go7nnh4oep76"
+path="res://.godot/imported/Ciotole-001.png-3fd19a4a4003617badf1035345241c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/knife.png"
-dest_files=["res://.godot/imported/knife.png-c61c24245cb0912dc7b1ff8a7043bf9d.ctex"]
+source_file="res://Level/Sprites/Ciotole-001.png"
+dest_files=["res://.godot/imported/Ciotole-001.png-3fd19a4a4003617badf1035345241c32.ctex"]
 
 [params]
 
