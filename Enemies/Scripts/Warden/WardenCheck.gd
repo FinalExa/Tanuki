@@ -8,10 +8,14 @@ extends Area2D
 @export var checkDecreasePerSecond: float
 @export var enemyStatus: EnemyStatus
 @export var wardenAlertArea: WardenAlertArea
+@export var checkSound: AudioStreamPlayer2D
+@export var spottedSound: AudioStreamPlayer2D
 var checkCurrentValue: float
 var raycastResult: Node2D
 var playerRef: PlayerCharacter
 var playerIn: bool
+var checkSoundPlayed: bool
+var spottedSoundPlayed: bool
 
 func _ready():
 	RemoveArea()
@@ -47,11 +51,15 @@ func _on_body_exited(body):
 		playerRef = null
 
 func IncreaseCheckValue(delta):
+	PlayCheckSound()
 	checkCurrentValue = clamp(checkCurrentValue + (delta * checkIncreasePerSecond), checkMinValue, checkMaxValue)
+	PlaySpottedSound()
 	UpdateLabelValue()
 
 func DecreaseCheckValue(delta):
+	ResetSpottedSound()
 	checkCurrentValue = clamp(checkCurrentValue - (delta * checkDecreasePerSecond), checkMinValue, checkMaxValue)
+	ResetCheckSound()
 	UpdateLabelValue()
 
 func AddArea():
@@ -73,3 +81,21 @@ func _on_warden_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (raycastResult is PlayerCharacter):
 		EndWardenCheck()
 		enemyController.enemyStunned.start_stun(direction, tier)
+
+func PlayCheckSound():
+	if (checkCurrentValue == checkMinValue && !checkSoundPlayed):
+		checkSound.play()
+		checkSoundPlayed = true
+
+func ResetCheckSound():
+	if (checkCurrentValue == checkMinValue && checkSoundPlayed):
+		checkSoundPlayed = false
+
+func PlaySpottedSound():
+	if (checkCurrentValue == checkMaxValue && !spottedSoundPlayed):
+		spottedSound.play()
+		spottedSoundPlayed = true
+
+func ResetSpottedSound():
+	if (checkCurrentValue == checkMaxValue && spottedSoundPlayed):
+		spottedSoundPlayed = false
