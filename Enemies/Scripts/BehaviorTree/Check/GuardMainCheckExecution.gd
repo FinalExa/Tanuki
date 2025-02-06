@@ -15,7 +15,7 @@ func MainCheck():
 			return NodeState.FAILURE
 	if (guardCheck.currentAlertValue > 0):
 		guardCheck.ActivateReduction()
-	return NodeState.FAILURE
+		return NodeState.FAILURE
 
 func DetermineSuspicionType(target: PlayerCharacter):
 	var playerHiddenStatus = target.transformationChangeRef.get_if_transformed_in_right_zone()
@@ -48,8 +48,11 @@ func PlayerSeenBeforeTransformation(target: PlayerCharacter):
 	return NodeState.FAILURE
 
 func PlayerNotSeen():
-	if (!guardCheck.reductionOverTimeActive): guardCheck.ActivateReduction()
-	return NodeState.FAILURE
+	if (guardCheck.currentAlertValue > 0):
+		guardCheck.ActivateReduction()
+		return NodeState.FAILURE
+	else:
+		return NodeState.SUCCESS
 
 func SuspicionActive(target: Node2D, multiplier):
 	if (guardCheck.reductionOverTimeActive):
