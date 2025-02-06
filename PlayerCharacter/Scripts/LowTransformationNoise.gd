@@ -76,7 +76,7 @@ func ProcessGuard(guard: GuardController):
 		if (guard.isInPatrol):
 			guard.enemyPatrol.stop_patrol()
 		if (guard.isChecking):
-			guard.guardCheck.stop_guardCheck()
+			guard.guardCheck.StopCheck()
 		guard.guardResearch.initialize_guard_research(playerRef)
 
 func CheckIfEnemyEntered(body):
