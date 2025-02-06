@@ -1,20 +1,23 @@
-[gd_scene load_steps=51 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=54 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
 [ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
-[ext_resource type="AudioStream" uid="uid://cutr6jwmfjvqx" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 01.wav" id="2_vw0dl"]
+[ext_resource type="AudioStream" uid="uid://u60k2h3jivs6" path="res://PlayerCharacter/Sounds/Movement/Normal/1 - Step - Movement - Tanuki.wav" id="2_oxifc"]
+[ext_resource type="AudioStream" uid="uid://cjbsuc803fevx" path="res://PlayerCharacter/Sounds/Movement/Normal/2 - Step - Movement - Tanuki.wav" id="3_6qq7k"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
-[ext_resource type="AudioStream" uid="uid://rp3ugwufrtnw" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 02.wav" id="3_yyw17"]
-[ext_resource type="AudioStream" uid="uid://dvfsa3rk5d6nt" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 03.wav" id="4_ssnr2"]
-[ext_resource type="AudioStream" uid="uid://f4uw1q51on1" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 04.wav" id="5_mbc8e"]
-[ext_resource type="AudioStream" uid="uid://c0fyrvpn5gydq" path="res://PlayerCharacter/Sounds/Movement/Normal/Tanuki Step 05.wav" id="6_87xno"]
+[ext_resource type="AudioStream" uid="uid://x34xwo2hmk0l" path="res://PlayerCharacter/Sounds/Movement/Normal/3 - Step - Movement - Tanuki.wav" id="4_io25w"]
+[ext_resource type="AudioStream" uid="uid://drybnc0me070h" path="res://PlayerCharacter/Sounds/Movement/Normal/4 - Step - Movement - Tanuki.wav" id="5_l3odv"]
+[ext_resource type="AudioStream" uid="uid://bgtp8wugqtam2" path="res://PlayerCharacter/Sounds/Movement/Normal/5 - Step - Movement - Tanuki.wav" id="6_ndbh1"]
+[ext_resource type="AudioStream" uid="uid://dwpwykn0q2jum" path="res://PlayerCharacter/Sounds/Movement/Normal/6 - Step - Movement - Tanuki.wav" id="7_c4soc"]
 [ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="7_r4d5s"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
 [ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
 [ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="8_bhedw"]
+[ext_resource type="AudioStream" uid="uid://ce1k0estmknq6" path="res://PlayerCharacter/Sounds/Movement/Normal/7 - Step - Movement - Tanuki.wav" id="8_iavac"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
+[ext_resource type="AudioStream" uid="uid://c6txc6jrgbg8u" path="res://PlayerCharacter/Sounds/Movement/Normal/8 - Step - Movement - Tanuki.wav" id="9_6lwu0"]
 [ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
 [ext_resource type="Texture2D" uid="uid://c81psw8hrc3xj" path="res://PlayerCharacter/Sprites/Tan-2.0.1-200.png" id="14_6hj2i"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerInputs.gd" id="14_tgchp"]
@@ -238,19 +241,28 @@ playerProgressionTrack = NodePath("PlayerProgressionTrack")
 [node name="CurrentStep" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
 
 [node name="Step1" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
-stream = ExtResource("2_vw0dl")
+stream = ExtResource("2_oxifc")
 
 [node name="Step2" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
-stream = ExtResource("3_yyw17")
+stream = ExtResource("3_6qq7k")
 
 [node name="Step3" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
-stream = ExtResource("4_ssnr2")
+stream = ExtResource("4_io25w")
 
 [node name="Step4" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
-stream = ExtResource("5_mbc8e")
+stream = ExtResource("5_l3odv")
 
 [node name="Step5" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
-stream = ExtResource("6_87xno")
+stream = ExtResource("6_ndbh1")
+
+[node name="Step6" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("7_c4soc")
+
+[node name="Step7" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("8_iavac")
+
+[node name="Step8" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("9_6lwu0")
 
 [node name="EnterTransformation" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_yl2lp")
@@ -283,7 +295,7 @@ script = ExtResource("15_4hghg")
 playerMovement = NodePath("../Rotator/PlayerMovement")
 playerRef = NodePath("..")
 currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
-normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5")]
+normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5"), NodePath("../Sounds/Movement/Normal/Step6"), NodePath("../Sounds/Movement/Normal/Step7"), NodePath("../Sounds/Movement/Normal/Step8")]
 transformedMovementSound = NodePath("../Sounds/TransformedMovement")
 
 [node name="PlayerProgressionTrack" type="Node" parent="."]
