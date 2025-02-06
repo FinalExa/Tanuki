@@ -38,7 +38,7 @@ func SetQuests():
 		for i in mapQuests.size():
 			mapQuests[i].gameplayScene = self
 			mapQuests[i].SetLastStage()
-			mapQuests[i].ExecuteCurrentStage(false)
+			mapQuests[i].ExecuteCurrentStage(false, false)
 			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
 	if (unlocksAfterQuestStages.size() > 0):
 		for i in playerRef.playerProgressionTrack.activeQuests.size():

@@ -12,6 +12,7 @@
 [node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint")]
 script = ExtResource("1_lquag")
 playerSpawnPoint = NodePath("PlayerSpawnPoint")
+sceneType = null
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1000

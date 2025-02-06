@@ -17,11 +17,11 @@ var lastStage: int
 func SetLastStage():
 	lastStage = questItemsStages[questItemsStages.size() - 1] + 1
 
-func ExecuteCurrentStage(save: bool):
+func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	SaveQuestStatus(save)
 	if (currentQuestStage < lastStage):
 		for i in questItemsStages.size():
-			if (!save && questItemsToOperate[i] is DialogueArea):
+			if (forcedAdvance && questItemsToOperate[i] is DialogueArea):
 				questItemsToOperate[i].queue_free()
 				continue
 			if (questItemsStages[i] == currentQuestStage):
@@ -57,22 +57,22 @@ func CleanUpAfterQuestComplete():
 		if (objectsToDeleteAtQuestComplete[i] != null):
 			objectsToDeleteAtQuestComplete[i].queue_free()
 
-func AdvanceStage(save: bool):
+func AdvanceStage(save: bool, forcedAdvance: bool):
 	if (currentQuestStage < lastStage):
 		currentQuestStage += 1
-		ExecuteCurrentStage(save)
+		ExecuteCurrentStage(save, forcedAdvance)
 
 func AdvanceStageByObject(objectRef: Node2D):
 	if (currentQuestStage < lastStage):
 		advancedBy = objectRef
 		currentQuestStage += 1
-		ExecuteCurrentStage(true)
+		ExecuteCurrentStage(true, false)
 
 func AdvanceToStage(stageToAdvance: int):
 	if (stageToAdvance > lastStage):
 		stageToAdvance = lastStage
 	while (currentQuestStage < stageToAdvance):
-		AdvanceStage(false)
+		AdvanceStage(false, true)
 
 func OnOff(objectToOperate: Node2D, status: bool):
 	if (objectToOperate != null):
