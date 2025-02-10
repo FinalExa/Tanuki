@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq2dl3cefwuhc"
-path="res://.godot/imported/unlockKey.png-9d0485b817d137daf138612ba99f7158.ctex"
+uid="uid://ptomn7wbhv0a"
+path="res://.godot/imported/Daikon-001.png-4751d1209c4339b86bd1edfa2cde126c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/UnlockKey/Sprites/unlockKey.png"
-dest_files=["res://.godot/imported/unlockKey.png-9d0485b817d137daf138612ba99f7158.ctex"]
+source_file="res://Level/Sprites/Daikon-001.png"
+dest_files=["res://.godot/imported/Daikon-001.png-4751d1209c4339b86bd1edfa2cde126c.ctex"]
 
 [params]
 
