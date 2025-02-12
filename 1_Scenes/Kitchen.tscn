@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=68 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -109,13 +109,16 @@ size = Vector2(506, 640)
 size = Vector2(240, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcg7"]
-size = Vector2(118, 508)
+size = Vector2(118, 672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kjif"]
-size = Vector2(108, 763)
+size = Vector2(102, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0w2r"]
+size = Vector2(104, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_027ww"]
-size = Vector2(430, 129)
+size = Vector2(412, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1opv"]
 size = Vector2(400, 120)
@@ -133,7 +136,7 @@ size = Vector2(1264, 384)
 size = Vector2(1136, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l42h"]
-size = Vector2(768, 144)
+size = Vector2(512, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(256, 256)
@@ -212,12 +215,11 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_ecasx")
 
 [node name="RoomD" type="Node2D" parent="Rooms"]
-visible = false
 
 [node name="Objects" type="Node2D" parent="Rooms/RoomD"]
 
 [node name="Broom" parent="Rooms/RoomD/Objects" instance=ExtResource("23_2lu15")]
-position = Vector2(-1760, 832)
+position = Vector2(-2008, 1440)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Rooms/RoomD"]
 visible = false
@@ -518,7 +520,7 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
-position = Vector2(2176, 704)
+position = Vector2(1912, 704)
 scale = Vector2(2, 2.5)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
@@ -533,8 +535,8 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor2")]
 
 [node name="DirtyFloor2" parent="Quests/KitchenClearDirtyFloor2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
-position = Vector2(-144, 640)
-scale = Vector2(2, 2)
+position = Vector2(-16, 640)
+scale = Vector2(3.08, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -629,7 +631,7 @@ layer_0/tile_data = PackedInt32Array(-327686, 65536, 3, -262150, 65536, 4, -3276
 z_index = 1
 tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(-196624, 262144, 4, -196623, 262144, 4, -196622, 262144, 4, -196621, 262144, 4, -65552, 262144, 4, -65551, 262144, 4, -65550, 262144, 4, -65549, 262144, 4, 65520, 262144, 4, 65521, 262144, 4, 65522, 262144, 4, 65523, 262144, 4, 262129, 196608, 7, 262130, 196608, 7, 262128, 196608, 7, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1)
+layer_0/tile_data = PackedInt32Array(-196624, 262144, 4, -196623, 262144, 4, -196622, 262144, 4, -196621, 262144, 4, -65552, 262144, 4, -65551, 262144, 4, -65550, 262144, 4, -65549, 262144, 4, 65520, 262144, 4, 65521, 262144, 4, 65522, 262144, 4, 65523, 262144, 4, 262129, 196608, 7, 262130, 196608, 7, 262128, 196608, 7, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 720880, 196608, 6, 655344, 196608, 6)
 
 [node name="MapStructureWalls" type="TileMap" parent="."]
 tile_set = ExtResource("40_wejvi")
@@ -827,20 +829,20 @@ position = Vector2(208, 928)
 position = Vector2(200, 336)
 
 [node name="Vase6" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(2248, 944)
+position = Vector2(-520, 1144)
 
 [node name="Vase13" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
-position = Vector2(2248, 720)
+position = Vector2(-832, 976)
 transformedCollider = NodePath("../Vase6/CollisionShape2D")
 transformedTexture = NodePath("../Vase6/Sprite2D")
 
 [node name="Vase14" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
-position = Vector2(2872, 720)
+position = Vector2(-1240, 688)
 transformedCollider = NodePath("../Vase6/CollisionShape2D")
 transformedTexture = NodePath("../Vase6/Sprite2D")
 
 [node name="Vase15" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
-position = Vector2(2872, 944)
+position = Vector2(-832, 688)
 transformedCollider = NodePath("../Vase6/CollisionShape2D")
 transformedTexture = NodePath("../Vase6/Sprite2D")
 
@@ -1001,88 +1003,69 @@ position = Vector2(-72, 120)
 position = Vector2(48, 120)
 
 [node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
-visible = false
 position = Vector2(-696, -264)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems5"]
-position = Vector2(0, 2)
+position = Vector2(-16, -80)
 shape = SubResource("RectangleShape2D_5xcg7")
 
 [node name="LocalAllowedItemsFeedback44" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, -184)
+position = Vector2(-16, -184)
 
 [node name="LocalAllowedItemsFeedback45" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, -56)
+position = Vector2(-16, -56)
 
 [node name="LocalAllowedItemsFeedback46" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, 72)
+position = Vector2(-16, 72)
 
 [node name="LocalAllowedItemsFeedback47" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_5utxs")]
-position = Vector2(0, 200)
+position = Vector2(-16, -312)
 
 [node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
-visible = false
-position = Vector2(-160, 512)
+position = Vector2(-840, 816)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems6"]
-position = Vector2(360, 128)
+position = Vector2(5, 16)
 shape = SubResource("RectangleShape2D_6kjif")
 
-[node name="LocalAllowedItemsFeedback48" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_5utxs")]
-position = Vector2(352, 80)
-
-[node name="LocalAllowedItemsFeedback49" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_5utxs")]
-position = Vector2(360, 192)
-
 [node name="LocalAllowedItemsFeedback50" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_5utxs")]
-position = Vector2(360, 320)
+position = Vector2(8, 16)
 
 [node name="LocalAllowedItems7" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
-visible = false
 position = Vector2(-600, 456)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems7"]
-position = Vector2(-114, 178.5)
-shape = SubResource("RectangleShape2D_6kjif")
-
-[node name="LocalAllowedItemsFeedback56" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_5utxs")]
-position = Vector2(-112, 474)
+position = Vector2(-116, 184)
+shape = SubResource("RectangleShape2D_t0w2r")
 
 [node name="LocalAllowedItemsFeedback57" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_5utxs")]
-position = Vector2(-112, 353)
+position = Vector2(-120, 376)
 
 [node name="LocalAllowedItemsFeedback58" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_5utxs")]
-position = Vector2(-112, 239)
+position = Vector2(-120, 248)
 
 [node name="LocalAllowedItemsFeedback59" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_5utxs")]
-position = Vector2(-112, 118)
+position = Vector2(-120, 120)
 
 [node name="LocalAllowedItemsFeedback60" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_5utxs")]
-position = Vector2(-112, -9)
+position = Vector2(-120, -9)
 
 [node name="LocalAllowedItems8" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
-visible = false
-position = Vector2(1977, 969)
+position = Vector2(-1096, 712)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems8"]
-position = Vector2(27, -9.5)
+position = Vector2(18, -9.5)
 shape = SubResource("RectangleShape2D_027ww")
 
-[node name="LocalAllowedItemsFeedback60" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_5utxs")]
-position = Vector2(-105, -8)
-
 [node name="LocalAllowedItemsFeedback63" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_5utxs")]
-position = Vector2(31, -8)
-
-[node name="LocalAllowedItemsFeedback61" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_5utxs")]
-position = Vector2(-249, -9)
+position = Vector2(-24, -8)
 
 [node name="LocalAllowedItemsFeedback62" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_5utxs")]
-position = Vector2(150, -10)
+position = Vector2(112, -10)
 
 [node name="LocalAllowedItems14" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 visible = false
@@ -1256,31 +1239,48 @@ position = Vector2(360, 48)
 position = Vector2(488, 48)
 
 [node name="LocalAllowedItems11" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
-visible = false
-position = Vector2(-1376, 864)
+position = Vector2(-1632, 1456)
 allowedObjects = Array[String](["Broom"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems11"]
-position = Vector2(-32, -24)
+position = Vector2(-160, -128)
 shape = SubResource("RectangleShape2D_6l42h")
 
 [node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(-288, -24)
+position = Vector2(-288, -16)
 
 [node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(-160, -24)
+position = Vector2(-288, -144)
 
 [node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(-32, -24)
+position = Vector2(-160, -16)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(96, -24)
+position = Vector2(-160, -144)
 
 [node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(224, -24)
+position = Vector2(-32, -16)
 
 [node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
-position = Vector2(288, -24)
+position = Vector2(-32, -144)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(-32, -248)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(-160, -248)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(-288, -248)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(40, -248)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(40, -120)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_5utxs")]
+position = Vector2(40, -16)
 
 [node name="LocalAllowedItems12" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 visible = false
@@ -1312,3 +1312,9 @@ texture = ExtResource("33_66305")
 [node name="Bacchette-001" type="Sprite2D" parent="TemporaryAssets"]
 position = Vector2(-1992, 112)
 texture = ExtResource("34_ws6o2")
+
+[node name="DirtyFloor3" parent="." node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
+position = Vector2(-1408, 640)
+scale = Vector2(2, 1.24)
+questToSendProgressSignal = NodePath("../Quests/KitchenClearDirtyFloor2")
+sendSignalToQuestOnDestroyed = true
