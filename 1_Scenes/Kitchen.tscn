@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=70 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
 [ext_resource type="Texture2D" uid="uid://bblakm2ijk8e5" path="res://Level/Sprites/bacchette-001.png" id="34_ws6o2"]
-[ext_resource type="Texture2D" uid="uid://l2emgpq5trtd" path="res://Level/Sprites/tavolo-001.png" id="35_vhoy7"]
 [ext_resource type="Texture2D" uid="uid://bcdy7cwqkchtl" path="res://Level/Sprites/Tavolo lungo.png" id="36_8jx87"]
 [ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="37_bfqvd"]
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
@@ -680,7 +679,7 @@ layer_0/tile_data = PackedInt32Array(-327686, 65536, 3, -262150, 65536, 4, -3276
 z_index = 1
 tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(-196624, 262144, 4, -196623, 262144, 4, -196622, 262144, 4, -196621, 262144, 4, -65552, 262144, 4, -65551, 262144, 4, -65550, 262144, 4, -65549, 262144, 4, 65520, 262144, 4, 65521, 262144, 4, 65522, 262144, 4, 65523, 262144, 4, 262129, 196608, 7, 262130, 196608, 7, 262128, 196608, 7, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 720880, 196608, 5, 655344, 196608, 5, -458751, 327680, 0, -393215, 327680, 1, -458750, 393216, 0, -393214, 393216, 1, -458744, 327680, 0, -393208, 327680, 1, -458743, 393216, 0, -393207, 393216, 1, 393227, 196608, 7, 393228, 196608, 7, -327680, 196608, 5, -262144, 196608, 5, 327680, 196608, 5, 393216, 196608, 5, 393217, 196608, 7, 393218, 196608, 7, 393219, 196608, 7)
+layer_0/tile_data = PackedInt32Array(-196624, 262144, 4, -196623, 262144, 4, -196622, 262144, 4, -196621, 262144, 4, -65552, 262144, 4, -65551, 262144, 4, -65550, 262144, 4, -65549, 262144, 4, 65520, 262144, 4, 65521, 262144, 4, 65522, 262144, 4, 65523, 262144, 4, 262129, 196608, 7, 262130, 196608, 7, 262128, 196608, 7, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 720880, 196608, 5, 655344, 196608, 5, -458751, 327680, 0, -393215, 327680, 1, -458750, 393216, 0, -393214, 393216, 1, -458744, 327680, 0, -393208, 327680, 1, -458743, 393216, 0, -393207, 393216, 1, 393227, 196608, 7, 393228, 196608, 7, -327680, 196608, 5, -262144, 196608, 5, 327680, 196608, 5, 393216, 196608, 5, 393217, 196608, 7, 393218, 196608, 7, 393219, 196608, 7, 786420, 262144, 3, -393212, 262144, 3, -393211, 262144, 3, -393210, 262144, 3, 393224, 262144, 3, 393225, 262144, 3)
 
 [node name="MapStructureWalls" type="TileMap" parent="."]
 tile_set = ExtResource("40_wejvi")
@@ -1176,6 +1175,7 @@ position = Vector2(72, -64)
 position = Vector2(72, 64)
 
 [node name="TemporaryAssets" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Daikon-001" type="Sprite2D" parent="TemporaryAssets"]
 position = Vector2(-1984, -128)
@@ -1185,45 +1185,13 @@ texture = ExtResource("33_66305")
 position = Vector2(-1992, 112)
 texture = ExtResource("34_ws6o2")
 
-[node name="Tavolo-001" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(576, -704)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
-[node name="Tavolo-002" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(704, -704)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
-[node name="Tavolo-003" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(832, -704)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
-[node name="Tavolo-005" type="Sprite2D" parent="TemporaryAssets"]
-z_index = -999
-position = Vector2(1216, 856)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
-[node name="Tavolo-006" type="Sprite2D" parent="TemporaryAssets"]
-z_index = -999
-position = Vector2(1088, 856)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
-[node name="Tavolo-004" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(-1472, 1472)
-scale = Vector2(0.969697, 1.06667)
-texture = ExtResource("35_vhoy7")
-
 [node name="Tinozza-001" type="Sprite2D" parent="TemporaryAssets"]
 position = Vector2(-1472, 1448)
 scale = Vector2(1.33333, 2.21429)
 texture = ExtResource("37_bfqvd")
 
 [node name="Tinozza-002" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(1152, 840)
+position = Vector2(1152, 816)
 scale = Vector2(1.33333, 2.21429)
 texture = ExtResource("37_bfqvd")
 
