@@ -34,7 +34,7 @@ script = ExtResource("1_4ebhp")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
-unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD")]
 travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea11")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
 
@@ -104,12 +104,6 @@ objectsToAdd = [NodePath("VaseGrown0")]
 position = Vector2(-728, 1512)
 sendToTravelID = null
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
-
-[node name="UnlocksAfterKitchenGrowPlantInRoomG" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
-script = ExtResource("5_o2xhk")
-requiredQuest = "KitchenGrowPlantInRoomG"
-requiredQuestStage = 1
-objectsToAdd = [NodePath("")]
 
 [node name="TeleportFall" type="Node2D" parent="."]
 
