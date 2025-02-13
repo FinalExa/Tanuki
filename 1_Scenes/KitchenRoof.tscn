@@ -1,17 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://d3to5xrejw3mr"]
+[gd_scene load_steps=28 format=3 uid="uid://d3to5xrejw3mr"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_4ebhp"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_sv7mx"]
 [ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://ImportantObjects/Interactables/vase_grown.tscn" id="2_syr3w"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="3_lohav"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="5_o2xhk"]
-[ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/PuzzleObjects/heat_source.tscn" id="6_5cmri"]
-[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="7_7bomj"]
 [ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="12_cxjtd"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="18_hrnga"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vum0e"]
-radius = 112.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffb34"]
 size = Vector2(416, 304)
@@ -78,7 +73,7 @@ script = ExtResource("1_4ebhp")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
-unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenSaveTheOni"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG")]
 travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomG/VaseGrown1"), NodePath("TeleportFall/TravelingArea1"), NodePath("TeleportFall/TravelingArea2"), NodePath("TeleportFall/TravelingArea3"), NodePath("TeleportFall/TravelingArea4"), NodePath("TeleportFall/TravelingArea5"), NodePath("TeleportFall/TravelingArea6"), NodePath("TeleportFall/TravelingArea7"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea11"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea15"), NodePath("TeleportFall/TravelingArea16"), NodePath("TeleportFall/TravelingArea17"), NodePath("TeleportFall/TravelingArea18"), NodePath("TeleportFall/TravelingArea19"), NodePath("TeleportFall/TravelingArea20")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0"), NodePath("Teleports/VaseGrownReceiver1")]
 
@@ -140,26 +135,6 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="QuestUnlocks" type="Node2D" parent="."]
-
-[node name="UnlocksAfterKitchenSaveTheOni" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
-script = ExtResource("5_o2xhk")
-requiredQuest = "KitchenSaveTheOni"
-requiredQuestStage = 2
-objectsToAdd = [NodePath("HeatSource"), NodePath("OniStationaryDialogue3")]
-
-[node name="HeatSource" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" instance=ExtResource("6_5cmri")]
-position = Vector2(1040, -312)
-
-[node name="OniStationaryDialogue3" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("7_7bomj")]
-position = Vector2(1040, -312)
-dialogueText = Array[String](["Eccoti finalmente! Vedi quella lampada? Ti aiuto a tagliarla e cadrà perfettamente al Warden, rubagli la chiave poi!", "Questo sì che mi aiuta, eheh quel Warden non sospetta niente."])
-characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath("../HeatSource"), null]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestUnlocks/UnlocksAfterKitchenSaveTheOni/OniStationaryDialogue3"]
-shape = SubResource("CircleShape2D_vum0e")
 
 [node name="UnlocksAfterKitchenGrowPlantInRoomD" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
 script = ExtResource("5_o2xhk")

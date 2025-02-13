@@ -21,3 +21,4 @@ func CheckForPlayerCurrentHiddenStatus(playerRef: PlayerCharacter):
 	if (playerRef.transformationChangeRef.get_if_transformed_in_right_zone() != 1 ||
 	(playerRef.transformationChangeRef.get_if_transformed_in_right_zone() == 1 && playerRef.velocity != Vector2.ZERO)):
 		return true
+	return false
