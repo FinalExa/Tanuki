@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=71 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="37_bfqvd"]
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
 [ext_resource type="Texture2D" uid="uid://go7nnh4oep76" path="res://Level/Sprites/Ciotole-001.png" id="39_lh02n"]
+[ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="40_6w7qa"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="40_wejvi"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
@@ -51,9 +52,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -152, 288, 0, 288, 0, 456, -152, 456, -152, 632, -48, 632, -48, 960, -152, 960, -152, 1136, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1440, 1152, 1440, 1152, 1504, -672, 1504, -672, 1352, -736, 1352, -736, 1248, -768, 1248, -768, 1056, -632, 1056, -632, 864, -736, 864, -736, 416, -632, 416, -632, 224, -768, 224, -768, 32, -632, 32, -632, -152, -736, -152, -736, -656, -632, -656)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_guwno"]
-vertices = PackedVector2Array(1312, -608, 1312, -736, 1760, -736, 1760, 520, 1632, 520, 1632, 832, 1440, 832, 1440, 768, 856, 768, 856, 1024, 680, 1024, 680, 768, 504, 768, 504, 832, 64, 832, 64, 632, 136, 632, 136, 456, 0, 456, 0, 288, 136, 288, 136, 104, 32, 104, 32, 16, 160, 16, 160, -96, 240, -96, 240, -192, 160, -192, 160, -224, 224, -224, 224, -352, 160, -352, 160, -416, 56, -416, 56, -640, 96, -608, 96, -640)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(11, 24, 25, 26, 8), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 0), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(35, 37, 36), PackedInt32Array(33, 36, 0), PackedInt32Array(30, 31, 0, 4, 27), PackedInt32Array(26, 27, 4, 7, 8), PackedInt32Array(20, 21, 24, 11, 12), PackedInt32Array(17, 20, 12), PackedInt32Array(17, 12, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(96, -608, 96, -640, 56, -640, 56, -416, 160, -416, 160, -352, 224, -352, 224, -224, 160, -224, 160, -192, 240, -192, 240, -96, 160, -96, 160, 16, 32, 16, 32, 104, 136, 104, 136, 288, 0, 288, 0, 456, 136, 456, 136, 632, 64, 632, 64, 832, 504, 832, 504, 768, 680, 768, 680, 1024, 856, 1024, 856, 768, 1440, 768, 1440, 832, 1632, 832, 1632, 520, 1760, 520, 1760, -736, 1312, -736, 1312, -608)])
+vertices = PackedVector2Array(1312, -608, 1312, -736, 1760, -736, 1760, 488, 1632, 488, 1632, 832, 1440, 832, 1440, 768, 856, 768, 856, 1024, 680, 1024, 680, 768, 504, 768, 504, 832, 64, 832, 64, 632, 136, 632, 136, 456, 0, 456, 0, 288, 136, 288, 136, 104, 32, 104, 32, 16, 160, 16, 160, -96, 240, -96, 240, -224, 224, -224, 224, -352, 160, -352, 160, -416, 56, -416, 56, -640, 96, -608, 96, -640, 240, -192)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(11, 24, 25, 26, 8), PackedInt32Array(27, 28, 29), PackedInt32Array(29, 30, 31, 0), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(33, 35, 34), PackedInt32Array(31, 34, 0), PackedInt32Array(29, 0, 4, 27), PackedInt32Array(36, 27, 4), PackedInt32Array(26, 36, 4, 7, 8), PackedInt32Array(20, 21, 24, 11, 12), PackedInt32Array(17, 20, 12), PackedInt32Array(17, 12, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(96, -608, 96, -640, 56, -640, 56, -416, 160, -416, 160, -352, 224, -352, 224, -224, 240, -224, 240, -192, 240, -96, 160, -96, 160, 16, 32, 16, 32, 104, 136, 104, 136, 288, 0, 288, 0, 456, 136, 456, 136, 632, 64, 632, 64, 832, 504, 832, 504, 768, 680, 768, 680, 1024, 856, 1024, 856, 768, 1440, 768, 1440, 832, 1632, 832, 1632, 488, 1760, 488, 1760, -736, 1312, -736, 1312, -608)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f4sio"]
 vertices = PackedVector2Array(-1984, 1120, -2016, 1120, -2016, 672, -1760, 672, -1760, 736, -1632, 736, -1632, 672, -1504, 672, -1336, 760, -920, 1056, -816, 1248, -1376, 1376, -1568, 1376, -1504, 512, -1336, 512, -1152, 760, -1152, 672, -920, 672, -920, 760, -816, 760, -816, 872, -920, 872, -768, 1056, -768, 1248, -816, 1504, -1376, 1504, -1568, 1472, -1944, 1472, -1944, 1344, -1984, 1344)
@@ -165,7 +166,7 @@ patrolIndicators = [NodePath("../../PatrolPoints/GuardB1/PatrolIndicator")]
 startingIndex = 6
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
-position = Vector2(904, 128)
+position = Vector2(5720, -1168)
 patrolIndicators = [NodePath("../../PatrolPoints/HyottokoC1/PatrolIndicator")]
 
 [node name="GuardC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
@@ -1266,37 +1267,33 @@ texture = ExtResource("34_ws6o2")
 position = Vector2(32, -216)
 texture = ExtResource("34_ws6o2")
 
-[node name="TemporaryStuffedTable2" type="Node2D" parent="."]
+[node name="Table" parent="." instance=ExtResource("40_6w7qa")]
+position = Vector2(1728, 712)
 
-[node name="TavoloLungo2" type="Sprite2D" parent="TemporaryStuffedTable2"]
-z_index = -999
-position = Vector2(1728, 744)
-texture = ExtResource("36_8jx87")
-
-[node name="Ciotole-2-001" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1728, 581.5)
+[node name="Ciotole-2-001" type="Sprite2D" parent="Table"]
+position = Vector2(-1, -186.5)
 scale = Vector2(1.28, 1.55263)
 texture = ExtResource("38_ilpph")
 
-[node name="Ciotole-2-002" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1728, 776)
+[node name="Ciotole-2-002" type="Sprite2D" parent="Table"]
+position = Vector2(-1, 8.00003)
 scale = Vector2(1.28, 1.55263)
 texture = ExtResource("38_ilpph")
 
-[node name="Ciotole-001" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1728, 848)
+[node name="Ciotole-001" type="Sprite2D" parent="Table"]
+position = Vector2(-1, 80)
 scale = Vector2(1.31633, 1.55263)
 texture = ExtResource("39_lh02n")
 
-[node name="Ciotole-002" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1728, 672)
+[node name="Ciotole-002" type="Sprite2D" parent="Table"]
+position = Vector2(-1, -96)
 scale = Vector2(1.31633, 1.55263)
 texture = ExtResource("39_lh02n")
 
-[node name="Bacchette-002" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1768, 616)
+[node name="Bacchette-002" type="Sprite2D" parent="Table"]
+position = Vector2(39, -152)
 texture = ExtResource("34_ws6o2")
 
-[node name="Bacchette-003" type="Sprite2D" parent="TemporaryStuffedTable2"]
-position = Vector2(1696, 720)
+[node name="Bacchette-003" type="Sprite2D" parent="Table"]
+position = Vector2(-33, -48)
 texture = ExtResource("34_ws6o2")
