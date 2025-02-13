@@ -44,7 +44,7 @@ func SetGuardInAlert(guard: GuardController):
 		if (guard.isInPatrol):
 			guard.enemyPatrol.stop_patrol()
 		if (guard.isChecking):
-			guard.guardCheck.stop_guardCheck()
+			guard.guardCheck.StopCheck()
 		if (guard.isInResearch):
 			guard.guardResearch.StopResearch()
 		guard.guardAlert.start_alert(wardenCheck.playerRef)
