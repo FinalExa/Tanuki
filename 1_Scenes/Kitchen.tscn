@@ -165,7 +165,7 @@ patrolIndicators = [NodePath("../../PatrolPoints/GuardB1/PatrolIndicator")]
 startingIndex = 6
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
-position = Vector2(5720, -1168)
+position = Vector2(984, -128)
 patrolIndicators = [NodePath("../../PatrolPoints/HyottokoC1/PatrolIndicator")]
 
 [node name="GuardC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
