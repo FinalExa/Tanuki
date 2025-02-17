@@ -38,7 +38,7 @@ func SetInactive():
 func LaunchAlertForGuardsInRange():
 	if (activated):
 		for i in guardsInRange.size():
-			if (!guardsInRange[i].guardAlert.lostSightOfPlayer):
+			if (!controllerRef.guardAlert.lostSightOfPlayer):
 				LaunchGuardAlert(guardsInRange[i])
 				UpdateWithLatestPosition(guardsInRange[i])
 
