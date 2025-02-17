@@ -151,7 +151,7 @@ travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
 
 [node name="GuardA1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-1408, -640)
-patrolIndicators = [NodePath("../../PatrolPoints/GuardA1/PatrolIndicator")]
+patrolIndicators = [NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/GuardC1/PatrolIndicator")]
 
 [node name="WardenC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
 position = Vector2(1200, 128)
@@ -178,20 +178,20 @@ patrolIndicators = [NodePath("../../PatrolPoints/CleanerB1/PatrolIndicator")]
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 
-[node name="GuardA1" type="Node2D" parent="PatrolPoints"]
+[node name="FoodStorageRoom" type="Node2D" parent="PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolIndicator" parent="PatrolPoints/GuardA1" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
-position = Vector2(-768, 0)
+[node name="PatrolFoodStorageRoom" parent="PatrolPoints/FoodStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+position = Vector2(-1280, -768)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 2, 0])
 waitActions = Array[float]([1.0, 0.1, 1.0])
 moveActions = [NodePath("../2"), NodePath("../1")]
 lookActions = Array[int]([0, 3, 1])
 
-[node name="1" type="Node2D" parent="PatrolPoints/GuardA1"]
+[node name="1" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1408, -1152)
 
-[node name="2" type="Node2D" parent="PatrolPoints/GuardA1"]
+[node name="2" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1408, 640)
 
 [node name="WardenC1" type="Node2D" parent="PatrolPoints"]
@@ -239,7 +239,7 @@ position = Vector2(904, -384)
 position = Vector2(0, 512)
 
 [node name="PatrolIndicator" parent="PatrolPoints/GuardC1" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
-position = Vector2(-768, 0)
+position = Vector2(768, -704)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0])
 waitActions = Array[float]([0.1, 1.0, 1.0])
 moveActions = [NodePath("../22"), NodePath("../21")]

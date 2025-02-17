@@ -229,7 +229,7 @@ currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
 script = ExtResource("7_2tf71")
 enemyController = NodePath("..")
 startupDuration = 0.1
-timeSpentDoingExtraPatrol = 60.0
+timeSpentDoingExtraPatrol = 15.0
 
 [node name="GuardStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
 script = ExtResource("18_v785f")
