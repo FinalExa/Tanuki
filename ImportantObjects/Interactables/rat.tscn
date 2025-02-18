@@ -8,6 +8,7 @@
 size = Vector2(128, 128)
 
 [node name="Rat" type="Node2D" groups=["Interactable"]]
+z_index = 1
 script = ExtResource("1_iabjc")
 neededProperties = Array[String](["Food"])
 

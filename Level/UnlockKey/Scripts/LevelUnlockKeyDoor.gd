@@ -9,8 +9,7 @@ var registeredKeys: Array[int]
 @export var openState: Node2D
 
 func _ready():
-	if (openState != null):
-		openState.get_parent().remove_child(openState)
+	call_deferred("RemoveOpenState")
 
 func RegisterKey(keyID: int):
 	if (!registeredKeys.has(keyID)):
@@ -20,8 +19,25 @@ func RegisterKey(keyID: int):
 
 func OpenDoor():
 	closedState.queue_free()
+	AddOpenState()
+
+func RemoveOpenState():
 	if (openState != null):
-		openState.reparent(self)
+		openState.hide()
+		FindOpenStateColliders(true)
+
+func FindOpenStateColliders(operationType: bool):
+	for i in openState.get_child_count():
+		if (openState.get_child(i) is CollisionShape2D):
+			OperateOpenStateCollider(openState.get_child(i), operationType)
+
+func OperateOpenStateCollider(collider: CollisionShape2D, operationType: bool):
+	collider.disabled = operationType
+
+func AddOpenState():
+	if (openState != null):
+		openState.show()
+		FindOpenStateColliders(false)
 
 func _on_area_2d_body_entered(body):
 	if (body is PlayerCharacter):

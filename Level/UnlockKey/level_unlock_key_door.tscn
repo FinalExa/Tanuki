@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b10ly0ikwygr3"]
+[gd_scene load_steps=8 format=3 uid="uid://b10ly0ikwygr3"]
 
 [ext_resource type="Script" path="res://Level/UnlockKey/Scripts/LevelUnlockKeyDoor.gd" id="1_eyo1s"]
-[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_vsnv1"]
+[ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale chiusa.png" id="2_kx308"]
+[ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale aperta.png" id="3_xchyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3j3d"]
 size = Vector2(304, 176)
@@ -9,9 +10,16 @@ size = Vector2(304, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4uht"]
 size = Vector2(256, 64)
 
-[node name="LevelUnlockKeyDoor" type="Node2D" node_paths=PackedStringArray("closedState")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0apa2"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t4xk"]
+size = Vector2(64, 64)
+
+[node name="LevelUnlockKeyDoor" type="Node2D" node_paths=PackedStringArray("closedState", "openState")]
 script = ExtResource("1_eyo1s")
 closedState = NodePath("Closed")
+openState = NodePath("Open")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -21,11 +29,23 @@ shape = SubResource("RectangleShape2D_i3j3d")
 [node name="Closed" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Closed"]
-modulate = Color(1, 0.266667, 1, 1)
-texture = ExtResource("2_vsnv1")
+texture = ExtResource("2_kx308")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Closed"]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_p4uht")
+
+[node name="Open" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Open"]
+texture = ExtResource("3_xchyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Open"]
+position = Vector2(-96, 32)
+shape = SubResource("RectangleShape2D_0apa2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Open"]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_5t4xk")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
