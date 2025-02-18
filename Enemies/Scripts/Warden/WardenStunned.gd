@@ -5,8 +5,6 @@ extends EnemyStunned
 
 func start_stun(direction: Vector2, tier: EnemyStunned.StunTier):
 	ExecuteStunStartup(direction, tier)
-	enemyCollider.disabled = true
 
 func end_stun():
 	ExecuteStunEnd()
-	enemyCollider.disabled = false
