@@ -653,7 +653,7 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor4")]
 
 [node name="DirtyFloor4" parent="Quests/KitchenClearDirtyFloor4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
 position = Vector2(2240, -1024)
-questToSendProgressSignal = NodePath("../../KitchenClearDirtyFloor3")
+questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
