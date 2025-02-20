@@ -8,7 +8,7 @@
 radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bvtmt"]
-radius = 88.0
+radius = 104.0
 
 [node name="Vase" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
 collision_layer = 3
