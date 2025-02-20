@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=43 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoController.gd" id="1_v2k34"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_m52v4"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/hyottoko_attack.tscn" id="12_ap1sf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="13_inx1f"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="15_4i71t"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_h7btj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_up2r5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_jo8pb"]
@@ -54,6 +55,13 @@ animations = [{
 "name": &"idle",
 "speed": 1.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qg4sj"]
+font = ExtResource("15_4i71t")
+font_size = 18
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 640.05
@@ -171,6 +179,7 @@ offset_left = -80.0
 offset_top = -96.0
 offset_right = 80.0
 offset_bottom = -70.0
+label_settings = SubResource("LabelSettings_qg4sj")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_5jpci")
@@ -326,7 +335,7 @@ enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
 enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
-[connection signal="damaged" from="." to="HyottokoReachPoint" method="_on_hyottoko_damaged"]
+[connection signal="damaged_no_direction" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
 [connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
 [connection signal="repelled" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
 [connection signal="stop_attack" from="." to="Rotator/HyottokoAttack" method="ForceEndAttack"]

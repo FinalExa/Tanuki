@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=43 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://rflcma3mfp7v" path="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav" id="2_cixjm"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="16_0gier"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="17_60did"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenCheck.gd" id="18_d02ip"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="18_xxtrn"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="19_4rlqf"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="19_ocxxy"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="20_aq2r1"]
@@ -55,6 +56,13 @@ animations = [{
 "name": &"idle",
 "speed": 4.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwhw3"]
+font = ExtResource("18_xxtrn")
+font_size = 18
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -164,6 +172,7 @@ offset_left = -80.0
 offset_top = -96.0
 offset_right = 80.0
 offset_bottom = -70.0
+label_settings = SubResource("LabelSettings_rwhw3")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("16_0gier")

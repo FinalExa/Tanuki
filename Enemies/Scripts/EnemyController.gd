@@ -67,6 +67,10 @@ func Damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	emit_signal("damaged", direction, tier)
 	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
+	DamagedExtraOperation(direction, tier)
+
+func DamagedExtraOperation(_direction: Vector2, _tier: EnemyStunned.StunTier):
+	pass
 
 func IsRepelled(direction: Vector2):
 	if (repelledSpeed > 0):

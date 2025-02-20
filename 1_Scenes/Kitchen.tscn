@@ -141,7 +141,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen"), NodePath("Quests/KitchenClearDirtyFloor4")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
@@ -621,6 +621,20 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor3")]
 position = Vector2(-640, 64)
 rotation = 1.5708
 questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="KitchenClearDirtyFloor4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+position = Vector2(-768, 512)
+script = ExtResource("2_pyt2b")
+questName = "KitchenClearDirtyFloor4"
+questItemsToOperate = [NodePath("DirtyFloor4")]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor4")]
+
+[node name="DirtyFloor4" parent="Quests/KitchenClearDirtyFloor4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
+position = Vector2(2240, -1024)
+questToSendProgressSignal = NodePath("../../KitchenClearDirtyFloor3")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]

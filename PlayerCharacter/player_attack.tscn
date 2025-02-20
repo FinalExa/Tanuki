@@ -34,10 +34,12 @@ position = Vector2(0, -128)
 script = ExtResource("2_vmxay")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerAttackHitbox"]
-polygon = PackedVector2Array(-48, 80, 48, 80, 72, -72, -72, -72)
+polygon = PackedVector2Array(-128, 80, 128, 80, 112, 0, 64, -64, -64, -64, -112, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerAttackHitbox"]
+position = Vector2(-9.6776, 11.3461)
 rotation = 4.71239
+scale = Vector2(0.881811, 1.62683)
 sprite_frames = SubResource("SpriteFrames_lri8o")
 
 [connection signal="area_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_area_entered"]
