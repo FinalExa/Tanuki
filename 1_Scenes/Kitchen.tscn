@@ -313,7 +313,7 @@ navigation_polygon = SubResource("NavigationPolygon_tg1ch")
 position = Vector2(-1984, 416)
 
 [node name="Dish" parent="Rooms/RoomA/Objects" instance=ExtResource("24_u6tss")]
-position = Vector2(-1744, -408)
+position = Vector2(-1744, -368)
 
 [node name="RoomB" type="Node2D" parent="Rooms"]
 
@@ -1171,11 +1171,11 @@ position = Vector2(72, 64)
 z_index = 1
 
 [node name="Daikon-001" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(-1736, -128)
+position = Vector2(-1728, -160)
 texture = ExtResource("33_66305")
 
 [node name="Bacchette-001" type="Sprite2D" parent="TemporaryAssets"]
-position = Vector2(-1720, 112)
+position = Vector2(-1736, 96)
 texture = ExtResource("34_ws6o2")
 
 [node name="Tinozza-001" type="Sprite2D" parent="TemporaryAssets"]
