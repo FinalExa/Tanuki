@@ -38,6 +38,7 @@ var baseCollisionShapeInfo
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
 var transformationTimer: float
+var startRotationDegrees: float
 
 @export var transformationLockDuration: float
 var transformationLockTimer: float
@@ -55,9 +56,11 @@ func InitialSetup():
 	baseTextureInfo = playerSprite.sprite_frames
 	baseTextureScale = playerSprite.scale
 	playerTransformedSprite.hide()
+	startRotationDegrees = playerTransformedSprite.global_rotation_degrees
 	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
 
 func _process(delta):
+	FlipTransformationSprite()
 	SetNewTransformation()
 	ActivateTransformation()
 	CheckForDeactivateTransformation()
@@ -151,6 +154,7 @@ func DeactivateTransformation():
 
 func TransformationActive(delta):
 	if (isTransformed):
+		if (playerTransformedSprite.global_rotation_degrees != startRotationDegrees): playerTransformedSprite.global_rotation_degrees = startRotationDegrees
 		if (transformationTimer < transformationDuration):
 			transformationTimer = clamp(transformationTimer + delta, 0, transformationDuration)
 			if (transformationTimer >= lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
@@ -249,3 +253,11 @@ func UndetectableTimer(delta):
 			undetectableTimer -= delta
 			return
 		undetectableActive = false
+
+func FlipTransformationSprite():
+	if (playerRef.velocity.x == 0):
+		return
+	if (playerRef.velocity.x > 0):
+		playerTransformedSprite.flip_h = false
+		return
+	playerTransformedSprite.flip_h = true
