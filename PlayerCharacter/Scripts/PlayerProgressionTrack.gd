@@ -1,6 +1,8 @@
 class_name PlayerProgressionTrack
 extends Node
 
+@export var playerRef: PlayerCharacter
+
 var unlockKeyTypes: Array[GameplayScene.SceneType]
 var unlockKeyIDs: Array[int]
 var usedUnlockKeyForDoors: Array[int]
@@ -39,6 +41,7 @@ func RegisterKey(id: int):
 		unlockKeyTypes.push_back(currentUnlockKeyType)
 		unlockKeyIDs.push_back(id)
 		usedUnlockKeyForDoors.push_back(-1)
+		playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
 	var gameplayScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene

@@ -53,6 +53,7 @@ func InstantiateNewScene():
 	currentScene.SetPlayerSpawn()
 	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer()
+	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func ClearTrash():
 	for i in self.get_child_count():

@@ -16,6 +16,7 @@ signal attack_cooldown
 @export var controlsPanel: Panel
 @export var gameOverPanel: Panel
 @export var gameOverSound: AudioStreamPlayer
+@export var keyCounter: KeyCounter
 var isInForcePause: bool
 
 func _ready():

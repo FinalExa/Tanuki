@@ -298,8 +298,9 @@ currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
 normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5"), NodePath("../Sounds/Movement/Normal/Step6"), NodePath("../Sounds/Movement/Normal/Step7"), NodePath("../Sounds/Movement/Normal/Step8")]
 transformedMovementSound = NodePath("../Sounds/TransformedMovement")
 
-[node name="PlayerProgressionTrack" type="Node" parent="."]
+[node name="PlayerProgressionTrack" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
 script = ExtResource("17_pusai")
+playerRef = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5la1i")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=24 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://UI/Script/AttackCooldown.gd" id="4_e360h"]
 [ext_resource type="Texture2D" uid="uid://djw6pacrdi88a" path="res://UI/Sprite/UI_Square.png" id="4_ep5f1"]
 [ext_resource type="Texture2D" uid="uid://cyc4xa8igfubb" path="res://UI/Sprite/UI_Cross.png" id="4_hkgms"]
+[ext_resource type="Script" path="res://UI/Script/KeyCounter.gd" id="4_ia11n"]
 [ext_resource type="Texture2D" uid="uid://cuq2s1qrcjqq" path="res://UI/Sprite/UI_Bar_Under.png" id="4_rcdvg"]
 [ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="5_5if3a"]
 [ext_resource type="Texture2D" uid="uid://35d72jkukkoj" path="res://UI/Sprite/UI_Square_BG.png" id="5_qelf8"]
@@ -23,11 +24,18 @@
 [sub_resource type="LabelSettings" id="LabelSettings_sl7vy"]
 font = ExtResource("3_gk6g8")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5b5nv"]
+font = ExtResource("3_gk6g8")
+font_size = 24
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_bx60d"]
 font = ExtResource("3_gk6g8")
 font_size = 32
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound", "keyCounter")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -47,6 +55,7 @@ optionsPanel = NodePath("OptionsPanel")
 controlsPanel = NodePath("ControlsPanel")
 gameOverPanel = NodePath("GameOverPanel")
 gameOverSound = NodePath("GameOverSound")
+keyCounter = NodePath("Key Counter")
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_x7y7m")
@@ -66,6 +75,18 @@ Esc: Pause Menu"
 label_settings = SubResource("LabelSettings_sl7vy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Key Counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 32.0
+offset_right = 1091.0
+offset_bottom = 164.0
+text = "KEY COUNTER"
+label_settings = SubResource("LabelSettings_5b5nv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_ia11n")
 
 [node name="SubstitutionStacks" type="Label" parent="."]
 layout_mode = 0
