@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="4_ew33i"]
 
 [node name="ActiveLevel" type="Node2D" node_paths=PackedStringArray("frameMaster", "sceneSelector", "playerRef")]
+y_sort_enabled = true
 script = ExtResource("1_0lavq")
 frameMaster = NodePath("FrameMaster")
 sceneSelector = NodePath("SceneSelector")
