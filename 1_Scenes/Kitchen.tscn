@@ -155,7 +155,7 @@ layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
-layer_2/z_index = 1
+layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-393234, 327680, 0, -327698, 327680, 1, -393233, 393216, 0, -327697, 393216, 1, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, -458751, 327680, 0, -393215, 327680, 1, -458750, 393216, 0, -393214, 393216, 1, -458744, 327680, 0, -393208, 327680, 1, -458743, 393216, 0, -393207, 393216, 1, -458742, 327680, 0, -393206, 327680, 1, -458741, 393216, 0, -393205, 393216, 1, 65522, 196608, 4, 65523, 262144, 4, 65524, 327680, 4, -65550, 196608, 4, -65549, 262144, 4, -65548, 327680, 4, -196622, 196608, 4, -196621, 262144, 4, -196620, 327680, 4, -131090, 196608, 5, -65554, 196608, 5, -18, 196608, 5, 65518, 196608, 5, 131054, 196608, 5, 393198, 196608, 5, 458734, 196608, 5, 524270, 196608, 5, 589806, 196608, 5, 655342, 196608, 5, 720878, 196608, 5, 786414, 196608, 5, 786420, 262144, 3, 393224, 262144, 3, 393225, 262144, 3, -393212, 262144, 3, -393211, 262144, 3, -393210, 262144, 3, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 393217, 196608, 7, 393218, 196608, 7, 393219, 196608, 7, 393227, 196608, 7, 393228, 196608, 7, 262130, 196608, 7, 262129, 196608, 7, 262128, 196608, 7, 327680, 196608, 5, 393216, 196608, 5)
 script = ExtResource("1_fluk2")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
@@ -168,6 +168,7 @@ travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
 
 [node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="GuardA1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-1216, -464)
@@ -388,6 +389,7 @@ position = Vector2(-2224, 1112)
 navigation_polygon = SubResource("NavigationPolygon_f4sio")
 
 [node name="Keys" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="UnlockKey" parent="Keys" instance=ExtResource("2_8niet")]
 position = Vector2(1528, 1152)
@@ -412,6 +414,7 @@ requiredKeys = 3
 [node name="Quests" type="Node2D" parent="."]
 
 [node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenSaveTheOni"
@@ -518,27 +521,30 @@ questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [null]
 
 [node name="KitchenHiddenRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenHiddenRoom"
-questItemsToOperate = [NodePath("RoomA"), NodePath("../../Keys/UnlockKey3"), NodePath("RoomA"), NodePath("../../Keys/UnlockKey3")]
+questItemsToOperate = [NodePath("RoomAStructure"), NodePath("../../Keys/UnlockKey3"), NodePath("RoomAStructure"), NodePath("../../Keys/UnlockKey3")]
 questItemsStages = Array[int]([0, 0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("PaintingWall"), NodePath("ActivatedByPlayer"), NodePath("ActivatedByPlayer")]
 
-[node name="RoomA" type="Node2D" parent="Quests/KitchenHiddenRoom"]
-
-[node name="RoomAStructureFloor" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
-z_index = -999
+[node name="RoomAStructure" type="TileMap" parent="Quests/KitchenHiddenRoom"]
+y_sort_enabled = true
 tile_set = ExtResource("40_wejvi")
 format = 2
-layer_0/tile_data = PackedInt32Array(-720904, 65536, 3, -655368, 65536, 4, -720903, 131072, 3, -655367, 131072, 4)
-
-[node name="RoomAStructureWalls" type="TileMap" parent="Quests/KitchenHiddenRoom/RoomA"]
-z_index = -998
-tile_set = ExtResource("40_wejvi")
-format = 2
-layer_0/tile_data = PackedInt32Array(-720905, 0, 1, -720902, 262144, 1, -786439, 196608, 1, -786440, 65536, 1, -786438, 262144, 1, -786441, 0, 1)
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -1000
+layer_0/tile_data = PackedInt32Array(-720904, 65536, 3, -655368, 65536, 4, -720903, 131072, 3, -655367, 131072, 4, -786440, 65536, 1, -786439, 196608, 1, -786441, 0, 1, -720905, 0, 1, -786438, 262144, 1, -720902, 262144, 1)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
 
 [node name="PaintingWall" parent="Quests/KitchenHiddenRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("15_y35by")]
 position = Vector2(-896, -1344)
@@ -557,6 +563,7 @@ connectedInteractable = NodePath("../ActivatedByPlayer")
 shape = SubResource("RectangleShape2D_hmcs5")
 
 [node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainKnife"
@@ -574,6 +581,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenObtainTeapot" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainTeapot"
@@ -591,6 +599,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenGrowPlantInRoomD"
@@ -619,6 +628,7 @@ questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [null]
 
 [node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor"
@@ -634,6 +644,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenClearDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor2"
@@ -649,6 +660,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenClearDirtyFloor3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor3"
@@ -664,6 +676,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenClearDirtyFloor4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor4"
@@ -678,6 +691,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenFeedRat"
@@ -767,6 +781,7 @@ position = Vector2(-384, -639)
 position = Vector2(-728, 1376)
 
 [node name="TransformationsObjects" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Vase" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-720, -728)
@@ -1206,6 +1221,7 @@ position = Vector2(72, 64)
 
 [node name="TemporaryAssets" type="Node2D" parent="."]
 z_index = 1
+y_sort_enabled = true
 
 [node name="Daikon-001" type="Sprite2D" parent="TemporaryAssets"]
 position = Vector2(-1728, -160)

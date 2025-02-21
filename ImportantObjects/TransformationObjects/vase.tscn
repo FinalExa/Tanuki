@@ -11,7 +11,6 @@ radius = 48.0
 radius = 104.0
 
 [node name="Vase" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
-collision_layer = 3
 script = ExtResource("1_7h2c1")
 transformedName = "Vase"
 transformedCollider = NodePath("CollisionShape2D")

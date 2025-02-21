@@ -24,6 +24,7 @@ framesPerSecond = 60.0
 cameraRef = NodePath("../GameCamera")
 
 [node name="SceneSelector" type="Node2D" parent="." node_paths=PackedStringArray("playerRef", "sceneMaster")]
+y_sort_enabled = true
 script = ExtResource("3_7g2cs")
 playerRef = NodePath("../PlayerCharacter")
 safePosition = Vector2(100000, 100000)
