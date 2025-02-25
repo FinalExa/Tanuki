@@ -31,6 +31,7 @@ var isTrackingPriorityTarget: bool
 var playerWasSpottedTransformed: bool
 var mainRaycastResult: Array[Node2D]
 var secondaryRaycastResult: Array[Node2D]
+var secondarySpotted: bool
 
 @export var guardController: GuardController
 
@@ -50,6 +51,7 @@ func initialize_guard_research(target: Node2D):
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
 	playerWasSpottedTransformed = false
+	secondarySpotted = false
 	researchEnterSound.play()
 
 func InitializeResearchWithLocation(location: Vector2):
@@ -62,6 +64,7 @@ func InitializeResearchWithLocation(location: Vector2):
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false
 	playerWasSpottedTransformed = false
+	secondarySpotted = false
 	researchEnterSound.play()
 
 func StartResearchWithSuspiciousItem(target: Node2D):
