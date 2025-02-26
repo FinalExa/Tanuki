@@ -959,7 +959,7 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="repelled" from="." to="Rotator/GuardCheck" method="OnGuardRepelled"]
 [connection signal="repelled" from="." to="Rotator/GuardResearch" method="OnGuardRepelled"]
 [connection signal="repelled" from="." to="Rotator/GuardAlert" method="OnGuardRepelled"]
-[connection signal="stop_attack" from="." to="Rotator/GuardAttack" method="ForceEndAttack"]
+[connection signal="stop_attack" from="." to="Rotator/GuardAttack" method="ForceStopAttack"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="reached_destination" from="EnemyMovement" to="Rotator/GuardResearch" method="ReachedDestination"]
 [connection signal="body_entered" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_entered"]

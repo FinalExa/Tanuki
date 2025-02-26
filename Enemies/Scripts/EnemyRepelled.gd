@@ -44,7 +44,7 @@ func _on_body_exited(body):
 			activatedInteractables.erase(body)
 
 func _on_area_entered(area):
-	if (area is GenericInteractable && !interactablesInRange.has(area)):
+	if (area is GenericInteractable && !interactablesInRange.has(area)  && !(area is PlayerCharacter)):
 		interactablesInRange.push_back(area)
 
 func _on_area_exited(area):
@@ -54,7 +54,7 @@ func _on_area_exited(area):
 			activatedInteractables.erase(area)
 
 func _on_area_2d_body_entered(body):
-	if (!objectsInStopRange.has(body)):
+	if (!objectsInStopRange.has(body) && !(body is PlayerCharacter)):
 		objectsInStopRange.push_back(body)
 
 func _on_area_2d_body_exited(body):
