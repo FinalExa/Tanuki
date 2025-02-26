@@ -10,25 +10,31 @@ extends StaticBody2D
 @export var transformedPassivePath: String
 @export var originalObjectPath: String
 var transformedTextureScale: Vector2
-var transformationFeedback: AnimatedSprite2D
-var feedback: String = "res://ImportantObjects/TransformationObjects/GetTransformationFeedback.tscn"
+var playerCloseFeedbackSprite: AnimatedSprite2D
+var transformableFeedbackSprite: AnimatedSprite2D
+var playerCloseFeedback: String = "res://ImportantObjects/TransformationObjects/GetTransformationFeedback.tscn"
+var transformableFeedback: String = "res://ImportantObjects/TransformationObjects/TransformableFeedback.tscn"
 
 var localAllowedItemsRef: LocalAllowedItems
 
 func _ready():
 	GetScale()
-	call_deferred("SpawnFeedback")
+	playerCloseFeedbackSprite = SpawnFeedback(playerCloseFeedback)
+	playerCloseFeedbackSprite.hide()
+	transformableFeedbackSprite = SpawnFeedback(transformableFeedback)
 
 func GetScale():
 	transformedTextureScale = transformedTexture.scale
 
 func RegisterAvailableTransformation(playerRef: PlayerCharacter):
 	playerRef.transformationChangeRef.SetTransformationObjectInRange(self)
-	transformationFeedback.show()
+	playerCloseFeedbackSprite.show()
+	transformableFeedbackSprite.hide()
 
 func RemoveAvailableTransformation(playerRef: PlayerCharacter):
 	playerRef.transformationChangeRef.UnsetTransformationObjectInRange(self)
-	transformationFeedback.hide()
+	playerCloseFeedbackSprite.hide()
+	transformableFeedbackSprite.show()
 
 func SetLocalZone(localRef: LocalAllowedItems):
 	localAllowedItemsRef = localRef
@@ -39,11 +45,11 @@ func UnsetLocalZone():
 func DestroyedSignal():
 	queue_free()
 
-func SpawnFeedback():
-	var file_scene = load(feedback)
-	transformationFeedback = file_scene.instantiate()
-	self.add_child(transformationFeedback)
-	transformationFeedback.hide()
-	transformationFeedback.play("default")
-	transformationFeedback.z_index = 100
-	transformationFeedback.global_position = self.global_position
+func SpawnFeedback(feedbackToSpawn: String):
+	var file_scene = load(feedbackToSpawn)
+	var feedbackInstance = file_scene.instantiate()
+	self.add_child(feedbackInstance)
+	feedbackInstance.play("default")
+	feedbackInstance.z_index = 100
+	feedbackInstance.global_position = self.global_position
+	return feedbackInstance
