@@ -181,8 +181,8 @@ questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-position = Vector2(-1048, 1184)
-patrolIndicators = [NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/KitchenToCorridorRoom/PatrolKitchenToCorridorRoom"), NodePath("../../PatrolPoints/CorridorRoom/PatrolCorridorRoom")]
+position = Vector2(-392, 1184)
+patrolIndicators = [NodePath("../../PatrolPoints/CorridorRoom/PatrolCorridorRoom"), NodePath("../../PatrolPoints/KitchenToCorridorRoom/PatrolKitchenToCorridorRoom"), NodePath("../../PatrolPoints/CorridorRoom/PatrolCorridorRoom")]
 startingIndex = 6
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
@@ -315,16 +315,22 @@ position = Vector2(216, 384)
 
 [node name="PatrolCorridorRoom" parent="PatrolPoints/CorridorRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-360, 1056)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0])
-moveActions = [NodePath("../35"), NodePath("../36")]
-lookActions = Array[int]([1, 0])
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../36"), NodePath("../35"), NodePath("../37"), NodePath("../38"), NodePath("../37"), NodePath("../35")]
+lookActions = Array[int]([0, 2, 3, 2, 3, 2])
 
 [node name="35" type="Node2D" parent="PatrolPoints/CorridorRoom"]
-position = Vector2(-256, -392)
+position = Vector2(-512, 1176)
+
+[node name="37" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+position = Vector2(-512, 384)
+
+[node name="38" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+position = Vector2(-512, 128)
 
 [node name="36" type="Node2D" parent="PatrolPoints/CorridorRoom"]
-position = Vector2(-256, 1344)
+position = Vector2(768, 1304)
 
 [node name="CleanStorageRoomOnly" type="Node2D" parent="PatrolPoints"]
 
