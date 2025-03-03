@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=74 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardController.gd" id="1_lw4ue"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -44,6 +44,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchLaunch.gd" id="23_logam"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckHitboxChecker.gd" id="23_wfykk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistraction.gd" id="24_dy37m"]
+[ext_resource type="Texture2D" uid="uid://4ralt65r34yh" path="res://Enemies/Sprites/GuardLightCone.png" id="24_rkyot"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardMainResearchRaycast.gd" id="24_s705y"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckReduction.gd" id="24_wi1hx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistractionDiffuseArea.gd" id="25_7n1xk"]
@@ -268,6 +269,11 @@ position = Vector2(0, -80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_yeuj8")
 script = ExtResource("22_3ukpx")
+
+[node name="GuardLightCone" type="Sprite2D" parent="Rotator"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(0, -152)
+texture = ExtResource("24_rkyot")
 
 [node name="GuardContact" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "enemyRotator")]
 script = ExtResource("22_apy6b")

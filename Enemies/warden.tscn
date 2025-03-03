@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=44 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyController.gd" id="1_b1hac"]
 [ext_resource type="AudioStream" uid="uid://rflcma3mfp7v" path="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav" id="2_cixjm"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="23_v3eb6"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="24_fumfp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="25_g5tml"]
+[ext_resource type="Texture2D" uid="uid://r4m7hf5ppi6q" path="res://Enemies/Sprites/WardenLightCone.png" id="25_pua43"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenIsInWardenCheck.gd" id="26_d77c5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="26_f5u8l"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Warden/WardenIsLookingAtPlayer.gd" id="27_q8bol"]
@@ -185,7 +186,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 45.0
+rotationSpeed = 3.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
@@ -201,7 +202,8 @@ checkSound = NodePath("../../Sounds/CheckStart")
 spottedSound = NodePath("../../Sounds/PlayerSpotted")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
-polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 576, -1216, -576, -1216)
+position = Vector2(0, -128)
+polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 384, -832, -384, -832)
 
 [node name="WardenAlertArea" parent="Rotator/WardenCheck" node_paths=PackedStringArray("wardenCheck", "wardenLocation") instance=ExtResource("19_ocxxy")]
 wardenCheck = NodePath("..")
@@ -212,6 +214,11 @@ position = Vector2(0, -80)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_uxiq3")
 script = ExtResource("21_l056x")
+
+[node name="WardenLightCone" type="Sprite2D" parent="Rotator"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(0, -176)
+texture = ExtResource("25_pua43")
 
 [node name="RotationPoints" type="Node2D" parent="."]
 
