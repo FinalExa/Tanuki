@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo823xp1l2ru4"]
+[gd_scene load_steps=6 format=3 uid="uid://bo823xp1l2ru4"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_btk0n"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="2_1sfwp"]
+[ext_resource type="Texture2D" uid="uid://ckt65dtgbup6n" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-slash.png" id="3_ya4pp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cm3ed"]
-radius = 256.125
+[sub_resource type="AtlasTexture" id="AtlasTexture_05eiy"]
+atlas = ExtResource("3_ya4pp")
+region = Rect2(576, 0, 192, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sn8pd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05eiy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TeapotAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_btk0n")
@@ -19,8 +32,15 @@ attackMovements = Array[float]([0.0, 0.0])
 [node name="ObjectAttackHitbox" type="Area2D" parent="."]
 script = ExtResource("2_1sfwp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectAttackHitbox"]
-shape = SubResource("CircleShape2D_cm3ed")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
+polygon = PackedVector2Array(192, 0, -192, 0, -160, -128, -96, -192, -32, -256, 32, -256, 96, -192, 160, -128)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ObjectAttackHitbox"]
+modulate = Color(0, 0.443137, 1, 1)
+position = Vector2(-13.332, -108.272)
+rotation = 4.71239
+scale = Vector2(1.17632, 1.90787)
+sprite_frames = SubResource("SpriteFrames_sn8pd")
 
 [connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
 [connection signal="area_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_exited"]

@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyjgud317l6v"]
+[gd_scene load_steps=6 format=3 uid="uid://cyjgud317l6v"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_f64mb"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="2_1cfow"]
+[ext_resource type="Texture2D" uid="uid://ckt65dtgbup6n" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-slash.png" id="3_ltqnk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05eiy"]
+atlas = ExtResource("3_ltqnk")
+region = Rect2(576, 0, 192, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0aax1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05eiy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="HammerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_f64mb")
@@ -19,7 +35,13 @@ stunList = Array[String](["Guard", "Cleaner", "Hyottoko", "Warden"])
 stunTier = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
-polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)
+polygon = PackedVector2Array(-256, 0, 256, 0, 224, -128, 160, -192, 64, -256, -64, -256, -160, -192, -224, -128)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ObjectAttackHitbox"]
+position = Vector2(-21.0805, -118.072)
+rotation = 4.71239
+scale = Vector2(1.2784, 2.85547)
+sprite_frames = SubResource("SpriteFrames_0aax1")
 
 [connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
 [connection signal="area_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_exited"]
