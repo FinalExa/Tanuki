@@ -455,7 +455,7 @@ activated = true
 
 [node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-1072, -1248)
-dialogueText = Array[String](["Eccoti! Vedi questo quadro? Neanche a me piace… ti posso aiutare a rovinarlo. Dietro c’è pure qualcosa secondo me.", "Dici sul serio? C’è solo un modo per scoprirlo allora!"])
+dialogueText = Array[String](["Here you are! Do you see these paintings? I dislike these too… that’s why I can help you wreck them. I bet there is also something that you’ll need behind them.", "Are you serious? There is only one way to find out then!"])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath("../HeatSourceActivator"), null]
@@ -470,7 +470,7 @@ activated = true
 
 [node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(1992, 993)
-dialogueText = Array[String](["Vedi questo blocco di ghiaccio? Dietro ci ho nascosto una chiave, per fare un dispetto alle guardie! Ti aiuto a scioglierlo, così posso ripagarti per la gentilezza!", "Magnifico! Ti ringrazio molto, è bello essere aiutati ogni tanto."])
+dialogueText = Array[String](["Do you see these blocks of ice? I have hidden a key in the room to prank the guards! I will help you melt each one, so we’re even!", "Fantastic! I appreciate it, it’s nice being helped sometimes."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath("../HeatSourceActivator2"), null]
@@ -485,7 +485,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Aiuto! Puoi tirarmi fuori di qui? E’ così stretto!! Ti servirà qualcosa di pesante per rompere la gabbia! Se lo farai ti aiuterò con il tuo compito… daiiii!", "Ma certo! Vedrò che cosa posso fare."])
+dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do"])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath(".."), null]
@@ -500,7 +500,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Aiuto! Puoi tirarmi fuori di qui? E’ così stretto!! Ti servirà qualcosa di pesante per rompere la gabbia! Se lo farai ti aiuterò con il tuo compito… daiiii!", "Ma certo! Vedrò che cosa posso fare."])
+dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath(".."), null]
@@ -514,7 +514,7 @@ position = Vector2(1216, -1248)
 
 [node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
-dialogueText = Array[String](["Aaaaah, libero! Ti ringrazio… come promesso ti aiuterò. Raggiungimi vicino al quadro della dispensa eheh.", "Oook, ma niente trucchetti."])
+dialogueText = Array[String](["Finally, I am freeeeeee! Thank you… as promised if you want my help, I’ll be near the paintings in the pantry room. It’s west from here eheheh.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [null, null]
@@ -526,7 +526,7 @@ shape = SubResource("CircleShape2D_m7mm8")
 
 [node name="OniFreedDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
-dialogueText = Array[String](["Oooh, grazie mille! Non sapevo che cosa fare senza il tuo aiuto… vieni vieni! Voglio sdebitarmi, raggiungimi al frigo!", "Oook, ma niente trucchetti."])
+dialogueText = Array[String](["Thank you so much! I didn’t know what to do… come with me! I want to repay the favor, meet me outside the fridge room… near the blocks of ice.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [null, null]

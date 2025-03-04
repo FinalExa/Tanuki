@@ -2,8 +2,8 @@ class_name DialogueUI
 extends Control
 
 @export var charactersPerSecond: float
-@export var leftSprite: Sprite2D
-@export var rightSprite: Sprite2D
+@export var leftSprite: AnimatedSprite2D
+@export var rightSprite: AnimatedSprite2D
 @export var dialogueText: Label
 @export var playerHUD: PlayerHUD
 var dialogueIntervalBetweenCharacters: float
@@ -36,6 +36,8 @@ var currentSource: DialogueArea
 
 func _ready():
 	dialogueIntervalBetweenCharacters = 1 / charactersPerSecond
+	leftSprite.play("default")
+	rightSprite.play("default")
 
 func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions], focus: Array[Node2D], source: DialogueArea):
 	currentDialogueText = text
