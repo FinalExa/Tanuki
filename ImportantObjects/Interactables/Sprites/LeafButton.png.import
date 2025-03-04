@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhjxhuobwkrni"
-path="res://.godot/imported/shoji.png-6229c2665276624a5ac75f8dc9c98eaf.ctex"
+uid="uid://cplt7thcto8qr"
+path="res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/Placeholder/shoji.png"
-dest_files=["res://.godot/imported/shoji.png-6229c2665276624a5ac75f8dc9c98eaf.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/LeafButton.png"
+dest_files=["res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"]
 
 [params]
 
