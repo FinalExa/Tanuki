@@ -732,7 +732,7 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="RatFirstDialogue" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
-dialogueText = Array[String](["Ehi tu! Mi sembri uno che si è un po’ perso… mmmh facciamo così: tu mi porti del riso… e in cambio ti dò questa chiave lucente che ho trovato qui in giro.", "E visto che sono pure gentile magari ti dico pure un segreto.", "Eh, ti va bene che mi serve quella chiave"])
+dialogueText = Array[String](["Hey you! You look like someone who is lost… let’s make a deal: if you bring me some food I will give you in return this splendid key that I stole from one of the guards.", "And since I’m a kind soul, maybe I can even tell you a secret that you don’t know about this place.", "Fine, you are lucky that I need that key."])
 characterTalking = Array[int]([2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null]
@@ -743,10 +743,10 @@ shape = SubResource("CircleShape2D_7ihbc")
 
 [node name="RatSecondDialogue" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
-dialogueText = Array[String](["Uuuu, gnam gnam gnam. Aaaah che bella mangiata, eccoti qui la tua chiave… non so se lo sai tra l’altro… ma puoi arrivare al soffitto con uno dei vasi qui in giro!", "Davvero? Uh, effettivamente questo mi è utile. Ti ringrazio."])
-characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath("../Rat"), null]
+dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you don’t know… you can reach the roof by watering one of the plants around here.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
+characterTalking = Array[int]([2, 2, 0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0])
+cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null, NodePath("../Rat"), null]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -764,7 +764,7 @@ objectsToDeleteAtQuestComplete = [NodePath("Kitchen2Dialogue")]
 
 [node name="Kitchen2Dialogue" parent="Quests/Kitchen2DialogueSeen" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
 position = Vector2(-16, 384)
-dialogueText = Array[String](["Ed è così che sono riuscito a difendere la villa da 100 ladri!", "Eh…? Ah, sì sì certo.", "Non mi credi? Guarda che la chiave che custodisco ne è la prova! Nessuno da allora è riuscito a prendermela!", "Nessuno? Molto bene… allora io sarò il primo, eheh..."])
+dialogueText = Array[String](["Bwaha-ha! You know, hyottoko-man, nobody has ever stolen this key from me!", "Woah… what an achievement… so brave… *yawns*", "Hey!!! Don’t mock me!!! I’m always wide awake! I never lost my sights on this key, ever!", "Wide awake, eh? Maybe if that geezer gets “sleepy” for a few seconds I can “grab” that key from him, heheheh…"])
 characterTalking = Array[int]([2, 2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/HyottokoC1"), NodePath("../../../Enemies/WardenC1"), null]
