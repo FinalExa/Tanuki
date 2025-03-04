@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=70 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -38,6 +38,9 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06s4t"]
+radius = 96.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tg1ch"]
 vertices = PackedVector2Array(-768, 32, -768, 224, -928, 224, -1368, 144, -928, 32, -1368, -360, -928, -480, -928, -288, -1368, -264, -1368, -512, -1056, -608, -1368, -96, -928, -160, -1368, 0, -1656, -72, -1656, -96, -928, 480, -1144, 480, -1144, 360, -1336, 360, -1824, 144, -1336, 512, -1504, 512, -1504, 480, -1632, 480, -1632, 448, -1776, 448, -1776, 384, -1888, 384, -1888, 320, -2216, 320, -2216, -440, -1824, 0, -2248, -440, -2248, -576, -2016, -576, -2016, -736, -1912, -736, -1912, -672, -1760, -672, -1760, -992, -1568, -992, -1568, -736, -1056, -736, -1824, -512, -816, -608, -816, -480, -816, -288, -816, -160, -1824, -360, -1824, -264, -1824, -72)
@@ -348,6 +351,22 @@ position = Vector2(-1920, 1152)
 position = Vector2(-1152, 1152)
 
 [node name="Rooms" type="Node2D" parent="."]
+
+[node name="StarterRoom" type="Node2D" parent="Rooms"]
+
+[node name="HeatSourceActivator" parent="Rooms/StarterRoom" instance=ExtResource("3_fj7m5")]
+position = Vector2(-192, -1024)
+activated = true
+
+[node name="DialogueArea" parent="Rooms/StarterRoom/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+dialogueText = Array[String](["Finally, someone who can help me! My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!"])
+characterTalking = Array[int]([2, 0, 2])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StarterRoom/HeatSourceActivator/DialogueArea"]
+shape = SubResource("CircleShape2D_06s4t")
 
 [node name="RoomA" type="Node2D" parent="Rooms"]
 
