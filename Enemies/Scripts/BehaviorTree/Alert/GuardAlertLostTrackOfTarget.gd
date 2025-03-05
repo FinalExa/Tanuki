@@ -42,9 +42,8 @@ func MoveToFirstLocation():
 		guardAlert.firstLocationReached = true
 
 func MoveToSecondLocation():
-	if (guardAlert.secondLocationTargetCheckLaunched == false):
+	if (!guardAlert.secondLocationTargetCheckLaunched):
 		guardAlert.secondLocationTargetCheckLaunched = true
-		guardAlert.extraLocationSet = false
 	var extraDistance: float = enemyController.global_position.distance_to(guardAlert.extraTargetLocation)
 	if (extraDistance > guardAlert.targetNotSeenLastLocationThreshold && guardAlert.chaseStart):
 		SetNotSeenDestination(guardAlert.extraTargetLocation)
@@ -64,3 +63,4 @@ func SetNotSeenDestination(destination: Vector2):
 func StopGuardMovement():
 	guardController.enemyMovement.set_new_target(null)
 	guardController.enemyRotator.setLookingAtNode(null)
+	enemyController.velocity = Vector2.ZERO

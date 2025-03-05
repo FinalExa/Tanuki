@@ -29,7 +29,6 @@ var lastTargetPosition: Vector2
 var lastTargetDirection: Vector2
 var extraTargetLocation: Vector2
 var raycastResult: Array[Node2D]
-var extraLocationSet: bool
 
 @export var guardController: GuardController
 
@@ -61,7 +60,7 @@ func AlertRaycasts():
 	if (guardController.isInAlert):
 		var space_state = guardController.get_world_2d().direct_space_state
 		AlertRaycast(space_state)
-		if (secondLocationTargetCheckLaunched && !extraLocationSet):
+		if (secondLocationTargetCheckLaunched):
 			extraTargetLocation = GetSecondDestination(space_state)
 
 func AlertRaycast(space_state):
@@ -79,7 +78,6 @@ func GetSecondDestination(space_state):
 	var searchPosition: Vector2 = guardController.global_position + (lastTargetDirection * searchForMissingTargetDistance)
 	var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
 	var result = space_state.intersect_ray(query)
-	extraLocationSet = true
 	if (result && result != { }):
 		return result.position
 	return searchPosition
