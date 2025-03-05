@@ -34,7 +34,7 @@ var isTransformed: bool = false
 @export var undetectableDuration: float
 var undetectableTimer: float
 var undetectableActive: bool
-var baseCollisionShapeInfo
+var baseCollisionShapeInfo: Shape2D
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
 var transformationTimer: float
@@ -46,7 +46,7 @@ var transformationLock: bool
 var timeLowSoundPlayed: bool
 
 var sceneRef: Node2D
-var localAllowedItemsRef: LocalAllowedItems
+var localAllowedItemsRef: Array[LocalAllowedItems]
 
 func _ready():
 	InitialSetup()
@@ -125,7 +125,12 @@ func ActivateTransformation():
 		else:
 			emit_signal("send_transformation_has_attack", false)
 		if (!enterTransformationSound.playing): enterTransformationSound.play()
+		var savedLocalAreas: Array[LocalAllowedItems]
+		if (localAllowedItemsRef.size() > 0): savedLocalAreas = localAllowedItemsRef
 		baseCollisionShape.shape = currentTransformationObject.transformedCollider.shape
+		if (savedLocalAreas.size() > 0): 
+			for i in savedLocalAreas.size():
+				savedLocalAreas[i]._on_body_entered(playerRef)
 		playerSprite.hide()
 		playerTransformedSprite.show()
 		emit_signal("change_speed", currentTransformationObject.transformedSpeedTier)
@@ -177,10 +182,12 @@ func LockTimer(delta):
 			transformationLock = false
 
 func SetLocalZone(localRef: LocalAllowedItems):
-	localAllowedItemsRef = localRef
+	if (!localAllowedItemsRef.has(localRef)):
+		localAllowedItemsRef.push_back(localRef)
 
-func UnsetLocalZone():
-	localAllowedItemsRef = null
+func UnsetLocalZone(localRef: LocalAllowedItems):
+	if (localAllowedItemsRef.has(localRef)):
+		localAllowedItemsRef.erase(localRef)
 
 func clear_guards_looking_for_me():
 	for i in guardsLookingForMe.size():
@@ -194,8 +201,9 @@ func get_if_transformed_in_right_zone():
 	if (undetectableActive): return 1
 	if (isTransformed):
 		if (localAllowedItemsRef != null):
-			if (localAllowedItemsRef.allowedObjects.has(currentTransformationObject.transformedName)):
-				return 1
+			for i in localAllowedItemsRef.size():
+				if (localAllowedItemsRef[i].allowedObjects.has(currentTransformationObject.transformedName)):
+					return 1
 		return 2
 	return 0
 

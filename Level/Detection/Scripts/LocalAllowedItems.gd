@@ -32,10 +32,10 @@ func _on_body_exited(body):
 
 func player_inside_area_checks():
 	if (playerIsIn == true):
-		if (playerRef.transformationChangeRef.isTransformed == true):
+		if (playerRef.transformationChangeRef.isTransformed):
 			AddItemToList(playerRef.transformationChangeRef)
 		else:
-			if (playerRef.transformationChangeRef.isTransformed == false):
+			if (!playerRef.transformationChangeRef.isTransformed):
 				RemoveItemFromList(playerRef.transformationChangeRef)
 
 func AssignChildFeedbacks():
@@ -56,6 +56,9 @@ func AddItemToList(item: Node2D):
 func RemoveItemFromList(item: Node2D):
 	if (assignedObjects.has(item)):
 		assignedObjects.erase(item)
+		if (item is TransformationChange):
+			item.UnsetLocalZone(self)
+			return
 		item.UnsetLocalZone()
 
 func _on_player_character_give_self_reference(ref):
