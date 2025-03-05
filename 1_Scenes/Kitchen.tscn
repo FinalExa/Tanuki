@@ -165,7 +165,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen"), NodePath("Quests/KitchenClearDirtyFloor4")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenGrowPlantInRoomG"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
@@ -382,16 +382,6 @@ position = Vector2(-1984, 416)
 position = Vector2(-1744, -368)
 
 [node name="RoomB" type="Node2D" parent="Rooms"]
-
-[node name="Objects" type="Node2D" parent="Rooms/RoomB"]
-
-[node name="Icewall" parent="Rooms/RoomB/Objects" instance=ExtResource("19_qojnu")]
-position = Vector2(1272, 1344)
-scale = Vector2(0.5, 1)
-
-[node name="Icewall2" parent="Rooms/RoomB/Objects" instance=ExtResource("19_qojnu")]
-position = Vector2(1272, 1216)
-scale = Vector2(0.5, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Rooms/RoomB"]
 navigation_polygon = SubResource("NavigationPolygon_uenql")
@@ -775,6 +765,26 @@ questRef = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Kitchen2DialogueSeen/Kitchen2Dialogue"]
 shape = SubResource("RectangleShape2D_ca16x")
+
+[node name="KitchenMeltIce" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("2_pyt2b")
+questName = "KitchenMeltIce"
+questItemsToOperate = [NodePath("Icewall"), NodePath("Icewall2")]
+questItemsStages = Array[int]([1, 1])
+questItemsOnOffState = Array[bool]([false, false])
+objectsToDeleteAtQuestComplete = [NodePath("Icewall"), NodePath("Icewall2")]
+
+[node name="Icewall" parent="Quests/KitchenMeltIce" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_qojnu")]
+position = Vector2(1272, 1344)
+scale = Vector2(0.5, 1)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="Icewall2" parent="Quests/KitchenMeltIce" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_qojnu")]
+position = Vector2(1272, 1216)
+scale = Vector2(0.5, 1)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="QuestUnlocks" type="Node2D" parent="."]
 position = Vector2(0, 512)

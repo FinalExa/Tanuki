@@ -14,7 +14,6 @@ extends Node2D
 @export var returnToCheckAlertValue: float
 @export var alertStartSound: AudioStreamPlayer2D
 @export var movementBlockedDuration: float
-@export var movementBlockedDistance: float
 var movementBlockedTimer: float
 var movementBlockedActive: bool
 var movementBlockedPreviousPos: Vector2
@@ -97,7 +96,11 @@ func SetAlertTargetLastInfo(receivedTarget: Node2D):
 
 func MovementBlockedCheck(delta):
 	if (guardController.isInAlert):
-		if (movementBlockedPreviousPos.distance_to(guardController.global_position) < movementBlockedDistance):
+		var space_state = guardController.get_world_2d().direct_space_state
+		var searchPosition: Vector2 = lastTargetPosition
+		var query = PhysicsRayQueryParameters2D.create(guardController.global_position, searchPosition)
+		var result = space_state.intersect_ray(query)
+		if (result && result != { } && result.collider != alertTarget):
 			movementBlockedTimer += delta
 			if (movementBlockedTimer >= movementBlockedDuration):
 				movementBlockedActive = true

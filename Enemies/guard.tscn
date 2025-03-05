@@ -626,7 +626,6 @@ screamArea = NodePath("AlertScreamArea")
 returnToCheckAlertValue = 35.0
 alertStartSound = NodePath("../../Sounds/AlertExclamation")
 movementBlockedDuration = 5.0
-movementBlockedDistance = 20.0
 guardController = NodePath("../..")
 
 [node name="Targets" type="Node2D" parent="Rotator/GuardAlert"]
