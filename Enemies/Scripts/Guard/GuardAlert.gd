@@ -13,6 +13,11 @@ extends Node2D
 @export var screamArea: ScreamArea
 @export var returnToCheckAlertValue: float
 @export var alertStartSound: AudioStreamPlayer2D
+@export var movementBlockedDuration: float
+@export var movementBlockedDistance: float
+var movementBlockedTimer: float
+var movementBlockedActive: bool
+var movementBlockedPreviousPos: Vector2
 var catchPreparationTimer: float
 var targetNotSeenTimer: float
 var preChaseTimer: float
@@ -35,8 +40,9 @@ var raycastResult: Array[Node2D]
 func _ready():
 	RemoveAreas()
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	AlertRaycasts()
+	MovementBlockedCheck(delta)
 
 func start_alert(target):
 	guardController.enemyStatus.updateText(alertText)
@@ -54,6 +60,9 @@ func start_alert(target):
 	secondLocationTargetCheckLaunched = false
 	lostSightOfPlayer = false
 	guardController.isInAlert = true
+	movementBlockedActive = false
+	movementBlockedTimer = 0
+	movementBlockedPreviousPos = guardController.global_position
 	alertStartSound.play()
 
 func AlertRaycasts():
@@ -85,6 +94,17 @@ func GetSecondDestination(space_state):
 func SetAlertTargetLastInfo(receivedTarget: Node2D):
 	lastTargetPosition = receivedTarget.global_position
 	lastTargetDirection = receivedTarget.velocity
+
+func MovementBlockedCheck(delta):
+	if (guardController.isInAlert):
+		if (movementBlockedPreviousPos.distance_to(guardController.global_position) < movementBlockedDistance):
+			movementBlockedTimer += delta
+			if (movementBlockedTimer >= movementBlockedDuration):
+				movementBlockedActive = true
+		else:
+			movementBlockedTimer = 0
+			movementBlockedActive = false
+		movementBlockedPreviousPos = guardController.global_position
 
 func stop_alert():
 	guardController.isInAlert = false
