@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvvlx0xuucgg"]
+
+[ext_resource type="Texture2D" uid="uid://b6xi0nu4wknve" path="res://Level/Sprites/Placeholder/Colonnone.png" id="1_mke3t"]
+
+[node name="Pillar" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-128, 128, 128, 128, 128, -128, -128, -128)
+
+[node name="Pillar" type="Sprite2D" parent="."]
+texture = ExtResource("1_mke3t")

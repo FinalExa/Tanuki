@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcd8adv84c82b"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_lgom5"]
+[ext_resource type="Texture2D" uid="uid://tq5u6jm4kv8l" path="res://ImportantObjects/TransformationObjects/Sprites/Jknife-001.png" id="2_qyubu"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_obgqc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55ity"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2kvt6"]
+radius = 64.0
+
+[node name="Knife" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_lgom5")
+transformedName = "Knife"
+transformedSpeedTier = 2
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/knife_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/knife.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_55ity")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_qyubu")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_obgqc")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_2kvt6")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

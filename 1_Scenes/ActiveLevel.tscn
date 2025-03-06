@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1ykribat0oxo"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneMaster.gd" id="1_0lavq"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/FrameMaster.gd" id="2_cdn4e"]
+[ext_resource type="PackedScene" uid="uid://d10qn51q5642f" path="res://Camera/game_camera.tscn" id="2_ja04r"]
+[ext_resource type="Script" path="res://1_Scenes/Scripts/SceneSelector.gd" id="3_7g2cs"]
+[ext_resource type="PackedScene" uid="uid://cjye6xpdv34of" path="res://PlayerCharacter/PlayerCharacter.tscn" id="4_ew33i"]
+
+[node name="ActiveLevel" type="Node2D" node_paths=PackedStringArray("frameMaster", "sceneSelector", "playerRef")]
+y_sort_enabled = true
+script = ExtResource("1_0lavq")
+frameMaster = NodePath("FrameMaster")
+sceneSelector = NodePath("SceneSelector")
+playerRef = NodePath("PlayerCharacter")
+
+[node name="GameCamera" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("2_ja04r")]
+playerRef = NodePath("../PlayerCharacter")
+
+[node name="FrameMaster" type="Node" parent="."]
+script = ExtResource("2_cdn4e")
+framesPerSecond = 60.0
+
+[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("cameraRef") instance=ExtResource("4_ew33i")]
+cameraRef = NodePath("../GameCamera")
+
+[node name="SceneSelector" type="Node2D" parent="." node_paths=PackedStringArray("playerRef", "sceneMaster")]
+y_sort_enabled = true
+script = ExtResource("3_7g2cs")
+playerRef = NodePath("../PlayerCharacter")
+safePosition = Vector2(100000, 100000)
+sceneMaster = NodePath("..")
+deleteICD = 0.05

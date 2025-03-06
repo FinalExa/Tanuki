@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://yh8trjrdfafp"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotPassive.gd" id="1_wjoe1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
+radius = 128.0
+
+[node name="TeapotPassive" type="Node2D"]
+script = ExtResource("1_wjoe1")
+maxHeatValue = 1000.0
+chargedHeatValue = 500.0
+heatIncreasePerSecondPerSource = 200.0
+heatDecreasePerSecondPerSource = 50.0
+heatGroup = "HeatSource"
+heatedProperty = "Hot"
+
+[node name="TeapotAbsorbHeat" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAbsorbHeat"]
+shape = SubResource("CircleShape2D_4ph7j")
+
+[connection signal="body_entered" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_entered"]
+[connection signal="body_exited" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_exited"]

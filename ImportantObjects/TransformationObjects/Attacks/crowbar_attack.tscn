@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03earu1hl0rr"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_c57cu"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="2_l0c0f"]
+
+[node name="CrowbarAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_c57cu")
+attackTag = "Smash"
+attackDuration = 30
+attackCooldown = 30
+attackPhasesLaunch = Array[int]([0, 5])
+attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
+attackSounds = [null, null]
+
+[node name="ObjectAttackHitbox" type="Area2D" parent="."]
+script = ExtResource("2_l0c0f")
+stunsGuard = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, -256, -64, -256)
+
+[connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_exited"]
+[connection signal="body_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_exited"]

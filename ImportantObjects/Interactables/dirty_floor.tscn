@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5vxcfds746gx"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_0rewg"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DirtyFloorInteractionCheck.gd" id="2_vy8xm"]
+[ext_resource type="Texture2D" uid="uid://conna4c8yy0o0" path="res://ImportantObjects/Interactables/Sprites/Sporco2 marrone.png" id="3_w5n0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(128, 256)
+
+[node name="DirtyFloor" type="Node2D" groups=["Interactable"]]
+script = ExtResource("1_0rewg")
+neededProperties = Array[String](["Clean"])
+
+[node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
+script = ExtResource("2_vy8xm")
+dirtyFloorInteractable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirtyFloorInteractionCheck"]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(1, 2)
+texture = ExtResource("3_w5n0j")
+
+[connection signal="body_entered" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_exited"]

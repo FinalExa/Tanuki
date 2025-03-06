@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctqyxkjed20u6"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Tools/Scripts/PlayerInCheck.gd" id="1_45e7i"]
+
+[node name="PlayerInCheck" type="Area2D"]
+script = ExtResource("1_45e7i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

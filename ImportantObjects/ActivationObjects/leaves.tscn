@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxx57nr5xmatr"]
+
+[ext_resource type="Script" path="res://ImportantObjects/ActivationObjects/Scripts/Leaves.gd" id="1_gblr0"]
+[ext_resource type="Texture2D" uid="uid://bmv41wury7j45" path="res://ImportantObjects/ActivationObjects/Sprites/leaves.png" id="2_1ieds"]
+[ext_resource type="Texture2D" uid="uid://d3543tqthutl6" path="res://ImportantObjects/ActivationObjects/Sprites/money.png" id="3_7doqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tana7"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8olp"]
+size = Vector2(128, 128)
+
+[node name="Leaves" type="StaticBody2D" node_paths=PackedStringArray("offSprite", "onSprite") groups=["PossibleGuardAttract"]]
+script = ExtResource("1_gblr0")
+transformationDuration = 10.0
+transformationGroup = "GuardAttract"
+offSprite = NodePath("OffSprite")
+onSprite = NodePath("OnSprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tana7")
+
+[node name="OffSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.104575, 0.156863)
+texture = ExtResource("2_1ieds")
+
+[node name="OnSprite" type="Sprite2D" parent="."]
+position = Vector2(3.1002e-06, 3.09944e-06)
+scale = Vector2(0.101587, 0.177778)
+texture = ExtResource("3_7doqg")
+
+[node name="LeavesInteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeavesInteractArea"]
+shape = SubResource("RectangleShape2D_l8olp")
+
+[connection signal="body_entered" from="LeavesInteractArea" to="." method="_on_leaves_interact_area_body_entered"]
+[connection signal="body_exited" from="LeavesInteractArea" to="." method="_on_leaves_interact_area_body_exited"]

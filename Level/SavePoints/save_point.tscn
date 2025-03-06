@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://y6defetggqrl"]
+
+[ext_resource type="Script" path="res://Level/SavePoints/Scripts/SavePoint.gd" id="1_5vmxm"]
+[ext_resource type="Texture2D" uid="uid://b1hl4gg3qcc2l" path="res://ImportantObjects/Traps/Button/Sprites/btn.png" id="2_yviqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0awon"]
+size = Vector2(128, 128)
+
+[node name="SavePoint" type="Area2D"]
+z_index = -1
+script = ExtResource("1_5vmxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0awon")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-5.72205e-06, -5.72205e-06)
+scale = Vector2(11.2, 11.2)
+texture = ExtResource("2_yviqt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

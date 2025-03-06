@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmstafdayjuj7"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_6o5m1"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/ObjectAttackHitbox.gd" id="2_otkp1"]
+[ext_resource type="Texture2D" uid="uid://ckt65dtgbup6n" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-slash.png" id="3_0co3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05eiy"]
+atlas = ExtResource("3_0co3a")
+region = Rect2(576, 0, 192, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hn4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05eiy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="KnifeAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_6o5m1")
+attackTag = "Cut"
+attackDuration = 20
+attackCooldown = 15
+attackPhasesLaunch = Array[int]([0])
+attackHitboxes = [NodePath("ObjectAttackHitbox")]
+attackSounds = [null]
+attackMovements = Array[float]([50.0])
+
+[node name="ObjectAttackHitbox" type="Area2D" parent="."]
+script = ExtResource("2_otkp1")
+stunList = Array[String](["Guard", "Cleaner", "Hyottoko"])
+stunTier = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectAttackHitbox"]
+polygon = PackedVector2Array(-128, 0, 128, 0, 96, -96, 32, -160, -32, -160, -96, -96)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ObjectAttackHitbox"]
+position = Vector2(-4.29224, -78.0336)
+rotation = 4.71239
+scale = Vector2(0.817184, 1.20946)
+sprite_frames = SubResource("SpriteFrames_0hn4e")
+
+[connection signal="area_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_area_exited"]
+[connection signal="body_entered" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="ObjectAttackHitbox" to="ObjectAttackHitbox" method="_on_body_exited"]

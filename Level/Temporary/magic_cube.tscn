@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://oard8kicaobm"]
+
+[ext_resource type="Texture2D" uid="uid://bsqeym0flup3u" path="res://Level/Temporary/magic_cube.png" id="1_m4ts2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eexi2"]
+size = Vector2(128, 128)
+
+[node name="MagicCube" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eexi2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m4ts2")

@@ -1,0 +1,264 @@
+[gd_scene load_steps=20 format=3 uid="uid://d34wwl7yqbe5r"]
+
+[ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_lquag"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="4_qtcec"]
+[ext_resource type="PackedScene" uid="uid://c1enn7ep28o73" path="res://Level/Prefabs/wall.tscn" id="6_qwx0y"]
+[ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="6_vioum"]
+[ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="7_lkfp5"]
+[ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="8_7t8fv"]
+[ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="8_ksf3n"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="8_n2toe"]
+[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="9_h3a0c"]
+[ext_resource type="PackedScene" uid="uid://d4bpnku1o4lma" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="9_i2svm"]
+[ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="9_u6pno"]
+[ext_resource type="PackedScene" uid="uid://c8u3gvs7ip0p" path="res://ImportantObjects/Interactables/furnace.tscn" id="10_mhr2d"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="11_1jdkp"]
+[ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="11_ljqcx"]
+[ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="12_75wbm"]
+[ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/movement_impair_interaction_object.tscn" id="15_ln2ye"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_71oav"]
+vertices = PackedVector2Array(7744, -4888, 7048, 6336, -8, 88, -8, -88, -10272, 6032, -312, 88, -7952, -6008, -312, -88)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-10272, 6032, -7952, -6008, 7744, -4888, 7048, 6336), PackedVector2Array(-312, -88, -8, -88, -8, 88, -312, 88)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shnw2"]
+size = Vector2(768, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxo8o"]
+size = Vector2(64, 128)
+
+[node name="PlayerTransformTest" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas")]
+script = ExtResource("1_lquag")
+playerSpawnPoint = NodePath("PlayerSpawnPoint")
+levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
+levelUnlockKeyDoors = [NodePath("LevelUnlockKeyDoor")]
+mapQuests = [NodePath("OniQuest")]
+travelingAreas = [NodePath("TravelingArea")]
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="."]
+position = Vector2(-1016, -24)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_71oav")
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="UnlockKey" parent="Keys" instance=ExtResource("8_7t8fv")]
+position = Vector2(-896, 448)
+
+[node name="UnlockKey2" parent="Keys" instance=ExtResource("8_7t8fv")]
+position = Vector2(-704, -128)
+
+[node name="UnlockKey3" parent="Keys" instance=ExtResource("8_7t8fv")]
+position = Vector2(-576, 576)
+
+[node name="UnlockKey4" parent="Keys" instance=ExtResource("8_7t8fv")]
+position = Vector2(-1408, -128)
+
+[node name="UnlockKey5" parent="Keys" instance=ExtResource("8_7t8fv")]
+position = Vector2(-1344, 576)
+
+[node name="PatrolIndicator" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
+script = ExtResource("8_n2toe")
+patrolActions = Array[int]([1, 1, 0, 2, 0, 1, 2, 0, 2, 0, 1, 0])
+waitActions = Array[float]([2.0, 2.0, 2.0, 5.0, 2.0])
+moveActions = [NodePath("FirstCheckPoint"), NodePath("SecondCheckPoint"), NodePath("FirstCheckPoint"), NodePath("ThirdCheckPoint")]
+lookActions = Array[int]([1, 2, 0])
+
+[node name="FirstCheckPoint" type="Node2D" parent="PatrolIndicator"]
+position = Vector2(-192, 192)
+
+[node name="SecondCheckPoint" type="Node2D" parent="PatrolIndicator"]
+position = Vector2(448, 192)
+
+[node name="ThirdCheckPoint" type="Node2D" parent="PatrolIndicator"]
+position = Vector2(-360, -200)
+
+[node name="PatrolIndicator2" type="Node2D" parent="." node_paths=PackedStringArray("moveActions")]
+position = Vector2(704, 768)
+script = ExtResource("8_n2toe")
+patrolActions = Array[int]([1, 1, 1, 1])
+moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+
+[node name="1" type="Node2D" parent="PatrolIndicator2"]
+position = Vector2(-192, -192)
+
+[node name="2" type="Node2D" parent="PatrolIndicator2"]
+position = Vector2(256, -320)
+
+[node name="3" type="Node2D" parent="PatrolIndicator2"]
+position = Vector2(512, 320)
+
+[node name="4" type="Node2D" parent="PatrolIndicator2"]
+position = Vector2(-768, 128)
+
+[node name="Guard" parent="." node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("4_qtcec")]
+position = Vector2(408, -32)
+patrolIndicators = [NodePath("../PatrolIndicator")]
+
+[node name="Wall" parent="." instance=ExtResource("6_qwx0y")]
+position = Vector2(-160, 0)
+
+[node name="Vase" parent="." instance=ExtResource("9_i2svm")]
+position = Vector2(-904, 336)
+
+[node name="Vase2" parent="." node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("9_i2svm")]
+position = Vector2(-1856, 768)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="Vase3" parent="." node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation") instance=ExtResource("9_i2svm")]
+position = Vector2(-1472, 768)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+transformedTailLocation = NodePath("../Vase/TailLocation")
+
+[node name="LocalAllowedItems" parent="." instance=ExtResource("6_vioum")]
+position = Vector2(-1664, 768)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_shnw2")
+
+[node name="LocalAllowedItemsFeedback" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback5" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, -64)
+
+[node name="LocalAllowedItemsFeedback6" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, -64)
+
+[node name="LocalAllowedItemsFeedback7" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, 64)
+
+[node name="LocalAllowedItemsFeedback8" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, 64)
+
+[node name="LocalAllowedItemsFeedback9" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback10" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, 64)
+
+[node name="LocalAllowedItemsFeedback11" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, 64)
+
+[node name="LocalAllowedItemsFeedback12" parent="LocalAllowedItems" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, 64)
+
+[node name="LocalAllowedItems2" parent="." instance=ExtResource("6_vioum")]
+position = Vector2(-1792, -320)
+allowedObjects = Array[String](["Hammer"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_shnw2")
+
+[node name="LocalAllowedItemsFeedback" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback5" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, -64)
+
+[node name="LocalAllowedItemsFeedback6" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, -64)
+
+[node name="LocalAllowedItemsFeedback7" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-320, 64)
+
+[node name="LocalAllowedItemsFeedback8" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-192, 64)
+
+[node name="LocalAllowedItemsFeedback9" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback10" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(64, 64)
+
+[node name="LocalAllowedItemsFeedback11" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(192, 64)
+
+[node name="LocalAllowedItemsFeedback12" parent="LocalAllowedItems2" instance=ExtResource("7_lkfp5")]
+position = Vector2(320, 64)
+
+[node name="SavePoint" parent="." instance=ExtResource("12_75wbm")]
+position = Vector2(-1160, 232)
+
+[node name="TravelingArea" type="Area2D" parent="."]
+position = Vector2(-1504, 256)
+script = ExtResource("9_h3a0c")
+sceneToLoad = "res://1_Scenes/Hall.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TravelingArea"]
+shape = SubResource("RectangleShape2D_pxo8o")
+
+[node name="Destination" type="Node2D" parent="TravelingArea"]
+position = Vector2(160, 0)
+
+[node name="LevelUnlockKeyDoor" parent="." instance=ExtResource("8_ksf3n")]
+position = Vector2(-1024, -192)
+requiredKeys = 3
+
+[node name="Hammer" parent="." instance=ExtResource("9_u6pno")]
+position = Vector2(-1536, 0)
+
+[node name="OniQuest" type="Node2D" parent="." node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("11_1jdkp")
+questName = "OniQuest"
+questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator3"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator3")]
+questItemsStages = Array[int]([0, 0, 0, 1, 2, 3])
+questItemsOnOffState = Array[bool]([false, false, false, true, true, true])
+questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
+objectsToDeleteAtQuestComplete = [NodePath("Furnace"), NodePath("Furnace2"), NodePath("Furnace3")]
+
+[node name="Furnace" parent="OniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_mhr2d")]
+position = Vector2(-768, 136)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="Furnace2" parent="OniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_mhr2d")]
+position = Vector2(-256, 512)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="Furnace3" parent="OniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_mhr2d")]
+position = Vector2(-896, 896)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="HeatSourceActivator" parent="OniQuest" instance=ExtResource("11_ljqcx")]
+position = Vector2(-688, 336)
+activated = true
+
+[node name="HeatSourceActivator2" parent="OniQuest" instance=ExtResource("11_ljqcx")]
+position = Vector2(-568, 336)
+activated = true
+
+[node name="HeatSourceActivator3" parent="OniQuest" instance=ExtResource("11_ljqcx")]
+position = Vector2(-448, 336)
+activated = true
+
+[node name="MovementImpairInteractionObject" parent="." instance=ExtResource("15_ln2ye")]
+position = Vector2(8, 344)
+
+[connection signal="body_entered" from="TravelingArea" to="TravelingArea" method="_on_body_entered"]

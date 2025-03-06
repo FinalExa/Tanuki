@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=3 uid="uid://0bwb8lk1y0qa"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/MainMenuPanel.gd" id="1_h434p"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_x262d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_spohb"]
+font = ExtResource("2_x262d")
+font_size = 20
+
+[node name="MainMenuPanel" type="Panel"]
+process_mode = 3
+offset_right = 256.0
+offset_bottom = 384.0
+script = ExtResource("1_h434p")
+activeLevelPath = "res://1_Scenes/ActiveLevel.tscn"
+gameScenePath = "res://1_Scenes/Kitchen.tscn"
+
+[node name="NewGame" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="NewGameButton" type="Button" parent="NewGame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NewGame"]
+process_mode = 3
+layout_mode = 2
+text = "New Game"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="ContinueButton" type="Button" parent="Continue"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Continue"]
+process_mode = 3
+layout_mode = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 136.0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="OptionsButton" type="Button" parent="Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options"]
+process_mode = 3
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 248.0
+
+[node name="ControlsButton" type="Button" parent="Controls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Controls"]
+process_mode = 3
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 264.0
+offset_right = 184.0
+offset_bottom = 312.0
+
+[node name="CreditsButton" type="Button" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits"]
+process_mode = 3
+layout_mode = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit to Desktop" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 328.0
+offset_right = 193.0
+offset_bottom = 376.0
+
+[node name="QuitButton" type="Button" parent="Quit to Desktop"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Quit to Desktop"]
+process_mode = 3
+layout_mode = 2
+text = "Quit to Desktop"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="NewGame/NewGameButton" to="." method="_on_new_game_button_button_up"]
+[connection signal="button_up" from="Continue/ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="Options/OptionsButton" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="Controls/ControlsButton" to="." method="_on_controls_button_button_up"]
+[connection signal="button_up" from="Credits/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="Quit to Desktop/QuitButton" to="." method="_on_quit_button_button_up"]

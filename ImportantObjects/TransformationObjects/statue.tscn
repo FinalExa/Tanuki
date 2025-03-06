@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpj3ppuxsg6ro"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_gxbyp"]
+[ext_resource type="Texture2D" uid="uid://b6qxaut3y018p" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Statua base.png" id="2_u6hno"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_kmqsx"]
+[ext_resource type="Texture2D" uid="uid://ci2jb8ofbucrv" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Statua trasformazione.png" id="3_qn5gd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
+size = Vector2(80, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
+size = Vector2(160, 160)
+
+[node name="Statue" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+collision_layer = 3
+script = ExtResource("1_gxbyp")
+transformedName = "Statue"
+transformedMaxSpeed = 300.0
+transformedProperties = Array[String](["Stable"])
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("TransformedSprite")
+transformedTailLocation = NodePath("TailLocation")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/statue.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_3gx12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u6hno")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_kmqsx")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("RectangleShape2D_10nd7")
+
+[node name="TransformedSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_qn5gd")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

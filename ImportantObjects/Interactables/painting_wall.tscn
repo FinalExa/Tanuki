@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw1hwjif77sfj"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_s6p3a"]
+[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_qsc2g"]
+[ext_resource type="Texture2D" uid="uid://bu0apdgwxwxmx" path="res://ImportantObjects/Interactables/Sprites/Canvas-001.png" id="3_lfcit"]
+[ext_resource type="Texture2D" uid="uid://cvewgdngnynwr" path="res://ImportantObjects/Interactables/Sprites/Canvas-002.png" id="4_8kc3s"]
+[ext_resource type="Texture2D" uid="uid://dmks6eryq2egq" path="res://ImportantObjects/Interactables/Sprites/Canvas-003.png" id="5_jo4th"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(256, 128)
+
+[node name="PaintingWall" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_s6p3a")
+neededProperties = Array[String](["Cut", "Hot"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("2_qsc2g")
+
+[node name="Wall3" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("3_lfcit")
+
+[node name="Wall4" type="Sprite2D" parent="."]
+position = Vector2(-96, 8)
+texture = ExtResource("4_8kc3s")
+
+[node name="Wall5" type="Sprite2D" parent="."]
+position = Vector2(96, 8)
+texture = ExtResource("5_jo4th")

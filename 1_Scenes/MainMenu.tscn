@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://baslbth2sgli8"]
+
+[ext_resource type="PackedScene" uid="uid://0bwb8lk1y0qa" path="res://Menus/main_menu_panel.tscn" id="1_1ti7o"]
+[ext_resource type="PackedScene" uid="uid://2f017d8gv27e" path="res://Menus/continue_panel.tscn" id="2_3j00j"]
+[ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="3_oyaxg"]
+[ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="4_qshqy"]
+[ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="5_850hd"]
+[ext_resource type="PackedScene" uid="uid://cdm0cybp0n25w" path="res://Menus/controls_panel.tscn" id="6_se2yb"]
+[ext_resource type="PackedScene" uid="uid://b0aedajqc31o4" path="res://Menus/credits_panel.tscn" id="7_6mov5"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuPanel" parent="." node_paths=PackedStringArray("continuePanel", "optionsPanel", "controlsPanel", "creditsPanel") instance=ExtResource("1_1ti7o")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 352.0
+offset_right = 1088.0
+offset_bottom = 736.0
+continuePanel = NodePath("../ContinuePanel")
+optionsPanel = NodePath("../OptionsPanel")
+controlsPanel = NodePath("../ControlsPanel")
+creditsPanel = NodePath("../CreditsPanel")
+
+[node name="ContinuePanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("2_3j00j")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 416.0
+offset_right = 1088.0
+offset_bottom = 608.0
+previousPanel = NodePath("../MainMenuPanel")
+
+[node name="OptionsPanel" parent="." node_paths=PackedStringArray("videoPanel", "audioPanel", "previousPanel") instance=ExtResource("3_oyaxg")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 415.0
+offset_right = 1088.0
+offset_bottom = 607.0
+videoPanel = NodePath("../VideoPanel")
+audioPanel = NodePath("../AudioPanel")
+previousPanel = NodePath("../MainMenuPanel")
+
+[node name="VideoPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("4_qshqy")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 480.0
+offset_right = 1088.0
+offset_bottom = 544.0
+previousPanel = NodePath("../OptionsPanel")
+
+[node name="AudioPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("5_850hd")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 480.0
+offset_right = 1088.0
+offset_bottom = 544.0
+previousPanel = NodePath("../OptionsPanel")
+
+[node name="ControlsPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("6_se2yb")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 480.0
+offset_right = 1088.0
+offset_bottom = 544.0
+previousPanel = NodePath("../MainMenuPanel")
+
+[node name="CreditsPanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("7_6mov5")]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 480.0
+offset_right = 1088.0
+offset_bottom = 544.0
+previousPanel = NodePath("../MainMenuPanel")

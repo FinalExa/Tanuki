@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://t5bj457j8aaf"]
+
+[ext_resource type="PackedScene" uid="uid://de327ahrn6hd2" path="res://ImportantObjects/Traps/interaction_object.tscn" id="1_du1o7"]
+[ext_resource type="PackedScene" uid="uid://kxl5qy84tcok" path="res://ImportantObjects/Traps/Effects/movement_impair_effect.tscn" id="2_bn4dj"]
+[ext_resource type="Texture2D" uid="uid://bh4xx5j7s2742" path="res://ImportantObjects/Traps/Sprites/hair-lady-2.0.png" id="3_3lup1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bld5"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtdo2"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4fpw"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlwmk"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba21e"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2k08"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laljx"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkhip"]
+atlas = ExtResource("3_3lup1")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_057if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bld5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtdo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4fpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlwmk")
+}],
+"loop": true,
+"name": &"captured",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba21e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2k08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laljx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkhip")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="MovementImpairInteractionObject" node_paths=PackedStringArray("effect") instance=ExtResource("1_du1o7")]
+z_index = -1
+effectNegateProperty = "Heavy"
+effect = NodePath("MovementImpairEffect")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-128, 128, -128, -128, 128, -128, 128, 128)
+
+[node name="MovementImpairEffect" parent="." index="1" instance=ExtResource("2_bn4dj")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_057if")
+animation = &"idle"
+frame_progress = 0.240809

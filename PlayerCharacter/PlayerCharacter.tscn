@@ -1,0 +1,381 @@
+[gd_scene load_steps=54 format=3 uid="uid://cjye6xpdv34of"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRotator.gd" id="2_0m5xn"]
+[ext_resource type="PackedScene" uid="uid://cek5x81rd0yiw" path="res://UI/ui.tscn" id="2_d3p1y"]
+[ext_resource type="AudioStream" uid="uid://u60k2h3jivs6" path="res://PlayerCharacter/Sounds/Movement/Normal/1 - Step - Movement - Tanuki.wav" id="2_oxifc"]
+[ext_resource type="AudioStream" uid="uid://cjbsuc803fevx" path="res://PlayerCharacter/Sounds/Movement/Normal/2 - Step - Movement - Tanuki.wav" id="3_6qq7k"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/TransformationChange.gd" id="3_bjmh7"]
+[ext_resource type="AudioStream" uid="uid://x34xwo2hmk0l" path="res://PlayerCharacter/Sounds/Movement/Normal/3 - Step - Movement - Tanuki.wav" id="4_io25w"]
+[ext_resource type="AudioStream" uid="uid://drybnc0me070h" path="res://PlayerCharacter/Sounds/Movement/Normal/4 - Step - Movement - Tanuki.wav" id="5_l3odv"]
+[ext_resource type="AudioStream" uid="uid://bgtp8wugqtam2" path="res://PlayerCharacter/Sounds/Movement/Normal/5 - Step - Movement - Tanuki.wav" id="6_ndbh1"]
+[ext_resource type="AudioStream" uid="uid://dwpwykn0q2jum" path="res://PlayerCharacter/Sounds/Movement/Normal/6 - Step - Movement - Tanuki.wav" id="7_c4soc"]
+[ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="7_r4d5s"]
+[ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="7_yl2lp"]
+[ext_resource type="AudioStream" uid="uid://cgjofq6okjvbk" path="res://PlayerCharacter/Sounds/Movement While Transformed.wav" id="8_bh82x"]
+[ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="8_bhedw"]
+[ext_resource type="AudioStream" uid="uid://ce1k0estmknq6" path="res://PlayerCharacter/Sounds/Movement/Normal/7 - Step - Movement - Tanuki.wav" id="8_iavac"]
+[ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="8_rlmsq"]
+[ext_resource type="AudioStream" uid="uid://c6txc6jrgbg8u" path="res://PlayerCharacter/Sounds/Movement/Normal/8 - Step - Movement - Tanuki.wav" id="9_6lwu0"]
+[ext_resource type="PackedScene" uid="uid://tp0v8dsqkf32" path="res://PlayerCharacter/player_attack.tscn" id="13_dunae"]
+[ext_resource type="Texture2D" uid="uid://c81psw8hrc3xj" path="res://PlayerCharacter/Sprites/Tan-2.0.1-200.png" id="14_6hj2i"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerInputs.gd" id="14_tgchp"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
+[ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
+[ext_resource type="PackedScene" uid="uid://dpbslxr6hgwhx" path="res://PlayerCharacter/low_transformation_noise.tscn" id="24_7cbxt"]
+[ext_resource type="PackedScene" uid="uid://b3nxtb2o3nvhv" path="res://PlayerCharacter/Substitution/player_substitution.tscn" id="25_nh844"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(0, 0, 29, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3in7f"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcb7t"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcfwd"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3xcx"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6558d"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efoux"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwam2"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc8ov"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjklo"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wv20"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_146nu"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arwah"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3nxa"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yggeg"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbedw"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr24i"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(1920, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvser"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2048, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe6ea"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2176, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1tn"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2304, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4a1b"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2432, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqb71"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2560, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gn48"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2688, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5loro"]
+atlas = ExtResource("14_6hj2i")
+region = Rect2(2816, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5la1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn81u")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3in7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcb7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcfwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3xcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6558d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwam2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc8ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjklo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wv20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_146nu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arwah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3nxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yggeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbedw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr24i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvser")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe6ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa1tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4a1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqb71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gn48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5loro")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
+radius = 24.0
+
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerSubstitutionAttack", "playerProgressionTrack")]
+collision_layer = 11
+script = ExtResource("1_0akyq")
+playerInputs = NodePath("PlayerInputs")
+transformationChangeRef = NodePath("Rotator/TransformationChange")
+movementRef = NodePath("Rotator/PlayerMovement")
+spriteRef = NodePath("AnimatedSprite2D")
+playerHUD = NodePath("CanvasLayer/HBoxContainer/UI")
+playerMovement = NodePath("Rotator/PlayerMovement")
+playerRotator = NodePath("Rotator")
+playerRepelled = NodePath("PlayerRepelled")
+playerAttack = NodePath("Rotator/PlayerAttack")
+playerSubstitutionAttack = NodePath("Rotator/PlayerSubstitution")
+playerProgressionTrack = NodePath("PlayerProgressionTrack")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="Sounds"]
+
+[node name="Normal" type="Node" parent="Sounds/Movement"]
+
+[node name="CurrentStep" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+
+[node name="Step1" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("2_oxifc")
+
+[node name="Step2" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("3_6qq7k")
+
+[node name="Step3" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("4_io25w")
+
+[node name="Step4" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("5_l3odv")
+
+[node name="Step5" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("6_ndbh1")
+
+[node name="Step6" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("7_c4soc")
+
+[node name="Step7" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("8_iavac")
+
+[node name="Step8" type="AudioStreamPlayer" parent="Sounds/Movement/Normal"]
+stream = ExtResource("9_6lwu0")
+
+[node name="EnterTransformation" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_yl2lp")
+
+[node name="ExitTransformation" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_rlmsq")
+
+[node name="TransformedMovement" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_bh82x")
+
+[node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("15_fe3wv")
+
+[node name="ObjectSaved" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_r4d5s")
+
+[node name="TransformationTimeLow" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_bhedw")
+
+[node name="PlayerInputs" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("14_tgchp")
+
+[node name="PlayerRepelled" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
+script = ExtResource("15_v4kpo")
+playerRef = NodePath("..")
+
+[node name="PlayerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("playerMovement", "playerRef", "currentNormalStep", "normalMovementSounds", "transformedMovementSound")]
+script = ExtResource("15_4hghg")
+playerMovement = NodePath("../Rotator/PlayerMovement")
+playerRef = NodePath("..")
+currentNormalStep = NodePath("../Sounds/Movement/Normal/CurrentStep")
+normalMovementSounds = [NodePath("../Sounds/Movement/Normal/Step1"), NodePath("../Sounds/Movement/Normal/Step2"), NodePath("../Sounds/Movement/Normal/Step3"), NodePath("../Sounds/Movement/Normal/Step4"), NodePath("../Sounds/Movement/Normal/Step5"), NodePath("../Sounds/Movement/Normal/Step6"), NodePath("../Sounds/Movement/Normal/Step7"), NodePath("../Sounds/Movement/Normal/Step8")]
+transformedMovementSound = NodePath("../Sounds/TransformedMovement")
+
+[node name="PlayerProgressionTrack" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
+script = ExtResource("17_pusai")
+playerRef = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5la1i")
+animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" parent="CanvasLayer/HBoxContainer" node_paths=PackedStringArray("playerInputs", "playerRef") instance=ExtResource("2_d3p1y")]
+layout_mode = 2
+playerInputs = NodePath("../../../PlayerInputs")
+playerRef = NodePath("../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_nxjry")
+
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("playerCollider")]
+script = ExtResource("2_0m5xn")
+downRad = 180
+leftRad = 270
+rightRad = 90
+playerCollider = NodePath("../CollisionShape2D")
+
+[node name="TransformedSprite" type="Sprite2D" parent="Rotator"]
+
+[node name="TransformationChange" type="Node2D" parent="Rotator" node_paths=PackedStringArray("playerRef", "baseCollisionShape", "playerSprite", "enterTransformationSound", "exitTransformationSound", "playerTransformedSprite", "objectSavedSound", "transformationTimeLowSound")]
+script = ExtResource("3_bjmh7")
+transformationDuration = 20.0
+lowTimeRemaining = 17.0
+playerRef = NodePath("../..")
+baseCollisionShape = NodePath("../../CollisionShape2D")
+playerSprite = NodePath("../../AnimatedSprite2D")
+enterTransformationSound = NodePath("../../Sounds/EnterTransformation")
+exitTransformationSound = NodePath("../../Sounds/ExitTransformation")
+playerTransformedSprite = NodePath("../TransformedSprite")
+objectSavedSound = NodePath("../../Sounds/ObjectSaved")
+transformationTimeLowSound = NodePath("../../Sounds/TransformationTimeLow")
+noTransformationText = "No Transformation"
+transformationObjectSafeCoords = Vector2(-100000, -100000)
+transformationAttackTimerCost = 3.0
+undetectableDuration = 0.1
+transformationLockDuration = 1.5
+
+[node name="PlayerMovement" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rigidbodyRef", "playerRef")]
+script = ExtResource("1_7j0ss")
+rigidbodyRef = NodePath("../..")
+defaultSpeedTier = 1
+playerRef = NodePath("../..")
+
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerSubstitutionAttack", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
+playerSubstitutionAttack = NodePath("../PlayerSubstitution")
+attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
+attackSounds = [null, NodePath("../../Sounds/Attack")]
+characterRef = NodePath("../..")
+
+[node name="PlayerSubstitution" parent="Rotator" node_paths=PackedStringArray("playerAttack", "UI", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("25_nh844")]
+playerAttack = NodePath("../PlayerAttack")
+UI = NodePath("../../CanvasLayer/HBoxContainer/UI")
+attackHitboxes = [null, NodePath("ObjectSpawner")]
+attackSounds = [null, null]
+characterRef = NodePath("../..")
+
+[node name="LowTransformationNoise" parent="." node_paths=PackedStringArray("playerRef", "transformationChange") instance=ExtResource("24_7cbxt")]
+playerRef = NodePath("..")
+transformationChange = NodePath("../Rotator/TransformationChange")
+
+[connection signal="transformationInvincibilityInteracted" from="." to="Rotator/TransformationChange" method="_on_player_character_transformation_invincibility_interacted"]
+[connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_change_speed"]
+[connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="_on_transformation_change_reset_speed"]
+[connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]
+[connection signal="send_transformation_has_attack" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_has_attack"]
+[connection signal="send_transformation_texture" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_texture"]
+[connection signal="movement_direction" from="Rotator/PlayerMovement" to="Rotator" method="_on_movement_movement_direction"]

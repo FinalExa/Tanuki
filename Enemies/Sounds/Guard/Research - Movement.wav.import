@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4omsw3hf5ofc"
+path="res://.godot/imported/Research - Movement.wav-3bff0c852fd8a5ef53f8ca81d824ed62.sample"
+
+[deps]
+
+source_file="res://Enemies/Sounds/Guard/Research - Movement.wav"
+dest_files=["res://.godot/imported/Research - Movement.wav-3bff0c852fd8a5ef53f8ca81d824ed62.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

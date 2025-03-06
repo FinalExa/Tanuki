@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rflcma3mfp7v"
+path="res://.godot/imported/1 - Steps - Warden.wav-dcb52cb2f57537b2ce9ea018f5357788.sample"
+
+[deps]
+
+source_file="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav"
+dest_files=["res://.godot/imported/1 - Steps - Warden.wav-dcb52cb2f57537b2ce9ea018f5357788.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

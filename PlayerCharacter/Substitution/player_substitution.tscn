@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3nxtb2o3nvhv"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Substitution/Scripts/PlayerSubstitutionAttack.gd" id="1_0lsmd"]
+[ext_resource type="Script" path="res://WeaponTool/Scripts/ObjectSpawner.gd" id="2_mnu1j"]
+
+[node name="PlayerSubstitution" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_0lsmd")
+maxSubstitutionStacks = 3
+attackDuration = 15
+attackPhasesLaunch = Array[int]([0, 10])
+attackHitboxes = [null, NodePath("ObjectSpawner")]
+attackSounds = [null, null]
+attackMovements = Array[float]([2000.0, 0.0])
+
+[node name="ObjectSpawner" type="Node2D" parent="."]
+position = Vector2(0, 256)
+script = ExtResource("2_mnu1j")
+objectToSpawn = "res://PlayerCharacter/Substitution/fake_log.tscn"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhbgi66vo6rt"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_a4b3q"]
+[ext_resource type="Texture2D" uid="uid://cplt7thcto8qr" path="res://ImportantObjects/Interactables/Sprites/LeafButton.png" id="2_4sn7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(64, 24)
+
+[node name="ButtonToPush" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_a4b3q")
+neededProperties = Array[String](["Leaf"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_4sn7g")

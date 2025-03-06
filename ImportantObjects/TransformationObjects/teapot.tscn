@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgato2gssm4xh"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_a48ek"]
+[ext_resource type="Texture2D" uid="uid://bm1mm2lc6s37a" path="res://ImportantObjects/TransformationObjects/Sprites/GeenTeapot-normal-001.png" id="2_tjleh"]
+[ext_resource type="Texture2D" uid="uid://1wd0dc4sf6go" path="res://ImportantObjects/TransformationObjects/Sprites/NewTeapot-001.png" id="3_oplqn"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_s5wk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hikg1"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fg2p"]
+radius = 128.0
+
+[node name="Teapot" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_a48ek")
+transformedName = "Teapot"
+transformedSpeedTier = 1
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("PlayerSprite")
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/teapot_attack.tscn"
+transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/teapot_passive.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/teapot.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hikg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tjleh")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_oplqn")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_s5wk0")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_5fg2p")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

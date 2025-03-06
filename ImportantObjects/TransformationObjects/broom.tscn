@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b31wt32ylaxaw"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_xk7cg"]
+[ext_resource type="Texture2D" uid="uid://dj1udmrs3omr1" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Scopa.png" id="2_b4pan"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_c0x76"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_woyq5"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxpmk"]
+radius = 112.285
+
+[node name="Broom" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_xk7cg")
+transformedName = "Broom"
+transformedSpeedTier = 1
+transformedProperties = Array[String](["Clean"])
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/broom.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_woyq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("2_b4pan")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_c0x76")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_qxpmk")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

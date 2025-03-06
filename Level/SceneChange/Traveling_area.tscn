@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://txdt2sna11tq"]
+
+[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="1_in7ls"]
+
+[node name="TravelingArea" type="Area2D"]
+script = ExtResource("1_in7ls")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

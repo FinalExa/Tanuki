@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3mwvo6g7bhkr"]
+
+[ext_resource type="Script" path="res://Level/UnlockKey/Scripts/LevelUnlockKey.gd" id="1_rul6w"]
+[ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="2_ey6xi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lc67n"]
+radius = 40.0
+
+[node name="UnlockKey" type="Area2D"]
+script = ExtResource("1_rul6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lc67n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ey6xi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

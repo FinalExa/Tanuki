@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://tp0v8dsqkf32"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttack.gd" id="1_7s3bv"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerAttackHitbox.gd" id="2_vmxay"]
+[ext_resource type="Texture2D" uid="uid://ckt65dtgbup6n" path="res://PlayerCharacter/Sprites/Tan-Def - anim 2.0.1-slash.png" id="3_1xjcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05eiy"]
+atlas = ExtResource("3_1xjcv")
+region = Rect2(576, 0, 192, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lri8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05eiy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_7s3bv")
+attackTag = "Leaf"
+attackDuration = 30
+attackCooldown = 180
+attackPhasesLaunch = Array[int]([0, 10])
+attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
+attackSounds = [null, null]
+attackMovements = Array[float]([25.0, 50.0])
+
+[node name="PlayerAttackHitbox" type="Area2D" parent="."]
+position = Vector2(0, -128)
+script = ExtResource("2_vmxay")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerAttackHitbox"]
+polygon = PackedVector2Array(-128, 80, 128, 80, 112, 0, 64, -64, -64, -64, -112, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerAttackHitbox"]
+position = Vector2(-9.6776, 11.3461)
+rotation = 4.71239
+scale = Vector2(0.881811, 1.62683)
+sprite_frames = SubResource("SpriteFrames_lri8o")
+
+[connection signal="area_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_area_exited"]
+[connection signal="body_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_body_exited"]
