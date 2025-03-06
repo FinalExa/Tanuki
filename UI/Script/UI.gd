@@ -15,6 +15,7 @@ signal attack_cooldown
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
 @export var gameOverPanel: Panel
+@export var gameOverLabel: Label
 @export var gameOverSound: AudioStreamPlayer
 @export var keyCounter: KeyCounter
 var isInForcePause: bool
@@ -102,6 +103,12 @@ func _on_quit_to_desktop_button_button_up():
 func GameOverScreen():
 	ForcePause()
 	gameOverSound.play()
+	gameOverLabel.text = "GAME OVER"
+	gameOverPanel.show()
+
+func YouWinScreen():
+	ForcePause()
+	gameOverLabel.text = "CONGRATULATIONS!\nLEVEL COMPLETE!"
 	gameOverPanel.show()
 
 func _on_gameover_reload_button_button_up():

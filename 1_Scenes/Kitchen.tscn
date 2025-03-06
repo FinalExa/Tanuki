@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=71 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="37_bfqvd"]
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
 [ext_resource type="Texture2D" uid="uid://go7nnh4oep76" path="res://Level/Sprites/Ciotole-001.png" id="39_lh02n"]
+[ext_resource type="PackedScene" uid="uid://bar22or7buq23" path="res://DemoTemporary/you_win_screen.tscn" id="39_rbvug"]
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="40_6w7qa"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="40_wejvi"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
@@ -1356,3 +1357,8 @@ scale = Vector2(1, 0.75)
 [node name="Table4" parent="TemporaryAssets" instance=ExtResource("40_6w7qa")]
 position = Vector2(448, 512)
 scale = Vector2(1, 0.75)
+
+[node name="EndLevel" type="Node2D" parent="TemporaryAssets"]
+
+[node name="YouWinScreen" parent="TemporaryAssets/EndLevel" instance=ExtResource("39_rbvug")]
+position = Vector2(-256, 1728)

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale chiusa.png" id="2_kx308"]
 [ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale aperta.png" id="3_xchyp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3j3d"]
-size = Vector2(304, 176)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwh03"]
+radius = 192.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4uht"]
 size = Vector2(256, 64)
@@ -24,7 +24,7 @@ openState = NodePath("Open")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_i3j3d")
+shape = SubResource("CircleShape2D_vwh03")
 
 [node name="Closed" type="StaticBody2D" parent="."]
 

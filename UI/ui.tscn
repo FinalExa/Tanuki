@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=25 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -35,7 +35,10 @@ outline_color = Color(0, 0, 0, 1)
 font = ExtResource("3_gk6g8")
 font_size = 32
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverSound", "keyCounter")]
+[sub_resource type="LabelSettings" id="LabelSettings_nrvxc"]
+font = ExtResource("3_gk6g8")
+
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -54,6 +57,7 @@ dialogueUI = NodePath("DialogueUI")
 optionsPanel = NodePath("OptionsPanel")
 controlsPanel = NodePath("ControlsPanel")
 gameOverPanel = NodePath("GameOverPanel")
+gameOverLabel = NodePath("GameOverPanel/GameOver/GameOverLabel")
 gameOverSound = NodePath("GameOverSound")
 keyCounter = NodePath("Key Counter")
 
@@ -269,14 +273,15 @@ offset_bottom = 576.0
 
 [node name="GameOver" type="PanelContainer" parent="GameOverPanel"]
 layout_mode = 0
-offset_left = 72.0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 184.0
+offset_right = 248.0
 offset_bottom = 56.0
 
 [node name="GameOverLabel" type="Label" parent="GameOverPanel/GameOver"]
 layout_mode = 2
 text = "GAME OVER"
+label_settings = SubResource("LabelSettings_nrvxc")
 horizontal_alignment = 1
 vertical_alignment = 1
 

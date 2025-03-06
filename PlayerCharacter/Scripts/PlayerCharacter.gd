@@ -76,6 +76,9 @@ func GameOver(receivedNode: Node2D):
 func ForceGameOver():
 	playerHUD.GameOverScreen()
 
+func YouWin():
+	playerHUD.YouWinScreen()
+
 func SetTraveling(id: int, positional: bool):
 	isTraveling = true
 	positionalTraveling = positional
