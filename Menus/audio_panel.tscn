@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://htayg4i62v4y"]
+[gd_scene load_steps=4 format=3 uid="uid://htayg4i62v4y"]
 
 [ext_resource type="Script" path="res://Menus/Scripts/AudioPanel.gd" id="1_apbqk"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_tp7vw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_16k14"]
+font = ExtResource("2_tp7vw")
+font_size = 20
 
 [node name="AudioPanel" type="Panel"]
 process_mode = 3
@@ -17,6 +22,13 @@ offset_bottom = 56.0
 
 [node name="BackButton" type="Button" parent="Back"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Back"]
+process_mode = 3
+layout_mode = 2
 text = "Back"
+label_settings = SubResource("LabelSettings_16k14")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="Back/BackButton" to="." method="_on_back_button_button_up"]

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://2f017d8gv27e"]
+[gd_scene load_steps=4 format=3 uid="uid://2f017d8gv27e"]
 
 [ext_resource type="Script" path="res://Menus/Scripts/ContinuePanel.gd" id="1_kvkd7"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_5sfwy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ettk0"]
+font = ExtResource("2_5sfwy")
+font_size = 20
 
 [node name="ContinuePanel" type="Panel"]
 process_mode = 3
@@ -19,7 +24,14 @@ offset_bottom = 80.0
 
 [node name="TestMapButton" type="Button" parent="TestMap"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="TestMap"]
+process_mode = 3
+layout_mode = 2
 text = "Test Map"
+label_settings = SubResource("LabelSettings_ettk0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Back" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -30,7 +42,14 @@ offset_bottom = 160.0
 
 [node name="BackButton" type="Button" parent="Back"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Back"]
+process_mode = 3
+layout_mode = 2
 text = "Back"
+label_settings = SubResource("LabelSettings_ettk0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="TestMap/TestMapButton" to="." method="_on_test_map_button_button_up"]
 [connection signal="button_up" from="Back/BackButton" to="." method="_on_back_button_button_up"]

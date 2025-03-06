@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://sxf7ivyfqmb1"]
+[gd_scene load_steps=4 format=3 uid="uid://sxf7ivyfqmb1"]
 
 [ext_resource type="Script" path="res://Menus/Scripts/OptionsPanel.gd" id="1_3wtpp"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_87gw2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnfw2"]
+font = ExtResource("2_87gw2")
+font_size = 20
 
 [node name="OptionsPanel" type="Panel"]
 process_mode = 3
@@ -17,7 +22,14 @@ offset_bottom = 56.0
 
 [node name="VideoButton" type="Button" parent="Video"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Video"]
+process_mode = 3
+layout_mode = 2
 text = "Video"
+label_settings = SubResource("LabelSettings_gnfw2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Audio" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -28,7 +40,15 @@ offset_bottom = 120.0
 
 [node name="AudioButton" type="Button" parent="Audio"]
 layout_mode = 2
-text = "Audio"
+
+[node name="Label" type="Label" parent="Audio"]
+process_mode = 3
+layout_mode = 2
+text = "Audio
+"
+label_settings = SubResource("LabelSettings_gnfw2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Back" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -39,7 +59,14 @@ offset_bottom = 184.0
 
 [node name="BackButton" type="Button" parent="Back"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Back"]
+process_mode = 3
+layout_mode = 2
 text = "Back"
+label_settings = SubResource("LabelSettings_gnfw2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="Video/VideoButton" to="." method="_on_video_button_button_up"]
 [connection signal="button_up" from="Audio/AudioButton" to="." method="_on_audio_button_button_up"]

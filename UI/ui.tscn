@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=26 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -35,8 +35,13 @@ outline_color = Color(0, 0, 0, 1)
 font = ExtResource("3_gk6g8")
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_7in52"]
+font = ExtResource("3_gk6g8")
+font_size = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_nrvxc"]
 font = ExtResource("3_gk6g8")
+font_size = 20
 
 [node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
 process_mode = 3
@@ -172,7 +177,14 @@ offset_bottom = 56.0
 
 [node name="ResumeButton" type="Button" parent="PauseMenuPanel/Resume"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseMenuPanel/Resume"]
+process_mode = 3
+layout_mode = 2
 text = "Resume"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Reload" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -183,7 +195,14 @@ offset_bottom = 120.0
 
 [node name="ReloadButton" type="Button" parent="PauseMenuPanel/Reload"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseMenuPanel/Reload"]
+process_mode = 3
+layout_mode = 2
 text = "Reload"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Options" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -194,7 +213,14 @@ offset_bottom = 184.0
 
 [node name="OptionsButton" type="Button" parent="PauseMenuPanel/Options"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseMenuPanel/Options"]
+process_mode = 3
+layout_mode = 2
 text = "Options"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Controls" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -205,8 +231,14 @@ offset_bottom = 248.0
 
 [node name="ControlsButton" type="Button" parent="PauseMenuPanel/Controls"]
 layout_mode = 2
-text = "Controls
-"
+
+[node name="Label" type="Label" parent="PauseMenuPanel/Controls"]
+process_mode = 3
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MainMenu" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -217,7 +249,14 @@ offset_bottom = 312.0
 
 [node name="MainMenuButton" type="Button" parent="PauseMenuPanel/MainMenu"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseMenuPanel/MainMenu"]
+process_mode = 3
+layout_mode = 2
 text = "Main Menu"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitToDesktop" type="PanelContainer" parent="PauseMenuPanel"]
 layout_mode = 0
@@ -228,7 +267,14 @@ offset_bottom = 376.0
 
 [node name="QuitToDesktopButton" type="Button" parent="PauseMenuPanel/QuitToDesktop"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseMenuPanel/QuitToDesktop"]
+process_mode = 3
+layout_mode = 2
 text = "Quit To Desktop"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsPanel" parent="." node_paths=PackedStringArray("videoPanel", "audioPanel", "previousPanel") instance=ExtResource("5_5if3a")]
 layout_mode = 0
@@ -294,7 +340,14 @@ offset_bottom = 120.0
 
 [node name="ReloadButton" type="Button" parent="GameOverPanel/Reload"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/Reload"]
+process_mode = 3
+layout_mode = 2
 text = "Reload"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MainMenu" type="PanelContainer" parent="GameOverPanel"]
 layout_mode = 0
@@ -305,7 +358,14 @@ offset_bottom = 184.0
 
 [node name="MainMenuButton" type="Button" parent="GameOverPanel/MainMenu"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/MainMenu"]
+process_mode = 3
+layout_mode = 2
 text = "Main Menu"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitToDesktop" type="PanelContainer" parent="GameOverPanel"]
 layout_mode = 0
@@ -316,7 +376,14 @@ offset_bottom = 248.0
 
 [node name="QuitToDesktopButton" type="Button" parent="GameOverPanel/QuitToDesktop"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/QuitToDesktop"]
+process_mode = 3
+layout_mode = 2
 text = "Quit to Desktop"
+label_settings = SubResource("LabelSettings_7in52")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DialogueUI" parent="." node_paths=PackedStringArray("playerHUD") instance=ExtResource("4_4n6p0")]
 visible = false
