@@ -197,7 +197,7 @@ position = Vector2(640, -384)
 patrolIndicators = [NodePath("../../PatrolPoints/KitchenToCorridorRoom/PatrolKitchenToCorridorRoom"), NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom"), NodePath("../../PatrolPoints/CorridorRoom/PatrolCorridorRoom")]
 
 [node name="CleanerB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("44_pmp80")]
-position = Vector2(-352, -64)
+position = Vector2(-352, -408)
 patrolIndicators = [NodePath("../../PatrolPoints/CorridorCleanerRoom/PatrolCleanerRoom")]
 
 [node name="GuardD1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
@@ -294,10 +294,10 @@ waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../31"), NodePath("../32")]
 
 [node name="31" type="Node2D" parent="PatrolPoints/CorridorCleanerRoom"]
-position = Vector2(-352, -576)
+position = Vector2(-352, -960)
 
 [node name="32" type="Node2D" parent="PatrolPoints/CorridorCleanerRoom"]
-position = Vector2(-352, 912)
+position = Vector2(-352, 832)
 
 [node name="FoodStorageRoomToKitchenRoom" type="Node2D" parent="PatrolPoints"]
 
