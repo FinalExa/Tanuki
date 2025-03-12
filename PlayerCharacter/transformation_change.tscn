@@ -1,26 +1,46 @@
-[gd_scene load_steps=10 format=3 uid="uid://bthx5dpkp5buy"]
+[gd_scene load_steps=14 format=3 uid="uid://bthx5dpkp5buy"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationChange.gd" id="1_yyitm"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationSaving.gd" id="2_r4gmw"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationSprite.gd" id="2_rcty2"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationSounds.gd" id="2_s8qjy"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationOriginalObject.gd" id="2_t0h6v"]
 [ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="2_w0nen"]
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="3_0gul1"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationActivation.gd" id="3_3i255"]
 [ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="4_6obj2"]
+[ext_resource type="Script" path="res://PlayerCharacter/TransformationAttacking.gd" id="4_rn0xh"]
 [ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="5_wkv7n"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TrasformationUndetectable.gd" id="9_xctu7"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationLock.gd" id="11_hswyo"]
 
-[node name="TransformationChange" type="Node2D" node_paths=PackedStringArray("transformationSounds", "transformationOriginalObject", "transformationSprite")]
+[node name="TransformationChange" type="Node2D" node_paths=PackedStringArray("transformationSaving", "transformationActivation", "transformationAttacking", "transformationSprite", "transformationOriginalObject", "transformationSounds", "trasformationUndetectable", "transformationLock")]
 script = ExtResource("1_yyitm")
-transformationSounds = NodePath("TransformationSounds")
-transformationOriginalObject = NodePath("TransformationOriginalObject")
+transformationSaving = NodePath("TransformationSaving")
+transformationActivation = NodePath("TransformationActivation")
+transformationAttacking = NodePath("TransformationAttacking")
 transformationSprite = NodePath("TransformationSprite")
+transformationOriginalObject = NodePath("TransformationOriginalObject")
+transformationSounds = NodePath("TransformationSounds")
+trasformationUndetectable = NodePath("TrasformationUndetectable")
+transformationLock = NodePath("TransformationLock")
 transformationDuration = 20.0
 lowTimeRemaining = 17.0
 noTransformationText = "No Transformation"
 transformationObjectSafeCoords = Vector2(-100000, -100000)
 transformationAttackTimerCost = 3.0
-transformationLockDuration = 1.5
+
+[node name="TransformationSaving" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("2_r4gmw")
+transformationChange = NodePath("..")
+
+[node name="TransformationActivation" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("3_3i255")
+transformationChange = NodePath("..")
+
+[node name="TransformationAttacking" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("4_rn0xh")
+transformationChange = NodePath("..")
 
 [node name="TransformationSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("transformationChange")]
 script = ExtResource("2_rcty2")
@@ -54,3 +74,8 @@ stream = ExtResource("5_wkv7n")
 script = ExtResource("9_xctu7")
 transformationChange = NodePath("..")
 undetectableDuration = 0.3
+
+[node name="TransformationLock" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("11_hswyo")
+transformationChange = NodePath("..")
+transformationLockDuration = 1.5

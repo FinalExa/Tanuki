@@ -40,4 +40,4 @@ func EndCooldownFeedback():
 			playerRef.playerHUD.UpdateAttackCooldown(false, 0, 0)
 
 func OnAttackEnd():
-	characterRef.transformationChangeRef.AttackDetractTimer()
+	characterRef.transformationChangeRef.transformationAttacking.AttackDetractTimer()

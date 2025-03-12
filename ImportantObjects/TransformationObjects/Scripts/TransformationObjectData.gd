@@ -29,12 +29,12 @@ func GetScale():
 
 func RegisterAvailableTransformation(playerRef: PlayerCharacter):
 	if (!deactivated):
-		playerRef.transformationChangeRef.SetTransformationObjectInRange(self)
+		playerRef.transformationChangeRef.transformationSaving.SetTransformationObjectInRange(self)
 		playerCloseFeedbackSprite.show()
 		transformableFeedbackSprite.hide()
 
 func RemoveAvailableTransformation(playerRef: PlayerCharacter):
-	playerRef.transformationChangeRef.UnsetTransformationObjectInRange(self)
+	playerRef.transformationChangeRef.transformationSaving.UnsetTransformationObjectInRange(self)
 	playerCloseFeedbackSprite.hide()
 	transformableFeedbackSprite.show()
 

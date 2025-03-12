@@ -30,7 +30,7 @@ func InstantiateScene(path: String):
 func SpawnTransformationSpecialObject(path: String, object: Node2D):
 	if (object != null):
 		if (object.get_parent() != null):
-			self.remove_child(object)
+			object.get_parent().remove_child(object)
 		if (object is ExecuteAttack):
 			object.frameMaster.RemoveAttack(object)
 		object.queue_free()
@@ -45,3 +45,7 @@ func SetupSpawnedItem(spawnedItem: Node2D):
 		spawnedItem.reparent(transformationChange)
 		spawnedItem.position = Vector2.ZERO
 		spawnedItem.global_rotation_degrees = transformationChange.playerRef.GetRotator().global_rotation_degrees
+
+func InvincibilityInteracted(receivedNode: Node2D):
+	if (transformationChange.currentTransformationPassive != null):
+		transformationChange.currentTransformationPassive.TransformationInvincibilityInteracted(receivedNode)
