@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://bthx5dpkp5buy"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationChange.gd" id="1_yyitm"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationSprite.gd" id="2_rcty2"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationSounds.gd" id="2_s8qjy"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationOriginalObject.gd" id="2_t0h6v"]
+[ext_resource type="AudioStream" uid="uid://dve851xu5rack" path="res://PlayerCharacter/Sounds/Transformation (Tanuki to Object).wav" id="2_w0nen"]
+[ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="3_0gul1"]
+[ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="4_6obj2"]
+[ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="5_wkv7n"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TrasformationUndetectable.gd" id="9_xctu7"]
+
+[node name="TransformationChange" type="Node2D" node_paths=PackedStringArray("transformationSounds", "transformationOriginalObject", "transformationSprite")]
+script = ExtResource("1_yyitm")
+transformationSounds = NodePath("TransformationSounds")
+transformationOriginalObject = NodePath("TransformationOriginalObject")
+transformationSprite = NodePath("TransformationSprite")
+transformationDuration = 20.0
+lowTimeRemaining = 17.0
+noTransformationText = "No Transformation"
+transformationObjectSafeCoords = Vector2(-100000, -100000)
+transformationAttackTimerCost = 3.0
+transformationLockDuration = 1.5
+
+[node name="TransformationSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("2_rcty2")
+transformationChange = NodePath("..")
+
+[node name="TransformationOriginalObject" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("2_t0h6v")
+transformationChange = NodePath("..")
+
+[node name="TransformationSounds" type="Node" parent="." node_paths=PackedStringArray("transformationChange", "enterTransformationSound", "exitTransformationSound", "objectSavedSound", "transformationTimeLowSound")]
+script = ExtResource("2_s8qjy")
+transformationChange = NodePath("..")
+enterTransformationSound = NodePath("EnterTransformation")
+exitTransformationSound = NodePath("ExitTransformation")
+objectSavedSound = NodePath("ObjectSaved")
+transformationTimeLowSound = NodePath("TransformationTimeLow")
+
+[node name="EnterTransformation" type="AudioStreamPlayer" parent="TransformationSounds"]
+stream = ExtResource("2_w0nen")
+
+[node name="ExitTransformation" type="AudioStreamPlayer" parent="TransformationSounds"]
+stream = ExtResource("3_0gul1")
+
+[node name="ObjectSaved" type="AudioStreamPlayer" parent="TransformationSounds"]
+stream = ExtResource("4_6obj2")
+
+[node name="TransformationTimeLow" type="AudioStreamPlayer" parent="TransformationSounds"]
+stream = ExtResource("5_wkv7n")
+
+[node name="TrasformationUndetectable" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
+script = ExtResource("9_xctu7")
+transformationChange = NodePath("..")
+undetectableDuration = 0.3
