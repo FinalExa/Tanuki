@@ -85,6 +85,8 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
+	if (objectToOperate is TransformationObjectData):
+		objectToOperate.TurnOn()
 	objectToOperate.show()
 	objectToOperate.set_process(true)
 	for i in objectToOperate.get_child_count():
@@ -97,6 +99,8 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Deactivation()
 		return
+	if (objectToOperate is TransformationObjectData):
+		objectToOperate.TurnOff()
 	objectToOperate.hide()
 	objectToOperate.set_process(false)
 	for i in objectToOperate.get_child_count():

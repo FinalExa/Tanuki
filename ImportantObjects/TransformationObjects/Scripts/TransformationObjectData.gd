@@ -14,6 +14,7 @@ var playerCloseFeedbackSprite: AnimatedSprite2D
 var transformableFeedbackSprite: AnimatedSprite2D
 var playerCloseFeedback: String = "res://ImportantObjects/TransformationObjects/GetTransformationFeedback.tscn"
 var transformableFeedback: String = "res://ImportantObjects/TransformationObjects/TransformableFeedback.tscn"
+var deactivated: bool
 
 var localAllowedItemsRef: LocalAllowedItems
 
@@ -27,9 +28,10 @@ func GetScale():
 	transformedTextureScale = transformedTexture.scale
 
 func RegisterAvailableTransformation(playerRef: PlayerCharacter):
-	playerRef.transformationChangeRef.SetTransformationObjectInRange(self)
-	playerCloseFeedbackSprite.show()
-	transformableFeedbackSprite.hide()
+	if (!deactivated):
+		playerRef.transformationChangeRef.SetTransformationObjectInRange(self)
+		playerCloseFeedbackSprite.show()
+		transformableFeedbackSprite.hide()
 
 func RemoveAvailableTransformation(playerRef: PlayerCharacter):
 	playerRef.transformationChangeRef.UnsetTransformationObjectInRange(self)
@@ -53,3 +55,9 @@ func SpawnFeedback(feedbackToSpawn: String):
 	feedbackInstance.z_index = 100
 	feedbackInstance.global_position = self.global_position
 	return feedbackInstance
+
+func TurnOff():
+	deactivated = true
+
+func TurnOn():
+	deactivated = false
