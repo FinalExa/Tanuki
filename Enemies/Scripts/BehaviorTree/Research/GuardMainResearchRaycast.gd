@@ -23,6 +23,7 @@ func SpotOperations(trackedObject: Node2D):
 	if (PlayerDetect(trackedObject)):
 		return
 	guardResearch.isTrackingPriorityTarget = false
+	SuspiciousObjectsDetect(trackedObject)
 
 func PlayerDetect(trackedObject: Node2D):
 	if (trackedObject is PlayerCharacter):
@@ -40,3 +41,11 @@ func PlayerDetect(trackedObject: Node2D):
 			guardResearch.isTrackingPriorityTarget = true
 			return true
 	return false
+
+func SuspiciousObjectsDetect(trackedObject: Node2D):
+	if (trackedObject is PlayerCharacter &&
+		trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
+		if (!guardResearch.suspiciousItemsList.has(trackedObject)):
+			guardResearch.suspiciousItemsList.push_back(trackedObject)
+			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(guardResearch)):
+				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(guardResearch)
