@@ -3,7 +3,6 @@ extends ExecuteAttack
 
 @export var playerHUD: PlayerHUD
 @export var attackTag: String
-@export var playerSubstitutionAttack: PlayerSubstitutionAttack
 
 func _process(_delta):
 	CheckForInput()
@@ -17,7 +16,7 @@ func SetAttackTag():
 			attackHitboxes[i].attackTag = attackTag
 
 func CheckForInput():
-	if (!attackLaunched && !playerSubstitutionAttack.attackLaunched && characterRef.playerInputs.attackInput && !characterRef.transformationChangeRef.isTransformed):
+	if (!attackLaunched && characterRef.playerInputs.attackInput && !characterRef.transformationChangeRef.isTransformed):
 		characterRef.playerMovement.DisableMovement()
 		start_attack()
 

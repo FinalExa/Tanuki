@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=26 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -31,10 +31,6 @@ font_color = Color(1, 0, 1, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_bx60d"]
-font = ExtResource("3_gk6g8")
-font_size = 32
-
 [sub_resource type="LabelSettings" id="LabelSettings_j2cxm"]
 font = ExtResource("3_gk6g8")
 font_size = 20
@@ -48,7 +44,7 @@ font_size = 20
 font = ExtResource("3_gk6g8")
 font_size = 20
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "substitutionStacksLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -60,7 +56,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
 timerBar = NodePath("TransformationBar")
-substitutionStacksLabel = NodePath("SubstitutionStacks")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
@@ -101,17 +96,6 @@ label_settings = SubResource("LabelSettings_5b5nv")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_ia11n")
-
-[node name="SubstitutionStacks" type="Label" parent="."]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 128.0
-offset_right = 232.0
-offset_bottom = 151.0
-text = "2"
-label_settings = SubResource("LabelSettings_bx60d")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VersionInfo" type="Label" parent="."]
 process_mode = 3

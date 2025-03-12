@@ -8,7 +8,6 @@ var inputDirection: Vector2
 var attackInput: bool
 var transformInput: bool
 var interactInput: bool
-var substitutionInput: bool
 var pauseInput: bool
 
 func _process(_delta):
@@ -20,7 +19,6 @@ func GetInputs():
 		GetAttackInput()
 		GetTransformInput()
 		GetInteractInput()
-		GetSubstitutionInput()
 	GetPauseInput()
 
 func GetMovementInput():
@@ -43,12 +41,6 @@ func GetInteractInput():
 		interactInput = true
 		return
 	interactInput = false
-
-func GetSubstitutionInput():
-	if (Input.is_action_just_pressed("substitution")):
-		substitutionInput = true
-		return
-	substitutionInput = false
 
 func GetPauseInput():
 	if (Input.is_action_just_pressed("pause")):
