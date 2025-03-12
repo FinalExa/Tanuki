@@ -20,16 +20,9 @@ func AnalyzeResearchMainRaycast():
 				return
 
 func SpotOperations(trackedObject: Node2D):
-	var spotting_result: bool = false
-	spotting_result = PlayerDetect(trackedObject)
-	if (spotting_result):
+	if (PlayerDetect(trackedObject)):
 		return
 	guardResearch.isTrackingPriorityTarget = false
-	spotting_result = StunnedGuardsDetect(trackedObject)
-	if (spotting_result):
-		return
-	spotting_result = SuspiciousObjectsDetect(trackedObject)
-	return
 
 func PlayerDetect(trackedObject: Node2D):
 	if (trackedObject is PlayerCharacter):
@@ -42,27 +35,8 @@ func PlayerDetect(trackedObject: Node2D):
 			return true
 		if (playerValue == 2 || trackedObject.velocity != Vector2.ZERO):
 			guardResearch.set_research_target(trackedObject.global_position)
+			if (!guardResearch.suspiciousItemsList.has(trackedObject)):
+				guardResearch.suspiciousItemsList.push_front(trackedObject)
 			guardResearch.isTrackingPriorityTarget = true
-			return true
-	return false
-
-func SuspiciousObjectsDetect(trackedObject: Node2D):
-	if (trackedObject is PlayerCharacter &&
-		trackedObject.transformationChangeRef.get_if_transformed_in_right_zone() == 2):
-		if (!guardResearch.suspiciousItemsList.has(trackedObject)):
-			guardResearch.suspiciousItemsList.push_back(trackedObject)
-			if (!trackedObject.transformationChangeRef.guardsLookingForMe.has(guardResearch)):
-				trackedObject.transformationChangeRef.guardsLookingForMe.push_back(guardResearch)
-		return true
-	return false
-
-func StunnedGuardsDetect(trackedObject: Node2D):
-	if (trackedObject is GuardController &&
-		trackedObject.isStunned &&
-		trackedObject != enemyController):
-			if (!guardResearch.stunnedGuardsList.has(trackedObject)):
-				guardResearch.stunnedGuardsList.push_back(trackedObject)
-				if (!trackedObject.guardsLookingForMe.has(guardResearch)):
-					trackedObject.guardsLookingForMe.push_back(guardResearch)
 			return true
 	return false

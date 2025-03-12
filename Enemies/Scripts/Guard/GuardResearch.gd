@@ -24,7 +24,6 @@ var researchPosition: Vector2
 var researchLastPosition: Vector2
 var researchLastDirection: Vector2
 var suspiciousItemsList: Array[Node2D]
-var stunnedGuardsList: Array[GuardController]
 var researchHasFoundSomething: bool
 var isDoingResearchAction: bool
 var isTrackingPriorityTarget: bool
@@ -39,7 +38,6 @@ func _physics_process(_delta):
 	ResearchRaycasts()
 
 func initialize_guard_research(target: Node2D):
-	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.enemyStatus.updateText(researchActiveText)
 	reset_research_end_timer()
@@ -55,7 +53,6 @@ func initialize_guard_research(target: Node2D):
 	researchEnterSound.play()
 
 func InitializeResearchWithLocation(location: Vector2):
-	stunnedGuardsList.clear()
 	suspiciousItemsList.clear()
 	guardController.enemyStatus.updateText(researchActiveText)
 	reset_research_end_timer()

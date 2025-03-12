@@ -35,8 +35,6 @@ var characterRef
 @export var questToSendProgressSignal: MapQuest
 @export var sendSignalToQuestOnStunned: bool
 
-var guardsLookingForMe: Array[GuardResearch]
-
 func _ready():
 	spriteRef.play("idle")
 	repelledSpeed = 0
