@@ -326,6 +326,8 @@ attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
+[connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="set_max_speed"]
+[connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="reset_max_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]
 [connection signal="send_transformation_has_attack" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_has_attack"]
 [connection signal="send_transformation_texture" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_texture"]
