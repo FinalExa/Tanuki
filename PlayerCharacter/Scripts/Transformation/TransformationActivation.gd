@@ -45,7 +45,7 @@ func TransformationActive(delta):
 	if (transformationChange.isTransformed):
 		transformationChange.transformationSprite.KeepFixedImageRotation()
 		if (transformationChange.transformationTimer < transformationChange.transformationDuration):
-			transformationChange.transformationTimer = clamp(transformationChange.transformationTimer + delta, 0, transformationChange.transformationDuration)
+			transformationChange.transformationTimer = clamp(transformationChange.transformationTimer + (delta * transformationChange.currentTransformationObject.transformedTimeConsumption), 0, transformationChange.transformationDuration)
 			transformationChange.transformationSounds.PlayTransformationLowSound()
 		else:
 			call_deferred("DeactivateTransformation")

@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bv55d6egj6hss" path="res://PlayerCharacter/Sounds/Transformation (Object to Tanuki).wav" id="3_0gul1"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationActivation.gd" id="3_3i255"]
 [ext_resource type="AudioStream" uid="uid://pub41g32v4s1" path="res://PlayerCharacter/Sounds/Object selected and saved 2.wav" id="4_6obj2"]
-[ext_resource type="Script" path="res://PlayerCharacter/TransformationAttacking.gd" id="4_rn0xh"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationAttacking.gd" id="4_ka4vt"]
 [ext_resource type="AudioStream" uid="uid://df2w543pitow6" path="res://PlayerCharacter/Sounds/Transformation time low.wav" id="5_wkv7n"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TrasformationUndetectable.gd" id="9_xctu7"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/Transformation/TransformationLock.gd" id="11_hswyo"]
@@ -39,7 +39,7 @@ script = ExtResource("3_3i255")
 transformationChange = NodePath("..")
 
 [node name="TransformationAttacking" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
-script = ExtResource("4_rn0xh")
+script = ExtResource("4_ka4vt")
 transformationChange = NodePath("..")
 
 [node name="TransformationSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("transformationChange")]

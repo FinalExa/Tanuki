@@ -3,6 +3,8 @@ extends StaticBody2D
 
 @export var transformedName: String
 @export var transformedSpeedTier: PCMovement.SpeedTier
+@export var transformedTimeConsumption: float = 1
+@export var transformedAttackTimeConsumption: float = 1
 @export var transformedProperties: Array[String]
 @export var transformedCollider: CollisionShape2D
 @export var transformedTexture: Sprite2D

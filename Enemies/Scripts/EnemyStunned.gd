@@ -40,18 +40,9 @@ func end_stun():
 	ExecuteStunEnd()
 
 func ExecuteStunEnd():
-	clear_guards_looking_for_me()
 	enemyController.enemyRotator.setLookingAtPosition((lookDirectionAfterStun * 10) + enemyController.global_position)
 	enemyController.isStunned = false
 	enemyController.enemyPatrol.resume_patrol()
 	enemyController.enemyStatus.updateText("")
 	if (stunnedSound.playing): stunnedSound.stop()
 	emit_signal("end_stun_signal")
-
-func clear_guards_looking_for_me():
-	for i in enemyController.guardsLookingForMe.size():
-		for y in enemyController.guardsLookingForMe[i].stunnedGuardsList.size():
-			if (enemyController.guardsLookingForMe[i].stunnedGuardsList[y] == enemyController):
-				enemyController.guardsLookingForMe[i].stunnedGuardsList.remove_at(y)
-				break
-	enemyController.guardsLookingForMe.clear()

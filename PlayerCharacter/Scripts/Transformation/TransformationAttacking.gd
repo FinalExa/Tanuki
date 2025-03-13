@@ -9,4 +9,4 @@ func CheckForAttackInput():
 
 func AttackDetractTimer():
 	if (transformationChange.isTransformed):
-		transformationChange.transformationTimer = clamp(transformationChange.transformationTimer + transformationChange.transformationAttackTimerCost, 0, transformationChange.transformationDuration)
+		transformationChange.transformationTimer = clamp(transformationChange.transformationTimer + (transformationChange.transformationAttackTimerCost * transformationChange.currentTransformationObject.transformedAttackTimeConsumption), 0, transformationChange.transformationDuration)
