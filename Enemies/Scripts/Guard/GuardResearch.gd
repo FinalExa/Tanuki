@@ -43,8 +43,6 @@ func initialize_guard_research(target: Node2D):
 	reset_research_end_timer()
 	if (target is PlayerCharacter):
 		save_target_info(target, true)
-	else: if (target is GuardController):
-		save_target_info(target, false)
 	guardController.isInResearch = true
 	researchLaunchTimer = researchLaunchDuration
 	researchLaunched = false

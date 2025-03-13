@@ -23,7 +23,9 @@ func AnalyzeResult(result):
 	return false
 
 func TargetIsVisible():
-	if (!guardAlert.lostSightOfPlayer || (guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0)):
+	if (!guardAlert.lostSightOfPlayer ||
+	(guardAlert.lostSightOfPlayer && guardAlert.alertTarget.transformationChangeRef.get_if_transformed_in_right_zone() == 0) ||
+	guardAlert.lostSightOfPlayer && guardAlert.alertTarget.velocity != Vector2.ZERO):
 		TrackTarget()
 		return true
 	return false
