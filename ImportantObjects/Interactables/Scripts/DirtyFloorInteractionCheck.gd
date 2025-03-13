@@ -19,7 +19,7 @@ func CheckForRightTransformationTag():
 				dirtyFloorInteractable.AttackInteraction(selectedProperty)
 				return
 			else:
-				playerRef.transformationChangeRef.DeactivateTransformation()
+				playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 		playerRef.transformationChangeRef.SetNoTransformation()
 
 func _on_body_entered(body):

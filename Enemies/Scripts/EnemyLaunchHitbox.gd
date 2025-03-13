@@ -11,5 +11,5 @@ func LaunchAttackOnTargetInRange(targetInRange: Node2D):
 func HitPlayer(playerRef: PlayerCharacter):
 	playerRef.SetLaunched(launchDistance, launchTime, self.global_position.direction_to(playerRef.global_position))
 	if (playerRef.transformationChangeRef.isTransformed):
-		playerRef.transformationChangeRef.DeactivateTransformation()
+		playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 	playerRef.transformationChangeRef.SetNoTransformation()
