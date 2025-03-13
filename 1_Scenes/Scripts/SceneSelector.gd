@@ -35,7 +35,7 @@ func ContinueAfterDelete(delta):
 
 func SetPlayerDataOnReload():
 	if (playerRef.transformationChangeRef.isTransformed):
-		playerRef.transformationChangeRef.DeactivateTransformation()
+		playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 	playerRef.playerMovement.SetToZero()
 	playerRef.global_position = safePosition
 	playerRef.playerAttack.ForceStopAttack()

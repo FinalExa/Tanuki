@@ -36,6 +36,6 @@ func TrackPriorityTarget():
 func Uncover(ref: PlayerCharacter):
 	if (guardResearch.suspiciousItemsList.has(ref)):
 		guardResearch.suspiciousItemsList.erase(ref)
-	ref.transformationChangeRef.DeactivateTransformation()
+	ref.transformationChangeRef.transformationActivation.DeactivateTransformation()
 	guardResearch.StopResearch()
 	enemyController.guardAlert.start_alert(ref)

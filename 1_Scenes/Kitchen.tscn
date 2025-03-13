@@ -190,7 +190,7 @@ patrolIndicators = [NodePath("../../PatrolPoints/KitchenHyottokoRoom/PatrolKitch
 
 [node name="GuardC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(768, -384)
-patrolIndicators = [NodePath("../../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom"), null]
+patrolIndicators = [NodePath("../../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-384, 352)
