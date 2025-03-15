@@ -629,7 +629,6 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="VaseGrown0" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
 position = Vector2(40, 984)
-sendToTravelID = null
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
 [node name="KitchenGrowPlantInRoomG" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
