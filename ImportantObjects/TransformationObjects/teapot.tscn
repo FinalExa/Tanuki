@@ -18,6 +18,7 @@ transformedName = "Teapot"
 transformedSpeedTier = 1
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("PlayerSprite")
+transformedAttackName = "Water Attack"
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/teapot_attack.tscn"
 transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/teapot_passive.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/teapot.tscn"

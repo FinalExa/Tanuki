@@ -16,6 +16,7 @@ script = ExtResource("1_822jx")
 transformedName = "Hammer"
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Hammer Attack"
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/hammer_attack.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/hammer.tscn"
 

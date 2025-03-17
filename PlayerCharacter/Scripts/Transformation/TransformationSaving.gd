@@ -16,7 +16,7 @@ func SetNewTransformation():
 	if (transformationChange.playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0 && !transformationChange.isTransformed):
 		SaveNewTransformation(transformObjectsInRange[transformObjectsInRange.size() - 1])
 		transformationChange.transformationSounds.PlayObjectSavedSound()
-		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration)
+		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)
 
 func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	if (trsObjectToSave.scene_file_path != transformationChange.currentOriginalObjectPath):
@@ -32,4 +32,4 @@ func SetNoTransformation():
 		transformationChange.currentTransformationObject.queue_free()
 	transformationChange.transformationTimer = 0
 	transformationChange.emit_signal("send_transformation_texture", "")
-	transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, 1)
+	transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, 1, transformationChange.noTransformationText)

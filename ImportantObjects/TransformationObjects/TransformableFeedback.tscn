@@ -18,4 +18,5 @@ animations = [{
 }]
 
 [node name="GetTransformationFeedback" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.588235)
 sprite_frames = SubResource("SpriteFrames_um506")

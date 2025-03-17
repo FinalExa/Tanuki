@@ -8,6 +8,7 @@ extends StaticBody2D
 @export var transformedProperties: Array[String]
 @export var transformedCollider: CollisionShape2D
 @export var transformedTexture: Sprite2D
+@export var transformedAttackName: String
 @export var transformedAttackPath: String
 @export var transformedPassivePath: String
 @export var originalObjectPath: String

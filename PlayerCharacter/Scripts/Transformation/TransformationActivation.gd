@@ -8,9 +8,9 @@ func ActivateTransformation():
 		transformationChange.transformationOriginalObject.GenerateTransformationObject()
 		TransformationFeedbackActivation(true)
 		if (transformationChange.currentTransformationObject.transformedAttackPath != ""):
-			transformationChange.emit_signal("send_transformation_has_attack", true)
+			transformationChange.emit_signal("send_transformation_has_attack", true, transformationChange.currentTransformationObject.transformedAttackName)
 		else:
-			transformationChange.emit_signal("send_transformation_has_attack", false)
+			transformationChange.emit_signal("send_transformation_has_attack", false, "")
 		transformationChange.transformationSounds.PlayEnterTransformationSound()
 		var savedLocalAreas: Array[LocalAllowedItems]
 		if (transformationChange.localAllowedItemsRef.size() > 0):
@@ -32,7 +32,7 @@ func CheckForDeactivateTransformation():
 func DeactivateTransformation():
 	TransformationFeedbackActivation(false)
 	transformationChange.emit_signal("reset_speed")
-	transformationChange.emit_signal("send_transformation_has_attack", true)
+	transformationChange.emit_signal("send_transformation_has_attack", true, "Leaf")
 	transformationChange.transformationSounds.PlayDeactivateTransformation()
 	if (transformationChange.playerRef.transformationInvincibility):
 		transformationChange.playerRef.transformationInvincibility = false
@@ -50,7 +50,7 @@ func TransformationActive(delta):
 		else:
 			call_deferred("DeactivateTransformation")
 			transformationChange.SetNoTransformation()
-		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration)
+		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)
 
 func TransformationFeedbackActivation(status: bool):
 	get_tree().root.get_child(0).sceneSelector.currentScene.ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationChange.currentTransformationObject.transformedName, status)

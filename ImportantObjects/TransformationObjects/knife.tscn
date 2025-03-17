@@ -19,6 +19,7 @@ transformedTimeConsumption = 2.0
 transformedAttackTimeConsumption = 2.0
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Knife Attack"
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/knife_attack.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/knife.tscn"
 

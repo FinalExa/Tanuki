@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=74 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
 [ext_resource type="Texture2D" uid="uid://go7nnh4oep76" path="res://Level/Sprites/Ciotole-001.png" id="39_lh02n"]
 [ext_resource type="PackedScene" uid="uid://bar22or7buq23" path="res://DemoTemporary/you_win_screen.tscn" id="39_rbvug"]
+[ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="40_3fnu8"]
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="40_6w7qa"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="40_wejvi"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="44_pmp80"]
@@ -141,6 +142,9 @@ size = Vector2(160, 896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(256, 256)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_211yk"]
+radius = 104.0
 
 [node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
@@ -429,6 +433,7 @@ sceneType = 1
 requiredKeys = 3
 
 [node name="Quests" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1373,3 +1378,19 @@ scale = Vector2(1, 0.75)
 
 [node name="YouWinScreen" parent="TemporaryAssets/EndLevel" instance=ExtResource("39_rbvug")]
 position = Vector2(-256, 1728)
+
+[node name="NPCs" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CleanerNPC" parent="NPCs" instance=ExtResource("40_3fnu8")]
+position = Vector2(-1600, -64)
+
+[node name="DialogueArea" parent="NPCs/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here… but every time I step on it I LOSE ALL OF MY ENERGY!!!", "I think I’ll stay here for the moment, I’m not getting paid enough for this…"])
+characterTalking = Array[int]([2, 2])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/CleanerNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_211yk")

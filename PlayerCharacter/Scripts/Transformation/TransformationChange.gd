@@ -43,7 +43,8 @@ func _ready():
 func InitialSetup():
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	transformationSprite.Startup()
-	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration)
+	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration, noTransformationText)
+	emit_signal("send_transformation_has_attack", true, "Leaf")
 
 func _process(delta):
 	transformationSprite.FlipTransformationSprite()

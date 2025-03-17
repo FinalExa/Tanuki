@@ -8,6 +8,8 @@ signal attack_cooldown
 @export var playerInputs: PlayerInputs
 @export var playerRef: PlayerCharacter
 @export var timerBar: TimerBar
+@export var transformationNameLabel: Label
+@export var attackNameLabel: Label
 @export var mainMenuPath: String
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
@@ -30,7 +32,8 @@ func _process(_delta):
 func _on_transformation_change_send_transformation_texture(trsTexture):
 	emit_signal("transformation_texture", trsTexture)
 
-func _on_transformation_change_send_transformation_active_info(timer, duration):
+func _on_transformation_change_send_transformation_active_info(timer, duration, transformationName):
+	transformationNameLabel.text = transformationName
 	timerBar.UpdateTimer(timer, duration)
 
 func UpdateAttackCooldown(status, currentFrame, duration):
@@ -117,5 +120,9 @@ func _on_gameover_reload_button_button_up():
 	gameOverPanel.hide()
 	sceneMaster.sceneSelector.ReloadScene()
 
-func _on_transformation_change_send_transformation_has_attack(status):
+func _on_transformation_change_send_transformation_has_attack(status, attackName):
+	if (!status):
+		attackNameLabel.text = ""
+	else:
+		attackNameLabel.text = attackName
 	emit_signal("has_attack", status)

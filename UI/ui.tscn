@@ -44,7 +44,7 @@ font_size = 20
 font = ExtResource("3_gk6g8")
 font_size = 20
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -56,6 +56,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fp2r")
 timerBar = NodePath("TransformationBar")
+transformationNameLabel = NodePath("TransformationName")
+attackNameLabel = NodePath("AttackName")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
@@ -82,6 +84,26 @@ LEFT CLICK: attack
 SPACE: use substitution
 Esc: Pause Menu"
 label_settings = SubResource("LabelSettings_sl7vy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransformationName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 168.0
+offset_right = 291.0
+offset_bottom = 208.0
+text = "TRANSFORMATION NAME"
+label_settings = SubResource("LabelSettings_5b5nv")
+vertical_alignment = 1
+
+[node name="AttackName" type="Label" parent="."]
+layout_mode = 0
+offset_top = 880.0
+offset_right = 192.0
+offset_bottom = 920.0
+text = "ATTACK NAME"
+label_settings = SubResource("LabelSettings_5b5nv")
 horizontal_alignment = 1
 vertical_alignment = 1
 

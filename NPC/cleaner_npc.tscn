@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vcjt7a8otp8"]
+
+[ext_resource type="Texture2D" uid="uid://ruyoywhd1m70" path="res://Enemies/Sprites/Governante-001-sprite.png" id="1_fbw7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3sln"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddvlc"]
+atlas = ExtResource("1_fbw7f")
+region = Rect2(0, 0, 104, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddvlc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="CleanerNPC" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w3sln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
