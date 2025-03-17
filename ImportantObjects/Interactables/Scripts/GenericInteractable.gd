@@ -7,6 +7,7 @@ extends Node2D
 @export var cooldownDuration: float
 @export var questToSendProgressSignal: MapQuest
 @export var sendSignalToQuestOnDestroyed: bool
+@export var destroyOnEnd: bool
 var parentRef: Node2D
 var cooldownActive: bool
 var cooldownTimer: float
@@ -38,7 +39,7 @@ func AttackInteraction(receivedString: String):
 func FinalState():
 	if (!hasCooldown):
 		if (sendSignalToQuestOnDestroyed): QuestSignal()
-		queue_free()
+		if (destroyOnEnd): queue_free()
 		return
 	cooldownTimer = cooldownDuration
 	cooldownActive = true

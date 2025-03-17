@@ -16,7 +16,7 @@ func CheckForRightTransformationTag():
 				break
 		if (selectedProperty != ""):
 			ratInteractable.AttackInteraction(selectedProperty)
-			playerRef.transformationChangeRef.DeactivateTransformation()
+			playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 			playerRef.transformationChangeRef.SetNoTransformation()
 
 func _on_body_entered(body):

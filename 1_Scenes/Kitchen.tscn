@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=72 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -87,6 +87,9 @@ radius = 128.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ak33"]
 radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8u4p"]
+radius = 200.003
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca16x"]
 size = Vector2(128, 256)
@@ -708,17 +711,17 @@ y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenFeedRat"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("RatSecondDialogue"), NodePath("RatFirstDialogue"), NodePath("RatSecondDialogue"), NodePath("../../Keys/UnlockKey4")]
-questItemsStages = Array[int]([0, 0, 1, 1, 2])
-questItemsOnOffState = Array[bool]([false, false, false, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("Rat"), NodePath("RatFirstDialogue"), NodePath("RatSecondDialogue")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("RatDialogue2"), NodePath("RatDialogue3"), NodePath("RatDialogue1"), NodePath("RatDialogue2"), NodePath("../../Keys/UnlockKey4"), NodePath("RatDialogue3")]
+questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true])
+objectsToDeleteAtQuestComplete = [NodePath("RatDialogue1"), NodePath("RatDialogue2")]
 
 [node name="Rat" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_acuu4")]
 position = Vector2(2368, -1279)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="RatFirstDialogue" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="RatDialogue1" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Hey you! You look like someone who is lost… let’s make a deal: if you bring me some food I will give you in return this splendid key that I stole from one of the guards.", "And since I’m a kind soul, maybe I can even tell you a secret that you don’t know about this place.", "Fine, you are lucky that I need that key."])
 characterTalking = Array[int]([2, 2, 0])
@@ -726,10 +729,10 @@ characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatFirstDialogue"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue1"]
 shape = SubResource("CircleShape2D_7ihbc")
 
-[node name="RatSecondDialogue" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
+[node name="RatDialogue2" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you don’t know… you can reach the roof by watering one of the plants around here.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
 characterTalking = Array[int]([2, 2, 0, 2, 0])
@@ -739,8 +742,19 @@ deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatSecondDialogue"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue2"]
 shape = SubResource("CircleShape2D_3ak33")
+
+[node name="RatDialogue3" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(2368, -1279)
+dialogueText = Array[String](["Can you say that secret again? I forgot it.", "Really? What a bad memory you have… fine. You can reach the roof by watering one of the plants around here. Don’t forget it again!", "I regret feeding you…"])
+characterTalking = Array[int]([0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [null, NodePath("../Rat"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue3"]
+shape = SubResource("CircleShape2D_e8u4p")
 
 [node name="Kitchen2DialogueSeen" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("2_pyt2b")
