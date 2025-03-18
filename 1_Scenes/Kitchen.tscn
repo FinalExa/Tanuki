@@ -669,7 +669,7 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
 position = Vector2(1920, 768)
-scale = Vector2(2, 2)
+scale = Vector2(2, 4)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -684,8 +684,8 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor2")]
 
 [node name="DirtyFloor2" parent="Quests/KitchenClearDirtyFloor2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
-position = Vector2(-16, 640)
-scale = Vector2(3.08, 1)
+position = Vector2(-8, 640)
+scale = Vector2(4, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -701,7 +701,7 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor3")]
 
 [node name="DirtyFloor3" parent="Quests/KitchenClearDirtyFloor3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
 position = Vector2(-640, 64)
-rotation = 1.5708
+scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -717,6 +717,7 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor4")]
 
 [node name="DirtyFloor4" parent="Quests/KitchenClearDirtyFloor4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
 position = Vector2(2240, -1024)
+scale = Vector2(1, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
