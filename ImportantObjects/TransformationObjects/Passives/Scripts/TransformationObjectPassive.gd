@@ -4,6 +4,12 @@ extends Node2D
 var characterRef
 var transformationChangeRef: TransformationChange
 
+func _ready():
+	ReadyOperations()
+
+func ReadyOperations():
+	pass
+
 func SetTransformationChangeRef(ref: TransformationChange):
 	transformationChangeRef = ref
 	AssignExtraRefs()

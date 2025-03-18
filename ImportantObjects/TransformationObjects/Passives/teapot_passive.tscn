@@ -1,23 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://yh8trjrdfafp"]
+[gd_scene load_steps=4 format=3 uid="uid://yh8trjrdfafp"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotPassive.gd" id="1_wjoe1"]
+[ext_resource type="Texture2D" uid="uid://c713djg6r2qw2" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/TeapotHeat.png" id="2_1x5jn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
 radius = 128.0
 
-[node name="TeapotPassive" type="Node2D"]
+[node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("heatedSprite")]
 script = ExtResource("1_wjoe1")
 maxHeatValue = 1000.0
 chargedHeatValue = 500.0
 heatIncreasePerSecondPerSource = 200.0
-heatDecreasePerSecondPerSource = 50.0
+heatDecreasePerSecondPerSource = 200.0
 heatGroup = "HeatSource"
 heatedProperty = "Hot"
+heatedSprite = NodePath("Sprite2D")
+heatedAttackColor = Color(1, 0, 0, 1)
+coldAttackColor = Color(0, 0, 1, 1)
 
 [node name="TeapotAbsorbHeat" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAbsorbHeat"]
 shape = SubResource("CircleShape2D_4ph7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1x5jn")
 
 [connection signal="body_entered" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_entered"]
 [connection signal="body_exited" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_exited"]

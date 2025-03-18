@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://rqaeh4f2q8s"]
+[gd_scene load_steps=4 format=3 uid="uid://rqaeh4f2q8s"]
 
+[ext_resource type="Texture2D" uid="uid://muxy0mr4wiqg" path="res://ImportantObjects/PuzzleObjects/Sprites/OniHeatArea.png" id="1_15uuc"]
 [ext_resource type="Texture2D" uid="uid://b00pm6oexwlvm" path="res://ImportantObjects/PuzzleObjects/Sprites/MiniOni-test.png" id="1_wvd80"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fg3l"]
-size = Vector2(80, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_x00p2"]
+radius = 32.0
 
 [node name="HeatSource" type="StaticBody2D" groups=["HeatSource"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0fg3l")
+shape = SubResource("CircleShape2D_x00p2")
+
+[node name="HeatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_15uuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
