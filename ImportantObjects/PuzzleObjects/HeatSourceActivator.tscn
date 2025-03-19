@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rqaeh4f2q8s" path="res://ImportantObjects/PuzzleObjects/heat_source.tscn" id="2_sj5fq"]
 
 [node name="HeatSourceActivator" type="Node2D" node_paths=PackedStringArray("heatSourceRef")]
+y_sort_enabled = true
 script = ExtResource("1_rs8r3")
 heatSourceRef = NodePath("HeatSource")
 

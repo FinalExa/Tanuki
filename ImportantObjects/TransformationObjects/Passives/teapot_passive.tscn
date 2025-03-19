@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://yh8trjrdfafp"]
+[gd_scene load_steps=5 format=3 uid="uid://yh8trjrdfafp"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TeapotPassive.gd" id="1_wjoe1"]
 [ext_resource type="Texture2D" uid="uid://c713djg6r2qw2" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/TeapotHeat.png" id="2_1x5jn"]
+[ext_resource type="Texture2D" uid="uid://cprom143g4skd" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/teapotFireIndicatorUI.png" id="3_2axxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
 radius = 128.0
 
-[node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("heatedSprite")]
+[node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("heatedSprite", "heatProgressBar")]
 script = ExtResource("1_wjoe1")
 maxHeatValue = 1000.0
 chargedHeatValue = 500.0
 heatIncreasePerSecondPerSource = 200.0
-heatDecreasePerSecondPerSource = 200.0
+heatDecreasePerSecondPerSource = 100.0
 heatGroup = "HeatSource"
 heatedProperty = "Hot"
-heatedSprite = NodePath("Sprite2D")
+heatedSprite = NodePath("TeapotHeatedSprite")
+heatProgressBar = NodePath("TextureProgressBar")
 heatedAttackColor = Color(1, 0, 0, 1)
 coldAttackColor = Color(0, 0, 1, 1)
 
@@ -23,8 +25,17 @@ coldAttackColor = Color(0, 0, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeapotAbsorbHeat"]
 shape = SubResource("CircleShape2D_4ph7j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TeapotHeatedSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_1x5jn")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_top = -64.0
+offset_right = 40.0
+offset_bottom = -24.0
+fill_mode = 3
+texture_under = ExtResource("3_2axxp")
+texture_progress = ExtResource("3_2axxp")
+tint_under = Color(1, 1, 1, 0.117647)
 
 [connection signal="body_entered" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_entered"]
 [connection signal="body_exited" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_exited"]

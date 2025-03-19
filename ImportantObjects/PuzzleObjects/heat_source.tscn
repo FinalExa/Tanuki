@@ -7,11 +7,14 @@
 radius = 32.0
 
 [node name="HeatSource" type="StaticBody2D" groups=["HeatSource"]]
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x00p2")
 
 [node name="HeatSprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -40)
 texture = ExtResource("1_15uuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
