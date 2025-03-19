@@ -81,6 +81,9 @@ radius = 156.051
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_in7kl"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5etf"]
+radius = 160.2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmcs5"]
 size = Vector2(224, 112)
 
@@ -92,9 +95,6 @@ radius = 200.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8u4p"]
 radius = 200.003
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca16x"]
-size = Vector2(128, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj35e"]
 size = Vector2(513, 176)
@@ -174,7 +174,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/Kitchen2DialogueSeen"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
@@ -496,6 +496,7 @@ shape = SubResource("CircleShape2D_4uwes")
 position = Vector2(2112, 320)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+destroyOnEnd = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do"])
@@ -511,6 +512,7 @@ shape = SubResource("CircleShape2D_oq5h6")
 position = Vector2(1728, -1248)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+destroyOnEnd = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do."])
@@ -556,7 +558,19 @@ questName = "KitchenStunWarden"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/WardenC1/KeySprite")]
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/WardenC1/KeySprite"), NodePath("Kitchen2Dialogue")]
+
+[node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(1088, 0)
+dialogueText = Array[String](["Bwaha-ha! You know, hyottoko-man, nobody has ever stolen this key from me!", "Woah… what an achievement… so brave… *yawns*", "Hey!!! Don’t mock me!!! I’m always wide awake! I never lost my sights on this key, ever!", "Wide awake, eh? Maybe if that geezer gets “sleepy” for a few seconds I can “grab” that key from him, heheheh…"])
+characterTalking = Array[int]([2, 2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0])
+cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/HyottokoC1"), NodePath("../../../Enemies/WardenC1"), null]
+isOnInteraction = true
+labelDefaultText = "PRESS SHIFT TO EAVESDROP"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenStunWarden/Kitchen2Dialogue"]
+shape = SubResource("CircleShape2D_w5etf")
 
 [node name="KitchenHiddenRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -768,28 +782,6 @@ isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue3"]
 shape = SubResource("CircleShape2D_e8u4p")
-
-[node name="Kitchen2DialogueSeen" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
-script = ExtResource("2_pyt2b")
-questName = "Kitchen2DialogueSeen"
-questItemsToOperate = [NodePath("Kitchen2Dialogue")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
-objectsToDeleteAtQuestComplete = [NodePath("Kitchen2Dialogue")]
-
-[node name="Kitchen2Dialogue" parent="Quests/Kitchen2DialogueSeen" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
-position = Vector2(-16, 384)
-dialogueText = Array[String](["Bwaha-ha! You know, hyottoko-man, nobody has ever stolen this key from me!", "Woah… what an achievement… so brave… *yawns*", "Hey!!! Don’t mock me!!! I’m always wide awake! I never lost my sights on this key, ever!", "Wide awake, eh? Maybe if that geezer gets “sleepy” for a few seconds I can “grab” that key from him, heheheh…"])
-characterTalking = Array[int]([2, 2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0])
-cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/HyottokoC1"), NodePath("../../../Enemies/WardenC1"), null]
-isOnInteraction = true
-deleteOnDone = true
-advanceQuest = true
-questRef = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/Kitchen2DialogueSeen/Kitchen2Dialogue"]
-shape = SubResource("RectangleShape2D_ca16x")
 
 [node name="KitchenMeltIce" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("2_pyt2b")

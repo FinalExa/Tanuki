@@ -6,7 +6,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_gyclw"]
 font = ExtResource("2_dqylb")
 font_size = 24
-font_color = Color(1, 0, 0, 1)
+font_color = Color(1, 0, 1, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="DialogueArea" type="Area2D" node_paths=PackedStringArray("interactionLabel")]
 process_mode = 3
