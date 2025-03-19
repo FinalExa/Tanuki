@@ -9,6 +9,7 @@ size = Vector2(64, 24)
 [node name="ButtonToPush" type="StaticBody2D" groups=["Interactable"]]
 script = ExtResource("1_a4b3q")
 neededProperties = Array[String](["Leaf"])
+destroyOnEnd = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kufeo")
