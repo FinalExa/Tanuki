@@ -35,7 +35,7 @@ offset_bottom = -24.0
 fill_mode = 3
 texture_under = ExtResource("3_2axxp")
 texture_progress = ExtResource("3_2axxp")
-tint_under = Color(1, 1, 1, 0.117647)
+tint_under = Color(1, 1, 1, 0.176471)
 
 [connection signal="body_entered" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_entered"]
 [connection signal="body_exited" from="TeapotAbsorbHeat" to="." method="_on_teapot_absorb_heat_body_exited"]
