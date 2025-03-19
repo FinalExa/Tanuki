@@ -12,4 +12,4 @@ func HitPlayer(playerRef: PlayerCharacter):
 	playerRef.SetLaunched(launchDistance, launchTime, self.global_position.direction_to(playerRef.global_position))
 	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
-	playerRef.transformationChangeRef.SetNoTransformation()
+	playerRef.transformationChangeRef.SetNoTransformationExternal()

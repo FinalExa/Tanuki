@@ -821,7 +821,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("StunArea")]
 
 [node name="StunArea" parent="QuestUnlocks/UnlocksAfterKitchenRoofDropLantern" instance=ExtResource("21_bxa72")]
-position = Vector2(2224, -496)
+position = Vector2(2240, -256)
 stunDuration = 10.0
 
 [node name="Teleports" type="Node2D" parent="."]
@@ -1386,11 +1386,14 @@ y_sort_enabled = true
 position = Vector2(-1600, -64)
 
 [node name="DialogueArea" parent="NPCs/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here… but every time I step on it I LOSE ALL OF MY ENERGY!!!", "I think I’ll stay here for the moment, I’m not getting paid enough for this…"])
-characterTalking = Array[int]([2, 2])
-characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath(".."), NodePath("..")]
+dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here…", "But every time I step on it I LOSE ALL OF MY ENERGY!!!", "I think I’ll stay here for the moment, I’m not getting paid enough for this…"])
+characterTalking = Array[int]([2, 2, 2])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [NodePath(".."), NodePath("AreaFocus"), NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/CleanerNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_211yk")
+
+[node name="AreaFocus" type="Node2D" parent="NPCs/CleanerNPC/DialogueArea"]
+position = Vector2(392, 1024)

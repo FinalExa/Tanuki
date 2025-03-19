@@ -47,6 +47,7 @@ func InitialSetup():
 	emit_signal("send_transformation_has_attack", true, "Leaf")
 
 func _process(delta):
+	transformationSaving.TransformationSavedSpriteUpdate()
 	transformationSprite.FlipTransformationSprite()
 	transformationLock.LockTimer(delta)
 	trasformationUndetectable.UndetectableTimer(delta)
@@ -58,6 +59,10 @@ func _process(delta):
 
 func SetNoTransformation():
 	transformationSaving.SetNoTransformation()
+
+func SetNoTransformationExternal():
+	transformationSounds.PlayTransformationRemovedSound()
+	SetNoTransformation()
 
 func SetLocalZone(localRef: LocalAllowedItems):
 	if (!localAllowedItemsRef.has(localRef)):

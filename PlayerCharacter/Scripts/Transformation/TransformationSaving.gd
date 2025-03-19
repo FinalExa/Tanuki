@@ -1,8 +1,12 @@
 class_name TransformationSaving
-extends Node
+extends Sprite2D
 
 @export var transformationChange: TransformationChange
 var transformObjectsInRange: Array[TransformationObjectData]
+var startDegrees: float
+
+func _ready():
+	startDegrees = global_rotation_degrees
 
 func SetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
 	if (!transformObjectsInRange.has(trsObjectRef)):
@@ -33,3 +37,11 @@ func SetNoTransformation():
 	transformationChange.transformationTimer = 0
 	transformationChange.emit_signal("send_transformation_texture", "")
 	transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, 1, transformationChange.noTransformationText)
+
+func TransformationSavedSpriteUpdate():
+	if (transformationChange.currentTransformationSet && !transformationChange.isTransformed):
+		if (!self.visible):
+			self.show()
+		self.global_rotation_degrees = startDegrees
+		return
+	self.hide()

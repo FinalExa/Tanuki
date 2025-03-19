@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/StunArea.gd" id="1_j2b17"]
 [ext_resource type="Texture2D" uid="uid://gx2c32aqtchu" path="res://ImportantObjects/PuzzleObjects/Sprites/Chochin-001-asset.png" id="2_mo3ip"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdy76"]
-size = Vector2(256, 256)
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6c2x"]
+radius = 192.666
 
 [node name="StunArea" type="Area2D" node_paths=PackedStringArray("collisionShapeRef")]
 script = ExtResource("1_j2b17")
@@ -13,7 +13,7 @@ stunDuration = 1.0
 collisionShapeRef = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cdy76")
+shape = SubResource("CircleShape2D_e6c2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -40)

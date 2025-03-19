@@ -20,7 +20,7 @@ func CheckForRightTransformationTag():
 				return
 			else:
 				playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
-		playerRef.transformationChangeRef.SetNoTransformation()
+		playerRef.transformationChangeRef.SetNoTransformationExternal()
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
