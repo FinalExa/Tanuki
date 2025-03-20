@@ -10,7 +10,7 @@ size = Vector2(128, 128)
 [node name="DirtyFloor" type="Node2D" groups=["Interactable"]]
 z_index = -999
 script = ExtResource("1_0rewg")
-neededProperties = Array[String](["Clean"])
+neededProperties = Array[String](["Clean", "Water"])
 
 [node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
 script = ExtResource("2_vy8xm")
@@ -23,5 +23,7 @@ shape = SubResource("RectangleShape2D_kufeo")
 position = Vector2(0, -3.8147e-06)
 texture = ExtResource("3_w5n0j")
 
+[connection signal="area_entered" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_area_entered"]
+[connection signal="area_exited" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_area_exited"]
 [connection signal="body_entered" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_exited"]
