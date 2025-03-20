@@ -483,10 +483,10 @@ activated = true
 
 [node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(1992, 993)
-dialogueText = Array[String](["Do you see these blocks of ice? I have hidden a key in the room to prank the guards! I will help you melt each one, so we’re even!", "Fantastic! I appreciate it, it’s nice being helped sometimes."])
-characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath("../HeatSourceActivator2"), null]
+dialogueText = Array[String](["Do you see these blocks of ice? I have hidden a key in the room to prank the guards! I will help you melt each one, so we’re even!", "Fantastic! How do we melt them?", "Intense heat should suffice. Anything that looks like it's heatable in that kitchen?", "I'll go check... Be right back once I find it!"])
+characterTalking = Array[int]([2, 0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0])
+cameraFocuses = [NodePath("../HeatSourceActivator2"), null, NodePath("../HeatSourceActivator2"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniStationaryDialogue2"]
