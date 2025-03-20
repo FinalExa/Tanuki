@@ -526,6 +526,7 @@ shape = SubResource("CircleShape2D_tfxnb")
 
 [node name="FurnaceFake" parent="Quests/KitchenSaveTheOni" instance=ExtResource("4_80pyi")]
 position = Vector2(1216, -1248)
+destroyOnEnd = true
 
 [node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)

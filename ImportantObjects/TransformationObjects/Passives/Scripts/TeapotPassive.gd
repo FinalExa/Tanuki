@@ -8,6 +8,7 @@ extends TransformationObjectPassive
 @export var heatedProperty: String
 @export var heatedSprite: Sprite2D
 @export var heatProgressBar: TextureProgressBar
+@export var overHeatBar: TextureProgressBar
 @export var heatedAttackColor: Color
 @export var coldAttackColor: Color
 var attackHitboxSprites: Array[AnimatedSprite2D]
@@ -26,8 +27,11 @@ func AssignExtraRefs():
 func ReadyOperations():
 	heatedSprite.hide()
 	heatProgressBar.hide()
+	overHeatBar.hide()
 	heatProgressBar.max_value = chargedHeatValue
 	heatProgressBar.value = heatProgressBar.min_value
+	overHeatBar.min_value = chargedHeatValue
+	overHeatBar.max_value = maxHeatValue
 
 func _process(delta):
 	HeatTeapot(delta)
@@ -37,12 +41,14 @@ func HeatTeapot(delta):
 		self.global_rotation_degrees = characterRef.global_rotation_degrees
 		if (!heatProgressBar.visible):
 			heatProgressBar.show()
+			overHeatBar.show()
 		if (nearHeatSources.size() > 0):
 			currentHeatValue = clamp(currentHeatValue + (heatIncreasePerSecondPerSource * delta * nearHeatSources.size()), 0, maxHeatValue)
 		else:
 			if (nearHeatSources.size() == 0 && currentHeatValue > 0):
 				currentHeatValue = clamp(currentHeatValue - (heatDecreasePerSecondPerSource * delta), 0, maxHeatValue)
 		heatProgressBar.value = currentHeatValue
+		overHeatBar.value = currentHeatValue
 		if (currentHeatValue > chargedHeatValue): TeapotIsHot()
 		else: TeapotIsCold()
 	else:
@@ -50,6 +56,7 @@ func HeatTeapot(delta):
 			heatedSprite.hide()
 		if (heatProgressBar.visible):
 			heatProgressBar.hide()
+			overHeatBar.hide()
 	if (!transformationChangeRef.isTransformed && currentHeatValue > 0):
 		currentHeatValue = 0
 		ChangeWeaponTag(coldProperty)
