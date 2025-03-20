@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1vcjt7a8otp8"]
 
-[ext_resource type="Texture2D" uid="uid://ruyoywhd1m70" path="res://Enemies/Sprites/Governante-001-sprite.png" id="1_fbw7f"]
+[ext_resource type="Texture2D" uid="uid://dnpny6wokv4yn" path="res://NPC/Sprites/cleaner_NPC.png" id="1_hompi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3sln"]
-radius = 32.0
+radius = 16.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddvlc"]
-atlas = ExtResource("1_fbw7f")
-region = Rect2(0, 0, 104, 69)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8den"]
+atlas = ExtResource("1_hompi")
+region = Rect2(0, 0, 38, 124)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ddvlc")
+"texture": SubResource("AtlasTexture_i8den")
 }],
 "loop": true,
 "name": &"idle",
@@ -26,5 +26,6 @@ animations = [{
 shape = SubResource("CircleShape2D_w3sln")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_ayldj")
 animation = &"idle"
