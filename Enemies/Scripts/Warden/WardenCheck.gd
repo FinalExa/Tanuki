@@ -4,12 +4,13 @@ extends Area2D
 @export var enemyController: EnemyController
 @export var checkMaxValue: float
 @export var checkMinValue: float
+@export var checkScreamThreshold: float
 @export var checkIncreasePerSecond: float
 @export var checkDecreasePerSecond: float
 @export var enemyStatus: EnemyStatus
-@export var wardenAlertArea: WardenAlertArea
 @export var checkSound: AudioStreamPlayer2D
 @export var spottedSound: AudioStreamPlayer2D
+var wardenAlertArea: WardenAlertArea
 var checkCurrentValue: float
 var raycastResult: Node2D
 var playerRef: PlayerCharacter
@@ -18,7 +19,6 @@ var checkSoundPlayed: bool
 var spottedSoundPlayed: bool
 
 func _ready():
-	RemoveArea()
 	checkCurrentValue = 0
 
 func _physics_process(_delta):
@@ -92,7 +92,7 @@ func ResetCheckSound():
 		checkSoundPlayed = false
 
 func PlaySpottedSound():
-	if (checkCurrentValue == checkMaxValue && !spottedSoundPlayed):
+	if (checkCurrentValue >= checkScreamThreshold && !spottedSoundPlayed):
 		spottedSound.play()
 		spottedSoundPlayed = true
 

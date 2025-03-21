@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=77 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="3_fj7m5"]
 [ext_resource type="PackedScene" uid="uid://c8u3gvs7ip0p" path="res://ImportantObjects/Interactables/furnace.tscn" id="4_80pyi"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="5_lkh81"]
+[ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="6_bbdub"]
 [ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="15_wdsu2"]
 [ext_resource type="PackedScene" uid="uid://dw1hwjif77sfj" path="res://ImportantObjects/Interactables/painting_wall.tscn" id="15_y35by"]
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="17_pif6t"]
@@ -41,6 +42,9 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="45_bnhoq"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxsb"]
+size = Vector2(1792, 1664)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06s4t"]
 radius = 96.0
@@ -186,8 +190,9 @@ y_sort_enabled = true
 position = Vector2(-1216, -464)
 patrolIndicators = [NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
 
-[node name="WardenC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
+[node name="WardenC1" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
 position = Vector2(1344, 360)
+wardenAlertArea = NodePath("WardenAlertArea")
 patrolIndicators = [NodePath("../../PatrolPoints/KitchenWardenRoom/PatrolKitchenWardenRoom")]
 questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
@@ -197,6 +202,12 @@ position = Vector2(0, -16)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_lkh81")
+
+[node name="WardenAlertArea" parent="Enemies/WardenC1" instance=ExtResource("6_bbdub")]
+position = Vector2(-448, -296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/WardenC1/WardenAlertArea"]
+shape = SubResource("RectangleShape2D_8oxsb")
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
 position = Vector2(976, 200)

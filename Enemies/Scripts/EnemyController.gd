@@ -40,6 +40,7 @@ func _ready():
 	repelledSpeed = 0
 	if (repelledTime > 0):
 		repelledSpeed = repelledDistance / repelledTime
+	ReadyOperations()
 
 func _process(_delta):
 	GuardAnimations()
@@ -47,6 +48,9 @@ func _process(_delta):
 func _physics_process(delta):
 	Repelled(delta)
 	move_and_slide()
+
+func ReadyOperations():
+	pass
 
 func GuardAnimations():
 	if (velocity.x < 0):
