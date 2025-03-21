@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvmhaxddhfn23"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_nv7eg"]
+[ext_resource type="Texture2D" uid="uid://b8mal02xpx7kp" path="res://ImportantObjects/Interactables/Sprites/FORNETTO2.png" id="2_621gq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(128, 96)
+
+[node name="FurnaceFake" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_nv7eg")
+neededProperties = Array[String](["Pound"])
+destroyOnEnd = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="FurnaceFakeSprite" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, -2.14577e-06)
+texture = ExtResource("2_621gq")

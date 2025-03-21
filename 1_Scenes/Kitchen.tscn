@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=85 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://7inmeac4ftku" path="res://ImportantObjects/Interactables/vase_empty.tscn" id="19_h26va"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="19_j74hm"]
 [ext_resource type="PackedScene" uid="uid://dwgotngbjqr82" path="res://ImportantObjects/Interactables/ice_wall.tscn" id="19_qojnu"]
+[ext_resource type="PackedScene" uid="uid://bvmhaxddhfn23" path="res://ImportantObjects/Interactables/furnace_fake.tscn" id="19_sfcgv"]
 [ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://ImportantObjects/Interactables/vase_grown.tscn" id="20_0oc42"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="20_fuftr"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
@@ -514,7 +515,6 @@ shape = SubResource("CircleShape2D_4uwes")
 position = Vector2(2112, 320)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do"])
@@ -530,7 +530,6 @@ shape = SubResource("CircleShape2D_oq5h6")
 position = Vector2(1728, -1248)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do."])
@@ -542,9 +541,8 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace2/OniTrappedDialogue"]
 shape = SubResource("CircleShape2D_tfxnb")
 
-[node name="FurnaceFake" parent="Quests/KitchenSaveTheOni" instance=ExtResource("4_80pyi")]
-position = Vector2(1216, -1248)
-destroyOnEnd = true
+[node name="FurnaceFake" parent="Quests/KitchenSaveTheOni" instance=ExtResource("19_sfcgv")]
+position = Vector2(1216, -1216)
 
 [node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
