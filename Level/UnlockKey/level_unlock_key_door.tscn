@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b10ly0ikwygr3"]
 
 [ext_resource type="Script" path="res://Level/UnlockKey/Scripts/LevelUnlockKeyDoor.gd" id="1_eyo1s"]
-[ext_resource type="Texture2D" uid="uid://c3y4c20fd35tk" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale chiusa.png" id="2_kx308"]
+[ext_resource type="Texture2D" uid="uid://dnpwh7nwmee12" path="res://Level/UnlockKey/Sprites/levelDoor.png" id="2_7giy8"]
 [ext_resource type="Texture2D" uid="uid://b0odwepiu3f6h" path="res://ImportantObjects/Interactables/Sprites/Porta orizzontale aperta.png" id="3_xchyp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwh03"]
@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_vwh03")
 [node name="Closed" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Closed"]
-texture = ExtResource("2_kx308")
+texture = ExtResource("2_7giy8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Closed"]
 position = Vector2(0, 32)
