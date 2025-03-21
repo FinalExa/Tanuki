@@ -4,7 +4,7 @@ extends GuardNode
 
 func Evaluate(delta):
 	wardenCheck.IncreaseCheckValue(delta)
-	if (wardenCheck.checkCurrentValue == wardenCheck.checkMaxValue):
+	if (wardenCheck.checkCurrentValue >= wardenCheck.checkScreamThreshold):
 		return NodeState.SUCCESS
 	else:
 		if (wardenCheck.wardenAlertArea.get_parent() == wardenCheck):
