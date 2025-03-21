@@ -16,6 +16,7 @@ collision_layer = 3
 script = ExtResource("1_a48ek")
 transformedName = "Teapot"
 transformedSpeedTier = 1
+transformedTimeConsumption = 1.5
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("PlayerSprite")
 transformedAttackName = "Water Attack"
