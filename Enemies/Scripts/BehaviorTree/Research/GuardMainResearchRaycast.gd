@@ -30,7 +30,7 @@ func PlayerDetect(trackedObject: Node2D):
 		var playerValue: int = trackedObject.transformationChangeRef.get_if_transformed_in_right_zone()
 		if (playerValue != 1):
 			guardResearch.playerWasSpottedTransformed = true
-		if (playerValue == 0):
+		if (playerValue == 0 || (playerValue == 2 && trackedObject.velocity != Vector2.ZERO)):
 			guardResearch.StopResearch()
 			enemyController.guardAlert.start_alert(trackedObject)
 			return true
