@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8tm3iacl501"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_00qf8"]
+[ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="2_2telr"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="4_rxw1l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hikg1"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fg2p"]
+radius = 128.0
+
+[node name="WaterContainer" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_00qf8")
+transformedName = "Water Container"
+transformedSpeedTier = 1
+transformedTimeConsumption = 1.5
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Water Attack"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/water_container_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/water_container.tscn"
+
+[node name="TailLocation" type="Node2D" parent="."]
+position = Vector2(0, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hikg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2telr")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("4_rxw1l")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_5fg2p")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

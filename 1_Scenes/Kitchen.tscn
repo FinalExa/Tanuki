@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=86 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
+[ext_resource type="PackedScene" uid="uid://b8tm3iacl501" path="res://ImportantObjects/TransformationObjects/water_container.tscn" id="34_aw2ha"]
 [ext_resource type="Texture2D" uid="uid://bblakm2ijk8e5" path="res://Level/Sprites/bacchette-001.png" id="34_ws6o2"]
 [ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="37_bfqvd"]
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
@@ -934,6 +935,9 @@ position = Vector2(-2256, 464)
 transformedCollider = NodePath("../Vase11/CollisionShape2D")
 transformedTexture = NodePath("../Vase11/Sprite2D")
 
+[node name="WaterContainer" parent="TransformationsObjects" instance=ExtResource("34_aw2ha")]
+position = Vector2(-1728, -96)
+
 [node name="AllowedZones" type="Node2D" parent="."]
 
 [node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
@@ -1012,7 +1016,7 @@ position = Vector2(312, -40)
 
 [node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-1424, -328)
-allowedObjects = Array[String](["Dish"])
+allowedObjects = Array[String](["Dish", "Water Container"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems3"]
 position = Vector2(-177, 232)

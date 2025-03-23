@@ -18,7 +18,6 @@ func SetInactive():
 
 func UpdatePlayerPositionToGuardsInArea():
 	if (activated && wardenCheck.playerIn && guardsInArea.size() > 0):
-		var space_state = wardenCheck.enemyController.get_world_2d().direct_space_state
 		for i in guardsInArea.size():
 			SetGuardInAlert(guardsInArea[i])
 			UpdateGuardWithInfo(guardsInArea[i])
