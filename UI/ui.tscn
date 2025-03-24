@@ -24,6 +24,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_sl7vy"]
 font = ExtResource("3_gk6g8")
+font_size = 20
+font_color = Color(1, 0, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5b5nv"]
 font = ExtResource("3_gk6g8")
@@ -82,7 +84,6 @@ text = "WASD: movement
 Shift: get transformation
 E: transform/stop transformation
 LEFT CLICK: attack
-SPACE: use substitution
 Esc: Pause Menu"
 label_settings = SubResource("LabelSettings_sl7vy")
 horizontal_alignment = 1
