@@ -76,12 +76,12 @@ stream = ExtResource("9_x7y7m")
 
 [node name="Commands" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1640.0
+offset_left = 1616.0
 offset_top = 24.0
-offset_right = 1899.0
-offset_bottom = 128.0
+offset_right = 1894.0
+offset_bottom = 164.0
 text = "WASD: movement
-Shift: get transformation
+Shift: get transformation/interact/talk
 E: transform/stop transformation
 LEFT CLICK: attack
 Esc: Pause Menu"
