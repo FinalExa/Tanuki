@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh74o0ukuvim6"]
+
+[ext_resource type="Texture2D" uid="uid://cu02jubq6u3sy" path="res://Level/Sprites/Placeholder/bridgeTile.png" id="1_yobva"]
+
+[node name="BridgeTile" type="Sprite2D"]
+z_index = -500
+texture = ExtResource("1_yobva")

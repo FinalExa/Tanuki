@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bega7jwomfcft"
-path="res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"
+uid="uid://bf4g3krsiojem"
+path="res://.godot/imported/oldTanukiNPC.png-199ea3fdfc25af4c6d49ac21a6bc31f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/wateringCan.png"
-dest_files=["res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"]
+source_file="res://NPC/Sprites/oldTanukiNPC.png"
+dest_files=["res://.godot/imported/oldTanukiNPC.png-199ea3fdfc25af4c6d49ac21a6bc31f9.ctex"]
 
 [params]
 

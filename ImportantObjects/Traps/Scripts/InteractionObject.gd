@@ -8,24 +8,25 @@ extends Area2D
 var sceneMaster: SceneMaster
 var objectsInArea: Array[Node2D]
 var activated: bool
+var enabled: bool
 
 func _ready():
 	activated = true
 	sceneMaster = get_tree().root.get_child(0)
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter || body is GuardController):
+	if (body is PlayerCharacter || body is EnemyController):
 		if(!objectsInArea.has(body)):
 			objectsInArea.push_back(body)
 
 func _on_body_exited(body):
-	if (body is PlayerCharacter || body is GuardController):
+	if (body is PlayerCharacter || body is EnemyController):
 		if(objectsInArea.has(body)):
 			effect.execute_leave_effect(body)
 			objectsInArea.erase(body)
 
 func _physics_process(delta):
-	if (activated):
+	if (enabled && activated):
 		execute_effects(delta)
 
 func execute_effects(delta):
@@ -58,3 +59,9 @@ func SaveDestroySignalToOtherObject():
 
 func ExecuteLoadOperation():
 	pass
+
+func TurnOff():
+	enabled = false
+
+func TurnOn():
+	enabled = true

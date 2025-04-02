@@ -9,6 +9,7 @@ var gameplayScene: GameplayScene
 @export var questItemsOnOffState: Array[bool]
 @export var questStageAdvancers: Array[Node2D]
 @export var objectsToDeleteAtQuestComplete: Array[Node2D]
+@export var advanceOtherQuestsOnEnd: Array[MapQuest]
 
 var advancedBy: Node2D
 var currentQuestStage: int = 0
@@ -49,8 +50,15 @@ func GetStageAdvancerIndex():
 func CheckForLastStage():
 	if (currentQuestStage + 1 == lastStage):
 		currentQuestStage = lastStage
+		AdvanceOtherQuestsOnEnd()
 		SaveQuestStatus(true)
 		CleanUpAfterQuestComplete()
+
+func AdvanceOtherQuestsOnEnd():
+	if (advanceOtherQuestsOnEnd.size() > 0):
+		for i in advanceOtherQuestsOnEnd.size():
+			if (advanceOtherQuestsOnEnd[i] != null):
+				advanceOtherQuestsOnEnd[i].AdvanceStage(false, false)
 
 func CleanUpAfterQuestComplete():
 	for i in objectsToDeleteAtQuestComplete.size():
@@ -85,7 +93,7 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
-	if (objectToOperate is TransformationObjectData):
+	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOn()
 	objectToOperate.show()
 	objectToOperate.set_process(true)
@@ -99,7 +107,7 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Deactivation()
 		return
-	if (objectToOperate is TransformationObjectData):
+	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOff()
 	objectToOperate.hide()
 	objectToOperate.set_process(false)

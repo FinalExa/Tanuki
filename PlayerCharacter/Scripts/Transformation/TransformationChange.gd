@@ -58,6 +58,7 @@ func _process(delta):
 	transformationAttacking.CheckForAttackInput()
 
 func SetNoTransformation():
+	if (currentTransformationObject != null): transformationActivation.call_deferred("DeactivateTransformation")
 	transformationSaving.SetNoTransformation()
 
 func SetNoTransformationExternal():

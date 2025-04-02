@@ -10,5 +10,5 @@ func _ready():
 func calculate_direction():
 	direction = directionStartPoint.global_position.direction_to(directionEndPoint.global_position)
 
-func execute_effect_normally(receivedBody: CharacterBody2D, delta):
-	receivedBody.translate(direction*movementDistancePerTick*delta)
+func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
+	receivedBody.velocity = direction * movementDistancePerTick
