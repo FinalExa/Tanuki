@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=34 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -26,13 +26,14 @@ radius = 128.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nvqd"]
 radius = 128.25
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l0q7"]
+size = Vector2(1280, 128)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmffj"]
 size = Vector2(1280, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cn2k"]
-size = Vector2(176, 232)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_63bgs"]
+size = Vector2(176, 256)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
 vertices = PackedVector2Array(144, -2136, 144, -2208, 1728, -2200, 1728, -1640, 3136, -1440, 2456, -1472, 2368, -1640, 2368, -1920, 2464, -1920, 3176, -1896, 3264, -1440, 2464, -1984, 3176, -1984, 3264, -1896, 3136, -1344, 2456, -1344, 2368, -1472, 2368, -1560, 1728, -1560, 1728, -1400, 1640, -1400, 1640, -1440, 1536, -1440, 1536, -1400, 1472, -1400, 1472, -1344, 1168, -1344, 1168, -1440, 1000, -1440, 1000, -1344, 656, -1344, 656, -1432, 472, -1432, 472, -1344, 144, -1344, 144, -1440, 40, -1440, 40, -2136)
@@ -61,7 +62,10 @@ size = Vector2(864, 128)
 size = Vector2(256, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hei4n"]
-size = Vector2(552, 228)
+size = Vector2(576, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xld71"]
+size = Vector2(576, 256)
 
 [node name="Tutorial" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "mapQuests")]
 y_sort_enabled = true
@@ -141,17 +145,16 @@ shape = SubResource("CircleShape2D_vyc2t")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenCrossTheWater"
-questItemsToOperate = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("Bridge"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("DialogueArea"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject"), NodePath("Bridge")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, true, true, true, false, false, false, true])
-objectsToDeleteAtQuestComplete = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject")]
+questItemsToOperate = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("PlayerHasReachedPoint"), NodePath("Bridge"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("PlayerHasReachedPoint"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject"), NodePath("Bridge")]
+questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 2, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, false, false, false, true])
+objectsToDeleteAtQuestComplete = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject"), NodePath("DialogueArea"), NodePath("PlayerHasReachedPoint")]
 
 [node name="Statue" parent="Quests/GardenCrossTheWater" instance=ExtResource("8_kff3a")]
 position = Vector2(1088, 640)
-transformedProperties = Array[String](["Heavy"])
 
 [node name="OldTanukiNPC" parent="Quests/GardenCrossTheWater" instance=ExtResource("13_6kems")]
-position = Vector2(832, 704)
+position = Vector2(800, 616)
 
 [node name="DialogueArea" parent="Quests/GardenCrossTheWater/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Your second test is to cross these waters, they will normally repel you though.", "As I taught you, some items have certain properties that let you cross certain environments.", "This statue is heavy enough to cross water, try transforming into it, and then cross to the other side."])
@@ -162,6 +165,19 @@ isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenCrossTheWater/OldTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_4nvqd")
+
+[node name="DialogueArea" parent="Quests/GardenCrossTheWater" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+position = Vector2(640, 128)
+dialogueText = Array[String](["Well done, young-un.", "Thanks master!", "However... I have to return the things around here in the state they were before, or they'll catch us.", "You'll also lose this transformation, it will make moving around here too easy...", "Why can't I have it easy, master?", "Because... if you can't enter the mansion on your own and have to rely on my help, you'll get captured A LOT.", "Ohhh! I getcha.", "Don't worry though, if you can find the statue in it's original location it's yours to use.", "Yippie!"])
+characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null]
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenCrossTheWater/DialogueArea"]
+shape = SubResource("RectangleShape2D_0l0q7")
 
 [node name="PlayerHasReachedPoint" parent="Quests/GardenCrossTheWater" node_paths=PackedStringArray("questRef") instance=ExtResource("8_mov8t")]
 position = Vector2(640, 128)
@@ -175,7 +191,6 @@ shape = SubResource("RectangleShape2D_hmffj")
 position = Vector2(640, 384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenCrossTheWater/MoveInteractionObject"]
-position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_2cn2k")
 
 [node name="Bridge" type="Node2D" parent="Quests/GardenCrossTheWater"]
@@ -185,21 +200,6 @@ position = Vector2(640, 448)
 
 [node name="BridgeTile2" parent="Quests/GardenCrossTheWater/Bridge" instance=ExtResource("11_0c8pe")]
 position = Vector2(0, -128)
-
-[node name="DialogueArea" parent="Quests/GardenCrossTheWater" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
-position = Vector2(-2048, 0)
-dialogueText = Array[String](["Well done, young-un.", "Thanks master!", "However... I have to return the things around here in the state they were before, or they'll catch us.", "You'll also lose this transformation, it will make moving around here too easy...", "Why can't I have it easy, master?", "Because... if you can't enter the mansion on your own and have to rely on my help, you'll get captured A LOT.", "Ohhh! I getcha.", "Don't worry though, if you can find the statue in it's original location it's yours to use.", "Yippie!"])
-characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
-cameraFocuses = [NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null]
-isOnInteraction = true
-deleteOnDone = true
-advanceQuest = true
-questRef = NodePath("..")
-activatedByQuest = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenCrossTheWater/DialogueArea"]
-shape = SubResource("CircleShape2D_63bgs")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(128, 1152)
@@ -522,15 +522,13 @@ position = Vector2(864, -752)
 [node name="WaterCurrents" type="Node2D" parent="."]
 
 [node name="MoveInteractionObject" parent="WaterCurrents" instance=ExtResource("16_sympw")]
-position = Vector2(280, 392)
+position = Vector2(288, 384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject"]
-position = Vector2(-4, 4)
 shape = SubResource("RectangleShape2D_hei4n")
 
 [node name="MoveInteractionObject2" parent="WaterCurrents" instance=ExtResource("16_sympw")]
-position = Vector2(1000, 392)
+position = Vector2(992, 384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject2"]
-position = Vector2(4, 2)
-shape = SubResource("RectangleShape2D_hei4n")
+shape = SubResource("RectangleShape2D_xld71")

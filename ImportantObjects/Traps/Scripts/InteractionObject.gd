@@ -12,6 +12,7 @@ var enabled: bool
 
 func _ready():
 	activated = true
+	enabled = true
 	sceneMaster = get_tree().root.get_child(0)
 
 func _on_body_entered(body):
@@ -38,7 +39,7 @@ func execute_effects(delta):
 				execute_effect_on_guard(objectsInArea[i], delta)
 
 func execute_effect_on_player(playerRef: PlayerCharacter, delta):
-	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationProperties.has(effectNegateProperty)):
+	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationObject.transformedProperties.has(effectNegateProperty)):
 		effect.execute_negated_effect(playerRef, delta)
 		return
 	effect.execute_effect_normally(playerRef, delta)
