@@ -115,10 +115,10 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(192, 912)
 
 [node name="DialogueArea" parent="Quests/GardenDestroyTheBush/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Oh-ho! You finally arrived young-un.", "Master!", "It's time to put the skills you have learned to the test, I have blocked the access to the mansion to do a quick review with you...", "See the bush here?", "I left a grasscutter close, transform into it, cut it and proceed onwards.", "Yes master, I will!"])
-characterTalking = Array[int]([2, 0, 2, 2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../Bush"), NodePath("../../Grasscutter"), null]
+dialogueText = Array[String](["Oh-ho! You finally arrived young-un.", "Master!", "It's time to put the skills you have learned to the test, I have blocked the access to the mansion to do a quick review with you...", "See the bush here?", "I left a grasscutter close, transform into it, cut it by attacking and proceed onwards.", "If you trained properly you should see a small blue flame around objects you can transform into, be sure to remember it!", "Yes master, I will!"])
+characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../Bush"), NodePath("../../Grasscutter"), NodePath("../../Grasscutter"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenDestroyTheBush/OldTanukiNPC/DialogueArea"]
