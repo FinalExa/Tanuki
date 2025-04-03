@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=54 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -50,7 +50,12 @@ size = Vector2(128, 256)
 size = Vector2(576, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns61c"]
-size = Vector2(384, 384)
+size = Vector2(512, 512)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hf5vy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_166fq"]
+size = Vector2(512, 512)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
 vertices = PackedVector2Array(0, -1376, 0, -2216, 1792, -2216, 120, -1376, 1792, -1280, 1656, -1280, 1656, -1376, 1528, -1376, 1528, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280)
@@ -145,7 +150,7 @@ position = Vector2(128, 1216)
 [node name="Keys" type="Node2D" parent="."]
 
 [node name="UnlockKey1" parent="Keys" instance=ExtResource("3_fecq8")]
-position = Vector2(4504, -1640)
+position = Vector2(896, -1984)
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("3_fecq8")]
 position = Vector2(4504, -1640)
@@ -331,23 +336,46 @@ shape = SubResource("RectangleShape2D_5xx77")
 [node name="GardenStunGuard" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_14yeu")
 questName = "GardenStunGuard"
-questItemsToOperate = [NodePath("DialogueArea"), NodePath("OldTanukiNPC"), NodePath("OldTanukiNPC2"), NodePath("DialogueArea"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemy/Guard1/KeySprite"), NodePath("OldTanukiNPC"), NodePath("DialogueArea")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("DialogueArea"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC"), NodePath("OldTanukiNPC2"), NodePath("DialogueArea"), NodePath("OldTanukiNPC"), NodePath("../../Enemy/Guard1/KeySprite"), NodePath("../../Keys/UnlockKey1"), NodePath("OldTanukiNPC2"), NodePath("OldTanukiNPC"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, false, true, true, false, true, true, false, false])
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemy/Guard1/KeySprite"), NodePath("OldTanukiNPC"), NodePath("DialogueArea"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2")]
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 position = Vector2(640, -1088)
 dialogueText = Array[String](["Ok young-un, now for an harder challenge...", "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset.", "To avoid that, transform and hide, if you have done your training properly it's quite easy.", "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide.", "Try to avoid the guard and get to the hammer I stole from the mansion, it's...", "Right there. Once you reach this point, save the hammer as your transformation, transform into it...", "...AND HIT THAT GUARD!", "I'll explain more once you have done all of this. Get working, young-un.", "Yessir!"])
 characterTalking = Array[int]([2, 2, 2, 2, 2, 2, 2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
 cameraFocuses = [NodePath("../OldTanukiNPC"), NodePath("../../../Enemy/Guard1"), NodePath("../OldTanukiNPC"), NodePath("../../../TransformationObjects/Vase2"), NodePath("../OldTanukiNPC"), NodePath("../Hammer"), NodePath("../../../Enemy/Guard1"), NodePath("../OldTanukiNPC"), null]
 deleteOnDone = true
-advanceQuest = true
-questRef = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea"]
 shape = SubResource("RectangleShape2D_ns61c")
+
+[node name="DialogueArea2" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+position = Vector2(-2048, 0)
+dialogueText = Array[String](["QUICK YOUNG-UN, GRAB THAT KEY!", "I AM HERE, REACH ME!"])
+characterTalking = Array[int]([2, 2])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../../../Keys/UnlockKey1"), NodePath("../OldTanukiNPC2")]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea2"]
+shape = SubResource("CircleShape2D_hf5vy")
+
+[node name="DialogueArea3" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+position = Vector2(1536, -2560)
+dialogueText = Array[String](["Nice job, you grabbed a key!", "What's that for, master?", "You see, young-un, to enter the mansion you will need to collect 3 keys, you have just gotten one.", "Sooo... two more to go!", "Indeed, you have completed the review of your training, use what you learned to get the other two keys.", "Also, from what I know, inside the mansion is full of keys to find to proceed, so view this as a proper training area before venturing inside.", "It's quite more crowded inside, after all.", "I am going to impress you master!", "Well, good luck Daichi.", "Thank you master!", "If you wanna review your skills, some of your tanuki friends are here in the area before, to explain the basics again.", "I shall be going now."])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 2, 0, 2, 0, 2, 2])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2")]
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea3"]
+shape = SubResource("RectangleShape2D_166fq")
 
 [node name="OldTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(640, -1088)
@@ -363,13 +391,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_swubk")
 
 [node name="OldTanukiNPC2" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
-position = Vector2(1408, -2624)
-
-[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" instance=ExtResource("6_3ktbq")]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC2/DialogueArea"]
-shape = SubResource("CircleShape2D_swubk")
+position = Vector2(1408, -2432)
 
 [node name="Hammer" parent="Quests/GardenStunGuard" instance=ExtResource("16_ypx68")]
 position = Vector2(1536, -2560)
