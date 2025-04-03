@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tu5cq2jeajb4"]
+
+[ext_resource type="Texture2D" uid="uid://b38fpjt7hye08" path="res://Level/Sprites/Placeholder/brigdgeUp.png" id="1_iwbiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwfp0"]
+size = Vector2(80, 32)
+
+[node name="BridgeUp" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -80)
+texture = ExtResource("1_iwbiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rwfp0")

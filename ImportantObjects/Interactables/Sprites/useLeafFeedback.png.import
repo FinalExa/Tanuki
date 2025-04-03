@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cplt7thcto8qr"
-path="res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"
+uid="uid://o8ch8nijnj0"
+path="res://.godot/imported/useLeafFeedback.png-566e0e8917ac6cc4f3202d9032055866.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/LeafButton.png"
-dest_files=["res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/useLeafFeedback.png"
+dest_files=["res://.godot/imported/useLeafFeedback.png-566e0e8917ac6cc4f3202d9032055866.ctex"]
 
 [params]
 

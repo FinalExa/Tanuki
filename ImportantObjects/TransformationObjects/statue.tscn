@@ -5,8 +5,9 @@
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_kmqsx"]
 [ext_resource type="Texture2D" uid="uid://ci2jb8ofbucrv" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Statua trasformazione.png" id="3_qn5gd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vxaat"]
-radius = 40.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk3eh"]
+radius = 32.0
+height = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y667a"]
 radius = 128.25
@@ -25,7 +26,7 @@ position = Vector2(0, 88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_vxaat")
+shape = SubResource("CapsuleShape2D_jk3eh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
