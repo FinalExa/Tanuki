@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=48 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cx1oi05eu5bxs" path="res://ImportantObjects/TransformationObjects/grasscutter.tscn" id="11_e1yl6"]
 [ext_resource type="PackedScene" uid="uid://tu5cq2jeajb4" path="res://Level/Prefabs/bridge_up.tscn" id="12_ua2nv"]
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="13_6kems"]
+[ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="15_iwd6s"]
 [ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="16_sympw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
@@ -265,7 +266,7 @@ position = Vector2(0, 64)
 position = Vector2(0, -64)
 
 [node name="ButtonToPush" parent="Quests/GardenLowerTheBridge" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_0ooje")]
-position = Vector2(288, -768)
+position = Vector2(288, -760)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -314,9 +315,10 @@ y_sort_enabled = true
 position = Vector2(896, -1744)
 patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator1")]
 
-[node name="Guard2" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
-position = Vector2(272, -1528)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+[node name="KeySprite" type="Sprite2D" parent="Enemy/Guard1"]
+position = Vector2(0, -24)
+rotation = 3.14159
+texture = ExtResource("15_iwd6s")
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 
