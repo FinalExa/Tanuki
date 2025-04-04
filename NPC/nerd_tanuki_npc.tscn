@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cygqv32do77c7"]
+
+[ext_resource type="Texture2D" uid="uid://ccn840qs26kn6" path="res://NPC/Sprites/nerdTanuki.png" id="1_ojsxx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o50jb"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee1l0"]
+atlas = ExtResource("1_ojsxx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee1l0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="NerdTanukiNPC" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o50jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
