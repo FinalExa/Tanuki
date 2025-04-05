@@ -39,6 +39,7 @@ func SetPlayerDataOnReload():
 	playerRef.playerMovement.SetToZero()
 	playerRef.global_position = safePosition
 	playerRef.playerAttack.ForceStopAttack()
+	playerRef.playerMoveObjects.DeleteLeftoverObject()
 
 func InstantiateNewScene():
 	var obj_scene = load(currentScenePath)

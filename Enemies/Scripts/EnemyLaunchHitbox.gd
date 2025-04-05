@@ -13,3 +13,4 @@ func HitPlayer(playerRef: PlayerCharacter):
 	if (playerRef.transformationChangeRef.isTransformed):
 		playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 	playerRef.transformationChangeRef.SetNoTransformationExternal()
+	playerRef.playerMoveObjects.ForceDropMovableObject()

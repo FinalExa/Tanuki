@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=64 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ducvtd6hdhad5" path="res://NPC/cool_tanuki_npc.tscn" id="18_5oidj"]
 [ext_resource type="PackedScene" uid="uid://ckfrax1v487wt" path="res://NPC/sword_tanuki_npc.tscn" id="19_d0a2y"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="26_t6v3l"]
+[ext_resource type="PackedScene" uid="uid://cbdj3ff0iygpr" path="res://ImportantObjects/MovableObjects/acorn.tscn" id="27_0sl4r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
@@ -936,3 +937,6 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePointTutorial2"]
 shape = SubResource("RectangleShape2D_8qhpu")
+
+[node name="Acorn" parent="." instance=ExtResource("27_0sl4r")]
+position = Vector2(768, 1216)
