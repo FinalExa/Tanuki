@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=50 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMoveObjects.gd" id="22_cgx5a"]
 [ext_resource type="PackedScene" uid="uid://bthx5dpkp5buy" path="res://PlayerCharacter/transformation_change.tscn" id="23_rwuxc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
@@ -211,7 +212,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
 radius = 24.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hwtr"]
+radius = 128.996
+
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack", "playerMoveObjects")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -224,6 +228,7 @@ playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
 playerProgressionTrack = NodePath("PlayerProgressionTrack")
+playerMoveObjects = NodePath("PlayerMoveObjects")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -302,6 +307,18 @@ playerRef = NodePath("../../..")
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_nxjry")
 
+[node name="PlayerMoveObjects" type="Area2D" parent="." node_paths=PackedStringArray("playerCharacter", "playerInputs", "transformationChange")]
+position = Vector2(0, -40)
+script = ExtResource("22_cgx5a")
+playerCharacter = NodePath("..")
+playerInputs = NodePath("../PlayerInputs")
+transformationChange = NodePath("../Rotator/TransformationChange")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMoveObjects"]
+position = Vector2(0, 40)
+shape = SubResource("CircleShape2D_4hwtr")
+debug_color = Color(0, 0.6, 0.701961, 0.196078)
+
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("playerCollider")]
 script = ExtResource("2_0m5xn")
 downRad = 180
@@ -326,6 +343,8 @@ attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
+[connection signal="area_entered" from="PlayerMoveObjects" to="PlayerMoveObjects" method="_on_area_entered"]
+[connection signal="area_exited" from="PlayerMoveObjects" to="PlayerMoveObjects" method="_on_area_exited"]
 [connection signal="change_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="set_max_speed"]
 [connection signal="reset_speed" from="Rotator/TransformationChange" to="Rotator/PlayerMovement" method="reset_max_speed"]
 [connection signal="send_transformation_active_info" from="Rotator/TransformationChange" to="CanvasLayer/HBoxContainer/UI" method="_on_transformation_change_send_transformation_active_info"]

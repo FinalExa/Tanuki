@@ -12,3 +12,5 @@ func calculate_direction():
 
 func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
 	receivedBody.velocity = direction * movementDistancePerTick
+	if (receivedBody is PlayerCharacter):
+		receivedBody.playerMoveObjects.ForceDropMovableObject()
