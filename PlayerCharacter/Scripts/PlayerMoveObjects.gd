@@ -15,6 +15,7 @@ func SelectObjectInRange():
 	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.interactInput):
 		currentObject = objectsInRange[GetMovableObject()]
 		currentObject.AttachToPlayer(self)
+		currentObject.TurnBothFeedbacksOff()
 
 func GetMovableObject():
 	var minDist: float
@@ -51,7 +52,9 @@ func DeleteLeftoverObject():
 func _on_area_entered(area):
 	if (area is MovableObject && !objectsInRange.has(area)):
 		objectsInRange.push_back(area)
+		area.TurnCloseFeedbackOn(currentObject)
 
 func _on_area_exited(area):
 	if (area is MovableObject && objectsInRange.has(area)):
 		objectsInRange.erase(area)
+		area.TurnCloseFeedbackOff(currentObject)

@@ -5,10 +5,17 @@ extends Area2D
 var originalParent: Node2D
 var originalPosition: Vector2
 var collisionShape: CollisionShape2D
+var playerCloseFeedbackSprite: AnimatedSprite2D
+var grabbableFeedbackSprite: AnimatedSprite2D
+var playerCloseFeedback: String = "res://ImportantObjects/TransformationObjects/GetTransformationFeedback.tscn"
+var grabbableFeedback: String = "res://ImportantObjects/TransformationObjects/TransformableFeedback.tscn"
 
 func _ready():
 	originalParent = self.get_parent()
 	originalPosition = self.global_position
+	playerCloseFeedbackSprite = SpawnFeedback(playerCloseFeedback)
+	playerCloseFeedbackSprite.hide()
+	grabbableFeedbackSprite = SpawnFeedback(grabbableFeedback)
 	GetCollisionShape()
 
 func GetCollisionShape():
@@ -35,3 +42,26 @@ func Reset():
 func ResetParentAndPosition():
 	ResetParent()
 	self.global_position = originalPosition
+
+func SpawnFeedback(feedbackToSpawn: String):
+	var file_scene = load(feedbackToSpawn)
+	var feedbackInstance = file_scene.instantiate()
+	self.add_child(feedbackInstance)
+	feedbackInstance.play("default")
+	feedbackInstance.z_index = 100
+	feedbackInstance.global_position = self.global_position
+	return feedbackInstance
+
+func TurnCloseFeedbackOn(playerHoldingObject: MovableObject):
+	if (self != playerHoldingObject):
+		grabbableFeedbackSprite.hide()
+		playerCloseFeedbackSprite.show()
+
+func TurnCloseFeedbackOff(playerHoldingObject: MovableObject):
+	if (self != playerHoldingObject):
+		playerCloseFeedbackSprite.hide()
+		grabbableFeedbackSprite.show()
+
+func TurnBothFeedbacksOff():
+	grabbableFeedbackSprite.hide()
+	playerCloseFeedbackSprite.hide()
