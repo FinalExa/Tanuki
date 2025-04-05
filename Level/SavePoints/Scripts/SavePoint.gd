@@ -10,7 +10,6 @@ func _ready():
 	sceneMasterRef = get_tree().root.get_child(0)
 
 func Save():
-	print("saved")
 	if (!oneTimeSave):
 		sceneMasterRef.Save()
 	else:

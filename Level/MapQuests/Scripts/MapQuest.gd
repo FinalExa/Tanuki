@@ -48,7 +48,7 @@ func GetStageAdvancerIndex():
 	return -1
 
 func CheckForLastStage():
-	if (currentQuestStage + 1 == lastStage):
+	if (currentQuestStage + 1 == lastStage || currentQuestStage == lastStage):
 		currentQuestStage = lastStage
 		AdvanceOtherQuestsOnEnd()
 		SaveQuestStatus(true)
