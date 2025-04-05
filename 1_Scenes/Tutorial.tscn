@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=61 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cygqv32do77c7" path="res://NPC/nerd_tanuki_npc.tscn" id="17_81wbq"]
 [ext_resource type="PackedScene" uid="uid://ducvtd6hdhad5" path="res://NPC/cool_tanuki_npc.tscn" id="18_5oidj"]
 [ext_resource type="PackedScene" uid="uid://ckfrax1v487wt" path="res://NPC/sword_tanuki_npc.tscn" id="19_d0a2y"]
+[ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="26_t6v3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
@@ -124,6 +125,9 @@ size = Vector2(256.008, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pte5c"]
 size = Vector2(256, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbgt"]
+size = Vector2(128, 256)
 
 [node name="Tutorial" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests")]
 y_sort_enabled = true
@@ -286,10 +290,10 @@ position = Vector2(0, -64)
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerTheBridge"
-questItemsToOperate = [NodePath("OldTanukiNPC"), NodePath("Bridge"), NodePath("OldTanukiNPC"), NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("Bridge"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([0, 0, 1, 2, 2, 2, 3])
-questItemsOnOffState = Array[bool]([false, false, true, false, false, true, false])
-objectsToDeleteAtQuestComplete = [NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("OldTanukiNPC")]
+questItemsToOperate = [NodePath("../../SavePoints/SavePointTutorial1"), NodePath("OldTanukiNPC"), NodePath("Bridge"), NodePath("OldTanukiNPC"), NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("Bridge"), NodePath("OldTanukiNPC"), NodePath("../../SavePoints/SavePointTutorial1")]
+questItemsStages = Array[int]([0, 0, 0, 1, 2, 2, 2, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, false, true, false, true])
+objectsToDeleteAtQuestComplete = [NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("OldTanukiNPC"), NodePath("ButtonToPush"), NodePath("DialogueArea")]
 advanceOtherQuestsOnEnd = [NodePath("../GardenStunGuard")]
 
 [node name="BridgeUp" parent="Quests/GardenLowerTheBridge" instance=ExtResource("12_ua2nv")]
@@ -896,3 +900,13 @@ rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject11"]
 shape = SubResource("RectangleShape2D_pte5c")
+
+[node name="SavePoints" type="Node2D" parent="."]
+
+[node name="SavePointTutorial1" parent="SavePoints" instance=ExtResource("26_t6v3l")]
+position = Vector2(576, -1152)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePointTutorial1"]
+shape = SubResource("RectangleShape2D_6xbgt")

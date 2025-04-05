@@ -12,13 +12,16 @@ var lastObjectOriginalPath: String
 @export var frameMaster: FrameMaster
 @export var sceneSelector: SceneSelector
 @export var playerRef: PlayerCharacter
+var oneTimeSavePoints: Array[String]
 var isInGameplayScene: bool
 var currentlyLoadedGameplayScene: String
 
 var loadActive: bool
+var hasLoaded: bool
 
 func _ready():
 	loadActive = true
+	hasLoaded = false
 	if (get_tree().paused):
 		get_tree().paused = false
 
@@ -27,18 +30,25 @@ func UpdatePathAndLoad():
 	if (loadActive):
 		Load()
 		loadActive = false
+		hasLoaded = true
 
 func Save():
-	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE))
+	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), "")
 	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
 
-func SaveMapData(file):
+func SaveAndDeleteOneTimeSave(oneTimeSavePath: String):
+	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), oneTimeSavePath)
+	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
+
+func SaveMapData(file, oneTimeSavePath: String):
 	file.store_var(playerRef.global_position)
+	if (oneTimeSavePath != ""):
+		oneTimeSavePoints.push_back(oneTimeSavePath)
+	file.store_var(oneTimeSavePoints)
 
 func SavePlayerData(file):
 	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
 	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
-	file.store_var(playerRef.playerSubstitutionAttack.currentSubstitutionStacks)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyTypes)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyIDs)
 	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
@@ -56,9 +66,18 @@ func LoadMapData():
 	if (FileAccess.file_exists(savePath)):
 		var file = FileAccess.open(savePath, FileAccess.READ)
 		lastPos = file.get_var()
+		DestroyOneTimeSavePoints(file.get_var())
 		stopResetPosition = false
 	else:
 		stopResetPosition = true
+
+func DestroyOneTimeSavePoints(array: Array):
+	oneTimeSavePoints.clear()
+	for i in array.size():
+		oneTimeSavePoints.push_back(array[i])
+	if (oneTimeSavePoints.size() > 0):
+		for i in oneTimeSavePoints.size():
+			get_node(oneTimeSavePoints[i]).queue_free()
 
 func LoadPlayerData():
 	playerRef.playerProgressionTrack.ClearAll()
@@ -66,7 +85,6 @@ func LoadPlayerData():
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
-		playerRef.playerSubstitutionAttack.currentSubstitutionStacks = file.get_var()
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyTypes)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyIDs)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
@@ -88,7 +106,7 @@ func LoadOperations():
 		var new_trs_scene = load(lastObjectOriginalPath)
 		var new_trs: TransformationObjectData = new_trs_scene.instantiate()
 		new_trs.GetScale()
-		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
+		playerRef.transformationChangeRef.transformationSaving.SaveNewTransformation(new_trs)
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.playerHUD.emit_signal("has_attack", true)

@@ -46,11 +46,11 @@ func unset_deactivation_button():
 	buttonInteractionReady = false
 	deactivationButton = null
 
-func set_save_point(savePoint: SavePoint):
+func SetSavePoint(savePoint: SavePoint):
 	savePointInteractionReady = true
 	savedSavePoint = savePoint
 
-func unset_save_point():
+func RemoveSavePoint():
 	savePointInteractionReady = false
 	savedSavePoint = null
 
@@ -58,7 +58,7 @@ func activate_interaction():
 	if (buttonInteractionReady):
 		deactivationButton.activate_effect()
 	if (savePointInteractionReady):
-		savedSavePoint.activate_effect()
+		savedSavePoint.Save()
 
 func SetLaunched(distance: float, time: float, direction: Vector2):
 	playerRepelled.SetRepelled(distance, time, direction)
