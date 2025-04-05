@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=63 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -60,6 +60,9 @@ size = Vector2(512, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_166fq"]
 size = Vector2(512, 512)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7dca"]
+radius = 136.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4a443"]
 radius = 128.0
@@ -165,8 +168,10 @@ position = Vector2(128, 1216)
 
 [node name="Keys" type="Node2D" parent="."]
 
-[node name="UnlockKey1" parent="Keys" instance=ExtResource("3_fecq8")]
+[node name="UnlockKey1" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_fecq8")]
 position = Vector2(896, -1984)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/GardenStunGuard")
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("3_fecq8")]
 position = Vector2(4504, -1640)
@@ -353,9 +358,9 @@ shape = SubResource("RectangleShape2D_5xx77")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenStunGuard"
-questItemsToOperate = [NodePath("../../SavePoints/SavePointTutorial2"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../Keys/UnlockKey1"), NodePath("DialogueArea"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC"), NodePath("OldTanukiNPC2"), NodePath("DialogueArea"), NodePath("OldTanukiNPC"), NodePath("../../Enemy/Guard1/KeySprite"), NodePath("../../Keys/UnlockKey1"), NodePath("OldTanukiNPC2"), NodePath("OldTanukiNPC"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../SavePoints/SavePointTutorial2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, true, true, false, true, true, false, true, true, false, false, true, true, true, true])
+questItemsToOperate = [NodePath("../../SavePoints/SavePointTutorial2"), NodePath("OldTanukiNPC2/DialogueArea"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../Keys/UnlockKey1"), NodePath("DialogueArea"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC"), NodePath("OldTanukiNPC2"), NodePath("DialogueArea"), NodePath("OldTanukiNPC"), NodePath("../../Enemy/Guard1/KeySprite"), NodePath("../../Keys/UnlockKey1"), NodePath("OldTanukiNPC2"), NodePath("OldTanukiNPC2/DialogueArea"), NodePath("OldTanukiNPC"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../SavePoints/SavePointTutorial2"), NodePath("OldTanukiNPC2/DialogueArea")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, true, true, false, true, true, true, false, true, true, false, false, true, true, true, true, false])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemy/Guard1/KeySprite"), NodePath("OldTanukiNPC"), NodePath("DialogueArea"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2")]
 
 [node name="DialogueArea" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
@@ -371,7 +376,7 @@ shape = SubResource("RectangleShape2D_ns61c")
 
 [node name="DialogueArea2" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 position = Vector2(-2048, 0)
-dialogueText = Array[String](["QUICK YOUNG-UN, GRAB THAT KEY!", "I AM HERE, REACH ME!"])
+dialogueText = Array[String](["QUICK YOUNG-UN, GRAB THAT KEY!", "ONCE YOU HAVE GOT IT, COME HERE!"])
 characterTalking = Array[int]([2, 2])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath("../../../Keys/UnlockKey1"), NodePath("../OldTanukiNPC2")]
@@ -409,6 +414,16 @@ shape = SubResource("CircleShape2D_swubk")
 
 [node name="OldTanukiNPC2" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(864, -2432)
+
+[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["Young-un, you seem to have forgotten the key.", "It's here, grab it, then come back here."])
+characterTalking = Array[int]([2, 2])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), NodePath("../../../../Keys/UnlockKey1")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC2/DialogueArea"]
+shape = SubResource("CircleShape2D_d7dca")
 
 [node name="Hammer" parent="Quests/GardenStunGuard" instance=ExtResource("16_ypx68")]
 position = Vector2(1024, -2560)

@@ -2,6 +2,8 @@ class_name LevelUnlockKey
 extends Area2D
 
 var gameplayScene: GameplayScene
+@export var keyAdvancesQuest: bool
+@export var questToAdvance: MapQuest
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
@@ -9,6 +11,8 @@ func _on_body_entered(body):
 
 func PlayerGotKey(playerRef: PlayerCharacter):
 	playerRef.playerProgressionTrack.RegisterKey(FindID())
+	if (keyAdvancesQuest && questToAdvance != null):
+		questToAdvance.AdvanceStage(false, false)
 	queue_free()
 
 func FindID():
