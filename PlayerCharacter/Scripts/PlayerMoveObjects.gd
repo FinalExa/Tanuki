@@ -47,7 +47,9 @@ func ForceDropMovableObject():
 
 func DeleteLeftoverObject():
 	if (currentObject != null):
+		objectsInRange.erase(currentObject)
 		currentObject.queue_free()
+		currentObject = null
 
 func _on_area_entered(area):
 	if (area is MovableObject && !objectsInRange.has(area)):
