@@ -193,6 +193,7 @@ travelingAreas = [NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/VaseGrownReceiver0")]
 
 [node name="Enemies" type="Node2D" parent="."]
+visible = false
 y_sort_enabled = true
 
 [node name="GuardA1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
@@ -898,13 +899,10 @@ position = Vector2(-64, 560)
 transformedCollider = NodePath("../Vase5/CollisionShape2D")
 transformedTexture = NodePath("../Vase5/Sprite2D")
 
-[node name="Vase12" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(64, -728)
-
 [node name="Vase27" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
 position = Vector2(1744, -424)
-transformedCollider = NodePath("../Vase12/CollisionShape2D")
-transformedTexture = NodePath("../Vase12/Sprite2D")
+transformedCollider = NodePath("")
+transformedTexture = NodePath("")
 
 [node name="Vase13" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-832, 976)
@@ -928,7 +926,7 @@ position = Vector2(-832, 328)
 position = Vector2(-832, 464)
 
 [node name="Vase11" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
-position = Vector2(-1232, 464)
+position = Vector2(-1231, 464)
 
 [node name="Vase26" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
 position = Vector2(-2256, 464)
