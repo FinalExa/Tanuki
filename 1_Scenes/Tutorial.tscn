@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=65 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -27,6 +27,16 @@
 [ext_resource type="PackedScene" uid="uid://ckfrax1v487wt" path="res://NPC/sword_tanuki_npc.tscn" id="19_d0a2y"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="26_t6v3l"]
 [ext_resource type="PackedScene" uid="uid://cbdj3ff0iygpr" path="res://ImportantObjects/MovableObjects/acorn.tscn" id="27_spjub"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
+vertices = PackedVector2Array(0, -1376, 0, -2232, 1280, -2232, 120, -1376, 1280, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 3), PackedInt32Array(11, 3, 2), PackedInt32Array(10, 11, 2), PackedInt32Array(7, 10, 2), PackedInt32Array(7, 2, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2232, 1280, -2232, 1280, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280, 120, -1376, 0, -1376)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0x8r0"]
+vertices = PackedVector2Array(272, -1056, 32, -1056, 32, -1112, 552, -1112, 552, -1248, 632, -1248, 1024, -1232, 632, -1280, 1024, -1280, 1152, -1232, 1152, -1280, 1248, -1280, 1248, -1056, 304, -1056, 304, -736, 1232, -736, 1232, -64, 64, -64, 64, -736, 272, -736)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(5, 7, 8, 6), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(9, 12, 13, 3), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(17, 18, 19), PackedInt32Array(14, 17, 19), PackedInt32Array(14, 19, 0, 13), PackedInt32Array(13, 0, 3), PackedInt32Array(6, 9, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(272, -736, 272, -1056, 32, -1056, 32, -1112, 552, -1112, 552, -1248, 632, -1248, 632, -1280, 1024, -1280, 1024, -1232, 1152, -1232, 1152, -1280, 1248, -1280, 1248, -1056, 304, -1056, 304, -736, 1232, -736, 1232, -64, 64, -64, 64, -736)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
@@ -73,11 +83,6 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5n8l"]
 radius = 128.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
-vertices = PackedVector2Array(0, -1376, 0, -2232, 1280, -2232, 120, -1376, 1280, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13, 3), PackedInt32Array(11, 3, 2), PackedInt32Array(10, 11, 2), PackedInt32Array(7, 10, 2), PackedInt32Array(7, 2, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2232, 1280, -2232, 1280, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280, 120, -1376, 0, -1376)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3ts"]
 size = Vector2(1280, 128)
@@ -163,6 +168,14 @@ sceneType = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard")]
+
+[node name="Navmesh" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_hbxy1")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_0x8r0")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(128, 1216)
@@ -467,9 +480,6 @@ isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SwordTanukiNPC/DialogueArea4"]
 shape = SubResource("CircleShape2D_q5n8l")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_hbxy1")
 
 [node name="Teleports" type="Node2D" parent="."]
 
