@@ -337,8 +337,9 @@ rigidbodyRef = NodePath("../..")
 defaultSpeedTier = 1
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerMoveObjects", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
+playerMoveObjects = NodePath("../../PlayerMoveObjects")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
