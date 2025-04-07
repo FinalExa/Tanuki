@@ -443,7 +443,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_4a443")
 
 [node name="CoolTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("18_5oidj")]
-position = Vector2(1216, -704)
+position = Vector2(1152, -640)
 
 [node name="DialogueArea4" parent="Quests/GardenStunGuard/CoolTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["YOOOO! IT'S MY LITTLE BRO!", "Heya, \"big bro\"!", "WASSUP! ARE YOU HERE FOR THE SUMMARY TO FACE OFF GUARDS?! I AM YOUR MAN THEN!", "WELL, I AM GONNA BE BRIEF WITH YA BRO.", "FIND A TRANSFORMATION THAT YOU FEEL LIKE YOU CAN SMACK GUARDS WITH, AND HIT THEM!", "THEY WILL BE STUNNED FOR SOME TIME!", "WHILE IN THE HEAT OF THE MOMENT, YOU MIGHT LOSE YOUR TRANSFORMATION! WORRY NOT!!! JUST FIND ANY CLOSE OBJECT, AND TRY TO HIDE AWAY WITH HIT, JUST DON'T BE SEEN MOVING!", "IF THEY SEE YOU WHILE MOVING THEY'LL KNOW SOMETHING IS WRONG, ALSO! TRY TO STAY ON THE STARRY PATH, IT MEANS IT'S THE RIGHT THING TO HIDE THERE!", "IF YOU HIDE AWAY FROM THE STARRY PATH ON THE GROUND, THEY WILL ALSO KNOW SOMETHING IS AMISS!", "THAT WAS EVERYTHING, GOOD LUCK LITTLE BRO!", "Thanks, \"big bro\"...", "...", "...my poor ears."])
@@ -456,7 +456,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_hya11")
 
 [node name="SwordTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("19_d0a2y")]
-position = Vector2(512, -704)
+position = Vector2(512, -640)
 
 [node name="DialogueArea4" parent="Quests/GardenStunGuard/SwordTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Oh, it's the leaf master, did master manage to recruit such an authority in leafmanship as you?", "...", "...", "...", "Silent, are you? I suppose you are here to explain the leaf...", "...", "...I can attack with my leaf by pressing LEFT CLICK while not transformed...", "...thanks to my Tanuki senses, I can see certain areas which are \"windy with leaves\", if I hit those areas, something will happen...", "...and if I attack one of my foes with the leaf, it will repel them away!", "...is that right?", "...", "...", "*nods*", "...thanks, leaf master!", "(What a weird guy...)"])

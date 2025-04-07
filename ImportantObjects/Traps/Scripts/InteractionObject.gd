@@ -45,7 +45,7 @@ func execute_effect_on_player(playerRef: PlayerCharacter, delta):
 	effect.execute_effect_normally(playerRef, delta)
 
 func execute_effect_on_guard(guardRef: GuardController, delta):
-	if (guardRef.guardProperties.has(effectNegateProperty)):
+	if (guardRef.enemyProperties.has(effectNegateProperty)):
 		effect.execute_negated_effect(guardRef, delta)
 		return
 	effect.execute_effect_normally(guardRef, delta)
