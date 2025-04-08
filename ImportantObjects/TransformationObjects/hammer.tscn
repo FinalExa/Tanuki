@@ -20,9 +20,6 @@ transformedAttackName = "Hammer Attack"
 transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/hammer_attack.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/hammer.tscn"
 
-[node name="TailLocation" type="Node2D" parent="."]
-position = Vector2(0, 88)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_oyb83")
 

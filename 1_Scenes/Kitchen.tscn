@@ -899,10 +899,8 @@ position = Vector2(-64, 560)
 transformedCollider = NodePath("../Vase5/CollisionShape2D")
 transformedTexture = NodePath("../Vase5/Sprite2D")
 
-[node name="Vase27" parent="TransformationsObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
+[node name="Vase27" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(1744, -424)
-transformedCollider = NodePath("")
-transformedTexture = NodePath("")
 
 [node name="Vase13" parent="TransformationsObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-832, 976)

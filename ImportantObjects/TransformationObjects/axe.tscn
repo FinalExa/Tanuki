@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkk5sawajplil"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_51rw8"]
+[ext_resource type="Texture2D" uid="uid://cgxp8akaahykj" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/axe.png" id="2_23u3k"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_lnyow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyb83"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2v6p"]
+radius = 88.0
+
+[node name="Axe" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_51rw8")
+transformedName = "Axe"
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Axe Attack"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/axe_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/axe.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oyb83")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+rotation = 2.35619
+texture = ExtResource("2_23u3k")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_lnyow")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_g2v6p")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]
