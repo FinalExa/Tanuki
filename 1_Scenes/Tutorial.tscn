@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=92 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ckfrax1v487wt" path="res://NPC/sword_tanuki_npc.tscn" id="19_d0a2y"]
 [ext_resource type="PackedScene" uid="uid://bsre47iioaq1b" path="res://ImportantObjects/Interactables/dead_tree.tscn" id="20_nnh47"]
 [ext_resource type="PackedScene" uid="uid://cfhni7y0k2pn7" path="res://Level/Prefabs/tree_bridge_tile.tscn" id="21_705du"]
+[ext_resource type="PackedScene" uid="uid://lt34q6hjgscg" path="res://NPC/squirrel_npc.tscn" id="22_7bmi5"]
+[ext_resource type="PackedScene" uid="uid://ddu6xymap5hga" path="res://Level/Prefabs/acorn_tree.tscn" id="23_77fof"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="26_t6v3l"]
 [ext_resource type="PackedScene" uid="uid://cbdj3ff0iygpr" path="res://ImportantObjects/MovableObjects/acorn.tscn" id="27_spjub"]
 
@@ -159,6 +161,9 @@ vertices = PackedVector2Array(2304, -1496, 2560, -1496, 2560, -1448, 2304, -1448
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2304, -1496, 2560, -1496, 2560, -1448, 2304, -1448)])
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fn6fk"]
+radius = 128.25
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3ts"]
 size = Vector2(1280, 128)
 
@@ -257,7 +262,7 @@ playerSpawnPoint = NodePath("PlayerSpawn")
 sceneType = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3")]
+mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest")]
 
 [node name="Navmesh" type="Node2D" parent="."]
 
@@ -294,7 +299,7 @@ keyAdvancesQuest = true
 questToAdvance = NodePath("../../Quests/GardenStunGuard")
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("3_fecq8")]
-position = Vector2(4504, -1640)
+position = Vector2(1984, -2176)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("3_fecq8")]
 position = Vector2(4504, -1640)
@@ -795,6 +800,41 @@ shape = SubResource("RectangleShape2D_2wm6t")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenLowerBridge3"]
 navigation_polygon = SubResource("NavigationPolygon_c1kun")
 
+[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+y_sort_enabled = true
+script = ExtResource("3_14yeu")
+questName = "GardenSquirrelQuest"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("Acorn"), NodePath("Acorn")]
+questItemsStages = Array[int]([0, 0, 1])
+questItemsOnOffState = Array[bool]([false, false, true])
+
+[node name="SquirrelNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("22_7bmi5")]
+position = Vector2(1920, -2176)
+
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["Hey you! Yes you!", "Hm?", "I saw that you got a shiny before!", "A shiny? Wha-", "I believe you call it a... key!", "Oh! Continue, I am interested...", "I have one!", "Ohh, wanna give it to me?", "Hmm, you seem like a crafty one hehe... I am hungry.", "And?", "Bring me food...", "Acorns are good! There's a tree there...", "But there are some noisy ones there... so I can't go alone.", "Bring me an acorn, and I'll give you that key!", "Okay, scaredy squirrel, I'll grab that acorn for you.", "Yay!"])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_fn6fk")
+
+[node name="DialogueGuardNode" type="Node2D" parent="Quests/GardenSquirrelQuest"]
+position = Vector2(1920, -128)
+
+[node name="AcornTree" parent="Quests/GardenSquirrelQuest" instance=ExtResource("23_77fof")]
+position = Vector2(2944, 64)
+
+[node name="ButtonToPush" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("10_0ooje")]
+position = Vector2(2944, 80)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="Acorn" parent="Quests/GardenSquirrelQuest" instance=ExtResource("27_spjub")]
+position = Vector2(2944, 128)
+
 [node name="Teleports" type="Node2D" parent="."]
 
 [node name="Enemy" type="Node2D" parent="."]
@@ -1197,6 +1237,3 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePointTutorial2"]
 shape = SubResource("RectangleShape2D_8qhpu")
-
-[node name="Acorn" parent="." instance=ExtResource("27_spjub")]
-position = Vector2(1216, -2752)

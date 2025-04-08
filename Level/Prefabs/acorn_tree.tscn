@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddu6xymap5hga"]
+
+[ext_resource type="Texture2D" uid="uid://dffue1iab5kq4" path="res://Level/Sprites/Placeholder/acornTree.png" id="1_pdmnt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72svv"]
+radius = 16.0
+height = 64.0
+
+[node name="AcornTree" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -112)
+texture = ExtResource("1_pdmnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_72svv")
