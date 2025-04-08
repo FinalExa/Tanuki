@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=89 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -49,6 +49,21 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1536, -1792, 2304, -179
 vertices = PackedVector2Array(1664, -2304, 2176, -2304, 2176, -2048, 1664, -2048)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1664, -2304, 2176, -2304, 2176, -2048, 1664, -2048)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mnxjl"]
+vertices = PackedVector2Array(1536, 768, 1536, -768, 2304, -768, 1632, 672, 2304, 768, 2208, 768, 2208, 672, 2080, 672, 2080, 768, 1760, 768, 1760, 672, 1632, 768)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(3, 11, 0), PackedInt32Array(10, 3, 2), PackedInt32Array(7, 10, 2), PackedInt32Array(7, 2, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1536, -768, 2304, -768, 2304, 768, 2208, 768, 2208, 672, 2080, 672, 2080, 768, 1760, 768, 1760, 672, 1632, 672, 1632, 768, 1536, 768)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ya0b7"]
+vertices = PackedVector2Array(2560, -768, 3584, -768, 3584, 768, 2560, 768)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -768, 3584, -768, 3584, 768, 2560, 768)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_myd4d"]
+vertices = PackedVector2Array(2560, -2304, 3584, -2304, 3584, -1024, 2560, -1024)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -2304, 3584, -2304, 3584, -1024, 2560, -1024)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
@@ -257,6 +272,15 @@ navigation_polygon = SubResource("NavigationPolygon_x6nu4")
 
 [node name="NavigationRegion2D4" type="NavigationRegion2D" parent="Navmesh"]
 navigation_polygon = SubResource("NavigationPolygon_uhd3u")
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_mnxjl")
+
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_ya0b7")
+
+[node name="NavigationRegion2D7" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_myd4d")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(128, 1216)
