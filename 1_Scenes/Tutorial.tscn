@@ -36,9 +36,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2232, 128, -2232, 128, -2304, 512, -2304, 512, -2240, 640, -2240, 640, -2304, 768, -2304, 768, -2816, 1280, -2816, 1280, -1280, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 632, -1376, 504, -1376, 504, -1280, 120, -1280, 120, -1376, 0, -1376), PackedVector2Array(1024, -2240, 1024, -2304, 1152, -2304, 1152, -2240), PackedVector2Array(992, -2536, 992, -2584, 1056, -2584, 1056, -2536)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0x8r0"]
-vertices = PackedVector2Array(272, -1024, 0, -1024, 0, -1112, 552, -1112, 552, -1280, 1280, -1280, 1280, -1024, 304, -1024, 272, -736, 304, -736, 1280, -736, 1280, -64, 64, -64, 64, -736)
+vertices = PackedVector2Array(272, -1024, 0, -1024, 0, -1112, 552, -1112, 552, -1280, 1280, -1280, 1280, -1024, 304, -1024, 272, -768, 304, -768, 1280, -768, 1280, 0, 0, 0, 0, -768)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(3, 6, 7), PackedInt32Array(0, 3, 7), PackedInt32Array(8, 0, 7, 9), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(8, 9, 12), PackedInt32Array(13, 8, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(272, -736, 272, -1024, 0, -1024, 0, -1112, 552, -1112, 552, -1280, 1280, -1280, 1280, -1024, 304, -1024, 304, -736, 1280, -736, 1280, -64, 64, -64, 64, -736)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(272, -768, 272, -1024, 0, -1024, 0, -1112, 552, -1112, 552, -1280, 1280, -1280, 1280, -1024, 304, -1024, 304, -768, 1280, -768, 1280, 0, 0, 0, 0, -768)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x6nu4"]
 vertices = PackedVector2Array(1536, -1792, 2304, -1792, 2304, -1024, 1536, -1024)
