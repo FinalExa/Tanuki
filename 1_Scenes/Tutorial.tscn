@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=94 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -164,6 +164,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2304, -1496, 2560, -149
 [sub_resource type="CircleShape2D" id="CircleShape2D_fn6fk"]
 radius = 128.25
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ja2f5"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmnto"]
+radius = 128.25
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3ts"]
 size = Vector2(1280, 128)
 
@@ -298,8 +304,10 @@ position = Vector2(896, -1984)
 keyAdvancesQuest = true
 questToAdvance = NodePath("../../Quests/GardenStunGuard")
 
-[node name="UnlockKey2" parent="Keys" instance=ExtResource("3_fecq8")]
+[node name="UnlockKey2" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_fecq8")]
 position = Vector2(1984, -2176)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/GardenSquirrelQuest")
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("3_fecq8")]
 position = Vector2(4504, -1640)
@@ -800,26 +808,52 @@ shape = SubResource("RectangleShape2D_2wm6t")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenLowerBridge3"]
 navigation_polygon = SubResource("NavigationPolygon_c1kun")
 
-[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenSquirrelQuest"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("Acorn"), NodePath("Acorn")]
-questItemsStages = Array[int]([0, 0, 1])
-questItemsOnOffState = Array[bool]([false, false, true])
+questItemsToOperate = [NodePath("OldTanukiNPC"), NodePath("../../Keys/UnlockKey2"), NodePath("Acorn"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("DialogueArea"), NodePath("Acorn"), NodePath("OldTanukiNPC"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("SquirrelNPC/DialogueArea"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey2"), NodePath("OldTanukiNPC")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, false, true, true, false])
+objectsToDeleteAtQuestComplete = [NodePath("OldTanukiNPC"), NodePath("Acorn"), NodePath("DialogueArea")]
 
-[node name="SquirrelNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("22_7bmi5")]
+[node name="SquirrelNPC" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_7bmi5")]
 position = Vector2(1920, -2176)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Hey you! Yes you!", "Hm?", "I saw that you got a shiny before!", "A shiny? Wha-", "I believe you call it a... key!", "Oh! Continue, I am interested...", "I have one!", "Ohh, wanna give it to me?", "Hmm, you seem like a crafty one hehe... I am hungry.", "And?", "Bring me food...", "Acorns are good! There's a tree there...", "But there are some noisy ones there... so I can't go alone.", "Bring me an acorn, and I'll give you that key!", "Okay, scaredy squirrel, I'll grab that acorn for you.", "Yay!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2])
 characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../AcornTree"), NodePath("../../DialogueGuardNode"), NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_fn6fk")
+
+[node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+position = Vector2(-1920, 2176)
+dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here being frozen transporting it, he might know something.", "Oh, thank you!"])
+characterTalking = Array[int]([0, 2, 0, 2])
+characterEmotion = Array[int]([0, 0, 0, 0])
+cameraFocuses = [null, NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea2"]
+
+[node name="OldTanukiNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("13_6kems")]
+position = Vector2(3200, 64)
+
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects, since you can't transform into everything.", "While you're transporting an object, if you transform you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
+characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/OldTanukiNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_ja2f5")
 
 [node name="DialogueGuardNode" type="Node2D" parent="Quests/GardenSquirrelQuest"]
 position = Vector2(1920, -128)
@@ -834,6 +868,17 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="Acorn" parent="Quests/GardenSquirrelQuest" instance=ExtResource("27_spjub")]
 position = Vector2(2944, 128)
+
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+position = Vector2(1920, -2176)
+dialogueText = Array[String](["Thanks for this treat! Here's your key! *nom nom nom*", "No problem."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../SquirrelNPC"), null]
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
+shape = SubResource("CircleShape2D_kmnto")
 
 [node name="Teleports" type="Node2D" parent="."]
 
@@ -1210,7 +1255,6 @@ position = Vector2(1584, -2176)
 rotation = -1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject14"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m44uo")
 
 [node name="MoveInteractionObject15" parent="WaterCurrents" instance=ExtResource("16_sympw")]

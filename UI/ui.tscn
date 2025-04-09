@@ -81,7 +81,7 @@ offset_top = 24.0
 offset_right = 1894.0
 offset_bottom = 164.0
 text = "WASD: movement
-Shift: get transformation/interact/talk
+Shift: get transformation/interact/grab
 E: transform/stop transformation
 LEFT CLICK: attack
 Esc: Pause Menu"

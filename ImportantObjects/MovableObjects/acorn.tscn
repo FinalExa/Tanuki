@@ -9,6 +9,7 @@ radius = 8.0
 [node name="Acorn" type="Area2D"]
 script = ExtResource("1_c34v0")
 movableObjectName = "Acorn"
+movableObjectProperties = Array[String](["Acorn"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vvdj2")

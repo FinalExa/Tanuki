@@ -2,6 +2,7 @@ class_name MovableObject
 extends Area2D
 
 @export var movableObjectName: String
+@export var movableObjectProperties: Array[String]
 var originalParent: Node2D
 var originalPosition: Vector2
 var collisionShape: CollisionShape2D
