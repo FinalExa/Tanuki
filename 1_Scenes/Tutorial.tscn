@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=103 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -29,8 +29,14 @@
 [ext_resource type="PackedScene" uid="uid://cfhni7y0k2pn7" path="res://Level/Prefabs/tree_bridge_tile.tscn" id="21_705du"]
 [ext_resource type="PackedScene" uid="uid://lt34q6hjgscg" path="res://NPC/squirrel_npc.tscn" id="22_7bmi5"]
 [ext_resource type="PackedScene" uid="uid://ddu6xymap5hga" path="res://Level/Prefabs/acorn_tree.tscn" id="23_77fof"]
+[ext_resource type="PackedScene" uid="uid://mmopsee6rnwu" path="res://ImportantObjects/Interactables/campfire_off.tscn" id="25_sj75a"]
+[ext_resource type="PackedScene" uid="uid://b2skilt2cdrvi" path="res://ImportantObjects/Interactables/campfire_on.tscn" id="26_8q8ll"]
+[ext_resource type="PackedScene" uid="uid://cen2pptamq25k" path="res://NPC/cold_oni_npc.tscn" id="26_fw4lj"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="26_t6v3l"]
 [ext_resource type="PackedScene" uid="uid://cbdj3ff0iygpr" path="res://ImportantObjects/MovableObjects/acorn.tscn" id="27_spjub"]
+[ext_resource type="PackedScene" uid="uid://cb7k6xc533l1y" path="res://ImportantObjects/MovableObjects/cold_oni_movable.tscn" id="28_3kbrb"]
+[ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="28_gtcmu"]
+[ext_resource type="PackedScene" uid="uid://b1uy42bwougsx" path="res://ImportantObjects/TransformationObjects/firestone.tscn" id="31_75g76"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
 vertices = PackedVector2Array(1152, -2240, 1152, -2304, 1280, -2816, 1280, -1280, 1056, -2536, 1056, -2584, 768, -2816, 992, -2584, 768, -2304, 992, -2536, 1024, -2304, 1024, -2240, 632, -1376, 0, -1376, 0, -2232, 128, -2232, 120, -1376, 128, -2304, 512, -2304, 512, -2240, 504, -1376, 640, -2240, 640, -2304, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 504, -1280, 120, -1280)
@@ -170,6 +176,15 @@ radius = 128.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmnto"]
 radius = 128.25
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1tay"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ildw7"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcvry"]
+radius = 232.551
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3ts"]
 size = Vector2(1280, 128)
 
@@ -255,7 +270,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1114113, 983040, 15, -1048577, 983040, 15, -983041, 983040, 15, -917505, 983040, 15, -851969, 983040, 15, -786433, 983040, 15, -720897, 983040, 15, -655361, 983040, 15, -589825, 983040, 15, -524289, 983040, 15, -458753, 983040, 15, -393217, 983040, 15, -327681, 983040, 15, -262145, 983040, 15, -196609, 983040, 15, -1245157, 983040, 15, -1245184, 983040, 15, -1245183, 983040, 15, -1245182, 983040, 15, -1245181, 983040, 15, -1245180, 983040, 15, -1245179, 983040, 15, -1245169, 983040, 15, -1245168, 983040, 15, -1245167, 983040, 15, -1245166, 983040, 15, -1245165, 983040, 15, -1245160, 983040, 15, -1245159, 983040, 15, -1245158, 983040, 15, 65535, 983040, 15, -1, 983040, 15, -1179649, 983040, 15, 393215, 983040, 15, 327679, 983040, 15, 262143, 983040, 15, 196607, 983040, 15, 131071, 983040, 15, -65537, 983040, 15, 458751, 983040, 15, 524287, 983040, 15, 589823, 983040, 15, 655359, 983040, 15, 720895, 983040, 15, 655360, 983040, 15, 655361, 983040, 15, 655362, 983040, 15, 655363, 983040, 15, 655364, 983040, 15, 655365, 983040, 15, 655366, 983040, 15, 655367, 983040, 15, 655368, 983040, 15, 655369, 983040, 15, 655370, 983040, 15, 589834, 983040, 15, 524298, 983040, 15, 458762, 983040, 15, 393226, 983040, 15, -131073, 983040, 15, 458761, 131072, 1, 458760, 131072, 1, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, -655360, 65536, 1, -655359, 131072, 1, -655358, 131072, 1, -655357, 131072, 1, -1245170, 983040, 15, -1245171, 983040, 15, -1245172, 983040, 15, -1245173, 983040, 15, -1245174, 983040, 15, -1310710, 983040, 15, -1376246, 983040, 15, -1441782, 983040, 15, -1507318, 983040, 15, -1507319, 983040, 15, -1507320, 983040, 15, -1507321, 983040, 15, -1507322, 983040, 15, -1507323, 983040, 15, -1441787, 983040, 15, -1376251, 983040, 15, -1310715, 983040, 15, -1245161, 983040, 15, -1245162, 983040, 15, -1245163, 983040, 15, -1245164, 983040, 15, -1245156, 983040, 15, 393227, 983040, 15, 393228, 65536, 0, 393229, 131072, 1, 393232, 131072, 1, 393233, 131072, 1, 393234, 131072, 1, 393235, 131072, 1, 393236, 131072, 1, 393237, 131072, 1, 393238, 131072, 1, 393239, 131072, 1, 393240, 131072, 1, 393241, 131072, 1, 393242, 131072, 1, 393243, 131072, 1, 393244, 131072, 1, -1245155, 983040, 15, -1245154, 983040, 15, -1179618, 983040, 15, -1114082, 983040, 15, -1048546, 983040, 15, -983010, 983040, 15, -917474, 983040, 15, -851938, 983040, 15, -786402, 983040, 15, -720866, 983040, 15, -655330, 983040, 15, -589794, 983040, 15, -524258, 983040, 15, -458722, 983040, 15, -393186, 983040, 15, -327650, 983040, 15, -262114, 983040, 15, -196578, 983040, 15, -131042, 983040, 15, -65506, 983040, 15, 30, 983040, 15, 65566, 983040, 15, 131102, 983040, 15, 196638, 983040, 15, 262174, 983040, 15, 327710, 983040, 15, 393246, 131072, 1, 393245, 131072, 1, 393247, 131072, 1, 393248, 131072, 1, 393249, 131072, 1, 393250, 131072, 1, 458764, 262144, 1, 524300, 262144, 1, 589836, 262144, 1, 655372, 262144, 1, 720908, 262144, 1, 786444, 262144, 1, 851980, 262144, 1, 917516, 262144, 1, 983052, 262144, 1, 1048588, 262144, 1, 1114124, 262144, 1, 1179660, 262144, 1, 1245196, 262144, 1)
+layer_1/tile_data = PackedInt32Array(-1114113, 983040, 15, -1048577, 983040, 15, -983041, 983040, 15, -917505, 983040, 15, -851969, 983040, 15, -786433, 983040, 15, -720897, 983040, 15, -655361, 983040, 15, -589825, 983040, 15, -524289, 983040, 15, -458753, 983040, 15, -393217, 983040, 15, -327681, 983040, 15, -262145, 983040, 15, -196609, 983040, 15, -1245157, 983040, 15, -1245184, 983040, 15, -1245183, 983040, 15, -1245182, 983040, 15, -1245181, 983040, 15, -1245180, 983040, 15, -1245179, 983040, 15, -1245169, 983040, 15, -1245168, 983040, 15, -1245167, 983040, 15, -1245166, 983040, 15, -1245165, 983040, 15, -1245160, 983040, 15, -1245159, 983040, 15, -1245158, 983040, 15, 65535, 983040, 15, -1, 983040, 15, -1179649, 983040, 15, 393215, 983040, 15, 327679, 983040, 15, 262143, 983040, 15, 196607, 983040, 15, 131071, 983040, 15, -65537, 983040, 15, 458751, 983040, 15, 524287, 983040, 15, 589823, 983040, 15, 655359, 983040, 15, 720895, 983040, 15, 655360, 983040, 15, 655361, 983040, 15, 655362, 983040, 15, 655363, 983040, 15, 655364, 983040, 15, 655365, 983040, 15, 655366, 983040, 15, 655367, 983040, 15, 655368, 983040, 15, 655369, 983040, 15, 655370, 983040, 15, 589834, 983040, 15, 524298, 983040, 15, 458762, 983040, 15, 393226, 983040, 15, -131073, 983040, 15, 458761, 131072, 1, 458760, 131072, 1, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, -655360, 65536, 1, -655359, 131072, 1, -655358, 131072, 1, -655357, 131072, 1, -1245170, 983040, 15, -1245171, 983040, 15, -1245172, 983040, 15, -1245173, 983040, 15, -1245174, 983040, 15, -1310710, 983040, 15, -1376246, 983040, 15, -1441782, 983040, 15, -1507318, 983040, 15, -1507319, 983040, 15, -1507320, 983040, 15, -1507321, 983040, 15, -1507322, 983040, 15, -1507323, 983040, 15, -1441787, 983040, 15, -1376251, 983040, 15, -1310715, 983040, 15, -1245161, 983040, 15, -1245162, 983040, 15, -1245163, 983040, 15, -1245164, 983040, 15, -1245156, 983040, 15, 393228, 65536, 0, 393229, 131072, 1, 393232, 131072, 1, 393233, 131072, 1, 393234, 131072, 1, 393235, 131072, 1, 393236, 131072, 1, 393237, 131072, 1, 393238, 131072, 1, 393239, 131072, 1, 393240, 131072, 1, 393241, 131072, 1, 393242, 131072, 1, 393243, 131072, 1, 393244, 131072, 1, -1245155, 983040, 15, -1245154, 983040, 15, -1179618, 983040, 15, -1114082, 983040, 15, -1048546, 983040, 15, -983010, 983040, 15, -917474, 983040, 15, -851938, 983040, 15, -786402, 983040, 15, -720866, 983040, 15, -655330, 983040, 15, -589794, 983040, 15, -524258, 983040, 15, -458722, 983040, 15, -393186, 983040, 15, -327650, 983040, 15, -262114, 983040, 15, -196578, 983040, 15, -131042, 983040, 15, -65506, 983040, 15, 30, 983040, 15, 65566, 983040, 15, 131102, 983040, 15, 196638, 983040, 15, 262174, 983040, 15, 327710, 983040, 15, 393246, 131072, 1, 393245, 131072, 1, 393247, 131072, 1, 393248, 131072, 1, 393249, 131072, 1, 393250, 131072, 1, 458764, 262144, 1, 524300, 262144, 1, 589836, 262144, 1, 655372, 262144, 1, 720908, 262144, 1, 786444, 262144, 1, 851980, 262144, 1, 917516, 262144, 1, 983052, 262144, 1, 1048588, 262144, 1, 1114124, 262144, 1, 1179660, 262144, 1, 1245196, 262144, 1, 327690, 983040, 15, 262154, 983040, 15, 196618, 983040, 15, 131082, 983040, 15, 131083, 983040, 15, 196619, 983040, 15, 262155, 983040, 15, 327691, 983040, 15, 65546, 983040, 15, 65547, 983040, 15)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -268,7 +283,7 @@ playerSpawnPoint = NodePath("PlayerSpawn")
 sceneType = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest")]
+mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
 
 [node name="Navmesh" type="Node2D" parent="."]
 
@@ -310,7 +325,7 @@ keyAdvancesQuest = true
 questToAdvance = NodePath("../../Quests/GardenSquirrelQuest")
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("3_fecq8")]
-position = Vector2(4504, -1640)
+position = Vector2(2944, -1728)
 
 [node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("3_pi7gx")]
 position = Vector2(1920, 832)
@@ -833,7 +848,6 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_fn6fk")
 
 [node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-position = Vector2(-1920, 2176)
 dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here being frozen transporting it, he might know something.", "Oh, thank you!"])
 characterTalking = Array[int]([0, 2, 0, 2])
 characterEmotion = Array[int]([0, 0, 0, 0])
@@ -879,6 +893,77 @@ deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
 shape = SubResource("CircleShape2D_kmnto")
+
+[node name="GardenOniQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("3_14yeu")
+questName = "GardenOniQuest"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("DialogueArea"), NodePath("CampfireOn"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("CampfireOff"), NodePath("CampfireOn"), NodePath("ColdOniNPC/DialogueArea"), NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey3")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, true, false, false, true, false, true, true, true])
+objectsToDeleteAtQuestComplete = [NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("DialogueArea")]
+
+[node name="CampfireOff" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_sj75a")]
+position = Vector2(2752, -1728)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="CampfireOn" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_8q8ll")]
+position = Vector2(2752, -1728)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="ColdOniNPC" parent="Quests/GardenOniQuest" instance=ExtResource("26_fw4lj")]
+position = Vector2(1216, -384)
+
+[node name="DialogueArea" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["So... cold... help... me...", "I don't think I can do anything right now..."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_s1tay")
+
+[node name="DialogueArea2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["So... cold... help... me...", "Hey, I managed to lit up a bonfire in another area, can you reach it?", "No... can you bring me... there?", "Hmm... you have anything to offer?", "I... stole... a key... from the guards... before...", "Oh! Just what I need, I'm game! Let me transport you!", "Thank... you..."])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea2"]
+shape = SubResource("CircleShape2D_ildw7")
+
+[node name="ColdOniMovable" parent="Quests/GardenOniQuest" instance=ExtResource("28_3kbrb")]
+position = Vector2(1216, -384)
+
+[node name="HeatSourceActivator" parent="Quests/GardenOniQuest" instance=ExtResource("28_gtcmu")]
+position = Vector2(2848, -1768)
+
+[node name="DialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueText = Array[String](["Do you know anything about another key around there?", "Hmmm... I think I saw a squirrel with it...", "Oh, that sounds helpful... Thank you!"])
+characterTalking = Array[int]([0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/DialogueArea"]
+
+[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+position = Vector2(2848, -1768)
+dialogueText = Array[String](["Whew, thanks! Here, grab the key I promised you.", "Thanks for the key, hehe..."])
+characterTalking = Array[int]([2, 0])
+characterEmotion = Array[int]([0, 0])
+cameraFocuses = [NodePath("../HeatSourceActivator"), null]
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/DialogueArea"]
+shape = SubResource("CircleShape2D_rcvry")
 
 [node name="Teleports" type="Node2D" parent="."]
 
@@ -1038,6 +1123,9 @@ transformedTexture = NodePath("../Statue/TransformedSprite")
 position = Vector2(960, -192)
 transformedCollider = NodePath("../../Quests/GardenDestroyTheBush/Grasscutter/CollisionShape2D")
 transformedTexture = NodePath("../../Quests/GardenDestroyTheBush/Grasscutter/Sprite2D")
+
+[node name="Firestone" parent="TransformationObjects" instance=ExtResource("31_75g76")]
+position = Vector2(2176, -1664)
 
 [node name="Bushes" type="Node2D" parent="."]
 y_sort_enabled = true
