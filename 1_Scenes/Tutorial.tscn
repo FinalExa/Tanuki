@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=105 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -170,6 +170,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2304, -1496, 2560, -149
 [sub_resource type="CircleShape2D" id="CircleShape2D_fn6fk"]
 radius = 128.25
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndmof"]
+radius = 128.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ja2f5"]
 radius = 128.25
 
@@ -180,6 +183,9 @@ radius = 128.25
 radius = 128.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ildw7"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7joh1"]
 radius = 128.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcvry"]
@@ -848,13 +854,14 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_fn6fk")
 
 [node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here being frozen transporting it, he might know something.", "Oh, thank you!"])
-characterTalking = Array[int]([0, 2, 0, 2])
+dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here with a key.", "Oh, thank you!"])
+characterTalking = Array[int]([0, 2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0, 0])
-cameraFocuses = [null, NodePath(".."), null, NodePath("..")]
+cameraFocuses = [null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea2"]
+shape = SubResource("CircleShape2D_ndmof")
 
 [node name="OldTanukiNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("13_6kems")]
 position = Vector2(3200, 64)
@@ -899,7 +906,7 @@ y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenOniQuest"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("DialogueArea"), NodePath("CampfireOn"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("CampfireOff"), NodePath("CampfireOn"), NodePath("ColdOniNPC/DialogueArea"), NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey3")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 3])
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, false, true, false, false, true, false, true, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("DialogueArea")]
 
@@ -953,14 +960,17 @@ cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/DialogueArea"]
+shape = SubResource("CircleShape2D_7joh1")
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(2848, -1768)
 dialogueText = Array[String](["Whew, thanks! Here, grab the key I promised you.", "Thanks for the key, hehe..."])
 characterTalking = Array[int]([2, 0])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath("../HeatSourceActivator"), null]
 deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/DialogueArea"]
 shape = SubResource("CircleShape2D_rcvry")
