@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tu5cq2jeajb4"]
 
-[ext_resource type="Texture2D" uid="uid://b38fpjt7hye08" path="res://Level/Sprites/Placeholder/brigdgeUp.png" id="1_iwbiy"]
+[ext_resource type="Texture2D" uid="uid://bt48f4pwjtwcl" path="res://Level/Sprites/Placeholder/bridgeUp.png" id="1_h3q8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwfp0"]
 size = Vector2(80, 32)
@@ -10,7 +10,7 @@ y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -80)
-texture = ExtResource("1_iwbiy")
+texture = ExtResource("1_h3q8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rwfp0")

@@ -47,6 +47,7 @@ func SaveMapData(file, oneTimeSavePath: String):
 	file.store_var(oneTimeSavePoints)
 
 func SavePlayerData(file):
+	file.store_var(playerRef.currentScenePath)
 	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
 	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyTypes)
@@ -83,6 +84,7 @@ func LoadPlayerData():
 	playerRef.playerProgressionTrack.ClearAll()
 	if (FileAccess.file_exists(playerDataSavePath)):
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
+		playerRef.currentScenePath = file.get_var()
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyTypes)
@@ -101,6 +103,8 @@ func ExtractArray(result, currentArray):
 	return currentArray
 
 func LoadOperations():
+	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScenePath):
+		sceneSelector.ChangeScene(playerRef.currentScenePath)
 	if (!stopResetPosition): playerRef.global_position = lastPos
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)

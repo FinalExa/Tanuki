@@ -25,6 +25,7 @@ var isTraveling: bool
 var positionalTraveling: bool
 var travelId: int
 var positionalDestination: Vector2
+var currentScenePath: String
 
 func _ready():
 	sceneRef = self.get_parent()

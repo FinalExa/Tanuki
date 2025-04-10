@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=106 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cfhni7y0k2pn7" path="res://Level/Prefabs/tree_bridge_tile.tscn" id="21_705du"]
 [ext_resource type="PackedScene" uid="uid://lt34q6hjgscg" path="res://NPC/squirrel_npc.tscn" id="22_7bmi5"]
 [ext_resource type="PackedScene" uid="uid://ddu6xymap5hga" path="res://Level/Prefabs/acorn_tree.tscn" id="23_77fof"]
+[ext_resource type="PackedScene" uid="uid://dgxthiupepi8w" path="res://Level/Prefabs/bridge_up_side.tscn" id="24_kec2s"]
 [ext_resource type="PackedScene" uid="uid://mmopsee6rnwu" path="res://ImportantObjects/Interactables/campfire_off.tscn" id="25_sj75a"]
 [ext_resource type="PackedScene" uid="uid://b2skilt2cdrvi" path="res://ImportantObjects/Interactables/campfire_on.tscn" id="26_8q8ll"]
 [ext_resource type="PackedScene" uid="uid://cen2pptamq25k" path="res://NPC/cold_oni_npc.tscn" id="26_fw4lj"]
@@ -290,6 +291,28 @@ sceneType = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
+
+[node name="Enemy" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Guard1" parent="Enemy" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("3_ryk8d")]
+position = Vector2(896, -1744)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator1")]
+questToSendProgressSignal = NodePath("../../Quests/GardenStunGuard")
+sendSignalToQuestOnStunned = true
+
+[node name="KeySprite" type="Sprite2D" parent="Enemy/Guard1"]
+position = Vector2(0, -24)
+rotation = 3.14159
+texture = ExtResource("15_iwd6s")
+
+[node name="Guard" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
+position = Vector2(2120, -560)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
+
+[node name="Guard2" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
+position = Vector2(1816, 144)
+patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator4")]
 
 [node name="Navmesh" type="Node2D" parent="."]
 
@@ -760,13 +783,13 @@ navigation_polygon = SubResource("NavigationPolygon_6t7yl")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerBridge2"
-questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
+questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUpSide"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
 questItemsStages = Array[int]([0, 0, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, false, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("BridgeUp"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
+objectsToDeleteAtQuestComplete = [NodePath("BridgeUpSide"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
 
-[node name="BridgeUp" parent="Quests/GardenLowerBridge2" instance=ExtResource("12_ua2nv")]
-position = Vector2(2560, -208)
+[node name="BridgeUpSide" parent="Quests/GardenLowerBridge2" instance=ExtResource("24_kec2s")]
+position = Vector2(2568, -168)
 
 [node name="Bridge" type="Node2D" parent="Quests/GardenLowerBridge2"]
 position = Vector2(2432, -192)
@@ -797,13 +820,13 @@ navigation_polygon = SubResource("NavigationPolygon_w88gp")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerBridge3"
-questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
+questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUpSide"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
 questItemsStages = Array[int]([0, 0, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, false, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("BridgeUp"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
+objectsToDeleteAtQuestComplete = [NodePath("BridgeUpSide"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
 
-[node name="BridgeUp" parent="Quests/GardenLowerBridge3" instance=ExtResource("12_ua2nv")]
-position = Vector2(2560, -1488)
+[node name="BridgeUpSide" parent="Quests/GardenLowerBridge3" instance=ExtResource("24_kec2s")]
+position = Vector2(2560, -1448)
 
 [node name="Bridge" type="Node2D" parent="Quests/GardenLowerBridge3"]
 position = Vector2(2432, -1472)
@@ -976,28 +999,6 @@ questRef = NodePath("..")
 shape = SubResource("CircleShape2D_rcvry")
 
 [node name="Teleports" type="Node2D" parent="."]
-
-[node name="Enemy" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="Guard1" parent="Enemy" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("3_ryk8d")]
-position = Vector2(896, -1744)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator1")]
-questToSendProgressSignal = NodePath("../../Quests/GardenStunGuard")
-sendSignalToQuestOnStunned = true
-
-[node name="KeySprite" type="Sprite2D" parent="Enemy/Guard1"]
-position = Vector2(0, -24)
-rotation = 3.14159
-texture = ExtResource("15_iwd6s")
-
-[node name="Guard" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
-position = Vector2(2120, -560)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
-
-[node name="Guard2" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
-position = Vector2(1816, 144)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator4")]
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 

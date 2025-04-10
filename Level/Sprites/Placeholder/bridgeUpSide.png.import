@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b38fpjt7hye08"
-path="res://.godot/imported/brigdgeUp.png-515fd415422311ed90536ba88772c161.ctex"
+uid="uid://dusxnpc8xtuc0"
+path="res://.godot/imported/bridgeUpSide.png-aeb1ad004931b67375bc40e4420ed0e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Sprites/Placeholder/brigdgeUp.png"
-dest_files=["res://.godot/imported/brigdgeUp.png-515fd415422311ed90536ba88772c161.ctex"]
+source_file="res://Level/Sprites/Placeholder/bridgeUpSide.png"
+dest_files=["res://.godot/imported/bridgeUpSide.png-aeb1ad004931b67375bc40e4420ed0e6.ctex"]
 
 [params]
 

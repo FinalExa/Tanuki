@@ -54,6 +54,7 @@ func InstantiateNewScene():
 	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer()
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
+	playerRef.currentScenePath = currentScenePath
 
 func ClearTrash():
 	for i in self.get_child_count():
