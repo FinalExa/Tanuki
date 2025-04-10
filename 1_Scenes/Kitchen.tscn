@@ -885,7 +885,7 @@ position = Vector2(-728, 1376)
 [node name="TravelToGarden" type="Area2D" parent="Teleports"]
 position = Vector2(-384, -1248)
 script = ExtResource("33_bs5xl")
-sceneToLoad = "res://1_Scenes/Tutorial.tscn"
+sceneToLoad = "res://1_Scenes/Garden.tscn"
 removeTransformation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToGarden"]

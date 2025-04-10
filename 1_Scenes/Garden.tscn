@@ -268,7 +268,7 @@ size = Vector2(128, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qhpu"]
 size = Vector2(512, 512)
 
-[node name="Tutorial" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
+[node name="Garden" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("1_oh66l")
 format = 2
