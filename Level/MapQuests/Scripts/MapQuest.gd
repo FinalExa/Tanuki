@@ -93,6 +93,9 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
+	if (objectToOperate is NavigationRegion2D):
+		objectToOperate.enabled = true
+		return
 	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOn()
 	objectToOperate.show()
@@ -108,6 +111,9 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Deactivation()
+		return
+	if (objectToOperate is NavigationRegion2D):
+		objectToOperate.enabled = false
 		return
 	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOff()
