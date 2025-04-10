@@ -2,7 +2,7 @@ class_name SceneMaster
 extends Node2D
 
 var savePath: String
-var playerDataSavePath: String = "user://PlayerData.save"
+var playerDataSavePath: String = "user://saves/PlayerData.save"
 var stopResetPosition: bool
 
 var lastPos: Vector2
@@ -26,7 +26,7 @@ func _ready():
 		get_tree().paused = false
 
 func UpdatePathAndLoad():
-	savePath = "user://" + sceneSelector.currentScene.name + ".save"
+	savePath = "user://saves/" + sceneSelector.currentScene.name + ".save"
 	if (loadActive):
 		Load()
 		loadActive = false
@@ -34,16 +34,23 @@ func UpdatePathAndLoad():
 		CheckForMap()
 
 func Save():
+	CheckForFolder()
 	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), "")
 	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
 
 func SaveAndDeleteOneTimeSave(oneTimeSavePath: String):
+	CheckForFolder()
 	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), oneTimeSavePath)
 	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
 
+func CheckForFolder():
+	if (!DirAccess.dir_exists_absolute("user://saves")):
+		var dir = DirAccess.open("user://")
+		dir.make_dir("saves")
+
 func SaveMapData(file, oneTimeSavePath: String):
 	file.store_var(playerRef.global_position)
-	if (oneTimeSavePath != "" && get_node_or_null(oneTimeSavePath) != null):
+	if (oneTimeSavePath != ""):
 		oneTimeSavePoints.push_back(oneTimeSavePath)
 	file.store_var(oneTimeSavePoints)
 
@@ -67,7 +74,6 @@ func Load():
 func CheckForMap():
 	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScene.scene_file_path):
 		sceneSelector.ChangeScene(playerRef.currentScenePath)
-		print("turned on")
 		loadActive = true
 		hasLoaded = false
 

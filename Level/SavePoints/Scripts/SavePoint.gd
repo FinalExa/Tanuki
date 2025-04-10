@@ -13,7 +13,9 @@ func Save():
 	if (!oneTimeSave):
 		sceneMasterRef.Save()
 	else:
-		sceneMasterRef.SaveAndDeleteOneTimeSave(self.get_path())
+		var selfPath: String = self.get_path()
+		if (!sceneMasterRef.oneTimeSavePoints.has(selfPath)):
+			sceneMasterRef.SaveAndDeleteOneTimeSave(self.get_path())
 		self.queue_free()
 
 func _on_body_entered(body):
