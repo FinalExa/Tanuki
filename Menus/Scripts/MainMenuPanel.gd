@@ -2,18 +2,31 @@ extends Panel
 
 @export var activeLevelPath: String
 @export var gameScenePath: String
-@export var continuePanel: Panel
+@export var continueButton: Button
+@export var continueButtonColorOnDisabled: Color
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
 @export var creditsPanel: Panel
 
 func _ready():
 	get_tree().paused = false
+	CheckContinueButton()
 
-func _on_new_game_button_button_up():
-	call_deferred("SwapScenes")
+func NewGame():
+	DeleteSaves()
+	LoadGameplayMap()
 
-func SwapScenes():
+func CheckContinueButton():
+	if (DirAccess.dir_exists_absolute("user://saves")):
+		var dir = DirAccess.open("user://saves")
+		var count: int = 0
+		for i in dir.get_files():
+			count += 1
+		if (count == 0):
+			continueButton.modulate = continueButtonColorOnDisabled
+			continueButton.disabled = true
+
+func LoadGameplayMap():
 	var rootRef = get_tree().root
 	var menuRef =  rootRef.get_child(0)
 	rootRef.remove_child(menuRef)
@@ -23,9 +36,17 @@ func SwapScenes():
 	rootRef.add_child(sceneMaster)
 	menuRef.queue_free()
 
+func DeleteSaves():
+	if (DirAccess.dir_exists_absolute("user://saves")):
+		var dir = DirAccess.open("user://saves")
+		for file in dir.get_files():
+			dir.remove(file)
+
+func _on_new_game_button_button_up():
+	call_deferred("NewGame")
+
 func _on_continue_button_button_up():
-	continuePanel.show()
-	self.hide()
+	LoadGameplayMap()
 
 func _on_options_button_button_up():
 	optionsPanel.show()
