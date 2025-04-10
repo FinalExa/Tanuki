@@ -1009,6 +1009,7 @@ shape = SubResource("CircleShape2D_rcvry")
 [node name="TravelToKitchen" parent="Teleports" instance=ExtResource("33_mq5tn")]
 position = Vector2(1920, 960)
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+removeTransformation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToKitchen"]
 shape = SubResource("RectangleShape2D_4qurf")

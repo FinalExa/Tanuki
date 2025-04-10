@@ -26,11 +26,12 @@ func _ready():
 		get_tree().paused = false
 
 func UpdatePathAndLoad():
-	savePath = "user://" + sceneSelector.get_child(0).name + ".save"
+	savePath = "user://" + sceneSelector.currentScene.name + ".save"
 	if (loadActive):
 		Load()
 		loadActive = false
 		hasLoaded = true
+		CheckForMap()
 
 func Save():
 	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), "")
@@ -42,7 +43,7 @@ func SaveAndDeleteOneTimeSave(oneTimeSavePath: String):
 
 func SaveMapData(file, oneTimeSavePath: String):
 	file.store_var(playerRef.global_position)
-	if (oneTimeSavePath != ""):
+	if (oneTimeSavePath != "" && get_node_or_null(oneTimeSavePath) != null):
 		oneTimeSavePoints.push_back(oneTimeSavePath)
 	file.store_var(oneTimeSavePoints)
 
@@ -59,9 +60,16 @@ func SavePlayerData(file):
 	file.store_var(playerRef.playerProgressionTrack.activeQuestsAdvancers)
 
 func Load():
-	LoadMapData()
 	LoadPlayerData()
+	LoadMapData()
 	LoadOperations()
+
+func CheckForMap():
+	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScene.scene_file_path):
+		sceneSelector.ChangeScene(playerRef.currentScenePath)
+		print("turned on")
+		loadActive = true
+		hasLoaded = false
 
 func LoadMapData():
 	if (FileAccess.file_exists(savePath)):
@@ -104,9 +112,8 @@ func ExtractArray(result, currentArray):
 	return currentArray
 
 func LoadOperations():
-	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScenePath):
-		sceneSelector.ChangeScene(playerRef.currentScenePath)
-	if (!stopResetPosition): playerRef.global_position = lastPos
+	if (!stopResetPosition):
+		playerRef.global_position = lastPos
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)
 		var new_trs: TransformationObjectData = new_trs_scene.instantiate()

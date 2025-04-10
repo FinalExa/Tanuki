@@ -47,6 +47,7 @@ func InstantiateNewScene():
 	currentScene = obj
 	add_child(currentScene)
 	ClearTrash()
+	playerRef.currentScenePath = currentScenePath
 	sceneMaster.UpdatePathAndLoad()
 	currentScene.Initialize()
 	if (sceneMaster.hasLoaded && !sceneMaster.stopResetPosition): currentScene.SetPlayerSpawn(sceneMaster.lastPos)
@@ -54,7 +55,6 @@ func InstantiateNewScene():
 	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer()
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
-	playerRef.currentScenePath = currentScenePath
 
 func ClearTrash():
 	for i in self.get_child_count():

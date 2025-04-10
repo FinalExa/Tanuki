@@ -703,7 +703,6 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="VaseGrown0" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
 position = Vector2(40, 984)
-sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
 
 [node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
@@ -873,6 +872,7 @@ position = Vector2(-728, 1376)
 position = Vector2(-384, -1248)
 script = ExtResource("33_bs5xl")
 sceneToLoad = "res://1_Scenes/Tutorial.tscn"
+removeTransformation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToGarden"]
 shape = SubResource("RectangleShape2D_0lcf0")
@@ -1804,3 +1804,5 @@ texture = ExtResource("33_66305")
 [node name="Daikon-003" type="Sprite2D" parent="Food"]
 position = Vector2(1096, 840)
 texture = ExtResource("33_66305")
+
+[connection signal="body_entered" from="Teleports/TravelToGarden" to="Teleports/TravelToGarden" method="_on_body_entered"]

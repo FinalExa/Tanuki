@@ -10,6 +10,10 @@ func _ready():
 
 func UpdateKeyCount():
 	if (sceneSelectorRef.currentScene.levelUnlockKeys.size() > 0):
-		text = str("Keys: ", playerProgressionRef.unlockKeyIDs.size(), "/", sceneSelectorRef.currentScene.levelUnlockKeys.size())
+		var keyCount: int = 0
+		for i in playerProgressionRef.unlockKeyIDs.size():
+			if (playerProgressionRef.unlockKeyTypes[i] == sceneSelectorRef.currentScene.sceneType):
+				keyCount += 1
+		text = str("Keys: ", keyCount, "/", sceneSelectorRef.currentScene.levelUnlockKeys.size())
 	else:
 		text = ""
