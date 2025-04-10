@@ -27,10 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
 [ext_resource type="PackedScene" uid="uid://ctqyxkjed20u6" path="res://ImportantObjects/Interactables/Tools/player_in_check.tscn" id="23_7inwt"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
-[ext_resource type="PackedScene" uid="uid://yfra1ioctgjr" path="res://ImportantObjects/TransformationObjects/dish.tscn" id="24_u6tss"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
+[ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="31_rdhtp"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="33_bs5xl"]
 [ext_resource type="PackedScene" uid="uid://b8tm3iacl501" path="res://ImportantObjects/TransformationObjects/water_container.tscn" id="34_aw2ha"]
@@ -195,7 +195,7 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockRiceBowl")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/VaseGrownReceiver0")]
@@ -427,9 +427,6 @@ navigation_polygon = SubResource("NavigationPolygon_tg1ch")
 
 [node name="Hammer" parent="Rooms/RoomA/Objects" instance=ExtResource("26_3pbsd")]
 position = Vector2(-1984, 416)
-
-[node name="Dish" parent="Rooms/RoomA/Objects" instance=ExtResource("24_u6tss")]
-position = Vector2(-1744, -368)
 
 [node name="RoomB" type="Node2D" parent="Rooms"]
 
@@ -839,6 +836,23 @@ scale = Vector2(0.5, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="KitchenUnlockRiceBowl" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("2_pyt2b")
+questName = "KitchenUnlockRiceBowl"
+questItemsToOperate = [NodePath("RiceBowl"), NodePath("RiceBowl")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
+
+[node name="ButtonToPush" parent="Quests/KitchenUnlockRiceBowl" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
+position = Vector2(-1712, -104)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="RiceBowl" parent="Quests/KitchenUnlockRiceBowl" instance=ExtResource("31_rdhtp")]
+position = Vector2(-1712, -104)
+
 [node name="QuestUnlocks" type="Node2D" parent="."]
 position = Vector2(0, 512)
 
@@ -961,7 +975,7 @@ transformedCollider = NodePath("../Vase11/CollisionShape2D")
 transformedTexture = NodePath("../Vase11/Sprite2D")
 
 [node name="WaterContainer" parent="TransformationsObjects" instance=ExtResource("34_aw2ha")]
-position = Vector2(-1728, -96)
+position = Vector2(-1728, -360)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 

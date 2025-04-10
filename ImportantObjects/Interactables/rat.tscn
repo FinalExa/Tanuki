@@ -13,7 +13,7 @@ radius = 64.0
 [node name="Rat" type="StaticBody2D" groups=["Interactable"]]
 y_sort_enabled = true
 script = ExtResource("1_iabjc")
-neededProperties = Array[String](["Food"])
+neededProperties = Array[String](["Rice"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x7fm1")
