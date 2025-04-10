@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=108 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cb7k6xc533l1y" path="res://ImportantObjects/MovableObjects/cold_oni_movable.tscn" id="28_3kbrb"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="28_gtcmu"]
 [ext_resource type="PackedScene" uid="uid://b1uy42bwougsx" path="res://ImportantObjects/TransformationObjects/firestone.tscn" id="31_75g76"]
+[ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="33_mq5tn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hbxy1"]
 vertices = PackedVector2Array(1152, -2240, 1152, -2304, 1280, -2816, 1280, -1280, 1056, -2536, 1056, -2584, 768, -2816, 992, -2584, 768, -2304, 992, -2536, 1024, -2304, 1024, -2240, 632, -1376, 0, -1376, 0, -2232, 128, -2232, 120, -1376, 128, -2304, 512, -2304, 512, -2240, 504, -1376, 640, -2240, 640, -2304, 1152, -1280, 1152, -1376, 1024, -1376, 1024, -1280, 632, -1280, 504, -1280, 120, -1280)
@@ -192,6 +193,9 @@ radius = 128.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcvry"]
 radius = 232.551
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qurf"]
+size = Vector2(384, 128)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3ts"]
 size = Vector2(1280, 128)
 
@@ -264,7 +268,7 @@ size = Vector2(128, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qhpu"]
 size = Vector2(512, 512)
 
-[node name="Tutorial" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests")]
+[node name="Tutorial" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("1_oh66l")
 format = 2
@@ -291,6 +295,8 @@ sceneType = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
+travelingAreas = [NodePath("Teleports/TravelToKitchen")]
+travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
 [node name="Enemy" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -999,6 +1005,16 @@ questRef = NodePath("..")
 shape = SubResource("CircleShape2D_rcvry")
 
 [node name="Teleports" type="Node2D" parent="."]
+
+[node name="TravelToKitchen" parent="Teleports" instance=ExtResource("33_mq5tn")]
+position = Vector2(1920, 960)
+sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToKitchen"]
+shape = SubResource("RectangleShape2D_4qurf")
+
+[node name="KitchenReceiver" type="Node2D" parent="Teleports/TravelToKitchen"]
+position = Vector2(0, -256)
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 

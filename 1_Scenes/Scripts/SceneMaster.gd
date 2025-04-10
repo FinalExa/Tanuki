@@ -78,7 +78,8 @@ func DestroyOneTimeSavePoints(array: Array):
 		oneTimeSavePoints.push_back(array[i])
 	if (oneTimeSavePoints.size() > 0):
 		for i in oneTimeSavePoints.size():
-			get_node(oneTimeSavePoints[i]).queue_free()
+			var node = get_node_or_null(oneTimeSavePoints[i])
+			if (node != null): node.queue_free()
 
 func LoadPlayerData():
 	playerRef.playerProgressionTrack.ClearAll()

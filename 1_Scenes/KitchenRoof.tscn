@@ -102,6 +102,7 @@ objectsToAdd = [NodePath("VaseGrown0")]
 
 [node name="VaseGrown0" parent="QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD" instance=ExtResource("2_syr3w")]
 position = Vector2(-728, 1512)
+sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Kitchen.tscn"
 
 [node name="TeleportFall" type="Node2D" parent="."]
