@@ -23,7 +23,7 @@ func CheckContinueButton():
 		for i in dir.get_files():
 			count += 1
 		if (count == 0):
-			continueButton.modulate = continueButtonColorOnDisabled
+			continueButton.get_parent().modulate = continueButtonColorOnDisabled
 			continueButton.disabled = true
 
 func LoadGameplayMap():

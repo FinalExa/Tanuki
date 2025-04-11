@@ -15,7 +15,7 @@ script = ExtResource("1_h434p")
 activeLevelPath = "res://1_Scenes/ActiveLevel.tscn"
 gameScenePath = "res://1_Scenes/Garden.tscn"
 continueButton = NodePath("Continue/ContinueButton")
-continueButtonColorOnDisabled = Color(1, 0, 0, 1)
+continueButtonColorOnDisabled = Color(1, 0, 0, 0.470588)
 
 [node name="NewGame" type="PanelContainer" parent="."]
 layout_mode = 0
