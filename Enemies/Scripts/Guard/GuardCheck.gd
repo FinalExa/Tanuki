@@ -32,7 +32,7 @@ var raycastResult: Array[Node2D]
 var designatedTargetDistance: float
 
 func _physics_process(_delta):
-	check_raycast()
+	CheckRaycast()
 
 func _ready():
 	GetRayTargets()
@@ -53,7 +53,7 @@ func reset_alert_value():
 	currentAlertValue = 0
 	guardController.isChecking = false
 
-func check_raycast():
+func CheckRaycast():
 	if (checkWithRayCast):
 		var space_state = guardController.get_world_2d().direct_space_state
 		raycastResult.clear()

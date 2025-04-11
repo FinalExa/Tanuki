@@ -317,12 +317,63 @@ travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
 [node name="Enemy" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 
+[node name="PatrolPoints" type="Node2D" parent="Enemy"]
+
+[node name="PatrolIndicator1" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 2, 0, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../1"), NodePath("../2")]
+lookActions = Array[int]([1, 2, 0, 3, 0, 3, 1, 2])
+
+[node name="PatrolIndicator2" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
+position = Vector2(1984, -64)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../5"), NodePath("../6"), NodePath("../7"), NodePath("../4")]
+lookActions = Array[int]([2, 0, 3, 1])
+
+[node name="PatrolIndicator3" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
+position = Vector2(1984, 320)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../8"), NodePath("../11"), NodePath("../10"), NodePath("../9")]
+lookActions = Array[int]([3, 0, 2, 1])
+
+[node name="1" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(896, -1792)
+
+[node name="2" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(192, -1792)
+
+[node name="4" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(1664, -640)
+
+[node name="5" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(2688, -640)
+
+[node name="6" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(2688, 64)
+
+[node name="7" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(1664, 64)
+
+[node name="8" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(1664, -192)
+
+[node name="9" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(2688, -192)
+
+[node name="10" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(2688, 640)
+
+[node name="11" type="Node2D" parent="Enemy/PatrolPoints"]
+position = Vector2(1664, 640)
+
 [node name="Guard1" parent="Enemy" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("3_ryk8d")]
-position = Vector2(896, -1744)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator1")]
+position = Vector2(888, -1792)
+patrolIndicators = [NodePath("../PatrolPoints/PatrolIndicator1")]
 questToSendProgressSignal = NodePath("../../Quests/GardenStunGuard")
 sendSignalToQuestOnStunned = true
 
@@ -333,11 +384,11 @@ texture = ExtResource("15_iwd6s")
 
 [node name="Guard2" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
 position = Vector2(1816, 144)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator3")]
+patrolIndicators = [NodePath("../PatrolPoints/PatrolIndicator3")]
 
 [node name="Guard3" parent="Enemy" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("3_ryk8d")]
 position = Vector2(2120, -560)
-patrolIndicators = [NodePath("../../PatrolPoints/PatrolIndicator2")]
+patrolIndicators = [NodePath("../PatrolPoints/PatrolIndicator2")]
 
 [node name="Navmesh" type="Node2D" parent="."]
 
@@ -1035,61 +1086,6 @@ shape = SubResource("RectangleShape2D_4qurf")
 
 [node name="KitchenReceiver" type="Node2D" parent="Teleports/TravelToKitchen"]
 position = Vector2(0, -256)
-
-[node name="PatrolPoints" type="Node2D" parent="."]
-
-[node name="PatrolIndicator1" parent="PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
-moveActions = [NodePath("../1")]
-lookActions = Array[int]([1, 2, 0, 3])
-
-[node name="PatrolIndicator2" parent="PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
-position = Vector2(1984, -64)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../5"), NodePath("../6"), NodePath("../7"), NodePath("../4")]
-lookActions = Array[int]([2, 0, 3, 1])
-
-[node name="PatrolIndicator3" parent="PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
-position = Vector2(1984, 320)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-moveActions = [NodePath("../8"), NodePath("../11"), NodePath("../10"), NodePath("../9")]
-lookActions = Array[int]([3, 0, 2, 1])
-
-[node name="1" type="Node2D" parent="PatrolPoints"]
-position = Vector2(888, -1744)
-
-[node name="2" type="Node2D" parent="PatrolPoints"]
-position = Vector2(256, -1536)
-
-[node name="3" type="Node2D" parent="PatrolPoints"]
-position = Vector2(256, -2048)
-
-[node name="4" type="Node2D" parent="PatrolPoints"]
-position = Vector2(1664, -640)
-
-[node name="5" type="Node2D" parent="PatrolPoints"]
-position = Vector2(2688, -640)
-
-[node name="6" type="Node2D" parent="PatrolPoints"]
-position = Vector2(2688, 64)
-
-[node name="7" type="Node2D" parent="PatrolPoints"]
-position = Vector2(1664, 64)
-
-[node name="8" type="Node2D" parent="PatrolPoints"]
-position = Vector2(1664, -192)
-
-[node name="9" type="Node2D" parent="PatrolPoints"]
-position = Vector2(2688, -192)
-
-[node name="10" type="Node2D" parent="PatrolPoints"]
-position = Vector2(2688, 640)
-
-[node name="11" type="Node2D" parent="PatrolPoints"]
-position = Vector2(1664, 640)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 

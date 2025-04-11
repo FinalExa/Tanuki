@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfuyuvqhdjqxi"]
+
+[ext_resource type="Script" path="res://Menus/Scripts/ResetDataPanel.gd" id="1_vu1ou"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_t76tb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i83ex"]
+font = ExtResource("2_t76tb")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_spohb"]
+font = ExtResource("2_t76tb")
+font_size = 20
+
+[node name="ResetDataPanel" type="Panel"]
+process_mode = 3
+offset_left = -128.0
+offset_right = 384.0
+offset_bottom = 128.0
+script = ExtResource("1_vu1ou")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 64.0
+text = "Delete old data and start a new game?"
+label_settings = SubResource("LabelSettings_i83ex")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 184.0
+offset_bottom = 120.0
+
+[node name="YesButton" type="Button" parent="Yes"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Yes"]
+process_mode = 3
+layout_mode = 2
+text = "Yes"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 72.0
+offset_right = 440.0
+offset_bottom = 120.0
+
+[node name="NoButton" type="Button" parent="No"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="No"]
+process_mode = 3
+layout_mode = 2
+text = "No"
+label_settings = SubResource("LabelSettings_spohb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="Yes/YesButton" to="." method="_on_yes_button_button_up"]
+[connection signal="button_up" from="No/NoButton" to="." method="_on_no_button_button_up"]

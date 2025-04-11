@@ -1,12 +1,15 @@
+class_name MainMenuPanel
 extends Panel
 
 @export var activeLevelPath: String
 @export var gameScenePath: String
 @export var continueButton: Button
 @export var continueButtonColorOnDisabled: Color
+@export var resetDataPanel: Panel
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
 @export var creditsPanel: Panel
+var saveDataExists: bool
 
 func _ready():
 	get_tree().paused = false
@@ -25,6 +28,8 @@ func CheckContinueButton():
 		if (count == 0):
 			continueButton.get_parent().modulate = continueButtonColorOnDisabled
 			continueButton.disabled = true
+			return
+		saveDataExists = true
 
 func LoadGameplayMap():
 	var rootRef = get_tree().root
@@ -43,7 +48,11 @@ func DeleteSaves():
 			dir.remove(file)
 
 func _on_new_game_button_button_up():
-	call_deferred("NewGame")
+	if (!saveDataExists):
+		call_deferred("NewGame")
+	else:
+		self.hide()
+		resetDataPanel.show()
 
 func _on_continue_button_button_up():
 	LoadGameplayMap()
