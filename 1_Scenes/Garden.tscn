@@ -902,7 +902,7 @@ questItemsOnOffState = Array[bool]([false, false, false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("BridgeUpSide"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
 
 [node name="BridgeUpSide" parent="Quests/GardenLowerBridge3" instance=ExtResource("24_kec2s")]
-position = Vector2(2560, -1448)
+position = Vector2(2576, -1448)
 
 [node name="Bridge" type="Node2D" parent="Quests/GardenLowerBridge3"]
 position = Vector2(2432, -1472)
