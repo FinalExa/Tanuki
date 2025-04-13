@@ -3,6 +3,8 @@ extends Node2D
 
 @export var sceneType: GameplayScene.SceneType
 @export var requiredKeys: int
+@export var advancesQuest: bool
+@export var questToAdvance: MapQuest
 var registeredKeys: Array[int]
 
 @export var closedState: Node2D
@@ -19,6 +21,8 @@ func RegisterKey(keyID: int):
 
 func OpenDoor():
 	closedState.queue_free()
+	if (advancesQuest && questToAdvance != null):
+		questToAdvance.AdvanceStage(false, false)
 	AddOpenState()
 
 func RemoveOpenState():
