@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=93 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="30_hgddd"]
 [ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="31_rdhtp"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="33_bs5xl"]
@@ -47,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://dig5lvpyxnkjf" path="res://Level/Sprites/Ciotola vuota.png" id="45_cr3m8"]
 [ext_resource type="Texture2D" uid="uid://bwqf4nxchbdod" path="res://Level/Sprites/DANGO.png" id="46_26yah"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_jhbof"]
+[ext_resource type="Texture2D" uid="uid://dqlo6186xgu43" path="res://Level/UnlockKey/Sprites/UltraKey.png" id="47_3s7gn"]
 [ext_resource type="Texture2D" uid="uid://cpbpurwv16ahp" path="res://Level/Sprites/Ciotolona di riso.png" id="47_ye63g"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
 [ext_resource type="Texture2D" uid="uid://cnt6cusltqov3" path="res://Level/Sprites/Riso.png" id="48_umrcd"]
@@ -115,9 +117,9 @@ radius = 200.0
 radius = 200.003
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ah5uq"]
-vertices = PackedVector2Array(-2608, 336, -2352, -928, -2352, 1504, -2608, 560, -2608, -80, -2608, -304, -2608, -720, -1888, -928, -1888, -736, -1952, -736, -1952, -928, -2768, -304, -2768, -80, -2592, 1504, -2592, 1376, -2608, 976, -2784, 1376, -2768, 976, -2784, 1504, -3040, 1504, -3040, -1120, -2768, 560, -1824, -1120, -1824, -928, -2768, -720, -2768, 336)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4), PackedInt32Array(1, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 5, 4, 12), PackedInt32Array(2, 13, 14), PackedInt32Array(2, 14, 15, 3), PackedInt32Array(15, 14, 16, 17), PackedInt32Array(16, 18, 19, 20), PackedInt32Array(17, 16, 20, 21), PackedInt32Array(20, 22, 23, 7), PackedInt32Array(20, 7, 10), PackedInt32Array(20, 10, 1), PackedInt32Array(20, 1, 6, 24), PackedInt32Array(20, 24, 11), PackedInt32Array(25, 0, 3, 21), PackedInt32Array(25, 21, 20), PackedInt32Array(12, 25, 20), PackedInt32Array(20, 11, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1888, -736, -1952, -736, -1952, -928, -2352, -928, -2352, 1504, -2592, 1504, -2592, 1376, -2784, 1376, -2784, 1504, -3040, 1504, -3040, -1120, -1824, -1120, -1824, -928, -1888, -928), PackedVector2Array(-2768, -720, -2608, -720, -2608, -304, -2768, -304), PackedVector2Array(-2768, -80, -2608, -80, -2608, 336, -2768, 336), PackedVector2Array(-2768, 560, -2608, 560, -2608, 976, -2768, 976)])
+vertices = PackedVector2Array(-2608, 336, -2352, -928, -2352, 1504, -2608, 560, -2608, -80, -2608, -304, -2608, -720, -2608, 976, -2624, 1504, -2624, 1448, -2768, 976, -2752, 1448, -1888, -928, -1888, -736, -1952, -736, -1952, -928, -2768, -304, -2768, -80, -2752, 1504, -3040, 1504, -3040, -1120, -2768, 560, -1824, -1120, -1824, -928, -2768, -720, -2768, 336)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4), PackedInt32Array(1, 5, 6), PackedInt32Array(7, 2, 8, 9), PackedInt32Array(10, 7, 9, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 5, 4, 17), PackedInt32Array(11, 18, 19, 20, 10), PackedInt32Array(21, 10, 20), PackedInt32Array(20, 22, 23, 12), PackedInt32Array(20, 12, 15), PackedInt32Array(20, 15, 1), PackedInt32Array(20, 1, 6, 24), PackedInt32Array(20, 24, 16), PackedInt32Array(2, 7, 3), PackedInt32Array(25, 0, 3, 21), PackedInt32Array(25, 21, 20), PackedInt32Array(17, 25, 20), PackedInt32Array(20, 16, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1888, -736, -1952, -736, -1952, -928, -2352, -928, -2352, 1504, -2624, 1504, -2624, 1448, -2752, 1448, -2752, 1504, -3040, 1504, -3040, -1120, -1824, -1120, -1824, -928, -1888, -928), PackedVector2Array(-2768, -720, -2608, -720, -2608, -304, -2768, -304), PackedVector2Array(-2768, -80, -2608, -80, -2608, 336, -2768, 336), PackedVector2Array(-2768, 560, -2608, 560, -2608, 976, -2768, 976)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gujvt"]
 size = Vector2(384, 256)
@@ -174,7 +176,7 @@ size = Vector2(160, 896)
 size = Vector2(104, 264)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lss8t"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_211yk"]
 radius = 128.25
@@ -920,6 +922,102 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="UltraKeyRoom" type="Node2D" parent="Quests/KitchenUltraKey"]
 
+[node name="Enemies" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+
+[node name="GuardS1" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+position = Vector2(-2912, -960)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorS1")]
+
+[node name="GuardS2" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+position = Vector2(-2816, -192)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorS2")]
+
+[node name="GuardS3" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+position = Vector2(-2816, 448)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorS3")]
+
+[node name="GuardS4" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+position = Vector2(-2912, 1024)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorS4")]
+
+[node name="GuardS5" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+position = Vector2(-2464, 1024)
+patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorS5")]
+
+[node name="PatrolIndicators" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+
+[node name="PatrolIndicatorS1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2912, -704)
+script = ExtResource("30_hgddd")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../PatrolPoints/1"), NodePath("../PatrolPoints/2")]
+lookActions = Array[int]([3, 1, 0, 1])
+
+[node name="PatrolIndicatorS2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2688, -192)
+script = ExtResource("30_hgddd")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../PatrolPoints/3"), NodePath("../PatrolPoints/4")]
+lookActions = Array[int]([0, 3, 0, 2])
+
+[node name="PatrolIndicatorS3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2688, 448)
+script = ExtResource("30_hgddd")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../PatrolPoints/5"), NodePath("../PatrolPoints/6")]
+lookActions = Array[int]([0, 3, 0, 2])
+
+[node name="PatrolIndicatorS4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2912, 768)
+script = ExtResource("30_hgddd")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../PatrolPoints/7"), NodePath("../PatrolPoints/8")]
+lookActions = Array[int]([1, 0, 1, 0])
+
+[node name="PatrolIndicatorS5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+position = Vector2(-2464, 768)
+script = ExtResource("30_hgddd")
+patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+moveActions = [NodePath("../PatrolPoints/9"), NodePath("../PatrolPoints/10")]
+lookActions = Array[int]([1, 0, 1, 0])
+
+[node name="PatrolPoints" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators"]
+
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2912, -960)
+
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2912, 0)
+
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2816, -192)
+
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2560, -192)
+
+[node name="5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2816, 448)
+
+[node name="6" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2560, 448)
+
+[node name="7" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2912, 1024)
+
+[node name="8" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2912, 256)
+
+[node name="9" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2464, 1024)
+
+[node name="10" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolPoints"]
+position = Vector2(-2464, 0)
+
 [node name="Table" parent="Quests/KitchenUltraKey/UltraKeyRoom" instance=ExtResource("40_6w7qa")]
 position = Vector2(-2688, -512)
 
@@ -1554,10 +1652,13 @@ texture = ExtResource("47_ye63g")
 [node name="EndLevel" type="Node2D" parent="TemporaryAssets"]
 
 [node name="YouWinScreen" parent="TemporaryAssets/EndLevel" instance=ExtResource("39_rbvug")]
-position = Vector2(-2688, 1472)
+position = Vector2(-2688, 1504)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TemporaryAssets/EndLevel/YouWinScreen"]
 shape = SubResource("RectangleShape2D_lss8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="TemporaryAssets/EndLevel/YouWinScreen"]
+texture = ExtResource("47_3s7gn")
 
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
