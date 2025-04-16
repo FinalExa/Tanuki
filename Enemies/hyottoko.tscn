@@ -64,7 +64,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
-radius = 640.05
+radius = 512.063
 
 [node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
