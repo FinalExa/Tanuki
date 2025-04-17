@@ -13,7 +13,7 @@ reducedAreaSize = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8ttp4")
-debug_color = Color(0.384314, 0.298039, 0.152941, 0.27451)
+debug_color = Color(1, 1, 0.152941, 0.0196078)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
