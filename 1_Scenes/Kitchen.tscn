@@ -225,7 +225,6 @@ travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Quests/Kitchen
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/VaseGrownReceiver0")]
 
 [node name="Enemies" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 
 [node name="GuardA1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
