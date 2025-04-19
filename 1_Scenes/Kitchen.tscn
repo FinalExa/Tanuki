@@ -896,9 +896,9 @@ position = Vector2(-1712, -104)
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenUltraKey"
-questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, true, true, true])
+questItemsToOperate = [NodePath("EndLevel/YouWinScreen/Sprite2D"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D"), NodePath("EndLevel/YouWinScreen/Sprite2D")]
+questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, true])
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/KitchenUltraKey"]
 y_sort_enabled = true
