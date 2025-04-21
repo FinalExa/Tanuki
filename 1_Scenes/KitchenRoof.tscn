@@ -33,6 +33,7 @@ size = Vector2(376, 672)
 script = ExtResource("1_4ebhp")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 2
+keyTypeToShow = 1
 mapQuests = [NodePath("Quests/KitchenRoofDropChest"), NodePath("Quests/KitchenRoofDropLantern")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD")]
 travelingAreas = [NodePath("QuestUnlocks/UnlocksAfterKitchenGrowPlantInRoomD/VaseGrown0"), NodePath("TeleportFall/TravelingArea8"), NodePath("TeleportFall/TravelingArea9"), NodePath("TeleportFall/TravelingArea10"), NodePath("TeleportFall/TravelingArea12"), NodePath("TeleportFall/TravelingArea13"), NodePath("TeleportFall/TravelingArea14"), NodePath("TeleportFall/TravelingArea11")]

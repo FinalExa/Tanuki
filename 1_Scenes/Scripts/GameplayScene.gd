@@ -12,6 +12,7 @@ enum SceneType
 @export var playerSpawnPoint: Node2D
 
 @export var sceneType: SceneType
+@export var keyTypeToShow: SceneType
 @export var levelUnlockKeys: Array[LevelUnlockKey]
 @export var levelUnlockKeyDoors: Array[LevelUnlockKeyDoor]
 

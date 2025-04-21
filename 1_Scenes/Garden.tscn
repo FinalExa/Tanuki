@@ -310,6 +310,7 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("2_f5380")
 playerSpawnPoint = NodePath("PlayerSpawn")
 sceneType = 3
+keyTypeToShow = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]

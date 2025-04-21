@@ -9,11 +9,12 @@ func _ready():
 	playerProgressionRef = get_parent().playerRef.playerProgressionTrack
 
 func UpdateKeyCount():
-	if (sceneSelectorRef.currentScene.levelUnlockKeys.size() > 0):
+	if (playerProgressionRef.unlockKeyTypes.size() > 0):
 		var keyCount: int = 0
 		for i in playerProgressionRef.unlockKeyIDs.size():
-			if (playerProgressionRef.unlockKeyTypes[i] == sceneSelectorRef.currentScene.sceneType):
+			if (playerProgressionRef.unlockKeyTypes[i] == sceneSelectorRef.currentScene.keyTypeToShow):
 				keyCount += 1
-		text = str("Keys: ", keyCount, "/", sceneSelectorRef.currentScene.levelUnlockKeys.size())
-	else:
+		if (keyCount > 0):
+			text = str("Keys: ", keyCount)
+			return
 		text = ""
