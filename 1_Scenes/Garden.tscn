@@ -445,9 +445,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenDestroyTheBush"
-questItemsToOperate = [NodePath("DialogueArea"), NodePath("Bush"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([1, 2, 2])
-questItemsOnOffState = Array[bool]([true, false, false])
+questItemsToOperate = [NodePath("DialogueArea"), NodePath("OldTanukiNPC")]
+questItemsStages = Array[int]([1, 2])
+questItemsOnOffState = Array[bool]([true, false])
 objectsToDeleteAtQuestComplete = [NodePath("Bush"), NodePath("OldTanukiNPC"), NodePath("DialogueArea")]
 advanceOtherQuestsOnEnd = [NodePath("../GardenCrossTheWater")]
 
