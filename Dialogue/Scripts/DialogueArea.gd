@@ -80,6 +80,21 @@ func DialogueExecutingICD(delta):
 		dialogueExecuting = false
 		dialogueExecutingCooldownActive = false
 
+func Activation():
+	self.show()
+	self.set_process(true)
+	for i in self.get_child_count():
+		if (self.get_child(i) is CollisionShape2D):
+			self.get_child(i).disabled = false
+			break
+
+func Deactivation():
+	self.hide()
+	self.set_process(false)
+	for i in self.get_child_count():
+		if (self.get_child(i) is CollisionShape2D):
+			self.get_child(i).disabled = true
+
 func ActivatedByQuest():
 	if (activatedByQuest):
 		var playerRef: PlayerCharacter = get_tree().root.get_child(0).playerRef

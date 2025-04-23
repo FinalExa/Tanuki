@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2iqlm4my644" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/teapotOverHeat.png" id="4_5t3yv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ph7j"]
-radius = 128.0
+radius = 192.0
 
 [node name="TeapotPassive" type="Node2D" node_paths=PackedStringArray("heatedSprite", "heatProgressBar", "overHeatBar")]
 script = ExtResource("1_wjoe1")
