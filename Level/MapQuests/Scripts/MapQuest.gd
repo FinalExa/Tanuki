@@ -8,9 +8,9 @@ var gameplayScene: GameplayScene
 @export var questItemsStages: Array[int]
 @export var questItemsOnOffState: Array[bool]
 @export var questStageAdvancers: Array[Node2D]
-@export var objectsToActivateAtQuestComplete: Array[Node2D]
 @export var objectsToDeleteAtQuestComplete: Array[Node2D]
 @export var advanceOtherQuestsOnEnd: Array[MapQuest]
+
 var advancedBy: Node2D
 var currentQuestStage: int = 0
 var lastStage: int
@@ -22,11 +22,11 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	SaveQuestStatus(save)
 	if (currentQuestStage < lastStage):
 		for i in questItemsStages.size():
-			if (forcedAdvance && questItemsToOperate[i] is DialogueArea):
-				DeactivateObjectToOperate(questItemsToOperate[i])
+			if (forcedAdvance && questItemsToOperate[i] is DialogueArea && questItemsToOperate[i].activatedByQuest):
+				questItemsToOperate[i].queue_free()
 				continue
 			if (questItemsStages[i] == currentQuestStage):
-				OnOff(questItemsToOperate[i], questItemsOnOffState[i])
+				call_deferred("OnOff", questItemsToOperate[i], questItemsOnOffState[i])
 				continue
 			if (questItemsStages[i] > currentQuestStage):
 				break
@@ -52,7 +52,6 @@ func CheckForLastStage():
 		currentQuestStage = lastStage
 		AdvanceOtherQuestsOnEnd()
 		SaveQuestStatus(true)
-		ActivateAtQuestEnd()
 		CleanUpAfterQuestComplete()
 
 func AdvanceOtherQuestsOnEnd():
@@ -60,11 +59,6 @@ func AdvanceOtherQuestsOnEnd():
 		for i in advanceOtherQuestsOnEnd.size():
 			if (advanceOtherQuestsOnEnd[i] != null):
 				advanceOtherQuestsOnEnd[i].AdvanceStage(false, false)
-
-func ActivateAtQuestEnd():
-	for i in objectsToActivateAtQuestComplete.size():
-		if (objectsToActivateAtQuestComplete[i] != null):
-			ActivateObjectToOperate(objectsToActivateAtQuestComplete[i])
 
 func CleanUpAfterQuestComplete():
 	for i in objectsToDeleteAtQuestComplete.size():
@@ -99,10 +93,6 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
-	if (objectToOperate is DialogueArea):
-		objectToOperate.ActivatedByQuest()
-		objectToOperate.Activation()
-		return
 	if (objectToOperate is NavigationRegion2D):
 		objectToOperate.enabled = true
 		return
@@ -113,12 +103,13 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = false
+		if (objectToOperate.get_child(i) is DialogueArea):
+			objectToOperate.get_child(i).set_process(true)
+	if (objectToOperate is DialogueArea):
+		objectToOperate.ActivatedByQuest()
 
 func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
-		objectToOperate.Deactivation()
-		return
-	if (objectToOperate is DialogueArea):
 		objectToOperate.Deactivation()
 		return
 	if (objectToOperate is NavigationRegion2D):
@@ -131,3 +122,5 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = true
+		if (objectToOperate.get_child(i) is DialogueArea):
+			objectToOperate.get_child(i).set_process(false)

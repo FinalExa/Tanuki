@@ -929,14 +929,13 @@ shape = SubResource("RectangleShape2D_2wm6t")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenLowerBridge3"]
 navigation_polygon = SubResource("NavigationPolygon_c1kun")
 
-[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToActivateAtQuestComplete", "objectsToDeleteAtQuestComplete")]
+[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenSquirrelQuest"
 questItemsToOperate = [NodePath("OldTanukiNPC"), NodePath("../../Keys/UnlockKey2"), NodePath("Acorn"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("DialogueArea"), NodePath("Acorn"), NodePath("OldTanukiNPC"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("SquirrelNPC/DialogueArea"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey2"), NodePath("OldTanukiNPC")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, false, true, true, false])
-objectsToActivateAtQuestComplete = [NodePath("SquirrelNPC/DialogueArea2")]
 objectsToDeleteAtQuestComplete = [NodePath("OldTanukiNPC"), NodePath("Acorn"), NodePath("DialogueArea"), NodePath("ButtonToPush")]
 
 [node name="SquirrelNPC" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_7bmi5")]
@@ -1002,14 +1001,13 @@ deleteOnDone = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
 shape = SubResource("CircleShape2D_kmnto")
 
-[node name="GardenOniQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToActivateAtQuestComplete", "objectsToDeleteAtQuestComplete")]
+[node name="GardenOniQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenOniQuest"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("HeatSourceActivator/DialogueArea"), NodePath("DialogueArea"), NodePath("CampfireOn"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("CampfireOff"), NodePath("CampfireOn"), NodePath("ColdOniNPC/DialogueArea"), NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator/DialogueArea"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey3")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, true, false, false, true, false, true, true, true, true])
-objectsToActivateAtQuestComplete = [NodePath("HeatSourceActivator/DialogueArea")]
 objectsToDeleteAtQuestComplete = [NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("DialogueArea")]
 
 [node name="CampfireOff" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_sj75a")]
