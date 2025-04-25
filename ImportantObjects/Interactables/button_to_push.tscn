@@ -7,6 +7,7 @@
 height = 48.0
 
 [node name="ButtonToPush" type="StaticBody2D" groups=["Interactable"]]
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_a4b3q")
 neededProperties = Array[String](["Leaf"])

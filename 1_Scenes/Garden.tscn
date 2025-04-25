@@ -967,7 +967,7 @@ shape = SubResource("CircleShape2D_ndmof")
 position = Vector2(3456, 128)
 
 [node name="DialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects, since you can't transform into everything.", "While you're transporting an object, if you transform you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
+dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects, since you can't transform into everything.", "While you're transporting an object, if you transform or attack with your leaf you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
 characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 0])
 characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
 cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]

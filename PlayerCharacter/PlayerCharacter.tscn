@@ -235,9 +235,6 @@ playerMoveObjects = NodePath("PlayerMoveObjects")
 [node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("15_fe3wv")
 
-[node name="TransformedMovement" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("8_bh82x")
-
 [node name="PlayerInputs" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("14_tgchp")
@@ -252,7 +249,7 @@ playerMovement = NodePath("../Rotator/PlayerMovement")
 playerRef = NodePath("..")
 currentNormalStep = NodePath("Movement/Normal/CurrentStep")
 normalMovementSounds = [NodePath("Movement/Normal/Step1"), NodePath("Movement/Normal/Step2"), NodePath("Movement/Normal/Step3"), NodePath("Movement/Normal/Step4"), NodePath("Movement/Normal/Step5"), NodePath("Movement/Normal/Step6"), NodePath("Movement/Normal/Step7"), NodePath("Movement/Normal/Step8")]
-transformedMovementSound = NodePath("../Sounds/TransformedMovement")
+transformedMovementSound = NodePath("TransformedMovement")
 
 [node name="Movement" type="Node" parent="PlayerMovementSounds"]
 
@@ -283,6 +280,9 @@ stream = ExtResource("8_iavac")
 
 [node name="Step8" type="AudioStreamPlayer" parent="PlayerMovementSounds/Movement/Normal"]
 stream = ExtResource("9_6lwu0")
+
+[node name="TransformedMovement" type="AudioStreamPlayer" parent="PlayerMovementSounds"]
+stream = ExtResource("8_bh82x")
 
 [node name="PlayerProgressionTrack" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
 script = ExtResource("17_pusai")

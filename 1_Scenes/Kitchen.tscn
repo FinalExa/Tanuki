@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=101 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
+[ext_resource type="Texture2D" uid="uid://bm1mm2lc6s37a" path="res://ImportantObjects/TransformationObjects/Sprites/GeenTeapot-normal-001.png" id="28_2wt41"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="30_hgddd"]
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_0gh3t"]
 [ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="31_rdhtp"]
@@ -72,9 +73,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -152, 288, 0, 288, 0, 456, -152, 456, -152, 632, -48, 632, -48, 960, -152, 960, -152, 1136, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1440, 1152, 1440, 1152, 1504, -672, 1504, -672, 1352, -736, 1352, -736, 1248, -768, 1248, -768, 1056, -632, 1056, -632, 864, -736, 864, -736, 416, -632, 416, -632, 224, -768, 224, -768, 32, -632, 32, -632, -152, -736, -152, -736, -656, -632, -656)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_guwno"]
-vertices = PackedVector2Array(1120, 424, 1632, 400, 1760, 400, 1760, 488, 1632, 488, 1344, 768, 984, 768, 552, 680, 808, 424, 1632, 208, 1120, 88, 1344, -192, 1600, -608, 1600, -728, 1760, -728, 1760, -544, 1664, -544, 1664, -448, 1344, -448, 96, -608, 1760, -192, 1760, 208, 1632, 832, 1344, 832, 552, 344, 808, 88, 856, 832.148, 856, 1024, 680, 1024, 680, 832, 64, 456, 0, 456, 0, 288, 32, 288, 336, 344, 32, 16, 160, 16, 160, -416, 56, -416, 56, -640, 96, -640, 336, 680, 64, 832, 984, 832)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 0, 4), PackedInt32Array(9, 1, 0, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(12, 16, 17, 18, 19), PackedInt32Array(11, 20, 21, 9), PackedInt32Array(4, 22, 23, 5), PackedInt32Array(8, 7, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33, 34), PackedInt32Array(24, 34, 33, 35, 36, 25), PackedInt32Array(37, 38, 39, 19), PackedInt32Array(39, 40, 19), PackedInt32Array(37, 19, 18, 11, 10, 25), PackedInt32Array(36, 37, 25), PackedInt32Array(30, 34, 41, 42), PackedInt32Array(29, 42, 41, 7, 6), PackedInt32Array(26, 29, 6, 43)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(96, -608, 96, -640, 56, -640, 56, -416, 160, -416, 160, 16, 32, 16, 32, 288, 0, 288, 0, 456, 64, 456, 64, 832, 680, 832, 680, 1024, 856, 1024, 856, 832.148, 984, 832, 984, 768, 1344, 768, 1344, 832, 1632, 832, 1632, 488, 1760, 488, 1760, 400, 1632, 400, 1632, 208, 1760, 208, 1760, -192, 1344, -192, 1344, -448, 1664, -448, 1664, -544, 1760, -544, 1760, -728, 1600, -728, 1600, -608), PackedVector2Array(808, 88, 808, 424, 1120, 424, 1120, 88), PackedVector2Array(336, 344, 336, 680, 552, 680, 552, 344)])
+vertices = PackedVector2Array(1760, -192, 1760, 208, 1632, 208, 1136, 160, 1344, -192, 1632, 400, 1344, 768, 984, 768, 552, 680, 552, 344, 912, 160, 1136, -256, 1344, -448, 1600, -608, 1600, -728, 1760, -728, 1760, -544, 1664, -544, 1664, -448, 96, -608, 912, -256, 160, -416, 1760, 400, 1760, 488, 1632, 488, 1632, 832, 1344, 832, 856, 832.148, 856, 1024, 680, 1024, 680, 832, 64, 456, 0, 456, 0, 288, 32, 288, 336, 344, 32, 16, 160, 16, 56, -416, 56, -640, 96, -640, 984, 832, 64, 832, 336, 680)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 3, 2), PackedInt32Array(4, 3, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(13, 17, 18, 12, 19), PackedInt32Array(19, 12, 11, 20, 21), PackedInt32Array(5, 22, 23, 24), PackedInt32Array(24, 25, 26, 6), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(35, 34, 36, 37, 10, 9), PackedInt32Array(21, 38, 39, 19), PackedInt32Array(39, 40, 19), PackedInt32Array(37, 21, 20, 10), PackedInt32Array(8, 7, 41, 27, 30), PackedInt32Array(8, 30, 42, 43), PackedInt32Array(43, 42, 31, 35), PackedInt32Array(6, 5, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(96, -608, 96, -640, 56, -640, 56, -416, 160, -416, 160, 16, 32, 16, 32, 288, 0, 288, 0, 456, 64, 456, 64, 832, 680, 832, 680, 1024, 856, 1024, 856, 832.148, 984, 832, 984, 768, 1344, 768, 1344, 832, 1632, 832, 1632, 488, 1760, 488, 1760, 400, 1632, 400, 1632, 208, 1760, 208, 1760, -192, 1344, -192, 1344, -448, 1664, -448, 1664, -544, 1760, -544, 1760, -728, 1600, -728, 1600, -608), PackedVector2Array(912, -256, 912, 160, 1136, 160, 1136, -256), PackedVector2Array(336, 344, 336, 680, 552, 680, 552, 344)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f4sio"]
 vertices = PackedVector2Array(-2112, 960, -2224, 960, -2224, 672, -1936, 672, -1936, 736, -1784, 736, -1784, 672, -1584, 672, -1584, 1088, -1504, 1088, -1504, 512, -1336, 512, -1336, 760, -1152, 760, -1152, 672, -920, 672, -920, 760, -816, 760, -816, 872, -920, 872, -920, 1056, -768, 1056, -768, 1248, -816, 1248, -816, 1504, -1376, 1504, -1376, 1376, -1568, 1376, -1568, 1472, -2192, 1472, -2192, 1240, -2112, 1240)
@@ -240,12 +241,12 @@ y_sort_enabled = true
 
 [node name="GuardA1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-1216, -464)
-patrolIndicators = [NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/FoodStorageShelfRoom/FoodStorageShelf"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../PatrolPoints/FoodStorageShelfRoom/FoodStorageShelf"), NodePath("../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
 
 [node name="WardenC1" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
-position = Vector2(1344, 648)
+position = Vector2(1280, 384)
 wardenAlertArea = NodePath("WardenAlertArea")
-patrolIndicators = [NodePath("../../PatrolPoints/KitchenWardenRoom/PatrolKitchenWardenRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/KitchenWardenRoom/PatrolKitchenWardenRoom")]
 questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
 
@@ -256,201 +257,201 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_lkh81")
 
 [node name="WardenAlertArea" parent="Enemies/WardenC1" instance=ExtResource("6_bbdub")]
-position = Vector2(-448, -296)
+position = Vector2(-384, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/WardenC1/WardenAlertArea"]
 shape = SubResource("RectangleShape2D_8oxsb")
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
 position = Vector2(256, 712)
-patrolIndicators = [NodePath("../../PatrolPoints/KitchenHyottokoRoom/PatrolKitchenHyottokoRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/KitchenHyottokoRoom/PatrolKitchenHyottokoRoom")]
 
 [node name="GuardC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(688, -384)
-patrolIndicators = [NodePath("../../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-384, 352)
-patrolIndicators = [NodePath("../../PatrolPoints/CorridorRoom/PatrolCorridorRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/CorridorRoom/PatrolCorridorRoom")]
 
 [node name="CleanerB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("44_pmp80")]
 position = Vector2(-352, -408)
-patrolIndicators = [NodePath("../../PatrolPoints/CorridorCleanerRoom/PatrolCleanerRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/CorridorCleanerRoom/PatrolCleanerRoom")]
 
 [node name="GuardD1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-1896, 1200)
-patrolIndicators = [NodePath("../../PatrolPoints/CleanStorageRoomOnly/PatrolCleanOnlyStorageRoom"), NodePath("../../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom")]
+patrolIndicators = [NodePath("../PatrolPoints/CleanStorageRoomOnly/PatrolCleanOnlyStorageRoom"), NodePath("../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom")]
 
-[node name="PatrolPoints" type="Node2D" parent="."]
+[node name="PatrolPoints" type="Node2D" parent="Enemies"]
 
-[node name="FoodStorageRoom" type="Node2D" parent="PatrolPoints"]
+[node name="FoodStorageRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolFoodStorageRoom" parent="PatrolPoints/FoodStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolFoodStorageRoom" parent="Enemies/PatrolPoints/FoodStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1528, -608)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../1")]
 lookActions = Array[int]([0, 3, 1, 2])
 
-[node name="1" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1216, -1088)
 
-[node name="2" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1216, -232)
 
-[node name="3" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1920, -232)
 
-[node name="4" type="Node2D" parent="PatrolPoints/FoodStorageRoom"]
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1920, -1088)
 
-[node name="FoodStorageShelfRoom" type="Node2D" parent="PatrolPoints"]
+[node name="FoodStorageShelfRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="FoodStorageShelf" parent="PatrolPoints/FoodStorageShelfRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="FoodStorageShelf" parent="Enemies/PatrolPoints/FoodStorageShelfRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1304, -128)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../A2"), NodePath("../A3"), NodePath("../A2"), NodePath("../A1")]
 lookActions = Array[int]([2, 2, 2, 2])
 
-[node name="A1" type="Node2D" parent="PatrolPoints/FoodStorageShelfRoom"]
+[node name="A1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
 position = Vector2(-1328, 176)
 
-[node name="A2" type="Node2D" parent="PatrolPoints/FoodStorageShelfRoom"]
+[node name="A2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
 position = Vector2(-1328, -64)
 
-[node name="A3" type="Node2D" parent="PatrolPoints/FoodStorageShelfRoom"]
+[node name="A3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
 position = Vector2(-1328, -320)
 
-[node name="KitchenWardenRoom" type="Node2D" parent="PatrolPoints"]
+[node name="KitchenWardenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenWardenRoom" parent="PatrolPoints/KitchenWardenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenWardenRoom" parent="Enemies/PatrolPoints/KitchenWardenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(1344, -360)
-patrolActions = Array[int]([1, 2, 0, 2, 0])
-waitActions = Array[float]([6.0, 6.0])
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
+waitActions = Array[float]([4.0, 4.0, 4.0, 4.0])
 moveActions = [NodePath("../13")]
-lookActions = Array[int]([2, 0])
+lookActions = Array[int]([2, 0, 2, 1])
 
-[node name="13" type="Node2D" parent="PatrolPoints/KitchenWardenRoom"]
-position = Vector2(1344, 120)
+[node name="13" type="Node2D" parent="Enemies/PatrolPoints/KitchenWardenRoom"]
+position = Vector2(1280, -128)
 
-[node name="CleanStorageRoom" type="Node2D" parent="PatrolPoints"]
+[node name="CleanStorageRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolCleanRoomToCorridor" parent="PatrolPoints/CleanStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCleanRoomToCorridor" parent="Enemies/PatrolPoints/CleanStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-944, 648)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../15"), NodePath("../14")]
 lookActions = Array[int]([2, 3])
 
-[node name="14" type="Node2D" parent="PatrolPoints/CleanStorageRoom"]
+[node name="14" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
 position = Vector2(-640, 672)
 
-[node name="15" type="Node2D" parent="PatrolPoints/CleanStorageRoom"]
+[node name="15" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
 position = Vector2(944, 672)
 
-[node name="KitchenHyottokoRoom" type="Node2D" parent="PatrolPoints"]
+[node name="KitchenHyottokoRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenHyottokoRoom" parent="PatrolPoints/KitchenHyottokoRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenHyottokoRoom" parent="Enemies/PatrolPoints/KitchenHyottokoRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(456, -240)
 patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
 waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 moveActions = [NodePath("../19"), NodePath("../20"), NodePath("../21"), NodePath("../22")]
 
-[node name="19" type="Node2D" parent="PatrolPoints/KitchenHyottokoRoom"]
+[node name="19" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(256, 256)
 
-[node name="20" type="Node2D" parent="PatrolPoints/KitchenHyottokoRoom"]
+[node name="20" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(640, 256)
 
-[node name="21" type="Node2D" parent="PatrolPoints/KitchenHyottokoRoom"]
+[node name="21" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(640, -760)
 
-[node name="22" type="Node2D" parent="PatrolPoints/KitchenHyottokoRoom"]
+[node name="22" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(256, -760)
 
-[node name="KitchenRoom" type="Node2D" parent="PatrolPoints"]
+[node name="KitchenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenRoom" parent="PatrolPoints/KitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenRoom" parent="Enemies/PatrolPoints/KitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(768, 0)
 patrolActions = Array[int]([1, 2, 0])
 waitActions = Array[float]([1.0])
 moveActions = [NodePath("../21")]
 lookActions = Array[int]([0])
 
-[node name="21" type="Node2D" parent="PatrolPoints/KitchenRoom"]
+[node name="21" type="Node2D" parent="Enemies/PatrolPoints/KitchenRoom"]
 position = Vector2(688, -904)
 
-[node name="CorridorCleanerRoom" type="Node2D" parent="PatrolPoints"]
+[node name="CorridorCleanerRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolCleanerRoom" parent="PatrolPoints/CorridorCleanerRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCleanerRoom" parent="Enemies/PatrolPoints/CorridorCleanerRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 patrolActions = Array[int]([1, 0, 1, 0])
 waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../31"), NodePath("../32")]
 
-[node name="31" type="Node2D" parent="PatrolPoints/CorridorCleanerRoom"]
+[node name="31" type="Node2D" parent="Enemies/PatrolPoints/CorridorCleanerRoom"]
 position = Vector2(-352, -960)
 
-[node name="32" type="Node2D" parent="PatrolPoints/CorridorCleanerRoom"]
+[node name="32" type="Node2D" parent="Enemies/PatrolPoints/CorridorCleanerRoom"]
 position = Vector2(-352, 832)
 
-[node name="FoodStorageRoomToKitchenRoom" type="Node2D" parent="PatrolPoints"]
+[node name="FoodStorageRoomToKitchenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolFoodStorageRoomToKitchenRoom" parent="PatrolPoints/FoodStorageRoomToKitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolFoodStorageRoomToKitchenRoom" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-368, 256)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../33"), NodePath("../34")]
 lookActions = Array[int]([3, 2])
 
-[node name="33" type="Node2D" parent="PatrolPoints/FoodStorageRoomToKitchenRoom"]
+[node name="33" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
 position = Vector2(-1160, 136)
 
-[node name="34" type="Node2D" parent="PatrolPoints/FoodStorageRoomToKitchenRoom"]
+[node name="34" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
 position = Vector2(216, 384)
 
-[node name="CorridorRoom" type="Node2D" parent="PatrolPoints"]
+[node name="CorridorRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolCorridorRoom" parent="PatrolPoints/CorridorRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCorridorRoom" parent="Enemies/PatrolPoints/CorridorRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([0.75, 0.75, 0.75, 0.75, 0.75, 0.75])
 moveActions = [NodePath("../35"), NodePath("../36"), NodePath("../35"), NodePath("../37"), NodePath("../38"), NodePath("../37")]
 lookActions = Array[int]([2, 0, 2, 3, 2, 3])
 
-[node name="35" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+[node name="35" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 1176)
 
-[node name="36" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+[node name="36" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(768, 1304)
 
-[node name="37" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+[node name="37" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 384)
 
-[node name="38" type="Node2D" parent="PatrolPoints/CorridorRoom"]
+[node name="38" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 128)
 
-[node name="CleanStorageRoomOnly" type="Node2D" parent="PatrolPoints"]
+[node name="CleanStorageRoomOnly" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolCleanOnlyStorageRoom" parent="PatrolPoints/CleanStorageRoomOnly" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCleanOnlyStorageRoom" parent="Enemies/PatrolPoints/CleanStorageRoomOnly" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1376, 1280)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 waitActions = Array[float]([1.5, 1.5, 1.5, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../37"), NodePath("../38"), NodePath("../39"), NodePath("../38")]
 lookActions = Array[int]([0, 2, 1, 3, 1, 0])
 
-[node name="37" type="Node2D" parent="PatrolPoints/CleanStorageRoomOnly"]
+[node name="37" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1920, 1152)
 
-[node name="38" type="Node2D" parent="PatrolPoints/CleanStorageRoomOnly"]
+[node name="38" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1024, 1152)
 
-[node name="39" type="Node2D" parent="PatrolPoints/CleanStorageRoomOnly"]
+[node name="39" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1024, 832)
 
 [node name="Rooms" type="Node2D" parent="."]
@@ -715,18 +716,45 @@ y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainTeapot"
-questItemsToOperate = [NodePath("Teapot"), NodePath("Teapot")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questItemsToOperate = [NodePath("Teapot"), NodePath("Teapot"), NodePath("Table3/TeapotSprite")]
+questItemsStages = Array[int]([0, 1, 1])
+questItemsOnOffState = Array[bool]([false, true, false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Teapot" parent="Quests/KitchenObtainTeapot" instance=ExtResource("15_wdsu2")]
-position = Vector2(1648, -192)
+position = Vector2(1688, -656)
 
 [node name="ButtonToPush" parent="Quests/KitchenObtainTeapot" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
-position = Vector2(1648, -312)
+position = Vector2(1880, -648)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="Table3" parent="Quests/KitchenObtainTeapot" instance=ExtResource("40_6w7qa")]
+position = Vector2(1792, -560)
+
+[node name="CiotolaConDango" type="Sprite2D" parent="Quests/KitchenObtainTeapot/Table3"]
+position = Vector2(-24, -160)
+scale = Vector2(1, 1.33333)
+texture = ExtResource("43_c7o0r")
+
+[node name="CiotolaVuota" type="Sprite2D" parent="Quests/KitchenObtainTeapot/Table3"]
+position = Vector2(-16, 106.667)
+scale = Vector2(1, 1.33333)
+texture = ExtResource("45_cr3m8")
+
+[node name="CiotolaVuota2" type="Sprite2D" parent="Quests/KitchenObtainTeapot/Table3"]
+position = Vector2(24, 32)
+scale = Vector2(1, 1.33333)
+texture = ExtResource("45_cr3m8")
+
+[node name="CiotolaConSalmone" type="Sprite2D" parent="Quests/KitchenObtainTeapot/Table3"]
+position = Vector2(-16, -42.6667)
+scale = Vector2(1, 1.33333)
+texture = ExtResource("44_67je7")
+
+[node name="TeapotSprite" type="Sprite2D" parent="Quests/KitchenObtainTeapot/Table3"]
+position = Vector2(0, -96)
+texture = ExtResource("28_2wt41")
 
 [node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1807,35 +1835,6 @@ texture = ExtResource("34_ws6o2")
 [node name="Bacchette-003" type="Sprite2D" parent="TemporaryAssets/Table2"]
 position = Vector2(-32, -24)
 texture = ExtResource("34_ws6o2")
-
-[node name="Table3" parent="TemporaryAssets" instance=ExtResource("40_6w7qa")]
-position = Vector2(992, 264)
-scale = Vector2(1, 0.75)
-
-[node name="CiotolaConDango" type="Sprite2D" parent="TemporaryAssets/Table3"]
-position = Vector2(-24, -160)
-scale = Vector2(1, 1.33333)
-texture = ExtResource("43_c7o0r")
-
-[node name="CiotolaVuota" type="Sprite2D" parent="TemporaryAssets/Table3"]
-position = Vector2(-16, 106.667)
-scale = Vector2(1, 1.33333)
-texture = ExtResource("45_cr3m8")
-
-[node name="CiotolaVuota2" type="Sprite2D" parent="TemporaryAssets/Table3"]
-position = Vector2(24, 32)
-scale = Vector2(1, 1.33333)
-texture = ExtResource("45_cr3m8")
-
-[node name="CiotolaConSalmone" type="Sprite2D" parent="TemporaryAssets/Table3"]
-position = Vector2(-16, -42.6667)
-scale = Vector2(1, 1.33333)
-texture = ExtResource("44_67je7")
-
-[node name="CiotolonaDiRiso" type="Sprite2D" parent="TemporaryAssets/Table3"]
-position = Vector2(24, -106.667)
-scale = Vector2(1, 1.33333)
-texture = ExtResource("47_ye63g")
 
 [node name="Table4" parent="TemporaryAssets" instance=ExtResource("40_6w7qa")]
 position = Vector2(448, 512)
