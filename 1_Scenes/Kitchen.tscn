@@ -1318,7 +1318,7 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("StunArea")]
 
 [node name="StunArea" parent="QuestUnlocks/UnlocksAfterKitchenRoofDropLantern" instance=ExtResource("21_bxa72")]
-position = Vector2(2240, 136)
+position = Vector2(2144, -128)
 stunDuration = 10.0
 
 [node name="Teleports" type="Node2D" parent="."]
