@@ -25,9 +25,9 @@ animations = [{
 [node name="FirestoneAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_w22gu")
 attackTag = "Spark"
-attackDuration = 60
-attackCooldown = 90
-attackPhasesLaunch = Array[int]([0, 20])
+attackDuration = 10
+attackCooldown = 60
+attackPhasesLaunch = Array[int]([0, 5])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
 attackMovements = Array[float]([0.0, 0.0])

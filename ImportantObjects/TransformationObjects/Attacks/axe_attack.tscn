@@ -22,9 +22,9 @@ animations = [{
 [node name="AxeAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_mevib")
 attackTag = "HeavyCut"
-attackDuration = 60
-attackCooldown = 90
-attackPhasesLaunch = Array[int]([0, 20])
+attackDuration = 30
+attackCooldown = 120
+attackPhasesLaunch = Array[int]([0, 10])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
 attackMovements = Array[float]([0.0, 0.0])

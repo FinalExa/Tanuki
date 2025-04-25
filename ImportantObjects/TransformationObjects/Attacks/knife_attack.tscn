@@ -22,8 +22,8 @@ animations = [{
 [node name="KnifeAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_6o5m1")
 attackTag = "Cut"
-attackDuration = 20
-attackCooldown = 15
+attackDuration = 10
+attackCooldown = 30
 attackPhasesLaunch = Array[int]([0])
 attackHitboxes = [NodePath("ObjectAttackHitbox")]
 attackSounds = [null]
