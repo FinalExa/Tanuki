@@ -1024,10 +1024,10 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(1176, -512)
 
 [node name="DialogueArea" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["So... cold... help... me...", "I don't think I can do anything right now..."])
-characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
-cameraFocuses = [NodePath(".."), null]
+dialogueText = Array[String](["An oni? It doesn't seem you're all right... need help?", "So... cold... help... me...", "I don't think I can do anything right now... sorry..."])
+characterTalking = Array[int]([0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea"]

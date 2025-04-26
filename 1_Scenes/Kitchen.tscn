@@ -60,7 +60,7 @@
 size = Vector2(1792, 1664)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06s4t"]
-radius = 96.0
+radius = 128.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tg1ch"]
 vertices = PackedVector2Array(-768, 32, -768, 224, -928, 224, -1368, 144, -928, 32, -1368, -360, -928, -480, -928, -288, -1368, -264, -1056, -608, -1368, -512, -1248, -672, -1368, -96, -928, -160, -1368, 0, -1824, -96, -2016, -608, -2016, -736, -1375.73, -736, -1376, -672, -1824, -512, -928, 480, -1144, 480, -1144, 360, -1336, 360, -1824, 144, -1336, 512, -1504, 512, -1504, 480, -1632, 480, -1632, 448, -1776, 448, -1776, 384, -2216, 384, -2216, -440, -2248, -440, -2248, -608, -1248, -736, -1056, -736, -816, -608, -816, -480, -816, -288, -816, -160, -1824, -360, -1824, -264, -1824, 0)
@@ -201,7 +201,7 @@ size = Vector2(160, 896)
 size = Vector2(104, 264)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_211yk"]
-radius = 128.25
+radius = 112.0
 
 [node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
@@ -463,14 +463,17 @@ position = Vector2(-192, -1024)
 activated = true
 
 [node name="DialogueArea" parent="Rooms/StarterRoom/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Finally, someone who can help me! My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!"])
-characterTalking = Array[int]([2, 0, 2])
-characterEmotion = Array[int]([0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath("..")]
+dialogueText = Array[String](["Ohh we meet again, cold oni!", "My savior! Finally, someone who can help me!", "My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!", "Oh and also, there's TWO of them trapped.", "I will keep that in mind."])
+characterTalking = Array[int]([0, 2, 2, 0, 2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [null, NodePath(".."), NodePath("../KitchenCameraFocus"), null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StarterRoom/HeatSourceActivator/DialogueArea"]
 shape = SubResource("CircleShape2D_06s4t")
+
+[node name="KitchenCameraFocus" type="Node2D" parent="Rooms/StarterRoom/HeatSourceActivator"]
+position = Vector2(1408, 744)
 
 [node name="RoomA" type="Node2D" parent="Rooms"]
 
@@ -567,7 +570,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_mq0me")
 
 [node name="HeatSourceActivator2" parent="Quests/KitchenSaveTheOni" instance=ExtResource("3_fj7m5")]
-position = Vector2(1992, 992)
+position = Vector2(1984, 632)
 activated = true
 
 [node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni/HeatSourceActivator2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
@@ -1330,7 +1333,7 @@ position = Vector2(-384, -1120)
 position = Vector2(-728, 1376)
 
 [node name="TravelToGarden" type="Area2D" parent="Teleports"]
-position = Vector2(-384, -1248)
+position = Vector2(-384, -1216)
 script = ExtResource("33_bs5xl")
 sceneToLoad = "res://1_Scenes/Garden.tscn"
 removeTransformation = true
@@ -1339,7 +1342,7 @@ removeTransformation = true
 shape = SubResource("RectangleShape2D_0lcf0")
 
 [node name="GardenReceiver" type="Node2D" parent="Teleports/TravelToGarden"]
-position = Vector2(0, 128)
+position = Vector2(0, 96)
 
 [node name="TransformationsObjects" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1877,10 +1880,10 @@ y_sort_enabled = true
 position = Vector2(-1664, 656)
 
 [node name="DialogueArea" parent="NPCs/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here…", "Hey! Aren't you gonna attack me like the others?", "Why would I? I'm in pause right now... ohh the bliss...", "Huh... you look kinda worn out, everything good?", "Have you seen the brown goop around here? It DRAINS me everytime I walk on it!", "If only I had the energy to clean it, it would probably go away...", "Ohh! That sounds useful... thanks, sleepy cleaner!"])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("AreaFocus"), NodePath(".."), null]
+dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here…", "Hey! Aren't you gonna attack me like the others?", "Why would I? I'm in pause right now... ohh the bliss...", "Huh... you look kinda worn out, everything good?", "Have you seen the brown goop around here? It DRAINS me everytime I walk on it!", "If only I had the energy to clean it, it would probably go away...", "Ohh! That sounds useful... thanks, sleepy cleaner!", "Oh yeah... don't even bother removing the purple ones like the one below my feet. I tried. It's impossible, time wasted.", "I wonder why you guys in pause are so willing to give me so much information... but I'll gladly accept all of them without question! Hehe..."])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 0, 2, 0])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("AreaFocus"), NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/CleanerNPC/DialogueArea"]
@@ -1888,6 +1891,9 @@ shape = SubResource("CircleShape2D_211yk")
 
 [node name="AreaFocus" type="Node2D" parent="NPCs/CleanerNPC/DialogueArea"]
 position = Vector2(512, 264)
+
+[node name="DirtyFloorUnremoveable" parent="NPCs/CleanerNPC" instance=ExtResource("31_0gh3t")]
+position = Vector2(0, 48)
 
 [node name="Food" type="Node2D" parent="."]
 y_sort_enabled = true
