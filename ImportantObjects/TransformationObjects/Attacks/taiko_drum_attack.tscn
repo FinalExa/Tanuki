@@ -8,11 +8,11 @@ radius = 576.056
 
 [node name="TaikoDrumAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7lodv")
-attackDuration = 30
+attackDuration = 20
 attackCooldown = 60
-attackPhasesLaunch = Array[int]([0, 0])
-attackHitboxes = [null, NodePath("")]
-attackSounds = [null, null]
+attackPhasesLaunch = Array[int]([0])
+attackHitboxes = [NodePath("TaikoSpecialHitbox")]
+attackSounds = [null]
 
 [node name="TaikoSpecialHitbox" type="Area2D" parent="."]
 script = ExtResource("2_4n41i")

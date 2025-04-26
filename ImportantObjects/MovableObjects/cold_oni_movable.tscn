@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb7k6xc533l1y"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_2aulq"]
+[ext_resource type="Texture2D" uid="uid://dxfph4i1rd6rs" path="res://NPC/Sprites/miniOniCold.png" id="2_swlue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eawk8"]
+radius = 16.0
+
+[node name="ColdOniMovable" type="Area2D"]
+script = ExtResource("1_2aulq")
+movableObjectName = "ColdOniMovable"
+movableObjectProperties = Array[String](["ColdOni"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eawk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_swlue")

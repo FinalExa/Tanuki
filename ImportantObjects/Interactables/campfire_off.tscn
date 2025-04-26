@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://mmopsee6rnwu"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_5mw22"]
+[ext_resource type="Texture2D" uid="uid://dxdk06jq1v40j" path="res://ImportantObjects/Interactables/Sprites/campfire.png" id="2_8gys1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmb6d"]
+radius = 16.0
+height = 112.0
+
+[node name="CampfireOff" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_5mw22")
+neededProperties = Array[String](["Spark"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmb6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_8gys1")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://baslbth2sgli8"]
 
 [ext_resource type="PackedScene" uid="uid://0bwb8lk1y0qa" path="res://Menus/main_menu_panel.tscn" id="1_1ti7o"]
-[ext_resource type="PackedScene" uid="uid://2f017d8gv27e" path="res://Menus/continue_panel.tscn" id="2_3j00j"]
+[ext_resource type="PackedScene" uid="uid://dfuyuvqhdjqxi" path="res://Menus/reset_data_panel.tscn" id="2_njvpq"]
 [ext_resource type="PackedScene" uid="uid://sxf7ivyfqmb1" path="res://Menus/options_panel.tscn" id="3_oyaxg"]
 [ext_resource type="PackedScene" uid="uid://cjlyvhsooyjrt" path="res://Menus/video_panel.tscn" id="4_qshqy"]
 [ext_resource type="PackedScene" uid="uid://htayg4i62v4y" path="res://Menus/audio_panel.tscn" id="5_850hd"]
@@ -16,24 +16,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenuPanel" parent="." node_paths=PackedStringArray("continuePanel", "optionsPanel", "controlsPanel", "creditsPanel") instance=ExtResource("1_1ti7o")]
+[node name="MainMenuPanel" parent="." node_paths=PackedStringArray("resetDataPanel", "optionsPanel", "controlsPanel", "creditsPanel") instance=ExtResource("1_1ti7o")]
 layout_mode = 0
 offset_left = 832.0
 offset_top = 352.0
 offset_right = 1088.0
 offset_bottom = 736.0
-continuePanel = NodePath("../ContinuePanel")
+resetDataPanel = NodePath("../ResetDataPanel")
 optionsPanel = NodePath("../OptionsPanel")
 controlsPanel = NodePath("../ControlsPanel")
 creditsPanel = NodePath("../CreditsPanel")
 
-[node name="ContinuePanel" parent="." node_paths=PackedStringArray("previousPanel") instance=ExtResource("2_3j00j")]
+[node name="ResetDataPanel" parent="." node_paths=PackedStringArray("mainMenuPanel") instance=ExtResource("2_njvpq")]
 layout_mode = 0
-offset_left = 832.0
-offset_top = 416.0
-offset_right = 1088.0
-offset_bottom = 608.0
-previousPanel = NodePath("../MainMenuPanel")
+offset_left = 704.0
+offset_top = 352.0
+offset_right = 1216.0
+offset_bottom = 480.0
+mainMenuPanel = NodePath("../MainMenuPanel")
 
 [node name="OptionsPanel" parent="." node_paths=PackedStringArray("videoPanel", "audioPanel", "previousPanel") instance=ExtResource("3_oyaxg")]
 layout_mode = 0

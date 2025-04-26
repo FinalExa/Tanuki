@@ -13,7 +13,8 @@ y_sort_enabled = true
 shape = SubResource("CircleShape2D_x00p2")
 
 [node name="HeatSprite" type="Sprite2D" parent="."]
-z_index = -1
+modulate = Color(1, 1, 1, 0.588235)
+z_index = 1
 position = Vector2(0, -40)
 texture = ExtResource("1_15uuc")
 

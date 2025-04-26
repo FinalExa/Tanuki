@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://lt34q6hjgscg"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_43y3n"]
+[ext_resource type="Texture2D" uid="uid://6lnw7are12e" path="res://NPC/Sprites/squirrel.png" id="1_626df"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_0jnef"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o50jb"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md8fw"]
+atlas = ExtResource("1_626df")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md8fw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pi8u"]
+radius = 128.25
+
+[node name="SquirrelNPC" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_43y3n")
+neededProperties = Array[String](["Acorn"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o50jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -16)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
+
+[node name="InteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("interactableToOperate")]
+script = ExtResource("3_0jnef")
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionCheck"]
+shape = SubResource("CircleShape2D_4pi8u")
+
+[connection signal="body_entered" from="InteractionCheck" to="InteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionCheck" to="InteractionCheck" method="_on_body_exited"]

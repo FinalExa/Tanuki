@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2skilt2cdrvi"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_y8ui0"]
+[ext_resource type="Texture2D" uid="uid://5ocjm7ptlb3a" path="res://ImportantObjects/Interactables/Sprites/campfireOn.png" id="2_cjxtt"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_isih8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmb6d"]
+radius = 16.0
+height = 112.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6elno"]
+radius = 128.0
+
+[node name="CampfireOn" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_y8ui0")
+neededProperties = Array[String](["ColdOni"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmb6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("2_cjxtt")
+
+[node name="InteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("interactableToOperate")]
+script = ExtResource("3_isih8")
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionCheck"]
+shape = SubResource("CircleShape2D_6elno")
+
+[connection signal="body_entered" from="InteractionCheck" to="InteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionCheck" to="InteractionCheck" method="_on_body_exited"]

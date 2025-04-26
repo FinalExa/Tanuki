@@ -22,9 +22,9 @@ animations = [{
 [node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7s3bv")
 attackTag = "Leaf"
-attackDuration = 30
-attackCooldown = 150
-attackPhasesLaunch = Array[int]([0, 10])
+attackDuration = 15
+attackCooldown = 120
+attackPhasesLaunch = Array[int]([0, 5])
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, null]
 attackMovements = Array[float]([25.0, 50.0])
@@ -34,12 +34,12 @@ position = Vector2(0, -128)
 script = ExtResource("2_vmxay")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerAttackHitbox"]
-polygon = PackedVector2Array(-128, 128, 128, 128, 112, 0, 64, -64, -64, -64, -112, 0)
+polygon = PackedVector2Array(-152, 128, 152, 128, 136, -24, 88, -88, -88, -88, -136, -24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerAttackHitbox"]
-position = Vector2(-9.6776, 11.3461)
+position = Vector2(-13, -8.00001)
 rotation = 4.71239
-scale = Vector2(0.881811, 1.62683)
+scale = Vector2(1, 1.98649)
 sprite_frames = SubResource("SpriteFrames_lri8o")
 
 [connection signal="area_entered" from="PlayerAttackHitbox" to="PlayerAttackHitbox" method="_on_area_entered"]

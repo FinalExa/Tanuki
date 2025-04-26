@@ -7,13 +7,15 @@
 font = ExtResource("2_x262d")
 font_size = 20
 
-[node name="MainMenuPanel" type="Panel"]
+[node name="MainMenuPanel" type="Panel" node_paths=PackedStringArray("continueButton")]
 process_mode = 3
 offset_right = 256.0
 offset_bottom = 384.0
 script = ExtResource("1_h434p")
 activeLevelPath = "res://1_Scenes/ActiveLevel.tscn"
-gameScenePath = "res://1_Scenes/Kitchen.tscn"
+gameScenePath = "res://1_Scenes/Garden.tscn"
+continueButton = NodePath("Continue/ContinueButton")
+continueButtonColorOnDisabled = Color(1, 0, 0, 0.470588)
 
 [node name="NewGame" type="PanelContainer" parent="."]
 layout_mode = 0

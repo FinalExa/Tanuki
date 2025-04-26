@@ -22,9 +22,9 @@ animations = [{
 [node name="TeapotAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_btk0n")
 attackTag = "Water"
-attackDuration = 60
+attackDuration = 20
 attackCooldown = 90
-attackPhasesLaunch = Array[int]([0, 20])
+attackPhasesLaunch = Array[int]([0, 10])
 attackHitboxes = [null, NodePath("ObjectAttackHitbox")]
 attackSounds = [null, null]
 attackMovements = Array[float]([0.0, 0.0])

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfhni7y0k2pn7"]
+
+[ext_resource type="Texture2D" uid="uid://cyvknq464nuid" path="res://Level/Sprites/Placeholder/treeBridge.png" id="1_w2466"]
+
+[node name="TreeBridgeTile" type="Sprite2D"]
+z_index = -500
+texture = ExtResource("1_w2466")

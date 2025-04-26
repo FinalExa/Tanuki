@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8kiroa25rlj"]
+
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="1_b75i6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwnkx"]
+font = ExtResource("1_b75i6")
+font_size = 24
+font_color = Color(0, 0, 1, 1)
+outline_size = 3
+
+[node name="TransformationLabel" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -144.0
+offset_right = 60.0
+offset_bottom = -112.0
+text = "TRS_LABEL"
+label_settings = SubResource("LabelSettings_dwnkx")
+horizontal_alignment = 1
+vertical_alignment = 1

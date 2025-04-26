@@ -304,6 +304,7 @@ preCheckDuration = 0.05
 checkingSound = NodePath("../../Sounds/Checking")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardCheck"]
+modulate = Color(1, 1, 1, 0.0196078)
 position = Vector2(8.00001, 40)
 scale = Vector2(1.73438, 5.75293)
 polygon = PackedVector2Array(-73.8016, -9.73422, -64.5765, 1.39055, -50.7387, 5.56235, -96.8649, 34.7648, -115.316, 79.2639, 106.089, 79.264, 87.639, 34.765, 41.5133, 5.56242, 55.3511, 1.39064, 64.5764, -9.73412, -4.61263, -4.17179)
@@ -389,6 +390,7 @@ distractionGroup = "GuardAttract"
 possibleDistractionGroup = "PossibleGuardAttract"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardDistraction"]
+modulate = Color(1, 1, 1, 0.0196078)
 polygon = PackedVector2Array(80, -88, -80, -88, -160, -256, -192, -512, 192, -512, 160, -256)
 
 [node name="GuardDistractionDiffuseArea" type="Area2D" parent="Rotator/GuardDistraction"]
@@ -396,6 +398,7 @@ script = ExtResource("25_7n1xk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
 shape = SubResource("CircleShape2D_pnfgo")
+debug_color = Color(0, 0, 0.701961, 0.0196078)
 
 [node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "researchEnterSound", "guardController")]
 script = ExtResource("26_kna6o")

@@ -2,7 +2,6 @@ class_name GenericInteractable
 extends Node2D
 
 @export var neededProperties: Array[String]
-@export var objectoToSendInteractSignal: PuzzleObject
 @export var hasCooldown: bool
 @export var cooldownDuration: float
 @export var questToSendProgressSignal: MapQuest
@@ -20,7 +19,6 @@ func _process(delta):
 		if (cooldownTimer > 0):
 			cooldownTimer -= delta
 			return
-		SendInteractSignal()
 		cooldownActive = false
 
 func FirstStartup():
@@ -33,7 +31,6 @@ func InteractionWithRef(receivedString: String, receivedRef):
 func AttackInteraction(receivedString: String):
 	if (neededProperties.has(receivedString) && !cooldownActive):
 		ExecuteExtraEffect()
-		SendInteractSignal()
 		FinalState()
 
 func FinalState():
@@ -49,10 +46,6 @@ func ExecuteExtraEffect():
 
 func ExecuteRefEffect(_receivedRef):
 	pass
-
-func SendInteractSignal():
-	if (objectoToSendInteractSignal != null):
-		objectoToSendInteractSignal.InteractSignal()
 
 func QuestSignal():
 	if (questToSendProgressSignal != null):

@@ -22,6 +22,7 @@ func CheckForRightTransformationTag():
 				return
 			else:
 				playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
+		playerRef.playerMoveObjects.ForceDropMovableObject()
 		playerRef.transformationChangeRef.SetNoTransformationExternal()
 
 func HitboxesInRange():

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx1oi05eu5bxs"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_5r54j"]
+[ext_resource type="Texture2D" uid="uid://dr26cwpifq0kl" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/grassCutter.png" id="2_lot6r"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_delwn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2sq7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wiwh5"]
+radius = 104.0
+
+[node name="Grasscutter" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_5r54j")
+transformedName = "Grasscutter"
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Grasscutter Attack"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/grasscutter_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/grass_cutter.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2sq7f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.84217e-14, -16)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_lot6r")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_delwn")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_wiwh5")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

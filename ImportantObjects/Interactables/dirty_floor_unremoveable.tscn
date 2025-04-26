@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx3hwntm58q13"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_4b70k"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DirtyFloorInteractionCheck.gd" id="2_givbh"]
+[ext_resource type="Texture2D" uid="uid://conna4c8yy0o0" path="res://ImportantObjects/Interactables/Sprites/Sporco2 marrone.png" id="3_eesxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(128, 128)
+
+[node name="DirtyFloorUnremoveable" type="Node2D" groups=["Interactable"]]
+modulate = Color(0.533333, 0.00392157, 0.803922, 1)
+z_index = -500
+script = ExtResource("1_4b70k")
+
+[node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
+script = ExtResource("2_givbh")
+dirtyFloorInteractable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirtyFloorInteractionCheck"]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+texture = ExtResource("3_eesxi")
+
+[connection signal="area_entered" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_area_entered"]
+[connection signal="area_exited" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_area_exited"]
+[connection signal="body_entered" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="DirtyFloorInteractionCheck" to="DirtyFloorInteractionCheck" method="_on_body_exited"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1uy42bwougsx"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_apkyb"]
+[ext_resource type="Texture2D" uid="uid://c0nkj4bsn1r4x" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/fireStone.png" id="2_fwa7w"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_nw1a2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xklpx"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0a0q"]
+radius = 96.3328
+
+[node name="Firestone" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_apkyb")
+transformedName = "Firestone"
+transformedSpeedTier = 1
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Sparks"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/firestone_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/firestone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xklpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.69407e-21, -8)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_fwa7w")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_nw1a2")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_o0a0q")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

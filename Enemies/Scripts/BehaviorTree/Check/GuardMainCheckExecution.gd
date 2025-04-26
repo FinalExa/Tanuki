@@ -8,8 +8,9 @@ func Evaluate(_delta):
 func MainCheck():
 	if (guardCheck.checkWithRayCast):
 		for i in guardCheck.raycastResult.size():
-			if (guardCheck.raycastResult[i] is PlayerCharacter):
-				return DetermineSuspicionType(guardCheck.raycastResult[i])
+			var result = guardCheck.raycastResult[i]
+			if (result != null && result is PlayerCharacter):
+				return DetermineSuspicionType(result)
 		if (guardCheck.currentAlertValue > 0):
 			guardCheck.ActivateReduction()
 			return NodeState.FAILURE

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://uag6daow7xob"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_rlldu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
+
+[node name="MovableObject" type="Area2D"]
+script = ExtResource("1_rlldu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1fvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

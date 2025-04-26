@@ -5,12 +5,14 @@ enum SceneType
 {
 	TEST,
 	KITCHEN,
-	KITCHEN_ROOF
+	KITCHEN_ROOF,
+	GARDEN
 }
 
 @export var playerSpawnPoint: Node2D
 
 @export var sceneType: SceneType
+@export var keyTypeToShow: SceneType
 @export var levelUnlockKeys: Array[LevelUnlockKey]
 @export var levelUnlockKeyDoors: Array[LevelUnlockKeyDoor]
 
@@ -40,6 +42,8 @@ func SetQuests():
 			mapQuests[i].SetLastStage()
 			mapQuests[i].ExecuteCurrentStage(false, false)
 			AdvanceQuestToPlayerProgress(mapQuests[i], playerRef.playerProgressionTrack)
+		for i in mapQuests.size():
+			mapQuests[i].CheckForLastStage()
 	if (unlocksAfterQuestStages.size() > 0):
 		for i in playerRef.playerProgressionTrack.activeQuests.size():
 			CheckForUnlocksAfterQuest(playerRef.playerProgressionTrack.activeQuests[i], playerRef.playerProgressionTrack.activeQuestsStages[i])
@@ -75,7 +79,7 @@ func SetCurrentKeysForPlayer():
 			if (currentUsedArray[i] != -1):
 				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 
-func SetPlayerSpawn():
+func SetPlayerSpawn(spawnPoint: Vector2):
 	if (playerRef.isTraveling):
 		if (playerRef.positionalTraveling):
 			playerRef.global_position = playerRef.positionalDestination
@@ -83,7 +87,7 @@ func SetPlayerSpawn():
 		if (travelingReceivers.size() > 0):
 			playerRef.global_position = travelingReceivers[playerRef.travelId].global_position
 			return
-	playerRef.global_position = playerSpawnPoint.global_position
+	playerRef.global_position = spawnPoint
 
 func ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationName: String, status: bool):
 	for i in localAllowedItems.size():

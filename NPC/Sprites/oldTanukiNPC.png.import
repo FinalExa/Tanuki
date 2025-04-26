@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cplt7thcto8qr"
-path="res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"
+uid="uid://bf4g3krsiojem"
+path="res://.godot/imported/oldTanukiNPC.png-199ea3fdfc25af4c6d49ac21a6bc31f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/LeafButton.png"
-dest_files=["res://.godot/imported/LeafButton.png-ceaf232d8973d38be25fe4f031194767.ctex"]
+source_file="res://NPC/Sprites/oldTanukiNPC.png"
+dest_files=["res://.godot/imported/oldTanukiNPC.png-199ea3fdfc25af4c6d49ac21a6bc31f9.ctex"]
 
 [params]
 

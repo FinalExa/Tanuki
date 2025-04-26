@@ -39,6 +39,7 @@ func SetPlayerDataOnReload():
 	playerRef.playerMovement.SetToZero()
 	playerRef.global_position = safePosition
 	playerRef.playerAttack.ForceStopAttack()
+	playerRef.playerMoveObjects.DeleteLeftoverObject()
 
 func InstantiateNewScene():
 	var obj_scene = load(currentScenePath)
@@ -46,9 +47,11 @@ func InstantiateNewScene():
 	currentScene = obj
 	add_child(currentScene)
 	ClearTrash()
+	playerRef.currentScenePath = currentScenePath
 	sceneMaster.UpdatePathAndLoad()
 	currentScene.Initialize()
-	currentScene.SetPlayerSpawn()
+	if (sceneMaster.hasLoaded && !sceneMaster.stopResetPosition): currentScene.SetPlayerSpawn(sceneMaster.lastPos)
+	else: currentScene.SetPlayerSpawn(currentScene.playerSpawnPoint.global_position)
 	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer()
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()

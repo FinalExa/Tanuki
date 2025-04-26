@@ -9,6 +9,7 @@ var gameplayScene: GameplayScene
 @export var questItemsOnOffState: Array[bool]
 @export var questStageAdvancers: Array[Node2D]
 @export var objectsToDeleteAtQuestComplete: Array[Node2D]
+@export var advanceOtherQuestsOnEnd: Array[MapQuest]
 
 var advancedBy: Node2D
 var currentQuestStage: int = 0
@@ -21,7 +22,7 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	SaveQuestStatus(save)
 	if (currentQuestStage < lastStage):
 		for i in questItemsStages.size():
-			if (forcedAdvance && questItemsToOperate[i] is DialogueArea):
+			if (forcedAdvance && questItemsToOperate[i] is DialogueArea && questItemsToOperate[i].activatedByQuest):
 				questItemsToOperate[i].queue_free()
 				continue
 			if (questItemsStages[i] == currentQuestStage):
@@ -47,10 +48,17 @@ func GetStageAdvancerIndex():
 	return -1
 
 func CheckForLastStage():
-	if (currentQuestStage + 1 == lastStage):
+	if (currentQuestStage + 1 == lastStage || currentQuestStage == lastStage):
 		currentQuestStage = lastStage
+		AdvanceOtherQuestsOnEnd()
 		SaveQuestStatus(true)
 		CleanUpAfterQuestComplete()
+
+func AdvanceOtherQuestsOnEnd():
+	if (advanceOtherQuestsOnEnd.size() > 0):
+		for i in advanceOtherQuestsOnEnd.size():
+			if (advanceOtherQuestsOnEnd[i] != null):
+				advanceOtherQuestsOnEnd[i].AdvanceStage(false, false)
 
 func CleanUpAfterQuestComplete():
 	for i in objectsToDeleteAtQuestComplete.size():
@@ -85,13 +93,18 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
-	if (objectToOperate is TransformationObjectData):
+	if (objectToOperate is NavigationRegion2D):
+		objectToOperate.enabled = true
+		return
+	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOn()
 	objectToOperate.show()
 	objectToOperate.set_process(true)
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = false
+		if (objectToOperate.get_child(i) is DialogueArea):
+			objectToOperate.get_child(i).set_process(true)
 	if (objectToOperate is DialogueArea):
 		objectToOperate.ActivatedByQuest()
 
@@ -99,10 +112,15 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Deactivation()
 		return
-	if (objectToOperate is TransformationObjectData):
+	if (objectToOperate is NavigationRegion2D):
+		objectToOperate.enabled = false
+		return
+	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
 		objectToOperate.TurnOff()
 	objectToOperate.hide()
 	objectToOperate.set_process(false)
 	for i in objectToOperate.get_child_count():
 		if (objectToOperate.get_child(i) is CollisionShape2D || objectToOperate.get_child(i) is CollisionPolygon2D):
 			objectToOperate.get_child(i).disabled = true
+		if (objectToOperate.get_child(i) is DialogueArea):
+			objectToOperate.get_child(i).set_process(false)

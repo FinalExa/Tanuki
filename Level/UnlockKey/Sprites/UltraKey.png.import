@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bega7jwomfcft"
-path="res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"
+uid="uid://dqlo6186xgu43"
+path="res://.godot/imported/UltraKey.png-14c4c4b2526bf87e215fb76fc662dda7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/wateringCan.png"
-dest_files=["res://.godot/imported/wateringCan.png-2b75e590faba50f9b9ee81e509fc95bf.ctex"]
+source_file="res://Level/UnlockKey/Sprites/UltraKey.png"
+dest_files=["res://.godot/imported/UltraKey.png-14c4c4b2526bf87e215fb76fc662dda7.ctex"]
 
 [params]
 

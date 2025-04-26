@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgxthiupepi8w"]
+
+[ext_resource type="Texture2D" uid="uid://dusxnpc8xtuc0" path="res://Level/Sprites/Placeholder/bridgeUpSide.png" id="1_ettoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwfp0"]
+size = Vector2(16, 32)
+
+[node name="BridgeUpSide" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -80)
+texture = ExtResource("1_ettoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rwfp0")

@@ -8,7 +8,7 @@
 size = Vector2(128, 128)
 
 [node name="DirtyFloor" type="Node2D" groups=["Interactable"]]
-z_index = -999
+z_index = -500
 script = ExtResource("1_0rewg")
 neededProperties = Array[String](["Clean", "Water"])
 

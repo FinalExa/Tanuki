@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://br7usnq5q1vc"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_8304a"]
+[ext_resource type="Texture2D" uid="uid://dc4gte7i2eucn" path="res://ImportantObjects/Interactables/Sprites/Cespuglio.png" id="2_k8rbn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwyxa"]
+radius = 32.0
+height = 128.0
+
+[node name="Bush" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_8304a")
+neededProperties = Array[String](["Cut"])
+destroyOnEnd = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_k8rbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwyxa")

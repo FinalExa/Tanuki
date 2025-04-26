@@ -2,7 +2,7 @@ class_name SceneMaster
 extends Node2D
 
 var savePath: String
-var playerDataSavePath: String = "user://PlayerData.save"
+var playerDataSavePath: String = "user://saves/PlayerData.save"
 var stopResetPosition: bool
 
 var lastPos: Vector2
@@ -12,33 +12,52 @@ var lastObjectOriginalPath: String
 @export var frameMaster: FrameMaster
 @export var sceneSelector: SceneSelector
 @export var playerRef: PlayerCharacter
+var oneTimeSavePoints: Array[String]
 var isInGameplayScene: bool
 var currentlyLoadedGameplayScene: String
 
 var loadActive: bool
+var hasLoaded: bool
 
 func _ready():
 	loadActive = true
+	hasLoaded = false
 	if (get_tree().paused):
 		get_tree().paused = false
 
 func UpdatePathAndLoad():
-	savePath = "user://" + sceneSelector.get_child(0).name + ".save"
+	savePath = "user://saves/" + sceneSelector.currentScene.name + ".save"
 	if (loadActive):
 		Load()
 		loadActive = false
+		hasLoaded = true
+		CheckForMap()
 
 func Save():
-	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE))
+	CheckForFolder()
+	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), "")
 	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
 
-func SaveMapData(file):
+func SaveAndDeleteOneTimeSave(oneTimeSavePath: String):
+	CheckForFolder()
+	SaveMapData(FileAccess.open(savePath, FileAccess.WRITE), oneTimeSavePath)
+	SavePlayerData(FileAccess.open(playerDataSavePath, FileAccess.WRITE))
+
+func CheckForFolder():
+	if (!DirAccess.dir_exists_absolute("user://saves")):
+		var dir = DirAccess.open("user://")
+		dir.make_dir("saves")
+
+func SaveMapData(file, oneTimeSavePath: String):
 	file.store_var(playerRef.global_position)
+	if (oneTimeSavePath != ""):
+		oneTimeSavePoints.push_back(oneTimeSavePath)
+	file.store_var(oneTimeSavePoints)
 
 func SavePlayerData(file):
+	file.store_var(playerRef.currentScenePath)
 	file.store_var(playerRef.transformationChangeRef.currentTransformationSet)
 	file.store_var(playerRef.transformationChangeRef.currentOriginalObjectPath)
-	file.store_var(playerRef.playerSubstitutionAttack.currentSubstitutionStacks)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyTypes)
 	file.store_var(playerRef.playerProgressionTrack.unlockKeyIDs)
 	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
@@ -48,25 +67,41 @@ func SavePlayerData(file):
 	file.store_var(playerRef.playerProgressionTrack.activeQuestsAdvancers)
 
 func Load():
-	LoadMapData()
 	LoadPlayerData()
+	LoadMapData()
 	LoadOperations()
+
+func CheckForMap():
+	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScene.scene_file_path):
+		sceneSelector.ChangeScene(playerRef.currentScenePath)
+		loadActive = true
+		hasLoaded = false
 
 func LoadMapData():
 	if (FileAccess.file_exists(savePath)):
 		var file = FileAccess.open(savePath, FileAccess.READ)
 		lastPos = file.get_var()
+		DestroyOneTimeSavePoints(file.get_var())
 		stopResetPosition = false
 	else:
 		stopResetPosition = true
+
+func DestroyOneTimeSavePoints(array: Array):
+	oneTimeSavePoints.clear()
+	for i in array.size():
+		oneTimeSavePoints.push_back(array[i])
+	if (oneTimeSavePoints.size() > 0):
+		for i in oneTimeSavePoints.size():
+			var node = get_node_or_null(oneTimeSavePoints[i])
+			if (node != null): node.queue_free()
 
 func LoadPlayerData():
 	playerRef.playerProgressionTrack.ClearAll()
 	if (FileAccess.file_exists(playerDataSavePath)):
 		var file = FileAccess.open(playerDataSavePath, FileAccess.READ)
+		playerRef.currentScenePath = file.get_var()
 		lastTransformationSet = file.get_var()
 		lastObjectOriginalPath = file.get_var()
-		playerRef.playerSubstitutionAttack.currentSubstitutionStacks = file.get_var()
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyTypes)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.unlockKeyIDs)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
@@ -83,12 +118,13 @@ func ExtractArray(result, currentArray):
 	return currentArray
 
 func LoadOperations():
-	if (!stopResetPosition): playerRef.global_position = lastPos
+	if (!stopResetPosition):
+		playerRef.global_position = lastPos
 	if (lastTransformationSet):
 		var new_trs_scene = load(lastObjectOriginalPath)
 		var new_trs: TransformationObjectData = new_trs_scene.instantiate()
 		new_trs.GetScale()
-		playerRef.transformationChangeRef.SaveNewTransformation(new_trs)
+		playerRef.transformationChangeRef.transformationSaving.SaveNewTransformation(new_trs)
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.playerHUD.emit_signal("has_attack", true)

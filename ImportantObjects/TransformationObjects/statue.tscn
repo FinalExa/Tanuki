@@ -5,31 +5,28 @@
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_kmqsx"]
 [ext_resource type="Texture2D" uid="uid://ci2jb8ofbucrv" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Statua trasformazione.png" id="3_qn5gd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
-size = Vector2(80, 112)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk3eh"]
+radius = 32.0
+height = 80.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
-size = Vector2(160, 160)
+[sub_resource type="CircleShape2D" id="CircleShape2D_y667a"]
+radius = 128.25
 
-[node name="Statue" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture", "transformedTailLocation")]
+[node name="Statue" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
 collision_layer = 3
 script = ExtResource("1_gxbyp")
 transformedName = "Statue"
-transformedMaxSpeed = 300.0
-transformedProperties = Array[String](["Stable"])
+transformedProperties = Array[String](["Heavy"])
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("TransformedSprite")
-transformedTailLocation = NodePath("TailLocation")
 originalObjectPath = "res://ImportantObjects/TransformationObjects/statue.tscn"
-
-[node name="TailLocation" type="Node2D" parent="."]
-position = Vector2(0, 88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_3gx12")
+shape = SubResource("CapsuleShape2D_jk3eh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
 texture = ExtResource("2_u6hno")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
@@ -37,10 +34,11 @@ script = ExtResource("3_kmqsx")
 transformationObjectData = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
-shape = SubResource("RectangleShape2D_10nd7")
+shape = SubResource("CircleShape2D_y667a")
 
 [node name="TransformedSprite" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -16)
 texture = ExtResource("3_qn5gd")
 
 [connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]

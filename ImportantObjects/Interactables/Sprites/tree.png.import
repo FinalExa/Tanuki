@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu8kqo2agbwsu"
-path="res://.godot/imported/dish.png-57de369be83ae97a74939cf4b1d311ef.ctex"
+uid="uid://bddcgbgmprks3"
+path="res://.godot/imported/tree.png-683b5c3dacd706643097cfaca8df7497.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/dish.png"
-dest_files=["res://.godot/imported/dish.png-57de369be83ae97a74939cf4b1d311ef.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/tree.png"
+dest_files=["res://.godot/imported/tree.png-683b5c3dacd706643097cfaca8df7497.ctex"]
 
 [params]
 

@@ -8,24 +8,26 @@ extends Area2D
 var sceneMaster: SceneMaster
 var objectsInArea: Array[Node2D]
 var activated: bool
+var enabled: bool
 
 func _ready():
 	activated = true
+	enabled = true
 	sceneMaster = get_tree().root.get_child(0)
 
 func _on_body_entered(body):
-	if (body is PlayerCharacter || body is GuardController):
+	if (body is PlayerCharacter || body is EnemyController):
 		if(!objectsInArea.has(body)):
 			objectsInArea.push_back(body)
 
 func _on_body_exited(body):
-	if (body is PlayerCharacter || body is GuardController):
+	if (body is PlayerCharacter || body is EnemyController):
 		if(objectsInArea.has(body)):
 			effect.execute_leave_effect(body)
 			objectsInArea.erase(body)
 
 func _physics_process(delta):
-	if (activated):
+	if (enabled && activated):
 		execute_effects(delta)
 
 func execute_effects(delta):
@@ -37,13 +39,13 @@ func execute_effects(delta):
 				execute_effect_on_guard(objectsInArea[i], delta)
 
 func execute_effect_on_player(playerRef: PlayerCharacter, delta):
-	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationProperties.has(effectNegateProperty)):
+	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationObject.transformedProperties.has(effectNegateProperty)):
 		effect.execute_negated_effect(playerRef, delta)
 		return
 	effect.execute_effect_normally(playerRef, delta)
 
 func execute_effect_on_guard(guardRef: GuardController, delta):
-	if (guardRef.guardProperties.has(effectNegateProperty)):
+	if (guardRef.enemyProperties.has(effectNegateProperty)):
 		effect.execute_negated_effect(guardRef, delta)
 		return
 	effect.execute_effect_normally(guardRef, delta)
@@ -58,3 +60,9 @@ func SaveDestroySignalToOtherObject():
 
 func ExecuteLoadOperation():
 	pass
+
+func TurnOff():
+	enabled = false
+
+func TurnOn():
+	enabled = true

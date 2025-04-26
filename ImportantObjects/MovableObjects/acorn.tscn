@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbdj3ff0iygpr"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_c34v0"]
+[ext_resource type="Texture2D" uid="uid://cttpy72dchwfb" path="res://ImportantObjects/MovableObjects/Sprites/acorn.png" id="2_v37nw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvdj2"]
+radius = 8.0
+
+[node name="Acorn" type="Area2D"]
+script = ExtResource("1_c34v0")
+movableObjectName = "Acorn"
+movableObjectProperties = Array[String](["Acorn"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vvdj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_v37nw")

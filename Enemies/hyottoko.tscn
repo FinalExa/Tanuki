@@ -64,7 +64,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
-radius = 640.05
+radius = 384.0
 
 [node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -202,6 +202,7 @@ hyottokoController = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
 shape = SubResource("CircleShape2D_tvwmf")
+debug_color = Color(0, 0.6, 0, 0.0196078)
 
 [node name="HyottokoAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("12_ap1sf")]
 attackSounds = [null, NodePath("../../Sounds/NormalAttack")]
