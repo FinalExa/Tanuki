@@ -290,8 +290,8 @@ position = Vector2(0, 512)
 [node name="PatrolFoodStorageRoom" parent="Enemies/PatrolPoints/FoodStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1528, -608)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../1")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 3, 1, 2])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
@@ -311,8 +311,8 @@ position = Vector2(-1920, -1088)
 [node name="FoodStorageShelf" parent="Enemies/PatrolPoints/FoodStorageShelfRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1304, -128)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../A2"), NodePath("../A3"), NodePath("../A2"), NodePath("../A1")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([2, 2, 2, 2])
 
 [node name="A1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
@@ -330,8 +330,8 @@ position = Vector2(0, 512)
 [node name="PatrolKitchenWardenRoom" parent="Enemies/PatrolPoints/KitchenWardenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(1344, -360)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
-waitActions = Array[float]([4.0, 4.0, 4.0, 4.0])
 moveActions = [NodePath("../13")]
+waitActions = Array[float]([4.0, 4.0, 4.0, 4.0])
 lookActions = Array[int]([2, 0, 2, 1])
 
 [node name="13" type="Node2D" parent="Enemies/PatrolPoints/KitchenWardenRoom"]
@@ -343,8 +343,8 @@ position = Vector2(0, 512)
 [node name="PatrolCleanRoomToCorridor" parent="Enemies/PatrolPoints/CleanStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-944, 648)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../15"), NodePath("../14")]
+waitActions = Array[float]([1.0, 1.0])
 lookActions = Array[int]([2, 3])
 
 [node name="14" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
@@ -359,8 +359,8 @@ position = Vector2(0, 512)
 [node name="PatrolKitchenHyottokoRoom" parent="Enemies/PatrolPoints/KitchenHyottokoRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(456, -240)
 patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 moveActions = [NodePath("../19"), NodePath("../20"), NodePath("../21"), NodePath("../22")]
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 
 [node name="19" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(256, 256)
@@ -380,8 +380,8 @@ position = Vector2(0, 512)
 [node name="PatrolKitchenRoom" parent="Enemies/PatrolPoints/KitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(768, 0)
 patrolActions = Array[int]([1, 2, 0])
-waitActions = Array[float]([1.0])
 moveActions = [NodePath("../21")]
+waitActions = Array[float]([1.0])
 lookActions = Array[int]([0])
 
 [node name="21" type="Node2D" parent="Enemies/PatrolPoints/KitchenRoom"]
@@ -392,8 +392,8 @@ position = Vector2(0, 512)
 
 [node name="PatrolCleanerRoom" parent="Enemies/PatrolPoints/CorridorCleanerRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 patrolActions = Array[int]([1, 0, 1, 0])
-waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../31"), NodePath("../32")]
+waitActions = Array[float]([1.0, 1.0])
 
 [node name="31" type="Node2D" parent="Enemies/PatrolPoints/CorridorCleanerRoom"]
 position = Vector2(-352, -960)
@@ -406,8 +406,8 @@ position = Vector2(-352, 832)
 [node name="PatrolFoodStorageRoomToKitchenRoom" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-368, 256)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0])
 moveActions = [NodePath("../33"), NodePath("../34")]
+waitActions = Array[float]([1.0, 1.0])
 lookActions = Array[int]([3, 2])
 
 [node name="33" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
@@ -420,8 +420,8 @@ position = Vector2(216, 384)
 
 [node name="PatrolCorridorRoom" parent="Enemies/PatrolPoints/CorridorRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([0.75, 0.75, 0.75, 0.75, 0.75, 0.75])
 moveActions = [NodePath("../35"), NodePath("../36"), NodePath("../35"), NodePath("../37"), NodePath("../38"), NodePath("../37")]
+waitActions = Array[float]([0.75, 0.75, 0.75, 0.75, 0.75, 0.75])
 lookActions = Array[int]([2, 0, 2, 3, 2, 3])
 
 [node name="35" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
@@ -441,8 +441,8 @@ position = Vector2(-512, 128)
 [node name="PatrolCleanOnlyStorageRoom" parent="Enemies/PatrolPoints/CleanStorageRoomOnly" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
 position = Vector2(-1376, 1280)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.5, 1.5, 1.5, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../37"), NodePath("../38"), NodePath("../39"), NodePath("../38")]
+waitActions = Array[float]([1.5, 1.5, 1.5, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 2, 1, 3, 1, 0])
 
 [node name="37" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
@@ -1147,8 +1147,8 @@ shape = SubResource("RectangleShape2D_wgqa1")
 position = Vector2(-2688, -1472)
 script = ExtResource("30_hgddd")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
 lookActions = Array[int]([1, 2, 0, 3])
 
 [node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_1"]
@@ -1167,8 +1167,8 @@ position = Vector2(-192, 128)
 position = Vector2(-2176, -1216)
 script = ExtResource("30_hgddd")
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 2, 0])
-waitActions = Array[float]([2.0, 0.5, 2.0, 2.0, 0.5, 2.0])
 moveActions = [NodePath("1"), NodePath("4"), NodePath("1"), NodePath("2")]
+waitActions = Array[float]([2.0, 0.5, 2.0, 2.0, 0.5, 2.0])
 lookActions = Array[int]([1, 0, 2, 0, 2, 0])
 
 [node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_2"]
@@ -1184,8 +1184,8 @@ position = Vector2(192, -128)
 position = Vector2(-3072, -128)
 script = ExtResource("30_hgddd")
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 1, 2, 0, 2, 0, 2, 0, 2])
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
 moveActions = [NodePath("1"), NodePath("2")]
+waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
 lookActions = Array[int]([3, 0, 1, 3, 2, 1, 0, 2])
 
 [node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_1"]
@@ -1198,8 +1198,8 @@ position = Vector2(384, 0)
 position = Vector2(-2528, -128)
 script = ExtResource("30_hgddd")
 patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0])
-waitActions = Array[float]([1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5])
 moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8"), NodePath("9"), NodePath("10"), NodePath("11"), NodePath("10"), NodePath("9"), NodePath("12"), NodePath("13")]
+waitActions = Array[float]([1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5])
 
 [node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(96, 0)

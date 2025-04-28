@@ -324,22 +324,22 @@ y_sort_enabled = true
 
 [node name="PatrolIndicator1" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 2, 0, 2, 0, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../1"), NodePath("../2")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([1, 2, 0, 3, 0, 3, 1, 2])
 
 [node name="PatrolIndicator2" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
 position = Vector2(1984, -64)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../5"), NodePath("../6"), NodePath("../7"), NodePath("../4")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([2, 0, 3, 1])
 
 [node name="PatrolIndicator3" parent="Enemy/PatrolPoints" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
 position = Vector2(1984, 320)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 moveActions = [NodePath("../8"), NodePath("../11"), NodePath("../10"), NodePath("../9")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([3, 0, 2, 1])
 
 [node name="1" type="Node2D" parent="Enemy/PatrolPoints"]

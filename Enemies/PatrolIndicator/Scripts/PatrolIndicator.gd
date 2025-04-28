@@ -15,6 +15,6 @@ enum LookDirections {
 }
 
 @export var patrolActions: Array[ActionTypes]
-@export var waitActions: Array[float]
 @export var moveActions: Array[Node2D]
+@export var waitActions: Array[float]
 @export var lookActions: Array[LookDirections]
