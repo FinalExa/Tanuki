@@ -1337,6 +1337,7 @@ position = Vector2(-384, -1216)
 script = ExtResource("33_bs5xl")
 sceneToLoad = "res://1_Scenes/Garden.tscn"
 removeTransformation = true
+deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToGarden"]
 shape = SubResource("RectangleShape2D_0lcf0")

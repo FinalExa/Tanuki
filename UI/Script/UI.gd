@@ -19,12 +19,14 @@ signal attack_cooldown
 @export var gameOverLabel: Label
 @export var gameOverSound: AudioStreamPlayer
 @export var keyCounter: KeyCounter
+@export var loadingScreen: TextureRect
 var isInForcePause: bool
 
 func _ready():
 	pauseMenuPanel.hide()
 	dialogueUI.hide()
 	gameOverPanel.hide()
+	loadingScreen.hide()
 
 func _process(_delta):
 	PauseGame()

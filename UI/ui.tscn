@@ -49,7 +49,7 @@ font_size = 20
 font = ExtResource("3_gk6g8")
 font_size = 20
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter", "loadingScreen")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -72,6 +72,7 @@ gameOverPanel = NodePath("GameOverPanel")
 gameOverLabel = NodePath("GameOverPanel/GameOver/GameOverLabel")
 gameOverSound = NodePath("GameOverSound")
 keyCounter = NodePath("Key Counter")
+loadingScreen = NodePath("LoadingScreen")
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_x7y7m")
@@ -157,10 +158,19 @@ position = Vector2(96, 96)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_ep5f1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TransformationAttackBackground" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(93.5, 984)
 scale = Vector2(0.867188, 0.859375)
+texture = ExtResource("9_kgvep")
+
+[node name="LoadingScreen" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+z_index = 2000
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("9_kgvep")
 
 [node name="AttackCooldown" type="TextureProgressBar" parent="."]
@@ -420,7 +430,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogueUI" parent="." node_paths=PackedStringArray("playerHUD") instance=ExtResource("4_4n6p0")]
-visible = false
 offset_left = 960.0
 offset_top = 952.0
 offset_right = 1000.0

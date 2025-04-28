@@ -40,6 +40,8 @@ func SetPlayerDataOnReload():
 	playerRef.global_position = safePosition
 	playerRef.playerAttack.ForceStopAttack()
 	playerRef.playerMoveObjects.DeleteLeftoverObject()
+	playerRef.playerHUD.loadingScreen.show()
+	playerRef.playerInputs.inputsForceLocked = true
 
 func InstantiateNewScene():
 	var obj_scene = load(currentScenePath)
@@ -55,6 +57,8 @@ func InstantiateNewScene():
 	playerRef.UnsetTraveling()
 	currentScene.SetCurrentKeysForPlayer()
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
+	playerRef.playerHUD.loadingScreen.hide()
+	playerRef.playerInputs.inputsForceLocked = false
 
 func ClearTrash():
 	for i in self.get_child_count():

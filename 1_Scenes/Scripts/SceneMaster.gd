@@ -20,6 +20,8 @@ var loadActive: bool
 var hasLoaded: bool
 
 func _ready():
+	playerRef.playerHUD.loadingScreen.show()
+	playerRef.playerInputs.inputsForceLocked = true
 	loadActive = true
 	hasLoaded = false
 	if (get_tree().paused):

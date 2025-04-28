@@ -5,6 +5,7 @@ extends Area2D
 @export var sceneToLoad: String
 @export var usePositional: bool
 @export var removeTransformation: bool
+@export var deleteRoomData: bool
 var sceneMasterRef: SceneMaster
 
 func _ready():
@@ -18,4 +19,5 @@ func Travel(playerRef: PlayerCharacter):
 	playerRef.transformationChangeRef.transformationActivation.CheckForDeactivateTransformation()
 	if (removeTransformation): playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.SetTraveling(sendToTravelID, usePositional)
+	if (deleteRoomData): sceneMasterRef.Load()
 	sceneMasterRef.sceneSelector.call_deferred("ChangeScene", sceneToLoad)
