@@ -17,7 +17,7 @@ func UnsetTransformationObjectInRange(trsObjectRef: TransformationObjectData):
 		transformObjectsInRange.erase(trsObjectRef)
 
 func SetNewTransformation():
-	if (transformationChange.playerRef.playerInputs.interactInput && transformObjectsInRange.size() > 0 && !transformationChange.isTransformed):
+	if (transformationChange.playerRef.playerInputs.obtainTransformationInput && transformObjectsInRange.size() > 0 && !transformationChange.isTransformed):
 		SaveNewTransformation(transformObjectsInRange[transformObjectsInRange.size() - 1])
 		transformationChange.transformationSounds.PlayObjectSavedSound()
 		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)

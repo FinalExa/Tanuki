@@ -37,7 +37,11 @@ func LoadGameplayMap():
 	rootRef.remove_child(menuRef)
 	var obj_scene = load(activeLevelPath)
 	var sceneMaster: SceneMaster = obj_scene.instantiate()
-	sceneMaster.sceneSelector.ChangeScene(gameScenePath)
+	sceneMaster.LoadPlayerData()
+	if (sceneMaster.playerRef.currentScenePath != ""):
+		sceneMaster.sceneSelector.ChangeScene(sceneMaster.playerRef.currentScenePath)
+	else:
+		sceneMaster.sceneSelector.ChangeScene(gameScenePath)
 	rootRef.add_child(sceneMaster)
 	menuRef.queue_free()
 

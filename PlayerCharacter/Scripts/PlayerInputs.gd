@@ -6,8 +6,10 @@ var inputsLocked: bool
 
 var inputDirection: Vector2
 var attackInput: bool
+var grabInput: bool
 var transformInput: bool
-var interactInput: bool
+var obtainTransformationInput: bool
+var talkInput: bool
 var pauseInput: bool
 
 func _process(_delta):
@@ -17,8 +19,10 @@ func GetInputs():
 	if (!inputsForceLocked && !inputsLocked):
 		GetMovementInput()
 		GetAttackInput()
+		GetGrabInput()
 		GetTransformInput()
-		GetInteractInput()
+		GetObtainTransformationInput()
+		GetTalkInput()
 	GetPauseInput()
 
 func GetMovementInput():
@@ -30,17 +34,29 @@ func GetAttackInput():
 		return
 	attackInput = false
 
+func GetGrabInput():
+	if (Input.is_action_just_pressed("grab")):
+		grabInput = true
+		return
+	grabInput = false
+
 func GetTransformInput():
 	if (Input.is_action_just_pressed("transformation")):
 		transformInput = true
 		return
 	transformInput = false
 
-func GetInteractInput():
-	if (Input.is_action_just_pressed("interact")):
-		interactInput = true
+func GetObtainTransformationInput():
+	if (Input.is_action_just_pressed("obtainTransformation")):
+		obtainTransformationInput = true
 		return
-	interactInput = false
+	obtainTransformationInput = false
+
+func GetTalkInput():
+	if (Input.is_action_just_pressed("talk")):
+		talkInput = true
+		return
+	talkInput = false
 
 func GetPauseInput():
 	if (Input.is_action_just_pressed("pause")):
@@ -51,5 +67,7 @@ func GetPauseInput():
 func SetInputsToZero():
 	inputDirection = Vector2.ZERO
 	attackInput = false
+	grabInput = false
 	transformInput = false
-	interactInput = false
+	obtainTransformationInput = false
+	talkInput = false

@@ -8,7 +8,7 @@ extends Area2D
 @export var cameraFocuses: Array[Node2D]
 @export var isOnInteraction: bool
 @export var interactionLabel: Label
-@export var labelDefaultText: String = "PRESS SHIFT TO TALK"
+@export var labelDefaultText: String = "PRESS F TO TALK"
 @export var deleteOnDone: bool
 @export var advanceQuest: bool
 @export var questRef: MapQuest
@@ -48,8 +48,8 @@ func PlayerExited():
 func PlayerIn():
 	if (player != null && !dialogueExecuting):
 		if (isOnInteraction):
-			if (player.playerInputs.interactInput):
-				player.playerInputs.interactInput = false
+			if (player.playerInputs.talkInput):
+				player.playerInputs.talkInput = false
 				StartDialogue(player)
 			return
 		StartDialogue(player)

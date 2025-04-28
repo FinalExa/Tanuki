@@ -12,7 +12,7 @@ func _process(_delta):
 	SelectObjectInRange()
 
 func SelectObjectInRange():
-	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.interactInput):
+	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.grabInput):
 		currentObject = objectsInRange[GetMovableObject()]
 		currentObject.AttachToPlayer(self)
 		currentObject.TurnBothFeedbacksOff()
@@ -32,7 +32,7 @@ func GetMovableObject():
 
 func ObjectObtained():
 	if (currentObject != null):
-		if (transformationChange.isTransformed || playerInputs.interactInput):
+		if (transformationChange.isTransformed || playerInputs.grabInput):
 			DropMovableObject()
 
 func DropMovableObject():

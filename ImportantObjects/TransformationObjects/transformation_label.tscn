@@ -5,16 +5,16 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dwnkx"]
 font = ExtResource("1_b75i6")
 font_size = 24
-font_color = Color(0, 0, 1, 1)
-outline_size = 3
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
 
 [node name="TransformationLabel" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = -56.0
-offset_top = -144.0
+offset_top = -96.0
 offset_right = 60.0
-offset_bottom = -112.0
+offset_bottom = -64.0
 text = "TRS_LABEL"
 label_settings = SubResource("LabelSettings_dwnkx")
 horizontal_alignment = 1

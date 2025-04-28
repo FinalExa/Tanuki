@@ -33,7 +33,6 @@ func UpdatePathAndLoad():
 		Load()
 		loadActive = false
 		hasLoaded = true
-		CheckForMap()
 
 func Save():
 	CheckForFolder()
@@ -72,12 +71,6 @@ func Load():
 	LoadPlayerData()
 	LoadMapData()
 	LoadOperations()
-
-func CheckForMap():
-	if (playerRef.currentScenePath != "" && playerRef.currentScenePath != sceneSelector.currentScene.scene_file_path):
-		sceneSelector.ChangeScene(playerRef.currentScenePath)
-		loadActive = true
-		hasLoaded = false
 
 func LoadMapData():
 	if (FileAccess.file_exists(savePath)):
