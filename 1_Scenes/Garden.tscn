@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=117 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -75,6 +75,11 @@ vertices = PackedVector2Array(2560, -1792, 3328, -1792, 3328, -1024, 2560, -1024
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -1792, 3328, -1792, 3328, -1024, 2560, -1024)])
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uevlr"]
+vertices = PackedVector2Array(2560, -2048, 2560, -2304, 3840, -2304, 3840, -2048)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -2048, 2560, -2304, 3840, -2304, 3840, -2048)])
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
 
@@ -130,7 +135,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -1488, 1536, -1488, 1536, -1456, 1280, -1456)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpnek"]
-size = Vector2(191.999, 128)
+size = Vector2(192, 128)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vsx22"]
 vertices = PackedVector2Array(1904, -1792, 1904, -2048, 1936, -2048, 1936, -1792)
@@ -152,6 +157,11 @@ size = Vector2(128, 192)
 vertices = PackedVector2Array(1280, -568, 1536, -568, 1536, -520, 1280, -520)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -568, 1536, -568, 1536, -520, 1280, -520)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_giokm"]
+vertices = PackedVector2Array(2928, -2048, 2960, -2048, 2960, -1792, 2928, -1792)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2928, -1792, 2960, -1792, 2960, -2048, 2928, -2048)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfer"]
 size = Vector2(192, 128)
@@ -254,7 +264,10 @@ size = Vector2(2816, 224.01)
 size = Vector2(224.003, 511.999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_css13"]
-size = Vector2(192.002, 1024)
+size = Vector2(192.002, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l61en"]
+size = Vector2(192.002, 319.999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp245"]
 size = Vector2(224.003, 511.999)
@@ -313,7 +326,7 @@ sceneType = 3
 keyTypeToShow = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
+mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenChopTree5"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
@@ -414,6 +427,9 @@ navigation_polygon = SubResource("NavigationPolygon_ya0b7")
 
 [node name="NavigationRegion2D7" type="NavigationRegion2D" parent="Navmesh"]
 navigation_polygon = SubResource("NavigationPolygon_myd4d")
+
+[node name="NavigationRegion2D8" type="NavigationRegion2D" parent="Navmesh"]
+navigation_polygon = SubResource("NavigationPolygon_uevlr")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(128, 1216)
@@ -857,6 +873,39 @@ shape = SubResource("RectangleShape2D_1xmxw")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree4"]
 navigation_polygon = SubResource("NavigationPolygon_6t7yl")
 
+[node name="GardenChopTree5" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("3_14yeu")
+questName = "GardenChopTree5"
+questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, true, false, true])
+objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
+
+[node name="DeadTree" parent="Quests/GardenChopTree5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]
+position = Vector2(2944, -1776)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="TreeBridge" type="Node2D" parent="Quests/GardenChopTree5"]
+position = Vector2(2944, -1920)
+
+[node name="TreeBridgeTile" parent="Quests/GardenChopTree5/TreeBridge" instance=ExtResource("21_705du")]
+position = Vector2(0, -64)
+
+[node name="TreeBridgeTile2" parent="Quests/GardenChopTree5/TreeBridge" instance=ExtResource("21_705du")]
+position = Vector2(0, 64)
+
+[node name="MoveInteractionObject" parent="Quests/GardenChopTree5" instance=ExtResource("16_sympw")]
+position = Vector2(2944, -1920)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenChopTree5/MoveInteractionObject"]
+shape = SubResource("RectangleShape2D_kpnek")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree5"]
+navigation_polygon = SubResource("NavigationPolygon_giokm")
+
 [node name="GardenLowerBridge2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
@@ -1285,7 +1334,7 @@ transformedCollider = NodePath("../../Quests/GardenDestroyTheBush/Grasscutter/Co
 transformedTexture = NodePath("../../Quests/GardenDestroyTheBush/Grasscutter/Sprite2D")
 
 [node name="Firestone" parent="TransformationObjects" instance=ExtResource("31_75g76")]
-position = Vector2(2176, -1664)
+position = Vector2(2864, -2152)
 
 [node name="GardenFlower" parent="TransformationObjects" instance=ExtResource("38_d3xht")]
 position = Vector2(128, -1360)
@@ -1582,11 +1631,18 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_je86p")
 
 [node name="MoveInteractionObject23" parent="WaterCurrents" instance=ExtResource("16_sympw")]
-position = Vector2(3072, -1920)
+position = Vector2(3296, -1920)
 rotation = 1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject23"]
 shape = SubResource("RectangleShape2D_css13")
+
+[node name="MoveInteractionObject25" parent="WaterCurrents" instance=ExtResource("16_sympw")]
+position = Vector2(2720, -1920)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject25"]
+shape = SubResource("RectangleShape2D_l61en")
 
 [node name="MoveInteractionObject22" parent="WaterCurrents" instance=ExtResource("16_sympw")]
 position = Vector2(3328, 656)
