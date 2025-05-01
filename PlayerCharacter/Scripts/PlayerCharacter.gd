@@ -19,7 +19,6 @@ var sceneRef: Node2D
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
-var deactivationButton: DeactivationButton
 var transformationInvincibility: bool
 var isTraveling: bool
 var positionalTraveling: bool
@@ -34,19 +33,11 @@ func _ready():
 	transformationChangeRef.sceneRef = sceneRef
 
 func _process(_delta):
-	if (Input.is_action_just_pressed("interact")):
+	if (playerInputs.talkInput):
 		activate_interaction()
 
 func _physics_process(_delta):
 	move_and_slide()
-
-func set_deactivation_button(deactivationBtn: DeactivationButton):
-	buttonInteractionReady = true
-	deactivationButton = deactivationBtn
-
-func unset_deactivation_button():
-	buttonInteractionReady = false
-	deactivationButton = null
 
 func SetSavePoint(savePoint: SavePoint):
 	savePointInteractionReady = true
@@ -57,8 +48,6 @@ func RemoveSavePoint():
 	savedSavePoint = null
 
 func activate_interaction():
-	if (buttonInteractionReady):
-		deactivationButton.activate_effect()
 	if (savePointInteractionReady):
 		savedSavePoint.Save()
 

@@ -34,6 +34,8 @@ var characterRef
 @export var stunnedHit: AudioStreamPlayer2D
 @export var questToSendProgressSignal: MapQuest
 @export var sendSignalToQuestOnStunned: bool
+@export var sendSignalToQuestOnlyOnce: bool
+var questSignalSent: bool
 
 func _ready():
 	spriteRef.play("idle")
@@ -65,7 +67,7 @@ func is_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 func Damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	hitByPlayerSound.play()
 	stunnedHit.play()
-	if (sendSignalToQuestOnStunned): QuestSignal()
+	if (sendSignalToQuestOnStunned && ((sendSignalToQuestOnlyOnce && !questSignalSent) || !sendSignalToQuestOnlyOnce)): QuestSignal()
 	emit_signal("damaged", direction, tier)
 	emit_signal("damaged_no_direction")
 	emit_signal("stop_attack")
@@ -106,4 +108,5 @@ func GetRotator():
 
 func QuestSignal():
 	if (questToSendProgressSignal != null):
+		if (sendSignalToQuestOnlyOnce): questSignalSent = true
 		questToSendProgressSignal.AdvanceStageByObject(self)
