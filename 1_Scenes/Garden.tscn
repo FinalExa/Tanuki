@@ -596,10 +596,10 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(64, -576)
 
 [node name="DialogueArea" parent="Quests/GardenLowerTheBridge/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Next up young-un, do you remember your leafmanship training?", "Yes, master!", "Now that your senses have been honed, you should be able to see when you can interact with something with your leaf.", "Like here, can you see the windy aura in that area?", "Yes, I can see it master.", "It means that when you attack it with your leaf, something will happen, try it.", "Ohoh! Interesting.", "Remember that to attack with your leaf you cannot be currently transformed.", "Yes, yes..."])
-characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../ButtonToPush"), NodePath("../../ButtonToPush"), NodePath(".."), null, NodePath(".."), null]
+dialogueText = Array[String](["Next up young-un, do you remember your leafmanship training?", "Yes, master!", "Now that your senses have been honed, you should be able to see when you can interact with something with your leaf.", "Like here, can you see the windy aura in that area?", "Yes, I can see it master.", "It means that when you attack it with your leaf, something will happen, try it.", "Ohoh! Interesting.", "Remember that to attack with your leaf you cannot be currently transformed.", "Yes, yes...", "Once you are done with it, go to the other side."])
+characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0, 2])
+characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../ButtonToPush"), NodePath("../../ButtonToPush"), NodePath(".."), null, NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/OldTanukiNPC/DialogueArea"]
