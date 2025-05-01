@@ -50,6 +50,7 @@ func TransformationActive(delta):
 		else:
 			call_deferred("DeactivateTransformation")
 			transformationChange.SetNoTransformation()
+			return
 		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)
 
 func TransformationFeedbackActivation(status: bool):
