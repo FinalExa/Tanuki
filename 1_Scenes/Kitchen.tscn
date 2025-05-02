@@ -652,10 +652,10 @@ objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/WardenC1/KeySprite"), 
 
 [node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(1088, 0)
-dialogueText = Array[String](["Bwaha-ha! You know, hyottoko-man, nobody has ever stolen this key from me!", "Woah… what an achievement… so brave… *yawns*", "Hey!!! Don’t mock me!!! I’m always wide awake! I never lost my sights on this key, ever!", "Wide awake, eh? Maybe if I manage to hit him with something hurtful... he will go all \"sleepy\" and I can grab that key... hehehehehe..."])
-characterTalking = Array[int]([2, 2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0])
-cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/HyottokoC1"), NodePath("../../../Enemies/WardenC1"), null]
+dialogueText = Array[String](["Bwaha-ha! Nobody has ever stolen this key from me!", "I’m always wide awake! I never lost my sights on this key, ever! Bwaha-ahahahah!", "Wide awake, eh? Maybe if I manage to hit him with something hurtful... he will go all \"sleepy\" and I can grab that key... hehehehehe..."])
+characterTalking = Array[int]([2, 2, 0])
+characterEmotion = Array[int]([0, 0, 0])
+cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/WardenC1"), null]
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 

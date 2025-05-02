@@ -614,7 +614,7 @@ shape = SubResource("RectangleShape2D_sqy54")
 
 [node name="DialogueArea" parent="Quests/GardenLowerTheBridge" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(288, -1088)
-dialogueText = Array[String](["Nicely done young-un, we are almost done with the review.", "Let me reach you real to explain the final step of this review."])
+dialogueText = Array[String](["Nicely done young-un, we are almost done with the review.", "Let me reach you really quick to explain the final step of this review."])
 characterTalking = Array[int]([2, 2])
 characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath("../OldTanukiNPC"), NodePath("../OldTanukiNPC")]
