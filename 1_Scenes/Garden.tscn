@@ -327,8 +327,8 @@ keyTypeToShow = 3
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenChopTree5"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
-travelingAreas = [NodePath("Teleports/TravelToKitchen")]
-travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
+travelingAreas = [NodePath("Teleports/TravelToHall")]
+travelingReceivers = [NodePath("Teleports/TravelToHall/HallReceiver")]
 
 [node name="Enemy" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1127,15 +1127,15 @@ shape = SubResource("CircleShape2D_rcvry")
 
 [node name="Teleports" type="Node2D" parent="."]
 
-[node name="TravelToKitchen" parent="Teleports" instance=ExtResource("33_mq5tn")]
+[node name="TravelToHall" parent="Teleports" instance=ExtResource("33_mq5tn")]
 position = Vector2(2176, 960)
-sceneToLoad = "res://1_Scenes/Kitchen.tscn"
+sceneToLoad = "res://1_Scenes/Hall.tscn"
 removeTransformation = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToKitchen"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToHall"]
 shape = SubResource("RectangleShape2D_4qurf")
 
-[node name="KitchenReceiver" type="Node2D" parent="Teleports/TravelToKitchen"]
+[node name="HallReceiver" type="Node2D" parent="Teleports/TravelToHall"]
 position = Vector2(0, -256)
 
 [node name="AllowedZones" type="Node2D" parent="."]
