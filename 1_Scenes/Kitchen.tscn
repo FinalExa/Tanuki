@@ -893,6 +893,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_e8u4p")
 
 [node name="KitchenMeltIce" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenMeltIce"
 questItemsToOperate = [NodePath("Icewall"), NodePath("Icewall2")]
