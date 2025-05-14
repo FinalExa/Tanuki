@@ -4,28 +4,28 @@
 [ext_resource type="Texture2D" uid="uid://1pq5hrotwbpf" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/brush.png" id="2_yqxpq"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_vvm4g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gx12"]
-size = Vector2(96, 96)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wiwr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_10nd7"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xckab"]
+radius = 128.0
 
 [node name="Brush" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
 script = ExtResource("1_4xg7n")
 transformedName = "Brush"
 transformedSpeedTier = 1
-transformedTimeConsumption = 0.5
+transformedTimeConsumption = 0.75
 transformedCollider = NodePath("CollisionShape2D")
 transformedTexture = NodePath("Sprite2D")
 transformedAttackName = "Paint (Empty)"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/brush_attack.tscn"
+transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/brush_passive.tscn"
 originalObjectPath = "res://ImportantObjects/TransformationObjects/brush.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3gx12")
+shape = SubResource("CircleShape2D_6wiwr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 4.76837e-07)
-scale = Vector2(0.96, 0.96)
+position = Vector2(16, -16)
 texture = ExtResource("2_yqxpq")
 
 [node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
@@ -33,7 +33,7 @@ script = ExtResource("3_vvm4g")
 transformationObjectData = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
-shape = SubResource("RectangleShape2D_10nd7")
+shape = SubResource("CircleShape2D_xckab")
 
 [connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

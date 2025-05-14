@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=13 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="3_2xstp"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="3_7xfqb"]
 [ext_resource type="PackedScene" uid="uid://cdvfbk2miftre" path="res://NPC/password_npc.tscn" id="3_653qg"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="4_lfw02"]
+[ext_resource type="PackedScene" uid="uid://cc13ruxlo0jlw" path="res://Level/Prefabs/password_blocker_wall.tscn" id="5_yihdq"]
+[ext_resource type="PackedScene" uid="uid://bml7gqxw70ddx" path="res://ImportantObjects/PuzzleObjects/color_yokai.tscn" id="6_2boio"]
+[ext_resource type="PackedScene" uid="uid://c0npvllpgc3hb" path="res://ImportantObjects/TransformationObjects/brush.tscn" id="6_3a8lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
 size = Vector2(256, 120)
@@ -43,6 +47,62 @@ sceneType = 4
 keyTypeToShow = 4
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
+
+[node name="Quests" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="HallGetPassword" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("3_2xstp")
+questName = "HallGetPassword"
+
+[node name="PasswordNPC" parent="Quests/HallGetPassword" instance=ExtResource("3_653qg")]
+position = Vector2(0, 264)
+
+[node name="BlockerWalls" type="Node2D" parent="Quests/HallGetPassword"]
+y_sort_enabled = true
+
+[node name="PasswordBlockerWall" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(-448, 1024)
+
+[node name="PasswordBlockerWall2" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(-320, 1024)
+
+[node name="PasswordBlockerWall3" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(-192, 1024)
+
+[node name="PasswordBlockerWall4" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(-64, 1024)
+
+[node name="PasswordBlockerWall5" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(64, 1024)
+
+[node name="PasswordBlockerWall6" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(192, 1024)
+
+[node name="PasswordBlockerWall7" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(320, 1024)
+
+[node name="PasswordBlockerWall8" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
+position = Vector2(448, 1024)
+
+[node name="ColorYokais" type="Node2D" parent="Quests/HallGetPassword"]
+y_sort_enabled = true
+
+[node name="ColorYokai" parent="Quests/HallGetPassword/ColorYokais" instance=ExtResource("6_2boio")]
+position = Vector2(-768, 256)
+
+[node name="ColorYokai2" parent="Quests/HallGetPassword/ColorYokais" instance=ExtResource("6_2boio")]
+position = Vector2(768, -512)
+colorOfYokai = 1
+
+[node name="ColorYokai3" parent="Quests/HallGetPassword/ColorYokais" instance=ExtResource("6_2boio")]
+position = Vector2(-768, -512)
+colorOfYokai = 2
+
+[node name="ColorYokai4" parent="Quests/HallGetPassword/ColorYokais" instance=ExtResource("6_2boio")]
+position = Vector2(768, 256)
+colorOfYokai = 3
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -88,5 +148,8 @@ shape = SubResource("RectangleShape2D_s7gbn")
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="PasswordNPC" parent="NPCs" instance=ExtResource("3_653qg")]
-position = Vector2(0, 264)
+[node name="Transformations" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Brush" parent="Transformations" instance=ExtResource("6_3a8lq")]
+position = Vector2(-120, 264)
