@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dewr70m3jp0u0" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/brushPaintArea.png" id="2_nbsdh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mu75o"]
-radius = 192.0
+radius = 96.0
 
 [node name="BrushPassive" type="Node2D" node_paths=PackedStringArray("spriteRef")]
 script = ExtResource("1_5l72n")
 defaultColor = 4
 spriteRef = NodePath("Sprite2D")
-colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 0, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(0, 0, 0, 1)])
+colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(0, 0, 0, 1)])
+tags = Array[String](["BrushRed", "BrushGreen", "BrushBlue", "BrushYellow", "BrushEmpty"])
+UIDescription = Array[String](["Brush (Red)", "Brush (Green)", "Brush (Blue)", "Brush (Yellow)", "Brush (Empty)"])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -16)
