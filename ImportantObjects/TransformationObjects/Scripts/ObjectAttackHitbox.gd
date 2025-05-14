@@ -11,5 +11,8 @@ func LaunchAttackOnTargetInRange(targetInRange: Node2D):
 		if (targetInRange is EnemyController && stunList.has(targetInRange.enemyName)):
 			targetInRange.is_damaged(targetInRange.global_position.direction_to(self.global_position), stunTier)
 		if (targetInRange.is_in_group("Interactable")):
+			if (targetInRange is GenericInteractable && targetInRange.receiveRefAttack):
+				targetInRange.InteractionWithRef(attackTag, characterRef)
+				return
 			targetInRange.AttackInteraction(attackTag)
 			return

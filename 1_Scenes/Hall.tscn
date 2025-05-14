@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=14 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cc13ruxlo0jlw" path="res://Level/Prefabs/password_blocker_wall.tscn" id="5_yihdq"]
 [ext_resource type="PackedScene" uid="uid://bml7gqxw70ddx" path="res://ImportantObjects/PuzzleObjects/color_yokai.tscn" id="6_2boio"]
 [ext_resource type="PackedScene" uid="uid://c0npvllpgc3hb" path="res://ImportantObjects/TransformationObjects/brush.tscn" id="6_3a8lq"]
+[ext_resource type="PackedScene" uid="uid://bk4dclsr52xtc" path="res://ImportantObjects/Interactables/password_table.tscn" id="7_i27kk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
 size = Vector2(256, 120)
@@ -19,7 +20,7 @@ size = Vector2(256, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7gbn"]
 size = Vector2(512, 256)
 
-[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "travelingAreas", "travelingReceivers")]
+[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
 format = 2
@@ -45,16 +46,20 @@ script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 4
 keyTypeToShow = 4
+mapQuests = [NodePath("Quests/HallGetPassword")]
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="HallGetPassword" type="Node2D" parent="Quests"]
+[node name="HallGetPassword" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallGetPassword"
+questItemsToOperate = [NodePath("BlockerWalls/PasswordBlockerWall"), NodePath("BlockerWalls/PasswordBlockerWall2"), NodePath("BlockerWalls/PasswordBlockerWall3"), NodePath("BlockerWalls/PasswordBlockerWall4"), NodePath("BlockerWalls/PasswordBlockerWall5"), NodePath("BlockerWalls/PasswordBlockerWall6"), NodePath("BlockerWalls/PasswordBlockerWall7"), NodePath("BlockerWalls/PasswordBlockerWall8")]
+questItemsStages = Array[int]([1, 1, 1, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false])
 
 [node name="PasswordNPC" parent="Quests/HallGetPassword" instance=ExtResource("3_653qg")]
 position = Vector2(0, 264)
@@ -103,6 +108,12 @@ colorOfYokai = 2
 [node name="ColorYokai4" parent="Quests/HallGetPassword/ColorYokais" instance=ExtResource("6_2boio")]
 position = Vector2(768, 256)
 colorOfYokai = 3
+
+[node name="PasswordTable" parent="Quests/HallGetPassword" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("7_i27kk")]
+position = Vector2(0, 512)
+password = Array[int]([2, 3, 0])
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -21,7 +21,7 @@ animations = [{
 
 [node name="BrushAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_k2wmk")
-attackTag = "BrushEmpty"
+attackTag = "Brush"
 attackDuration = 20
 attackCooldown = 60
 attackPhasesLaunch = Array[int]([0, 10])
