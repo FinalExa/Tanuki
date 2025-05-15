@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=25 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -14,13 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://bk4dclsr52xtc" path="res://ImportantObjects/Interactables/password_table.tscn" id="7_i27kk"]
 [ext_resource type="PackedScene" uid="uid://ik02mrftkuwp" path="res://Level/Prefabs/carpet.tscn" id="8_nrn6o"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="9_wwcrv"]
+[ext_resource type="PackedScene" uid="uid://h53rag35ypel" path="res://NPC/entrance_completed_npc.tscn" id="11_6bsyf"]
 [ext_resource type="PackedScene" uid="uid://dtgabl236h6qh" path="res://NPC/entrance_npc.tscn" id="11_n5xws"]
 [ext_resource type="PackedScene" uid="uid://c1nobjxjvfgsh" path="res://ImportantObjects/Interactables/bell_table.tscn" id="13_7n8iq"]
 [ext_resource type="PackedScene" uid="uid://de38bsyswamo3" path="res://ImportantObjects/MovableObjects/bell_movable.tscn" id="14_8833u"]
+[ext_resource type="PackedScene" uid="uid://bcbe6lchl4yr2" path="res://ImportantObjects/Interactables/bell_table_with_uncolored_bell.tscn" id="14_hi4qj"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="14_ro1u6"]
+[ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://ImportantObjects/Interactables/door_vertical.tscn" id="15_wqf5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
-size = Vector2(256, 120)
+size = Vector2(256, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fws7"]
 size = Vector2(256, 128)
@@ -42,7 +45,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-327676, 65536, 0, -196604, 262144, 2, 131076, 262144, 2, 327684, 262144, 1, 4, 262144, 1, -262140, 262144, 1, 65531, 0, 1, -196613, 0, 1, -262149, 131072, 0, -262148, 131072, 1, -327677, 131072, 1, -327678, 131072, 1, -327679, 131072, 1, -262146, 131072, 1, -262147, 131072, 1, -262145, 327680, 3, -327680, 393216, 3, 131067, 131072, 0, 65540, 65536, 0, 196603, 0, 2, 393211, 0, 1, 458747, 0, 1, 524283, 196608, 1, 393220, 262144, 1, 458756, 65536, 1, -262150, 131072, 1, -262151, 131072, 1, -262152, 131072, 1, -262153, 0, 1, -196617, 0, 1, -131081, 0, 1, -65545, 0, 1, -9, 0, 1, 65527, 0, 1, 131063, 0, 1, 196599, 0, 1, 262135, 0, 1, 327671, 0, 1, 393207, 0, 1, 458743, 0, 1, 524279, 196608, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 524278, 131072, 1, 524277, 131072, 1, 524276, 131072, 1, 524275, 0, 1, 589811, 0, 1, 655347, 0, 1, 720883, 0, 1, 786419, 0, 1, 851955, 0, 2, 851956, 131072, 1, 851963, 131072, 0, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 917499, 0, 1, 983035, 0, 1, 1048571, 196608, 1, 1048570, 131072, 1, 1048569, 131072, 1, 1048568, 131072, 1, 1048567, 0, 1, 1114103, 0, 1, 1179639, 0, 1, 1245175, 0, 1, 1310711, 0, 1, 1376247, 0, 2, 1376248, 131072, 1, 1310727, 131072, 1, 1310726, 131072, 1, 1310725, 131072, 1, 1310724, 131072, 1, 1310723, 131072, 1, 1310722, 131072, 1, 1310721, 131072, 1, 1310720, 393216, 3, 1376255, 327680, 3, 1376254, 131072, 1, 1376253, 131072, 1, 1376252, 131072, 1, 1376251, 131072, 1, 1376250, 131072, 1, 1376249, 131072, 1, 983048, 262144, 1, 1048584, 262144, 1, 1114120, 262144, 1, 1179656, 262144, 1, 1245192, 262144, 1, 1310728, 262144, 2, 983047, 131072, 1, 983044, 65536, 1, 983045, 131072, 1, 983046, 131072, 1, 917508, 262144, 1, 851972, 262144, 1, 786436, 65536, 0, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 786444, 262144, 2, 720908, 262144, 1, 655372, 262144, 1, 589836, 262144, 1, 524300, 262144, 1, 131070, 131072, 1, 65537, 131072, 1, 65536, 131072, 1, 131071, 131072, 1, -327675, 131072, 1, -327674, 131072, 1, -327673, 131072, 1, -327672, 262144, 1, -262136, 262144, 1, -196600, 262144, 1, -131064, 262144, 1, -65528, 262144, 1, 8, 262144, 1, 65544, 262144, 1, 131080, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 327688, 262144, 1, 393224, 262144, 1, 458760, 65536, 1, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 458761, 131072, 1, 458762, 131072, 1, 458763, 196608, 1, 458764, 262144, 1, 131064, 131072, 1, 65543, 131072, 1, 65542, 131072, 1, 65541, 131072, 1, 131066, 131072, 1, 131065, 131072, 1, -131077, 0, 2)
+layer_1/tile_data = PackedInt32Array(-327676, 65536, 0, -196604, 262144, 1, 131076, 262144, 1, 327684, 262144, 1, 4, 262144, 1, -262140, 262144, 1, 65531, 0, 1, -196613, 0, 1, -262149, 131072, 0, -262148, 131072, 1, -327677, 131072, 1, -327678, 131072, 1, -327679, 131072, 1, -262146, 131072, 1, -262147, 131072, 1, -262145, 327680, 3, -327680, 393216, 3, 131067, 131072, 0, 65540, 65536, 0, 196603, 0, 1, 393211, 0, 1, 458747, 0, 1, 524283, 196608, 1, 393220, 262144, 1, 458756, 65536, 1, -262150, 131072, 1, -262151, 131072, 1, -262152, 131072, 1, -262153, 0, 1, -196617, 0, 1, -131081, 0, 1, -65545, 0, 1, -9, 0, 1, 65527, 0, 1, 131063, 0, 1, 196599, 0, 1, 262135, 0, 1, 327671, 0, 1, 393207, 0, 1, 458743, 0, 1, 524279, 196608, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 524278, 131072, 1, 524277, 131072, 1, 524276, 131072, 1, 524275, 0, 1, 589811, 0, 1, 655347, 0, 1, 720883, 0, 1, 786419, 0, 1, 851955, 0, 2, 851956, 131072, 1, 851963, 131072, 0, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 917499, 0, 1, 983035, 0, 1, 1048571, 196608, 1, 1048570, 131072, 1, 1048569, 131072, 1, 1048568, 131072, 1, 1048567, 0, 1, 1114103, 0, 1, 1179639, 0, 1, 1245175, 0, 1, 1310711, 0, 1, 1376247, 0, 2, 1376248, 131072, 1, 1310727, 131072, 1, 1310726, 131072, 1, 1310725, 131072, 1, 1310724, 131072, 1, 1310723, 131072, 1, 1310722, 131072, 1, 1310721, 131072, 1, 1310720, 393216, 3, 1376255, 327680, 3, 1376254, 131072, 1, 1376253, 131072, 1, 1376252, 131072, 1, 1376251, 131072, 1, 1376250, 131072, 1, 1376249, 131072, 1, 983048, 262144, 1, 1048584, 262144, 1, 1114120, 262144, 1, 1179656, 262144, 1, 1245192, 262144, 1, 1310728, 262144, 2, 983047, 131072, 1, 983044, 65536, 1, 983045, 131072, 1, 983046, 131072, 1, 917508, 262144, 1, 851972, 262144, 1, 786436, 65536, 0, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 786444, 262144, 2, 720908, 262144, 1, 655372, 262144, 1, 589836, 262144, 1, 524300, 262144, 1, 131070, 131072, 1, 65537, 131072, 1, 65536, 131072, 1, 131071, 131072, 1, -327675, 131072, 1, -327674, 131072, 1, -327673, 131072, 1, -327672, 262144, 1, -262136, 262144, 1, -196600, 262144, 1, -131064, 262144, 1, -65528, 262144, 1, 8, 262144, 1, 65544, 262144, 1, 131080, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 327688, 262144, 1, 393224, 262144, 1, 458760, 65536, 1, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 458761, 131072, 1, 458762, 131072, 1, 458763, 196608, 1, 458764, 262144, 1, 131064, 131072, 1, 65543, 131072, 1, 65542, 131072, 1, 65541, 131072, 1, 131066, 131072, 1, 131065, 131072, 1, -131077, 0, 1, -65541, 0, 2, 196612, 262144, 2, -131068, 262144, 2, 262139, 0, 2)
 layer_2/name = "Decorations"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -67,7 +70,7 @@ y_sort_enabled = true
 position = Vector2(0, 320)
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("3_trsi0")]
-position = Vector2(-2816, -64)
+position = Vector2(416, -488)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("3_trsi0")]
 position = Vector2(-2816, -64)
@@ -79,6 +82,7 @@ position = Vector2(-2816, -64)
 position = Vector2(-2816, -64)
 
 [node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("4_vuvq6")]
+position = Vector2(-2816, 64)
 sceneType = 4
 
 [node name="Quests" type="Node2D" parent="."]
@@ -150,12 +154,15 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallFixEntrance"
-questItemsToOperate = [NodePath("DirtyFloor")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, true, true, true, true, false, false, true, false, false, true, true])
 
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(320, -512)
+
+[node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
+position = Vector2(320, -472)
 
 [node name="Carpet" parent="Quests/HallFixEntrance" instance=ExtResource("8_nrn6o")]
 position = Vector2(0, -320)
@@ -166,13 +173,35 @@ position = Vector2(0, -320)
 scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+destroyOnEnd = true
 
 [node name="BellTable" parent="Quests/HallFixEntrance" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("13_7n8iq")]
 position = Vector2(320, -456)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="BellTableWithUncoloredBell" parent="Quests/HallFixEntrance" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("14_hi4qj")]
+position = Vector2(320, -456)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
 [node name="BellMovable" parent="Quests/HallFixEntrance" instance=ExtResource("14_8833u")]
+position = Vector2(960, 704)
+
+[node name="Doors" type="Node2D" parent="Quests/HallFixEntrance"]
+y_sort_enabled = true
+
+[node name="DoorVertical" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
+position = Vector2(520, 0)
+
+[node name="DoorVertical2" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
+position = Vector2(-520, 0)
+
+[node name="DoorVertical3" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
+position = Vector2(-520, 640)
+
+[node name="DoorVertical4" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
+position = Vector2(520, 640)
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -181,17 +210,16 @@ y_sort_enabled = true
 position = Vector2(0, -384)
 
 [node name="TravelToGarden" parent="Teleports" instance=ExtResource("3_7xfqb")]
-position = Vector2(0, -632)
+position = Vector2(0, -616)
 sceneToLoad = "res://1_Scenes/Garden.tscn"
 removeTransformation = true
 deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToGarden"]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_xnkah")
 
 [node name="GardenReceiver" type="Node2D" parent="Teleports/TravelToGarden"]
-position = Vector2(0, 184)
+position = Vector2(0, 136)
 
 [node name="TravelToKitchen" parent="Teleports" instance=ExtResource("3_7xfqb")]
 position = Vector2(0, 2752)

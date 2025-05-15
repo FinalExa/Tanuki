@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcbe6lchl4yr2"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BellTableUncoloredInteractable.gd" id="1_wkmgc"]
+[ext_resource type="Texture2D" uid="uid://bd8qdm87vx07k" path="res://ImportantObjects/Interactables/Sprites/BellTableUncoloredBell.png" id="2_6k6l1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(64, 56)
+
+[node name="BellTableWithUncoloredBell" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_wkmgc")
+rightColor = 3
+neededProperties = Array[String](["Brush"])
+receiveRefAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_6k6l1")

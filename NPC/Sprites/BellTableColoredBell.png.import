@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pq5hrotwbpf"
-path="res://.godot/imported/brush.png-6b406266f250d38d5dbd7d1a971f1506.ctex"
+uid="uid://v6q1lvrbuy56"
+path="res://.godot/imported/BellTableColoredBell.png-990c603b96a2d9e690bcb405a0f28e24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/brush.png"
-dest_files=["res://.godot/imported/brush.png-6b406266f250d38d5dbd7d1a971f1506.ctex"]
+source_file="res://NPC/Sprites/BellTableColoredBell.png"
+dest_files=["res://.godot/imported/BellTableColoredBell.png-990c603b96a2d9e690bcb405a0f28e24.ctex"]
 
 [params]
 

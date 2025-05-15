@@ -12,7 +12,9 @@ movableObjectName = "Bell"
 movableObjectProperties = Array[String](["Bell"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_7w1ou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
 texture = ExtResource("2_s3gs8")
