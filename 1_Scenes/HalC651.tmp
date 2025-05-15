@@ -294,7 +294,7 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallStunWarden"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("KeySprite"), NodePath("../../Keys/UnlockKey5")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("../../Keys/UnlockKey5"), NodePath("KeySprite")]
 questItemsStages = Array[int]([0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true])
 

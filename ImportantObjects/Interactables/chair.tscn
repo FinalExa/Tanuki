@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3b2y5u3omnwj"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_oe2it"]
+[ext_resource type="Texture2D" uid="uid://dc05xcwf83ihw" path="res://ImportantObjects/Interactables/Sprites/Chair.png" id="2_muiqp"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_frnay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqp1t"]
+radius = 96.0
+
+[node name="Chair" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_oe2it")
+neededProperties = Array[String](["Cushion"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("2_muiqp")
+
+[node name="InteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("interactableToOperate")]
+script = ExtResource("3_frnay")
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionCheck"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_lqp1t")
+
+[connection signal="body_entered" from="InteractionCheck" to="InteractionCheck" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionCheck" to="InteractionCheck" method="_on_body_exited"]
