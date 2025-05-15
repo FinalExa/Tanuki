@@ -16,7 +16,7 @@ enum BrushColor
 var currentColorYokaiIn: ColorYokai
 var currentColor: BrushColor
 
-func _process(delta):
+func _process(_delta):
 	if (!transformationChangeRef.isTransformed):
 		if (self.visible): self.hide()
 		ChangeColor(defaultColor)

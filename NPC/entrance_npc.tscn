@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtgabl236h6qh"]
+
+[ext_resource type="Texture2D" uid="uid://b4ihnxb4wdwms" path="res://NPC/Sprites/EntranceYokai.png" id="1_sxgky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7bnv"]
+atlas = ExtResource("1_sxgky")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7bnv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="EntranceNPC" type="Node2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
