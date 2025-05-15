@@ -111,6 +111,7 @@ position = Vector2(1024, 1280)
 [node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("4_vuvq6")]
 position = Vector2(1408, 960)
 sceneType = 4
+requiredKeys = 3
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
