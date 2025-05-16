@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=49 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -36,10 +36,40 @@
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="27_g2aog"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="27_mnraf"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ufbmp"]
+vertices = PackedVector2Array(480, 992, 480, 1056, -480, 1056, -480, 992)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-480, 992, -480, 1056, 480, 1056, 480, 992)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_snuya"]
+vertices = PackedVector2Array(-992, 192, -992, -480, -560, -480, -560, -160, -480, -160, -480, -96, -560, -96, -560, 192)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-992, -480, -560, -480, -560, -160, -480, -160, -480, -96, -560, -96, -560, 192, -992, 192)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_61bmf"]
+vertices = PackedVector2Array(-992, 288, -560, 288, -560, 480, -992, 960, -480, 480, -480, 544, -560, 544, -560, 960)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-992, 288, -992, 960, -560, 960, -560, 544, -480, 544, -480, 480, -560, 480, -560, 288)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g77qr"]
+vertices = PackedVector2Array(560, -160, 560, -480, 992, -480, 992, 192, 560, 192, 560, -96, 480, -96, 480, -160)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(0, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 992, -480, 992, 192, 560, 192, 560, -96, 480, -96, 480, -160, 560, -160)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3ub4d"]
+vertices = PackedVector2Array(560, 480, 560, 288, 992, 288, 992, 960, 560, 960, 560, 544, 480, 544, 480, 480)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(0, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 992, 288, 992, 960, 560, 960, 560, 544, 480, 544, 480, 480, 560, 480)])
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a11ha"]
 vertices = PackedVector2Array(-1504, 800, -1320, 800, -1320, 1056, -1504, 1056)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1320, 1056, -1320, 800, -1504, 800)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_trede"]
+vertices = PackedVector2Array(800, 1984, 800, 1824, 992, 1824, 864, 1984, 992, 1984, 928, 1984, 928, 2080, 864, 2080)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(800, 1824, 992, 1824, 992, 1984, 928, 1984, 928, 2080, 864, 2080, 864, 1984, 800, 1984)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
 size = Vector2(256, 112)
@@ -57,6 +87,11 @@ size = Vector2(3584, 608)
 vertices = PackedVector2Array(-1760, 1600, -1760, 1056, 1760, 1056, -480, 1600, 1760, 1600, 480, 1600, 480, 2080, -480, 2080, 992, 2080, 992, 2624, -992, 2624, -992, 2080)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(6, 8, 9, 10), PackedInt32Array(7, 6, 10), PackedInt32Array(7, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, 1760, 1056, 1760, 1600, 480, 1600, 480, 2080, 992, 2080, 992, 2624, -992, 2624, -992, 2080, -480, 2080, -480, 1600, -1760, 1600)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xd0cj"]
+vertices = PackedVector2Array(480, -480, 480, 992, 288, 288, 288, 192, 384, -424, 88, 544, 88, 376, -288, 288, -88, 376, -480, 992, -88, 544, -480, -480, 256, -480, 256, -424, -288, 192, 384, -480)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 1, 5, 6), PackedInt32Array(7, 2, 6, 8), PackedInt32Array(5, 1, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(4, 15, 0), PackedInt32Array(13, 4, 3, 14), PackedInt32Array(9, 11, 14, 7), PackedInt32Array(10, 9, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-480, -480, -480, 992, 480, 992, 480, -480, 384, -480, 384, -424, 256, -424, 256, -480), PackedVector2Array(-288, 288, -288, 192, 288, 192, 288, 288), PackedVector2Array(-88, 544, -88, 376, 88, 376, 88, 544)])
 
 [node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
@@ -120,9 +155,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallGetPassword"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("BlockerWalls/PasswordBlockerWall"), NodePath("BlockerWalls/PasswordBlockerWall2"), NodePath("BlockerWalls/PasswordBlockerWall3"), NodePath("BlockerWalls/PasswordBlockerWall4"), NodePath("BlockerWalls/PasswordBlockerWall5"), NodePath("BlockerWalls/PasswordBlockerWall6"), NodePath("BlockerWalls/PasswordBlockerWall7"), NodePath("BlockerWalls/PasswordBlockerWall8"), NodePath("../../Keys/UnlockKey1")]
-questItemsStages = Array[int]([0, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("NavigationRegion2D"), NodePath("BlockerWalls/PasswordBlockerWall"), NodePath("BlockerWalls/PasswordBlockerWall2"), NodePath("BlockerWalls/PasswordBlockerWall3"), NodePath("BlockerWalls/PasswordBlockerWall4"), NodePath("BlockerWalls/PasswordBlockerWall5"), NodePath("BlockerWalls/PasswordBlockerWall6"), NodePath("BlockerWalls/PasswordBlockerWall7"), NodePath("BlockerWalls/PasswordBlockerWall8"), NodePath("NavigationRegion2D"), NodePath("../../Keys/UnlockKey1")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, true, true])
 
 [node name="PasswordNPC" parent="Quests/HallGetPassword" instance=ExtResource("3_653qg")]
 position = Vector2(0, 264)
@@ -178,13 +213,16 @@ password = Array[int]([2, 3, 0])
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallGetPassword"]
+navigation_polygon = SubResource("NavigationPolygon_ufbmp")
+
 [node name="HallFixEntrance" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallFixEntrance"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, true, true, true, true, false, false, true, false, false, true, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D2"), NodePath("NavigationRegion2D3"), NodePath("NavigationRegion2D4"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D2"), NodePath("NavigationRegion2D3"), NodePath("NavigationRegion2D4"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, false, false, true, false, false, true, true])
 
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(320, -512)
@@ -230,6 +268,18 @@ position = Vector2(-520, 640)
 
 [node name="DoorVertical4" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
 position = Vector2(520, 640)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallFixEntrance"]
+navigation_polygon = SubResource("NavigationPolygon_snuya")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Quests/HallFixEntrance"]
+navigation_polygon = SubResource("NavigationPolygon_61bmf")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Quests/HallFixEntrance"]
+navigation_polygon = SubResource("NavigationPolygon_g77qr")
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="Quests/HallFixEntrance"]
+navigation_polygon = SubResource("NavigationPolygon_3ub4d")
 
 [node name="HallHiddenRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -279,9 +329,9 @@ position = Vector2(-1600, 960)
 [node name="HallStopTheDoor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 script = ExtResource("3_2xstp")
 questName = "HallStopTheDoor"
-questItemsToOperate = [NodePath("DoorEvil"), NodePath("DoorStopMovable")]
-questItemsStages = Array[int]([1, 1])
-questItemsOnOffState = Array[bool]([false, false])
+questItemsToOperate = [NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D"), NodePath("DoorEvil"), NodePath("DoorStopMovable")]
+questItemsStages = Array[int]([0, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, true, false, false])
 
 [node name="DoorStopMovable" parent="Quests/HallStopTheDoor" instance=ExtResource("22_2d6nn")]
 position = Vector2(-960, 64)
@@ -290,6 +340,9 @@ position = Vector2(-960, 64)
 position = Vector2(896, 2048)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallStopTheDoor"]
+navigation_polygon = SubResource("NavigationPolygon_trede")
 
 [node name="HallStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
@@ -403,6 +456,9 @@ position = Vector2(1088, 1280)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegions"]
 navigation_polygon = SubResource("NavigationPolygon_b0ej7")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="NavigationRegions"]
+navigation_polygon = SubResource("NavigationPolygon_xd0cj")
 
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
