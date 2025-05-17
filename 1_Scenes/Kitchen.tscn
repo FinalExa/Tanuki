@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=106 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="19_j74hm"]
 [ext_resource type="PackedScene" uid="uid://dwgotngbjqr82" path="res://ImportantObjects/Interactables/ice_wall.tscn" id="19_qojnu"]
 [ext_resource type="PackedScene" uid="uid://bvmhaxddhfn23" path="res://ImportantObjects/Interactables/furnace_fake.tscn" id="19_sfcgv"]
-[ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://ImportantObjects/Interactables/vase_grown.tscn" id="20_0oc42"]
+[ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://Level/Prefabs/vase_grown.tscn" id="20_0oc42"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="20_fuftr"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
 [ext_resource type="Texture2D" uid="uid://bm1mm2lc6s37a" path="res://ImportantObjects/TransformationObjects/Sprites/GeenTeapot-normal-001.png" id="28_2wt41"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="30_hgddd"]
+[ext_resource type="PackedScene" uid="uid://b48o2qnrsjmro" path="res://Level/Prefabs/wall_tile_decorative.tscn" id="30_m45vx"]
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_0gh3t"]
 [ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="31_rdhtp"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
@@ -68,14 +69,14 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-928, 224, -928, 480, -1144, 480, -1144, 360, -1336, 360, -1336, 512, -1504, 512, -1504, 480, -1632, 480, -1632, 448, -1776, 448, -1776, 384, -2216, 384, -2216, -440, -2248, -440, -2248, -608, -2016, -608, -2016, -736, -1375.73, -736, -1376, -672, -1248, -672, -1248, -736, -1056, -736, -1056, -608, -816, -608, -816, -480, -928, -480, -928, -288, -816, -288, -816, -160, -928, -160, -928, 32, -768, 32, -768, 224), PackedVector2Array(-1824, -264, -1824, -96, -1368, -96, -1368, -264), PackedVector2Array(-1824, 0, -1824, 144, -1368, 144, -1368, 0), PackedVector2Array(-1824, -512, -1824, -360, -1368, -360, -1368, -512)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uenql"]
-vertices = PackedVector2Array(-632, -656, -632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -632, -152, -152, 288, 0, 288, 0, 456, -152, 456, -632, 416, -152, 632, -48, 632, -48, 960, -152, 960, -632, 864, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1504, -672, 1504, -152, 1136, -672, 1352, -736, 1352, -736, 1248, -632, 1056, -768, 1248, -768, 1056, -736, 864, -736, 416, -632, 224, -768, 224, -768, 32, -632, 32, -736, -152, -736, -656)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(33, 34, 35), PackedInt32Array(30, 33, 35, 29), PackedInt32Array(29, 35, 36), PackedInt32Array(26, 29, 36, 37, 38, 25), PackedInt32Array(22, 25, 38), PackedInt32Array(21, 22, 38), PackedInt32Array(18, 21, 38), PackedInt32Array(39, 18, 38, 40), PackedInt32Array(39, 40, 41, 42, 43, 16), PackedInt32Array(42, 44, 45, 43), PackedInt32Array(17, 46, 47, 12, 11, 13), PackedInt32Array(48, 49, 50, 51, 6), PackedInt32Array(7, 52, 53, 0), PackedInt32Array(51, 7, 6), PackedInt32Array(48, 6, 8, 12), PackedInt32Array(43, 17, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -152, 288, 0, 288, 0, 456, -152, 456, -152, 632, -48, 632, -48, 960, -152, 960, -152, 1136, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1504, -672, 1504, -672, 1352, -736, 1352, -736, 1248, -768, 1248, -768, 1056, -632, 1056, -632, 864, -736, 864, -736, 416, -632, 416, -632, 224, -768, 224, -768, 32, -632, 32, -632, -152, -736, -152, -736, -656, -632, -656)])
+vertices = PackedVector2Array(-632, -656, -632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -632, -152, -152, 288, 0, 288, 0, 480, -152, 480, -632, 416, -152, 632, -48, 632, -48, 960, -152, 960, -632, 864, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1504, -736, 1504, -152, 1136, -736, 1248, -768, 1248, -768, 1056, -632, 1056, -736, 864, -736, 416, -632, 224, -768, 224, -768, 32, -632, 32, -736, -152, -736, -656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(33, 34, 35), PackedInt32Array(30, 33, 35, 29), PackedInt32Array(29, 35, 36), PackedInt32Array(26, 29, 36, 37, 38, 25), PackedInt32Array(22, 25, 38), PackedInt32Array(21, 22, 38), PackedInt32Array(18, 21, 38), PackedInt32Array(39, 18, 38, 40), PackedInt32Array(40, 41, 42, 43, 39), PackedInt32Array(16, 39, 43, 17), PackedInt32Array(13, 17, 44, 45, 12, 11), PackedInt32Array(8, 12, 46, 6), PackedInt32Array(46, 47, 48, 49, 6), PackedInt32Array(7, 50, 51, 0), PackedInt32Array(7, 6, 49)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-632, -736, -152, -736, -152, -656, -48, -656, -48, 104, -152, 104, -152, 288, 0, 288, 0, 480, -152, 480, -152, 632, -48, 632, -48, 960, -152, 960, -152, 1136, 24, 1136, 24, 1056, 504, 1056, 504, 1136, 680, 1136, 680, 1024, 856, 1024, 856, 1136, 1032, 1136, 1032, 1056, 1128, 1056, 1128, 1184, 1312, 1184, 1312, 1056, 1760, 1056, 1760, 1504, 1312, 1504, 1312, 1376, 1232, 1376, 1232, 1504, -736, 1504, -736, 1248, -768, 1248, -768, 1056, -632, 1056, -632, 864, -736, 864, -736, 416, -632, 416, -632, 224, -768, 224, -768, 32, -632, 32, -632, -152, -736, -152, -736, -656, -632, -656)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_guwno"]
-vertices = PackedVector2Array(1760, -192, 1760, 208, 1632, 208, 1136, 160, 1344, -192, 1632, 400, 1344, 768, 984, 768, 552, 680, 552, 344, 912, 160, 1136, -256, 1344, -448, 1600, -608, 1600, -728, 1760, -728, 1760, -544, 1664, -544, 1664, -448, 96, -608, 912, -256, 160, -416, 1760, 400, 1760, 488, 1632, 488, 1632, 832, 1344, 832, 856, 832.148, 856, 1024, 680, 1024, 680, 832, 64, 456, 0, 456, 0, 288, 32, 288, 336, 344, 32, 16, 160, 16, 56, -416, 56, -640, 96, -640, 984, 832, 64, 832, 336, 680)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 3, 2), PackedInt32Array(4, 3, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(13, 17, 18, 12, 19), PackedInt32Array(19, 12, 11, 20, 21), PackedInt32Array(5, 22, 23, 24), PackedInt32Array(24, 25, 26, 6), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(35, 34, 36, 37, 10, 9), PackedInt32Array(21, 38, 39, 19), PackedInt32Array(39, 40, 19), PackedInt32Array(37, 21, 20, 10), PackedInt32Array(8, 7, 41, 27, 30), PackedInt32Array(8, 30, 42, 43), PackedInt32Array(43, 42, 31, 35), PackedInt32Array(6, 5, 24)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(96, -608, 96, -640, 56, -640, 56, -416, 160, -416, 160, 16, 32, 16, 32, 288, 0, 288, 0, 456, 64, 456, 64, 832, 680, 832, 680, 1024, 856, 1024, 856, 832.148, 984, 832, 984, 768, 1344, 768, 1344, 832, 1632, 832, 1632, 488, 1760, 488, 1760, 400, 1632, 400, 1632, 208, 1760, 208, 1760, -192, 1344, -192, 1344, -448, 1664, -448, 1664, -544, 1760, -544, 1760, -728, 1600, -728, 1600, -608), PackedVector2Array(912, -256, 912, 160, 1136, 160, 1136, -256), PackedVector2Array(336, 344, 336, 680, 552, 680, 552, 344)])
+vertices = PackedVector2Array(1760, -192, 1760, 208, 1632, 208, 1136, 160, 1344, -192, 1632, 400, 1344, 768, 984, 768, 552, 680, 552, 344, 912, 160, 1136, -256, 1344, -448, 1600, -608, 1600, -728, 1760, -728, 1760, -544, 1664, -544, 1664, -448, 32, -608, 912, -256, 160, -416, 1760, 400, 1760, 488, 1632, 488, 1632, 832, 1344, 832, 856, 832.148, 856, 1024, 680, 1024, 680, 832, 64, 456, 0, 456, 0, 288, 32, 288, 336, 344, 32, 16, 160, 16, 32, -416, 984, 832, 64, 832, 336, 680)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 3, 2), PackedInt32Array(4, 3, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(13, 17, 18, 12, 19), PackedInt32Array(19, 12, 11, 20, 21), PackedInt32Array(5, 22, 23, 24), PackedInt32Array(24, 25, 26, 6), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34, 35), PackedInt32Array(35, 34, 36, 37, 10, 9), PackedInt32Array(21, 38, 19), PackedInt32Array(37, 21, 20, 10), PackedInt32Array(8, 7, 39, 27, 30), PackedInt32Array(8, 30, 40, 41), PackedInt32Array(41, 40, 31, 35), PackedInt32Array(6, 5, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -608, 32, -416, 160, -416, 160, 16, 32, 16, 32, 288, 0, 288, 0, 456, 64, 456, 64, 832, 680, 832, 680, 1024, 856, 1024, 856, 832.148, 984, 832, 984, 768, 1344, 768, 1344, 832, 1632, 832, 1632, 488, 1760, 488, 1760, 400, 1632, 400, 1632, 208, 1760, 208, 1760, -192, 1344, -192, 1344, -448, 1664, -448, 1664, -544, 1760, -544, 1760, -728, 1600, -728, 1600, -608), PackedVector2Array(912, -256, 912, 160, 1136, 160, 1136, -256), PackedVector2Array(336, 344, 336, 680, 552, 680, 552, 344)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f4sio"]
 vertices = PackedVector2Array(-2112, 960, -2224, 960, -2224, 672, -1936, 672, -1936, 736, -1784, 736, -1784, 672, -1584, 672, -1584, 1088, -1504, 1088, -1504, 512, -1336, 512, -1336, 760, -1152, 760, -1152, 672, -920, 672, -920, 760, -816, 760, -816, 872, -920, 872, -920, 1056, -768, 1056, -768, 1248, -816, 1248, -816, 1504, -1376, 1504, -1376, 1376, -1568, 1376, -1568, 1472, -2192, 1472, -2192, 1240, -2112, 1240)
@@ -105,9 +106,21 @@ radius = 156.051
 radius = 160.2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cd5m1"]
-vertices = PackedVector2Array(-464, -1504, -288, -1504, -288, -1248, -464, -1248)
+vertices = PackedVector2Array(-480, -1504, -288, -1504, -288, -1248, -480, -1248)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-464, -1248, -288, -1248, -288, -1504, -464, -1504)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-480, -1248, -288, -1248, -288, -1504, -480, -1504)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru0sm"]
+size = Vector2(384, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft1ek"]
+size = Vector2(384, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc8ne"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nke8x"]
+size = Vector2(256, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ihbc"]
 radius = 128.0
@@ -217,24 +230,24 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-393234, 131072, 1, 851950, 131072, 1, 786445, 131072, 1, -458739, 131072, 1, -196595, 196608, 1, 458756, 131072, 1, 327662, 131072, 1, -196597, 131072, 1, 458759, 131072, 1, -393233, 131072, 1, -393228, 131072, 1, -393224, 131072, 1, -393222, 196608, 1, -393221, 131072, 1, -393218, 131072, 1, -458752, 131072, 1, -458751, 131072, 1, -458750, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 0, 3, 786444, 131072, 1, 786443, 131072, 1, 786442, 131072, 1, 786441, 131072, 1, 786440, 131072, 1, 786439, 131072, 1, 786438, 131072, 1, 786437, 131072, 1, 786436, 131072, 1, 786435, 131072, 1, 786434, 131072, 1, 786433, 131072, 1, 786432, 131072, 1, 851967, 131072, 1, 851964, 131072, 1, 851963, 131072, 1, 851962, 131072, 1, 851961, 131072, 1, 851960, 131072, 1, 851959, 131072, 1, 851958, 131072, 1, 851957, 131072, 1, 851956, 131072, 1, 851955, 131072, 1, 851954, 131072, 1, 851953, 131072, 1, 851952, 131072, 1, 851951, 131072, 1, 327663, 131072, 1, 327664, 131072, 1, 327665, 131072, 1, 327666, 131072, 1, 327671, 131072, 1, 327672, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, 458760, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458764, 131072, 1, 458765, 131072, 1, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 262144, 1, -65522, 262144, 1, -131058, 262144, 1, -196594, 262144, 1, -262130, 262144, 1, -327666, 262144, 1, -393202, 262144, 1, -458738, 262144, 1, -393235, 0, 1, -327699, 0, 1, -262163, 0, 1, -196627, 0, 1, -131091, 0, 1, -65555, 0, 1, -19, 0, 1, 65517, 0, 1, 131053, 0, 1, 196589, 0, 1, 262125, 0, 1, 327661, 0, 1, 393197, 0, 1, 458733, 0, 1, 524269, 0, 1, 589805, 0, 1, 655341, 0, 1, 720877, 0, 1, 786413, 0, 1, 786446, 262144, 2, 524275, 0, 2, 327667, 131072, 0, 327670, 131072, 1, 327673, 131072, 0, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, -327687, 0, 1, -262151, 0, 1, -196615, 0, 1, -131079, 0, 1, -65543, 0, 1, -327681, 0, 1, -262145, 0, 1, -196609, 0, 1, -131073, 0, 1, -65537, 0, 1, -1, 0, 1, 65535, 0, 1, 131071, 0, 2, -7, 0, 2, -393223, 131072, 0, -393217, 196608, 0, 786425, 0, 1, 720889, 0, 1, 720905, 0, 1, 524297, 0, 2, 458761, 131072, 0, 262137, 0, 1, 196601, 0, 1, 458751, 0, 1, 393215, 0, 1, 327679, 0, 1, 524287, 0, 2, -196596, 131072, 1, 458739, 131072, 0, 393203, 0, 1, -393220, 131072, 1, -393219, 0, 4, -458753, 262144, 1, -524289, 262144, 1, -589825, 262144, 1, -589829, 131072, 1, -589827, 393216, 3, -589828, 327680, 3, -589826, 131072, 1, 458738, 131072, 1, -589830, 0, 1, -524294, 0, 1, -458758, 0, 1, -655365, 983040, 15, -655364, 983040, 15, -655363, 983040, 15, -655362, 983040, 15, 851965, 327680, 2, 851966, 393216, 2, 851949, 0, 2, -393227, 131072, 1, -393230, 65536, 1, -393229, 131072, 1)
+layer_1/tile_data = PackedInt32Array(-393234, 131072, 1, 851950, 131072, 1, 786445, 131072, 1, -458739, 131072, 1, -196595, 196608, 1, 458756, 131072, 1, 327662, 131072, 1, -196597, 131072, 1, 458759, 131072, 1, -393233, 131072, 1, -393228, 131072, 1, -393224, 131072, 1, -393222, 196608, 1, -393221, 131072, 1, -393218, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 0, 3, 786444, 131072, 1, 786443, 131072, 1, 786442, 131072, 1, 786441, 131072, 1, 786440, 131072, 1, 786439, 131072, 1, 786438, 131072, 1, 786437, 131072, 1, 786436, 131072, 1, 786435, 131072, 1, 786434, 131072, 1, 786433, 131072, 1, 786432, 131072, 1, 851967, 131072, 1, 851964, 131072, 1, 851963, 131072, 1, 851962, 131072, 1, 851961, 196608, 1, 851960, 131072, 1, 851959, 131072, 1, 851958, 131072, 1, 851957, 131072, 1, 851956, 131072, 1, 851955, 131072, 1, 851954, 131072, 1, 851953, 131072, 1, 851952, 131072, 1, 851951, 131072, 1, 327663, 131072, 1, 327664, 131072, 1, 327665, 131072, 1, 327666, 131072, 1, 327671, 131072, 1, 327672, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, 458760, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458764, 131072, 1, 458765, 131072, 1, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 262144, 1, -65522, 262144, 1, -131058, 262144, 1, -196594, 262144, 1, -262130, 262144, 1, -327666, 262144, 1, -393202, 262144, 1, -458738, 262144, 1, -393235, 0, 1, -327699, 0, 1, -262163, 0, 1, -196627, 0, 1, -131091, 0, 1, -65555, 0, 1, -19, 0, 1, 65517, 0, 1, 131053, 0, 1, 196589, 0, 1, 262125, 0, 1, 327661, 0, 1, 393197, 0, 1, 458733, 0, 1, 524269, 0, 1, 589805, 0, 1, 655341, 0, 1, 720877, 0, 1, 786413, 0, 1, 786446, 262144, 2, 524275, 0, 2, 327667, 131072, 0, 327670, 131072, 1, 327673, 131072, 0, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, -327687, 0, 1, -262151, 0, 1, -196615, 0, 1, -131079, 0, 1, -65543, 0, 1, -327681, 0, 1, -262145, 0, 1, -196609, 0, 1, -131073, 0, 1, -65537, 0, 1, -1, 0, 1, 65535, 0, 1, 131071, 0, 2, -7, 0, 2, -393223, 131072, 0, -393217, 196608, 0, 786425, 0, 1, 720889, 0, 1, 720905, 0, 1, 524297, 0, 2, 458761, 131072, 0, 262137, 0, 1, 196601, 0, 1, 458751, 0, 1, 393215, 0, 1, 327679, 0, 1, 524287, 0, 2, -196596, 131072, 1, 458739, 131072, 0, 393203, 0, 1, -393220, 131072, 1, -393219, 0, 4, -458753, 262144, 1, -524289, 262144, 1, -589825, 262144, 1, -589829, 131072, 1, -589827, 393216, 3, -589828, 327680, 3, -589826, 131072, 1, 458738, 131072, 1, -589830, 0, 1, -524294, 0, 1, -458758, 0, 1, -655365, 983040, 15, -655364, 983040, 15, -655363, 983040, 15, -655362, 983040, 15, 851965, 327680, 2, 851966, 393216, 2, 851949, 0, 2, -393227, 131072, 1, -393230, 65536, 1, -393229, 131072, 1)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(-393234, 327680, 0, -327698, 327680, 1, -393233, 393216, 0, -327697, 393216, 1, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, -458751, 327680, 0, -393215, 327680, 1, -458750, 393216, 0, -393214, 393216, 1, -458744, 327680, 0, -393208, 327680, 1, -458743, 393216, 0, -393207, 393216, 1, -458742, 327680, 0, -393206, 327680, 1, -458741, 393216, 0, -393205, 393216, 1, 65524, 393216, 4, -65550, 262144, 4, -65549, 327680, 4, -65548, 393216, 4, -196622, 262144, 4, -196621, 327680, 4, -196620, 393216, 4, -131090, 196608, 5, -65554, 196608, 5, -18, 196608, 5, 65518, 196608, 5, 131054, 196608, 5, 393198, 196608, 5, 458734, 196608, 5, 524270, 196608, 5, 589806, 196608, 5, 655342, 196608, 5, 720878, 196608, 5, 786414, 196608, 5, 786420, 262144, 3, 393224, 262144, 3, 393225, 262144, 3, -393211, 262144, 3, -393210, 262144, 3, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 393217, 196608, 7, 393218, 196608, 7, 393219, 196608, 7, 393227, 196608, 7, 393228, 196608, 7, 262130, 196608, 7, 262129, 196608, 7, 262128, 196608, 7, 327680, 196608, 5, 393216, 196608, 5, 65522, 262144, 4, 65523, 327680, 4, -393212, 262144, 3)
+layer_2/tile_data = PackedInt32Array(-393234, 327680, 0, -327698, 327680, 1, -393233, 393216, 0, -327697, 393216, 1, -393224, 327680, 0, -327688, 327680, 1, -393223, 393216, 0, -327687, 393216, 1, -458751, 327680, 65536, -393215, 327680, 1, -458750, 393216, 65536, -393214, 393216, 1, -458744, 327680, 0, -393208, 327680, 1, -458743, 393216, 0, -393207, 393216, 1, -458742, 327680, 0, -393206, 327680, 1, -458741, 393216, 0, -393205, 393216, 1, 65524, 393216, 4, -65550, 262144, 4, -65549, 327680, 4, -65548, 393216, 4, -196622, 262144, 4, -196621, 327680, 4, -196620, 393216, 4, -131090, 196608, 5, -65554, 196608, 5, -18, 196608, 5, 65518, 196608, 5, 131054, 196608, 5, 393198, 196608, 5, 458734, 196608, 5, 524270, 196608, 5, 589806, 196608, 5, 655342, 196608, 5, 720878, 196608, 5, 786414, 196608, 5, 786420, 262144, 3, 393224, 262144, 3, 393225, 262144, 3, -393211, 262144, 3, -393210, 262144, 3, 786416, 196608, 7, 786417, 196608, 7, 786418, 196608, 7, 786419, 196608, 7, 393217, 196608, 7, 393218, 196608, 7, 393219, 196608, 7, 393227, 196608, 7, 393228, 196608, 7, 262130, 196608, 7, 262129, 196608, 7, 262128, 196608, 7, 327680, 196608, 5, 393216, 196608, 5, 65522, 262144, 4, 65523, 327680, 4, -393212, 262144, 3)
 script = ExtResource("1_fluk2")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 keyTypeToShow = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlantInRoomD"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockRiceBowl"), NodePath("Quests/KitchenUltraKey")]
-unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropChest"), NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
-travelingAreas = [NodePath("Teleports/TravelToHall"), NodePath("Quests/KitchenGrowPlantInRoomD/VaseGrown0")]
-travelingReceivers = [NodePath("Teleports/TravelToHall/GardenReceiver"), NodePath("Teleports/VaseGrownReceiver0")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHiddenRoom"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockRiceBowl"), NodePath("Quests/KitchenUltraKey")]
+unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
+travelingAreas = [NodePath("Teleports/TravelToHall")]
+travelingReceivers = [NodePath("Teleports/TravelToHall/GardenReceiver")]
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -267,7 +280,7 @@ position = Vector2(256, 712)
 patrolIndicators = [NodePath("../PatrolPoints/KitchenHyottokoRoom/PatrolKitchenHyottokoRoom")]
 
 [node name="GuardC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
-position = Vector2(688, -384)
+position = Vector2(680, -384)
 patrolIndicators = [NodePath("../PatrolPoints/KitchenRoom/PatrolKitchenRoom"), NodePath("../PatrolPoints/CleanStorageRoom/PatrolCleanRoomToCorridor"), NodePath("../PatrolPoints/FoodStorageRoom/PatrolFoodStorageRoom"), NodePath("../PatrolPoints/FoodStorageRoomToKitchenRoom/PatrolFoodStorageRoomToKitchenRoom")]
 
 [node name="GuardB1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
@@ -508,7 +521,6 @@ position = Vector2(-2224, 1112)
 navigation_polygon = SubResource("NavigationPolygon_f4sio")
 
 [node name="Keys" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="UnlockKey" parent="Keys" instance=ExtResource("2_8niet")]
 position = Vector2(1528, 1152)
@@ -523,7 +535,8 @@ position = Vector2(-1152, -976)
 position = Vector2(1608, -512)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("2_8niet")]
-position = Vector2(-256, 832)
+position = Vector2(256, -832)
+rotation = 1.5708
 
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_4p3bg")]
 position = Vector2(-1920, -832)
@@ -759,24 +772,59 @@ texture = ExtResource("44_67je7")
 position = Vector2(0, -96)
 texture = ExtResource("28_2wt41")
 
-[node name="KitchenGrowPlantInRoomD" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenGrowPlant" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
-questName = "KitchenGrowPlantInRoomD"
-questItemsToOperate = [NodePath("VaseGrown0"), NodePath("VaseGrown0")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("VaseEmpty")]
+questName = "KitchenGrowPlant"
+questItemsToOperate = [NodePath("VaseGrown"), NodePath("VaseEmpty"), NodePath("VaseGrown"), NodePath("BlockerFirstStage")]
+questItemsStages = Array[int]([0, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, true, false])
 
-[node name="VaseEmpty" parent="Quests/KitchenGrowPlantInRoomD" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
-position = Vector2(40, 984)
+[node name="VaseEmpty" parent="Quests/KitchenGrowPlant" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
+position = Vector2(840, -1160)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="VaseGrown0" parent="Quests/KitchenGrowPlantInRoomD" instance=ExtResource("20_0oc42")]
-position = Vector2(40, 984)
-sceneToLoad = "res://1_Scenes/KitchenRoof.tscn"
+[node name="VaseGrown" parent="Quests/KitchenGrowPlant" instance=ExtResource("20_0oc42")]
+position = Vector2(840, -1280)
+
+[node name="WallTiles" type="Node2D" parent="Quests/KitchenGrowPlant"]
+z_index = -1
+y_sort_enabled = true
+
+[node name="WallTileDecorative" parent="Quests/KitchenGrowPlant/WallTiles" instance=ExtResource("30_m45vx")]
+position = Vector2(832, -1344)
+
+[node name="WallTileDecorative2" parent="Quests/KitchenGrowPlant/WallTiles" instance=ExtResource("30_m45vx")]
+position = Vector2(960, -1344)
+
+[node name="WallTileDecorative3" parent="Quests/KitchenGrowPlant/WallTiles" instance=ExtResource("30_m45vx")]
+position = Vector2(1088, -1344)
+
+[node name="BlockerFirstStage" type="StaticBody2D" parent="Quests/KitchenGrowPlant"]
+position = Vector2(960, -1344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerFirstStage"]
+shape = SubResource("RectangleShape2D_ru0sm")
+
+[node name="BlockerSecondStage1" type="StaticBody2D" parent="Quests/KitchenGrowPlant"]
+position = Vector2(960, -1472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerSecondStage1"]
+shape = SubResource("RectangleShape2D_ft1ek")
+
+[node name="BlockerSecondStage2" type="StaticBody2D" parent="Quests/KitchenGrowPlant"]
+position = Vector2(1216, -1408)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerSecondStage2"]
+shape = SubResource("RectangleShape2D_wc8ne")
+
+[node name="BlockerSecondStage3" type="StaticBody2D" parent="Quests/KitchenGrowPlant"]
+position = Vector2(1024, -1304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerSecondStage3"]
+shape = SubResource("RectangleShape2D_nke8x")
 
 [node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1306,13 +1354,6 @@ texture = ExtResource("47_3s7gn")
 
 [node name="QuestUnlocks" type="Node2D" parent="."]
 position = Vector2(0, 512)
-
-[node name="UnlocksAfterKitchenRoofDropChest" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
-position = Vector2(-768, 0)
-script = ExtResource("20_hgt0f")
-requiredQuest = "KitchenRoofDropChest"
-requiredQuestStage = 1
-objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
 
 [node name="UnlocksAfterKitchenRoofDropLantern" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
 position = Vector2(-768, 0)

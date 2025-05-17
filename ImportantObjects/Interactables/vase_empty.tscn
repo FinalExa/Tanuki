@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7inmeac4ftku"]
+[gd_scene load_steps=9 format=3 uid="uid://7inmeac4ftku"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_iri44"]
 [ext_resource type="Texture2D" uid="uid://de2s73hvajbw0" path="res://ImportantObjects/Interactables/Sprites/vaseEmpty.png" id="2_1syol"]
@@ -6,13 +6,52 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctk7x"]
 radius = 8.0
 
-[node name="VaseEmpty" type="StaticBody2D" groups=["Interactable"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_77rab"]
+atlas = ExtResource("2_1syol")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwbvg"]
+atlas = ExtResource("2_1syol")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woxp0"]
+atlas = ExtResource("2_1syol")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veod2"]
+atlas = ExtResource("2_1syol")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75033"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77rab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwbvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woxp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veod2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="VaseEmpty" type="StaticBody2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
 script = ExtResource("1_iri44")
 neededProperties = Array[String](["Water"])
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ctk7x")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -56)
-texture = ExtResource("2_1syol")
+sprite_frames = SubResource("SpriteFrames_75033")
+animation = &"idle"
