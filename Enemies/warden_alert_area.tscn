@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenAlertArea.gd" id="1_pmmd1"]
 
 [node name="WardenAlertArea" type="Area2D"]
+modulate = Color(0, 0, 1, 0.392157)
 script = ExtResource("1_pmmd1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
