@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=67 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0npvllpgc3hb" path="res://ImportantObjects/TransformationObjects/brush.tscn" id="6_3a8lq"]
 [ext_resource type="PackedScene" uid="uid://bk4dclsr52xtc" path="res://ImportantObjects/Interactables/password_table.tscn" id="7_i27kk"]
 [ext_resource type="PackedScene" uid="uid://ik02mrftkuwp" path="res://Level/Prefabs/carpet.tscn" id="8_nrn6o"]
+[ext_resource type="PackedScene" uid="uid://d4eregkgypi6f" path="res://ImportantObjects/Interactables/password_hint.tscn" id="9_tbhux"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="9_wwcrv"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="10_oxkx2"]
 [ext_resource type="PackedScene" uid="uid://h53rag35ypel" path="res://NPC/entrance_completed_npc.tscn" id="11_6bsyf"]
@@ -32,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="24_hg15b"]
 [ext_resource type="PackedScene" uid="uid://d3b2y5u3omnwj" path="res://ImportantObjects/Interactables/chair.tscn" id="25_5q0m2"]
 [ext_resource type="PackedScene" uid="uid://cpmnjx776a7tl" path="res://NPC/chair_warden_npc.tscn" id="25_e4ed7"]
+[ext_resource type="PackedScene" uid="uid://c5vyx3tnh3ply" path="res://NPC/sad_guard_npc.tscn" id="25_nwgbr"]
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="26_8r610"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="26_61bmt"]
 [ext_resource type="PackedScene" uid="uid://c7nlbf2p1mokh" path="res://ImportantObjects/MovableObjects/cushion_movable.tscn" id="26_clvot"]
@@ -79,6 +81,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 105
 vertices = PackedVector2Array(800, 1984, 800, 1824, 992, 1824, 864, 1984, 992, 1984, 928, 1984, 928, 2080, 864, 2080)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(800, 1824, 992, 1824, 992, 1984, 928, 1984, 928, 2080, 864, 2080, 864, 1984, 800, 1984)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0akyk"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5g0j"]
+radius = 128.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fjm4u"]
 vertices = PackedVector2Array(1376, 960, 1312, 960, 1312, -480, 3296, -480, 3296, 960, 1440, 960, 1440, 1056, 1376, 1056)
@@ -250,11 +258,55 @@ position = Vector2(768, 16)
 [node name="PasswordBlockerWall10" parent="Quests/HallGetPassword/BlockerWalls" instance=ExtResource("5_yihdq")]
 position = Vector2(-768, 16)
 
-[node name="PasswordTable" parent="Quests/HallGetPassword" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("7_i27kk")]
+[node name="PasswordTable" parent="Quests/HallGetPassword" node_paths=PackedStringArray("hints", "possibleHintPositions", "questToSendProgressSignal") instance=ExtResource("7_i27kk")]
 position = Vector2(0, 512)
-password = Array[int]([2, 3, 0])
+hints = [NodePath("../PasswordHints/PasswordHint1"), NodePath("../PasswordHints/PasswordHint2"), NodePath("../PasswordHints/PasswordHint3")]
+possibleHintPositions = [NodePath("../HintsPositions/1"), NodePath("../HintsPositions/2"), NodePath("../HintsPositions/3"), NodePath("../HintsPositions/4"), NodePath("../HintsPositions/5"), NodePath("../HintsPositions/6"), NodePath("../HintsPositions/7"), NodePath("../HintsPositions/8"), NodePath("../HintsPositions/9"), NodePath("../HintsPositions/10")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="PasswordHints" type="Node2D" parent="Quests/HallGetPassword"]
+
+[node name="PasswordHint1" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+labelText = "I"
+
+[node name="PasswordHint2" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+labelText = "II"
+
+[node name="PasswordHint3" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+labelText = "III"
+
+[node name="HintsPositions" type="Node2D" parent="Quests/HallGetPassword"]
+
+[node name="1" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(-640, 152)
+
+[node name="2" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(-1152, 152)
+
+[node name="3" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(-1152, -616)
+
+[node name="4" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(-640, -616)
+
+[node name="5" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(-256, -616)
+
+[node name="6" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(128, 152)
+
+[node name="7" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(640, 152)
+
+[node name="8" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(1152, 152)
+
+[node name="9" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(640, -616)
+
+[node name="10" type="Node2D" parent="Quests/HallGetPassword/HintsPositions"]
+position = Vector2(1152, -616)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallGetPassword"]
 navigation_polygon = SubResource("NavigationPolygon_ufbmp")
@@ -398,11 +450,12 @@ position = Vector2(-1216, 960)
 position = Vector2(-1600, 960)
 
 [node name="HallStopTheDoor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallStopTheDoor"
-questItemsToOperate = [NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D"), NodePath("DoorEvil"), NodePath("DoorStopMovable")]
-questItemsStages = Array[int]([0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, true, false, false])
+questItemsToOperate = [NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D"), NodePath("DoorEvil"), NodePath("DoorStopMovable"), NodePath("SadGuardNPC/SadGuardFirstDialogue"), NodePath("SadGuardNPC/SadGuardFinalDialogue")]
+questItemsStages = Array[int]([0, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, true, false, false, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("ColorDoor")]
 
 [node name="DoorStopMovable" parent="Quests/HallStopTheDoor" instance=ExtResource("22_2d6nn")]
@@ -419,6 +472,29 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallStopTheDoor"]
 navigation_polygon = SubResource("NavigationPolygon_trede")
+
+[node name="SadGuardNPC" parent="Quests/HallStopTheDoor" instance=ExtResource("25_nwgbr")]
+position = Vector2(720, 2096)
+
+[node name="SadGuardFirstDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+position = Vector2(0, -48)
+dialogueText = Array[String](["Oh no a guard! I have to hide, quick!", "It's pointless...", "Huh?", "It's pointless... pointless...", "...you okay?", "...an intruder... it's still pointless... it's been days...", "Days of what?", "I haven't slept... in days... because of this door...", "The bedrooms are on the right of this room, my bed is close to this wall... this door... has been possessed.", "It keeps. Making. NOISE!", "I CAN'T SLEEP!", "I think a door stop would be able to crush those teeth... but... no energy to find it...", "Hehehe... thanks for the juicy info, insomniac guard! I see a key behind this door: I do this for you and you stay silent about this, deal?", "Deal... I can't take this anymore, please..."])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0, 2])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFirstDialogue"]
+shape = SubResource("CircleShape2D_0akyk")
+
+[node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+position = Vector2(0, -48)
+dialogueText = Array[String](["Thank you... my agony... is gone...", "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?", "Right... bedrooms, bottom... Kitchen, left... Dojo...", "There's a strong Hyottoko man in the dojo, watch out...", "I will, thank you!"])
+characterTalking = Array[int]([2, 0, 2, 2, 0])
+cameraFocuses = [NodePath("."), null, NodePath("."), NodePath("."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFinalDialogue"]
+shape = SubResource("CircleShape2D_h5g0j")
 
 [node name="HallStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true

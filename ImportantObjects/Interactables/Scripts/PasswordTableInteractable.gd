@@ -1,15 +1,39 @@
 class_name PasswordTableInteractable
 extends GenericInteractable
 
-@export var password: Array[BrushPassive.BrushColor]
+@export var passwordSize: int
 @export var colorMarks: Array[Sprite2D]
 @export var colors: Array[Color]
+@export var hints: Array[PasswordHint]
+@export var possibleHintPositions: Array[Node2D]
+var freeHintPositions: Array[Node2D]
+var usedHintPositions: Array[Node2D]
+var password: Array[BrushPassive.BrushColor]
 var currentProgress: int
 var currentColorArray: Array[BrushPassive.BrushColor]
 var done: bool
 
 func ReadyOperations():
+	RandomizePassword()
+	RandomizeHints()
 	ResetPassword()
+
+func RandomizePassword():
+	for i in passwordSize:
+		var randInt = randi_range(0, BrushPassive.BrushColor.size() - 2)
+		password.push_back(randInt)
+
+func RandomizeHints():
+	freeHintPositions.clear()
+	usedHintPositions.clear()
+	for i in possibleHintPositions.size():
+		freeHintPositions.push_back(possibleHintPositions[i])
+	for i in passwordSize:
+		hints[i].ChangeColor(colors[password[i]])
+		var randInt = randi_range(0, freeHintPositions.size() - 1)
+		hints[i].global_position = freeHintPositions[randInt].global_position
+		usedHintPositions.push_back(freeHintPositions[randInt])
+		freeHintPositions.remove_at(randInt)
 
 func ResetPassword():
 	currentProgress = 0
