@@ -478,7 +478,6 @@ activated = true
 [node name="DialogueArea" parent="Rooms/StarterRoom/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Ohh we meet again, cold oni!", "My savior! Finally, someone who can help me!", "My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!", "Oh and also, there's TWO of them trapped.", "I will keep that in mind."])
 characterTalking = Array[int]([0, 2, 2, 0, 2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0])
 cameraFocuses = [null, NodePath(".."), NodePath("../KitchenCameraFocus"), null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
@@ -575,7 +574,6 @@ activated = true
 [node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["There you are! Do you see these paintings? I dislike them too… that’s why I can help you wreck them. I bet there is also something that you’ll need behind them.", "Are you serious?", "Indeed I am. These paintings look frail enough, maybe cut them? Or... if you find something that I could help you heat up, we could burn them!", "That's interesting... I'll be back soon... hehe..."])
 characterTalking = Array[int]([2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
@@ -590,7 +588,6 @@ activated = true
 position = Vector2(0, 1)
 dialogueText = Array[String](["Do you see these blocks of ice? I have hidden a key in the room to prank the guards! I will help you melt each one, so we’re even!", "Fantastic! How do we melt them?", "Intense heat should suffice. Anything that looks like it's heatable in that kitchen?", "I'll go check... Be right back once I find it!"])
 characterTalking = Array[int]([2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
@@ -605,7 +602,6 @@ sendSignalToQuestOnDestroyed = true
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do"])
 characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
@@ -620,7 +616,6 @@ sendSignalToQuestOnDestroyed = true
 [node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do."])
 characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
 cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
@@ -634,7 +629,6 @@ position = Vector2(1216, -1216)
 position = Vector2(-4992, -3096)
 dialogueText = Array[String](["Finally, I am freeeeeee! Thank you… as promised if you want my help, I’ll be near the paintings in the pantry room. It’s west from here eheheh.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
 cameraFocuses = [null, null]
 deleteOnDone = true
 activatedByQuest = true
@@ -646,7 +640,6 @@ shape = SubResource("CircleShape2D_m7mm8")
 position = Vector2(-4992, -3096)
 dialogueText = Array[String](["Thank you so much! I didn’t know what to do… come with me! I want to repay the favor, meet me outside the fridge room… near the blocks of ice.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 0])
-characterEmotion = Array[int]([0, 0])
 cameraFocuses = [null, null]
 deleteOnDone = true
 activatedByQuest = true
@@ -667,7 +660,6 @@ objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/WardenC1/KeySprite"), 
 position = Vector2(1088, 0)
 dialogueText = Array[String](["Bwaha-ha! Nobody has ever stolen this key from me!", "I’m always wide awake! I never lost my sights on this key, ever! Bwaha-ahahahah!", "Wide awake, eh? Maybe if I manage to hit him with something hurtful... he will go all \"sleepy\" and I can grab that key... hehehehehe..."])
 characterTalking = Array[int]([2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/WardenC1"), null]
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
@@ -909,7 +901,6 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Hey you! You look like someone who is lost… let’s make a deal: if you bring me some food I will give you in return this splendid key that I stole from one of the guards.", "And since I’m a kind soul, maybe I can even tell you a secret that you don’t know about this place.", "Fine, you are lucky that I need that key."])
 characterTalking = Array[int]([2, 2, 0])
-characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null]
 isOnInteraction = true
 
@@ -920,7 +911,6 @@ shape = SubResource("CircleShape2D_7ihbc")
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you don’t know… you can reach the roof by watering one of the plants around here.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
 characterTalking = Array[int]([2, 2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0])
 cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null, NodePath("../Rat"), null]
 deleteOnDone = true
 advanceQuest = true
@@ -933,7 +923,6 @@ shape = SubResource("CircleShape2D_3ak33")
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Can you say that secret again? I forgot it.", "Really? What a bad memory you have… fine. You can reach the roof by watering one of the plants around here. Don’t forget it again!", "I regret feeding you…"])
 characterTalking = Array[int]([0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [null, NodePath("../Rat"), null]
 isOnInteraction = true
 
@@ -1149,7 +1138,6 @@ activated = true
 [node name="DialogueArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Oh, an oni!", "AS fhasd bfi -sdfsd9u8 iìia0i0if0adsfm cjz9'^?!BrfouikjaSB", "...ooooookay..."])
 characterTalking = Array[int]([0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0])
 cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
@@ -1926,7 +1914,6 @@ position = Vector2(-1664, 656)
 [node name="DialogueArea" parent="NPCs/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here…", "Hey! Aren't you gonna attack me like the others?", "Why would I? I'm in pause right now... ohh the bliss...", "Huh... you look kinda worn out, everything good?", "Have you seen the brown goop around here? It DRAINS me everytime I walk on it!", "If only I had the energy to clean it, it would probably go away...", "Ohh! That sounds useful... thanks, sleepy cleaner!", "Oh yeah... don't even bother removing the purple ones like the one below my feet. I tried. It's impossible, time wasted.", "I wonder why you guys in pause are so willing to give me so much information... but I'll gladly accept all of them without question! Hehe..."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 0, 2, 0])
-characterEmotion = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("AreaFocus"), NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 

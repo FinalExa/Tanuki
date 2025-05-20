@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=61 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bk4dclsr52xtc" path="res://ImportantObjects/Interactables/password_table.tscn" id="7_i27kk"]
 [ext_resource type="PackedScene" uid="uid://ik02mrftkuwp" path="res://Level/Prefabs/carpet.tscn" id="8_nrn6o"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="9_wwcrv"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="10_oxkx2"]
 [ext_resource type="PackedScene" uid="uid://h53rag35ypel" path="res://NPC/entrance_completed_npc.tscn" id="11_6bsyf"]
 [ext_resource type="PackedScene" uid="uid://dtgabl236h6qh" path="res://NPC/entrance_npc.tscn" id="11_n5xws"]
 [ext_resource type="PackedScene" uid="uid://c1nobjxjvfgsh" path="res://ImportantObjects/Interactables/bell_table.tscn" id="13_7n8iq"]
@@ -46,15 +47,27 @@ vertices = PackedVector2Array(480, 992, 480, 1056, -480, 1056, -480, 992, -800, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-480, 992, -480, 1056, 480, 1056, 480, 992), PackedVector2Array(-800, 1056, -800, 960, -736, 960, -736, 1056), PackedVector2Array(736, 1056, 736, 960, 800, 960, 800, 1056)])
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x1y16"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tywjs"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_524vm"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8d4oj"]
+radius = 128.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h1ymd"]
 vertices = PackedVector2Array(-560, -160, -480, -160, -480, -96, -560, -96, 480, -224, 480, -280, 560, -280, 560, -224, -560, 472, -480, 472, -480, 544, -560, 544, 480, 608, 560, 608, 560, 672, 480, 672)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-560, -160, -480, -160, -480, -96, -560, -96), PackedVector2Array(480, -224, 480, -280, 560, -280, 560, -224), PackedVector2Array(-560, 472, -480, 472, -480, 544, -560, 544), PackedVector2Array(480, 608, 560, 608, 560, 672, 480, 672)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a11ha"]
-vertices = PackedVector2Array(-1504, 800, -1320, 800, -1320, 1056, -1504, 1056)
+vertices = PackedVector2Array(-1504, 800, -1312, 800, -1312, 1056, -1504, 1056)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1320, 1056, -1320, 800, -1504, 800)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 1056, -1312, 800, -1504, 800)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_trede"]
 vertices = PackedVector2Array(800, 1984, 800, 1824, 992, 1824, 864, 1984, 992, 1984, 928, 1984, 928, 2080, 864, 2080)
@@ -225,16 +238,52 @@ navigation_polygon = SubResource("NavigationPolygon_ufbmp")
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallFixEntrance"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("NavigationRegion2D"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("NavigationRegion2D"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, true, true, true, true, true, false, false, true, false, false, true, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("NavigationRegion2D"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("NavigationRegion2D"), NodePath("EntranceNPC/EntranceNPCCleanDialogue"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, true, false, true, true, true, true, true, false, false, true, false, true, false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(320, -512)
 
+[node name="EntranceNPCCleanDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["*sniff* *sob* *sniff*", "Huh, why are you crying?", "*sniff* oh... a guest... wait...", "Hm?", "You're not one of those guards! Maybe you can help me...?", "I'm kinda in a hurry here... do you know anything about keys? I'll help you in that case.", "Keys? Yes. I am tasked to protect one! But... I'm willing to ignore that if you help me.", "Go on, I'm all ears.", "*sniff* Thank you.", "*ahem* THOSE BUFOONS WHO MANAGE THINGS HERE HAVE MADE A MESS OF THE ENTRANCE, THE ENTRANCE I AM TASKED TO LOOK OUT FOR!", "See the carpet? No? Well, it's because of the brown goop.", "Touching it will deplete your energies... it won't harm you though, don't worry.", "Find something to clean it, then speak to me, I need other things to clear the entrance. I will also open the other doors here once you're done with it, as thanks.", "Okay. Will do."])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath("../../DirtyFloor"), NodePath("../../DirtyFloor"), NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCCleanDialogue"]
+shape = SubResource("CircleShape2D_x1y16")
+
+[node name="EntranceNPCGetBackBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["Thanks for cleaning the carpet.", "No problem! What's next?", "Those guards... they removed my physical body from here, it's a bell like me. Can you get it back here?", "I got ya.", "Should be in one of the rooms around here, they just trashed it like it was nothing..."])
+characterTalking = Array[int]([2, 0, 2, 0, 2])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCGetBackBellDialogue"]
+shape = SubResource("CircleShape2D_tywjs")
+
+[node name="EntranceNPCColorTheBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["So... that should be everything yes?", "Actually... I have a last request for you.", "*sigh* Go on.", "My poor body... has lost all of it's color, it was of a proud yellow! Are you able to restore it in any way?", "I'll check.", "Thank you! I'll give you the key if you manage to do it."])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCColorTheBellDialogue"]
+shape = SubResource("CircleShape2D_524vm")
+
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(320, -472)
+
+[node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["Thank you for everything! I am so happy!", "Do you have any other useful info for me, now-happy bell?", "There are some very suspicious banners in the corridor below... I heard from the guards that the wall there isn't the stablest, maybe there's something behind?", "Hey, that sounds useful. Thank you."])
+characterTalking = Array[int]([2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceCompletedNPC/EntranceCompletedDialogue"]
+shape = SubResource("CircleShape2D_8d4oj")
 
 [node name="Carpet" parent="Quests/HallFixEntrance" instance=ExtResource("8_nrn6o")]
 position = Vector2(0, -320)
@@ -677,18 +726,18 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="ColorYokai" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(-1000, 512)
+position = Vector2(-1240, 512)
 
 [node name="ColorYokai2" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(992, 640)
+position = Vector2(1232, 640)
 colorOfYokai = 1
 
 [node name="ColorYokai3" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(992, -256)
+position = Vector2(1232, -256)
 colorOfYokai = 2
 
 [node name="ColorYokai4" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(-1000, -128)
+position = Vector2(-1240, -128)
 colorOfYokai = 3
 
 [node name="Transformations" type="Node2D" parent="."]

@@ -19,16 +19,8 @@ enum DialogueCharacters {
 	GUARD
 }
 
-enum DialogueEmotions {
-	CALM,
-	ANGRY,
-	SAD,
-	HAPPY
-}
-
 var currentDialogueText: Array[String]
 var currentCharacterTalking: Array[DialogueCharacters]
-var currentCharacterEmotion: Array[DialogueEmotions]
 var currentCameraFocuses: Array[Node2D]
 var currentString: String
 var currentIndex: int
@@ -39,10 +31,9 @@ func _ready():
 	leftSprite.play("default")
 	rightSprite.play("default")
 
-func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], emotions: Array[DialogueEmotions], focus: Array[Node2D], source: DialogueArea):
+func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], focus: Array[Node2D], source: DialogueArea):
 	currentDialogueText = text
 	currentCharacterTalking = characters
-	currentCharacterEmotion = emotions
 	currentCameraFocuses = focus
 	currentIndex = 0
 	currentSource = source

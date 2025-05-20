@@ -4,7 +4,6 @@ extends Area2D
 @export var dialogueExecutingICD: float
 @export var dialogueText: Array[String]
 @export var characterTalking: Array[DialogueUI.DialogueCharacters]
-@export var characterEmotion: Array[DialogueUI.DialogueEmotions]
 @export var cameraFocuses: Array[Node2D]
 @export var isOnInteraction: bool
 @export var interactionLabel: Label
@@ -55,9 +54,9 @@ func PlayerIn():
 		StartDialogue(player)
 
 func StartDialogue(playerRef: PlayerCharacter):
-	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == characterEmotion.size() && dialogueText.size() == cameraFocuses.size() && dialogueText.size() > 0):
+	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == cameraFocuses.size() && dialogueText.size() > 0):
 		playerRef.playerHUD.ForcePause()
-		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, characterEmotion, cameraFocuses, self)
+		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, cameraFocuses, self)
 		dialogueExecuting = true
 
 func DialogueDone():
