@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://uag6daow7xob"]
+[gd_scene load_steps=5 format=3 uid="uid://uag6daow7xob"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_rlldu"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="2_sqmdi"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_r1kxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
 
-[node name="MovableObject" type="Area2D"]
+[node name="MovableObject" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose")]
 script = ExtResource("1_rlldu")
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a1fvs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("3_r1kxj")]
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("2_sqmdi")]

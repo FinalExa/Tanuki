@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cblibxls07rup"]
+
+[ext_resource type="Texture2D" uid="uid://cr6b5al2nt5yf" path="res://ImportantObjects/MovableObjects/Sprites/MovableFeedbackClose.png" id="1_uevrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yj0n"]
+atlas = ExtResource("1_uevrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbjf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yj0n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MovableFeedbackClose" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_sbjf3")

@@ -42,6 +42,7 @@ func DropMovableObject():
 
 func ForceDropMovableObject():
 	if (currentObject != null):
+		currentObject.ForceTurnCloseFeedbackOff()
 		currentObject.ResetParentAndPosition()
 		currentObject = null
 

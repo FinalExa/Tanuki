@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://c5vyx3tnh3ply" path="res://NPC/sad_guard_npc.tscn" id="25_nwgbr"]
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="26_8r610"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="26_61bmt"]
-[ext_resource type="PackedScene" uid="uid://c7nlbf2p1mokh" path="res://ImportantObjects/MovableObjects/cushion_movable.tscn" id="26_clvot"]
+[ext_resource type="PackedScene" uid="uid://c7nlbf2p1mokh" path="res://ImportantObjects/MovableObjects/pillow_movable.tscn" id="26_clvot"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="27_g2aog"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="27_mnraf"]
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="28_jorvy"]
@@ -520,7 +520,7 @@ texture = ExtResource("24_hg15b")
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
-questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("CushionMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
+questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
 questItemsStages = Array[int]([0, 1, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
@@ -553,7 +553,7 @@ position = Vector2(1152, 1088)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="CushionMovable" parent="Quests/HallMakeWardenSleep" instance=ExtResource("26_clvot")]
+[node name="PillowMovable" parent="Quests/HallMakeWardenSleep" instance=ExtResource("26_clvot")]
 position = Vector2(960, 2496)
 
 [node name="ChairWardenNPC" parent="Quests/HallMakeWardenSleep" instance=ExtResource("25_e4ed7")]

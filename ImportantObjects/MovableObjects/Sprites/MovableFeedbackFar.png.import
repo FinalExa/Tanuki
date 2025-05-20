@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbyguqove6tgo"
-path="res://.godot/imported/Cushion.png-687b3a15de60a7a0eb2d360522309ad7.ctex"
+uid="uid://c8aqid4rh1fyh"
+path="res://.godot/imported/MovableFeedbackFar.png-1d91ecef3b9d9fcb87930a9d05b19da7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/MovableObjects/Sprites/Cushion.png"
-dest_files=["res://.godot/imported/Cushion.png-687b3a15de60a7a0eb2d360522309ad7.ctex"]
+source_file="res://ImportantObjects/MovableObjects/Sprites/MovableFeedbackFar.png"
+dest_files=["res://.godot/imported/MovableFeedbackFar.png-1d91ecef3b9d9fcb87930a9d05b19da7.ctex"]
 
 [params]
 
