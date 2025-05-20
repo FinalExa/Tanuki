@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=69 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -87,6 +87,12 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5g0j"]
 radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asgj7"]
+radius = 384.083
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmuxl"]
+radius = 128.25
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fjm4u"]
 vertices = PackedVector2Array(1376, 960, 1312, 960, 1312, -480, 3296, -480, 3296, 960, 1440, 960, 1440, 1056, 1376, 1056)
@@ -216,9 +222,9 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_sxp2p")
 
 [node name="PasswordNPCQuestCompleteDialogue" parent="Quests/HallGetPassword/PasswordNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Congratulations for getting the right password.", "Thanks!"])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
+dialogueText = Array[String](["Congratulations for getting the right password.", "Thanks! Any useful advice for me?", "Some magic walls may miss a color, if you give it to them, they'll disappear.", "Ohoh! Sounds useful, thanks!"])
+characterTalking = Array[int]([2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCQuestCompleteDialogue"]
@@ -514,11 +520,33 @@ texture = ExtResource("24_hg15b")
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
-questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("CushionMovable"), NodePath("Chair"), NodePath("ChairWardenNPC")]
-questItemsStages = Array[int]([0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, true])
+questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("CushionMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
+questItemsStages = Array[int]([0, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
+
+[node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+position = Vector2(1088, 1280)
+dialogueText = Array[String](["This job to watch the key is so demanding... I'm so sleepy right now.", "Thankfully that chair doesn't have a pillow... otherwise... I would be VERY tempted...", "Haha... let's keep watch to the corridor, hopefully it's just another boring day without any intruder... *yawn*", "This guy wants to sleep eh? Let's give him sleep! Heheheheh..."])
+characterTalking = Array[int]([2, 2, 2, 0])
+cameraFocuses = [NodePath("../../../Enemies/Warden1"), NodePath("../Chair"), NodePath("../../../Enemies/Warden1"), null]
+isOnInteraction = true
+labelDefaultText = "PRESS F TO LISTEN"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallMakeWardenSleep/WardenAwakeDialogue"]
+shape = SubResource("CircleShape2D_asgj7")
+
+[node name="WardenSleepingDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+position = Vector2(1152, 1088)
+dialogueText = Array[String](["ZZZ... ZZZ... *snore*", "Well, looks like he won't be waking up soon, hehe..."])
+characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath("../../../Enemies/Warden1"), null]
+isOnInteraction = true
+labelDefaultText = "PRESS F TO LISTEN"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallMakeWardenSleep/WardenSleepingDialogue"]
+shape = SubResource("CircleShape2D_gmuxl")
 
 [node name="Chair" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_5q0m2")]
 position = Vector2(1152, 1088)
@@ -526,7 +554,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="CushionMovable" parent="Quests/HallMakeWardenSleep" instance=ExtResource("26_clvot")]
-position = Vector2(984, -472)
+position = Vector2(960, 2496)
 
 [node name="ChairWardenNPC" parent="Quests/HallMakeWardenSleep" instance=ExtResource("25_e4ed7")]
 position = Vector2(1152, 1088)
@@ -851,4 +879,4 @@ position = Vector2(-120, 264)
 position = Vector2(-272, 240)
 
 [node name="Knife" parent="Transformations" instance=ExtResource("26_8r610")]
-position = Vector2(256, 2496)
+position = Vector2(1216, -448)
