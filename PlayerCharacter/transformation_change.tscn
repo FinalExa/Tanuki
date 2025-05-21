@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://nv4yusubb5t1" path="res://PlayerCharacter/Sounds/Temporary/boom.mp3" id="12_hjc18"]
 
 [node name="TransformationChange" type="Node2D" node_paths=PackedStringArray("transformationSaving", "transformationActivation", "transformationAttacking", "transformationSprite", "transformationOriginalObject", "transformationSounds", "trasformationUndetectable", "transformationLock")]
+y_sort_enabled = true
 script = ExtResource("1_yyitm")
 transformationSaving = NodePath("TransformationSaving")
 transformationActivation = NodePath("TransformationActivation")

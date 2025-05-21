@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://behc1dsq65vci" path="res://ImportantObjects/Interactables/Sprites/ColorDoorPart.png" id="2_adgix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t171d"]
-size = Vector2(256, 128)
+size = Vector2(256, 32)
 
 [node name="ColorDoor" type="StaticBody2D" node_paths=PackedStringArray("parts") groups=["Interactable"]]
 script = ExtResource("1_rmp6x")
@@ -15,20 +15,21 @@ destroyOnEnd = true
 receiveRefAttack = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_t171d")
 
 [node name="Part1" type="Sprite2D" parent="."]
-position = Vector2(-96, 0)
+position = Vector2(-96, -64)
 texture = ExtResource("2_adgix")
 
 [node name="Part2" type="Sprite2D" parent="."]
-position = Vector2(-32, 0)
+position = Vector2(-32, -64)
 texture = ExtResource("2_adgix")
 
 [node name="Part3" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(32, -64)
 texture = ExtResource("2_adgix")
 
 [node name="Part4" type="Sprite2D" parent="."]
-position = Vector2(96, 0)
+position = Vector2(96, -64)
 texture = ExtResource("2_adgix")

@@ -78,10 +78,10 @@ vertices = PackedVector2Array(-1504, 800, -1312, 800, -1312, 1056, -1504, 1056)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 1056, -1312, 800, -1504, 800)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_trede"]
-vertices = PackedVector2Array(800, 1984, 800, 1824, 992, 1824, 864, 1984, 992, 1984, 928, 1984, 928, 2080, 864, 2080)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(800, 1824, 992, 1824, 992, 1984, 928, 1984, 928, 2080, 864, 2080, 864, 1984, 800, 1984)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6c0af"]
+vertices = PackedVector2Array(2336, 656, 2528, 576, 2528, 672, 1840, 960, 2336, 576, 1312, 960, 1312, 544, 1440, 544, 1376, 960, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1632, 352, 1568, -64, 1312, -64, 1312, -480, 2272, -480, 2976, -64, 2352, -64, 2352, -480, 3296, -480, 3296, -64, 3168, -64, 2976, 32, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 2976, 320, 3168, 416, 3296, 416, 3296, 712, 3040, 712, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 416, 2976, 416, 2272, 32, 2656, 320, 2656, 576, 2080, 576, 2080, -64, 1760, 32, 2000, 32, 2000, 656, 1840, 352, 2656, 672, 2656, 960, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056, 1760, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23), PackedInt32Array(18, 21, 23, 24), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 25, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(33, 34, 37, 38, 39), PackedInt32Array(28, 30, 33, 39, 29), PackedInt32Array(40, 24, 29, 41), PackedInt32Array(41, 42, 1, 40), PackedInt32Array(4, 43, 44, 40), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(2, 49, 50, 3), PackedInt32Array(47, 0, 3), PackedInt32Array(47, 3, 48), PackedInt32Array(45, 48, 13, 12), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(54, 55, 56, 8), PackedInt32Array(40, 1, 4), PackedInt32Array(17, 40, 44), PackedInt32Array(17, 44, 57), PackedInt32Array(14, 17, 57, 12), PackedInt32Array(12, 57, 45), PackedInt32Array(9, 13, 51, 7), PackedInt32Array(7, 51, 54, 8), PackedInt32Array(8, 5, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1312, 960, 1312, 960, 1312, 544, 1440, 544, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1568, -64, 1312, -64, 1312, -480, 2272, -480, 2272, 32, 2976, 32, 2976, -64, 2352, -64, 2352, -480, 3296, -480, 3296, -64, 3168, -64, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 3168, 416, 3296, 416, 3296, 712, 3040, 712, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 416, 2976, 416, 2976, 320, 2656, 320, 2656, 576, 2528, 576, 2528, 672, 2656, 672, 2656, 960, 1840, 960, 1840, 352, 1632, 352, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056, 1376, 960), PackedVector2Array(1760, 32, 1760, -64, 2080, -64, 2080, 576, 2336, 576, 2336, 656, 2000, 656, 2000, 32)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0akyk"]
 radius = 128.25
@@ -473,7 +473,7 @@ objectsToDeleteAtQuestComplete = [NodePath("ColorDoor")]
 position = Vector2(1664, 1088)
 
 [node name="ColorDoor" parent="Quests/HallStopTheDoor" instance=ExtResource("23_p6qod")]
-position = Vector2(1664, 1216)
+position = Vector2(1664, 1280)
 randomizeRightColor = true
 
 [node name="DoorEvil" parent="Quests/HallStopTheDoor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_getnd")]
@@ -482,7 +482,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallStopTheDoor"]
-navigation_polygon = SubResource("NavigationPolygon_trede")
+navigation_polygon = SubResource("NavigationPolygon_6c0af")
 
 [node name="SadGuardNPC" parent="Quests/HallStopTheDoor" instance=ExtResource("25_nwgbr")]
 position = Vector2(720, 2096)
@@ -633,37 +633,31 @@ position = Vector2(1408, 944)
 scale = Vector2(2, 1)
 
 [node name="ColorDoor1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
-position = Vector2(1536, 448)
+position = Vector2(1536, 512)
 rightColor = 1
 
-[node name="ColorDoor2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(1664, -64)
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+[node name="ColorDoor2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(1664, 0)
 
-[node name="ColorDoor3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(1920, 576)
+[node name="ColorDoor3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(1920, 640)
 rightColor = 3
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
 
-[node name="ColorDoor4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(2432, 576)
+[node name="ColorDoor4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(2432, 640)
 randomizeRightColor = true
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
 
-[node name="ColorDoor5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(2176, -64)
+[node name="ColorDoor5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(2176, 0)
 randomizeRightColor = true
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
 
-[node name="ColorDoor6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(3072, 320)
+[node name="ColorDoor6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(3072, 384)
 randomizeRightColor = true
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
 
-[node name="ColorDoor7" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
-position = Vector2(3072, -64)
+[node name="ColorDoor7" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(3072, 0)
 randomizeRightColor = true
-parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
 
 [node name="NPCs" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
 y_sort_enabled = true
