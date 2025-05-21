@@ -1,10 +1,11 @@
-[gd_scene load_steps=71 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=74 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="3_2xstp"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="3_7xfqb"]
 [ext_resource type="PackedScene" uid="uid://cdvfbk2miftre" path="res://NPC/password_npc.tscn" id="3_653qg"]
+[ext_resource type="PackedScene" uid="uid://bhev8beol8k3u" path="res://Level/UnlockKey/special_unlock_key.tscn" id="3_l0deq"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="3_trsi0"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="4_lfw02"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="4_vuvq6"]
@@ -78,10 +79,10 @@ vertices = PackedVector2Array(-1504, 800, -1312, 800, -1312, 1056, -1504, 1056)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 1056, -1312, 800, -1504, 800)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_6c0af"]
-vertices = PackedVector2Array(2336, 656, 2528, 576, 2528, 672, 1840, 960, 2336, 576, 1312, 960, 1312, 544, 1440, 544, 1376, 960, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1632, 352, 1568, -64, 1312, -64, 1312, -480, 2272, -480, 2976, -64, 2352, -64, 2352, -480, 3296, -480, 3296, -64, 3168, -64, 2976, 32, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 2976, 320, 3168, 416, 3296, 416, 3296, 712, 3040, 712, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 416, 2976, 416, 2272, 32, 2656, 320, 2656, 576, 2080, 576, 2080, -64, 1760, 32, 2000, 32, 2000, 656, 1840, 352, 2656, 672, 2656, 960, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056, 1760, -64)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23), PackedInt32Array(18, 21, 23, 24), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(24, 25, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(33, 34, 37, 38, 39), PackedInt32Array(28, 30, 33, 39, 29), PackedInt32Array(40, 24, 29, 41), PackedInt32Array(41, 42, 1, 40), PackedInt32Array(4, 43, 44, 40), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(2, 49, 50, 3), PackedInt32Array(47, 0, 3), PackedInt32Array(47, 3, 48), PackedInt32Array(45, 48, 13, 12), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(54, 55, 56, 8), PackedInt32Array(40, 1, 4), PackedInt32Array(17, 40, 44), PackedInt32Array(17, 44, 57), PackedInt32Array(14, 17, 57, 12), PackedInt32Array(12, 57, 45), PackedInt32Array(9, 13, 51, 7), PackedInt32Array(7, 51, 54, 8), PackedInt32Array(8, 5, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1312, 960, 1312, 960, 1312, 544, 1440, 544, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1568, -64, 1312, -64, 1312, -480, 2272, -480, 2272, 32, 2976, 32, 2976, -64, 2352, -64, 2352, -480, 3296, -480, 3296, -64, 3168, -64, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 3168, 416, 3296, 416, 3296, 712, 3040, 712, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 416, 2976, 416, 2976, 320, 2656, 320, 2656, 576, 2528, 576, 2528, 672, 2656, 672, 2656, 960, 1840, 960, 1840, 352, 1632, 352, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056, 1376, 960), PackedVector2Array(1760, 32, 1760, -64, 2080, -64, 2080, 576, 2336, 576, 2336, 656, 2000, 656, 2000, 32)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o12u4"]
+vertices = PackedVector2Array(928, 1984, 928, 2080, 864, 2080, 864, 1984, 800, 1984, 800, 1824, 992, 1824, 992, 1984)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(928, 2080, 864, 2080, 864, 1984, 800, 1984, 800, 1824, 992, 1824, 992, 1984, 928, 1984)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0akyk"]
 radius = 128.25
@@ -98,8 +99,16 @@ radius = 128.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
 radius = 128.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d0iyo"]
+vertices = PackedVector2Array(3144, -304, 3144, -440, 3296, -480, 3296, -64, 3168, -64, 2736, -480, 3000, -440, 2736, -64, 3000, -304, 2976, -64, 1376, 960, 1312, 960, 1312, 544, 1440, 544, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1568, -64, 1312, -64, 1312, -480, 2656, -480, 2656, -64, 2272, -64, 2080, -160, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 3168, 416, 3296, 416, 3296, 704, 3040, 704, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 576, 2976, 416, 2736, 416, 2976, 320, 2976, 32, 2656, 320, 2656, 576, 2528, 576, 2272, 32, 2336, 672, 2528, 672, 1840, 960, 2336, 576, 2080, 576, 2000, -160, 2000, -64, 1760, -64, 1760, 32, 2000, 32, 2000, 672, 1840, 352, 2656, 672, 2656, 960, 1760, 352, 1760, 448, 1632, 448, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 2, 1, 6), PackedInt32Array(7, 5, 6, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(32, 33, 36, 37, 38), PackedInt32Array(37, 39, 38), PackedInt32Array(28, 29, 32, 38, 40), PackedInt32Array(25, 28, 40, 41), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(46, 44, 47, 48), PackedInt32Array(44, 46, 49), PackedInt32Array(49, 50, 24, 45), PackedInt32Array(51, 52, 53), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(47, 58, 59, 48), PackedInt32Array(56, 46, 48), PackedInt32Array(56, 48, 57), PackedInt32Array(54, 57, 60, 17, 18), PackedInt32Array(60, 61, 62, 17), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(66, 67, 68, 10), PackedInt32Array(66, 10, 13, 63), PackedInt32Array(62, 63, 13, 14, 17), PackedInt32Array(53, 54, 18), PackedInt32Array(53, 18, 21, 51), PackedInt32Array(24, 51, 21), PackedInt32Array(41, 9, 8, 0, 4, 25), PackedInt32Array(45, 41, 40, 42), PackedInt32Array(45, 44, 49), PackedInt32Array(24, 23, 45)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1312, 960, 1312, 544, 1440, 544, 1440, 448, 1312, 448, 1312, 32, 1568, 32, 1568, -64, 1312, -64, 1312, -480, 2656, -480, 2656, -64, 2272, -64, 2272, 32, 2976, 32, 2976, -64, 2736, -64, 2736, -480, 3296, -480, 3296, -64, 3168, -64, 3168, 32, 3296, 32, 3296, 320, 3168, 320, 3168, 416, 3296, 416, 3296, 704, 3040, 704, 3040, 800, 3296, 800, 3296, 960, 2736, 960, 2736, 576, 2736, 416, 2976, 416, 2976, 320, 2656, 320, 2656, 576, 2528, 576, 2528, 672, 2656, 672, 2656, 960, 1840, 960, 1840, 352, 1760, 352, 1760, 448, 1632, 448, 1632, 544, 1760, 544, 1760, 960, 1440, 960, 1440, 1056, 1376, 1056, 1376, 960), PackedVector2Array(1760, 32, 1760, -64, 2000, -64, 2000, -160, 2080, -160, 2080, 576, 2336, 576, 2336, 672, 2000, 672, 2000, 32), PackedVector2Array(3000, -304, 3000, -440, 3144, -440, 3144, -304)])
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kob0k"]
 size = Vector2(448, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1lbe"]
+size = Vector2(624, 480)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
 size = Vector2(256, 112)
@@ -143,7 +152,7 @@ vertices = PackedVector2Array(560, 960, 560, 288, 864, 288, 1232, 960, 864, 240,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 864, 288, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 960, 560, 960)])
 
-[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
+[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
 format = 2
@@ -157,7 +166,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-327676, 65536, 0, 131076, 262144, 1, 4, 262144, 1, -262140, 262144, 1, 65531, 0, 1, -196613, 0, 1, -262149, 131072, 0, -262148, 131072, 1, -327677, 131072, 1, -327678, 131072, 1, -327679, 131072, 1, -262146, 131072, 1, -262147, 131072, 1, -262145, 327680, 3, -327680, 393216, 3, 131067, 131072, 0, 65540, 65536, 0, 196603, 0, 1, 393211, 0, 1, 458747, 0, 1, 524283, 196608, 1, 393220, 262144, 1, 458756, 65536, 1, -262150, 131072, 1, -262151, 131072, 1, -262152, 131072, 1, -262153, 131072, 1, 131063, 131072, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 327680, 3, 524282, 393216, 3, 851956, 131072, 1, 851963, 131072, 0, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 917499, 0, 1, 983035, 0, 1, 1048571, 196608, 1, 1048570, 131072, 1, 1048569, 131072, 1, 1048568, 131072, 1, 1048567, 0, 1, 1114103, 0, 1, 1310711, 0, 1, 1376247, 0, 2, 1376248, 131072, 1, 1310727, 131072, 1, 1310726, 131072, 1, 1310725, 131072, 1, 1310724, 131072, 1, 1310723, 131072, 1, 1310722, 131072, 1, 1310721, 131072, 1, 1376254, 131072, 1, 1376253, 131072, 1, 1376252, 131072, 1, 1376251, 131072, 1, 1376250, 131072, 1, 1376249, 131072, 1, 983048, 262144, 1, 1048584, 262144, 1, 1245192, 262144, 1, 1310728, 262144, 2, 983044, 65536, 1, 983045, 196608, 1, 917508, 262144, 1, 851972, 262144, 1, 786436, 65536, 0, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 131070, 131072, 1, 65537, 131072, 1, 65536, 131072, 1, 131071, 131072, 1, -327675, 131072, 1, -327674, 131072, 1, -327673, 131072, 1, -327672, 131072, 1, 458759, 131072, 1, 458758, 393216, 3, 458757, 327680, 3, 131064, 327680, 3, 65543, 393216, 3, 65542, 327680, 3, 65541, 131072, 1, 131066, 131072, 1, 131065, 393216, 3, -131077, 0, 1, 786446, 262144, 2, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 786444, 65536, 1, 786445, 131072, 1, 524274, 131072, 1, 851955, 131072, 1, 851954, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 851953, 0, 2, 458761, 196608, 1, 458764, 65536, 0, 458765, 131072, 1, 851974, 131072, 1, 851975, 131072, 1, 851976, 262144, 1, 917512, 262144, 1, 851973, 0, 1, 917509, 0, 1, -3, 0, 2, -2, 262144, 2, -65539, 0, 1, -65538, 262144, 1, -131070, 262144, 1, -65534, 262144, 2, -65535, 0, 2, -131071, 0, 1, -65532, 262144, 1, 196612, 262144, 1, 524300, 262144, 1, 589836, 262144, 1, 655372, 720896, 4, 720908, 720896, 5, 458760, 131072, 1, 65544, 131072, 1, -262154, 65536, 0, 524278, 65536, 1, 458742, 262144, 1, 393206, 262144, 1, 327670, 262144, 1, 262134, 262144, 1, 196598, 262144, 1, 131062, 131072, 1, 65526, 262144, 1, -196618, 262144, 1, -131082, 262144, 1, -65546, 262144, 1, -10, 262144, 1, -327671, 131072, 0, -262135, 0, 1, -196599, 0, 1, -131063, 0, 1, -65527, 0, 1, 9, 0, 1, 65545, 131072, 1, 131081, 0, 1, 196617, 0, 1, 262153, 0, 1, 327689, 0, 1, 393225, 0, 1)
+layer_1/tile_data = PackedInt32Array(-327676, 65536, 0, 131076, 262144, 1, 4, 262144, 1, -262140, 262144, 1, 65531, 0, 1, -196613, 0, 1, -262149, 131072, 0, -262148, 131072, 1, -327677, 131072, 1, -327678, 131072, 1, -327679, 131072, 1, -262146, 131072, 1, -262147, 131072, 1, -262145, 327680, 3, -327680, 393216, 3, 131067, 131072, 0, 65540, 65536, 0, 196603, 0, 1, 393211, 0, 1, 458747, 0, 1, 524283, 196608, 1, 393220, 262144, 1, 458756, 65536, 1, -262150, 131072, 1, -262151, 131072, 1, -262152, 131072, 1, -262153, 131072, 1, 131063, 131072, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 327680, 3, 524282, 393216, 3, 851956, 131072, 1, 851963, 131072, 0, 851957, 131072, 1, 851958, 131072, 1, 851959, 131072, 1, 851960, 131072, 1, 851961, 131072, 1, 851962, 131072, 1, 917499, 0, 1, 983035, 0, 1, 1048571, 196608, 1, 1048570, 131072, 1, 1048569, 131072, 1, 1048568, 131072, 1, 1048567, 0, 1, 1114103, 0, 1, 1310711, 0, 1, 1376247, 0, 2, 1376248, 131072, 1, 1310727, 131072, 1, 1310726, 131072, 1, 1310725, 131072, 1, 1310724, 131072, 1, 1310723, 131072, 1, 1310722, 131072, 1, 1310721, 131072, 1, 1376254, 131072, 1, 1376253, 131072, 1, 1376252, 131072, 1, 1376251, 131072, 1, 1376250, 131072, 1, 1376249, 131072, 1, 983048, 262144, 1, 1048584, 262144, 1, 1245192, 262144, 1, 1310728, 262144, 2, 983044, 65536, 1, 983045, 196608, 1, 917508, 262144, 1, 851972, 262144, 1, 786436, 65536, 0, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 1, 786442, 131072, 1, 786443, 131072, 1, 131070, 131072, 1, 65537, 131072, 1, 65536, 131072, 1, 131071, 131072, 1, -327675, 131072, 1, -327674, 131072, 1, -327673, 131072, 1, -327672, 131072, 1, 458759, 131072, 1, 458758, 393216, 3, 458757, 327680, 3, 131064, 327680, 3, 65543, 393216, 3, 65542, 327680, 3, 65541, 131072, 1, 131066, 131072, 1, 131065, 393216, 3, -131077, 0, 1, 786446, 262144, 2, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 786444, 65536, 1, 786445, 131072, 1, 524274, 131072, 1, 851955, 131072, 1, 851954, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 851953, 0, 2, 458761, 196608, 1, 458764, 65536, 0, 458765, 131072, 1, 851974, 131072, 1, 851975, 131072, 1, 851976, 262144, 1, 917512, 262144, 1, 851973, 0, 1, 917509, 0, 1, -3, 0, 2, -2, 262144, 2, -65539, 0, 1, -65538, 262144, 1, -131070, 262144, 1, -65534, 262144, 2, -65535, 0, 2, -131071, 0, 1, -65532, 262144, 1, 196612, 262144, 1, 524300, 262144, 1, 589836, 262144, 1, 655372, 720896, 4, 720908, 720896, 5, 458760, 131072, 1, 65544, 131072, 1, -262154, 65536, 0, 524278, 65536, 1, 458742, 262144, 1, 393206, 262144, 1, 327670, 262144, 1, 262134, 262144, 1, 196598, 262144, 1, 131062, 65536, 1, 65526, 262144, 1, -196618, 262144, 1, -131082, 262144, 1, -65546, 262144, 1, -10, 262144, 1, -327671, 131072, 0, -262135, 0, 1, -196599, 0, 1, -131063, 0, 1, -65527, 0, 1, 9, 0, 1, 65545, 196608, 1, 131081, 0, 1, 196617, 0, 1, 262153, 0, 1, 327689, 0, 1, 393225, 0, 1)
 layer_2/name = "Decorations"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -169,6 +178,7 @@ script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 4
 keyTypeToShow = 4
+levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallHiddenRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUltraKey")]
@@ -177,6 +187,11 @@ travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodeP
 
 [node name="Keys" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_l0deq")]
+position = Vector2(2816, -360)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/HallUltraKey")
 
 [node name="UnlockKey1" parent="Keys" instance=ExtResource("3_trsi0")]
 position = Vector2(0, 320)
@@ -482,7 +497,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallStopTheDoor"]
-navigation_polygon = SubResource("NavigationPolygon_6c0af")
+navigation_polygon = SubResource("NavigationPolygon_o12u4")
 
 [node name="SadGuardNPC" parent="Quests/HallStopTheDoor" instance=ExtResource("25_nwgbr")]
 position = Vector2(720, 2096)
@@ -597,10 +612,10 @@ destroyOnEnd = true
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUltraKey"
-questItemsToOperate = [NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("ThirdDoor")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, true, true, true, true, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor4"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor7")]
+questItemsToOperate = [NodePath("HallUltraKeyTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("ThirdDoor"), NodePath("OldTanukiNPC")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 3])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, true, true, true, true, false])
+objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor4"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor7"), NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), NodePath("HallUltraKeyTileMap/Enemies/Guard3"), NodePath("HallUltraKeyTileMap/Enemies/Guard4")]
 
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
@@ -616,7 +631,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(458766, 65536, 0, 458767, 131072, 1, 458768, 131072, 1, 458769, 131072, 1, 458770, 131072, 1, 458771, 131072, 1, 458772, 131072, 1, 458773, 65536, 1, 458774, 131072, 1, 458775, 131072, 1, 458776, 131072, 1, 458777, 131072, 1, 458778, 262144, 2, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196582, 262144, 1, -262118, 262144, 1, -327654, 262144, 1, -327655, 131072, 1, -327656, 131072, 1, -327657, 131072, 1, -327658, 131072, 1, -327659, 131072, 1, -327660, 131072, 1, -327661, 131072, 1, -327662, 65536, 0, -327663, 131072, 1, -327664, 131072, 1, -327665, 131072, 1, -327666, 131072, 1, -327667, 131072, 1, -327668, 131072, 1, -327669, 131072, 1, -327670, 131072, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196621, 131072, 1, 196618, 131072, 1, -65522, 131072, 1, -65521, 131072, 0, -65518, 65536, 1, -65517, 131072, 1, 262159, 0, 2, 262160, 131072, 1, 262161, 131072, 1, 262164, 131072, 1, 262165, 262144, 1, 327701, 262144, 1, -65526, 131072, 1, -65525, 131072, 1, 15, 0, 1, 65551, 0, 1, 131087, 0, 1, 196623, 0, 1, 196622, 262144, 1, 393237, 262144, 1, -65516, 131072, 1, -65515, 131072, 1, -65514, 131072, 1, 196629, 262144, 1, 131093, 65536, 0, 131094, 131072, 1, 131097, 131072, 1, 327705, 131072, 1, 327704, 131072, 1, -262126, 262144, 1, -196590, 262144, 1, -131054, 262144, 1, -65511, 131072, 1)
+layer_1/tile_data = PackedInt32Array(458766, 65536, 0, 458767, 131072, 1, 458768, 131072, 1, 458769, 131072, 1, 458770, 131072, 1, 458771, 131072, 1, 458772, 131072, 1, 458773, 65536, 1, 458774, 131072, 1, 458775, 131072, 1, 458776, 131072, 1, 458777, 131072, 1, 458778, 262144, 2, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196582, 262144, 1, -262118, 262144, 1, -327654, 262144, 1, -327655, 131072, 1, -327656, 131072, 1, -327657, 131072, 1, -327658, 131072, 1, -327659, 65536, 0, -327660, 131072, 1, -327661, 131072, 1, -327662, 131072, 1, -327663, 131072, 1, -327664, 131072, 1, -327665, 131072, 1, -327666, 131072, 1, -327667, 131072, 1, -327668, 131072, 1, -327669, 131072, 1, -327670, 131072, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196621, 131072, 1, 196618, 131072, 1, -65522, 131072, 1, -65521, 131072, 0, -65518, 131072, 1, -65517, 131072, 1, 262159, 0, 2, 262160, 131072, 1, 262161, 131072, 1, 262164, 131072, 1, 262165, 262144, 1, 327701, 262144, 1, -65526, 131072, 1, -65525, 131072, 1, 15, 0, 1, 65551, 0, 1, 131087, 0, 1, 196623, 0, 1, 196622, 262144, 1, 393237, 262144, 1, -65516, 131072, 1, -65515, 65536, 1, -65514, 131072, 1, 196629, 262144, 1, 131093, 65536, 0, 131094, 131072, 1, 131097, 131072, 1, 327705, 131072, 1, 327704, 131072, 1, -65511, 131072, 1, -131051, 262144, 1, -196587, 262144, 1, -262123, 262144, 1)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -671,7 +686,7 @@ position = Vector2(1304, 640)
 colorOfYokai = 1
 
 [node name="ColorYokai3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
-position = Vector2(2008, 192)
+position = Vector2(1472, 32)
 
 [node name="ColorYokai4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
 position = Vector2(1768, -504)
@@ -686,10 +701,12 @@ position = Vector2(1328, 528)
 [node name="Puzzle" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
 y_sort_enabled = true
 
-[node name="PasswordTable" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle" node_paths=PackedStringArray("hints", "possibleHintPositions") instance=ExtResource("7_i27kk")]
+[node name="PasswordTable" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle" node_paths=PackedStringArray("hints", "possibleHintPositions", "questToSendProgressSignal") instance=ExtResource("7_i27kk")]
 position = Vector2(3072, -320)
 hints = [NodePath("../PasswordHints/PasswordHint1"), NodePath("../PasswordHints/PasswordHint2"), NodePath("../PasswordHints/PasswordHint3")]
 possibleHintPositions = [NodePath("../HintsPositions/1"), NodePath("../HintsPositions/2"), NodePath("../HintsPositions/3"), NodePath("../HintsPositions/4"), NodePath("../HintsPositions/5"), NodePath("../HintsPositions/6"), NodePath("../HintsPositions/7"), NodePath("../HintsPositions/8"), NodePath("../HintsPositions/9")]
+questToSendProgressSignal = NodePath("../../..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="PasswordHints" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle"]
 y_sort_enabled = true
@@ -736,6 +753,90 @@ position = Vector2(2176, 920)
 [node name="9" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
 position = Vector2(1344, 408)
 
+[node name="Enemies" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="Guard1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
+position = Vector2(2176, -320)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1PatrolPoint/Guard1PatrolIndicator")]
+
+[node name="Guard2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
+position = Vector2(3200, 128)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard2PatrolPoint/Guard2PatrolIndicator")]
+
+[node name="Guard3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
+position = Vector2(2624, 768)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard3PatrolPoint/Guard3PatrolIndicator")]
+
+[node name="Guard4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
+position = Vector2(2880, 896)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard4PatrolPoint/Guard4PatrolIndicator")]
+
+[node name="EnemyPatrolPoints" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+
+[node name="Guard1PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+
+[node name="Guard1PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+position = Vector2(1792, -320)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../1"), NodePath("../2")]
+waitActions = Array[float]([3.0, 3.0])
+lookActions = Array[int]([2, 3])
+
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint"]
+position = Vector2(1344, -320)
+
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint"]
+position = Vector2(2624, -320)
+
+[node name="Guard2PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+
+[node name="Guard2PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+position = Vector2(2624, 128)
+patrolActions = Array[int]([1, 1, 2, 0, 1, 1, 2, 0])
+moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../1"), NodePath("../3")]
+waitActions = Array[float]([4.0, 4.0])
+lookActions = Array[int]([1, 3])
+
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+position = Vector2(2208, 128)
+
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+position = Vector2(2208, 480)
+
+[node name="3" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+position = Vector2(3200, 128)
+
+[node name="Guard3PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+
+[node name="Guard3PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard3PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+position = Vector2(2240, 768)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../1"), NodePath("../2")]
+waitActions = Array[float]([4.0, 4.0])
+lookActions = Array[int]([2, 3])
+
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard3PatrolPoint"]
+position = Vector2(1888, 768)
+
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard3PatrolPoint"]
+position = Vector2(2592, 768)
+
+[node name="Guard4PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+
+[node name="Guard4PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard4PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+position = Vector2(2880, 640)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../1"), NodePath("../2")]
+waitActions = Array[float]([4.0, 4.0])
+lookActions = Array[int]([1, 0])
+
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard4PatrolPoint"]
+position = Vector2(2880, 448)
+
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard4PatrolPoint"]
+position = Vector2(2880, 896)
+
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
 position = Vector2(1664, 752)
 
@@ -749,6 +850,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_fo38d")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallUltraKey"]
+navigation_polygon = SubResource("NavigationPolygon_d0iyo")
 
 [node name="KitchenDoor" parent="Quests/HallUltraKey" instance=ExtResource("28_vyf6r")]
 position = Vector2(0, 2624)
@@ -766,6 +868,14 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_kob0k")
+
+[node name="SavePoint2" parent="Quests/HallUltraKey" instance=ExtResource("4_lfw02")]
+position = Vector2(3016, -272)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/SavePoint2"]
+shape = SubResource("RectangleShape2D_l1lbe")
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true

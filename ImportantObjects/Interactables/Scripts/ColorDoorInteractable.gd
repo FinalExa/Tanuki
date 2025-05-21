@@ -12,7 +12,8 @@ func ReadyOperations():
 
 func RandomizeCheck():
 	if (randomizeRightColor):
-		rightColor = randi_range(0, BrushPassive.BrushColor.size() - 2)
+		var randInt: int = randi_range(0, BrushPassive.BrushColor.size() - 2)
+		rightColor = randInt
 
 func ColorParts():
 	for i in parts.size():

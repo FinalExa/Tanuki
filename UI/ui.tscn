@@ -124,6 +124,8 @@ label_settings = SubResource("LabelSettings_5b5nv")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_ia11n")
+keysText = "Keys: "
+specialKeyText = "SPECIAL KEY OBTAINED"
 
 [node name="VersionInfo" type="Label" parent="."]
 process_mode = 3
