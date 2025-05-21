@@ -1,12 +1,18 @@
 extends GenericInteractable
 
 @export var rightColor: BrushPassive.BrushColor
+@export var randomizeRightColor: bool
 
 @export var colors: Array[Color]
 @export var parts: Array[Sprite2D]
 
 func ReadyOperations():
+	RandomizeCheck()
 	ColorParts()
+
+func RandomizeCheck():
+	if (randomizeRightColor):
+		rightColor = randi_range(0, BrushPassive.BrushColor.size() - 2)
 
 func ColorParts():
 	for i in parts.size():

@@ -302,7 +302,6 @@ size = Vector2(512, 512)
 [node name="Garden" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("1_oh66l")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/z_index = -1000

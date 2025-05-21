@@ -13,7 +13,7 @@ spriteRef = NodePath("Sprite2D")
 colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, -16)
+position = Vector2(-16, -24)
 texture = ExtResource("2_nbsdh")
 
 [node name="NewColorCheck" type="Area2D" parent="."]

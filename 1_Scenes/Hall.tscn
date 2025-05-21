@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=71 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="27_mnraf"]
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="28_jorvy"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="28_vyf6r"]
+[ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_76brf"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="35_puu12"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="36_8gipu"]
 
@@ -94,10 +95,11 @@ radius = 384.083
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmuxl"]
 radius = 128.25
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_fjm4u"]
-vertices = PackedVector2Array(1376, 960, 1312, 960, 1312, -480, 3296, -480, 3296, 960, 1440, 960, 1440, 1056, 1376, 1056)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(0, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1312, 960, 1312, -480, 3296, -480, 3296, 960, 1440, 960, 1440, 1056, 1376, 1056, 1376, 960)])
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
+radius = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kob0k"]
+size = Vector2(448, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnkah"]
 size = Vector2(256, 112)
@@ -274,12 +276,15 @@ sendSignalToQuestOnDestroyed = true
 [node name="PasswordHints" type="Node2D" parent="Quests/HallGetPassword"]
 
 [node name="PasswordHint1" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(0, 512)
 labelText = "I"
 
 [node name="PasswordHint2" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(0, 512)
 labelText = "II"
 
 [node name="PasswordHint3" parent="Quests/HallGetPassword/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(0, 512)
 labelText = "III"
 
 [node name="HintsPositions" type="Node2D" parent="Quests/HallGetPassword"]
@@ -469,7 +474,7 @@ position = Vector2(1664, 1088)
 
 [node name="ColorDoor" parent="Quests/HallStopTheDoor" instance=ExtResource("23_p6qod")]
 position = Vector2(1664, 1216)
-rightColor = 1
+randomizeRightColor = true
 
 [node name="DoorEvil" parent="Quests/HallStopTheDoor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_getnd")]
 position = Vector2(896, 2048)
@@ -588,13 +593,14 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 destroyOnEnd = true
 
-[node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUltraKey"
 questItemsToOperate = [NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("ThirdDoor")]
 questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 2, 2, 2])
 questItemsOnOffState = Array[bool]([false, false, false, true, true, true, true, true, true])
+objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor4"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor7")]
 
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
@@ -610,7 +616,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(458766, 65536, 0, 458767, 131072, 1, 458768, 131072, 1, 458769, 131072, 1, 458770, 131072, 1, 458771, 131072, 1, 458772, 131072, 1, 458773, 131072, 1, 458774, 131072, 1, 458775, 131072, 1, 458776, 131072, 1, 458777, 131072, 1, 458778, 262144, 2, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196582, 262144, 1, -262118, 262144, 1, -327654, 262144, 1, -327655, 131072, 1, -327656, 131072, 1, -327657, 131072, 1, -327658, 131072, 1, -327659, 131072, 1, -327660, 131072, 1, -327661, 131072, 1, -327662, 131072, 1, -327663, 131072, 1, -327664, 131072, 1, -327665, 131072, 1, -327666, 131072, 1, -327667, 131072, 1, -327668, 131072, 1, -327669, 131072, 1, -327670, 131072, 1)
+layer_1/tile_data = PackedInt32Array(458766, 65536, 0, 458767, 131072, 1, 458768, 131072, 1, 458769, 131072, 1, 458770, 131072, 1, 458771, 131072, 1, 458772, 131072, 1, 458773, 65536, 1, 458774, 131072, 1, 458775, 131072, 1, 458776, 131072, 1, 458777, 131072, 1, 458778, 262144, 2, 393242, 262144, 1, 327706, 262144, 1, 262170, 262144, 1, 196634, 262144, 1, 131098, 262144, 1, 65562, 262144, 1, 26, 262144, 1, -65510, 262144, 1, -131046, 262144, 1, -196582, 262144, 1, -262118, 262144, 1, -327654, 262144, 1, -327655, 131072, 1, -327656, 131072, 1, -327657, 131072, 1, -327658, 131072, 1, -327659, 131072, 1, -327660, 131072, 1, -327661, 131072, 1, -327662, 65536, 0, -327663, 131072, 1, -327664, 131072, 1, -327665, 131072, 1, -327666, 131072, 1, -327667, 131072, 1, -327668, 131072, 1, -327669, 131072, 1, -327670, 131072, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196621, 131072, 1, 196618, 131072, 1, -65522, 131072, 1, -65521, 131072, 0, -65518, 65536, 1, -65517, 131072, 1, 262159, 0, 2, 262160, 131072, 1, 262161, 131072, 1, 262164, 131072, 1, 262165, 262144, 1, 327701, 262144, 1, -65526, 131072, 1, -65525, 131072, 1, 15, 0, 1, 65551, 0, 1, 131087, 0, 1, 196623, 0, 1, 196622, 262144, 1, 393237, 262144, 1, -65516, 131072, 1, -65515, 131072, 1, -65514, 131072, 1, 196629, 262144, 1, 131093, 65536, 0, 131094, 131072, 1, 131097, 131072, 1, 327705, 131072, 1, 327704, 131072, 1, -262126, 262144, 1, -196590, 262144, 1, -131054, 262144, 1, -65511, 131072, 1)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -619,11 +625,136 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
+[node name="Obstacles" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="DirtyFloorUnremoveable" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("31_76brf")]
+position = Vector2(1408, 944)
+scale = Vector2(2, 1)
+
+[node name="ColorDoor1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+position = Vector2(1536, 448)
+rightColor = 1
+
+[node name="ColorDoor2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(1664, -64)
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="ColorDoor3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(1920, 576)
+rightColor = 3
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="ColorDoor4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(2432, 576)
+randomizeRightColor = true
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="ColorDoor5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(2176, -64)
+randomizeRightColor = true
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="ColorDoor6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(3072, 320)
+randomizeRightColor = true
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="ColorDoor7" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" node_paths=PackedStringArray("parts") instance=ExtResource("23_p6qod")]
+position = Vector2(3072, -64)
+randomizeRightColor = true
+parts = [NodePath("../ColorDoor1/Part1"), NodePath("../ColorDoor1/Part2"), NodePath("../ColorDoor1/Part3"), NodePath("../ColorDoor1/Part4")]
+
+[node name="NPCs" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="ColorYokai" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
+position = Vector2(1304, -256)
+colorOfYokai = 2
+
+[node name="ColorYokai2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
+position = Vector2(1304, 640)
+colorOfYokai = 1
+
+[node name="ColorYokai3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
+position = Vector2(2008, 192)
+
+[node name="ColorYokai4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
+position = Vector2(1768, -504)
+colorOfYokai = 3
+
+[node name="Transformations" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="Brush" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("6_3a8lq")]
+position = Vector2(1328, 528)
+
+[node name="Puzzle" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="PasswordTable" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle" node_paths=PackedStringArray("hints", "possibleHintPositions") instance=ExtResource("7_i27kk")]
+position = Vector2(3072, -320)
+hints = [NodePath("../PasswordHints/PasswordHint1"), NodePath("../PasswordHints/PasswordHint2"), NodePath("../PasswordHints/PasswordHint3")]
+possibleHintPositions = [NodePath("../HintsPositions/1"), NodePath("../HintsPositions/2"), NodePath("../HintsPositions/3"), NodePath("../HintsPositions/4"), NodePath("../HintsPositions/5"), NodePath("../HintsPositions/6"), NodePath("../HintsPositions/7"), NodePath("../HintsPositions/8"), NodePath("../HintsPositions/9")]
+
+[node name="PasswordHints" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle"]
+y_sort_enabled = true
+
+[node name="PasswordHint1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(3072, -320)
+labelText = "I"
+
+[node name="PasswordHint2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(3072, -320)
+labelText = "II"
+
+[node name="PasswordHint3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/PasswordHints" instance=ExtResource("9_tbhux")]
+position = Vector2(3072, -320)
+labelText = "III"
+
+[node name="HintsPositions" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle"]
+y_sort_enabled = true
+
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2176, -616)
+
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2816, -104)
+
+[node name="3" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(3200, 664)
+
+[node name="4" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2176, 536)
+
+[node name="5" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(1376, -104)
+
+[node name="6" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2816, -616)
+
+[node name="7" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2816, 280)
+
+[node name="8" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(2176, 920)
+
+[node name="9" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Puzzle/HintsPositions"]
+position = Vector2(1344, 408)
+
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
-position = Vector2(1536, 832)
+position = Vector2(1664, 752)
+
+[node name="DialogueArea" parent="Quests/HallUltraKey/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["Master! We meet again.", "Daichi, since you are here, one last detail about this mansion.", "I'm all ears master!", "The door you just opened by finding the keys in this area, is used to seal a special type of key.", "Special key? What about it?", "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys.", "Oh... that sounds annoy- great!", "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy.", "Hmhm, I will keep my eyes peeled!", "Good luck, Daichi.", "Thank you, master!"])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/OldTanukiNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_fo38d")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallUltraKey"]
-navigation_polygon = SubResource("NavigationPolygon_fjm4u")
 
 [node name="KitchenDoor" parent="Quests/HallUltraKey" instance=ExtResource("28_vyf6r")]
 position = Vector2(0, 2624)
@@ -633,6 +764,14 @@ position = Vector2(1032, 2432)
 
 [node name="ThirdDoor" parent="Quests/HallUltraKey" instance=ExtResource("15_wqf5n")]
 position = Vector2(-1032, 2432)
+
+[node name="SavePoint" parent="Quests/HallUltraKey" instance=ExtResource("4_lfw02")]
+position = Vector2(1536, 736)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/SavePoint"]
+shape = SubResource("RectangleShape2D_kob0k")
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -876,7 +1015,7 @@ y_sort_enabled = true
 position = Vector2(-120, 264)
 
 [node name="Broom" parent="Transformations" instance=ExtResource("14_ro1u6")]
-position = Vector2(-272, 240)
+position = Vector2(488, 248)
 
 [node name="Knife" parent="Transformations" instance=ExtResource("26_8r610")]
 position = Vector2(1216, -448)
