@@ -8,12 +8,14 @@ var originalPosition: Vector2
 var collisionShape: CollisionShape2D
 @export var movableFeedbackFar: AnimatedSprite2D
 @export var movableFeedbackClose: AnimatedSprite2D
+@export var movableLabel: Label
 
 func _ready():
 	originalParent = self.get_parent()
 	originalPosition = self.global_position
 	GetCollisionShape()
 	ForceTurnCloseFeedbackOff()
+	movableLabel.text = movableObjectName
 
 func GetCollisionShape():
 	for i in self.get_child_count():
@@ -52,6 +54,7 @@ func SpawnFeedback(feedbackToSpawn: String):
 func TurnCloseFeedbackOn(playerHoldingObject: MovableObject):
 	if (self != playerHoldingObject):
 		movableFeedbackFar.hide()
+		movableLabel.show()
 		movableFeedbackClose.show()
 
 func TurnCloseFeedbackOff(playerHoldingObject: MovableObject):
@@ -60,6 +63,7 @@ func TurnCloseFeedbackOff(playerHoldingObject: MovableObject):
 
 func ForceTurnCloseFeedbackOff():
 	movableFeedbackClose.hide()
+	movableLabel.hide()
 	movableFeedbackFar.show()
 
 func TurnBothFeedbacksOff():

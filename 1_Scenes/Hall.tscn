@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=88 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -45,6 +45,9 @@
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_76brf"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="35_puu12"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="36_8gipu"]
+[ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_ddaeb"]
+[ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="47_68q7c"]
+[ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_qq1ev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxp2p"]
 radius = 128.25
@@ -96,6 +99,18 @@ radius = 384.083
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmuxl"]
 radius = 128.25
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lked1"]
+size = Vector2(112, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkfvg"]
+size = Vector2(880, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrt75"]
+size = Vector2(1408, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeiwi"]
+size = Vector2(128, 352)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
 radius = 128.0
 
@@ -123,9 +138,9 @@ size = Vector2(512, 256)
 size = Vector2(3584, 608)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b0ej7"]
-vertices = PackedVector2Array(-480, 1600, -1760, 1600, -1760, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 480, 1600, 1504, 1600, 480, 2080, -480, 2080, 992, 2080, 992, 2624, -992, 2624, -992, 2080)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 9, 10), PackedInt32Array(5, 8, 10), PackedInt32Array(4, 5, 10, 11), PackedInt32Array(0, 4, 11, 12), PackedInt32Array(11, 13, 12), PackedInt32Array(0, 12, 14, 15), PackedInt32Array(14, 16, 17, 18), PackedInt32Array(15, 14, 18), PackedInt32Array(15, 18, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 480, 1600, 480, 2080, 992, 2080, 992, 2624, -992, 2624, -992, 2080, -480, 2080, -480, 1600, -1760, 1600)])
+vertices = PackedVector2Array(-1760, 1232, -1760, 1056, 1504, 1056, -1664, 1232, -1664, 1328, 1504, 1376, -480, 1600, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 480, 1600, 480, 1776, 392, 1776, 392, 1872, 480, 1872, 480, 2080, -992, 2624, -480, 2080, 992, 2080, 992, 2624, -992, 2080, -480, 1872, -400, 1872, -400, 1776, -480, 1776, -1760, 1600, -1760, 1328)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12), PackedInt32Array(7, 10, 12), PackedInt32Array(5, 7, 12, 13), PackedInt32Array(13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(20, 23, 24, 21), PackedInt32Array(21, 25, 22), PackedInt32Array(22, 26, 27), PackedInt32Array(18, 22, 27, 17), PackedInt32Array(17, 27, 28, 15), PackedInt32Array(28, 29, 6, 5, 15), PackedInt32Array(6, 30, 31, 4), PackedInt32Array(5, 13, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 480, 1600, 480, 1776, 392, 1776, 392, 1872, 480, 1872, 480, 2080, 992, 2080, 992, 2624, -992, 2624, -992, 2080, -480, 2080, -480, 1872, -400, 1872, -400, 1776, -480, 1776, -480, 1600, -1760, 1600, -1760, 1328, -1664, 1328, -1664, 1232, -1760, 1232)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xd0cj"]
 vertices = PackedVector2Array(480, -480, 480, 992, 288, 288, 288, 192, 288, 32, 288, -272, 384, -424, 88, 544, 88, 376, -288, 288, -88, 376, -480, 992, -88, 544, -480, -480, 256, -480, 256, -424, 224, -272, -224, -272, 384, -480, -224, 32, 224, 32, -288, 192, -288, -272, -288, 32)
@@ -133,24 +148,45 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-480, -480, -480, 992, 480, 992, 480, -480, 384, -480, 384, -424, 256, -424, 256, -480), PackedVector2Array(-288, 288, -288, 192, 288, 192, 288, 288), PackedVector2Array(-88, 544, -88, 376, 88, 376, 88, 544), PackedVector2Array(-288, 32, -288, -272, -224, -272, -224, 32), PackedVector2Array(224, 32, 224, -272, 288, -272, 288, 32)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snuya"]
-vertices = PackedVector2Array(-1232, 192, -1232, -480, -560, -480, -928, 192, -560, 192, -864, 192, -864, 240, -928, 240)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1232, -480, -560, -480, -560, 192, -864, 192, -864, 240, -928, 240, -928, 192, -1232, 192)])
+vertices = PackedVector2Array(-1144, -432, -1144, -480, -648, -480, -648, -432, -864, 192, -928, 192, -560, -432, -560, 192, -864, 240, -928, 240, -1232, 192, -1232, -432)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(3, 6, 7, 4), PackedInt32Array(4, 8, 9, 5), PackedInt32Array(0, 5, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1144, -432, -1144, -480, -648, -480, -648, -432, -560, -432, -560, 192, -864, 192, -864, 240, -928, 240, -928, 192, -1232, 192, -1232, -432)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_61bmf"]
-vertices = PackedVector2Array(-928, 288, -928, 240, -864, 240, -864, 288, -560, 288, -560, 960, -1232, 960, -1232, 288)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(7, 0, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1232, 288, -1232, 960, -560, 960, -560, 288, -864, 288, -864, 240, -928, 240, -928, 288)])
+vertices = PackedVector2Array(-1152, 368, -1152, 288, -928, 288, -1136, 888, -928, 240, -864, 240, -864, 288, -560, 288, -560, 960, -1136, 960, -1232, 888, -1232, 368)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8, 9, 3), PackedInt32Array(2, 6, 3), PackedInt32Array(0, 3, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1152, 368, -1232, 368, -1232, 888, -1136, 888, -1136, 960, -560, 960, -560, 288, -864, 288, -864, 240, -928, 240, -928, 288, -1152, 288)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g77qr"]
-vertices = PackedVector2Array(560, 192, 560, -480, 1232, -480, 864, 192, 1232, 192, 928, 192, 928, 240, 864, 240)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 1232, -480, 1232, 192, 928, 192, 928, 240, 864, 240, 864, 192, 560, 192)])
+vertices = PackedVector2Array(560, 192, 560, -480, 1152, -480, 1152, -432, 864, 192, 1232, -432, 1232, 152, 1160, 152, 928, 192, 1160, 192, 928, 240, 864, 240)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(4, 3, 7, 8), PackedInt32Array(7, 9, 8), PackedInt32Array(4, 8, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 1152, -480, 1152, -432, 1232, -432, 1232, 152, 1160, 152, 1160, 192, 928, 192, 928, 240, 864, 240, 864, 192, 560, 192)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3ub4d"]
-vertices = PackedVector2Array(560, 960, 560, 288, 864, 288, 1232, 960, 864, 240, 928, 240, 928, 288, 1232, 288)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 864, 288, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 960, 560, 960)])
+vertices = PackedVector2Array(560, 896, 560, 288, 864, 288, 664, 896, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 896, 1136, 896, 1136, 960, 664, 960)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11, 3, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 864, 288, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 896, 1136, 896, 1136, 960, 664, 960, 664, 896, 560, 896)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm6u7"]
+size = Vector2(112, 736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aorfo"]
+size = Vector2(736, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81t42"]
+size = Vector2(112, 736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k75o"]
+size = Vector2(736, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3tn8"]
+size = Vector2(128, 608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f538g"]
+size = Vector2(128, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vgy"]
+size = Vector2(128, 512)
 
 [node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
@@ -698,6 +734,24 @@ y_sort_enabled = true
 [node name="Brush" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("6_3a8lq")]
 position = Vector2(1328, 528)
 
+[node name="Vase" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1984, 192)
+
+[node name="Vase2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1864, 928)
+
+[node name="Vase3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(2616, 928)
+
+[node name="Vase4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(2616, -480)
+
+[node name="Vase5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1336, -480)
+
+[node name="Vase6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(2640, 528)
+
 [node name="Puzzle" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
 y_sort_enabled = true
 
@@ -836,6 +890,105 @@ position = Vector2(2880, 448)
 
 [node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard4PatrolPoint"]
 position = Vector2(2880, 896)
+
+[node name="AllowedZones" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="LocalAllowedItems" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1976, 192)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_lked1")
+
+[node name="LocalAllowedItemsFeedback" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, -128)
+
+[node name="LocalAllowedItemsFeedback2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, 0)
+
+[node name="LocalAllowedItemsFeedback3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, 128)
+
+[node name="LocalAllowedItems2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(2248, 912)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_wkfvg")
+
+[node name="LocalAllowedItemsFeedback" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-392, -16)
+
+[node name="LocalAllowedItemsFeedback2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-264, -16)
+
+[node name="LocalAllowedItemsFeedback3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-128, -16)
+
+[node name="LocalAllowedItemsFeedback4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -16)
+
+[node name="LocalAllowedItemsFeedback5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(120, -16)
+
+[node name="LocalAllowedItemsFeedback6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(248, -16)
+
+[node name="LocalAllowedItemsFeedback7" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(376, -16)
+
+[node name="LocalAllowedItems3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1984, -448)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3"]
+shape = SubResource("RectangleShape2D_yrt75")
+
+[node name="LocalAllowedItemsFeedback" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(-640, 0)
+
+[node name="LocalAllowedItemsFeedback2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(-512, 0)
+
+[node name="LocalAllowedItemsFeedback3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(-384, 0)
+
+[node name="LocalAllowedItemsFeedback4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(-256, 0)
+
+[node name="LocalAllowedItemsFeedback5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(-128, 0)
+
+[node name="LocalAllowedItemsFeedback6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+
+[node name="LocalAllowedItemsFeedback7" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(128, 0)
+
+[node name="LocalAllowedItemsFeedback8" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(256, 0)
+
+[node name="LocalAllowedItemsFeedback9" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(384, 0)
+
+[node name="LocalAllowedItemsFeedback10" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(512, 0)
+
+[node name="LocalAllowedItemsFeedback11" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(640, 0)
+
+[node name="LocalAllowedItems4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(2624, 432)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems4"]
+shape = SubResource("RectangleShape2D_yeiwi")
+
+[node name="LocalAllowedItemsFeedback" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -112)
+
+[node name="LocalAllowedItemsFeedback2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 16)
 
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
 position = Vector2(1664, 752)
@@ -1122,4 +1275,198 @@ position = Vector2(-120, 264)
 position = Vector2(488, 248)
 
 [node name="Knife" parent="Transformations" instance=ExtResource("26_8r610")]
-position = Vector2(1216, -448)
+position = Vector2(1024, 896)
+
+[node name="Vase" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-1216, 320)
+
+[node name="Vase2" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-1216, 952)
+
+[node name="Vase3" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-1208, -480)
+
+[node name="Vase4" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-584, -480)
+
+[node name="Vase5" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1216, -480)
+
+[node name="Vase6" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1216, 208)
+
+[node name="Vase7" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(1200, 944)
+
+[node name="Vase8" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(600, 944)
+
+[node name="Vase9" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-1728, 1280)
+
+[node name="Vase10" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(-464, 1824)
+
+[node name="Vase11" parent="Transformations" instance=ExtResource("46_ddaeb")]
+position = Vector2(456, 1824)
+
+[node name="AllowedZones" type="Node2D" parent="."]
+
+[node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1208, 624)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_wm6u7")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, -304)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, -176)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, 208)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, 336)
+
+[node name="LocalAllowedItems2" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-896, -448)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_aorfo")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-320, 0)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-192, 0)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(-64, 0)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(64, 0)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(192, 0)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("48_qq1ev")]
+position = Vector2(320, 0)
+
+[node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1208, -144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems3"]
+shape = SubResource("RectangleShape2D_81t42")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, -304)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, -176)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, 208)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("48_qq1ev")]
+position = Vector2(8, 336)
+
+[node name="LocalAllowedItems4" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(896, 912)
+allowedObjects = Array[String](["Vase", "Knife"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems4"]
+shape = SubResource("RectangleShape2D_3k75o")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(-320, -16)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(-192, -16)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(-64, -16)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(64, -16)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(192, -16)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
+position = Vector2(320, -16)
+
+[node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1728, 1328)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems5"]
+shape = SubResource("RectangleShape2D_s3tn8")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -240)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -112)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 16)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 144)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 272)
+
+[node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-448, 1792)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems6"]
+shape = SubResource("RectangleShape2D_f538g")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -192)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 192)
+
+[node name="LocalAllowedItems7" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(448, 1792)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems7"]
+shape = SubResource("RectangleShape2D_m7vgy")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -192)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 192)

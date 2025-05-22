@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpg0dbhfi6c2h"]
+[gd_scene load_steps=7 format=3 uid="uid://bpg0dbhfi6c2h"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_jb36b"]
 [ext_resource type="Texture2D" uid="uid://cpbpurwv16ahp" path="res://Level/Sprites/Ciotolona di riso.png" id="2_om2tx"]
 [ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_rt4aq"]
 [ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_ty8qw"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_2onhi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbhwl"]
 radius = 24.0
 
-[node name="RiceBowl" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose")]
+[node name="RiceBowl" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_jb36b")
 movableObjectName = "Rice Bowl"
 movableObjectProperties = Array[String](["Rice"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
 movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -27,3 +29,7 @@ position = Vector2(0, -48)
 
 [node name="MovableFeedbackClose" parent="." instance=ExtResource("4_ty8qw")]
 position = Vector2(0, -48)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_2onhi")]
+offset_top = -112.0
+offset_bottom = -64.0

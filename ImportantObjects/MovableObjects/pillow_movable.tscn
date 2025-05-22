@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7nlbf2p1mokh"]
+[gd_scene load_steps=7 format=3 uid="uid://c7nlbf2p1mokh"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_bplsh"]
 [ext_resource type="Texture2D" uid="uid://dbyguqove6tgo" path="res://ImportantObjects/MovableObjects/Sprites/Pillow.png" id="2_3ddpd"]
 [ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_kme6l"]
 [ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_g584b"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_j1ahc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2rqu"]
 radius = 24.0
 height = 64.0
 
-[node name="PillowMovable" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose")]
+[node name="PillowMovable" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_bplsh")
 movableObjectName = "Pillow"
 movableObjectProperties = Array[String](["Pillow"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
 movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
@@ -30,3 +32,7 @@ position = Vector2(0, -56)
 
 [node name="MovableFeedbackClose" parent="." instance=ExtResource("4_g584b")]
 position = Vector2(0, -56)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_j1ahc")]
+offset_top = -120.0
+offset_bottom = -72.0
