@@ -7,6 +7,7 @@ extends Area2D
 @export var cameraFocuses: Array[Node2D]
 @export var isOnInteraction: bool
 @export var interactionLabel: Label
+@export var dialogueIcon: AnimatedSprite2D
 @export var labelDefaultText: String = "PRESS F TO TALK"
 @export var deleteOnDone: bool
 @export var advanceQuest: bool
@@ -20,6 +21,7 @@ var player: PlayerCharacter
 func _ready():
 	interactionLabel.text = labelDefaultText
 	interactionLabel.hide()
+	dialogueIcon.play("idle")
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
@@ -37,9 +39,11 @@ func PlayerEntered(playerCharacter: PlayerCharacter):
 	player = playerCharacter
 	if (isOnInteraction):
 		interactionLabel.show()
+	dialogueIcon.hide()
 
 func PlayerExited():
 	interactionLabel.hide()
+	dialogueIcon.show()
 	player = null
 	if (!isOnInteraction):
 		StartDialogueExecutingICD()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5fp16tkl44ys"]
+[gd_scene load_steps=9 format=3 uid="uid://b5fp16tkl44ys"]
 
 [ext_resource type="Script" path="res://Dialogue/Scripts/DialogueArea.gd" id="1_fk7hj"]
 [ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_dqylb"]
+[ext_resource type="Texture2D" uid="uid://b48pvxjw2s7nj" path="res://Dialogue/Sprites/DialogueIcon.png" id="3_divrk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyclw"]
 font = ExtResource("2_dqylb")
@@ -10,11 +11,44 @@ font_color = Color(1, 0, 1, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DialogueArea" type="Area2D" node_paths=PackedStringArray("interactionLabel")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vso40"]
+atlas = ExtResource("3_divrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7v14"]
+atlas = ExtResource("3_divrk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl2ws"]
+atlas = ExtResource("3_divrk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y335w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vso40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7v14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vso40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl2ws")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="DialogueArea" type="Area2D" node_paths=PackedStringArray("interactionLabel", "dialogueIcon")]
 process_mode = 3
 script = ExtResource("1_fk7hj")
 dialogueExecutingICD = 0.5
 interactionLabel = NodePath("Label")
+dialogueIcon = NodePath("DialogueIcon")
 
 [node name="Label" type="Label" parent="."]
 z_index = 1000
@@ -26,6 +60,11 @@ text = "PRESS F TO TALK"
 label_settings = SubResource("LabelSettings_gyclw")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DialogueIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -104)
+sprite_frames = SubResource("SpriteFrames_y335w")
+animation = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
