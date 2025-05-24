@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=90 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -35,7 +35,6 @@
 [ext_resource type="PackedScene" uid="uid://d3b2y5u3omnwj" path="res://ImportantObjects/Interactables/chair.tscn" id="25_5q0m2"]
 [ext_resource type="PackedScene" uid="uid://cpmnjx776a7tl" path="res://NPC/chair_warden_npc.tscn" id="25_e4ed7"]
 [ext_resource type="PackedScene" uid="uid://c5vyx3tnh3ply" path="res://NPC/sad_guard_npc.tscn" id="25_nwgbr"]
-[ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="26_8r610"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="26_61bmt"]
 [ext_resource type="PackedScene" uid="uid://c7nlbf2p1mokh" path="res://ImportantObjects/MovableObjects/pillow_movable.tscn" id="26_clvot"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="27_g2aog"]
@@ -43,6 +42,9 @@
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="28_jorvy"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://ImportantObjects/Interactables/door.tscn" id="28_vyf6r"]
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_76brf"]
+[ext_resource type="PackedScene" uid="uid://du00h8n41wpjo" path="res://ImportantObjects/TransformationObjects/wooden_katana.tscn" id="32_2mlbu"]
+[ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="32_fn87w"]
+[ext_resource type="Texture2D" uid="uid://dacbq0axh6td1" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/WoodenKatana.png" id="32_g2167"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="35_puu12"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="36_8gipu"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_ddaeb"]
@@ -163,9 +165,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 1152, -480, 1152, -432, 1232, -432, 1232, 152, 1160, 152, 1160, 192, 928, 192, 928, 240, 864, 240, 864, 192, 560, 192)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3ub4d"]
-vertices = PackedVector2Array(560, 896, 560, 288, 864, 288, 664, 896, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 896, 1136, 896, 1136, 960, 664, 960)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 864, 288, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 896, 1136, 896, 1136, 960, 664, 960, 664, 896, 560, 896)])
+vertices = PackedVector2Array(1168, 528, 1168, 384, 1232, 288, 1232, 896, 928, 288, 1008, 384, 1136, 896, 1008, 528, 664, 896, 560, 896, 560, 288, 864, 288, 864, 240, 928, 240, 1136, 960, 664, 960)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(7, 8, 9, 10, 11, 5), PackedInt32Array(11, 12, 13, 4), PackedInt32Array(7, 6, 14, 15, 8), PackedInt32Array(5, 11, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, 288, 864, 288, 864, 240, 928, 240, 928, 288, 1232, 288, 1232, 896, 1136, 896, 1136, 960, 664, 960, 664, 896, 560, 896), PackedVector2Array(1008, 384, 1168, 384, 1168, 528, 1008, 528)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wm6u7"]
 size = Vector2(112, 736)
@@ -209,7 +211,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(1048584, 983040, 15, 1048585, 983040, 15, 1114121, 983040, 15, 1179657, 983040, 15, 1245193, 983040, 15, 1245192, 983040, 15, 1114103, 983040, 15, 1114102, 983040, 15, 1179638, 983040, 15, 1245174, 983040, 15, 1310710, 983040, 15, 1310711, 983040, 15, 1441790, 983040, 15, 1507326, 983040, 15, 1507327, 983040, 15, 1441792, 983040, 15, 1441793, 983040, 15, 1376257, 983040, 15, -327682, 983040, 15, -393218, 983040, 15, -393217, 983040, 15, -458752, 983040, 15, -458751, 983040, 15, -393215, 983040, 15, -327679, 983040, 15, -262146, 983040, 15)
+layer_2/tile_data = PackedInt32Array(1048584, 983040, 15, 1048585, 983040, 15, 1114121, 983040, 15, 1179657, 983040, 15, 1245193, 983040, 15, 1245192, 983040, 15, 1114103, 983040, 15, 1114102, 983040, 15, 1179638, 983040, 15, 1245174, 983040, 15, 1310710, 983040, 15, 1310711, 983040, 15, 1441790, 983040, 15, 1507326, 983040, 15, 1507327, 983040, 15, 1441792, 983040, 15, 1441793, 983040, 15, 1376257, 983040, 15, -327682, 983040, 15, -393218, 983040, 15, -393217, 983040, 15, -458752, 983040, 15, -458751, 983040, 15, -393215, 983040, 15, -327679, 983040, 15, -262146, 983040, 15, 196616, 262144, 3)
 script = ExtResource("1_tv2f5")
 playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 4
@@ -217,7 +219,7 @@ keyTypeToShow = 4
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallHiddenRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUltraKey")]
+mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallHiddenRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
@@ -643,6 +645,27 @@ position = Vector2(-896, 240)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 destroyOnEnd = true
+
+[node name="HallUnlockWoodenKatana" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("3_2xstp")
+questName = "HallUnlockWoodenKatana"
+questItemsToOperate = [NodePath("WoodenKatana"), NodePath("KatanaSprite"), NodePath("WoodenKatana")]
+questItemsStages = Array[int]([0, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, true])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
+
+[node name="ButtonToPush" parent="Quests/HallUnlockWoodenKatana" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("32_fn87w")]
+position = Vector2(1088, 392)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="KatanaSprite" type="Sprite2D" parent="Quests/HallUnlockWoodenKatana"]
+position = Vector2(1088, 448)
+texture = ExtResource("32_g2167")
+
+[node name="WoodenKatana" parent="Quests/HallUnlockWoodenKatana" instance=ExtResource("32_2mlbu")]
+position = Vector2(1088, 528)
 
 [node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1274,9 +1297,6 @@ position = Vector2(-120, 264)
 [node name="Broom" parent="Transformations" instance=ExtResource("14_ro1u6")]
 position = Vector2(488, 248)
 
-[node name="Knife" parent="Transformations" instance=ExtResource("26_8r610")]
-position = Vector2(1024, 896)
-
 [node name="Vase" parent="Transformations" instance=ExtResource("46_ddaeb")]
 position = Vector2(-1216, 320)
 
@@ -1388,7 +1408,7 @@ position = Vector2(8, 336)
 
 [node name="LocalAllowedItems4" parent="AllowedZones" instance=ExtResource("47_68q7c")]
 position = Vector2(896, 912)
-allowedObjects = Array[String](["Vase", "Knife"])
+allowedObjects = Array[String](["Vase", "Wooden Katana"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems4"]
 shape = SubResource("RectangleShape2D_3k75o")
