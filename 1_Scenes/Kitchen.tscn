@@ -34,11 +34,11 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndicator.gd" id="30_hgddd"]
 [ext_resource type="PackedScene" uid="uid://b48o2qnrsjmro" path="res://Level/Prefabs/wall_tile_decorative.tscn" id="30_m45vx"]
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="31_0gh3t"]
-[ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="31_rdhtp"]
 [ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="33_66305"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="33_bs5xl"]
 [ext_resource type="PackedScene" uid="uid://b8tm3iacl501" path="res://ImportantObjects/TransformationObjects/water_container.tscn" id="34_aw2ha"]
 [ext_resource type="Texture2D" uid="uid://bblakm2ijk8e5" path="res://Level/Sprites/bacchette-001.png" id="34_ws6o2"]
+[ext_resource type="PackedScene" uid="uid://djlldo1vqyrxe" path="res://ImportantObjects/MovableObjects/cheese_movable.tscn" id="37_apuor"]
 [ext_resource type="Texture2D" uid="uid://cfeulr8ne301n" path="res://Level/Sprites/tinozza-001.png" id="37_bfqvd"]
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
 [ext_resource type="Texture2D" uid="uid://go7nnh4oep76" path="res://Level/Sprites/Ciotole-001.png" id="39_lh02n"]
@@ -86,9 +86,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2112, 960, -2112, 1240, -2192, 1240, -2192, 1472, -1568, 1472, -1568, 1376, -1376, 1376, -1376, 1504, -816, 1504, -816, 1248, -768, 1248, -768, 1056, -920, 1056, -920, 872, -816, 872, -816, 760, -920, 760, -920, 672, -1152, 672, -1152, 760, -1336, 760, -1336, 512, -1504, 512, -1504, 1088, -1584, 1088, -1584, 672, -1784, 672, -1784, 736, -1936, 736, -1936, 672, -2224, 672, -2224, 960)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_es7kn"]
-vertices = PackedVector2Array(-1120, -736, -1184, -736, -1184, -832, -1120, -832, -1616, -832, -1616, -1120, -688, -1120, -688, -832)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1184, -736, -1184, -832, -1616, -832, -1616, -1120, -688, -1120, -688, -832, -1120, -832, -1120, -736)])
+vertices = PackedVector2Array(-1120, -736, -1184, -736, -1184, -832, -1120, -832, -1616, -832, -1616, -1120, -1192, -1104, -1192, -1120, -1112, -1104, -688, -832, -688, -1120, -1112, -1120)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(5, 7, 6), PackedInt32Array(2, 6, 8, 3), PackedInt32Array(9, 3, 8, 10), PackedInt32Array(10, 8, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1184, -736, -1184, -832, -1616, -832, -1616, -1120, -1192, -1120, -1192, -1104, -1112, -1104, -1112, -1120, -688, -1120, -688, -832, -1120, -832, -1120, -736)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ls7b"]
 size = Vector2(512, 256)
@@ -246,7 +246,7 @@ sceneType = 1
 keyTypeToShow = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockRiceBowl"), NodePath("Quests/KitchenUltraKey")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockCheese"), NodePath("Quests/KitchenUltraKey")]
 unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Teleports/TravelToHall")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/GardenReceiver")]
@@ -693,6 +693,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="ChefYokai" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("21_pte4f")]
+position = Vector2(-1152, -1112)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -707,15 +708,15 @@ questItemsOnOffState = Array[bool]([false, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Knife" parent="Quests/KitchenObtainKnife" instance=ExtResource("17_pif6t")]
-position = Vector2(1296, -64)
+position = Vector2(1296, 100)
 
 [node name="KnifeSprite" type="Sprite2D" parent="Quests/KitchenObtainKnife"]
 z_index = 1
-position = Vector2(1256, -80)
+position = Vector2(1256, 84)
 texture = ExtResource("22_v4ovx")
 
 [node name="ButtonToPush" parent="Quests/KitchenObtainKnife" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
-position = Vector2(1128, -64)
+position = Vector2(1128, 100)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -950,22 +951,22 @@ scale = Vector2(0.5, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenUnlockRiceBowl" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenUnlockCheese" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenUnlockRiceBowl"
-questItemsToOperate = [NodePath("RiceBowl"), NodePath("RiceBowl")]
+questItemsToOperate = [NodePath("Cheese"), NodePath("Cheese")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
-[node name="ButtonToPush" parent="Quests/KitchenUnlockRiceBowl" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
+[node name="ButtonToPush" parent="Quests/KitchenUnlockCheese" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
 position = Vector2(-1712, -104)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="RiceBowl" parent="Quests/KitchenUnlockRiceBowl" instance=ExtResource("31_rdhtp")]
-position = Vector2(-1712, -104)
+[node name="Cheese" parent="Quests/KitchenUnlockCheese" instance=ExtResource("37_apuor")]
+position = Vector2(-1712, -96)
 
 [node name="KitchenUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true

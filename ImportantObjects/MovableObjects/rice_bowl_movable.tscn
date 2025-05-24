@@ -12,7 +12,7 @@ radius = 24.0
 [node name="RiceBowl" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_jb36b")
 movableObjectName = "Rice Bowl"
-movableObjectProperties = Array[String](["Rice"])
+movableObjectProperties = Array[String](["Food"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
 movableFeedbackClose = NodePath("MovableFeedbackClose")
 movableLabel = NodePath("MovableLabel")

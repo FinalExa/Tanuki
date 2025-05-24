@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://djlldo1vqyrxe"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_41345"]
+[ext_resource type="Texture2D" uid="uid://jdsskstvp4eh" path="res://ImportantObjects/MovableObjects/Sprites/Cheese.png" id="2_6cb6j"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_d2u0m"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_tp8sc"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_w46w5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lngu0"]
+radius = 16.0
+
+[node name="Cheese" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_41345")
+movableObjectName = "Cheese"
+movableObjectProperties = Array[String](["Cheese"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_lngu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("2_6cb6j")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_d2u0m")]
+position = Vector2(0, -56)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_tp8sc")]
+position = Vector2(0, -56)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_w46w5")]
+offset_top = -120.0
+offset_bottom = -72.0

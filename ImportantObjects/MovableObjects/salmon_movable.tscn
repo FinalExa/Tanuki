@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwi82jidrew0u"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_nn1qo"]
+[ext_resource type="Texture2D" uid="uid://cns1arbry8ngx" path="res://Level/Sprites/Ciotola con salmone.png" id="2_nlmo8"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_wt4pu"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_oucxq"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_438vn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xltu"]
+radius = 16.0
+
+[node name="Salmon" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_nn1qo")
+movableObjectName = "Salmon"
+movableObjectProperties = Array[String](["Food"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8xltu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nlmo8")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_wt4pu")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_oucxq")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_438vn")]
+offset_top = -104.0
+offset_bottom = -56.0
