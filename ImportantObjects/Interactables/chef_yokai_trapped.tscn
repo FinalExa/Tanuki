@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://b18pgpscen8pc"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_76k3c"]
+[ext_resource type="Texture2D" uid="uid://ck74f16ccojx1" path="res://ImportantObjects/Interactables/Sprites/ChefYokaiTrapped.png" id="2_mesba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1paeu"]
+atlas = ExtResource("2_mesba")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6lie"]
+atlas = ExtResource("2_mesba")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nifxc"]
+atlas = ExtResource("2_mesba")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e758g"]
+atlas = ExtResource("2_mesba")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_droqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1paeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6lie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nifxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e758g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4287"]
+radius = 8.00012
+height = 48.0
+
+[node name="ChefYokaiTrapped" type="StaticBody2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
+script = ExtResource("1_76k3c")
+neededProperties = Array[String](["Cut"])
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlay = "idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_droqo")
+animation = &"idle"
+frame_progress = 0.820443
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-4.54747e-13, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c4287")

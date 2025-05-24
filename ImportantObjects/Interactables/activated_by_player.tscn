@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj1jvlww6aeog"]
-
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_pbtf5"]
-
-[node name="ActivatedByPlayer" type="Node2D" groups=["Interactable"]]
-script = ExtResource("1_pbtf5")
