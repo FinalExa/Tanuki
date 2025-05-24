@@ -3,6 +3,7 @@ extends Area2D
 
 var sceneMasterRef: SceneMaster
 var playerRef: PlayerCharacter
+@export var removeTransformationBeforeSave: bool
 @export var onEnter: bool
 @export var oneTimeSave: bool
 
@@ -10,6 +11,8 @@ func _ready():
 	sceneMasterRef = get_tree().root.get_child(0)
 
 func Save():
+	if (removeTransformationBeforeSave):
+		sceneMasterRef.playerRef.transformationChangeRef.SetNoTransformation()
 	if (!oneTimeSave):
 		sceneMasterRef.Save()
 	else:

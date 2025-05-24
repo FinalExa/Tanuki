@@ -47,6 +47,7 @@ func RegisterKey(id: int):
 
 func RegisterSpecialKey(sceneType: GameplayScene.SceneType):
 	specialUnlockKeysObtained.push_back(sceneType)
+	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
 	var gameplayScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene

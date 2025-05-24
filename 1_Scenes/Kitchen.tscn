@@ -569,6 +569,7 @@ questToAdvance = NodePath("../../Quests/KitchenUltraKey")
 
 [node name="SavePoint" parent="SavePoints" instance=ExtResource("17_h4u1o")]
 position = Vector2(-384, -1024)
+removeTransformationBeforeSave = true
 onEnter = true
 oneTimeSave = true
 

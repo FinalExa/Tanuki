@@ -1087,6 +1087,7 @@ position = Vector2(0, -256)
 
 [node name="SavePoint" parent="SavePoints" instance=ExtResource("4_lfw02")]
 position = Vector2(0, -384)
+removeTransformationBeforeSave = true
 onEnter = true
 oneTimeSave = true
 
