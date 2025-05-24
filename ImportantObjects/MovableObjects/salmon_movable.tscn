@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwi82jidrew0u"]
+[gd_scene load_steps=8 format=3 uid="uid://bwi82jidrew0u"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_nn1qo"]
 [ext_resource type="Texture2D" uid="uid://cns1arbry8ngx" path="res://Level/Sprites/Ciotola con salmone.png" id="2_nlmo8"]
 [ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_wt4pu"]
 [ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_oucxq"]
 [ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_438vn"]
+[ext_resource type="PackedScene" uid="uid://2dh182jq6fm1" path="res://ImportantObjects/MovableObjects/Effects/hot_effect_movable.tscn" id="6_np72x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8xltu"]
 radius = 16.0
@@ -32,3 +33,10 @@ position = Vector2(0, -40)
 [node name="MovableLabel" parent="." instance=ExtResource("4_438vn")]
 offset_top = -104.0
 offset_bottom = -56.0
+
+[node name="HotEffectMovable" parent="." node_paths=PackedStringArray("movableRef") instance=ExtResource("6_np72x")]
+movableRef = NodePath("..")
+newTags = Array[String](["FoodHot"])
+
+[connection signal="on_attach" from="." to="HotEffectMovable" method="OnAttach"]
+[connection signal="on_attach_end" from="." to="HotEffectMovable" method="OnAttachEnd"]

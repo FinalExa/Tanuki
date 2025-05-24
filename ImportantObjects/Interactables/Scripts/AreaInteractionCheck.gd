@@ -20,7 +20,10 @@ func PlayerCheck():
 				selectedProperty = playerRef.transformationChangeRef.currentTransformationObject.transformedProperties[i]
 				break
 		if (selectedProperty != ""):
-			interactableToOperate.AttackInteraction(selectedProperty)
+			if (!interactableToOperate.receiveRefAttack):
+				interactableToOperate.AttackInteraction(selectedProperty)
+			else:
+				interactableToOperate.ExecuteRefEffect(playerRef)
 			playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 			playerRef.transformationChangeRef.SetNoTransformation()
 
@@ -32,8 +35,11 @@ func MovableCheck(movable: MovableObject):
 				selectedProperty = movable.movableObjectProperties[i]
 				break
 		if (selectedProperty != ""):
-			interactableToOperate.AttackInteraction(selectedProperty)
-			playerRef.playerMoveObjects.DeleteLeftoverObject()
+			if (!interactableToOperate.receiveRefAttack):
+				interactableToOperate.AttackInteraction(selectedProperty)
+				playerRef.playerMoveObjects.DeleteLeftoverObject()
+			else:
+				interactableToOperate.ExecuteRefEffect(playerRef)
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):

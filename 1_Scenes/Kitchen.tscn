@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=115 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -18,14 +18,18 @@
 [ext_resource type="PackedScene" uid="uid://bvmhaxddhfn23" path="res://ImportantObjects/Interactables/furnace_fake.tscn" id="19_sfcgv"]
 [ext_resource type="PackedScene" uid="uid://cikfv4vvc3wxp" path="res://Level/Prefabs/vase_grown.tscn" id="20_0oc42"]
 [ext_resource type="PackedScene" uid="uid://b18pgpscen8pc" path="res://ImportantObjects/Interactables/chef_yokai_trapped.tscn" id="20_8be64"]
+[ext_resource type="PackedScene" uid="uid://bds5fpx8wqkll" path="res://ImportantObjects/MovableObjects/daikon_movable.tscn" id="20_dph40"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="20_fuftr"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
 [ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
 [ext_resource type="PackedScene" uid="uid://bhi6trciqo44g" path="res://ImportantObjects/Interactables/chef_yokai.tscn" id="21_pte4f"]
+[ext_resource type="PackedScene" uid="uid://d25qn3k6u6dk6" path="res://ImportantObjects/MovableObjects/dango_movable.tscn" id="21_sonpo"]
 [ext_resource type="Texture2D" uid="uid://tq5u6jm4kv8l" path="res://ImportantObjects/TransformationObjects/Sprites/Jknife-001.png" id="22_v4ovx"]
+[ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="22_vp878"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
+[ext_resource type="PackedScene" uid="uid://bwi82jidrew0u" path="res://ImportantObjects/MovableObjects/salmon_movable.tscn" id="23_dja3c"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
@@ -111,6 +115,15 @@ radius = 156.051
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5etf"]
 radius = 160.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yhwf"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgs8e"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7msn"]
+radius = 128.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru0sm"]
 size = Vector2(384, 128)
@@ -584,7 +597,7 @@ position = Vector2(-576, -1472)
 activated = true
 
 [node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["There you are! Do you see these paintings? I dislike them too… that’s why I can help you wreck them. I bet there is also something that you’ll need behind them.", "Are you serious?", "Indeed I am. These paintings look frail enough, maybe cut them? Or... if you find something that I could help you heat up, we could burn them!", "That's interesting... I'll be back soon... hehe..."])
+dialogueText = Array[String](["There you are! This room feels safe enough... well, I believe I can help you with the chef here.", "Are you serious?", "Indeed I am. If I remember correctly, he needs heat to perform his magic, heat which I provide! Hehehehe...", "That's interesting... I'll be back soon... hehe..."])
 characterTalking = Array[int]([2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
@@ -683,9 +696,39 @@ shape = SubResource("CircleShape2D_w5etf")
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenHelpChef"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ChefYokai"), NodePath("ChefYokaiTrapped"), NodePath("ChefYokai")]
-questItemsStages = Array[int]([0, 0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ChefYokai"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("ChefYokaiTrapped"), NodePath("ChefYokai"), NodePath("StartDialogue"), NodePath("MidDialogue"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("../../Keys/UnlockKey3")]
+questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, false, true, true])
+
+[node name="StartDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-1152, -1112)
+dialogueText = Array[String](["Help me please!", "Huh... you look like you've been captured.", "Yes... I had the audacity to disagree with Gozo the other day... and I ended up here.", "I was the Chef of this mansion! This is so unfair.", "I am kind in a hurry... if you have anything that gets me a key I'll help you, though.", "A key? YES! But please, CUT these ropes down first, so we can talk properly.", "Okay. I'll try to find a way to cut the ropes.", "Thank you!"])
+characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2])
+cameraFocuses = [NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped"), NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/StartDialogue"]
+shape = SubResource("CircleShape2D_1yhwf")
+
+[node name="MidDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-1152, -1112)
+dialogueText = Array[String](["Alright, I freed you. Where's my key?", "Yes, about that. I locked it away from the guards here with my food magic!", "Food magic?", "Yes, to reach it I'll need two ingredients, one of which is hot.", "I believe you can read exactly what ingredients I want.", "Indeed I do. I have to bring them to you, yes?", "Yes, and about the hot one... you'll need an heat source of some kind to get it.", "And when you heat them up... you'll have to be fast otherwise they'll turn cold again!", "I got you. Will be back for my key!"])
+characterTalking = Array[int]([0, 2, 0, 2, 2, 0, 2, 2, 0])
+cameraFocuses = [null, NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), NodePath("../ChefYokai"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/MidDialogue"]
+shape = SubResource("CircleShape2D_qgs8e")
+
+[node name="EndDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(-1152, -1112)
+dialogueText = Array[String](["Thanks again for everything!", "No problem. Do you have any advice for me?", "Hm... I believe you are searching for special keys, yes?", "I am, continue.", "Well... I saw the magical space for this one, you'll there are two rooms. Be fast in the first room, and patient in the second.", "That's a great help, thank you!"])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
+cameraFocuses = [NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/EndDialogue"]
+shape = SubResource("CircleShape2D_p7msn")
 
 [node name="ChefYokaiTrapped" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_8be64")]
 position = Vector2(-1152, -1112)
@@ -696,6 +739,18 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(-1152, -1112)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="Daikon" parent="Quests/KitchenHelpChef" instance=ExtResource("20_dph40")]
+position = Vector2(168, -264)
+
+[node name="Dango" parent="Quests/KitchenHelpChef" instance=ExtResource("21_sonpo")]
+position = Vector2(-952, 320)
+
+[node name="RiceBowl" parent="Quests/KitchenHelpChef" instance=ExtResource("22_vp878")]
+position = Vector2(1600, 800)
+
+[node name="Salmon" parent="Quests/KitchenHelpChef" instance=ExtResource("23_dja3c")]
+position = Vector2(-1624, 952)
 
 [node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true

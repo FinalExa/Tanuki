@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhi6trciqo44g"]
+[gd_scene load_steps=17 format=3 uid="uid://bhi6trciqo44g"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/ChefYokaiInteractable.gd" id="1_wjysp"]
 [ext_resource type="Texture2D" uid="uid://fc4m772yqrhb" path="res://ImportantObjects/Interactables/Sprites/ChefYokai.png" id="2_2ljes"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cns1arbry8ngx" path="res://Level/Sprites/Ciotola con salmone.png" id="4_j8axq"]
 [ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="4_l0nyt"]
 [ext_resource type="Texture2D" uid="uid://cpbpurwv16ahp" path="res://Level/Sprites/Ciotolona di riso.png" id="5_8dogr"]
+[ext_resource type="Texture2D" uid="uid://d0nss3ak7hgwq" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotEffect.png" id="8_11gbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf6g8"]
 atlas = ExtResource("2_2ljes")
@@ -52,14 +53,16 @@ height = 48.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqimd"]
 radius = 128.0
 
-[node name="ChefYokai" type="StaticBody2D" node_paths=PackedStringArray("coldFoodRequest", "hotFoodRequest", "animatedSpriteRef") groups=["Interactable"]]
+[node name="ChefYokai" type="StaticBody2D" node_paths=PackedStringArray("coldFoodRequest", "coldFoodSprite", "hotFoodRequest", "hotFoodSprite", "animatedSpriteRef") groups=["Interactable"]]
 script = ExtResource("1_wjysp")
 acceptedColdFoods = Array[String](["Dango", "Daikon"])
 coldFoodSprites = Array[Texture]([ExtResource("2_sqsih"), ExtResource("3_bqbd1")])
 acceptedHotFoods = Array[String](["Salmon", "Rice"])
 hotFoodSprites = Array[Texture]([ExtResource("4_j8axq"), ExtResource("5_8dogr")])
-coldFoodRequest = NodePath("ColdFoodSprite")
-hotFoodRequest = NodePath("HotFoodSprite")
+coldFoodRequest = NodePath("ColdFoodRequest")
+coldFoodSprite = NodePath("ColdFoodRequest/ColdFoodSprite")
+hotFoodRequest = NodePath("HotFoodRequest")
+hotFoodSprite = NodePath("HotFoodRequest/HotFoodSprite")
 neededProperties = Array[String](["Food", "FoodHot"])
 receiveRefAttack = true
 animatedSpriteRef = NodePath("AnimatedSprite2D")
@@ -78,20 +81,22 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c4287")
 
 [node name="ColdFoodRequest" type="Sprite2D" parent="."]
-modulate = Color(0.6, 0.6, 0.6, 1)
-position = Vector2(-48, -120)
+position = Vector2(-72, -120)
 texture = ExtResource("3_ykm0k")
 
-[node name="ColdFoodSprite" type="Sprite2D" parent="."]
-position = Vector2(-48, -120)
+[node name="ColdFoodSprite" type="Sprite2D" parent="ColdFoodRequest"]
+position = Vector2(0, -8)
 
 [node name="HotFoodRequest" type="Sprite2D" parent="."]
-modulate = Color(0.6, 0.6, 0.6, 1)
-position = Vector2(48, -120)
+position = Vector2(72, -120)
 texture = ExtResource("3_ykm0k")
 
-[node name="HotFoodSprite" type="Sprite2D" parent="."]
-position = Vector2(48, -120)
+[node name="HotFoodSprite" type="Sprite2D" parent="HotFoodRequest"]
+position = Vector2(0, -8)
+
+[node name="HotEffect" type="Sprite2D" parent="HotFoodRequest"]
+position = Vector2(0, -32)
+texture = ExtResource("8_11gbu")
 
 [node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("4_l0nyt")]
 interactableToOperate = NodePath("..")

@@ -1,6 +1,9 @@
 class_name MovableObject
 extends Area2D
 
+signal on_attach
+signal on_attach_end
+
 @export var movableObjectName: String
 @export var movableObjectProperties: Array[String]
 var originalParent: Node2D
@@ -30,6 +33,7 @@ func Attach(playerMoveObjects: PlayerMoveObjects):
 	self.reparent(playerMoveObjects)
 	collisionShape.disabled = true
 	self.global_position = playerMoveObjects.global_position
+	emit_signal("on_attach")
 
 func ResetParent():
 	call_deferred("Reset")
@@ -37,6 +41,7 @@ func ResetParent():
 func Reset():
 	self.reparent(originalParent)
 	collisionShape.disabled = false
+	emit_signal("on_attach_end")
 
 func ResetParentAndPosition():
 	ResetParent()
@@ -66,6 +71,7 @@ func ForceTurnCloseFeedbackOff():
 	movableLabel.hide()
 	movableFeedbackFar.show()
 
-func TurnBothFeedbacksOff():
+func TurnAllFeedbacksOff():
 	movableFeedbackClose.hide()
 	movableFeedbackFar.hide()
+	movableLabel.hide()

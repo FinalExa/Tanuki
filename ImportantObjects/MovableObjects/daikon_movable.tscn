@@ -11,7 +11,8 @@ radius = 16.0
 
 [node name="Daikon" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_78rsm")
-movableObjectName = "Movable Object"
+movableObjectName = "Daikon"
+movableObjectProperties = Array[String](["Food"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
 movableFeedbackClose = NodePath("MovableFeedbackClose")
 movableLabel = NodePath("MovableLabel")

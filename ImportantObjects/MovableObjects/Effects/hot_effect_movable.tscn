@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://2dh182jq6fm1"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Effects/Scripts/HotEffectMovable.gd" id="1_2po03"]
+[ext_resource type="Texture2D" uid="uid://d0nss3ak7hgwq" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotEffect.png" id="2_rtsw1"]
+[ext_resource type="Texture2D" uid="uid://bf4lprbfcgfoa" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotTimerBG.png" id="3_22msd"]
+[ext_resource type="Texture2D" uid="uid://d7ppo7drkdbi" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotTimer.png" id="4_8cru0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdux4"]
+radius = 64.0
+
+[node name="HotEffectMovable" type="Area2D" node_paths=PackedStringArray("effectGraphics", "progressBar")]
+script = ExtResource("1_2po03")
+hotDuration = 6.5
+newTags = null
+effectGraphics = NodePath("EffectGraphics")
+progressBar = NodePath("BarValue")
+barMultiplier = 10.0
+heatSourceGroup = "HeatSource"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kdux4")
+
+[node name="EffectGraphics" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_rtsw1")
+
+[node name="BarValue" type="TextureProgressBar" parent="."]
+offset_left = 32.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = -32.0
+fill_mode = 3
+texture_under = ExtResource("3_22msd")
+texture_progress = ExtResource("4_8cru0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
