@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=113 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://cojhe5lq1wftb" path="res://Level/Sprites/ciotole-2-001.png" id="38_ilpph"]
 [ext_resource type="Texture2D" uid="uid://go7nnh4oep76" path="res://Level/Sprites/Ciotole-001.png" id="39_lh02n"]
 [ext_resource type="PackedScene" uid="uid://bar22or7buq23" path="res://DemoTemporary/you_win_screen.tscn" id="39_rbvug"]
-[ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="40_3fnu8"]
 [ext_resource type="PackedScene" uid="uid://c3rw0v4vypf14" path="res://ImportantObjects/Interactables/table.tscn" id="40_6w7qa"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="40_wejvi"]
 [ext_resource type="Texture2D" uid="uid://2stnbeadmpws" path="res://Level/Sprites/Ciotola con dango.png" id="43_c7o0r"]
@@ -227,9 +226,6 @@ size = Vector2(160, 896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(104, 264)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_211yk"]
-radius = 112.0
 
 [node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
@@ -965,7 +961,7 @@ shape = SubResource("CircleShape2D_7ihbc")
 
 [node name="RatDialogue2" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
-dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you don’t know… you can reach the roof by watering one of the plants around here.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
+dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you didn't know about it, some plants around here grow very tall and fast when they are watered.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
 characterTalking = Array[int]([2, 2, 0, 2, 0])
 cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null, NodePath("../Rat"), null]
 deleteOnDone = true
@@ -977,7 +973,7 @@ shape = SubResource("CircleShape2D_3ak33")
 
 [node name="RatDialogue3" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
-dialogueText = Array[String](["Can you say that secret again? I forgot it.", "Really? What a bad memory you have… fine. You can reach the roof by watering one of the plants around here. Don’t forget it again!", "I regret feeding you…"])
+dialogueText = Array[String](["Can you say that secret again? I forgot it.", "Really? What a bad memory you have… fine. Some plants around here grow very tall and fast when they are watered. Don’t forget it again!", "I regret feeding you…"])
 characterTalking = Array[int]([0, 2, 0])
 cameraFocuses = [null, NodePath("../Rat"), null]
 isOnInteraction = true
@@ -1962,27 +1958,6 @@ texture = ExtResource("44_67je7")
 position = Vector2(24, -160)
 scale = Vector2(1, 1.33333)
 texture = ExtResource("47_ye63g")
-
-[node name="NPCs" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="CleanerNPC" parent="NPCs" instance=ExtResource("40_3fnu8")]
-position = Vector2(-1664, 656)
-
-[node name="DialogueArea" parent="NPCs/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["Ugh… I’m supposed to clean the mess around here…", "Hey! Aren't you gonna attack me like the others?", "Why would I? I'm in pause right now... ohh the bliss...", "Huh... you look kinda worn out, everything good?", "Have you seen the brown goop around here? It DRAINS me everytime I walk on it!", "If only I had the energy to clean it, it would probably go away...", "Ohh! That sounds useful... thanks, sleepy cleaner!", "Oh yeah... don't even bother removing the purple ones like the one below my feet. I tried. It's impossible, time wasted.", "I wonder why you guys in pause are so willing to give me so much information... but I'll gladly accept all of them without question! Hehe..."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("AreaFocus"), NodePath(".."), null, NodePath(".."), null]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/CleanerNPC/DialogueArea"]
-shape = SubResource("CircleShape2D_211yk")
-
-[node name="AreaFocus" type="Node2D" parent="NPCs/CleanerNPC/DialogueArea"]
-position = Vector2(512, 264)
-
-[node name="DirtyFloorUnremoveable" parent="NPCs/CleanerNPC" instance=ExtResource("31_0gh3t")]
-position = Vector2(0, 48)
 
 [node name="Food" type="Node2D" parent="."]
 y_sort_enabled = true
