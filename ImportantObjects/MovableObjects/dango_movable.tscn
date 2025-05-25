@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://d25qn3k6u6dk6"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_c1nvr"]
+[ext_resource type="Texture2D" uid="uid://bwqf4nxchbdod" path="res://Level/Sprites/DANGO.png" id="2_adofh"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_pk8eo"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_iupso"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_sekrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np00o"]
+
+[node name="Dango" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_c1nvr")
+movableObjectName = "Dango"
+movableObjectProperties = Array[String](["Food"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_np00o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_adofh")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_pk8eo")]
+position = Vector2(0, -32)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_iupso")]
+position = Vector2(0, -32)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_sekrr")]
+offset_top = -96.0
+offset_bottom = -48.0

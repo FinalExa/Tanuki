@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://jlf7pus0ncsj"]
+
+[ext_resource type="Texture2D" uid="uid://c8aqid4rh1fyh" path="res://ImportantObjects/MovableObjects/Sprites/MovableFeedbackFar.png" id="1_vfrpw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayb6v"]
+atlas = ExtResource("1_vfrpw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xdm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayb6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MovableFeedbackFar" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7xdm7")

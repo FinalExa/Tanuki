@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://po8kvx06byyf"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/BrushPassive.gd" id="1_5l72n"]
+[ext_resource type="Texture2D" uid="uid://dewr70m3jp0u0" path="res://ImportantObjects/TransformationObjects/Passives/Sprites/brushPaintArea.png" id="2_nbsdh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mu75o"]
+radius = 96.0
+
+[node name="BrushPassive" type="Node2D" node_paths=PackedStringArray("spriteRef")]
+script = ExtResource("1_5l72n")
+defaultColor = 4
+spriteRef = NodePath("Sprite2D")
+colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -24)
+texture = ExtResource("2_nbsdh")
+
+[node name="NewColorCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewColorCheck"]
+shape = SubResource("CircleShape2D_mu75o")
+
+[connection signal="body_entered" from="NewColorCheck" to="." method="_on_new_color_check_body_entered"]
+[connection signal="body_exited" from="NewColorCheck" to="." method="_on_new_color_check_body_exited"]

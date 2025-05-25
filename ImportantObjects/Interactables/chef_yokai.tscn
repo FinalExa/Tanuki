@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhi6trciqo44g"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/ChefYokaiInteractable.gd" id="1_wjysp"]
+[ext_resource type="Texture2D" uid="uid://fc4m772yqrhb" path="res://ImportantObjects/Interactables/Sprites/ChefYokai.png" id="2_2ljes"]
+[ext_resource type="Texture2D" uid="uid://bwqf4nxchbdod" path="res://Level/Sprites/DANGO.png" id="2_sqsih"]
+[ext_resource type="Texture2D" uid="uid://ptomn7wbhv0a" path="res://Level/Sprites/Daikon-001.png" id="3_bqbd1"]
+[ext_resource type="Texture2D" uid="uid://d082d1yhkth3d" path="res://ImportantObjects/Interactables/Sprites/FoodRequest.png" id="3_ykm0k"]
+[ext_resource type="Texture2D" uid="uid://cns1arbry8ngx" path="res://Level/Sprites/Ciotola con salmone.png" id="4_j8axq"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="4_l0nyt"]
+[ext_resource type="Texture2D" uid="uid://cpbpurwv16ahp" path="res://Level/Sprites/Ciotolona di riso.png" id="5_8dogr"]
+[ext_resource type="Texture2D" uid="uid://d0nss3ak7hgwq" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotEffect.png" id="8_11gbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf6g8"]
+atlas = ExtResource("2_2ljes")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a61ed"]
+atlas = ExtResource("2_2ljes")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2kc1"]
+atlas = ExtResource("2_2ljes")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fquno"]
+atlas = ExtResource("2_2ljes")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_droqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf6g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a61ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2kc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fquno")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4287"]
+radius = 8.00012
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqimd"]
+radius = 128.0
+
+[node name="ChefYokai" type="StaticBody2D" node_paths=PackedStringArray("coldFoodRequest", "coldFoodSprite", "hotFoodRequest", "hotFoodSprite", "animatedSpriteRef") groups=["Interactable"]]
+script = ExtResource("1_wjysp")
+acceptedColdFoods = Array[String](["Dango", "Daikon"])
+coldFoodSprites = Array[Texture]([ExtResource("2_sqsih"), ExtResource("3_bqbd1")])
+acceptedHotFoods = Array[String](["Salmon", "Rice"])
+hotFoodSprites = Array[Texture]([ExtResource("4_j8axq"), ExtResource("5_8dogr")])
+coldFoodRequest = NodePath("ColdFoodRequest")
+coldFoodSprite = NodePath("ColdFoodRequest/ColdFoodSprite")
+hotFoodRequest = NodePath("HotFoodRequest")
+hotFoodSprite = NodePath("HotFoodRequest/HotFoodSprite")
+neededProperties = Array[String](["Food", "FoodHot"])
+receiveRefAttack = true
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlay = "idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_droqo")
+animation = &"idle"
+frame_progress = 0.820443
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-4.54747e-13, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c4287")
+
+[node name="ColdFoodRequest" type="Sprite2D" parent="."]
+position = Vector2(-72, -120)
+texture = ExtResource("3_ykm0k")
+
+[node name="ColdFoodSprite" type="Sprite2D" parent="ColdFoodRequest"]
+position = Vector2(0, -8)
+
+[node name="HotFoodRequest" type="Sprite2D" parent="."]
+position = Vector2(72, -120)
+texture = ExtResource("3_ykm0k")
+
+[node name="HotFoodSprite" type="Sprite2D" parent="HotFoodRequest"]
+position = Vector2(0, -8)
+
+[node name="HotEffect" type="Sprite2D" parent="HotFoodRequest"]
+position = Vector2(0, -32)
+texture = ExtResource("8_11gbu")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("4_l0nyt")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CircleShape2D_gqimd")

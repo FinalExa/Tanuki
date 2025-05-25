@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbdj3ff0iygpr"]
+[gd_scene load_steps=7 format=3 uid="uid://cbdj3ff0iygpr"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_c34v0"]
 [ext_resource type="Texture2D" uid="uid://cttpy72dchwfb" path="res://ImportantObjects/MovableObjects/Sprites/acorn.png" id="2_v37nw"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_42lm8"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_df0pq"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_xhx31"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvdj2"]
 radius = 8.0
 
-[node name="Acorn" type="Area2D"]
+[node name="Acorn" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_c34v0")
 movableObjectName = "Acorn"
 movableObjectProperties = Array[String](["Acorn"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vvdj2")
@@ -17,3 +23,13 @@ shape = SubResource("CircleShape2D_vvdj2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("2_v37nw")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("3_42lm8")]
+position = Vector2(0, -48)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("4_df0pq")]
+position = Vector2(0, -48)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_xhx31")]
+offset_top = -112.0
+offset_bottom = -64.0

@@ -6,6 +6,7 @@ extends Node
 var unlockKeyTypes: Array[GameplayScene.SceneType]
 var unlockKeyIDs: Array[int]
 var usedUnlockKeyForDoors: Array[int]
+var specialUnlockKeysObtained: Array[GameplayScene.SceneType]
 
 var currentUnlockKeyType: GameplayScene.SceneType
 var currentIDArray: Array[int]
@@ -20,6 +21,7 @@ func ClearAll():
 	unlockKeyTypes.clear()
 	unlockKeyIDs.clear()
 	usedUnlockKeyForDoors.clear()
+	specialUnlockKeysObtained.clear()
 	currentIDArray.clear()
 	currentUsedKeysArray.clear()
 	activeQuests.clear()
@@ -42,6 +44,10 @@ func RegisterKey(id: int):
 		unlockKeyIDs.push_back(id)
 		usedUnlockKeyForDoors.push_back(-1)
 		playerRef.playerHUD.keyCounter.UpdateKeyCount()
+
+func RegisterSpecialKey(sceneType: GameplayScene.SceneType):
+	specialUnlockKeysObtained.push_back(sceneType)
+	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
 	var gameplayScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene

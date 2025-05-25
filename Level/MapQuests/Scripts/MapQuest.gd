@@ -90,6 +90,9 @@ func OnOff(objectToOperate: Node2D, status: bool):
 		DeactivateObjectToOperate(objectToOperate)
 
 func ActivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is DoorOpenClose):
+		objectToOperate.OpenDoor()
+		return
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Activation()
 		return
@@ -109,6 +112,9 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 		objectToOperate.ActivatedByQuest()
 
 func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is DoorOpenClose):
+		objectToOperate.CloseDoor()
+		return
 	if (objectToOperate is PuzzleObject):
 		objectToOperate.Deactivation()
 		return

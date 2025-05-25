@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkms22kne3ecu"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/ColorDoorInteractable.gd" id="1_rmp6x"]
+[ext_resource type="Texture2D" uid="uid://behc1dsq65vci" path="res://ImportantObjects/Interactables/Sprites/ColorDoorPart.png" id="2_adgix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t171d"]
+size = Vector2(256, 32)
+
+[node name="ColorDoor" type="StaticBody2D" node_paths=PackedStringArray("parts") groups=["Interactable"]]
+script = ExtResource("1_rmp6x")
+colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)])
+parts = [NodePath("Part1"), NodePath("Part2"), NodePath("Part3"), NodePath("Part4")]
+neededProperties = Array[String](["Brush"])
+destroyOnEnd = true
+receiveRefAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_t171d")
+
+[node name="Part1" type="Sprite2D" parent="."]
+position = Vector2(-96, -64)
+texture = ExtResource("2_adgix")
+
+[node name="Part2" type="Sprite2D" parent="."]
+position = Vector2(-32, -64)
+texture = ExtResource("2_adgix")
+
+[node name="Part3" type="Sprite2D" parent="."]
+position = Vector2(32, -64)
+texture = ExtResource("2_adgix")
+
+[node name="Part4" type="Sprite2D" parent="."]
+position = Vector2(96, -64)
+texture = ExtResource("2_adgix")

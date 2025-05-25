@@ -15,7 +15,7 @@ func SelectObjectInRange():
 	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.grabInput):
 		currentObject = objectsInRange[GetMovableObject()]
 		currentObject.AttachToPlayer(self)
-		currentObject.TurnBothFeedbacksOff()
+		currentObject.TurnAllFeedbacksOff()
 
 func GetMovableObject():
 	var minDist: float
@@ -42,6 +42,7 @@ func DropMovableObject():
 
 func ForceDropMovableObject():
 	if (currentObject != null):
+		currentObject.ForceTurnCloseFeedbackOff()
 		currentObject.ResetParentAndPosition()
 		currentObject = null
 

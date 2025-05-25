@@ -7,12 +7,21 @@ extends Node2D
 @export var questToSendProgressSignal: MapQuest
 @export var sendSignalToQuestOnDestroyed: bool
 @export var destroyOnEnd: bool
+@export var receiveRefAttack: bool
+@export var animatedSpriteRef: AnimatedSprite2D
+@export var animationToPlay: String
 var parentRef: Node2D
 var cooldownActive: bool
 var cooldownTimer: float
 
 func _ready():
 	parentRef = get_parent()
+	if (animatedSpriteRef != null):
+		animatedSpriteRef.play(animationToPlay)
+	ReadyOperations()
+
+func ReadyOperations():
+	pass
 
 func _process(delta):
 	if (cooldownActive):

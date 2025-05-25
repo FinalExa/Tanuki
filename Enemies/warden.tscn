@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://djl8bcxc5roir"]
+[gd_scene load_steps=48 format=3 uid="uid://djl8bcxc5roir"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenController.gd" id="1_ixgu4"]
 [ext_resource type="AudioStream" uid="uid://rflcma3mfp7v" path="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav" id="2_cixjm"]
@@ -42,19 +42,59 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 24.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63inc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb7mp"]
 atlas = ExtResource("11_ss25q")
 region = Rect2(0, 0, 128, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00lmv"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(128, 0, 128, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej14w"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(256, 0, 128, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ypye"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(384, 0, 128, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2spcc"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(512, 0, 128, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebuah"]
+atlas = ExtResource("11_ss25q")
+region = Rect2(640, 0, 128, 116)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_63inc")
+"texture": SubResource("AtlasTexture_xb7mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00lmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej14w")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ypye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2spcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebuah")
+}],
+"loop": true,
+"name": &"spotted",
+"speed": 10.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwhw3"]
@@ -138,7 +178,7 @@ max_distance = 1500.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -32)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
-animation = &"idle"
+animation = &"spotted"
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
 script = ExtResource("12_aa0al")
@@ -190,7 +230,7 @@ rotationSpeed = 3.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
-[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "checkSound", "spottedSound")]
+[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
 script = ExtResource("18_d02ip")
 enemyController = NodePath("../..")
 checkMaxValue = 100.0
@@ -200,8 +240,12 @@ checkDecreasePerSecond = 50.0
 enemyStatus = NodePath("../../EnemyStatus")
 checkSound = NodePath("../../Sounds/CheckStart")
 spottedSound = NodePath("../../Sounds/PlayerSpotted")
+wardenSprite = NodePath("../../AnimatedSprite2D")
+idleAnimationName = "idle"
+spottedAnimationName = "spotted"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
+modulate = Color(1, 1, 1, 0.313726)
 position = Vector2(0, -128)
 polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 384, -832, -384, -832)
 

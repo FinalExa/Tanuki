@@ -5,6 +5,9 @@ var attackTag: String
 
 func LaunchAttackOnTargetInRange(targetInRange: Node2D):
 	if (targetInRange.is_in_group("Interactable")):
+		if (targetInRange is GenericInteractable && targetInRange.receiveRefAttack):
+			targetInRange.InteractionWithRef(attackTag, characterRef)
+			return
 		targetInRange.AttackInteraction(attackTag)
 		return
 	if (targetInRange is EnemyController && !hitTargets.has(targetInRange)):

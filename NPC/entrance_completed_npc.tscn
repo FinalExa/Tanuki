@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://h53rag35ypel"]
+
+[ext_resource type="Texture2D" uid="uid://v6q1lvrbuy56" path="res://NPC/Sprites/BellTableColoredBell.png" id="1_hammr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfci4"]
+atlas = ExtResource("1_hammr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfci4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu0mc"]
+size = Vector2(64, 56)
+
+[node name="EntranceCompletedNPC" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_tu0mc")

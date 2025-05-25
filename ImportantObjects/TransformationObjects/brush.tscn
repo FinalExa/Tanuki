@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0npvllpgc3hb"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_4xg7n"]
+[ext_resource type="Texture2D" uid="uid://c5mkqgm3w5bwi" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/brushComplete.png" id="2_dou6n"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_vvm4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wiwr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xckab"]
+radius = 128.0
+
+[node name="Brush" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_4xg7n")
+transformedName = "Brush"
+transformedSpeedTier = 1
+transformedAttackTimeConsumption = 0.75
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Brush"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/brush_attack.tscn"
+transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/brush_passive.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/brush.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6wiwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -24)
+texture = ExtResource("2_dou6n")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_vvm4g")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_xckab")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

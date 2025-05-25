@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpmnjx776a7tl"]
+
+[ext_resource type="Texture2D" uid="uid://c3m3ipylprjvn" path="res://NPC/Sprites/ChairWithWarden.png" id="1_2qqiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3gs3"]
+atlas = ExtResource("1_2qqiq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3gs3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu0mc"]
+size = Vector2(80, 64)
+
+[node name="ChairWardenNPC" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_tu0mc")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cikfv4vvc3wxp"]
+
+[ext_resource type="Texture2D" uid="uid://bsqtrv0vlwqkq" path="res://Level/Sprites/Placeholder/vaseGrown.png" id="1_ky8wl"]
+
+[node name="VaseGrown" type="Sprite2D"]
+texture = ExtResource("1_ky8wl")

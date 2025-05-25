@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://de38bsyswamo3"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_fc6ul"]
+[ext_resource type="Texture2D" uid="uid://clqvgnj8twtpb" path="res://ImportantObjects/MovableObjects/Sprites/BellMovable.png" id="2_s3gs8"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_8abxt"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_1pw0r"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_kbtbv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7w1ou"]
+radius = 16.0
+
+[node name="BellMovable" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_fc6ul")
+movableObjectName = "Bell"
+movableObjectProperties = Array[String](["Bell"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_7w1ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_s3gs8")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("3_8abxt")]
+position = Vector2(0, -48)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("4_1pw0r")]
+position = Vector2(0, -48)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_kbtbv")]
+offset_top = -112.0
+offset_bottom = -64.0

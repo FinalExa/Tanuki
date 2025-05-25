@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bml7gqxw70ddx"]
+
+[ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/ColorYokai.gd" id="1_nbtof"]
+[ext_resource type="Texture2D" uid="uid://ibsf7ub66ib8" path="res://ImportantObjects/PuzzleObjects/Sprites/colorYokai.png" id="2_civcl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21dlb"]
+radius = 8.0
+
+[node name="ColorYokai" type="StaticBody2D" node_paths=PackedStringArray("spriteRef", "collisionShapeRef")]
+y_sort_enabled = true
+script = ExtResource("1_nbtof")
+spriteRef = NodePath("Sprite2D")
+colors = Array[Color]([Color(1, 0, 0, 0.705882), Color(0, 1, 0, 0.705882), Color(0, 0, 1, 0.705882), Color(1, 1, 0, 0.705882), Color(0, 0, 0, 1)])
+activated = true
+collisionShapeRef = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_civcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_21dlb")

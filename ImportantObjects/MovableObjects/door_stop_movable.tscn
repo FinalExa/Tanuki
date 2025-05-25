@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://vmru774enfo1"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_0drqv"]
+[ext_resource type="Texture2D" uid="uid://djn2v25wy4ct3" path="res://ImportantObjects/MovableObjects/Sprites/DoorStopMovable.png" id="2_lgpu5"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_xjcwu"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_wwd7i"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_euid6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7w1ou"]
+radius = 16.0
+
+[node name="DoorStopMovable" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_0drqv")
+movableObjectName = "Door Stop"
+movableObjectProperties = Array[String](["DoorStop"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_7w1ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_lgpu5")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("3_xjcwu")]
+position = Vector2(0, -48)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("4_wwd7i")]
+position = Vector2(0, -48)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_euid6")]
+offset_top = -112.0
+offset_bottom = -64.0

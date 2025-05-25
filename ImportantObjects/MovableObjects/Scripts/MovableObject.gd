@@ -1,23 +1,24 @@
 class_name MovableObject
 extends Area2D
 
+signal on_attach
+signal on_attach_end
+
 @export var movableObjectName: String
 @export var movableObjectProperties: Array[String]
 var originalParent: Node2D
 var originalPosition: Vector2
 var collisionShape: CollisionShape2D
-var playerCloseFeedbackSprite: AnimatedSprite2D
-var grabbableFeedbackSprite: AnimatedSprite2D
-var playerCloseFeedback: String = "res://ImportantObjects/TransformationObjects/GetTransformationFeedback.tscn"
-var grabbableFeedback: String = "res://ImportantObjects/TransformationObjects/TransformableFeedback.tscn"
+@export var movableFeedbackFar: AnimatedSprite2D
+@export var movableFeedbackClose: AnimatedSprite2D
+@export var movableLabel: Label
 
 func _ready():
 	originalParent = self.get_parent()
 	originalPosition = self.global_position
-	playerCloseFeedbackSprite = SpawnFeedback(playerCloseFeedback)
-	playerCloseFeedbackSprite.hide()
-	grabbableFeedbackSprite = SpawnFeedback(grabbableFeedback)
 	GetCollisionShape()
+	ForceTurnCloseFeedbackOff()
+	movableLabel.text = movableObjectName
 
 func GetCollisionShape():
 	for i in self.get_child_count():
@@ -32,6 +33,7 @@ func Attach(playerMoveObjects: PlayerMoveObjects):
 	self.reparent(playerMoveObjects)
 	collisionShape.disabled = true
 	self.global_position = playerMoveObjects.global_position
+	emit_signal("on_attach")
 
 func ResetParent():
 	call_deferred("Reset")
@@ -39,6 +41,7 @@ func ResetParent():
 func Reset():
 	self.reparent(originalParent)
 	collisionShape.disabled = false
+	emit_signal("on_attach_end")
 
 func ResetParentAndPosition():
 	ResetParent()
@@ -55,14 +58,20 @@ func SpawnFeedback(feedbackToSpawn: String):
 
 func TurnCloseFeedbackOn(playerHoldingObject: MovableObject):
 	if (self != playerHoldingObject):
-		grabbableFeedbackSprite.hide()
-		playerCloseFeedbackSprite.show()
+		movableFeedbackFar.hide()
+		movableLabel.show()
+		movableFeedbackClose.show()
 
 func TurnCloseFeedbackOff(playerHoldingObject: MovableObject):
 	if (self != playerHoldingObject):
-		playerCloseFeedbackSprite.hide()
-		grabbableFeedbackSprite.show()
+		ForceTurnCloseFeedbackOff()
 
-func TurnBothFeedbacksOff():
-	grabbableFeedbackSprite.hide()
-	playerCloseFeedbackSprite.hide()
+func ForceTurnCloseFeedbackOff():
+	movableFeedbackClose.hide()
+	movableLabel.hide()
+	movableFeedbackFar.show()
+
+func TurnAllFeedbacksOff():
+	movableFeedbackClose.hide()
+	movableFeedbackFar.hide()
+	movableLabel.hide()

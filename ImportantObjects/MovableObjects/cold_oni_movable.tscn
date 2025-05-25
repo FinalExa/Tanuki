@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb7k6xc533l1y"]
+[gd_scene load_steps=7 format=3 uid="uid://cb7k6xc533l1y"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_2aulq"]
 [ext_resource type="Texture2D" uid="uid://dxfph4i1rd6rs" path="res://NPC/Sprites/miniOniCold.png" id="2_swlue"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="3_rqye1"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="4_74wql"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="5_67gv7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eawk8"]
 radius = 16.0
 
-[node name="ColdOniMovable" type="Area2D"]
+[node name="ColdOniMovable" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_2aulq")
-movableObjectName = "ColdOniMovable"
+movableObjectName = "Cold Oni"
 movableObjectProperties = Array[String](["ColdOni"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_eawk8")
@@ -17,3 +23,13 @@ shape = SubResource("CircleShape2D_eawk8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("2_swlue")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("3_rqye1")]
+position = Vector2(0, -64)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("4_74wql")]
+position = Vector2(0, -64)
+
+[node name="MovableLabel" parent="." instance=ExtResource("5_67gv7")]
+offset_top = -128.0
+offset_bottom = -80.0

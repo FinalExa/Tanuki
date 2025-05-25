@@ -10,6 +10,10 @@ extends Area2D
 @export var enemyStatus: EnemyStatus
 @export var checkSound: AudioStreamPlayer2D
 @export var spottedSound: AudioStreamPlayer2D
+@export var wardenSprite: AnimatedSprite2D
+@export var idleAnimationName: String
+@export var spottedAnimationName: String
+var isInIdleAnimation: bool
 var wardenAlertArea: WardenAlertArea
 var checkCurrentValue: float
 var raycastResult: Node2D
@@ -23,6 +27,9 @@ func _ready():
 
 func _physics_process(_delta):
 	WardenCheckRaycast()
+
+func _process(_delta):
+	PlayAnimations()
 
 func WardenCheckRaycast():
 	if (playerIn):
@@ -86,6 +93,16 @@ func PlayCheckSound():
 	if (checkCurrentValue == checkMinValue && !checkSoundPlayed):
 		checkSound.play()
 		checkSoundPlayed = true
+
+func PlayAnimations():
+	if (checkCurrentValue >= checkScreamThreshold):
+		if (isInIdleAnimation):
+			wardenSprite.play(spottedAnimationName)
+			isInIdleAnimation = false
+	else:
+		if (!isInIdleAnimation):
+			wardenSprite.play(idleAnimationName)
+			isInIdleAnimation = true
 
 func ResetCheckSound():
 	if (checkCurrentValue == checkMinValue && checkSoundPlayed):
