@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=91 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bdjepf72r5nc8" path="res://ImportantObjects/Interactables/door_evil.tscn" id="22_getnd"]
 [ext_resource type="PackedScene" uid="uid://bkms22kne3ecu" path="res://ImportantObjects/Interactables/color_door.tscn" id="23_p6qod"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="24_hg15b"]
+[ext_resource type="Texture2D" uid="uid://wvv68g1s08dw" path="res://ImportantObjects/Interactables/Sprites/Painting.png" id="24_pyogi"]
 [ext_resource type="PackedScene" uid="uid://d3b2y5u3omnwj" path="res://ImportantObjects/Interactables/chair.tscn" id="25_5q0m2"]
 [ext_resource type="PackedScene" uid="uid://cpmnjx776a7tl" path="res://NPC/chair_warden_npc.tscn" id="25_e4ed7"]
 [ext_resource type="PackedScene" uid="uid://c5vyx3tnh3ply" path="res://NPC/sad_guard_npc.tscn" id="25_nwgbr"]
@@ -219,7 +220,7 @@ keyTypeToShow = 4
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallHiddenRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
+mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallPaintingRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 
@@ -418,7 +419,7 @@ shape = SubResource("CircleShape2D_524vm")
 position = Vector2(320, -472)
 
 [node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Thank you for everything! I am so happy!", "Do you have any other useful info for me, now-happy bell?", "There are some very suspicious banners in the corridor below... I heard from the guards that the wall there isn't the stablest, maybe there's something behind?", "Hey, that sounds useful. Thank you."])
+dialogueText = Array[String](["Thank you for everything! I am so happy!", "Do you have any other useful info for me, now-happy bell?", "The painting in the corridor below this rooms feels so... incomplete. Like it's lacking... color, you know? I believe it's on purpose.", "Hey, that sounds useful. Thank you."])
 characterTalking = Array[int]([2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
@@ -468,16 +469,16 @@ position = Vector2(520, 768)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallFixEntrance"]
 navigation_polygon = SubResource("NavigationPolygon_h1ymd")
 
-[node name="HallHiddenRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallPaintingRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
-questName = "HallHiddenRoom"
-questItemsToOperate = [NodePath("RoomAStructure"), NodePath("NavigationRegion2D"), NodePath("../../Keys/UnlockKey3"), NodePath("WallTileInterruptRight"), NodePath("WallTileInterruptLeft"), NodePath("RoomAStructure"), NodePath("NavigationRegion2D"), NodePath("WallTileInterruptRight"), NodePath("WallTileInterruptLeft"), NodePath("WallTile"), NodePath("WallTile2"), NodePath("../../Keys/UnlockKey3")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, false, false, true])
+questName = "HallPaintingRoom"
+questItemsToOperate = [NodePath("PaintingComplete"), NodePath("RoomAStructure"), NodePath("NavigationRegion2D"), NodePath("../../Keys/UnlockKey3"), NodePath("WallTileInterruptRight"), NodePath("WallTileInterruptLeft"), NodePath("RoomAStructure"), NodePath("NavigationRegion2D"), NodePath("WallTileInterruptRight"), NodePath("WallTileInterruptLeft"), NodePath("WallTile"), NodePath("WallTile2"), NodePath("PaintingComplete"), NodePath("../../Keys/UnlockKey3")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, true, true, true, true, false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("PaintingWall")]
 
-[node name="RoomAStructure" type="TileMap" parent="Quests/HallHiddenRoom"]
+[node name="RoomAStructure" type="TileMap" parent="Quests/HallPaintingRoom"]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
 format = 2
@@ -493,24 +494,29 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
-[node name="PaintingWall" parent="Quests/HallHiddenRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("18_t8rl2")]
+[node name="PaintingWall" parent="Quests/HallPaintingRoom" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("18_t8rl2")]
 position = Vector2(-1408, 960)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallHiddenRoom"]
+[node name="PaintingComplete" type="Sprite2D" parent="Quests/HallPaintingRoom"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-1408, 960)
+texture = ExtResource("24_pyogi")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallPaintingRoom"]
 navigation_polygon = SubResource("NavigationPolygon_a11ha")
 
-[node name="WallTileInterruptRight" parent="Quests/HallHiddenRoom" instance=ExtResource("19_243so")]
+[node name="WallTileInterruptRight" parent="Quests/HallPaintingRoom" instance=ExtResource("19_243so")]
 position = Vector2(-1600, 960)
 
-[node name="WallTileInterruptLeft" parent="Quests/HallHiddenRoom" instance=ExtResource("20_kvox4")]
+[node name="WallTileInterruptLeft" parent="Quests/HallPaintingRoom" instance=ExtResource("20_kvox4")]
 position = Vector2(-1216, 960)
 
-[node name="WallTile" parent="Quests/HallHiddenRoom" instance=ExtResource("21_7ck5r")]
+[node name="WallTile" parent="Quests/HallPaintingRoom" instance=ExtResource("21_7ck5r")]
 position = Vector2(-1216, 960)
 
-[node name="WallTile2" parent="Quests/HallHiddenRoom" instance=ExtResource("21_7ck5r")]
+[node name="WallTile2" parent="Quests/HallPaintingRoom" instance=ExtResource("21_7ck5r")]
 position = Vector2(-1600, 960)
 
 [node name="HallStopTheDoor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]

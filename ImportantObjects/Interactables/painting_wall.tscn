@@ -1,32 +1,55 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw1hwjif77sfj"]
+[gd_scene load_steps=11 format=3 uid="uid://dw1hwjif77sfj"]
 
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_s6p3a"]
-[ext_resource type="Texture2D" uid="uid://dxbiwgmvmift4" path="res://Level/Sprites/Placeholder/Muro centro.png" id="2_qsc2g"]
-[ext_resource type="Texture2D" uid="uid://bu0apdgwxwxmx" path="res://ImportantObjects/Interactables/Sprites/Canvas-001.png" id="3_lfcit"]
-[ext_resource type="Texture2D" uid="uid://cvewgdngnynwr" path="res://ImportantObjects/Interactables/Sprites/Canvas-002.png" id="4_8kc3s"]
-[ext_resource type="Texture2D" uid="uid://dmks6eryq2egq" path="res://ImportantObjects/Interactables/Sprites/Canvas-003.png" id="5_jo4th"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/PaintingInteractable.gd" id="1_d83l0"]
+[ext_resource type="Texture2D" uid="uid://nwujdg4vyip2" path="res://ImportantObjects/Interactables/Sprites/PaintingBG.png" id="2_t51uc"]
+[ext_resource type="Texture2D" uid="uid://dmgrrkrp0cek6" path="res://ImportantObjects/Interactables/Sprites/PaintingBlue.png" id="3_7bkte"]
+[ext_resource type="Texture2D" uid="uid://cmpqnj4wfgiwp" path="res://ImportantObjects/Interactables/Sprites/PaintingGreen.png" id="4_a0omg"]
+[ext_resource type="Texture2D" uid="uid://cu01htkvdokrb" path="res://ImportantObjects/Interactables/Sprites/PaintingClouds.png" id="5_gr4kb"]
+[ext_resource type="Texture2D" uid="uid://bwc41yi7h8s2e" path="res://ImportantObjects/Interactables/Sprites/PaintingTrees.png" id="6_6shxm"]
+[ext_resource type="Texture2D" uid="uid://cmks8afukbo45" path="res://ImportantObjects/Interactables/Sprites/PaintingYellow.png" id="7_gvdvw"]
+[ext_resource type="Texture2D" uid="uid://c36uxbqj8swe1" path="res://ImportantObjects/Interactables/Sprites/PaintingRed.png" id="8_y74fc"]
+[ext_resource type="Texture2D" uid="uid://dqqb5db3fni7m" path="res://ImportantObjects/Interactables/Sprites/PaintingFG.png" id="9_b75ms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
 size = Vector2(256, 128)
 
-[node name="PaintingWall" type="StaticBody2D" groups=["Interactable"]]
-script = ExtResource("1_s6p3a")
-neededProperties = Array[String](["Smack", "Brush"])
+[node name="PaintingWall" type="StaticBody2D" node_paths=PackedStringArray("parts") groups=["Interactable"]]
+script = ExtResource("1_d83l0")
+colors = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)])
+parts = [NodePath("PaintingLayers/PaintingRed"), NodePath("PaintingLayers/PaintingGreen"), NodePath("PaintingLayers/PaintingBlue"), NodePath("PaintingLayers/PaintingYellow")]
+neededProperties = Array[String](["Brush"])
+destroyOnEnd = true
+receiveRefAttack = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kufeo")
 
-[node name="Wall" type="Sprite2D" parent="."]
-texture = ExtResource("2_qsc2g")
+[node name="PaintingLayers" type="Node2D" parent="."]
 
-[node name="Wall3" type="Sprite2D" parent="."]
-position = Vector2(0, 8)
-texture = ExtResource("3_lfcit")
+[node name="PaintingBG" type="Sprite2D" parent="PaintingLayers"]
+texture = ExtResource("2_t51uc")
 
-[node name="Wall4" type="Sprite2D" parent="."]
-position = Vector2(-96, 8)
-texture = ExtResource("4_8kc3s")
+[node name="PaintingBlue" type="Sprite2D" parent="PaintingLayers"]
+visible = false
+texture = ExtResource("3_7bkte")
 
-[node name="Wall5" type="Sprite2D" parent="."]
-position = Vector2(96, 8)
-texture = ExtResource("5_jo4th")
+[node name="PaintingGreen" type="Sprite2D" parent="PaintingLayers"]
+visible = false
+texture = ExtResource("4_a0omg")
+
+[node name="PaintingClouds" type="Sprite2D" parent="PaintingLayers"]
+texture = ExtResource("5_gr4kb")
+
+[node name="PaintingTrees" type="Sprite2D" parent="PaintingLayers"]
+texture = ExtResource("6_6shxm")
+
+[node name="PaintingYellow" type="Sprite2D" parent="PaintingLayers"]
+visible = false
+texture = ExtResource("7_gvdvw")
+
+[node name="PaintingRed" type="Sprite2D" parent="PaintingLayers"]
+visible = false
+texture = ExtResource("8_y74fc")
+
+[node name="PaintingFG" type="Sprite2D" parent="PaintingLayers"]
+texture = ExtResource("9_b75ms")
