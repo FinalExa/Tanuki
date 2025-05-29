@@ -16,7 +16,7 @@ var dialogueDoneShowing: bool
 enum DialogueCharacters {
 	DAICHI,
 	GOZO,
-	GUARD
+	OTHER
 }
 
 var currentDialogueText: Array[String]

@@ -594,7 +594,7 @@ position = Vector2(-576, -1472)
 activated = true
 
 [node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
-dialogueText = Array[String](["There you are! This room feels safe enough... well, I believe I can help you with the chef here.", "Are you serious?", "Indeed I am. If I remember correctly, he needs heat to perform his magic, heat which I provide! Hehehehe...", "That's interesting... I'll be back soon... hehe..."])
+dialogueText = Array[String](["There you are! This room feels safe enough... well, I believe I can help you with the chef here.", "Are you serious?", "Indeed I am. If I remember correctly, he needs heat to perform his magic, heat which I provide! Hehehehe...", "That's interesting... I'll be back soon..."])
 characterTalking = Array[int]([2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
@@ -649,9 +649,9 @@ position = Vector2(1216, -1216)
 
 [node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
-dialogueText = Array[String](["Finally, I am freeeeeee! Thank you… as promised if you want my help, I’ll be near the paintings in the pantry room. It’s west from here eheheh.", "Oook, but this better not be a prank."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [null, null]
+dialogueText = Array[String](["Finally, I am freeeeeee! Thank you… as promised if you want my help...", " I’ll be near inside the room west to here, with the good 'ol Chef of the mansion. He might help ya.", "Oook, but this better not be a prank."])
+characterTalking = Array[int]([2, 2, 0])
+cameraFocuses = [null, NodePath("../HeatSourceActivator"), null]
 deleteOnDone = true
 activatedByQuest = true
 
@@ -660,9 +660,9 @@ shape = SubResource("CircleShape2D_m7mm8")
 
 [node name="OniFreedDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
-dialogueText = Array[String](["Thank you so much! I didn’t know what to do… come with me! I want to repay the favor, meet me outside the fridge room… near the blocks of ice.", "Oook, but this better not be a prank."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [null, null]
+dialogueText = Array[String](["Thank you so much! I didn’t know what to do… come with me! I want to repay the favor...", "Meet me outside the fridge room… near the blocks of ice.", "Oook, but this better not be a prank."])
+characterTalking = Array[int]([2, 2, 0])
+cameraFocuses = [null, NodePath("../HeatSourceActivator2"), null]
 deleteOnDone = true
 activatedByQuest = true
 
@@ -719,7 +719,7 @@ shape = SubResource("CircleShape2D_qgs8e")
 
 [node name="EndDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-1152, -1112)
-dialogueText = Array[String](["Thanks again for everything!", "No problem. Do you have any advice for me?", "Hm... I believe you are searching for special keys, yes?", "I am, continue.", "Well... I saw the magical space for this one, you'll there are two rooms. Be fast in the first room, and patient in the second.", "That's a great help, thank you!"])
+dialogueText = Array[String](["Thanks again for everything!", "No problem. Do you have any advice for me?", "Hm... I believe you are searching for special keys, yes?", "I am, continue.", "Well... I saw the magical space for this one, you'll see there are two rooms. Be fast in the first room, and patient in the second.", "That's a great help, thank you!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
 cameraFocuses = [NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null]
 isOnInteraction = true

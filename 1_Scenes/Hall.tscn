@@ -584,9 +584,9 @@ texture = ExtResource("24_hg15b")
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
-questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
-questItemsStages = Array[int]([0, 1, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
+questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("WardenSleepingDialogue"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
 
@@ -1118,7 +1118,7 @@ position = Vector2(8, 1336)
 shape = SubResource("RectangleShape2D_c83ad")
 
 [node name="Guard1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(0, 96)
+position = Vector2(320, 128)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1/Guard1PatrolIndicator")]
 
 [node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
@@ -1158,20 +1158,20 @@ position = Vector2(1088, 1280)
 position = Vector2(0, 448)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
-lookActions = Array[int]([1, 2, 0, 3])
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+lookActions = Array[int]([2, 0, 3, 1])
 
 [node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
-position = Vector2(320, 64)
-
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
 position = Vector2(320, 768)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
 position = Vector2(-320, 768)
 
-[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
 position = Vector2(-320, 64)
+
+[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+position = Vector2(320, 64)
 
 [node name="Guard2" type="Node2D" parent="EnemyPatrolPoints"]
 
@@ -1391,6 +1391,7 @@ position = Vector2(320, 0)
 
 [node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("47_68q7c")]
 position = Vector2(1208, -144)
+allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems3"]
 shape = SubResource("RectangleShape2D_81t42")

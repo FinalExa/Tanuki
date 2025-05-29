@@ -21,7 +21,8 @@ var player: PlayerCharacter
 func _ready():
 	interactionLabel.text = labelDefaultText
 	interactionLabel.hide()
-	dialogueIcon.play("idle")
+	if (!isOnInteraction): dialogueIcon.hide()
+	else: dialogueIcon.play("idle")
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
@@ -43,7 +44,7 @@ func PlayerEntered(playerCharacter: PlayerCharacter):
 
 func PlayerExited():
 	interactionLabel.hide()
-	dialogueIcon.show()
+	if (isOnInteraction): dialogueIcon.show()
 	player = null
 	if (!isOnInteraction):
 		StartDialogueExecutingICD()
