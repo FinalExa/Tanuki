@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bhi6trciqo44g" path="res://ImportantObjects/Interactables/chef_yokai.tscn" id="21_pte4f"]
 [ext_resource type="PackedScene" uid="uid://d25qn3k6u6dk6" path="res://ImportantObjects/MovableObjects/dango_movable.tscn" id="21_sonpo"]
 [ext_resource type="Texture2D" uid="uid://tq5u6jm4kv8l" path="res://ImportantObjects/TransformationObjects/Sprites/Jknife-001.png" id="22_v4ovx"]
-[ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_bowl_movable.tscn" id="22_vp878"]
+[ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_movable.tscn" id="22_vp878"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
 [ext_resource type="PackedScene" uid="uid://bwi82jidrew0u" path="res://ImportantObjects/MovableObjects/salmon_movable.tscn" id="23_dja3c"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
@@ -743,7 +743,7 @@ position = Vector2(168, -264)
 [node name="Dango" parent="Quests/KitchenHelpChef" instance=ExtResource("21_sonpo")]
 position = Vector2(-952, 320)
 
-[node name="RiceBowl" parent="Quests/KitchenHelpChef" instance=ExtResource("22_vp878")]
+[node name="Rice" parent="Quests/KitchenHelpChef" instance=ExtResource("22_vp878")]
 position = Vector2(1600, 800)
 
 [node name="Salmon" parent="Quests/KitchenHelpChef" instance=ExtResource("23_dja3c")]

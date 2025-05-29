@@ -10,9 +10,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbhwl"]
 radius = 24.0
 
-[node name="RiceBowl" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+[node name="Rice" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_jb36b")
-movableObjectName = "Rice Bowl"
+movableObjectName = "Rice"
 movableObjectProperties = Array[String](["Food"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
 movableFeedbackClose = NodePath("MovableFeedbackClose")
