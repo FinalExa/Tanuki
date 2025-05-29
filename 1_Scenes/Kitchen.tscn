@@ -128,7 +128,7 @@ radius = 128.0
 size = Vector2(384, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft1ek"]
-size = Vector2(384, 128)
+size = Vector2(384, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc8ne"]
 size = Vector2(128, 256)
@@ -854,7 +854,7 @@ position = Vector2(960, -1344)
 shape = SubResource("RectangleShape2D_ru0sm")
 
 [node name="BlockerSecondStage1" type="StaticBody2D" parent="Quests/KitchenGrowPlant"]
-position = Vector2(960, -1472)
+position = Vector2(960, -1464)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerSecondStage1"]
 shape = SubResource("RectangleShape2D_ft1ek")
