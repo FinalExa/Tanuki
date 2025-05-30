@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccpt4l162jd1f"
-path="res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"
+uid="uid://g0u5ihac0xp7"
+path="res://.godot/imported/LanternRopeHandle.png-e7e896172c8674d06fe9e9252b8194f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/PuzzleObjects/Sprites/Chochin-001-asset.png"
-dest_files=["res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"]
+source_file="res://ImportantObjects/MovableObjects/Sprites/LanternRopeHandle.png"
+dest_files=["res://.godot/imported/LanternRopeHandle.png-e7e896172c8674d06fe9e9252b8194f5.ctex"]
 
 [params]
 

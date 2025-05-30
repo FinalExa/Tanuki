@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o8ch8nijnj0" path="res://ImportantObjects/Interactables/Sprites/useLeafFeedback.png" id="2_o1gk6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx23x"]
+radius = 8.0
 height = 48.0
 
 [node name="ButtonToPush" type="StaticBody2D" groups=["Interactable"]]

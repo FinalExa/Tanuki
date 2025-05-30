@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccpt4l162jd1f"
-path="res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"
+uid="uid://gx2c32aqtchu"
+path="res://.godot/imported/Chochin-001-asset.png-fa0a99008485ed1abd2e0b66cb73abb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/PuzzleObjects/Sprites/Chochin-001-asset.png"
-dest_files=["res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"]
+source_file="res://Level/Sprites/Chochin-001-asset.png"
+dest_files=["res://.godot/imported/Chochin-001-asset.png-fa0a99008485ed1abd2e0b66cb73abb7.ctex"]
 
 [params]
 

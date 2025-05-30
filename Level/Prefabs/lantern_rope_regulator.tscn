@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf7ctcl0y7gb4"]
+
+[ext_resource type="Texture2D" uid="uid://clryt327hj1a" path="res://Level/Sprites/LanternRopeRegulator.png" id="1_e1ahg"]
+
+[node name="LanternRopeRegulator" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_e1ahg")

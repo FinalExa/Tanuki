@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsol1qd5yxawx"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_on41x"]
+[ext_resource type="Texture2D" uid="uid://g0u5ihac0xp7" path="res://ImportantObjects/MovableObjects/Sprites/LanternRopeHandle.png" id="2_vhtji"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_xupuu"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_g4js0"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_uj6kk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qc85n"]
+radius = 8.0
+
+[node name="RopeHandle" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_on41x")
+movableObjectName = "Rope Handle"
+movableObjectProperties = Array[String](["RopeHandle"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qc85n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_vhtji")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_xupuu")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_g4js0")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_uj6kk")]
+offset_top = -104.0
+offset_bottom = -56.0

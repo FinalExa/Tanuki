@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=117 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -20,17 +20,20 @@
 [ext_resource type="PackedScene" uid="uid://b18pgpscen8pc" path="res://ImportantObjects/Interactables/chef_yokai_trapped.tscn" id="20_8be64"]
 [ext_resource type="PackedScene" uid="uid://bds5fpx8wqkll" path="res://ImportantObjects/MovableObjects/daikon_movable.tscn" id="20_dph40"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="20_fuftr"]
-[ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="20_hgt0f"]
+[ext_resource type="PackedScene" uid="uid://bf7ctcl0y7gb4" path="res://Level/Prefabs/lantern_rope_regulator.tscn" id="20_hi2jt"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="20_w5iot"]
+[ext_resource type="PackedScene" uid="uid://dsol1qd5yxawx" path="res://ImportantObjects/MovableObjects/rope_handle_movable.tscn" id="20_wynsy"]
+[ext_resource type="PackedScene" uid="uid://6nd3jcjr5q85" path="res://Level/Prefabs/floating_lantern.tscn" id="20_x4j2b"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="21_64tra"]
-[ext_resource type="PackedScene" uid="uid://bexegw6irvqji" path="res://ImportantObjects/PuzzleObjects/StunArea.tscn" id="21_bxa72"]
 [ext_resource type="PackedScene" uid="uid://bhi6trciqo44g" path="res://ImportantObjects/Interactables/chef_yokai.tscn" id="21_pte4f"]
 [ext_resource type="PackedScene" uid="uid://d25qn3k6u6dk6" path="res://ImportantObjects/MovableObjects/dango_movable.tscn" id="21_sonpo"]
+[ext_resource type="PackedScene" uid="uid://ps62tfdm3nbe" path="res://ImportantObjects/Interactables/lantern_rope_regulator_broken.tscn" id="21_u855c"]
 [ext_resource type="Texture2D" uid="uid://tq5u6jm4kv8l" path="res://ImportantObjects/TransformationObjects/Sprites/Jknife-001.png" id="22_v4ovx"]
 [ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_movable.tscn" id="22_vp878"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
 [ext_resource type="PackedScene" uid="uid://bwi82jidrew0u" path="res://ImportantObjects/MovableObjects/salmon_movable.tscn" id="23_dja3c"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="24_m2b64"]
+[ext_resource type="PackedScene" uid="uid://f3r711ya1v12" path="res://Level/Prefabs/lantern_with_warden.tscn" id="24_ribs3"]
 [ext_resource type="PackedScene" uid="uid://bix4iybhoeexb" path="res://ImportantObjects/TransformationObjects/hammer.tscn" id="26_3pbsd"]
 [ext_resource type="PackedScene" uid="uid://neav8r5sh8bm" path="res://ImportantObjects/Interactables/rat.tscn" id="26_acuu4"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="26_b0qex"]
@@ -84,9 +87,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, -608, 32, -416, 160, -416, 160, 16, 32, 16, 32, 288, 0, 288, 0, 456, 64, 456, 64, 832, 680, 832, 680, 1024, 856, 1024, 856, 832.148, 984, 832, 984, 768, 1344, 768, 1344, 832, 1632, 832, 1632, 488, 1760, 488, 1760, 400, 1632, 400, 1632, 208, 1760, 208, 1760, -192, 1344, -192, 1344, -448, 1664, -448, 1664, -544, 1760, -544, 1760, -728, 1600, -728, 1600, -608), PackedVector2Array(912, -256, 912, 160, 1136, 160, 1136, -256), PackedVector2Array(336, 344, 336, 680, 552, 680, 552, 344)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f4sio"]
-vertices = PackedVector2Array(-2112, 960, -2224, 960, -2224, 672, -1936, 672, -1936, 736, -1784, 736, -1784, 672, -1584, 672, -1584, 1088, -1504, 1088, -1504, 512, -1336, 512, -1336, 760, -1152, 760, -1152, 672, -920, 672, -920, 760, -816, 760, -816, 872, -920, 872, -920, 1056, -768, 1056, -768, 1248, -816, 1248, -816, 1504, -1376, 1504, -1376, 1376, -1568, 1376, -1568, 1472, -2192, 1472, -2192, 1240, -2112, 1240)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(13, 16, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(23, 24, 25, 26, 20), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(27, 31, 0, 4, 5, 8), PackedInt32Array(27, 8, 9, 26), PackedInt32Array(20, 26, 9, 12, 13, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-2112, 960, -2112, 1240, -2192, 1240, -2192, 1472, -1568, 1472, -1568, 1376, -1376, 1376, -1376, 1504, -816, 1504, -816, 1248, -768, 1248, -768, 1056, -920, 1056, -920, 872, -816, 872, -816, 760, -920, 760, -920, 672, -1152, 672, -1152, 760, -1336, 760, -1336, 512, -1504, 512, -1504, 1088, -1584, 1088, -1584, 672, -1784, 672, -1784, 736, -1936, 736, -1936, 672, -2224, 672, -2224, 960)])
+vertices = PackedVector2Array(-2112, 960, -2224, 960, -2224, 672, -1584, 672, -1584, 1088, -2112, 1240, -1504, 1088, -1504, 512, -1336, 512, -1336, 760, -1152, 760, -1152, 672, -920, 672, -920, 760, -816, 760, -816, 872, -920, 872, -920, 1056, -768, 1056, -768, 1248, -816, 1248, -816, 1504, -1376, 1504, -1376, 1376, -1568, 1376, -1568, 1472, -2192, 1472, -2192, 1240)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(10, 13, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(20, 21, 22, 23, 17), PackedInt32Array(24, 25, 26, 27, 5), PackedInt32Array(24, 5, 4, 6, 23), PackedInt32Array(17, 23, 6, 9, 10, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2112, 960, -2112, 1240, -2192, 1240, -2192, 1472, -1568, 1472, -1568, 1376, -1376, 1376, -1376, 1504, -816, 1504, -816, 1248, -768, 1248, -768, 1056, -920, 1056, -920, 872, -816, 872, -816, 760, -920, 760, -920, 672, -1152, 672, -1152, 760, -1336, 760, -1336, 512, -1504, 512, -1504, 1088, -1584, 1088, -1584, 672, -2224, 672, -2224, 960)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_es7kn"]
 vertices = PackedVector2Array(-1120, -736, -1184, -736, -1184, -832, -1120, -832, -1616, -832, -1616, -1120, -1192, -1104, -1192, -1120, -1112, -1104, -688, -832, -688, -1120, -1112, -1120)
@@ -114,6 +117,9 @@ radius = 156.051
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5etf"]
 radius = 160.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8evs"]
+radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yhwf"]
 radius = 128.0
@@ -227,7 +233,7 @@ size = Vector2(160, 896)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(104, 264)
 
-[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers")]
+[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
 y_sort_enabled = true
 tile_set = ExtResource("40_wejvi")
 format = 2
@@ -256,7 +262,6 @@ keyTypeToShow = 1
 levelUnlockKeys = [NodePath("Keys/UnlockKey"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenDropLantern"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockCheese"), NodePath("Quests/KitchenUltraKey")]
-unlocksAfterQuestStages = [NodePath("QuestUnlocks/UnlocksAfterKitchenRoofDropLantern")]
 travelingAreas = [NodePath("Teleports/TravelToHall")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/GardenReceiver")]
 
@@ -269,21 +274,21 @@ patrolIndicators = [NodePath("../PatrolPoints/FoodStorageRoom/PatrolFoodStorageR
 
 [node name="WardenC1" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators", "questToSendProgressSignal") instance=ExtResource("20_w5iot")]
 position = Vector2(1280, 384)
-wardenAlertArea = NodePath("WardenAlertArea")
+wardenAlertArea = NodePath("../WardenAlertArea")
 patrolIndicators = [NodePath("../PatrolPoints/KitchenWardenRoom/PatrolKitchenWardenRoom")]
 questToSendProgressSignal = NodePath("../../Quests/KitchenStunWarden")
 sendSignalToQuestOnStunned = true
 
-[node name="KeySprite" type="Sprite2D" parent="Enemies/WardenC1"]
-position = Vector2(0, -16)
+[node name="KeySprite" type="Sprite2D" parent="Enemies"]
+position = Vector2(1280, 368)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_lkh81")
 
-[node name="WardenAlertArea" parent="Enemies/WardenC1" instance=ExtResource("6_bbdub")]
-position = Vector2(-384, -32)
+[node name="WardenAlertArea" parent="Enemies" instance=ExtResource("6_bbdub")]
+position = Vector2(896, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/WardenC1/WardenAlertArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/WardenAlertArea"]
 shape = SubResource("RectangleShape2D_8oxsb")
 
 [node name="HyottokoC1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
@@ -546,7 +551,7 @@ navigation_polygon = SubResource("NavigationPolygon_es7kn")
 position = Vector2(1528, 1152)
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("2_8niet")]
-position = Vector2(1232, 640)
+position = Vector2(1152, 384)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("2_8niet")]
 position = Vector2(-1152, -976)
@@ -676,7 +681,7 @@ questName = "KitchenStunWarden"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/WardenC1/KeySprite"), NodePath("Kitchen2Dialogue")]
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/KeySprite"), NodePath("Kitchen2Dialogue")]
 
 [node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(1088, 0)
@@ -689,9 +694,47 @@ labelDefaultText = "PRESS F TO LISTEN"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenStunWarden/Kitchen2Dialogue"]
 shape = SubResource("CircleShape2D_w5etf")
 
-[node name="KitchenDropLantern" type="Node2D" parent="Quests"]
+[node name="KitchenDropLantern" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenDropLantern"
+questItemsToOperate = [NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("LanternWithWarden"), NodePath("LanternRopeRegulatorBroken"), NodePath("DialogueArea"), NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("FloatingLantern"), NodePath("LanternWithWarden")]
+questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 1, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, false, true])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush"), NodePath("../../Enemies/WardenC1"), NodePath("../../Enemies/WardenAlertArea")]
+advanceOtherQuestsOnEnd = [NodePath("../KitchenStunWarden")]
+
+[node name="DialogueArea" parent="Quests/KitchenDropLantern" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+position = Vector2(1712, -264)
+dialogueText = Array[String](["A weird device... with a rope... hmmm... maybe...?", "... definitely connected to that! But it looks like it's missing a piece... like a handle?", "If I find a handle I should bring it here."])
+characterTalking = Array[int]([0, 0, 0])
+cameraFocuses = [null, NodePath("../FloatingLantern"), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenDropLantern/DialogueArea"]
+shape = SubResource("CircleShape2D_c8evs")
+
+[node name="RopeHandle" parent="Quests/KitchenDropLantern" instance=ExtResource("20_wynsy")]
+position = Vector2(-1664, 704)
+
+[node name="LanternRopeRegulatorBroken" parent="Quests/KitchenDropLantern" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("21_u855c")]
+position = Vector2(1712, -288)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="FloatingLantern" parent="Quests/KitchenDropLantern" instance=ExtResource("20_x4j2b")]
+position = Vector2(1280, 416)
+
+[node name="LanternRopeRegulator" parent="Quests/KitchenDropLantern" instance=ExtResource("20_hi2jt")]
+position = Vector2(1712, -288)
+
+[node name="ButtonToPush" parent="Quests/KitchenDropLantern" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
+position = Vector2(1712, -248)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="LanternWithWarden" parent="Quests/KitchenDropLantern" instance=ExtResource("24_ribs3")]
+position = Vector2(1280, 408)
 
 [node name="KitchenHelpChef" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
@@ -934,8 +977,8 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor4")]
 
 [node name="DirtyFloor4" parent="Quests/KitchenClearDirtyFloor4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
-position = Vector2(2240, -1024)
-scale = Vector2(1, 2)
+position = Vector2(2240, -960)
+scale = Vector2(1, 2.8)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1035,7 +1078,6 @@ questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/KitchenUltraKey"]
 y_sort_enabled = true
 tile_set = ExtResource("40_wejvi")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true
@@ -1397,20 +1439,6 @@ shape = SubResource("RectangleShape2D_lss8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="Quests/KitchenUltraKey/EndLevel/YouWinScreen"]
 texture = ExtResource("47_3s7gn")
-
-[node name="QuestUnlocks" type="Node2D" parent="."]
-position = Vector2(0, 512)
-
-[node name="UnlocksAfterKitchenRoofDropLantern" type="Node2D" parent="QuestUnlocks" node_paths=PackedStringArray("objectsToAdd")]
-position = Vector2(-768, 0)
-script = ExtResource("20_hgt0f")
-requiredQuest = "KitchenRoofDropLantern"
-requiredQuestStage = 1
-objectsToAdd = [NodePath("StunArea")]
-
-[node name="StunArea" parent="QuestUnlocks/UnlocksAfterKitchenRoofDropLantern" instance=ExtResource("21_bxa72")]
-position = Vector2(2144, -128)
-stunDuration = 10.0
 
 [node name="Teleports" type="Node2D" parent="."]
 

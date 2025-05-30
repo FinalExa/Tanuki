@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6nd3jcjr5q85"]
+
+[ext_resource type="Texture2D" uid="uid://gx2c32aqtchu" path="res://Level/Sprites/Chochin-001-asset.png" id="1_47kg3"]
+[ext_resource type="Texture2D" uid="uid://ds340pw5lp74w" path="res://Level/Sprites/LanternShadow.png" id="2_5bygm"]
+
+[node name="FloatingLantern" type="Node2D"]
+
+[node name="Lantern" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, -256)
+texture = ExtResource("1_47kg3")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -16)
+texture = ExtResource("2_5bygm")

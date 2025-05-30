@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ps62tfdm3nbe"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_h5sk7"]
+[ext_resource type="Texture2D" uid="uid://cd6pc5f3c3e43" path="res://ImportantObjects/Interactables/Sprites/LanternRopeRegulatorBroken.png" id="2_w0b7y"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_mu23h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1u01"]
+atlas = ExtResource("2_w0b7y")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_droqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1u01")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3081w"]
+size = Vector2(15.9998, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s316r"]
+radius = 32.0
+height = 80.0
+
+[node name="LanternRopeRegulatorBroken" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_h5sk7")
+neededProperties = Array[String](["RopeHandle"])
+destroyOnEnd = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_droqo")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3081w")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_mu23h")]
+position = Vector2(0, 24)
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CapsuleShape2D_s316r")

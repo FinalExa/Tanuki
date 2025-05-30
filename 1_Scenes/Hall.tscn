@@ -685,7 +685,6 @@ objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorD
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true

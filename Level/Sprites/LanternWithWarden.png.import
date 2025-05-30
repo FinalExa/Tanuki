@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccpt4l162jd1f"
-path="res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"
+uid="uid://b15hqqnlytsot"
+path="res://.godot/imported/LanternWithWarden.png-4e10b736cc7b09c7498ad4b76ac8a75d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/PuzzleObjects/Sprites/Chochin-001-asset.png"
-dest_files=["res://.godot/imported/Chochin-001-asset.png-0f6ab29c0212cfd06107bacff582efe6.ctex"]
+source_file="res://Level/Sprites/LanternWithWarden.png"
+dest_files=["res://.godot/imported/LanternWithWarden.png-4e10b736cc7b09c7498ad4b76ac8a75d.ctex"]
 
 [params]
 
