@@ -161,9 +161,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1152, 368, -1232, 368, -1232, 888, -1136, 888, -1136, 960, -560, 960, -560, 288, -864, 288, -864, 240, -928, 240, -928, 288, -1152, 288)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g77qr"]
-vertices = PackedVector2Array(560, 192, 560, -480, 1152, -480, 1152, -432, 864, 192, 1232, -432, 1232, 152, 1160, 152, 928, 192, 1160, 192, 928, 240, 864, 240)
+vertices = PackedVector2Array(560, 192, 560, -480, 1152, -480, 1152, -432, 864, 192, 1232, -432, 1232, 152, 1152, 152, 928, 192, 1152, 192, 928, 240, 864, 240)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(4, 3, 7, 8), PackedInt32Array(7, 9, 8), PackedInt32Array(4, 8, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 1152, -480, 1152, -432, 1232, -432, 1232, 152, 1160, 152, 1160, 192, 928, 192, 928, 240, 864, 240, 864, 192, 560, 192)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(560, -480, 1152, -480, 1152, -432, 1232, -432, 1232, 152, 1152, 152, 1152, 192, 928, 192, 928, 240, 864, 240, 864, 192, 560, 192)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3ub4d"]
 vertices = PackedVector2Array(1168, 528, 1168, 384, 1232, 288, 1232, 896, 928, 288, 1008, 384, 1136, 896, 1008, 528, 664, 896, 560, 896, 560, 288, 864, 288, 864, 240, 928, 240, 1136, 960, 664, 960)
@@ -674,6 +674,7 @@ texture = ExtResource("32_g2167")
 position = Vector2(1088, 528)
 
 [node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+visible = false
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUltraKey"
