@@ -1076,7 +1076,7 @@ deleteRoomData = true
 shape = SubResource("RectangleShape2D_xnkah")
 
 [node name="GardenReceiver" type="Node2D" parent="Teleports/TravelToGarden"]
-position = Vector2(0, 136)
+position = Vector2(0, 200)
 
 [node name="TravelToKitchen" parent="Teleports" instance=ExtResource("3_7xfqb")]
 position = Vector2(0, 2752)
