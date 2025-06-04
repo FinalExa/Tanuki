@@ -20,19 +20,21 @@ closedSprite = NodePath("ClosedSprite")
 openSprite = NodePath("OpenSprite")
 
 [node name="CentralCollider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 48)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_bdla0")
 
 [node name="RightSideCollider" type="CollisionShape2D" parent="."]
-position = Vector2(92, 48)
+position = Vector2(92, -16)
 shape = SubResource("RectangleShape2D_4ruki")
 
 [node name="LeftSideCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-92, 48)
+position = Vector2(-92, -16)
 shape = SubResource("RectangleShape2D_8fe1m")
 
 [node name="ClosedSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
 texture = ExtResource("2_yd8ma")
 
 [node name="OpenSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
 texture = ExtResource("3_qrn1x")

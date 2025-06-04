@@ -44,7 +44,8 @@ animations = [{
 size = Vector2(15.9998, 256)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s316r"]
-height = 128.0
+radius = 40.0
+height = 256.0
 
 [node name="DoorEvil" type="StaticBody2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
 script = ExtResource("1_pqwgc")
@@ -65,6 +66,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_3081w")
 
 [node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_kin5u")]
+position = Vector2(0, -8)
 interactableToOperate = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]

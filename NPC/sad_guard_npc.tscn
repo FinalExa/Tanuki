@@ -28,6 +28,7 @@ y_sort_enabled = true
 position = Vector2(0, -80)
 sprite_frames = SubResource("SpriteFrames_ayldj")
 animation = &"idle"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
