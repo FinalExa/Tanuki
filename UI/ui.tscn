@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=28 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -39,7 +39,12 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_j2cxm"]
 font = ExtResource("3_gk6g8")
 font_size = 20
-font_color = Color(1, 0, 1, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3imk"]
+font = ExtResource("3_gk6g8")
+font_size = 72
 
 [sub_resource type="LabelSettings" id="LabelSettings_7in52"]
 font = ExtResource("3_gk6g8")
@@ -129,13 +134,13 @@ specialKeyText = "SPECIAL KEY OBTAINED"
 
 [node name="VersionInfo" type="Label" parent="."]
 process_mode = 3
-z_index = 1000
+z_index = 4096
 layout_mode = 1
 offset_left = 1632.0
 offset_top = 1048.0
 offset_right = 1915.0
 offset_bottom = 1076.0
-text = "Tanuki Project - PreAlpha v. 0.0.7.1"
+text = "Tanuki Project - PreAlpha v. 0.0.7.2"
 label_settings = SubResource("LabelSettings_j2cxm")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -169,12 +174,23 @@ texture = ExtResource("9_kgvep")
 
 [node name="LoadingScreen" type="TextureRect" parent="."]
 visible = false
-modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 z_index = 2000
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("9_kgvep")
+
+[node name="Label" type="Label" parent="LoadingScreen"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 480.0
+offset_right = 1152.0
+offset_bottom = 608.0
+text = "LOADING..."
+label_settings = SubResource("LabelSettings_r3imk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AttackCooldown" type="TextureProgressBar" parent="."]
 layout_mode = 0
