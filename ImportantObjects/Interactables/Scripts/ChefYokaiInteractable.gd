@@ -1,8 +1,10 @@
 class_name ChefYokaiInteractable
 extends GenericInteractable
 
+@export var coldFoodProperty: String
 @export var acceptedColdFoods: Array[String]
 @export var coldFoodSprites: Array[Texture]
+@export var hotFoodProperty: String
 @export var acceptedHotFoods: Array[String]
 @export var hotFoodSprites: Array[Texture]
 @export var coldFoodRequest: Sprite2D
@@ -32,11 +34,11 @@ func ExecuteRefEffect(receivedRef):
 
 func CheckForRightMovable(playerRef: PlayerCharacter):
 	var movableRef: MovableObject = playerRef.playerMoveObjects.currentObject
-	if (selectedColdFood == movableRef.movableObjectName && !gotColdFood):
+	if (movableRef.movableObjectProperties.has(coldFoodProperty) && selectedColdFood == movableRef.movableObjectName && !gotColdFood):
 		playerRef.playerMoveObjects.DeleteLeftoverObject()
 		coldFoodRequest.hide()
 		gotColdFood = true
-	if (selectedHotFood == movableRef.movableObjectName && !gotHotFood):
+	if (movableRef.movableObjectProperties.has(hotFoodProperty) && selectedHotFood == movableRef.movableObjectName && !gotHotFood):
 		playerRef.playerMoveObjects.DeleteLeftoverObject()
 		hotFoodRequest.hide()
 		gotHotFood = true

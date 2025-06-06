@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://0td2heahhjul"]
 
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/DoorOpenClose.gd" id="1_cntox"]
+[ext_resource type="Script" path="res://Level/Prefabs/Scripts/DoorOpenClose.gd" id="1_cntox"]
 [ext_resource type="Texture2D" uid="uid://yyrp601thkea" path="res://ImportantObjects/Interactables/Sprites/Porta Verticale chusa .png" id="2_cqbyy"]
 [ext_resource type="Texture2D" uid="uid://d0p0bsjuohxvv" path="res://ImportantObjects/Interactables/Sprites/Porta Verticale aperta.png" id="3_uvt4h"]
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyhjdqek46dow"]
+
+[ext_resource type="Script" path="res://Level/Prefabs/Scripts/DoorOpenCloseHitbox.gd" id="1_a5jtt"]
+
+[node name="DoorOpenCloseHitbox" type="Area2D"]
+script = ExtResource("1_a5jtt")
+
+[connection signal="body_entered" from="." to="." method="CheckForEntityIn"]
+[connection signal="body_exited" from="." to="." method="CheckForEntityOut"]

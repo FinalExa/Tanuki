@@ -55,8 +55,10 @@ radius = 128.0
 
 [node name="ChefYokai" type="StaticBody2D" node_paths=PackedStringArray("coldFoodRequest", "coldFoodSprite", "hotFoodRequest", "hotFoodSprite", "animatedSpriteRef") groups=["Interactable"]]
 script = ExtResource("1_wjysp")
+coldFoodProperty = "Food"
 acceptedColdFoods = Array[String](["Dango", "Daikon"])
 coldFoodSprites = Array[Texture]([ExtResource("2_sqsih"), ExtResource("3_bqbd1")])
+hotFoodProperty = "FoodHot"
 acceptedHotFoods = Array[String](["Salmon", "Rice"])
 hotFoodSprites = Array[Texture]([ExtResource("4_j8axq"), ExtResource("5_8dogr")])
 coldFoodRequest = NodePath("ColdFoodRequest")

@@ -10,7 +10,7 @@ radius = 64.0
 
 [node name="HotEffectMovable" type="Area2D" node_paths=PackedStringArray("effectGraphics", "progressBar")]
 script = ExtResource("1_2po03")
-hotDuration = 10.0
+hotDuration = 7.0
 effectGraphics = NodePath("EffectGraphics")
 progressBar = NodePath("BarValue")
 barMultiplier = 10.0
