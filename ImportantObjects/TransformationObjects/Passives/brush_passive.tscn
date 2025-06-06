@@ -21,5 +21,5 @@ texture = ExtResource("2_nbsdh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NewColorCheck"]
 shape = SubResource("CircleShape2D_mu75o")
 
-[connection signal="body_entered" from="NewColorCheck" to="." method="_on_new_color_check_body_entered"]
-[connection signal="body_exited" from="NewColorCheck" to="." method="_on_new_color_check_body_exited"]
+[connection signal="area_entered" from="NewColorCheck" to="." method="ColorYokaiIn"]
+[connection signal="area_exited" from="NewColorCheck" to="." method="ColorYokaiOut"]

@@ -38,10 +38,10 @@ func ChangeColor(colorToSet: BrushColor):
 			if (transformationChangeRef.currentAttack.attackHitboxes[i] != null && transformationChangeRef.currentAttack.attackHitboxes[i] is AttackHitbox):
 				transformationChangeRef.currentAttack.attackHitboxes[i].modulate = colors[colorToSet]
 
-func _on_new_color_check_body_entered(body):
-	if (body is ColorYokai):
-		currentColorYokaiIn = body
+func ColorYokaiIn(ref):
+	if (ref is ColorYokai):
+		currentColorYokaiIn = ref
 
-func _on_new_color_check_body_exited(body):
-	if (body is ColorYokai && body == currentColorYokaiIn):
+func ColorYokaiOut(ref):
+	if (ref is ColorYokai && ref == currentColorYokaiIn):
 		currentColorYokaiIn = null

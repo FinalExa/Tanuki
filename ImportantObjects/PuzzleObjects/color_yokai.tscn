@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21dlb"]
 radius = 8.0
 
-[node name="ColorYokai" type="StaticBody2D" node_paths=PackedStringArray("spriteRef", "collisionShapeRef")]
+[node name="ColorYokai" type="Area2D" node_paths=PackedStringArray("spriteRef", "collisionShapeRef")]
 y_sort_enabled = true
 script = ExtResource("1_nbtof")
 spriteRef = NodePath("Sprite2D")

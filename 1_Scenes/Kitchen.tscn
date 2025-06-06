@@ -487,6 +487,9 @@ position = Vector2(-1024, 832)
 
 [node name="StarterRoom" type="Node2D" parent="Rooms"]
 
+[node name="KitchenCameraFocus" type="Node2D" parent="Rooms/StarterRoom"]
+position = Vector2(1280, -256)
+
 [node name="HeatSourceActivator" parent="Rooms/StarterRoom" instance=ExtResource("3_fj7m5")]
 position = Vector2(-192, 1728)
 activated = true
@@ -494,14 +497,11 @@ activated = true
 [node name="DialogueArea" parent="Rooms/StarterRoom/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Ohh we meet again, cold oni!", "My savior! Finally, someone who can help me!", "My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!", "Oh and also, there's TWO of them trapped.", "I will keep that in mind."])
 characterTalking = Array[int]([0, 2, 2, 0, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath("../KitchenCameraFocus"), null, NodePath(".."), NodePath(".."), null]
+cameraFocuses = [null, NodePath(".."), NodePath("../../KitchenCameraFocus"), null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StarterRoom/HeatSourceActivator/DialogueArea"]
 shape = SubResource("CircleShape2D_06s4t")
-
-[node name="KitchenCameraFocus" type="Node2D" parent="Rooms/StarterRoom/HeatSourceActivator"]
-position = Vector2(1792, 544)
 
 [node name="RoomA" type="Node2D" parent="Rooms"]
 y_sort_enabled = true
