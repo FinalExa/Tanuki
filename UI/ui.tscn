@@ -32,9 +32,8 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_5b5nv"]
 font = ExtResource("3_gk6g8")
 font_size = 24
-font_color = Color(1, 0, 1, 1)
+font_color = Color(0, 0, 0, 1)
 outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j2cxm"]
 font = ExtResource("3_gk6g8")
@@ -140,7 +139,7 @@ offset_left = 1632.0
 offset_top = 1048.0
 offset_right = 1915.0
 offset_bottom = 1076.0
-text = "Tanuki Project - PreAlpha v. 0.0.7.2"
+text = "Tanuki Project - PreAlpha v. 0.0.7.3"
 label_settings = SubResource("LabelSettings_j2cxm")
 horizontal_alignment = 1
 vertical_alignment = 1
