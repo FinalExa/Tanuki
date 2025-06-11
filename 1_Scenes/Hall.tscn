@@ -1,17 +1,21 @@
-[gd_scene load_steps=89 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=95 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="3_2xstp"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="3_7xfqb"]
 [ext_resource type="PackedScene" uid="uid://cdvfbk2miftre" path="res://NPC/password_npc.tscn" id="3_653qg"]
+[ext_resource type="Script" path="res://Sounds/Scripts/GameplaySceneSoundtrack.gd" id="3_e0duo"]
 [ext_resource type="PackedScene" uid="uid://bhev8beol8k3u" path="res://Level/UnlockKey/special_unlock_key.tscn" id="3_l0deq"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="3_trsi0"]
+[ext_resource type="AudioStream" uid="uid://bqri4164wvqwf" path="res://Sounds/Soundtrack/BaseSoundtrack.wav" id="4_emrfa"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="4_lfw02"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="4_vuvq6"]
+[ext_resource type="AudioStream" uid="uid://cdoh7kufhvt2g" path="res://Sounds/Soundtrack/TransformedSoundtrack.wav" id="5_po6fn"]
 [ext_resource type="PackedScene" uid="uid://cc13ruxlo0jlw" path="res://Level/Prefabs/password_blocker_wall.tscn" id="5_yihdq"]
 [ext_resource type="PackedScene" uid="uid://bml7gqxw70ddx" path="res://ImportantObjects/PuzzleObjects/color_yokai.tscn" id="6_2boio"]
 [ext_resource type="PackedScene" uid="uid://c0npvllpgc3hb" path="res://ImportantObjects/TransformationObjects/brush.tscn" id="6_3a8lq"]
+[ext_resource type="AudioStream" uid="uid://cafqngd8sj3od" path="res://Sounds/Soundtrack/SpecialRoomSountrack.wav" id="6_t4yad"]
 [ext_resource type="PackedScene" uid="uid://bk4dclsr52xtc" path="res://ImportantObjects/Interactables/password_table.tscn" id="7_i27kk"]
 [ext_resource type="PackedScene" uid="uid://ik02mrftkuwp" path="res://Level/Prefabs/carpet.tscn" id="8_nrn6o"]
 [ext_resource type="PackedScene" uid="uid://d4eregkgypi6f" path="res://ImportantObjects/Interactables/password_hint.tscn" id="9_tbhux"]
@@ -51,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="46_ddaeb"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="47_68q7c"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_qq1ev"]
+[ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="51_uowth"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxp2p"]
 radius = 128.25
@@ -113,6 +118,9 @@ size = Vector2(1408, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeiwi"]
 size = Vector2(128, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr0x"]
+size = Vector2(2048, 1504)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
 radius = 128.0
@@ -181,7 +189,7 @@ size = Vector2(128, 512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vgy"]
 size = Vector2(128, 512)
 
-[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
+[node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
 format = 2
@@ -213,6 +221,22 @@ levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallPaintingRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
+gameplaySceneSoundtrack = NodePath("Soundtrack")
+
+[node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
+script = ExtResource("3_e0duo")
+baseSoundtrack = NodePath("Base_ST")
+transformedSoundtrack = NodePath("Transformed_ST")
+specialRoomSoundTrack = NodePath("SpRoom_ST")
+
+[node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("4_emrfa")
+
+[node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("5_po6fn")
+
+[node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("6_t4yad")
 
 [node name="Keys" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1009,6 +1033,12 @@ position = Vector2(0, -112)
 [node name="LocalAllowedItemsFeedback2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/AllowedZones/LocalAllowedItems4" instance=ExtResource("48_qq1ev")]
 position = Vector2(0, 16)
 
+[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/HallUltraKey/HallUltraKeyTileMap" instance=ExtResource("51_uowth")]
+position = Vector2(2304, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/PlayerInSpecialRoomSoundTrigger"]
+shape = SubResource("RectangleShape2D_lmr0x")
+
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
 position = Vector2(1664, 752)
 
@@ -1123,7 +1153,7 @@ position = Vector2(0, 1408)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard4/Guard4PatrolIndicator")]
 
 [node name="Guard5" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(0, 256)
+position = Vector2(-448, 256)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard5/Guard5PatrolIndicator")]
 
 [node name="EnemyPatrolPoints" type="Node2D" parent="."]

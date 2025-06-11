@@ -1,13 +1,17 @@
-[gd_scene load_steps=116 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=120 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="3_14yeu"]
+[ext_resource type="Script" path="res://Sounds/Scripts/GameplaySceneSoundtrack.gd" id="3_42y0s"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="3_atmlk"]
+[ext_resource type="AudioStream" uid="uid://bqri4164wvqwf" path="res://Sounds/Soundtrack/BaseSoundtrack.wav" id="3_c5wbx"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="3_fecq8"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="3_pi7gx"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="3_ryk8d"]
+[ext_resource type="AudioStream" uid="uid://cdoh7kufhvt2g" path="res://Sounds/Soundtrack/TransformedSoundtrack.wav" id="4_5klp0"]
 [ext_resource type="PackedScene" uid="uid://br7usnq5q1vc" path="res://ImportantObjects/Interactables/bush.tscn" id="4_u86ex"]
+[ext_resource type="AudioStream" uid="uid://cafqngd8sj3od" path="res://Sounds/Soundtrack/SpecialRoomSountrack.wav" id="5_5p4pn"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="6_2x3va"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="6_3ktbq"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="6_r01u1"]
@@ -296,7 +300,7 @@ size = Vector2(128, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qhpu"]
 size = Vector2(512, 512)
 
-[node name="Garden" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
+[node name="Garden" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("1_oh66l")
 format = 2
@@ -326,6 +330,22 @@ levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/GardenDestroyTheBush"), NodePath("Quests/GardenCrossTheWater"), NodePath("Quests/GardenLowerTheBridge"), NodePath("Quests/GardenStunGuard"), NodePath("Quests/GardenChopTree1"), NodePath("Quests/GardenChopTree2"), NodePath("Quests/GardenChopTree3"), NodePath("Quests/GardenChopTree4"), NodePath("Quests/GardenChopTree5"), NodePath("Quests/GardenLowerBridge2"), NodePath("Quests/GardenLowerBridge3"), NodePath("Quests/GardenSquirrelQuest"), NodePath("Quests/GardenOniQuest")]
 travelingAreas = [NodePath("Teleports/TravelToHall")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/HallReceiver")]
+gameplaySceneSoundtrack = NodePath("Soundtrack")
+
+[node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
+script = ExtResource("3_42y0s")
+baseSoundtrack = NodePath("Base_ST")
+transformedSoundtrack = NodePath("Transformed_ST")
+specialRoomSoundTrack = NodePath("SpRoom_ST")
+
+[node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("3_c5wbx")
+
+[node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("4_5klp0")
+
+[node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("5_5p4pn")
 
 [node name="Enemy" type="Node2D" parent="."]
 y_sort_enabled = true

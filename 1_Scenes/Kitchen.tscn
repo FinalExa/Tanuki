@@ -1,12 +1,16 @@
-[gd_scene load_steps=120 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=125 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="2_pyt2b"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="3_4p3bg"]
+[ext_resource type="Script" path="res://Sounds/Scripts/GameplaySceneSoundtrack.gd" id="3_4603i"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="3_fj7m5"]
+[ext_resource type="AudioStream" uid="uid://bqri4164wvqwf" path="res://Sounds/Soundtrack/BaseSoundtrack.wav" id="4_8n2er"]
 [ext_resource type="PackedScene" uid="uid://c8u3gvs7ip0p" path="res://ImportantObjects/Interactables/furnace.tscn" id="4_80pyi"]
+[ext_resource type="AudioStream" uid="uid://cdoh7kufhvt2g" path="res://Sounds/Soundtrack/TransformedSoundtrack.wav" id="5_66ste"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="5_lkh81"]
+[ext_resource type="AudioStream" uid="uid://cafqngd8sj3od" path="res://Sounds/Soundtrack/SpecialRoomSountrack.wav" id="6_06f6s"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="6_bbdub"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="10_exgx1"]
 [ext_resource type="PackedScene" uid="uid://dyhjdqek46dow" path="res://Level/Prefabs/door_open_close_hitbox.tscn" id="11_dilb4"]
@@ -66,6 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_5utxs"]
 [ext_resource type="Texture2D" uid="uid://cnt6cusltqov3" path="res://Level/Sprites/Riso.png" id="48_umrcd"]
 [ext_resource type="Texture2D" uid="uid://m63g54pc6n03" path="res://Level/Sprites/Salmone.png" id="49_q2map"]
+[ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="58_mg625"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxsb"]
 size = Vector2(1792, 1664)
@@ -239,7 +244,7 @@ size = Vector2(144, 1024)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(128, 480)
 
-[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers")]
+[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("40_wejvi")
 format = 2
@@ -270,6 +275,22 @@ levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenDropLantern"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockCheese"), NodePath("Quests/KitchenUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToHall")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/GardenReceiver")]
+gameplaySceneSoundtrack = NodePath("Soundtrack")
+
+[node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
+script = ExtResource("3_4603i")
+baseSoundtrack = NodePath("Base_ST")
+transformedSoundtrack = NodePath("Transformed_ST")
+specialRoomSoundTrack = NodePath("SpRoom_ST")
+
+[node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("4_8n2er")
+
+[node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("5_66ste")
+
+[node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
+stream = ExtResource("6_06f6s")
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1432,6 +1453,12 @@ position = Vector2(-192, -128)
 
 [node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(-192, 128)
+
+[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/KitchenUltraKey/UltraKeyRoom" instance=ExtResource("58_mg625")]
+position = Vector2(-3072, -512)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PlayerInSpecialRoomSoundTrigger"]
+polygon = PackedVector2Array(-768, -256, -768, 1120, 256, 1120, 256, 1376, 512, 1376, 512, 1120, 752, 1120, 752, -288, 1280, -288, 1280, -1280, 0, -1280, 0, -256)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/KitchenUltraKey"]
 navigation_polygon = SubResource("NavigationPolygon_ah5uq")

@@ -24,6 +24,8 @@ enum SceneType
 @export var travelingAreas: Array[TravelingArea]
 @export var travelingReceivers: Array[Node2D]
 
+@export var gameplaySceneSoundtrack: GameplaySceneSoundtrack
+
 var localAllowedItems: Array[LocalAllowedItems]
 var playerRef: PlayerCharacter
 

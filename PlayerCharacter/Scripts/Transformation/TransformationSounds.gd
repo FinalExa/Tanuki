@@ -16,12 +16,16 @@ func PlayObjectSavedSound():
 func PlayEnterTransformationSound():
 	if (!enterTransformationSound.playing):
 		enterTransformationSound.play()
+	var gameplayScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene
+	gameplayScene.gameplaySceneSoundtrack.ActivateTransformed()
 
 func PlayDeactivateTransformation():
 	if (!exitTransformationSound.playing):
 		exitTransformationSound.play()
 	if (transformationTimeLowSound.playing):
 		transformationTimeLowSound.stop()
+	var gameplayScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene
+	gameplayScene.gameplaySceneSoundtrack.DeactivateTransformed()
 	timeLowSoundPlayed = false
 
 func PlayTransformationLowSound():
