@@ -5,9 +5,9 @@ enum SceneType
 {
 	TEST,
 	KITCHEN,
-	KITCHEN_ROOF,
+	BATHROOMS,
 	GARDEN,
-	HALL
+	HALL,
 }
 
 @export var playerSpawnPoint: Node2D
