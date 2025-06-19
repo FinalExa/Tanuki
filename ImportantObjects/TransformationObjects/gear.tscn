@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy8nuapccvlb"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_ri13k"]
+[ext_resource type="Texture2D" uid="uid://65gerdqobnks" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Gear.png" id="2_g4l38"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_28a4i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgf4m"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qa64g"]
+radius = 128.0
+
+[node name="Gear" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_ri13k")
+transformedName = "Gear"
+transformedSpeedTier = 1
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Gear Rotation"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/gear_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/gear.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.28, -25.28)
+shape = SubResource("CircleShape2D_qgf4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, -32)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_g4l38")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_28a4i")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_qa64g")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

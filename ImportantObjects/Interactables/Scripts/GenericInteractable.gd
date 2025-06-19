@@ -24,11 +24,7 @@ func ReadyOperations():
 	pass
 
 func _process(delta):
-	if (cooldownActive):
-		if (cooldownTimer > 0):
-			cooldownTimer -= delta
-			return
-		cooldownActive = false
+	Cooldown(delta)
 
 func FirstStartup():
 	pass
@@ -46,14 +42,34 @@ func FinalState():
 	if (!hasCooldown):
 		if (sendSignalToQuestOnDestroyed): QuestSignal()
 		if (destroyOnEnd): queue_free()
+		FinalStateExtraExecution()
 		return
 	cooldownTimer = cooldownDuration
 	cooldownActive = true
+	CooldownActivatedEffect()
+	FinalStateExtraExecution()
 
 func ExecuteExtraEffect():
 	pass
 
+func FinalStateExtraExecution():
+	pass
+
 func ExecuteRefEffect(_receivedRef):
+	pass
+
+func Cooldown(delta):
+	if (cooldownActive):
+		if (cooldownTimer > 0):
+			cooldownTimer -= delta
+			return
+		cooldownActive = false
+		CooldownFinishedEffect()
+
+func CooldownActivatedEffect():
+	pass
+
+func CooldownFinishedEffect():
 	pass
 
 func QuestSignal():
