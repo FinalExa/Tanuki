@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://dunwdvfw43pns"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/WaterwayComponent.gd" id="1_7s857"]
+[ext_resource type="Texture2D" uid="uid://4bo4uymoad12" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayAngleGround.png" id="2_aj13k"]
+[ext_resource type="Texture2D" uid="uid://dw13e3expebtn" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeLow.png" id="3_jxfae"]
+[ext_resource type="Texture2D" uid="uid://vwg1rcvqg4dr" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayAngle.png" id="4_rissv"]
+[ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_8lvpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
+size = Vector2(64, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_553o8"]
+size = Vector2(24, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
+size = Vector2(72, 72)
+
+[node name="WaterwayAngleComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
+z_index = -1
+script = ExtResource("1_7s857")
+waterSprite = NodePath("Water")
+bridgeLowSprite = NodePath("BridgeLow")
+bridgeHighSprite = NodePath("BridgeBridgeHigh")
+removableCollisionShape = NodePath("RemovableCollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -52)
+shape = SubResource("RectangleShape2D_ytkui")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-52, 0)
+shape = SubResource("RectangleShape2D_553o8")
+
+[node name="RemovableCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_g6pps")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_aj13k")
+
+[node name="BridgeLow" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_jxfae")
+
+[node name="Water" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_rissv")
+
+[node name="BridgeBridgeHigh" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_8lvpj")

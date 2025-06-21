@@ -14,10 +14,10 @@
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="10_67fd8"]
 [ext_resource type="PackedScene" uid="uid://nxs64fn68deh" path="res://ImportantObjects/Interactables/water_source.tscn" id="11_6lhvk"]
 [ext_resource type="PackedScene" uid="uid://cd3gaf23mwna6" path="res://ImportantObjects/Interactables/Supplementary/waterway.tscn" id="12_vc1fv"]
-[ext_resource type="Texture2D" uid="uid://dwhggix847145" path="res://ImportantObjects/Interactables/Supplementary/Sprites/Waterway.png" id="13_5oagt"]
-[ext_resource type="Texture2D" uid="uid://vwg1rcvqg4dr" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayAngle.png" id="14_kfidy"]
+[ext_resource type="PackedScene" uid="uid://cfcok3rcrq4wj" path="res://ImportantObjects/Interactables/Supplementary/waterway_component.tscn" id="14_4x8ki"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="14_vrk40"]
-[ext_resource type="Texture2D" uid="uid://iuiofydj6sie" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayT.png" id="15_m3rv3"]
+[ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="15_3wwmr"]
+[ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="16_dydvd"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="16_e5cn5"]
 [ext_resource type="PackedScene" uid="uid://uueuynaswt7r" path="res://ImportantObjects/MovableObjects/metal_rod_movable.tscn" id="17_dnihd"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
@@ -44,7 +44,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65532, 131072, 1, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -8, 131072, 1, -9, 131072, 1, -10, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786439, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 131072, 1, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 720905, 131072, 1, 720902, 65536, 1, 720901, 131072, 1, 720900, 131072, 1, 720899, 131072, 1, 720898, 131072, 1, 720897, 131072, 1, 720896, 131072, 1, 786431, 131072, 1, 786430, 131072, 1, 786429, 131072, 1, 786428, 131072, 1, 786427, 131072, 1, 786426, 131072, 1, 786425, 131072, 1, 786424, 131072, 1, 786423, 131072, 1, 786422, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 589830, 262144, 1, 655366, 262144, 1, 720906, 262144, 2, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, 786421, 0, 2, 720885, 0, 1, 655349, 0, 1, 589813, 0, 1, 524277, 0, 1, 458741, 0, 1, 393205, 0, 1, 327669, 0, 1, 262133, 0, 1, 196597, 0, 1, 131061, 0, 1, 65525, 0, 1, -11, 0, 1, -786443, 0, 1, -720907, 0, 1, -655371, 0, 1, -589835, 0, 1, -524299, 0, 1, -458763, 0, 1, -393227, 0, 1, -327691, 0, 1, -262155, 0, 1, -196619, 0, 1, -131083, 0, 1, -65547, 0, 1, 720903, 131072, 1, 720904, 131072, 1, -5, 131072, 1, -655361, 458752, 8, -589825, 458752, 8, -524289, 458752, 8, -393217, 458752, 8, -327681, 262144, 10, -327682, 393216, 9, -393216, 393216, 9, -327683, 393216, 9, -393215, 393216, 9, -327684, 393216, 9, -393214, 393216, 9, -262149, 458752, 8, -327677, 458752, 8, -196613, 458752, 8, -131077, 458752, 9, -131078, 327680, 9, -196605, 327680, 9, -196604, 458752, 9, -262141, 458752, 8, -524288, 393216, 9, -524287, 393216, 9, -524286, 458752, 9, -65529, 327680, 3, -65528, 393216, 3)
+layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65532, 131072, 1, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -8, 131072, 1, -9, 131072, 1, -10, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786439, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 131072, 1, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 720905, 131072, 1, 720902, 65536, 1, 720901, 131072, 1, 720900, 131072, 1, 720899, 131072, 1, 720898, 131072, 1, 720897, 131072, 1, 720896, 131072, 1, 786431, 131072, 1, 786430, 131072, 1, 786429, 131072, 1, 786428, 131072, 1, 786427, 131072, 1, 786426, 131072, 1, 786425, 131072, 1, 786424, 131072, 1, 786423, 131072, 1, 786422, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 589830, 262144, 1, 655366, 262144, 1, 720906, 262144, 2, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, 786421, 0, 2, 720885, 0, 1, 655349, 0, 1, 589813, 0, 1, 524277, 0, 1, 458741, 0, 1, 393205, 0, 1, 327669, 0, 1, 262133, 0, 1, 196597, 0, 1, 131061, 0, 1, 65525, 0, 1, -11, 0, 1, -786443, 0, 1, -720907, 0, 1, -655371, 0, 1, -589835, 0, 1, -524299, 0, 1, -458763, 0, 1, -393227, 0, 1, -327691, 0, 1, -262155, 0, 1, -196619, 0, 1, -131083, 0, 1, -65547, 0, 1, 720903, 131072, 1, 720904, 131072, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -162,117 +162,96 @@ y_sort_enabled = true
 position = Vector2(-64, -1216)
 objectsToFill = [NodePath("../../WaterSources/WaterSource2")]
 
-[node name="WaterwaySprite" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway"]
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -128)
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite2" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway"]
-texture = ExtResource("13_5oagt")
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway" instance=ExtResource("14_4x8ki")]
 
-[node name="WaterwaySprite3" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway"]
+[node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, 128)
-texture = ExtResource("13_5oagt")
 
 [node name="Waterway2" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(160, -960)
 objectsToFill = [NodePath("../../WaterSources/WaterSource2"), NodePath("../../BathroomGeneratorYokais/BathroomGeneratorYokai")]
 
-[node name="WaterwaySprite" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway2"]
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
 position = Vector2(-96, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite2" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway2"]
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
 position = Vector2(32, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite3" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway2"]
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("15_3wwmr")]
 position = Vector2(160, 0)
-texture = ExtResource("14_kfidy")
 
 [node name="Waterway3" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-64, -704)
 objectsToFill = [NodePath("../../WaterSources/WaterSource2"), NodePath("../../WaterSources/WaterSource4"), NodePath("../../WaterSources/WaterSource3")]
 
-[node name="WaterwaySprite" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayTComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("16_dydvd")]
+
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -128)
+hasBridge = true
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(-384, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite2" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(-256, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite3" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayComponent4" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(-128, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite4" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayComponent5" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(128, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite5" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayComponent6" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(256, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite6" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
+[node name="WaterwayComponent7" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(384, 0)
 rotation = 1.5708
-texture = ExtResource("13_5oagt")
-
-[node name="WaterwaySprite7" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
-position = Vector2(0, -128)
-texture = ExtResource("13_5oagt")
-
-[node name="WaterwaySprite8" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway3"]
-texture = ExtResource("15_m3rv3")
 
 [node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-576, -480)
 objectsToFill = [NodePath("../../WaterSources/WaterSource3"), NodePath("../../BathroomGeneratorYokais/BathroomGeneratorYokai2")]
 
-[node name="WaterwaySprite" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway4"]
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -96)
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite2" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway4"]
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, 32)
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite3" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway4"]
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("15_3wwmr")]
 position = Vector2(0, 160)
-texture = ExtResource("14_kfidy")
 
-[node name="WaterwaySprite4" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway4"]
+[node name="WaterwayAngleComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("15_3wwmr")]
 position = Vector2(-128, 160)
 rotation = 1.5708
-texture = ExtResource("14_kfidy")
 
 [node name="Waterway5" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(448, -480)
 objectsToFill = [NodePath("../../WaterSources/WaterSource4"), NodePath("../../BathroomGeneratorYokais/BathroomGeneratorYokai3")]
 
-[node name="WaterwaySprite" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway5"]
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -96)
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite2" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway5"]
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, 32)
-texture = ExtResource("13_5oagt")
 
-[node name="WaterwaySprite3" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway5"]
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("15_3wwmr")]
 position = Vector2(0, 160)
 rotation = 1.5708
-texture = ExtResource("14_kfidy")
 
-[node name="WaterwaySprite4" type="Sprite2D" parent="Quests/BathroomsActivatePools/Waterways/Waterway5"]
+[node name="WaterwayAngleComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("15_3wwmr")]
 position = Vector2(128, 160)
-texture = ExtResource("14_kfidy")
 
 [node name="MetalRod" parent="Quests/BathroomsActivatePools" instance=ExtResource("17_dnihd")]
 position = Vector2(-64, -576)
