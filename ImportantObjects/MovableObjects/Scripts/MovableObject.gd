@@ -23,7 +23,7 @@ func _ready():
 	ReadyOperations()
 
 func ReadyOperations():
-	pas
+	pass
 
 func GetCollisionShape():
 	for i in self.get_child_count():

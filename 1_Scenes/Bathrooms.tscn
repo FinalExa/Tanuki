@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=28 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
 [ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="20_157dr"]
+[ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_tgxlx"]
+[ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="22_shano"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
 size = Vector2(128, 256)
@@ -59,7 +61,7 @@ keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRepairBrokenGenerator")]
 travelingAreas = [NodePath("Teleport/TravelToHall")]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -86,7 +88,7 @@ y_sort_enabled = true
 position = Vector2(448, -1088)
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1728, -64)
+position = Vector2(-1248, 128)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1728, -64)
@@ -271,6 +273,31 @@ position = Vector2(384, 0)
 
 [node name="DoorVertical" parent="Quests/BathroomsActivatePools/Doors" instance=ExtResource("20_157dr")]
 position = Vector2(776, 768)
+
+[node name="BathroomsRepairBrokenGenerator" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsRepairBrokenGenerator"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3")]
+
+[node name="GeneratorPart1" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_tgxlx")]
+position = Vector2(-944, 896)
+
+[node name="GeneratorPart2" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_tgxlx")]
+position = Vector2(424, 160)
+partID = 1
+
+[node name="GeneratorPart3" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_tgxlx")]
+position = Vector2(312, 1072)
+partID = 2
+
+[node name="BrokenGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_shano")]
+position = Vector2(-1152, 128)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="Teleport" type="Node2D" parent="."]
 

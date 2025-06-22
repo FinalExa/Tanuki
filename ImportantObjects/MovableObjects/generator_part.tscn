@@ -10,8 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
 
-[node name="GeneratorPart" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+[node name="GeneratorPart" type="Area2D" node_paths=PackedStringArray("partSprites", "movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_5dkq2")
+partSprites = [NodePath("Part1"), NodePath("Part2"), NodePath("Part3")]
 movableObjectName = "Generator Part"
 movableObjectProperties = Array[String](["GeneratorPart"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
