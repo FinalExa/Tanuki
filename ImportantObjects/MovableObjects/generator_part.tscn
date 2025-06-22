@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxqyfwccmhdor"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/GeneratorPartMovable.gd" id="1_5dkq2"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_5t7ew"]
+[ext_resource type="Texture2D" uid="uid://bq03a5vyqa0ja" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart1.png" id="2_ah3td"]
+[ext_resource type="Texture2D" uid="uid://c5biaql674od1" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart2.png" id="3_4x1ev"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_tbkx1"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_ltk1l"]
+[ext_resource type="Texture2D" uid="uid://dni5gu3ok10y6" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart3.png" id="4_v3uc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
+
+[node name="GeneratorPart" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_5dkq2")
+movableObjectName = "Generator Part"
+movableObjectProperties = Array[String](["GeneratorPart"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1fvs")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ah3td")
+
+[node name="Part2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_4x1ev")
+
+[node name="Part3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_v3uc2")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_5t7ew")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_tbkx1")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_ltk1l")]
+offset_top = -104.0
+offset_bottom = -56.0

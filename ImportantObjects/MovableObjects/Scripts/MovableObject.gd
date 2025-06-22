@@ -20,6 +20,10 @@ func _ready():
 	GetCollisionShape()
 	ForceTurnCloseFeedbackOff()
 	movableLabel.text = movableObjectName
+	ReadyOperations()
+
+func ReadyOperations():
+	pas
 
 func GetCollisionShape():
 	for i in self.get_child_count():
