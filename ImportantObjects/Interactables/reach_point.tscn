@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbj8tgoohbttu"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_u103m"]
+[ext_resource type="Texture2D" uid="uid://0dcwwfx2plym" path="res://ImportantObjects/Interactables/Sprites/GoalPoint.png" id="2_y5p1g"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_dxrdx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qhre"]
+radius = 64.4981
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inbwb"]
+radius = 64.4981
+
+[node name="ReachPoint" type="StaticBody2D" groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_u103m")
+neededProperties = Array[String](["OldYokai"])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("2_y5p1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(4.54747e-13, -64)
+shape = SubResource("CircleShape2D_7qhre")
+disabled = true
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_dxrdx")]
+position = Vector2(0, -64)
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CircleShape2D_inbwb")

@@ -11,6 +11,7 @@ size = Vector2(128, 128)
 z_index = -500
 script = ExtResource("1_0rewg")
 neededProperties = Array[String](["Clean", "Water"])
+destroyOnEnd = true
 
 [node name="DirtyFloorInteractionCheck" type="Area2D" parent="." node_paths=PackedStringArray("dirtyFloorInteractable")]
 script = ExtResource("2_vy8xm")

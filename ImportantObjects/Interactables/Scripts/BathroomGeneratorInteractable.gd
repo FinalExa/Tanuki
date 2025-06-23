@@ -9,7 +9,7 @@ var heated: bool
 
 @export var waterwaysToActivate: Array[Waterway]
 
-func GetFilled(filler):
+func GetFilled(_filler):
 	if (!waterObtained):
 		ObtainWater()
 		FillWaterways()
@@ -24,7 +24,7 @@ func ObtainHeat():
 	fullSprite.hide()
 	heatedSprite.show()
 
-func GetUnfilled(filler):
+func GetUnfilled(_filler):
 	pass
 
 func FillWaterways():

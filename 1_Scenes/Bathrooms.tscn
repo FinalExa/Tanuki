@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=33 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -25,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="20_157dr"]
 [ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_tgxlx"]
 [ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="22_shano"]
+[ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
+[ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
+[ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="25_hmgvd"]
+[ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="26_07hvu"]
+[ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
 size = Vector2(128, 256)
@@ -61,7 +66,7 @@ keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRepairBrokenGenerator")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRepairBrokenGenerator"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor")]
 travelingAreas = [NodePath("Teleport/TravelToHall")]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -91,10 +96,10 @@ position = Vector2(448, -1088)
 position = Vector2(-1248, 128)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1728, -64)
+position = Vector2(1152, 128)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1728, -64)
+position = Vector2(-1024, 1216)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1728, -64)
@@ -278,9 +283,9 @@ position = Vector2(776, 768)
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsRepairBrokenGenerator"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BathroomGeneratorYokai"), NodePath("BrokenGeneratorYokai"), NodePath("BathroomGeneratorYokai"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3")]
 
 [node name="GeneratorPart1" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_tgxlx")]
@@ -296,6 +301,73 @@ partID = 2
 
 [node name="BrokenGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_shano")]
 position = Vector2(-1152, 128)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("16_e5cn5")]
+position = Vector2(-1152, 128)
+
+[node name="BathroomsRescueOldYokai" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsRescueOldYokai"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("../../Keys/UnlockKey3")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("OldYokai")]
+
+[node name="ReachPoint" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("23_5o1xi")]
+position = Vector2(1152, 192)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="OldYokai" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_vkv67")]
+position = Vector2(-256, 832)
+
+[node name="BathroomsCleanFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("10_67fd8")
+questName = "BathroomsCleanFloor"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("../../Keys/UnlockKey4")]
+questItemsStages = Array[int]([0, 7])
+questItemsOnOffState = Array[bool]([false, true])
+questStageAdvancers = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
+objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
+
+[node name="CleanerNPC" parent="Quests/BathroomsCleanFloor" instance=ExtResource("25_hmgvd")]
+position = Vector2(-1152, 1216)
+
+[node name="DirtyFloor1" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(-1144, 880)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor2" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(120, 496)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor3" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(616, 1264)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor4" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(-1112, -504)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor5" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(664, -1408)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor6" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(880, 80)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DirtyFloor7" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
+position = Vector2(-616, -1352)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -332,3 +404,6 @@ y_sort_enabled = true
 
 [node name="Gear" parent="Transformations" instance=ExtResource("14_vrk40")]
 position = Vector2(-1216, -1024)
+
+[node name="Broom" parent="Transformations" instance=ExtResource("30_g2xji")]
+position = Vector2(-1248, 1216)
