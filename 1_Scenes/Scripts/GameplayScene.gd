@@ -37,7 +37,8 @@ func Initialize():
 func SetKeys():
 	if (levelUnlockKeys.size() > 0):
 		for i in levelUnlockKeys.size():
-			levelUnlockKeys[i].gameplayScene = self
+			if (levelUnlockKeys[i] != null):
+				levelUnlockKeys[i].gameplayScene = self
 	if (levelSpecialKey != null):
 		levelSpecialKey.gameplayScene = self
 
@@ -81,9 +82,10 @@ func SetCurrentKeysForPlayer():
 		var currentIDArray: Array[int] = playerRef.playerProgressionTrack.currentIDArray
 		var currentUsedArray: Array[int] = playerRef.playerProgressionTrack.currentUsedKeysArray
 		for i in currentIDArray.size():
-			levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
-			if (currentUsedArray[i] != -1):
-				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
+			if (levelUnlockKeys[currentIDArray[i]] != null):
+				levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
+				if (currentUsedArray[i] != -1):
+					levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType)):
 		levelSpecialKey.AlreadyGotThisKey()
 

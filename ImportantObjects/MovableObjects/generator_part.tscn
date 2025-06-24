@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_ltk1l"]
 [ext_resource type="Texture2D" uid="uid://dni5gu3ok10y6" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart3.png" id="4_v3uc2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_482on"]
+radius = 16.0
 
 [node name="GeneratorPart" type="Area2D" node_paths=PackedStringArray("partSprites", "movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_5dkq2")
@@ -20,7 +21,7 @@ movableFeedbackClose = NodePath("MovableFeedbackClose")
 movableLabel = NodePath("MovableLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_a1fvs")
+shape = SubResource("CircleShape2D_482on")
 
 [node name="Part1" type="Sprite2D" parent="."]
 visible = false

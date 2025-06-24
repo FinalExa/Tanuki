@@ -16,6 +16,7 @@ func _on_body_entered(body):
 		Travel(body)
 
 func Travel(playerRef: PlayerCharacter):
+	playerRef.velocity = Vector2.ZERO
 	playerRef.transformationChangeRef.transformationActivation.CheckForDeactivateTransformation()
 	if (removeTransformation): playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.SetTraveling(sendToTravelID, usePositional)

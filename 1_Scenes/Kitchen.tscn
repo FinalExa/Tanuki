@@ -1182,17 +1182,14 @@ y_sort_enabled = true
 [node name="DirtyFloor" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-2880, -1088)
 scale = Vector2(3, 1)
-destroyOnEnd = true
 
 [node name="DirtyFloor2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-1856, -1728)
-destroyOnEnd = true
 
 [node name="DirtyFloor3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-2624, -1664)
 rotation = 1.5708
 scale = Vector2(2.5, 1)
-destroyOnEnd = true
 
 [node name="FurnaceFake" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
 position = Vector2(-2752, -832)
