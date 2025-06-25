@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=17 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="7_414b1"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="10_o622i"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="11_so61q"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="12_ek3dw"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="12_xlk2i"]
 [ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="13_l1y5t"]
 [ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_b0jkp"]
@@ -18,7 +19,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtt5"]
 size = Vector2(64, 64)
 
-[node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
+[node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("1_haeea")
 format = 2
@@ -44,8 +45,9 @@ script = ExtResource("2_w4qb1")
 playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
 keyTypeToShow = 2
-levelUnlockKeys = [null, NodePath("Keys/UnlockKey2"), null, null, null]
+levelUnlockKeys = [null, NodePath("Keys/UnlockKey2"), null, null, NodePath("Keys/UnlockKey5")]
 mapQuests = [NodePath("Quests/BathroomsRepairBrokenGenerator")]
+unlocksAfterQuestStages = [NodePath("UnlocksAfterQuestStage/UnlocksAfterBathroomsSewersKey")]
 travelingAreas = [NodePath("Teleport/TravelToBathrooms")]
 travelingReceivers = [NodePath("Teleport/TravelToBathrooms/BathroomsReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -70,6 +72,9 @@ y_sort_enabled = true
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("7_414b1")]
 position = Vector2(128, 128)
+
+[node name="UnlockKey5" parent="Keys" instance=ExtResource("7_414b1")]
+position = Vector2(1152, -1472)
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -101,6 +106,14 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("11_so61q")]
 position = Vector2(256, 128)
+
+[node name="UnlocksAfterQuestStage" type="Node2D" parent="."]
+
+[node name="UnlocksAfterBathroomsSewersKey" type="Node2D" parent="UnlocksAfterQuestStage" node_paths=PackedStringArray("objectsToAdd")]
+script = ExtResource("12_ek3dw")
+requiredQuest = "BathroomsSewersKey"
+requiredQuestStage = 1
+objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
 
 [node name="Teleport" type="Node2D" parent="."]
 

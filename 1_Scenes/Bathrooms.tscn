@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=35 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -25,9 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="20_157dr"]
 [ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
 [ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
+[ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="25_a73mm"]
 [ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="25_hmgvd"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="26_07hvu"]
 [ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="26_dyv1j"]
+[ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="26_nder6"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
@@ -66,9 +68,9 @@ playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
 keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
-levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
+levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey")]
 travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("Teleport/TravelToSewers")]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("Teleport/TravelToSewers/SewersReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -95,13 +97,10 @@ y_sort_enabled = true
 position = Vector2(448, -1088)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(1152, 128)
+position = Vector2(872, 320)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1024, 1216)
-
-[node name="UnlockKey5" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1728, -64)
 
 [node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("8_bxkg3")]
 position = Vector2(-1728, -64)
@@ -265,7 +264,7 @@ position = Vector2(128, 160)
 position = Vector2(-64, -576)
 
 [node name="HeatSourceActivator" parent="Quests/BathroomsActivatePools" instance=ExtResource("18_ff0db")]
-position = Vector2(1088, -1408)
+position = Vector2(832, -1088)
 activated = true
 
 [node name="Doors" type="Node2D" parent="Quests/BathroomsActivatePools"]
@@ -290,7 +289,7 @@ questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("OldYokai")]
 
 [node name="ReachPoint" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("23_5o1xi")]
-position = Vector2(1152, 192)
+position = Vector2(872, 384)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -343,6 +342,24 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(-616, -1352)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="BathroomsSewersKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsSewersKey"
+questItemsToOperate = [NodePath("KeySprite")]
+questItemsStages = Array[int]([1])
+questItemsOnOffState = Array[bool]([false])
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
+
+[node name="ButtonToPush" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_a73mm")]
+position = Vector2(1216, -1440)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsSewersKey"]
+position = Vector2(1216, -1400)
+texture = ExtResource("26_nder6")
 
 [node name="Teleport" type="Node2D" parent="."]
 
