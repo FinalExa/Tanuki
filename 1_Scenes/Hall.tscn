@@ -441,7 +441,6 @@ position = Vector2(0, 2944)
 scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(-288, 3048)
@@ -653,7 +652,6 @@ position = Vector2(520, 1920)
 scale = Vector2(1, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="HallCleanDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_2xstp")
@@ -667,7 +665,6 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 position = Vector2(-896, 2432)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="HallUnlockWoodenKatana" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true

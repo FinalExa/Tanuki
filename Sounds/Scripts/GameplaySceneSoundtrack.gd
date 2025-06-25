@@ -26,7 +26,7 @@ func DeactivateTransformed():
 
 func ActivateSpecialRoom():
 	SetSoundtrackVolume(baseSoundtrack, -80.0)
-	SetSoundtrackVolume(specialRoomSoundTrack, 0)
+	SetSoundtrackVolume(specialRoomSoundTrack, -10.0)
 
 func DeactivateSpecialRoom():
 	SetSoundtrackVolume(specialRoomSoundTrack, -80.0)
