@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=40 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -30,8 +30,15 @@
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="26_07hvu"]
 [ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="26_dyv1j"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="26_nder6"]
+[ext_resource type="PackedScene" uid="uid://dw6tj3wwi0a1c" path="res://Enemies/cleaner_boss.tscn" id="27_2wag8"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="27_bdgoy"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_pv3og"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kqwrs"]
+vertices = PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600, -1744, -2752, -1744, -4064, 464, -4064, 464, -2752)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600), PackedVector2Array(-1744, -2752, -1744, -4064, 464, -4064, 464, -2752)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ygcl"]
 size = Vector2(512, 320)
@@ -119,13 +126,14 @@ questToAdvance = NodePath("../../Quests/BathroomsUltraKey")
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="BathroomsActivatePools" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="BathroomsActivatePools" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToFinalizeAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivatePools"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("../../Keys/UnlockKey1"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical")]
 questItemsStages = Array[int]([0, 3, 3, 3, 3])
 questItemsOnOffState = Array[bool]([false, true, true, true, true])
+objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokais/BathroomGeneratorYokai"), NodePath("BathroomGeneratorYokais/BathroomGeneratorYokai2"), NodePath("BathroomGeneratorYokais/BathroomGeneratorYokai3")]
 
 [node name="BathroomGeneratorYokais" type="Node2D" parent="Quests/BathroomsActivatePools"]
 y_sort_enabled = true
@@ -398,10 +406,38 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
-[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap" instance=ExtResource("27_bdgoy")]
+[node name="Enemies" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="CleanerBoss" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_2wag8")]
+position = Vector2(-384, -2176)
+patrolIndicators = [NodePath("../../PatrolIndicators/CleanerBoss1/CleanerBossPatrolIndicator1")]
+
+[node name="PatrolIndicators" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+
+[node name="CleanerBoss1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators"]
+
+[node name="CleanerBossPatrolIndicator1" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(-640, -2176)
+patrolActions = Array[int]([1, 1, 1, 1])
+moveActions = [NodePath("../2"), NodePath("../1"), NodePath("../2"), NodePath("../3")]
+
+[node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
+position = Vector2(-1216, -2560)
+
+[node name="2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
+position = Vector2(-384, -2560)
+
+[node name="3" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
+position = Vector2(-384, -1728)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+navigation_polygon = SubResource("NavigationPolygon_kqwrs")
+
+[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/BathroomsUltraKey" instance=ExtResource("27_bdgoy")]
 position = Vector2(-640, -2816)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PlayerInSpecialRoomSoundTrigger"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BathroomsUltraKey/PlayerInSpecialRoomSoundTrigger"]
 visible = false
 polygon = PackedVector2Array(-640, 96, -1136, 96, -1136, -1280, 1136, -1280, 1136, 96, 640, 96, 640, 1248, -640, 1248)
 

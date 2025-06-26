@@ -740,15 +740,15 @@ labelDefaultText = "PRESS F TO LISTEN"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenStunWarden/Kitchen2Dialogue"]
 shape = SubResource("CircleShape2D_w5etf")
 
-[node name="KitchenDropLantern" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete", "advanceOtherQuestsOnEnd")]
+[node name="KitchenDropLantern" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenDropLantern"
 questItemsToOperate = [NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("LanternWithWarden"), NodePath("LanternRopeRegulatorBroken"), NodePath("DialogueArea"), NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("FloatingLantern"), NodePath("LanternWithWarden")]
 questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 1, 2, 2])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, false, true])
-objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush"), NodePath("../../Enemies/WardenC1"), NodePath("../../Enemies/WardenAlertArea")]
 advanceOtherQuestsOnEnd = [NodePath("../KitchenStunWarden")]
+objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush"), NodePath("../../Enemies/WardenC1"), NodePath("../../Enemies/WardenAlertArea")]
 
 [node name="DialogueArea" parent="Quests/KitchenDropLantern" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(1712, -264)

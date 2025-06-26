@@ -41,6 +41,7 @@ func ExecuteRefEffect(ref):
 func FinalStateExtraExecution():
 	waterObtained = true
 	heated = true
+	FillWaterways()
 	emptySprite.hide()
 	fullSprite.hide()
 	heatedSprite.show()
