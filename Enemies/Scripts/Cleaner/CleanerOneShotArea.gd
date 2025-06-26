@@ -1,3 +1,4 @@
+class_name CleanerOneShotArea
 extends Area2D
 
 var playerRef: PlayerCharacter
