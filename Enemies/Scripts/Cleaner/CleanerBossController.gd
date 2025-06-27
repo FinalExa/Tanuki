@@ -10,4 +10,7 @@ func AdvanceBossPhase():
 		questToSendProgressSignal.AdvanceStageByObject(self)
 	if (patrolIndicators.size() > 1):
 		patrolIndicators.remove_at(0)
-		enemyPatrol.select_new_patrol_indicator()
+		enemyPatrol.loadedPatrolIndicator = patrolIndicators[0]
+		enemyStunned.end_stun()
+		enemyPatrol.reset_patrol()
+		enemyPatrol.resume_patrol()

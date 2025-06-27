@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=48 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -36,11 +36,24 @@
 [ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="29_6sxxu"]
 [ext_resource type="PackedScene" uid="uid://b0u1qq11857bj" path="res://Enemies/boss_advancer.tscn" id="30_427wy"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
+[ext_resource type="PackedScene" uid="uid://3yfbephdlbok" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component_pool.tscn" id="31_s5uyt"]
+[ext_resource type="PackedScene" uid="uid://bkv686hf317o0" path="res://ImportantObjects/Interactables/Supplementary/waterway_side_component_pool.tscn" id="32_7lw7r"]
+[ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="34_taace"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqwrs"]
 vertices = PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600, -1744, -2752, -1744, -4064, 464, -4064, 464, -2752)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600), PackedVector2Array(-1744, -2752, -1744, -4064, 464, -4064, 464, -2752)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_loa8s"]
+vertices = PackedVector2Array(-1056, -1600, -992, -1600, -992, -1504, -1056, -1504)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1056, -1600, -992, -1600, -992, -1504, -1056, -1504)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oaef0"]
+vertices = PackedVector2Array(-672, -2752, -608, -2752, -608, -2656, -672, -2656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-672, -2752, -608, -2752, -608, -2656, -672, -2656)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_astmm"]
 size = Vector2(256, 768)
@@ -118,8 +131,10 @@ position = Vector2(872, 320)
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1024, 1216)
 
-[node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("8_bxkg3")]
+[node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
 position = Vector2(-640, -3520)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/BathroomsUltraKey")
 
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("9_du280")]
 position = Vector2(-1024, -1600)
@@ -384,9 +399,9 @@ texture = ExtResource("26_nder6")
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsUltraKey"
-questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("../../Keys/SpecialUnlockKey")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 3])
-questItemsOnOffState = Array[bool]([false, false, false, true, true, true])
+questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/Doors/Door"), NodePath("UltraKeyRoomTileMap/Movables/Soap"), NodePath("../../Keys/SpecialUnlockKey")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 4])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, true, true, true, true, true, true, false, true])
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/BathroomsUltraKey"]
 y_sort_enabled = true
@@ -411,12 +426,25 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_kqwrs")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_loa8s")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_oaef0")
+
 [node name="Enemies" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
-[node name="CleanerBoss" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_2wag8")]
+[node name="CleanerBoss" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators", "questToSendProgressSignal") instance=ExtResource("27_2wag8")]
 position = Vector2(-384, -2176)
 patrolIndicators = [NodePath("../../PatrolIndicators/CleanerBoss1/CleanerBossPatrolIndicator1"), NodePath("../../PatrolIndicators/CleanerBoss2/CleanerBoss2PatrolIndicator")]
+questToSendProgressSignal = NodePath("../../..")
 
 [node name="PatrolIndicators" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 
@@ -428,26 +456,26 @@ patrolActions = Array[int]([1, 1, 1, 1])
 moveActions = [NodePath("../2"), NodePath("../1"), NodePath("../2"), NodePath("../3")]
 
 [node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
-position = Vector2(-1216, -2560)
+position = Vector2(-1216, -2496)
 
 [node name="2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
-position = Vector2(-384, -2560)
+position = Vector2(-384, -2496)
 
 [node name="3" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
-position = Vector2(-384, -1728)
+position = Vector2(-384, -1856)
 
 [node name="CleanerBoss2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators"]
 
 [node name="CleanerBoss2PatrolIndicator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
 position = Vector2(-640, -3456)
-patrolActions = Array[int]([1])
-moveActions = [null]
+patrolActions = Array[int]([1, 1])
+moveActions = [NodePath("../1"), NodePath("../2")]
 
 [node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
-position = Vector2(-640, -3456)
+position = Vector2(-1664, -3456)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
-navigation_polygon = SubResource("NavigationPolygon_kqwrs")
+[node name="2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(384, -3456)
 
 [node name="Movables" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
@@ -455,13 +483,146 @@ y_sort_enabled = true
 [node name="Soap" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("29_6sxxu")]
 position = Vector2(-1152, -2176)
 
+[node name="MetalRod" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("17_dnihd")]
+position = Vector2(-448, -1816)
+
 [node name="BossAdvancers" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 
 [node name="BossAdvancer" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/BossAdvancers" instance=ExtResource("30_427wy")]
 position = Vector2(-128, -2176)
+bossName = "CleanerBoss"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"]
 shape = SubResource("RectangleShape2D_astmm")
+
+[node name="Doors" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="Door" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Doors" instance=ExtResource("19_cvryn")]
+position = Vector2(-640, -2688)
+
+[node name="Room1Puzzle" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(-128, -1696)
+waterwaysToActivate = [NodePath("../WaterwayPool"), NodePath("../Waterway2")]
+questToSendProgressSignal = NodePath("../../..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="HeatSourceActivator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" instance=ExtResource("18_ff0db")]
+position = Vector2(-1248, -2304)
+activated = true
+
+[node name="WaterSource" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-1216, -2624)
+alwaysFilled = true
+waterwaysToActivate = [NodePath("../Waterway")]
+
+[node name="WaterSource2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-832, -1984)
+waterwaysToActivate = [NodePath("../Waterway"), NodePath("../Waterway2")]
+
+[node name="WaterwayPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" instance=ExtResource("12_vc1fv")]
+position = Vector2(-128, -2176)
+
+[node name="WaterwayAngleComponentPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(64, 320)
+
+[node name="WaterwayAngleComponentPool2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-64, 320)
+rotation = 1.5708
+
+[node name="WaterwayAngleComponentPool3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-64, -320)
+rotation = 3.14159
+
+[node name="WaterwayAngleComponentPool4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(64, -320)
+rotation = 4.71239
+
+[node name="WaterwaySideComponentPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, 192)
+
+[node name="WaterwaySideComponentPool2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, 64)
+
+[node name="WaterwaySideComponentPool3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, -64)
+
+[node name="WaterwaySideComponentPool4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, -192)
+
+[node name="WaterwaySideComponentPool5" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, -192)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool6" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, -64)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool7" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, 64)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool8" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, 192)
+rotation = 3.14159
+
+[node name="Waterway" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-1088, -2624)
+objectsToFill = [NodePath("../WaterSource2")]
+
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway" instance=ExtResource("15_3wwmr")]
+rotation = 4.71239
+
+[node name="WaterwayAngleComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway" instance=ExtResource("15_3wwmr")]
+position = Vector2(0, 640)
+rotation = 1.5708
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 512)
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(128, 640)
+rotation = 1.5708
+
+[node name="Waterway2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-576, -1984)
+objectsToFill = [NodePath("../WaterSource2"), NodePath("../BathroomGeneratorYokai")]
+
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway2" instance=ExtResource("15_3wwmr")]
+position = Vector2(-128, 0)
+rotation = 4.71239
+
+[node name="WaterwayAngleComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway2" instance=ExtResource("15_3wwmr")]
+position = Vector2(-128, 256)
+rotation = 1.5708
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(-128, 128)
+hasBridge = true
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 256)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room1Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(352, 256)
+rotation = 1.5708
+
+[node name="Transformations" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="Gear" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Transformations" instance=ExtResource("14_vrk40")]
+position = Vector2(-72, -2616)
+
+[node name="Obstacles" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="DirtyFloorUnremoveable" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Obstacles" instance=ExtResource("34_taace")]
+position = Vector2(-1024, -1632)
+scale = Vector2(2, 1)
 
 [node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/BathroomsUltraKey" instance=ExtResource("27_bdgoy")]
 position = Vector2(-640, -2816)

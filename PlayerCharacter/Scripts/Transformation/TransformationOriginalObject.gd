@@ -5,8 +5,7 @@ extends Node
 
 func GenerateTransformationObject():
 	if (transformationChange.currentTransformationObject == null || (transformationChange.currentOriginalObjectPath != transformationChange.currentTransformationObject.scene_file_path)):
-		call_deferred("Generate")
-	call_deferred("SendTexture")
+		Generate()
 
 func Generate():
 	if (transformationChange.currentTransformationObject != null && transformationChange.currentOriginalObjectPath != transformationChange.currentTransformationObject.scene_file_path):
@@ -24,9 +23,6 @@ func Generate():
 	SetupSpawnedItem(transformationChange.currentTransformationPassive)
 	if (transformationChange.currentTransformationPassive != null):
 		transformationChange.currentTransformationPassive.SetTransformationChangeRef(transformationChange)
-
-func SendTexture():
-	transformationChange.emit_signal("send_transformation_texture", transformationChange.currentTransformationObject.transformedTexture.texture.resource_path)
 
 func InstantiateScene(path: String):
 	var scene = load(path)

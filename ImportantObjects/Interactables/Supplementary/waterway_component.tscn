@@ -13,7 +13,7 @@ size = Vector2(64, 24)
 size = Vector2(64, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
-size = Vector2(64, 88)
+size = Vector2(64, 80)
 
 [node name="WaterwayComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
@@ -32,7 +32,6 @@ position = Vector2(0, 52)
 shape = SubResource("RectangleShape2D_553o8")
 
 [node name="RemovableCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_g6pps")
 
 [node name="Base" type="Sprite2D" parent="."]
