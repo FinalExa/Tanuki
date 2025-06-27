@@ -6,6 +6,8 @@ func IsRepelled(direction: Vector2):
 		StartRepelled(direction)
 
 func AdvanceBossPhase():
+	if (questToSendProgressSignal != null):
+		questToSendProgressSignal.AdvanceStageByObject(self)
 	if (patrolIndicators.size() > 1):
 		patrolIndicators.remove_at(0)
 		enemyPatrol.select_new_patrol_indicator()

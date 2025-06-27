@@ -28,7 +28,6 @@ func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
 	transformationChange.currentTransformationSet = true
 	transformationChange.currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	transformationChange.transformationOriginalObject.GenerateTransformationObject()
-	transformationChange.emit_signal("send_transformation_texture", transformationChange.currentTransformationObject.transformedTexture.texture.resource_path)
 
 func SetNoTransformation():
 	transformationChange.currentTransformationSet = false

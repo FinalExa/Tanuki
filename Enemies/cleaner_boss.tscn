@@ -31,8 +31,9 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="29_8sutx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="30_3j8i2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7381m"]
 radius = 16.0
+height = 112.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0wd2"]
 atlas = ExtResource("11_oxecu")
@@ -76,7 +77,8 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2aaw5")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7381m")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
@@ -121,7 +123,7 @@ stream = ExtResource("10_jq0x3")
 max_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
@@ -175,7 +177,7 @@ rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
 [node name="CleanerBossAttackHitbox" parent="Rotator" instance=ExtResource("19_njgwt")]
-position = Vector2(0, -112)
+position = Vector2(0, -128)
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

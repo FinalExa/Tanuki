@@ -5,21 +5,28 @@ extends Node
 
 func GenerateTransformationObject():
 	if (transformationChange.currentTransformationObject == null || (transformationChange.currentOriginalObjectPath != transformationChange.currentTransformationObject.scene_file_path)):
-		if (transformationChange.currentTransformationObject != null && transformationChange.currentOriginalObjectPath != transformationChange.currentTransformationObject.scene_file_path):
-			var oldObjectToDelete: TransformationObjectData = transformationChange.currentTransformationObject
-			oldObjectToDelete.queue_free()
-		transformationChange.currentTransformationObject = InstantiateScene(transformationChange.currentOriginalObjectPath)
-		transformationChange.currentTransformationObject.reparent(get_tree().root.get_child(0).sceneSelector.currentScene)
-		transformationChange.currentTransformationObject.global_position = transformationChange.transformationObjectSafeCoords
-		transformationChange.DeactivateObjectToOperate(transformationChange.currentTransformationObject)
-		transformationChange.transformationSprite.texture = transformationChange.currentTransformationObject.transformedTexture.texture
-		transformationChange.transformationSprite.scale = transformationChange.currentTransformationObject.transformedTextureScale
-		transformationChange.currentAttack = SpawnTransformationSpecialObject(transformationChange.currentTransformationObject.transformedAttackPath, transformationChange.currentAttack)
-		SetupSpawnedItem(transformationChange.currentAttack)
-		transformationChange.currentTransformationPassive = SpawnTransformationSpecialObject(transformationChange.currentTransformationObject.transformedPassivePath, transformationChange.currentTransformationPassive)
-		SetupSpawnedItem(transformationChange.currentTransformationPassive)
-		if (transformationChange.currentTransformationPassive != null):
-			transformationChange.currentTransformationPassive.SetTransformationChangeRef(transformationChange)
+		call_deferred("Generate")
+	call_deferred("SendTexture")
+
+func Generate():
+	if (transformationChange.currentTransformationObject != null && transformationChange.currentOriginalObjectPath != transformationChange.currentTransformationObject.scene_file_path):
+		var oldObjectToDelete: TransformationObjectData = transformationChange.currentTransformationObject
+		oldObjectToDelete.queue_free()
+	transformationChange.currentTransformationObject = InstantiateScene(transformationChange.currentOriginalObjectPath)
+	transformationChange.currentTransformationObject.reparent(get_tree().root.get_child(0).sceneSelector.currentScene)
+	transformationChange.currentTransformationObject.global_position = transformationChange.transformationObjectSafeCoords
+	transformationChange.DeactivateObjectToOperate(transformationChange.currentTransformationObject)
+	transformationChange.transformationSprite.texture = transformationChange.currentTransformationObject.transformedTexture.texture
+	transformationChange.transformationSprite.scale = transformationChange.currentTransformationObject.transformedTextureScale
+	transformationChange.currentAttack = SpawnTransformationSpecialObject(transformationChange.currentTransformationObject.transformedAttackPath, transformationChange.currentAttack)
+	SetupSpawnedItem(transformationChange.currentAttack)
+	transformationChange.currentTransformationPassive = SpawnTransformationSpecialObject(transformationChange.currentTransformationObject.transformedPassivePath, transformationChange.currentTransformationPassive)
+	SetupSpawnedItem(transformationChange.currentTransformationPassive)
+	if (transformationChange.currentTransformationPassive != null):
+		transformationChange.currentTransformationPassive.SetTransformationChangeRef(transformationChange)
+
+func SendTexture():
+	transformationChange.emit_signal("send_transformation_texture", transformationChange.currentTransformationObject.transformedTexture.texture.resource_path)
 
 func InstantiateScene(path: String):
 	var scene = load(path)

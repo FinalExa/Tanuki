@@ -84,7 +84,7 @@ func SetCurrentKeysForPlayer():
 		for i in currentIDArray.size():
 			if (levelUnlockKeys[currentIDArray[i]] != null):
 				levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
-				if (currentUsedArray[i] != -1):
+				if (currentUsedArray[i] != -1 && levelUnlockKeyDoors.size() > 0):
 					levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType)):
 		levelSpecialKey.AlreadyGotThisKey()

@@ -113,3 +113,6 @@ func QuestSignal():
 	if (questToSendProgressSignal != null):
 		if (sendSignalToQuestOnlyOnce): questSignalSent = true
 		questToSendProgressSignal.AdvanceStageByObject(self)
+
+func AdvanceBossPhase():
+	pass
