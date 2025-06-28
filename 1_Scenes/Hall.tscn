@@ -596,15 +596,15 @@ rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("24_hg15b")
 
-[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete", "advanceOtherQuestsOnEnd")]
+[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
 questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("WardenSleepingDialogue"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
 questItemsStages = Array[int]([0, 0, 1, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true])
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 
 [node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
 position = Vector2(1088, 1280)
