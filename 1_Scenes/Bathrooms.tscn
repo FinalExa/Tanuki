@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=49 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -40,9 +40,9 @@
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="34_taace"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqwrs"]
-vertices = PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600, -1744, -2752, -1744, -4064, 464, -4064, 464, -2752)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1600, -1248, -2656, -32, -2656, -32, -1600), PackedVector2Array(-1744, -2752, -1744, -4064, 464, -4064, 464, -2752)])
+vertices = PackedVector2Array(-1136, -1936, -1248, -1600, -1248, -2256, -1200, -2256, -1136, -2192, -1200, -2352, -1248, -2352, -1248, -2544, -1040, -2544, -1040, -2656, -120, -2656, -272, -2576, -120, -2576, -272, -1776, -304, -1776, -656, -2032, -304, -1680, -496, -1680, -496, -1776, -656, -1776, -752, -2032, -752, -2064, -912, -2064, -912, -2032, -1040, -2032, -1040, -2192, -912, -1936, -912, -1904, -752, -1904, -752, -1680, -80, -1680, -80, -1776, -32, -1776, -32, -1600, 464, -2752, -1744, -2752, -1616, -2776, -752, -2928, -528, -2928, -912, -2928, -1616, -2864, -1488, -2912, -1712, -2776, -1744, -2912, -1712, -2864, 352, -4192, 352, -3424, -112, -3568, -112, -3632, 464, -3424, -112, -2928, -112, -2992, -1488, -4000, -1680, -4000, -1680, -4192, -224, -3632, -224, -3824, -112, -3824, -112, -3888, -272, -3888, -272, -3760, -368, -3760, -368, -3888, -528, -3888, -528, -3824, -416, -3824, -416, -3632, -528, -3632, -368, -3568, -368, -3696, -272, -3696, -272, -3568, -752, -3632, -864, -3632, -864, -3760, -808, -3760, -808, -3824, -752, -3824, -912, -3888, -912, -3760, -1008, -3760, -1008, -3888, -1168, -3824, -1056, -3824, -1056, -3632, -1168, -3632, -1008, -3568, -1008, -3696, -912, -3696, -912, -3568, -224, -2992, -224, -3184, -112, -3184, -112, -3248, -752, -3568, -528, -3568, -272, -3248, -272, -3120, -368, -3120, -368, -3248, -528, -3248, -528, -3184, -416, -3184, -416, -2992, -528, -2992, -368, -2928, -368, -3056, -272, -3056, -272, -2928, -752, -2992, -864, -2992, -864, -3184, -752, -3184, -912, -3248, -912, -3120, -1008, -3120, -1008, -3248, -1168, -3184, -1056, -3184, -1056, -2992, -1168, -2992, -1008, -2928, -1008, -3056, -912, -3056, -1168, -2928, -1168, -3248, -1168, -3568, -752, -3248, -1168, -3888, -752, -3888)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 12, 11), PackedInt32Array(8, 11, 13, 14, 15), PackedInt32Array(14, 16, 17, 18), PackedInt32Array(18, 19, 15), PackedInt32Array(15, 20, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(0, 26, 27, 1), PackedInt32Array(27, 28, 29, 1), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(30, 33, 1, 16), PackedInt32Array(17, 16, 1), PackedInt32Array(29, 17, 1), PackedInt32Array(14, 18, 15), PackedInt32Array(8, 15, 21), PackedInt32Array(8, 21, 22, 25), PackedInt32Array(3, 5, 8, 25, 4), PackedInt32Array(34, 35, 36, 37, 38), PackedInt32Array(39, 37, 36, 40, 41), PackedInt32Array(42, 36, 35), PackedInt32Array(42, 35, 43, 44), PackedInt32Array(44, 43, 41, 40), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(46, 49, 34, 50, 51), PackedInt32Array(52, 53, 54, 45), PackedInt32Array(48, 55, 56, 57), PackedInt32Array(45, 48, 57), PackedInt32Array(45, 57, 58), PackedInt32Array(52, 45, 58, 59), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(52, 59, 62), PackedInt32Array(52, 62, 63), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 74, 75), PackedInt32Array(75, 76, 77, 72), PackedInt32Array(78, 79, 80, 81), PackedInt32Array(82, 83, 84, 85), PackedInt32Array(86, 87, 88, 89), PackedInt32Array(51, 90, 91, 92), PackedInt32Array(46, 51, 92), PackedInt32Array(46, 92, 93), PackedInt32Array(94, 95, 46, 93, 96), PackedInt32Array(96, 97, 98, 99), PackedInt32Array(94, 96, 99), PackedInt32Array(94, 99, 100, 89), PackedInt32Array(101, 102, 103, 104), PackedInt32Array(105, 106, 107, 108), PackedInt32Array(109, 110, 111, 112), PackedInt32Array(113, 114, 115, 116), PackedInt32Array(117, 118, 119, 120), PackedInt32Array(121, 122, 123, 39), PackedInt32Array(121, 39, 41), PackedInt32Array(124, 121, 41), PackedInt32Array(124, 41, 52, 120), PackedInt32Array(117, 120, 52), PackedInt32Array(125, 117, 52), PackedInt32Array(116, 125, 52, 126), PackedInt32Array(89, 100, 101, 86), PackedInt32Array(86, 101, 104, 127), PackedInt32Array(71, 47, 46), PackedInt32Array(108, 50, 34), PackedInt32Array(105, 108, 34), PackedInt32Array(68, 71, 46), PackedInt32Array(38, 105, 34), PackedInt32Array(104, 38, 37, 109), PackedInt32Array(104, 109, 112), PackedInt32Array(104, 112, 127), PackedInt32Array(86, 127, 113), PackedInt32Array(86, 113, 116, 126), PackedInt32Array(85, 126, 52), PackedInt32Array(82, 85, 52), PackedInt32Array(128, 82, 52), PackedInt32Array(81, 128, 52), PackedInt32Array(78, 81, 52), PackedInt32Array(95, 68, 46), PackedInt32Array(67, 95, 94, 72), PackedInt32Array(64, 67, 72, 77), PackedInt32Array(63, 64, 77, 129), PackedInt32Array(52, 63, 129), PackedInt32Array(78, 52, 129)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1600, -1248, -2256, -1200, -2256, -1200, -2352, -1248, -2352, -1248, -2544, -1040, -2544, -1040, -2656, -120, -2656, -120, -2576, -272, -2576, -272, -1776, -304, -1776, -304, -1680, -80, -1680, -80, -1776, -32, -1776, -32, -1600), PackedVector2Array(-1744, -2752, -1744, -2912, -1488, -2912, -1488, -4000, -1680, -4000, -1680, -4192, 352, -4192, 352, -3424, 464, -3424, 464, -2752), PackedVector2Array(-1168, -2928, -1008, -2928, -1008, -3056, -912, -3056, -912, -2928, -752, -2928, -752, -2992, -864, -2992, -864, -3184, -752, -3184, -752, -3248, -912, -3248, -912, -3120, -1008, -3120, -1008, -3248, -1168, -3248, -1168, -3184, -1056, -3184, -1056, -2992, -1168, -2992), PackedVector2Array(-1168, -3824, -1168, -3888, -1008, -3888, -1008, -3760, -912, -3760, -912, -3888, -752, -3888, -752, -3824, -808, -3824, -808, -3760, -864, -3760, -864, -3632, -752, -3632, -752, -3568, -912, -3568, -912, -3696, -1008, -3696, -1008, -3568, -1168, -3568, -1168, -3632, -1056, -3632, -1056, -3824), PackedVector2Array(-528, -3888, -368, -3888, -368, -3760, -272, -3760, -272, -3888, -112, -3888, -112, -3824, -224, -3824, -224, -3632, -112, -3632, -112, -3568, -272, -3568, -272, -3696, -368, -3696, -368, -3568, -528, -3568, -528, -3632, -416, -3632, -416, -3824, -528, -3824), PackedVector2Array(-528, -3184, -528, -3248, -368, -3248, -368, -3120, -272, -3120, -272, -3248, -112, -3248, -112, -3184, -224, -3184, -224, -2992, -112, -2992, -112, -2928, -272, -2928, -272, -3056, -368, -3056, -368, -2928, -528, -2928, -528, -2992, -416, -2992, -416, -3184), PackedVector2Array(-1136, -2192, -1040, -2192, -1040, -2032, -912, -2032, -912, -2064, -752, -2064, -752, -2032, -656, -2032, -656, -1776, -496, -1776, -496, -1680, -752, -1680, -752, -1904, -912, -1904, -912, -1936, -1136, -1936), PackedVector2Array(-1712, -2864, -1616, -2864, -1616, -2776, -1712, -2776)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_loa8s"]
 vertices = PackedVector2Array(-1056, -1600, -992, -1600, -992, -1504, -1056, -1504)
@@ -57,8 +57,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-672, -2752, -608, -275
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_astmm"]
 size = Vector2(256, 768)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwgqn"]
+size = Vector2(256, 1024)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ygcl"]
 size = Vector2(512, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktwfu"]
+size = Vector2(256, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
 size = Vector2(128, 256)
@@ -131,7 +137,7 @@ position = Vector2(872, 320)
 position = Vector2(-1024, 1216)
 
 [node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
-position = Vector2(-640, -3520)
+position = Vector2(-1472, -3456)
 keyAdvancesQuest = true
 questToAdvance = NodePath("../../Quests/BathroomsUltraKey")
 
@@ -469,13 +475,15 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(1216, -1400)
 texture = ExtResource("26_nder6")
 
-[node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsUltraKey"
-questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/Doors/Door"), NodePath("UltraKeyRoomTileMap/Movables/Soap"), NodePath("../../Keys/SpecialUnlockKey")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 4])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, true, true, true, true, true, true, false, true])
+questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("SavePoint"), NodePath("SavePoint2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/Doors/Door"), NodePath("UltraKeyRoomTileMap/Movables/Soap"), NodePath("UltraKeyRoomTileMap/Movables/MetalRod"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 4, 5, 6])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, true, true, true, true, true, true, false, false, true, true, true])
+objectsToFinalizeAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Room1Puzzle/BathroomGeneratorYokai"), NodePath("UltraKeyRoomTileMap/Room2Puzzle/BathroomGeneratorYokai")]
+objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Enemies/CleanerBoss")]
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/BathroomsUltraKey"]
 y_sort_enabled = true
@@ -484,14 +492,14 @@ format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true
 layer_0/z_index = -999
-layer_0/tile_data = PackedInt32Array(-851978, 393216, 7, -917514, 393216, 7, -983050, 393216, 7, -1048586, 393216, 7, -1114122, 393216, 7, -1179658, 393216, 7, -786442, 393216, 7, -786441, 393216, 7, -786440, 393216, 7, -786439, 393216, 7, -786438, 393216, 7, -786437, 393216, 7, -786436, 393216, 7, -786435, 393216, 7, -786434, 393216, 7, -786433, 393216, 7, -851969, 393216, 7, -917505, 393216, 7, -983041, 393216, 7, -1048577, 393216, 7, -1114113, 393216, 7, -1179649, 393216, 7, -1245185, 393216, 7, -1245186, 393216, 7, -1310722, 393216, 7, -1310721, 393216, 7, -1310723, 393216, 7, -1310724, 393216, 7, -1310725, 393216, 7, -1310726, 393216, 7, -1310727, 393216, 7, -1310728, 393216, 7, -1310729, 393216, 7, -1310730, 393216, 7, -1245194, 393216, 7, -1245193, 393216, 7, -1245192, 393216, 7, -1245191, 393216, 7, -1245190, 393216, 7, -1245189, 393216, 7, -1245188, 393216, 7, -1245187, 393216, 7, -1179650, 393216, 7, -1114114, 393216, 7, -1048578, 393216, 7, -983042, 393216, 7, -917506, 393216, 7, -851970, 393216, 7, -851971, 393216, 7, -851972, 393216, 7, -851973, 393216, 7, -851974, 393216, 7, -851975, 393216, 7, -851976, 393216, 7, -851977, 393216, 7, -917513, 393216, 7, -983049, 393216, 7, -1048585, 393216, 7, -1114121, 393216, 7, -1179657, 393216, 7, -983048, 393216, 7, -917512, 393216, 7, -917511, 393216, 7, -917510, 393216, 7, -917509, 393216, 7, -917508, 393216, 7, -917507, 393216, 7, -983043, 393216, 7, -1179651, 393216, 7, -1179654, 393216, 7, -1179655, 393216, 7, -1179656, 393216, 7, -1114120, 393216, 7, -1048584, 393216, 7, -1048583, 393216, 7, -983047, 393216, 7, -983046, 393216, 7, -1114115, 393216, 7, -1179652, 393216, 7, -1179653, 393216, 7, -1048582, 393216, 7, -983045, 393216, 7, -983044, 393216, 7, -1048579, 393216, 7, -1114116, 393216, 7, -1114119, 393216, 7, -1114118, 393216, 7, -1048581, 393216, 7, -1048580, 393216, 7, -1114117, 393216, 7, -1376266, 393216, 7, -1376265, 393216, 7, -1376264, 393216, 7, -1376263, 393216, 7, -1376262, 393216, 7, -1376261, 393216, 7, -1376260, 393216, 7, -1376259, 393216, 7, -1376258, 393216, 7, -1376257, 393216, 7, -1441793, 393216, 7, -1507329, 393216, 7, -1572865, 393216, 7, -1638401, 393216, 7, -1703937, 393216, 7, -1769473, 393216, 7, -1835009, 393216, 7, -1900545, 393216, 7, -1900546, 393216, 7, -1966082, 393216, 7, -1966081, 393216, 7, -2031617, 393216, 7, -2031618, 393216, 7, -2031619, 393216, 7, -2031620, 393216, 7, -2031621, 393216, 7, -1966086, 393216, 7, -1966087, 393216, 7, -1966088, 393216, 7, -1966089, 393216, 7, -2031626, 393216, 7, -2031625, 393216, 7, -2031624, 393216, 7, -2031623, 393216, 7, -2031622, 393216, 7, -1966090, 393216, 7, -1900554, 393216, 7, -1835018, 393216, 7, -1769482, 393216, 7, -1703946, 393216, 7, -1638410, 393216, 7, -1572874, 393216, 7, -1507338, 393216, 7, -1441802, 393216, 7, -1441801, 393216, 7, -1441800, 393216, 7, -1441799, 393216, 7, -1441798, 393216, 7, -1507334, 393216, 7, -1507333, 393216, 7, -1507332, 393216, 7, -1507331, 393216, 7, -1507330, 393216, 7, -1441795, 393216, 7, -1441796, 393216, 7, -1441797, 393216, 7, -1441794, 393216, 7, -1572866, 393216, 7, -1638402, 393216, 7, -1703938, 393216, 7, -1769474, 393216, 7, -1835010, 393216, 7, -1966083, 393216, 7, -1900547, 393216, 7, -1900548, 393216, 7, -1835012, 393216, 7, -1835013, 393216, 7, -1769477, 393216, 7, -1703941, 393216, 7, -1638405, 393216, 7, -1572869, 393216, 7, -1572868, 393216, 7, -1572867, 393216, 7, -1638403, 393216, 7, -1703939, 393216, 7, -1769475, 393216, 7, -1835011, 393216, 7, -1966084, 393216, 7, -1966085, 393216, 7, -1900550, 393216, 7, -1835014, 393216, 7, -1769478, 393216, 7, -1703942, 393216, 7, -1638406, 393216, 7, -1638404, 393216, 7, -1703940, 393216, 7, -1769476, 393216, 7, -1703943, 393216, 7, -1638407, 393216, 7, -1572870, 393216, 7, -1835015, 393216, 7, -1900551, 393216, 7, -1900552, 393216, 7, -1835017, 393216, 7, -1769481, 393216, 7, -1703945, 393216, 7, -1638409, 393216, 7, -1572873, 393216, 7, -1507337, 393216, 7, -1507336, 393216, 7, -1572872, 393216, 7, -1638408, 393216, 7, -1703944, 393216, 7, -1769480, 393216, 7, -1835016, 393216, 7, -1900553, 393216, 7, -1572871, 393216, 7, -1507335, 393216, 7, -1900549, 393216, 7, -1769479, 393216, 7, -1507328, 393216, 7, -1507327, 393216, 7, -1507326, 393216, 7, -1507325, 393216, 7, -1572861, 393216, 7, -1638397, 393216, 7, -1703933, 393216, 7, -1769469, 393216, 7, -1835005, 393216, 7, -1900541, 393216, 7, -1966077, 393216, 7, -2031613, 393216, 7, -2097149, 393216, 7, -2097150, 393216, 7, -2097151, 393216, 7, -2097152, 393216, 7, -2031615, 393216, 7, -2031614, 393216, 7, -1966078, 393216, 7, -1900542, 393216, 7, -1835006, 393216, 7, -1769470, 393216, 7, -1703934, 393216, 7, -1638398, 393216, 7, -1638399, 393216, 7, -1572863, 393216, 7, -1572864, 393216, 7, -1638400, 393216, 7, -1703936, 393216, 7, -1769472, 393216, 7, -1835008, 393216, 7, -1900544, 393216, 7, -1966080, 393216, 7, -2031616, 393216, 7, -1966079, 393216, 7, -1900543, 393216, 7, -1835007, 393216, 7, -1572862, 393216, 7, -1703935, 393216, 7, -1769471, 393216, 7, -1441803, 393216, 7, -1441804, 393216, 7, -1441805, 393216, 7, -1441806, 393216, 7, -1507342, 393216, 7, -1572878, 393216, 7, -1638414, 393216, 7, -1638413, 393216, 7, -1703949, 393216, 7, -1769485, 393216, 7, -1835021, 393216, 7, -1900557, 393216, 7, -1966093, 393216, 7, -2031629, 393216, 7, -2031630, 393216, 7, -1966094, 393216, 7, -1900558, 393216, 7, -1835022, 393216, 7, -1769486, 393216, 7, -1703950, 393216, 7, -1966092, 393216, 7, -2031628, 393216, 7, -2031627, 393216, 7, -1966091, 393216, 7, -1900555, 393216, 7, -1835019, 393216, 7, -1769483, 393216, 7, -1703947, 393216, 7, -1638411, 393216, 7, -1572875, 393216, 7, -1572876, 393216, 7, -1507341, 393216, 7, -1572877, 393216, 7, -1507340, 393216, 7, -1507339, 393216, 7, -1638412, 393216, 7, -1703948, 393216, 7, -1769484, 393216, 7, -1900556, 393216, 7, -1835020, 393216, 7)
+layer_0/tile_data = PackedInt32Array(-851978, 393216, 7, -917514, 393216, 7, -983050, 393216, 7, -1048586, 393216, 7, -1114122, 393216, 7, -1179658, 393216, 7, -786442, 393216, 7, -786441, 393216, 7, -786440, 393216, 7, -786439, 393216, 7, -786438, 393216, 7, -786437, 393216, 7, -786436, 393216, 7, -786435, 393216, 7, -786434, 393216, 7, -786433, 393216, 7, -851969, 393216, 7, -917505, 393216, 7, -983041, 393216, 7, -1048577, 393216, 7, -1114113, 393216, 7, -1179649, 393216, 7, -1245185, 393216, 7, -1245186, 393216, 7, -1310722, 393216, 7, -1310721, 393216, 7, -1310723, 393216, 7, -1310724, 393216, 7, -1310725, 393216, 7, -1310726, 393216, 7, -1310727, 393216, 7, -1310728, 393216, 7, -1310729, 393216, 7, -1310730, 393216, 7, -1245194, 393216, 7, -1245193, 393216, 7, -1245192, 393216, 7, -1245191, 393216, 7, -1245190, 393216, 7, -1245189, 393216, 7, -1245188, 393216, 7, -1245187, 393216, 7, -1179650, 393216, 7, -1114114, 393216, 7, -1048578, 393216, 7, -983042, 393216, 7, -917506, 393216, 7, -851970, 393216, 7, -851971, 393216, 7, -851972, 393216, 7, -851973, 393216, 7, -851974, 393216, 7, -851975, 393216, 7, -851976, 393216, 7, -851977, 393216, 7, -917513, 393216, 7, -983049, 393216, 7, -1048585, 393216, 7, -1114121, 393216, 7, -1179657, 393216, 7, -983048, 393216, 7, -917512, 393216, 7, -917511, 393216, 7, -917510, 393216, 7, -917509, 393216, 7, -917508, 393216, 7, -917507, 393216, 7, -983043, 393216, 7, -1179651, 393216, 7, -1179654, 393216, 7, -1179655, 393216, 7, -1179656, 393216, 7, -1114120, 393216, 7, -1048584, 393216, 7, -1048583, 393216, 7, -983047, 393216, 7, -983046, 393216, 7, -1114115, 393216, 7, -1179652, 393216, 7, -1179653, 393216, 7, -1048582, 393216, 7, -983045, 393216, 7, -983044, 393216, 7, -1048579, 393216, 7, -1114116, 393216, 7, -1114119, 393216, 7, -1114118, 393216, 7, -1048581, 393216, 7, -1048580, 393216, 7, -1114117, 393216, 7, -1376266, 393216, 7, -1376265, 393216, 7, -1376264, 393216, 7, -1376263, 393216, 7, -1376262, 393216, 7, -1376261, 393216, 7, -1376260, 393216, 7, -1376259, 393216, 7, -1376258, 393216, 7, -1376257, 393216, 7, -1441793, 393216, 7, -1507329, 393216, 7, -1572865, 393216, 7, -1638401, 393216, 7, -1703937, 393216, 7, -1769473, 393216, 7, -1835009, 393216, 7, -1900545, 393216, 7, -1900546, 393216, 7, -1966082, 393216, 7, -1966081, 393216, 7, -2031617, 393216, 7, -2031618, 393216, 7, -2031619, 393216, 7, -2031620, 393216, 7, -2031621, 393216, 7, -1966086, 393216, 7, -1966087, 393216, 7, -1966088, 393216, 7, -1966089, 393216, 7, -2031626, 393216, 7, -2031625, 393216, 7, -2031624, 393216, 7, -2031623, 393216, 7, -2031622, 393216, 7, -1966090, 393216, 7, -1900554, 393216, 7, -1835018, 393216, 7, -1769482, 393216, 7, -1703946, 393216, 7, -1638410, 393216, 7, -1507338, 393216, 7, -1441802, 393216, 7, -1441801, 393216, 7, -1441800, 393216, 7, -1441799, 393216, 7, -1441798, 393216, 7, -1507334, 393216, 7, -1507333, 393216, 7, -1507332, 393216, 7, -1507331, 393216, 7, -1507330, 393216, 7, -1441795, 393216, 7, -1441796, 393216, 7, -1441797, 393216, 7, -1441794, 393216, 7, -1572866, 393216, 7, -1638402, 393216, 7, -1703938, 393216, 7, -1769474, 393216, 7, -1835010, 393216, 7, -1966083, 393216, 7, -1900547, 393216, 7, -1900548, 393216, 7, -1835012, 393216, 7, -1835013, 393216, 7, -1769477, 393216, 7, -1703941, 393216, 7, -1638405, 393216, 7, -1572869, 393216, 7, -1572868, 393216, 7, -1572867, 393216, 7, -1638403, 393216, 7, -1703939, 393216, 7, -1769475, 393216, 7, -1835011, 393216, 7, -1966084, 393216, 7, -1966085, 393216, 7, -1900550, 393216, 7, -1835014, 393216, 7, -1769478, 393216, 7, -1703942, 393216, 7, -1638406, 393216, 7, -1638404, 393216, 7, -1703940, 393216, 7, -1769476, 393216, 7, -1703943, 393216, 7, -1638407, 393216, 7, -1572870, 393216, 7, -1835015, 393216, 7, -1900551, 393216, 7, -1900552, 393216, 7, -1835017, 393216, 7, -1769481, 393216, 7, -1703945, 393216, 7, -1638409, 393216, 7, -1507337, 393216, 7, -1507336, 393216, 7, -1572872, 393216, 7, -1638408, 393216, 7, -1703944, 393216, 7, -1769480, 393216, 7, -1835016, 393216, 7, -1900553, 393216, 7, -1572871, 393216, 7, -1507335, 393216, 7, -1900549, 393216, 7, -1769479, 393216, 7, -1507328, 393216, 7, -1507327, 393216, 7, -1507326, 393216, 7, -1507325, 393216, 7, -1572861, 393216, 7, -1638397, 393216, 7, -1703933, 393216, 7, -1769469, 393216, 7, -1835005, 393216, 7, -1900541, 393216, 7, -1966077, 393216, 7, -2031613, 393216, 7, -2097149, 393216, 7, -2097150, 393216, 7, -2097151, 393216, 7, -2097152, 393216, 7, -2031615, 393216, 7, -2031614, 393216, 7, -1966078, 393216, 7, -1900542, 393216, 7, -1835006, 393216, 7, -1769470, 393216, 7, -1703934, 393216, 7, -1638398, 393216, 7, -1638399, 393216, 7, -1572863, 393216, 7, -1572864, 393216, 7, -1638400, 393216, 7, -1703936, 393216, 7, -1769472, 393216, 7, -1835008, 393216, 7, -1900544, 393216, 7, -1966080, 393216, 7, -2031616, 393216, 7, -1966079, 393216, 7, -1900543, 393216, 7, -1835007, 393216, 7, -1572862, 393216, 7, -1703935, 393216, 7, -1769471, 393216, 7, -1441803, 393216, 7, -1441804, 393216, 7, -1441805, 393216, 7, -1441806, 393216, 7, -1507342, 393216, 7, -1572878, 393216, 7, -1638414, 393216, 7, -1638413, 393216, 7, -1703949, 393216, 7, -1769485, 393216, 7, -1835021, 393216, 7, -1900557, 393216, 7, -1966093, 393216, 7, -2031629, 393216, 7, -2031630, 393216, 7, -1966094, 393216, 7, -1900558, 393216, 7, -1835022, 393216, 7, -1769486, 393216, 7, -1703950, 393216, 7, -1966092, 393216, 7, -2031628, 393216, 7, -2031627, 393216, 7, -1966091, 393216, 7, -1900555, 393216, 7, -1835019, 393216, 7, -1769483, 393216, 7, -1703947, 393216, 7, -1638411, 393216, 7, -1572876, 393216, 7, -1507341, 393216, 7, -1572877, 393216, 7, -1507340, 393216, 7, -1507339, 393216, 7, -1638412, 393216, 7, -1703948, 393216, 7, -1769484, 393216, 7, -1900556, 393216, 7, -1835020, 393216, 7, -1572875, 393216, 7, -1572874, 393216, 7, -1572873, 393216, 7, -2097166, 393216, 7, -2097165, 393216, 7, -2097164, 393216, 7, -2097163, 393216, 7, -2097162, 393216, 7, -2097161, 393216, 7, -2097160, 393216, 7, -2097159, 393216, 7, -2097158, 393216, 7, -2097157, 393216, 7, -2097156, 393216, 7, -2097155, 393216, 7, -2097154, 393216, 7, -2097153, 393216, 7, -2162688, 393216, 7, -2162687, 393216, 7, -2162686, 393216, 7, -2162685, 393216, 7, -2162702, 393216, 7, -2162701, 393216, 7, -2162700, 393216, 7, -2162699, 393216, 7, -2162698, 393216, 7, -2162697, 393216, 7, -2162696, 393216, 7, -2162695, 393216, 7, -2162694, 393216, 7, -2162693, 393216, 7, -2162692, 393216, 7, -2162691, 393216, 7, -2162690, 393216, 7, -2162689, 393216, 7, -2228224, 393216, 7, -2228223, 393216, 7, -2228222, 393216, 7, -2228221, 393216, 7)
 layer_1/name = "Walls"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-851979, 0, 1, -917515, 0, 1, -983051, 0, 1, -1048587, 0, 1, -1114123, 0, 1, -1179659, 0, 1, -1245195, 0, 1, -1310731, 0, 1, -1376267, 131072, 65536, -851968, 65536, 1, -917504, 262144, 1, -983040, 262144, 1, -1048576, 262144, 1, -1114112, 262144, 1, -1179648, 262144, 1, -1245184, 262144, 1, -1310720, 262144, 1, -1376256, 262144, 1, -1441792, 65536, 65536, -1376257, 131072, 1, -1376258, 131072, 1, -1376259, 131072, 1, -1376260, 131072, 1, -1376266, 131072, 1, -1376265, 131072, 1, -1376264, 131072, 1, -1376263, 131072, 1, -1441791, 131072, 1, -1441790, 131072, 1, -1441789, 196608, 1, -1376268, 131072, 1, -1376269, 131072, 1, -1376270, 65536, 1, -1507342, 262144, 1, -1441806, 262144, 1, -1572878, 262144, 1, -1638414, 262144, 1, -1703950, 262144, 1, -1769486, 262144, 1, -1835022, 262144, 1, -1900558, 262144, 1, -1966094, 262144, 1, -2031630, 262144, 1, -2097166, 65536, 0, -2097165, 131072, 1, -2097164, 131072, 1, -2097163, 131072, 1, -2097162, 131072, 1, -2097161, 131072, 1, -2097160, 131072, 1, -2097159, 131072, 1, -2097158, 131072, 1, -2097157, 131072, 1, -2097156, 131072, 1, -2097155, 131072, 1, -2097154, 131072, 1, -2097153, 131072, 1, -2162688, 131072, 1, -2162687, 131072, 1, -2162686, 131072, 1, -2162685, 131072, 0, -2097149, 0, 1, -2031613, 0, 1, -1966077, 0, 1, -1900541, 0, 1, -1835005, 0, 1, -1769469, 0, 1, -1703933, 0, 1, -1638397, 0, 1, -1572861, 0, 1, -1507325, 0, 1)
+layer_1/tile_data = PackedInt32Array(-851979, 0, 1, -917515, 0, 1, -983051, 0, 1, -1048587, 0, 1, -1114123, 0, 1, -1179659, 0, 1, -1245195, 0, 1, -1310731, 0, 1, -1376267, 131072, 65536, -851968, 65536, 1, -917504, 262144, 1, -983040, 262144, 1, -1048576, 262144, 1, -1114112, 262144, 1, -1179648, 262144, 1, -1245184, 262144, 1, -1310720, 262144, 1, -1376256, 262144, 1, -1441792, 65536, 65536, -1376257, 131072, 1, -1376258, 131072, 1, -1376259, 131072, 1, -1376260, 131072, 1, -1376266, 131072, 1, -1376265, 131072, 1, -1376264, 131072, 1, -1376263, 131072, 1, -1441791, 131072, 1, -1441790, 131072, 1, -1441789, 196608, 1, -1376268, 131072, 1, -1376269, 131072, 1, -1376270, 65536, 1, -1507342, 262144, 1, -1441806, 262144, 1, -1572878, 262144, 1, -1638414, 262144, 1, -1703950, 262144, 1, -1769486, 262144, 1, -1835022, 262144, 1, -1900558, 262144, 1, -1966094, 262144, 1, -2031630, 262144, 1, -2097149, 0, 1, -2031613, 0, 1, -1966077, 0, 1, -1900541, 0, 1, -1835005, 0, 1, -1769469, 0, 1, -1703933, 0, 1, -1638397, 0, 1, -1572861, 0, 1, -1507325, 0, 1, -1966089, 131072, 65536, -1835017, 196608, 1, -1638409, 131072, 65536, -1507337, 196608, 1, -1638402, 65536, 65536, -1507330, 65536, 1, -1835010, 65536, 1, -1966082, 65536, 65536, -2162685, 0, 1, -2097166, 262144, 1, -1900553, 0, 1, -1572873, 0, 1, -1572866, 262144, 1, -1900546, 262144, 1, -1572872, 131072, 1, -1572867, 131072, 1, -1900547, 131072, 1, -1900552, 131072, 1, -1835015, 65536, 1, -1507335, 65536, 1, -1572871, 262144, 1, -1900551, 262144, 1, -1966087, 65536, 65536, -1638407, 65536, 65536, -1507332, 196608, 1, -1835012, 196608, 1, -1900548, 0, 1, -1572868, 0, 1, -1966084, 131072, 65536, -1638404, 131072, 65536, -2228238, 65536, 0, -2293757, 131072, 0, -2162702, 262144, 1, -2228221, 0, 1, -2228237, 131072, 1, -2228236, 131072, 1, -2228235, 131072, 1, -2228234, 131072, 1, -2228233, 131072, 1, -2228232, 131072, 1, -2228231, 131072, 1, -2228230, 131072, 1, -2228229, 131072, 1, -2228228, 131072, 1, -2228227, 131072, 1, -2228226, 131072, 1, -2228225, 131072, 1, -2293760, 131072, 1, -2293759, 131072, 1, -2293758, 131072, 1)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -501,7 +509,6 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_kqwrs")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
@@ -542,14 +549,35 @@ position = Vector2(-384, -1856)
 
 [node name="CleanerBoss2PatrolIndicator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
 position = Vector2(-640, -3456)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolActions = Array[int]([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../5"), NodePath("../6"), NodePath("../2"), NodePath("../7"), NodePath("../8"), NodePath("../5"), NodePath("../4"), NodePath("../9"), NodePath("../7")]
 
 [node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
-position = Vector2(-1664, -3456)
+position = Vector2(-640, -3424)
 
 [node name="2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
-position = Vector2(384, -3456)
+position = Vector2(-1408, -3424)
+
+[node name="3" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(-1408, -4064)
+
+[node name="4" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(-640, -4064)
+
+[node name="5" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(-640, -2816)
+
+[node name="6" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(-1344, -2816)
+
+[node name="7" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(64, -3424)
+
+[node name="8" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(64, -2816)
+
+[node name="9" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
+position = Vector2(64, -4056)
 
 [node name="Movables" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
@@ -557,8 +585,14 @@ y_sort_enabled = true
 [node name="Soap" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("29_6sxxu")]
 position = Vector2(-1152, -2176)
 
+[node name="Soap2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("29_6sxxu")]
+position = Vector2(-832, -3128)
+
 [node name="MetalRod" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("17_dnihd")]
 position = Vector2(-448, -1816)
+
+[node name="MetalRod2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Movables" instance=ExtResource("17_dnihd")]
+position = Vector2(-192, -3776)
 
 [node name="BossAdvancers" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 
@@ -568,6 +602,13 @@ bossName = "CleanerBoss"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"]
 shape = SubResource("RectangleShape2D_astmm")
+
+[node name="BossAdvancer2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/BossAdvancers" instance=ExtResource("30_427wy")]
+position = Vector2(-1648, -3456)
+bossName = "CleanerBoss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"]
+shape = SubResource("RectangleShape2D_jwgqn")
 
 [node name="Doors" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
@@ -685,33 +726,236 @@ rotation = 1.5708
 position = Vector2(352, 256)
 rotation = 1.5708
 
+[node name="Room2Puzzle" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
+y_sort_enabled = true
+
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(-1736, -3968)
+waterwaysToActivate = [NodePath("../WaterwayPool"), NodePath("../Waterway4")]
+questToSendProgressSignal = NodePath("../../..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="HeatSourceActivator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" instance=ExtResource("18_ff0db")]
+position = Vector2(-1664, -2824)
+activated = true
+
+[node name="WaterSource" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(432, -3520)
+alwaysFilled = true
+waterwaysToActivate = [NodePath("../Waterway")]
+
+[node name="WaterSource2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(432, -4288)
+waterwaysToActivate = [NodePath("../Waterway"), NodePath("../Waterway2")]
+
+[node name="WaterSource3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-592, -4288)
+waterwaysToActivate = [NodePath("../Waterway2"), NodePath("../Waterway3")]
+
+[node name="WaterSource4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-1488, -4288)
+waterwaysToActivate = [NodePath("../Waterway3"), NodePath("../Waterway4")]
+
+[node name="WaterwayPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" instance=ExtResource("12_vc1fv")]
+position = Vector2(-1648, -3456)
+
+[node name="WaterwayAngleComponentPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(64, 448)
+
+[node name="WaterwayAngleComponentPool2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-64, 448)
+rotation = 1.5708
+
+[node name="WaterwayAngleComponentPool3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-64, -448)
+rotation = 3.14159
+
+[node name="WaterwayAngleComponentPool4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("31_s5uyt")]
+position = Vector2(64, -448)
+rotation = 4.71239
+
+[node name="WaterwaySideComponentPool" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, 64)
+
+[node name="WaterwaySideComponentPool2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, -64)
+
+[node name="WaterwaySideComponentPool3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, -192)
+
+[node name="WaterwaySideComponentPool4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, -320)
+
+[node name="WaterwaySideComponentPool5" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, -320)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool6" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, -192)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool7" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, -64)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool8" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, 64)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool9" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, 192)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool10" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, 192)
+
+[node name="WaterwaySideComponentPool11" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(64, 320)
+
+[node name="WaterwaySideComponentPool12" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterwayPool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-64, 320)
+rotation = 3.14159
+
+[node name="Waterway" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(432, -3904)
+objectsToFill = [NodePath("../WaterSource2")]
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 256)
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 128)
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+
+[node name="WaterwayComponent4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -128)
+
+[node name="WaterwayComponent5" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -256)
+
+[node name="Waterway2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-80, -4288)
+objectsToFill = [NodePath("../WaterSource2"), NodePath("../WaterSource3")]
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(384, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(256, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(128, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+rotation = 1.5708
+
+[node name="WaterwayComponent5" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(-128, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent6" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(-256, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent7" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(-384, 0)
+rotation = 1.5708
+
+[node name="Waterway3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-1040, -4288)
+objectsToFill = [NodePath("../WaterSource3"), NodePath("../WaterSource4")]
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(320, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(192, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(64, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(-64, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent5" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(-192, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent6" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway3" instance=ExtResource("14_4x8ki")]
+position = Vector2(-320, 0)
+rotation = 1.5708
+
+[node name="Waterway4" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-1616, -4288)
+objectsToFill = [NodePath("../WaterSource4"), NodePath("../BathroomGeneratorYokai")]
+
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" instance=ExtResource("15_3wwmr")]
+position = Vector2(-128, 0)
+rotation = 3.14159
+
+[node name="WaterwayComponent" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" instance=ExtResource("14_4x8ki")]
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" instance=ExtResource("14_4x8ki")]
+position = Vector2(-128, 128)
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(-128, 232)
+waterSprite = NodePath("../WaterwayComponent2/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent2/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent2/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent2/RemovableCollisionShape2D")
+
 [node name="Transformations" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
 [node name="Gear" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Transformations" instance=ExtResource("14_vrk40")]
 position = Vector2(-72, -2616)
 
+[node name="Gear2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Transformations" instance=ExtResource("14_vrk40")]
+position = Vector2(-848, -3776)
+
 [node name="Obstacles" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
 [node name="DirtyFloorUnremoveable" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Obstacles" instance=ExtResource("34_taace")]
-position = Vector2(-1024, -1632)
+position = Vector2(-1024, -1616)
 scale = Vector2(2, 1)
+
+[node name="DirtyFloorUnremoveable2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Obstacles" instance=ExtResource("34_taace")]
+position = Vector2(-640, -2736)
+scale = Vector2(1, 0.5)
 
 [node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/BathroomsUltraKey" instance=ExtResource("27_bdgoy")]
 position = Vector2(-640, -2816)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BathroomsUltraKey/PlayerInSpecialRoomSoundTrigger"]
 visible = false
-polygon = PackedVector2Array(-640, 96, -1136, 96, -1136, -1280, 1136, -1280, 1136, 96, 640, 96, 640, 1248, -640, 1248)
+polygon = PackedVector2Array(-640, 96, -1136, 96, -1136, -1536, 1136, -1536, 1136, 96, 640, 96, 640, 1248, -640, 1248)
 
 [node name="SavePoint" parent="Quests/BathroomsUltraKey" instance=ExtResource("8_agnml")]
-position = Vector2(-1024, -1728)
+position = Vector2(-1024, -1760)
 onEnter = true
 oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_0ygcl")
+
+[node name="SavePoint2" parent="Quests/BathroomsUltraKey" instance=ExtResource("8_agnml")]
+position = Vector2(-1472, -3456)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/SavePoint2"]
+shape = SubResource("RectangleShape2D_ktwfu")
 
 [node name="Teleport" type="Node2D" parent="."]
 
