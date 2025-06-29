@@ -171,7 +171,7 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="BathroomGeneratorYokai3" parent="Quests/BathroomsActivatePools/BathroomGeneratorYokais" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
 position = Vector2(104, -160)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../Waterways/Waterway8"), NodePath("../../../BathroomsRescueOldYokai/WaterwayPool")]
+waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../../BathroomsRescueOldYokai/WaterwayPool")]
 questToSendProgressSignal = NodePath("../..")
 sendSignalToQuestOnDestroyed = true
 
@@ -317,43 +317,6 @@ position = Vector2(0, -8)
 [node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -136)
 
-[node name="Waterway8" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-128, -192)
-objectsToFill = [NodePath("../../../BathroomsRescueOldYokai/WaterwayPool")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 128)
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 256)
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 384)
-
-[node name="WaterwayComponent6" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 512)
-
-[node name="WaterwayComponent7" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 640)
-
-[node name="WaterwayComponent8" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 768)
-
-[node name="WaterwayComponent9" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 896)
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(144, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("14_4x8ki")]
-position = Vector2(16, 0)
-rotation = 1.5708
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway8" instance=ExtResource("15_3wwmr")]
-position = Vector2(-112, 0)
-rotation = 3.14159
-
 [node name="MetalRod" parent="Quests/BathroomsActivatePools" instance=ExtResource("17_dnihd")]
 position = Vector2(-896, -896)
 
@@ -392,6 +355,39 @@ position = Vector2(-784, 832)
 
 [node name="WaterwayPool" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("12_vc1fv")]
 position = Vector2(-240, 1152)
+
+[node name="WaterwayComponent" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -1216)
+
+[node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -1088)
+
+[node name="WaterwayComponent5" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -960)
+
+[node name="WaterwayComponent6" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -832)
+
+[node name="WaterwayComponent7" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -704)
+
+[node name="WaterwayComponent8" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -576)
+
+[node name="WaterwayComponent9" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -448)
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(256, -1344)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
+position = Vector2(128, -1344)
+rotation = 1.5708
+
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("15_3wwmr")]
+position = Vector2(0, -1344)
+rotation = 3.14159
 
 [node name="WaterwayAngleComponentPool" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
 position = Vector2(64, -192)
