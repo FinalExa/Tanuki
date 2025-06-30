@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=21 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -9,9 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="7_414b1"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="10_o622i"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="11_so61q"]
+[ext_resource type="PackedScene" uid="uid://nxs64fn68deh" path="res://ImportantObjects/Interactables/water_source.tscn" id="12_4r0v7"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="12_ek3dw"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="12_xlk2i"]
+[ext_resource type="PackedScene" uid="uid://cd3gaf23mwna6" path="res://ImportantObjects/Interactables/Supplementary/waterway.tscn" id="13_7eao1"]
 [ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="13_l1y5t"]
+[ext_resource type="PackedScene" uid="uid://cfcok3rcrq4wj" path="res://ImportantObjects/Interactables/Supplementary/waterway_component.tscn" id="14_8pii6"]
+[ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="15_l2qwj"]
 [ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_b0jkp"]
 [ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="22_3eqef"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
@@ -71,10 +75,10 @@ stream = ExtResource("6_diyhy")
 y_sort_enabled = true
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("7_414b1")]
-position = Vector2(128, 128)
+position = Vector2(704, 128)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("7_414b1")]
-position = Vector2(1152, -1472)
+position = Vector2(64, -640)
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -89,7 +93,7 @@ questItemsOnOffState = Array[bool]([false, false, false, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3")]
 
 [node name="GeneratorPart1" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_b0jkp")]
-position = Vector2(928, -1304)
+position = Vector2(544, -312)
 
 [node name="GeneratorPart2" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("21_b0jkp")]
 position = Vector2(288, -312)
@@ -100,12 +104,280 @@ position = Vector2(312, 1072)
 partID = 2
 
 [node name="BrokenGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_3eqef")]
-position = Vector2(256, 128)
+position = Vector2(632, 456)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("11_so61q")]
-position = Vector2(256, 128)
+position = Vector2(632, 456)
+
+[node name="WaterSources" type="Node2D" parent="Quests"]
+
+[node name="WaterSource" parent="Quests/WaterSources" instance=ExtResource("12_4r0v7")]
+position = Vector2(960, -1472)
+alwaysFilled = true
+
+[node name="WaterSource2" parent="Quests/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite") instance=ExtResource("12_4r0v7")]
+position = Vector2(1216, -960)
+emptySprite = NodePath("../WaterSource/EmptySprite")
+fullSprite = NodePath("../WaterSource/FullSprite")
+
+[node name="WaterSource5" parent="Quests/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite") instance=ExtResource("12_4r0v7")]
+position = Vector2(192, -960)
+emptySprite = NodePath("../WaterSource/EmptySprite")
+fullSprite = NodePath("../WaterSource/FullSprite")
+
+[node name="WaterSource6" parent="Quests/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite") instance=ExtResource("12_4r0v7")]
+position = Vector2(192, 64)
+emptySprite = NodePath("../WaterSource/EmptySprite")
+fullSprite = NodePath("../WaterSource/FullSprite")
+
+[node name="WaterSource3" parent="Quests/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite") instance=ExtResource("12_4r0v7")]
+position = Vector2(1216, -64)
+emptySprite = NodePath("../WaterSource/EmptySprite")
+fullSprite = NodePath("../WaterSource/FullSprite")
+
+[node name="WaterSource4" parent="Quests/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite") instance=ExtResource("12_4r0v7")]
+position = Vector2(1216, 704)
+emptySprite = NodePath("../WaterSource/EmptySprite")
+fullSprite = NodePath("../WaterSource/FullSprite")
+
+[node name="Waterways" type="Node2D" parent="Quests"]
+
+[node name="Waterway" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+position = Vector2(960, -1216)
+
+[node name="WaterwayComponent" parent="Quests/Waterways/Waterway" instance=ExtResource("14_8pii6")]
+position = Vector2(0, -128)
+
+[node name="WaterwayComponent2" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent3" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 128)
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent4" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(128, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent5" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-128, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent6" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-256, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent7" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-384, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent8" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-512, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent9" parent="Quests/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-640, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayTComponent" parent="Quests/Waterways/Waterway" instance=ExtResource("15_l2qwj")]
+position = Vector2(0, 256)
+
+[node name="Waterway2" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+position = Vector2(1216, -576)
+
+[node name="WaterwayComponent" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, -256)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent2" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, -128)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent3" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent4" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 128)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent5" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 256)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent6" parent="Quests/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 384)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="Waterway3" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+position = Vector2(1216, 320)
+
+[node name="WaterwayComponent" parent="Quests/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, -256)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent2" parent="Quests/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, -128)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent3" parent="Quests/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent4" parent="Quests/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 128)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent5" parent="Quests/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 256)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="Waterway4" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+position = Vector2(1216, 320)
+
+[node name="WaterwayComponent" parent="Quests/Waterways/Waterway4" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(0, 512)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="Waterway5" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+position = Vector2(960, -1216)
+
+[node name="WaterwayComponent" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-768, 384)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent2" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-768, 512)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent3" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-768, 640)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent6" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-768, 896)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent8" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-768, 1152)
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent4" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-896, 256)
+rotation = 1.5708
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent5" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-896, 768)
+rotation = 1.5708
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayComponent7" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(-896, 1024)
+rotation = 1.5708
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayTComponent" parent="Quests/Waterways/Waterway5" instance=ExtResource("15_l2qwj")]
+position = Vector2(-768, 768)
+rotation = -1.5708
+
+[node name="WaterwayTComponent2" parent="Quests/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("15_l2qwj")]
+position = Vector2(-768, 1024)
+rotation = -1.5708
+waterSprite = NodePath("../WaterwayTComponent/Water")
+bridgeLowSprite = NodePath("../WaterwayTComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayTComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayTComponent/RemovableCollisionShape2D")
 
 [node name="UnlocksAfterQuestStage" type="Node2D" parent="."]
 
@@ -121,7 +393,7 @@ objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
 position = Vector2(928, 304)
 
 [node name="TravelToBathrooms" parent="Teleport" instance=ExtResource("12_xlk2i")]
-position = Vector2(896, 1344)
+position = Vector2(992, 928)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Bathrooms.tscn"
 

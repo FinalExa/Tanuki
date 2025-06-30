@@ -134,7 +134,7 @@ position = Vector2(448, -1088)
 position = Vector2(872, 320)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1024, 1216)
+position = Vector2(-1024, 1120)
 
 [node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
 position = Vector2(-1472, -3456)
@@ -488,6 +488,14 @@ bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
 bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
 removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
 
+[node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(-136, 0)
+rotation = 1.5708
+waterSprite = NodePath("../../Waterway/WaterwayComponent/Water")
+bridgeLowSprite = NodePath("../../Waterway/WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../../Waterway/WaterwayComponent/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../../Waterway/WaterwayComponent/RemovableCollisionShape2D")
+
 [node name="Waterway2" parent="Quests/BathroomsRescueOldYokai/Waterways" instance=ExtResource("12_vc1fv")]
 position = Vector2(192, 1216)
 
@@ -516,6 +524,14 @@ rotation = 1.5708
 position = Vector2(464, 0)
 rotation = 1.5708
 
+[node name="WaterwayComponent7" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(528, 0)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent6/Water")
+bridgeLowSprite = NodePath("../WaterwayComponent6/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent6/BridgeBridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent6/RemovableCollisionShape2D")
+
 [node name="BathroomsCleanFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("10_67fd8")
 questName = "BathroomsCleanFloor"
@@ -526,15 +542,15 @@ questStageAdvancers = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePat
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
 
 [node name="CleanerNPC" parent="Quests/BathroomsCleanFloor" instance=ExtResource("25_hmgvd")]
-position = Vector2(-1152, 1216)
+position = Vector2(-1152, 1088)
 
 [node name="DirtyFloor1" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(-1144, 880)
+position = Vector2(-1088, 600)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor2" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(120, 496)
+position = Vector2(448, 496)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
