@@ -1098,7 +1098,7 @@ shape = SubResource("RectangleShape2D_5v6nd")
 position = Vector2(-160, 0)
 
 [node name="TravelToSewers" parent="Teleport" instance=ExtResource("3_abhd1")]
-position = Vector2(896, 1344)
+position = Vector2(-480, -1440)
 sceneToLoad = "res://1_Scenes/BathroomsSewers.tscn"
 removeTransformation = true
 
@@ -1109,7 +1109,7 @@ texture = ExtResource("26_dyv1j")
 shape = SubResource("RectangleShape2D_ubcq0")
 
 [node name="SewersReceiver" type="Node2D" parent="Teleport/TravelToSewers"]
-position = Vector2(0, -168)
+position = Vector2(0, 192)
 
 [node name="SavePoints" type="Node2D" parent="."]
 
