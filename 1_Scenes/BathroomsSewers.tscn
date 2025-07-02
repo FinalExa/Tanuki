@@ -109,8 +109,9 @@ position = Vector2(112, 864)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" instance=ExtResource("11_so61q")]
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_so61q")]
 position = Vector2(112, 864)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway9")]
 
 [node name="WaterSources" type="Node2D" parent="Quests"]
 
@@ -328,8 +329,9 @@ position = Vector2(0, 320)
 [node name="WaterwayComponent6" parent="Quests/Waterways/Waterway8" instance=ExtResource("14_8pii6")]
 position = Vector2(0, 448)
 
-[node name="Waterway9" parent="Quests/Waterways" instance=ExtResource("13_7eao1")]
+[node name="Waterway9" parent="Quests/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("13_7eao1")]
 position = Vector2(448, 704)
+objectsToFill = [null, NodePath("../../WaterSources/WaterSource8")]
 
 [node name="WaterwayComponent" parent="Quests/Waterways/Waterway9" instance=ExtResource("14_8pii6")]
 position = Vector2(-128, 0)
