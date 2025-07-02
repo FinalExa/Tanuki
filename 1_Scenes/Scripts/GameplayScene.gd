@@ -86,7 +86,7 @@ func SetCurrentKeysForPlayer():
 				levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
 				if (currentUsedArray[i] != -1 && levelUnlockKeyDoors.size() > 0):
 					levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
-	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType)):
+	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType) && levelSpecialKey != null):
 		levelSpecialKey.AlreadyGotThisKey()
 
 func SetPlayerSpawn(spawnPoint: Vector2):
