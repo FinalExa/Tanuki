@@ -224,7 +224,7 @@ hasBridge = true
 
 [node name="Waterway2" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(160, -960)
-objectsToFill = [NodePath("../../BathroomGeneratorYokais/BathroomGeneratorYokai")]
+objectsToFill = [NodePath("../../BathroomGeneratorYokais/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
 position = Vector2(-96, 0)

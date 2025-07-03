@@ -10,7 +10,8 @@ func _process(_delta):
 func CheckForRightTransformationTag():
 	if (playerRef != null): 
 		PlayerCheck()
-		MovableCheck(playerRef.playerMoveObjects.currentObject)
+		if (playerRef.playerMoveObjects.currentObject != null && playerRef.playerMoveObjects.currentObject is MovableObject):
+			MovableCheck(playerRef.playerMoveObjects.currentObject)
 
 func PlayerCheck():
 	if (playerRef.transformationChangeRef.isTransformed):
@@ -28,18 +29,17 @@ func PlayerCheck():
 			playerRef.transformationChangeRef.SetNoTransformation()
 
 func MovableCheck(movable: MovableObject):
-	if (movable != null):
-		var selectedProperty: String
-		for i in movable.movableObjectProperties.size():
-			if (interactableToOperate.neededProperties.has(movable.movableObjectProperties[i])):
-				selectedProperty = movable.movableObjectProperties[i]
-				break
-		if (selectedProperty != ""):
-			if (!interactableToOperate.receiveRefAttack):
-				interactableToOperate.AttackInteraction(selectedProperty)
-				playerRef.playerMoveObjects.DeleteLeftoverObject()
-			else:
-				interactableToOperate.ExecuteRefEffect(playerRef)
+	var selectedProperty: String
+	for i in movable.movableObjectProperties.size():
+		if (interactableToOperate.neededProperties.has(movable.movableObjectProperties[i])):
+			selectedProperty = movable.movableObjectProperties[i]
+			break
+	if (selectedProperty != ""):
+		if (!interactableToOperate.receiveRefAttack):
+			interactableToOperate.AttackInteraction(selectedProperty)
+			playerRef.playerMoveObjects.DeleteLeftoverObject()
+		else:
+			interactableToOperate.ExecuteRefEffect(playerRef)
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):

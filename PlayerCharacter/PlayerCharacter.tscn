@@ -209,8 +209,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nxjry"]
-radius = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_42ug5"]
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hwtr"]
 radius = 128.996
@@ -304,8 +304,9 @@ playerInputs = NodePath("../../../PlayerInputs")
 playerRef = NodePath("../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_nxjry")
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_42ug5")
 
 [node name="PlayerMoveObjects" type="Area2D" parent="." node_paths=PackedStringArray("playerCharacter", "playerInputs", "transformationChange")]
 position = Vector2(0, -40)
