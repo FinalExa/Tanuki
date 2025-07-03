@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bblehq4o77yfn"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_nuys0"]
+[ext_resource type="Texture2D" uid="uid://ga8arqpfhbr4" path="res://ImportantObjects/Interactables/Sprites/UpHole.png" id="2_rt65n"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_jmdx6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aso3h"]
+atlas = ExtResource("2_rt65n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_droqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aso3h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_releg"]
+radius = 96.3328
+
+[node name="Uphole" type="Node2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_nuys0")
+neededProperties = Array[String](["Ladder"])
+destroyOnEnd = true
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlay = "idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_droqo")
+animation = &"idle"
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_jmdx6")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CircleShape2D_releg")

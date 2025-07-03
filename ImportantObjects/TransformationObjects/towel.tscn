@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1srj5qekq184"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_csix8"]
+[ext_resource type="Texture2D" uid="uid://jggncubmkjco" path="res://Enemies/Sprites/Panno Governante.png" id="2_cgskc"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_yew0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbbya"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prr1p"]
+radius = 128.25
+
+[node name="Towel" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_csix8")
+transformedName = "Towel"
+transformedSpeedTier = 1
+transformedProperties = Array[String](["Slim"])
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+originalObjectPath = "res://ImportantObjects/TransformationObjects/towel.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jbbya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_cgskc")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_yew0i")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_prr1p")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

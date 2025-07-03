@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=32 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -15,12 +15,15 @@
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/UnlocksAfterQuestStage.gd" id="12_ek3dw"]
 [ext_resource type="PackedScene" uid="uid://txdt2sna11tq" path="res://Level/SceneChange/Traveling_area.tscn" id="12_xlk2i"]
 [ext_resource type="PackedScene" uid="uid://cd3gaf23mwna6" path="res://ImportantObjects/Interactables/Supplementary/waterway.tscn" id="13_7eao1"]
-[ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="13_l1y5t"]
 [ext_resource type="PackedScene" uid="uid://cfcok3rcrq4wj" path="res://ImportantObjects/Interactables/Supplementary/waterway_component.tscn" id="14_8pii6"]
 [ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="15_l2qwj"]
 [ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="16_85bqs"]
+[ext_resource type="PackedScene" uid="uid://bblehq4o77yfn" path="res://ImportantObjects/Interactables/up_hole.tscn" id="19_r5mj2"]
+[ext_resource type="PackedScene" uid="uid://cked3biudowj0" path="res://ImportantObjects/MovableObjects/ladder_movable.tscn" id="20_ln26w"]
 [ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_b0jkp"]
 [ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="22_3eqef"]
+[ext_resource type="Texture2D" uid="uid://ga8arqpfhbr4" path="res://ImportantObjects/Interactables/Sprites/UpHole.png" id="22_rpbjv"]
+[ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="23_sd8m4"]
 [ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="23_w4u03"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
 
@@ -66,7 +69,7 @@ playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
 keyTypeToShow = 2
 levelUnlockKeys = [null, NodePath("Keys/UnlockKey2"), null, null, NodePath("Keys/UnlockKey5")]
-mapQuests = [NodePath("Quests/BathroomsRepairBrokenGenerator")]
+mapQuests = [NodePath("Quests/BathroomsRepairBrokenGenerator"), NodePath("Quests/BathroomsUnlockSewerStairs")]
 unlocksAfterQuestStages = [NodePath("UnlocksAfterQuestStage/UnlocksAfterBathroomsSewersKey")]
 travelingAreas = [NodePath("Teleport/TravelToBathrooms")]
 travelingReceivers = [NodePath("Teleport/TravelToBathrooms/BathroomsReceiver")]
@@ -376,6 +379,7 @@ position = Vector2(-512, 128)
 
 [node name="WaterwayComponent7" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway10" instance=ExtResource("14_8pii6")]
 position = Vector2(-512, 256)
+hasBridge = true
 
 [node name="WaterwayComponent8" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway10" instance=ExtResource("14_8pii6")]
 position = Vector2(-512, 384)
@@ -399,6 +403,23 @@ rotation = 1.5708
 position = Vector2(-512, 0)
 rotation = 3.14159
 
+[node name="BathroomsUnlockSewerStairs" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_o622i")
+questName = "BathroomsUnlockSewerStairs"
+questItemsToOperate = [NodePath("../../Teleport/TravelToBathrooms"), NodePath("../../Teleport/TravelToBathrooms")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("Uphole"), NodePath("Ladder")]
+
+[node name="Uphole" parent="Quests/BathroomsUnlockSewerStairs" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_r5mj2")]
+position = Vector2(544, -1312)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="Ladder" parent="Quests/BathroomsUnlockSewerStairs" instance=ExtResource("20_ln26w")]
+position = Vector2(64, -1344)
+
 [node name="UnlocksAfterQuestStage" type="Node2D" parent="."]
 
 [node name="UnlocksAfterBathroomsSewersKey" type="Node2D" parent="UnlocksAfterQuestStage" node_paths=PackedStringArray("objectsToAdd")]
@@ -408,11 +429,13 @@ requiredQuestStage = 1
 objectsToAdd = [NodePath("../../Keys/UnlockKey5")]
 
 [node name="Teleport" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="PlayerSpawn" type="Node2D" parent="Teleport"]
 position = Vector2(712, -1080)
 
 [node name="TravelToBathrooms" parent="Teleport" instance=ExtResource("12_xlk2i")]
+y_sort_enabled = true
 position = Vector2(544, -1312)
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Bathrooms.tscn"
@@ -421,11 +444,16 @@ removeTransformation = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/TravelToBathrooms"]
 shape = SubResource("RectangleShape2D_rqtt5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Teleport/TravelToBathrooms"]
-texture = ExtResource("13_l1y5t")
+[node name="BG" type="Sprite2D" parent="Teleport/TravelToBathrooms"]
+z_index = -1
+texture = ExtResource("22_rpbjv")
+
+[node name="Ladder" type="Sprite2D" parent="Teleport/TravelToBathrooms"]
+position = Vector2(0, -16)
+texture = ExtResource("23_sd8m4")
 
 [node name="BathroomsReceiver" type="Node2D" parent="Teleport/TravelToBathrooms"]
-position = Vector2(0, 128)
+position = Vector2(0, 192)
 
 [node name="Transformations" type="Node2D" parent="."]
 y_sort_enabled = true
