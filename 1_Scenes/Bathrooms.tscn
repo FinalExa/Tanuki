@@ -105,7 +105,7 @@ keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUltraKey")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
 travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("Teleport/TravelToSewers")]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("Teleport/TravelToSewers/SewersReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -140,7 +140,7 @@ position = Vector2(-1024, 1120)
 [node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
 position = Vector2(-1472, -3456)
 keyAdvancesQuest = true
-questToAdvance = NodePath("../../Quests/BathroomsUltraKey")
+questToAdvance = NodePath("../../Quests/BathroomsGetUltraKey")
 
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("9_du280")]
 position = Vector2(-1024, -1600)
@@ -611,13 +611,14 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(1216, -1400)
 texture = ExtResource("26_nder6")
 
-[node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
+[node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsUltraKey"
-questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("SavePoint"), NodePath("SavePoint2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/Doors/Door"), NodePath("UltraKeyRoomTileMap/Movables/Soap"), NodePath("UltraKeyRoomTileMap/Movables/MetalRod"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 4, 5, 6])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, true, true, true, true, true, true, false, false, true, true, true])
+questItemsToOperate = [NodePath("UltraKeyRoomTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("SavePoint"), NodePath("../BathroomsGetUltraKey/SavePoint"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("SavePoint"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer"), NodePath("UltraKeyRoomTileMap/NavigationRegion2D3"), NodePath("UltraKeyRoomTileMap/Doors/Door"), NodePath("UltraKeyRoomTileMap/Movables/Soap"), NodePath("UltraKeyRoomTileMap/Movables/MetalRod"), NodePath("UltraKeyRoomTileMap/BossAdvancers/BossAdvancer2"), NodePath("../../Keys/SpecialUnlockKey")]
+questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 4, 5])
+questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, true, true, true, true, true, true, false, false, true, true])
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsGetUltraKey")]
 objectsToFinalizeAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Room1Puzzle/BathroomGeneratorYokai"), NodePath("UltraKeyRoomTileMap/Room2Puzzle/BathroomGeneratorYokai")]
 objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Enemies/CleanerBoss")]
 
@@ -1085,12 +1086,19 @@ oneTimeSave = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_0ygcl")
 
-[node name="SavePoint2" parent="Quests/BathroomsUltraKey" instance=ExtResource("8_agnml")]
+[node name="BathroomsGetUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+script = ExtResource("10_67fd8")
+questName = "BathroomsGetUltraKey"
+questItemsToOperate = [NodePath("SavePoint"), NodePath("SavePoint")]
+questItemsStages = Array[int]([0, 2])
+questItemsOnOffState = Array[bool]([false, true])
+
+[node name="SavePoint" parent="Quests/BathroomsGetUltraKey" instance=ExtResource("8_agnml")]
 position = Vector2(-1472, -3456)
 onEnter = true
 oneTimeSave = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/SavePoint2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsGetUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_ktwfu")
 
 [node name="Teleport" type="Node2D" parent="."]
