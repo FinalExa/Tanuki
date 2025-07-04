@@ -28,9 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_03o23"]
-vertices = PackedVector2Array(32, -1504, 1248, -1504, 1248, 1504, 32, 1504)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(32, -1504, 1248, -1504, 1248, 1504, 32, 1504)])
+vertices = PackedVector2Array(256, -1040, 256, -1408, 896, -1408, 272, -1040, 272, -880, 896, -896, 624, -16, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 784, 144, 768, 624, 768, 144, 784, -16, 624, 0, 256, 0, 256, -880)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(5, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 20, 21), PackedInt32Array(14, 16, 21), PackedInt32Array(13, 14, 21, 22), PackedInt32Array(10, 13, 22, 23), PackedInt32Array(22, 24, 25, 23), PackedInt32Array(10, 23, 26, 9), PackedInt32Array(6, 27, 28, 29, 4), PackedInt32Array(6, 5, 9, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(256, -1408, 896, -1408, 896, -896, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 768, 624, 768, 144, 784, 144, 784, -16, 624, -16, 624, 0, 256, 0, 256, -880, 272, -880, 272, -1040, 256, -1040)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtt5"]
 size = Vector2(64, 64)
