@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=33 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -26,6 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="23_sd8m4"]
 [ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="23_w4u03"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_03o23"]
+vertices = PackedVector2Array(32, -1504, 1248, -1504, 1248, 1504, 32, 1504)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -1504, 1248, -1504, 1248, 1504, 32, 1504)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtt5"]
 size = Vector2(64, 64)
@@ -89,6 +94,12 @@ stream = ExtResource("5_25gvt")
 
 [node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("6_diyhy")
+
+[node name="NavigationRegions" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegions"]
+navigation_polygon = SubResource("NavigationPolygon_03o23")
 
 [node name="Keys" type="Node2D" parent="."]
 y_sort_enabled = true
