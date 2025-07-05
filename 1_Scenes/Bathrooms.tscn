@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=58 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="34_taace"]
 [ext_resource type="Texture2D" uid="uid://dey3jtqhafvno" path="res://ImportantObjects/Interactables/Sprites/GrateOpen.png" id="39_sxs3x"]
 [ext_resource type="PackedScene" uid="uid://c1srj5qekq184" path="res://ImportantObjects/TransformationObjects/towel.tscn" id="41_4w2mt"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="42_2bcdm"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="43_2cow1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
 vertices = PackedVector2Array(1248, -1504, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -528, -144, -528, -144, -496, -624, -496, -624, -528, -656, -960, -656, -528, -1176, -1008, -752, -960, -752, -528, -784, -528, -1248, -1008, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -240, -288, -64, -1248, -64, -784, -368, -1176, -1088, -1248, -1088, -1248, -1504, 368, -1088, -144, -1424, 16, -1424)
@@ -398,7 +400,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="OldYokai" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_vkv67")]
-position = Vector2(-288, 864)
+position = Vector2(-152, 576)
 
 [node name="WaterwayPool" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-240, 768)
@@ -467,6 +469,7 @@ rotation = 3.14159
 [node name="WaterwaySideComponentPool6" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
 position = Vector2(-80, -192)
 rotation = 3.14159
+hasBridge = true
 
 [node name="WaterwaySideComponentPool7" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
 position = Vector2(48, -320)
@@ -481,6 +484,7 @@ position = Vector2(48, -64)
 
 [node name="WaterwayComponentPool2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
 position = Vector2(48, -192)
+hasBridge = true
 
 [node name="WaterwayComponentPool3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
 position = Vector2(176, -192)
@@ -495,7 +499,6 @@ rotation = 1.5708
 [node name="WaterwayAngleComponentPool3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
 position = Vector2(-80, -320)
 rotation = 3.14159
-hasBridge = true
 
 [node name="WaterwayAngleComponentPool4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
 position = Vector2(304, -320)
@@ -601,12 +604,12 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor2" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(448, 496)
+position = Vector2(240, 960)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor3" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(680, 1344)
+position = Vector2(704, 1280)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1208,3 +1211,155 @@ position = Vector2(-1248, 1216)
 
 [node name="Towel" parent="Transformations" instance=ExtResource("41_4w2mt")]
 position = Vector2(-448, 64)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CleanerUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
+position = Vector2(784, -1424)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerUpperRight/CUpperRight")]
+
+[node name="GuardUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
+position = Vector2(840, -720)
+patrolIndicators = [NodePath("../../PatrolPoints/GuardUpperRight/GUpperRight")]
+
+[node name="CleanerUpperLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
+position = Vector2(-960, -256)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerUpperLeft/CUpperLeft")]
+
+[node name="GuardUpperLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
+position = Vector2(-1032, -1200)
+patrolIndicators = [NodePath("../../PatrolPoints/GuardUpperLeft/GUpperLeft")]
+
+[node name="GuardMiddleLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
+position = Vector2(-560, 192)
+patrolIndicators = [NodePath("../../PatrolPoints/GuardMiddleLeft/GMiddleLeft")]
+
+[node name="CleanerMiddleRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
+position = Vector2(448, 968)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerMiddleRight/CMiddleRight")]
+
+[node name="GuardMiddleRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
+position = Vector2(-96, 192)
+patrolIndicators = [NodePath("../../PatrolPoints/GuardMiddleRight/GMiddleRight")]
+
+[node name="CleanerLower" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
+position = Vector2(-576, 856)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerLower/CLower")]
+
+[node name="PatrolPoints" type="Node2D" parent="."]
+
+[node name="CleanerUpperRight" type="Node2D" parent="PatrolPoints"]
+
+[node name="CUpperRight" parent="PatrolPoints/CleanerUpperRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../1"), NodePath("../2")]
+waitActions = Array[float]([1.0, 1.0])
+
+[node name="1" type="Node2D" parent="PatrolPoints/CleanerUpperRight"]
+position = Vector2(776, -192)
+
+[node name="2" type="Node2D" parent="PatrolPoints/CleanerUpperRight"]
+position = Vector2(776, -1424)
+
+[node name="GuardUpperRight" type="Node2D" parent="PatrolPoints"]
+
+[node name="GUpperRight" parent="PatrolPoints/GuardUpperRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(512, -720)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../3"), NodePath("../4")]
+waitActions = Array[float]([1.0, 1.0])
+lookActions = Array[int]([3, 3])
+
+[node name="3" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
+position = Vector2(64, -720)
+
+[node name="4" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
+position = Vector2(960, -720)
+
+[node name="CleanerUpperLeft" type="Node2D" parent="PatrolPoints"]
+
+[node name="CUpperLeft" parent="PatrolPoints/CleanerUpperLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(-960, -696)
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../6"), NodePath("../5")]
+waitActions = Array[float]([1.0, 1.0])
+
+[node name="5" type="Node2D" parent="PatrolPoints/CleanerUpperLeft"]
+position = Vector2(-960, -256)
+
+[node name="6" type="Node2D" parent="PatrolPoints/CleanerUpperLeft"]
+position = Vector2(-960, -1200)
+
+[node name="GuardUpperLeft" type="Node2D" parent="PatrolPoints"]
+
+[node name="GUpperLeft" parent="PatrolPoints/GuardUpperLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../8"), NodePath("../7")]
+waitActions = Array[float]([1.0, 1.0])
+lookActions = Array[int]([2, 3])
+
+[node name="7" type="Node2D" parent="PatrolPoints/GuardUpperLeft"]
+position = Vector2(-1216, -1200)
+
+[node name="8" type="Node2D" parent="PatrolPoints/GuardUpperLeft"]
+position = Vector2(-208, -1200)
+
+[node name="GuardMiddleLeft" type="Node2D" parent="PatrolPoints"]
+
+[node name="GMiddleLeft" parent="PatrolPoints/GuardMiddleLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../9"), NodePath("../10")]
+waitActions = Array[float]([1.0, 1.0])
+lookActions = Array[int]([2, 3])
+
+[node name="9" type="Node2D" parent="PatrolPoints/GuardMiddleLeft"]
+position = Vector2(-1152, 192)
+
+[node name="10" type="Node2D" parent="PatrolPoints/GuardMiddleLeft"]
+position = Vector2(-384, 192)
+
+[node name="CleanerMiddleRight" type="Node2D" parent="PatrolPoints"]
+
+[node name="CMiddleRight" parent="PatrolPoints/CleanerMiddleRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(448, 512)
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../11"), NodePath("../12")]
+waitActions = Array[float]([1.0, 1.0])
+
+[node name="11" type="Node2D" parent="PatrolPoints/CleanerMiddleRight"]
+position = Vector2(448, 272)
+
+[node name="12" type="Node2D" parent="PatrolPoints/CleanerMiddleRight"]
+position = Vector2(448, 968)
+
+[node name="GuardMiddleRight" type="Node2D" parent="PatrolPoints"]
+
+[node name="GMiddleRight" parent="PatrolPoints/GuardMiddleRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(384, 192)
+patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
+moveActions = [NodePath("../14"), NodePath("../13")]
+waitActions = Array[float]([1.0, 1.0])
+lookActions = Array[int]([2, 3])
+
+[node name="13" type="Node2D" parent="PatrolPoints/GuardMiddleRight"]
+position = Vector2(-96, 192)
+
+[node name="14" type="Node2D" parent="PatrolPoints/GuardMiddleRight"]
+position = Vector2(704, 192)
+
+[node name="CleanerLower" type="Node2D" parent="PatrolPoints"]
+
+[node name="CLower" parent="PatrolPoints/CleanerLower" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+position = Vector2(-576, 1088)
+patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
+moveActions = [NodePath("../16"), NodePath("../17"), NodePath("../16"), NodePath("../15")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+
+[node name="15" type="Node2D" parent="PatrolPoints/CleanerLower"]
+position = Vector2(-576, 848)
+
+[node name="16" type="Node2D" parent="PatrolPoints/CleanerLower"]
+position = Vector2(-576, 1280)
+
+[node name="17" type="Node2D" parent="PatrolPoints/CleanerLower"]
+position = Vector2(448, 1280)
