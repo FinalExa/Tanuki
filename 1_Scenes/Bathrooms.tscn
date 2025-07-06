@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=69 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -43,6 +43,9 @@
 [ext_resource type="PackedScene" uid="uid://c1srj5qekq184" path="res://ImportantObjects/TransformationObjects/towel.tscn" id="41_4w2mt"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="42_2bcdm"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="43_2cow1"]
+[ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="44_k83du"]
+[ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="44_kp8o0"]
+[ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
 vertices = PackedVector2Array(1248, -1504, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -528, -144, -528, -144, -496, -624, -496, -624, -528, -656, -960, -656, -528, -1176, -1008, -752, -960, -752, -528, -784, -528, -1248, -1008, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -240, -288, -64, -1248, -64, -784, -368, -1176, -1088, -1248, -1088, -1248, -1504, 368, -1088, -144, -1424, 16, -1424)
@@ -99,6 +102,30 @@ size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yslo8"]
 size = Vector2(256, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fynbx"]
+size = Vector2(104, 336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yug1"]
+size = Vector2(112, 544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue82t"]
+size = Vector2(192, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auacd"]
+size = Vector2(120, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01bbf"]
+size = Vector2(396, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi1fs"]
+size = Vector2(112, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ytj0"]
+size = Vector2(104, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vasx0"]
+size = Vector2(816, 66)
 
 [node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
@@ -1363,3 +1390,223 @@ position = Vector2(-576, 1280)
 
 [node name="17" type="Node2D" parent="PatrolPoints/CleanerLower"]
 position = Vector2(448, 1280)
+
+[node name="AllowedZones" type="Node2D" parent="."]
+
+[node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(832, 976)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems"]
+shape = SubResource("RectangleShape2D_fynbx")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("45_gimc5")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems" instance=ExtResource("45_gimc5")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItems2" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(840, 272)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems2"]
+shape = SubResource("RectangleShape2D_3yug1")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -136)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -8)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(8, 120)
+
+[node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(1184, 40)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems3"]
+shape = SubResource("RectangleShape2D_ue82t")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems3" instance=ExtResource("45_gimc5")]
+position = Vector2(40, -8)
+
+[node name="LocalAllowedItems4" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(-1224, -464)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems4"]
+shape = SubResource("RectangleShape2D_auacd")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -336)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -208)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -80)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, 48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, 176)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(8, 304)
+
+[node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(352, -256)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems5"]
+position = Vector2(-10, 0)
+shape = SubResource("RectangleShape2D_01bbf")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("45_gimc5")]
+position = Vector2(-144, 32)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("45_gimc5")]
+position = Vector2(-16, 32)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems5" instance=ExtResource("45_gimc5")]
+position = Vector2(112, 32)
+
+[node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(-440, 576)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems6"]
+shape = SubResource("RectangleShape2D_oi1fs")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -56)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 72)
+
+[node name="LocalAllowedItems7" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(176, 632)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems7"]
+shape = SubResource("RectangleShape2D_6ytj0")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("45_gimc5")]
+position = Vector2(0, -120)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("45_gimc5")]
+position = Vector2(0, 8)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("45_gimc5")]
+position = Vector2(0, 136)
+
+[node name="LocalAllowedItems8" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(360, 1152)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems8"]
+shape = SubResource("RectangleShape2D_vasx0")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(-232, -32)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(-104, -32)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(24, -32)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(152, -32)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(280, -32)
+
+[node name="TransformObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Vase" parent="TransformObjects" instance=ExtResource("44_k83du")]
+position = Vector2(840, 1136)
+
+[node name="Vase2" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(840, 1464)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase3" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(840, 832)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase4" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(840, 512)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase5" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(840, 40)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase6" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(1128, 40)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase7" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1232, -896)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase8" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1232, -72)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase9" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(488, -256)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase10" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-160, -528)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase11" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-160, -840)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase12" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-432, 696)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase13" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-432, 424)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase14" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(168, 424)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase15" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(168, 864)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase16" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(8, 1144)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase17" parent="TransformObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(712, 1144)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
