@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=35 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://ga8arqpfhbr4" path="res://ImportantObjects/Interactables/Sprites/UpHole.png" id="22_rpbjv"]
 [ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="23_sd8m4"]
 [ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="23_w4u03"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="27_fs6rg"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_vb6aw"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_03o23"]
@@ -501,3 +503,41 @@ rotation = 3.14159
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject4"]
 position = Vector2(6.10352e-05, 0)
 shape = SubResource("RectangleShape2D_8mmqg")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CleanerLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_fs6rg")]
+position = Vector2(328, -48)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerLeft/CleanerLeft")]
+
+[node name="CleanerRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("27_fs6rg")]
+position = Vector2(832, -160)
+patrolIndicators = [NodePath("../../PatrolPoints/CleanerRight/CleanerRight")]
+
+[node name="PatrolPoints" type="Node2D" parent="."]
+
+[node name="CleanerLeft" type="Node2D" parent="PatrolPoints"]
+
+[node name="CleanerLeft" parent="PatrolPoints/CleanerLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_vb6aw")]
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../2"), NodePath("../1")]
+waitActions = Array[float]([0.5, 0.5])
+
+[node name="1" type="Node2D" parent="PatrolPoints/CleanerLeft"]
+position = Vector2(320, -48)
+
+[node name="2" type="Node2D" parent="PatrolPoints/CleanerLeft"]
+position = Vector2(320, -1376)
+
+[node name="CleanerRight" type="Node2D" parent="PatrolPoints"]
+
+[node name="CleanerRight" parent="PatrolPoints/CleanerRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_vb6aw")]
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../4"), NodePath("../3")]
+waitActions = Array[float]([0.25, 0.25])
+
+[node name="3" type="Node2D" parent="PatrolPoints/CleanerRight"]
+position = Vector2(832, -160)
+
+[node name="4" type="Node2D" parent="PatrolPoints/CleanerRight"]
+position = Vector2(832, 1208)
