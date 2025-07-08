@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=41 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -18,10 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cfcok3rcrq4wj" path="res://ImportantObjects/Interactables/Supplementary/waterway_component.tscn" id="14_8pii6"]
 [ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="15_l2qwj"]
 [ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="16_85bqs"]
+[ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="19_m34qy"]
 [ext_resource type="PackedScene" uid="uid://bblehq4o77yfn" path="res://ImportantObjects/Interactables/up_hole.tscn" id="19_r5mj2"]
 [ext_resource type="PackedScene" uid="uid://cked3biudowj0" path="res://ImportantObjects/MovableObjects/ladder_movable.tscn" id="20_ln26w"]
 [ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="21_b0jkp"]
 [ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="22_3eqef"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="22_8m8y5"]
 [ext_resource type="Texture2D" uid="uid://ga8arqpfhbr4" path="res://ImportantObjects/Interactables/Sprites/UpHole.png" id="22_rpbjv"]
 [ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="23_sd8m4"]
 [ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="23_w4u03"]
@@ -33,6 +35,18 @@
 vertices = PackedVector2Array(256, -1040, 256, -1408, 896, -1408, 272, -1040, 272, -880, 896, -896, 624, -16, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 784, 144, 768, 624, 768, 144, 784, -16, 624, 0, 256, 0, 256, -880)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(5, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 20, 21), PackedInt32Array(14, 16, 21), PackedInt32Array(13, 14, 21, 22), PackedInt32Array(10, 13, 22, 23), PackedInt32Array(22, 24, 25, 23), PackedInt32Array(10, 23, 26, 9), PackedInt32Array(6, 27, 28, 29, 4), PackedInt32Array(6, 5, 9, 26)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(256, -1408, 896, -1408, 896, -896, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 768, 624, 768, 144, 784, 144, 784, -16, 624, -16, 624, 0, 256, 0, 256, -880, 272, -880, 272, -1040, 256, -1040)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdejm"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq0h7"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5plv"]
+radius = 128.996
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0upil"]
+radius = 160.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtt5"]
 size = Vector2(64, 64)
@@ -119,9 +133,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_o622i")
 questName = "BathroomsRepairBrokenGenerator"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BathroomGeneratorYokai"), NodePath("BrokenGeneratorYokai"), NodePath("BathroomGeneratorYokai"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 0, 1, 1, 2])
-questItemsOnOffState = Array[bool]([false, false, false, true, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BathroomGeneratorYokai"), NodePath("BrokenGeneratorYokai"), NodePath("BathroomGeneratorYokai"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1, 2, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, true, false, true])
 objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokai")]
 objectsToDeleteAtQuestComplete = [NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3"), NodePath("MetalRod")]
 
@@ -148,11 +162,38 @@ position = Vector2(112, 864)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="DialogueArea" parent="Quests/BathroomsRepairBrokenGenerator/BrokenGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("22_8m8y5")]
+dialogueText = Array[String](["A generator... in the sewers... with a key?", "Help... me...", "You need to be filled with hot water too?", "Yes... but first... I am missing my pieces, there should be 3 around here...", "Will you give me your key after I repair and fill you with hot water?", "Yes... please... help... me...", "I'll try. Be right back."])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairBrokenGenerator/BrokenGeneratorYokai/DialogueArea"]
+shape = SubResource("CircleShape2D_jdejm")
+
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairBrokenGenerator" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("11_so61q")]
 position = Vector2(112, 864)
 waterwaysToActivate = [NodePath("../Waterways/Waterway9")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea" parent="Quests/BathroomsRepairBrokenGenerator/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("22_8m8y5")]
+dialogueText = Array[String](["Thanks for reparing me... fill me with hot water and I'll eject this key out for you.", "On it."])
+characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairBrokenGenerator/BathroomGeneratorYokai/DialogueArea"]
+shape = SubResource("CircleShape2D_jq0h7")
+
+[node name="DialogueArea2" parent="Quests/BathroomsRepairBrokenGenerator/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("22_8m8y5")]
+dialogueText = Array[String](["Thanks! I am fully working again.", "No problem, and thanks to you for the sweet key!"])
+characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairBrokenGenerator/BathroomGeneratorYokai/DialogueArea2"]
+shape = SubResource("CircleShape2D_n5plv")
 
 [node name="WaterSources" type="Node2D" parent="Quests/BathroomsRepairBrokenGenerator"]
 y_sort_enabled = true
@@ -416,6 +457,11 @@ rotation = 1.5708
 position = Vector2(-512, 0)
 rotation = 3.14159
 
+[node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsRepairBrokenGenerator"]
+z_index = 1
+position = Vector2(112, 712)
+texture = ExtResource("19_m34qy")
+
 [node name="BathroomsUnlockSewerStairs" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_o622i")
@@ -423,7 +469,17 @@ questName = "BathroomsUnlockSewerStairs"
 questItemsToOperate = [NodePath("../../Teleport/TravelToBathrooms"), NodePath("../../Teleport/TravelToBathrooms")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("Uphole"), NodePath("Ladder")]
+objectsToDeleteAtQuestComplete = [NodePath("Uphole"), NodePath("Ladder"), NodePath("DialogueArea")]
+
+[node name="DialogueArea" parent="Quests/BathroomsUnlockSewerStairs" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("22_8m8y5")]
+position = Vector2(544, -1120)
+dialogueText = Array[String](["Ouch!", "Where am I... oh, looks like a sewer area...", "I dropped down from there...", "To return back up, I think I'll need to grab something that let's me climb and bring it here."])
+characterTalking = Array[int]([0, 0, 0, 0])
+cameraFocuses = [null, null, NodePath("../Uphole"), null]
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUnlockSewerStairs/DialogueArea"]
+shape = SubResource("CircleShape2D_0upil")
 
 [node name="Uphole" parent="Quests/BathroomsUnlockSewerStairs" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_r5mj2")]
 position = Vector2(544, -1312)

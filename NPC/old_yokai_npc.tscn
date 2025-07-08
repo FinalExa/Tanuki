@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://2dmqq3qyx765"]
+
+[ext_resource type="Texture2D" uid="uid://6rabofisgrom" path="res://ImportantObjects/MovableObjects/Sprites/OldYokai.png" id="1_m1x6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3sln"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fftx0"]
+atlas = ExtResource("1_m1x6t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fftx0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="OldYokaiNPC" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_w3sln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"

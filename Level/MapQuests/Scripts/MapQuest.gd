@@ -3,7 +3,6 @@ extends Node2D
 
 var gameplayScene: GameplayScene
 @export var questName: String
-
 @export var questItemsToOperate: Array[Node2D]
 @export var questItemsStages: Array[int]
 @export var questItemsOnOffState: Array[bool]

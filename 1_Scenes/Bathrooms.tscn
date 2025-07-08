@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=86 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
 [ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="20_157dr"]
+[ext_resource type="PackedScene" uid="uid://2dmqq3qyx765" path="res://NPC/old_yokai_npc.tscn" id="23_1ik6l"]
 [ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
 [ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
 [ext_resource type="PackedScene" uid="uid://drc230rx5jty8" path="res://ImportantObjects/Interactables/Supplementary/waterway_component_pool.tscn" id="24_431i6"]
@@ -50,9 +51,9 @@
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
-vertices = PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -656, -960, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -752, -960, -752, -528, -784, -528, -1168, -848, -1168, -944, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -784, -368, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088, 368, -1088, -144, -1424, 16, -1424)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(17, 20, 23, 24), PackedInt32Array(23, 25, 24), PackedInt32Array(16, 17, 24), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(29, 30, 31, 32, 26), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(43, 46, 47, 39, 40), PackedInt32Array(38, 40, 39), PackedInt32Array(48, 49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61), PackedInt32Array(62, 63, 64, 65, 66), PackedInt32Array(62, 66, 67, 57, 61), PackedInt32Array(58, 61, 57), PackedInt32Array(56, 58, 57), PackedInt32Array(68, 53, 57, 69, 70, 71), PackedInt32Array(50, 68, 71, 72, 73, 51), PackedInt32Array(52, 74, 75, 76, 48), PackedInt32Array(77, 78, 0), PackedInt32Array(4, 7, 10, 13, 14), PackedInt32Array(48, 76, 77), PackedInt32Array(4, 14, 16, 24, 79, 3), PackedInt32Array(33, 36, 39), PackedInt32Array(39, 48, 77, 0, 80, 33), PackedInt32Array(79, 26, 32, 81, 3), PackedInt32Array(0, 3, 81, 80)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 16, -912, 368, -912, 368, -1088, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -656, -960, -752, -960, -752, -528, -784, -528, -784, -368, -624, -368, -624, -400, -144, -400, -144, -368, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -288, -240, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1168, -848, -1168, -944, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
+vertices = PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -656, -960, -224, -792, -112, -792, -112, -528, -144, -528, -144, -496, -624, -496, -624, -528, -656, -528, -752, -960, -752, -528, -784, -528, -1168, -848, -1168, -944, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -784, -368, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088, 368, -1088, -144, -1424, 16, -1424)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(17, 20, 23, 24), PackedInt32Array(23, 25, 24), PackedInt32Array(16, 17, 24), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(29, 30, 31, 32, 26), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(40, 43, 44, 45, 46), PackedInt32Array(40, 46, 47, 39, 38), PackedInt32Array(48, 49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61), PackedInt32Array(62, 63, 64, 65, 66), PackedInt32Array(62, 66, 67, 57, 61), PackedInt32Array(58, 61, 57), PackedInt32Array(56, 58, 57), PackedInt32Array(68, 53, 57, 69, 70, 71), PackedInt32Array(50, 68, 71, 72, 73, 51), PackedInt32Array(52, 74, 75, 76, 48), PackedInt32Array(77, 78, 0), PackedInt32Array(4, 7, 10, 13, 14), PackedInt32Array(48, 76, 77), PackedInt32Array(4, 14, 16, 24, 79, 3), PackedInt32Array(33, 36, 39), PackedInt32Array(39, 48, 77, 0, 80, 33), PackedInt32Array(79, 26, 32, 81, 3), PackedInt32Array(0, 3, 81, 80)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 16, -912, 368, -912, 368, -1088, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -224, -792, -112, -792, -112, -528, -144, -528, -144, -496, -624, -496, -624, -528, -656, -528, -656, -960, -752, -960, -752, -528, -784, -528, -784, -368, -624, -368, -624, -400, -144, -400, -144, -368, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -288, -240, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1168, -848, -1168, -944, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n4xe7"]
 vertices = PackedVector2Array(-192, 368, -192, 32, 736, 32, 232, 368, 736, 1040, 232, 472, -32, 1040, -32, 1008, 232, 912, -192, 1008, -192, 912, 232, 816, 144, 816, 144, 472, 736, 1472, -1248, 1472, -1248, 1248, -1216, 1248, 736, 1192, 648, 1192, -1216, 1184, -1248, 1184, -1248, 432, -896, 432, -896, 464, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 816, -400, 816, -400, 912, -288, 912, -288, 1136, -192, 1136, -192, 1168, -56, 1168, -56, 1192, 72, 1192, 72, 1136, 648, 1136, -1248, 336, -1248, 32, -288, 32, -344, 224, -896, 304, -288, 224, -344, 288, -288, 288, -288, 368, -496, 368, -496, 472, -400, 472, -400, 648, -496, 648, -496, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -736, 304, -896, 336)
@@ -88,6 +89,22 @@ radius = 128.0
 vertices = PackedVector2Array(-800, -64, -736, -64, -736, 32, -800, 32, 352, -64, 416, -64, 416, 32, 352, 32, 736, 608, 816, 608, 816, 672, 736, 672, 736, 1248, 816, 1248, 816, 1312, 736, 1312)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-800, -64, -736, -64, -736, 32, -800, 32), PackedVector2Array(352, -64, 416, -64, 416, 32, 352, 32), PackedVector2Array(736, 608, 816, 608, 816, 672, 736, 672), PackedVector2Array(736, 1248, 816, 1248, 816, 1312, 736, 1312)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mi2j"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aubck"]
+radius = 512.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjbie"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs1pc"]
+radius = 128.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0c5cn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31tgn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqwrs"]
 vertices = PackedVector2Array(-1136, -1936, -1248, -1600, -1248, -2256, -1200, -2256, -1136, -2192, -1200, -2352, -1248, -2352, -1248, -2544, -1040, -2544, -1040, -2656, -120, -2656, -272, -2576, -120, -2576, -272, -1776, -304, -1776, -656, -2032, -304, -1680, -496, -1680, -496, -1776, -656, -1776, -752, -2032, -752, -2064, -912, -2064, -912, -2032, -1040, -2032, -1040, -2192, -912, -1936, -912, -1904, -752, -1904, -752, -1680, -80, -1680, -80, -1776, -32, -1776, -32, -1600, 464, -2752, -1744, -2752, -1616, -2776, -752, -2928, -528, -2928, -912, -2928, -1616, -2864, -1488, -2912, -1712, -2776, -1744, -2912, -1712, -2864, 352, -4192, 352, -3424, -112, -3568, -112, -3632, 464, -3424, -112, -2928, -112, -2992, -1488, -4000, -1680, -4000, -1680, -4192, -224, -3632, -224, -3824, -112, -3824, -112, -3888, -272, -3888, -272, -3760, -368, -3760, -368, -3888, -528, -3888, -528, -3824, -416, -3824, -416, -3632, -528, -3632, -368, -3568, -368, -3696, -272, -3696, -272, -3568, -752, -3632, -864, -3632, -864, -3760, -808, -3760, -808, -3824, -752, -3824, -912, -3888, -912, -3760, -1008, -3760, -1008, -3888, -1168, -3824, -1056, -3824, -1056, -3632, -1168, -3632, -1008, -3568, -1008, -3696, -912, -3696, -912, -3568, -224, -2992, -224, -3184, -112, -3184, -112, -3248, -752, -3568, -528, -3568, -272, -3248, -272, -3120, -368, -3120, -368, -3248, -528, -3248, -528, -3184, -416, -3184, -416, -2992, -528, -2992, -368, -2928, -368, -3056, -272, -3056, -272, -2928, -752, -2992, -864, -2992, -864, -3184, -752, -3184, -912, -3248, -912, -3120, -1008, -3120, -1008, -3248, -1168, -3184, -1056, -3184, -1056, -2992, -1168, -2992, -1008, -2928, -1008, -3056, -912, -3056, -1168, -2928, -1168, -3248, -1168, -3568, -752, -3248, -1168, -3888, -752, -3888)
@@ -136,6 +153,9 @@ size = Vector2(192, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auacd"]
 size = Vector2(120, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmr0j"]
+size = Vector2(128, 416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01bbf"]
 size = Vector2(396, 64)
@@ -217,7 +237,7 @@ y_sort_enabled = true
 position = Vector2(448, -1088)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(872, 320)
+position = Vector2(1200, 264)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1024, 1120)
@@ -276,9 +296,9 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_slmiq")
 
 [node name="DialogueArea2" parent="Quests/BathroomsActivatePools/BathroomGeneratorYokais/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
+dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem.", "As an extra advice, I'll tell you a trick! The guards and cleaners here HATE to step on soap. You should try it, it's funny when I see it!", "That sounds VERY useful actually, thank you sad generator!"])
+characterTalking = Array[int]([2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsActivatePools/BathroomGeneratorYokais/BathroomGeneratorYokai/DialogueArea2"]
@@ -297,7 +317,7 @@ sendSignalToQuestOnDestroyed = true
 [node name="DialogueArea" parent="Quests/BathroomsActivatePools/BathroomGeneratorYokais/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["If only someone could fill me with hot water again...", "Hey, how do I do that?", "Ohhh... someone willing to help me... wonderful! I will explain it...", "See that filter over there? It gathers the water from the underground, if it's blue it means it's filled.", "Find something mechanical to activate it, it will fill that waterway below it, and activate the filter connected to the waterway.", "After a while, the filter will stop releasing water, and the waterways connected to it will return empty.", "If you make water reach us, we will start producing it endlessly and fill the waterways connected to us.", "That water doesn't seem hot though, any hints on how to warm it?", "Ask my brother... I forgot how that part worked..."])
 characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../../WaterSources/WaterSource3"), NodePath("../../../Waterways/Waterway6"), NodePath(".."), NodePath(".."), null, NodePath("../../BathroomGeneratorYokai3")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsActivatePools/BathroomGeneratorYokais/BathroomGeneratorYokai2/DialogueArea"]
@@ -507,15 +527,42 @@ navigation_polygon = SubResource("NavigationPolygon_o5oxm")
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsRescueOldYokai"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("../../Keys/UnlockKey3")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ReachPoint/OldYokaiNPC"), NodePath("OldYokai"), NodePath("OldYokaiNPC"), NodePath("OldYokai"), NodePath("../../Keys/UnlockKey3"), NodePath("ReachPoint/OldYokaiNPC")]
+questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true])
 objectsToDeleteAtQuestComplete = [NodePath("OldYokai")]
 
 [node name="ReachPoint" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("23_5o1xi")]
-position = Vector2(872, 384)
+position = Vector2(1200, 320)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="OldYokaiNPC" parent="Quests/BathroomsRescueOldYokai/ReachPoint" instance=ExtResource("23_1ik6l")]
+position = Vector2(0, -104)
+
+[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/ReachPoint/OldYokaiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Whew thanks, I was afraid I was going to drown.", "Why were you trapped in the pool?", "Well, I got in that pool because I peeked in the special room...", "Tell me more about it.", "There's a sort of... strange cleaner in here, I got captured and sent into the sewer system, emerged from the pool... you saved my life.", "That's useful info, thanks old guy!"])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRescueOldYokai/ReachPoint/OldYokaiNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_2mi2j")
+
+[node name="OldYokaiNPC" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_1ik6l")]
+position = Vector2(-152, 576)
+
+[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/OldYokaiNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("12_8ip6f")]
+position = Vector2(24, 64)
+dialogueText = Array[String](["PLEASE HELP ME I'M DROWNING!", "Huh? OH! Don't worry old guy, I'm coming!", "I'M BURNING, THE WATER IS TOO HOT!", "PLEASE BRING ME TO THE BLUE CARPET IN THE CHANGING ROOM!"])
+characterTalking = Array[int]([2, 0, 2, 2])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../ReachPoint")]
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRescueOldYokai/OldYokaiNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_aubck")
 
 [node name="OldYokai" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_vkv67")]
 position = Vector2(-152, 576)
@@ -707,14 +754,43 @@ rotation = 1.5708
 [node name="BathroomsCleanFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("10_67fd8")
 questName = "BathroomsCleanFloor"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("../../Keys/UnlockKey4")]
-questItemsStages = Array[int]([0, 7])
-questItemsOnOffState = Array[bool]([false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("CleanerNPC/DialogueArea2"), NodePath("../../Keys/UnlockKey4"), NodePath("CleanerNPC/DialogueArea"), NodePath("DialogueArea"), NodePath("CleanerNPC/DialogueArea2")]
+questItemsStages = Array[int]([0, 0, 7, 7, 7, 7])
+questItemsOnOffState = Array[bool]([false, false, true, false, true, true])
 questStageAdvancers = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
 
 [node name="CleanerNPC" parent="Quests/BathroomsCleanFloor" instance=ExtResource("25_hmgvd")]
 position = Vector2(-1152, 1088)
+
+[node name="DialogueArea" parent="Quests/BathroomsCleanFloor/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Oh no a cleaner! I don't want to be hit!", "Naaaaah, I am in pause. No worries.", "You cleaners have pauses?", "Yeah... \"pauses\"... hm, now that I think about it you've seen me slacking... I'm going to be in trouble.", "Hey hey, I'll stay silent if you give me something in return you know?", "Hmmm... what about a key?", "That's exactly what I am looking for!", "Then let's make a deal: do my job for me, clean the brown goop around here and I'll give it to you.", "Okay, deal.", "There should be 7 of them around here, once you'll clean all of them, I'll give you your key."])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("../../DirtyFloor1"), null, NodePath("..")]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsCleanFloor/CleanerNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_qjbie")
+
+[node name="DialogueArea2" parent="Quests/BathroomsCleanFloor/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Hey, nice job, now I can enjoy my pause.", "Say, why don't you have the usual cleaning towel all of your fellow cleaners have?", "It's part of the reason I am in \"pause\"... I ehm... lost it.", "You lost it? How?", "I tripped on that grate in the room above... and it fell down... riiiiiight into the sewers...", "Huh... so towels can fall down that grate... interesting hehe..."])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsCleanFloor/CleanerNPC/DialogueArea2"]
+shape = SubResource("CircleShape2D_xs1pc")
+
+[node name="DialogueArea" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+position = Vector2(-5632, 0)
+dialogueText = Array[String](["I think there's no more brown goop left... maybe I should talk with that cleaner in pause."])
+characterTalking = Array[int]([0])
+cameraFocuses = [null]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsCleanFloor/DialogueArea"]
+shape = SubResource("CircleShape2D_0c5cn")
 
 [node name="DirtyFloor1" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
 position = Vector2(-1088, 600)
@@ -755,9 +831,9 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSewersKey"
-questItemsToOperate = [NodePath("KeySprite")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questItemsToOperate = [NodePath("KeySprite"), NodePath("DialogueArea")]
+questItemsStages = Array[int]([1, 1])
+questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_a73mm")]
@@ -775,6 +851,17 @@ texture = ExtResource("26_nder6")
 z_index = -1
 position = Vector2(1216, -1288)
 texture = ExtResource("29_yc6uq")
+
+[node name="DialogueArea" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+position = Vector2(-5632, 0)
+dialogueText = Array[String](["Hmm... I thought that key was going to be an easy find... but it seems it fell down below, I wonder if there's a way to reach it..."])
+characterTalking = Array[int]([0])
+cameraFocuses = [null]
+deleteOnDone = true
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSewersKey/DialogueArea"]
+shape = SubResource("CircleShape2D_31tgn")
 
 [node name="BathroomsUnlockSewers" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1325,102 +1412,107 @@ oneTimeSave = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePoint"]
 shape = SubResource("RectangleShape2D_yslo8")
 
-[node name="Transformations" type="Node2D" parent="."]
+[node name="TransformationObjects" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Gear" parent="Transformations" instance=ExtResource("14_vrk40")]
+[node name="Gear" parent="TransformationObjects" instance=ExtResource("14_vrk40")]
 position = Vector2(-1216, -1024)
 
-[node name="Broom" parent="Transformations" instance=ExtResource("30_g2xji")]
+[node name="Broom" parent="TransformationObjects" instance=ExtResource("30_g2xji")]
 position = Vector2(-1248, 1216)
 
-[node name="Towel" parent="Transformations" instance=ExtResource("41_4w2mt")]
+[node name="Towel" parent="TransformationObjects" instance=ExtResource("41_4w2mt")]
 position = Vector2(-320, 256)
 
-[node name="Vase" parent="Transformations" instance=ExtResource("44_k83du")]
+[node name="Vase" parent="TransformationObjects" instance=ExtResource("44_k83du")]
 position = Vector2(840, 1136)
 
-[node name="Vase2" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase2" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(840, 1464)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase3" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase3" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(840, 832)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase4" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase4" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(840, 512)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase5" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase5" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(840, 40)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase6" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase6" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(1128, 40)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase7" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase7" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-1232, -896)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase8" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase8" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-1232, -72)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase9" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase9" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(488, -256)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase10" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-160, -528)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase11" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase11" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-160, -840)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase12" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase12" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-432, 696)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase13" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase13" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-432, 424)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase14" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase14" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(168, 424)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase15" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase15" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(168, 864)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase16" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase16" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(8, 1144)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase17" parent="Transformations" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+[node name="Vase17" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(712, 1144)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
+[node name="MovableObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Soap" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
+position = Vector2(-384, -704)
+
+[node name="Soap2" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
+position = Vector2(576, 128)
+
 [node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="CleanerUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
 position = Vector2(784, -1424)
@@ -1637,6 +1729,25 @@ position = Vector2(8, 176)
 
 [node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
 position = Vector2(8, 304)
+
+[node name="LocalAllowedItems9" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
+position = Vector2(-160, -688)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems9"]
+shape = SubResource("RectangleShape2D_nmr0j")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
+position = Vector2(0, -144)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
+position = Vector2(0, -16)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
+position = Vector2(0, 112)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
+position = Vector2(0, 208)
 
 [node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(352, -256)

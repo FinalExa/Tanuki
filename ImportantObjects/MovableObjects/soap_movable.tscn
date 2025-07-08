@@ -37,12 +37,12 @@ position = Vector2(0, -32)
 offset_top = -96.0
 offset_bottom = -48.0
 
-[node name="CleanerBossStunner" type="Area2D" parent="." node_paths=PackedStringArray("movableRef")]
+[node name="EnemyStunner" type="Area2D" parent="." node_paths=PackedStringArray("movableRef")]
 script = ExtResource("6_12ll7")
-enemyNames = Array[String](["Cleaner", "CleanerBoss"])
+enemyNames = Array[String](["Guard", "Cleaner", "CleanerBoss"])
 movableRef = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CleanerBossStunner"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStunner"]
 shape = SubResource("CircleShape2D_3ofx0")
 
-[connection signal="body_entered" from="CleanerBossStunner" to="CleanerBossStunner" method="_on_body_entered"]
+[connection signal="body_entered" from="EnemyStunner" to="EnemyStunner" method="_on_body_entered"]

@@ -10,6 +10,7 @@ func _ready():
 
 func PlayAll():
 	baseSoundtrack.play()
+	transformedSoundtrack.volume_db = -10.0
 	transformedSoundtrack.play()
 	transformedSoundtrack.volume_db = -80.0
 	specialRoomSoundTrack.play()
@@ -30,4 +31,4 @@ func ActivateSpecialRoom():
 
 func DeactivateSpecialRoom():
 	SetSoundtrackVolume(specialRoomSoundTrack, -80.0)
-	SetSoundtrackVolume(baseSoundtrack, 0)
+	SetSoundtrackVolume(baseSoundtrack, -10.0)
