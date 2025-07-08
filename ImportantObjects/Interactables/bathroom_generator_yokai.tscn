@@ -13,7 +13,6 @@ radius = 32.0
 radius = 128.0
 
 [node name="BathroomGeneratorYokai" type="StaticBody2D" node_paths=PackedStringArray("emptySprite", "fullSprite", "heatedSprite") groups=["Interactable"]]
-y_sort_enabled = true
 script = ExtResource("1_8jm3c")
 emptySprite = NodePath("Empty")
 fullSprite = NodePath("Full")
