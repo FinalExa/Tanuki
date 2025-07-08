@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=70 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_pv3og"]
 [ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="29_6sxxu"]
 [ext_resource type="PackedScene" uid="uid://c5jd70j1vc6kc" path="res://ImportantObjects/Interactables/grate_closed.tscn" id="29_dqkhl"]
+[ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="29_yc6uq"]
 [ext_resource type="PackedScene" uid="uid://b0u1qq11857bj" path="res://Enemies/boss_advancer.tscn" id="30_427wy"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
 [ext_resource type="PackedScene" uid="uid://3yfbephdlbok" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component_pool.tscn" id="31_s5uyt"]
@@ -48,9 +49,9 @@
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
-vertices = PackedVector2Array(1136, -1352, 1248, -1352, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -656, -960, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -752, -960, -752, -528, -784, -528, -1168, -848, -1168, -944, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -784, -368, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088, -1248, -1504, 368, -1088, 1136, -1504, -144, -1424, 16, -1424)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(13, 16, 19, 20), PackedInt32Array(19, 21, 20), PackedInt32Array(12, 13, 20), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(25, 26, 27, 28, 22), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(39, 42, 43, 35, 36), PackedInt32Array(34, 36, 35), PackedInt32Array(44, 45, 46, 47, 48), PackedInt32Array(49, 50, 51, 52, 53), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61, 62), PackedInt32Array(58, 62, 63, 53, 57), PackedInt32Array(54, 57, 53), PackedInt32Array(52, 54, 53), PackedInt32Array(64, 49, 53, 65, 66, 67), PackedInt32Array(46, 64, 67, 68, 69, 47), PackedInt32Array(48, 70, 71, 72, 44), PackedInt32Array(73, 74, 75), PackedInt32Array(0, 3, 6, 9, 10), PackedInt32Array(44, 72, 73), PackedInt32Array(0, 10, 12, 20, 76, 77), PackedInt32Array(29, 32, 35), PackedInt32Array(35, 44, 73, 75, 78, 29), PackedInt32Array(76, 22, 28, 79, 77), PackedInt32Array(75, 77, 79, 78)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, 1136, -1504, 1136, -1352, 1248, -1352, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 16, -912, 368, -912, 368, -1088, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -656, -960, -752, -960, -752, -528, -784, -528, -784, -368, -624, -368, -624, -400, -144, -400, -144, -368, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -288, -240, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1168, -848, -1168, -944, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
+vertices = PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 368, -912, 16, -912, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -656, -960, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -752, -960, -752, -528, -784, -528, -1168, -848, -1168, -944, -624, -368, -624, -400, -144, -400, -144, -368, -288, -240, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -784, -368, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088, 368, -1088, -144, -1424, 16, -1424)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(17, 20, 23, 24), PackedInt32Array(23, 25, 24), PackedInt32Array(16, 17, 24), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(29, 30, 31, 32, 26), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(43, 46, 47, 39, 40), PackedInt32Array(38, 40, 39), PackedInt32Array(48, 49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61), PackedInt32Array(62, 63, 64, 65, 66), PackedInt32Array(62, 66, 67, 57, 61), PackedInt32Array(58, 61, 57), PackedInt32Array(56, 58, 57), PackedInt32Array(68, 53, 57, 69, 70, 71), PackedInt32Array(50, 68, 71, 72, 73, 51), PackedInt32Array(52, 74, 75, 76, 48), PackedInt32Array(77, 78, 0), PackedInt32Array(4, 7, 10, 13, 14), PackedInt32Array(48, 76, 77), PackedInt32Array(4, 14, 16, 24, 79, 3), PackedInt32Array(33, 36, 39), PackedInt32Array(39, 48, 77, 0, 80, 33), PackedInt32Array(79, 26, 32, 81, 3), PackedInt32Array(0, 3, 81, 80)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, 1240, -1504, 1240, -1472, 1136, -1472, 1136, -1264, 1248, -1264, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -192, -64, -192, -144, 624, -144, 624, -496, 400, -496, 400, -528, 240, -528, 240, -496, 16, -496, 16, -528, -16, -528, -16, -880, 16, -880, 16, -912, 368, -912, 368, -1088, 272, -1088, 272, -1008, 16, -1008, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -888, -224, -888, -224, -792, -112, -792, -112, -576, -224, -576, -224, -496, -624, -496, -624, -528, -656, -528, -656, -960, -752, -960, -752, -528, -784, -528, -784, -368, -624, -368, -624, -400, -144, -400, -144, -368, 16, -368, 16, -400, 240, -400, 240, -368, 400, -368, 400, -400, 528, -400, 528, -304, 424, -304, 424, -240, -288, -240, -288, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -848, -1168, -848, -1168, -944, -1248, -944, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n4xe7"]
 vertices = PackedVector2Array(-192, 368, -192, 32, 736, 32, 232, 368, 736, 1040, 232, 472, -32, 1040, -32, 1008, 232, 912, -192, 1008, -192, 912, 232, 816, 144, 816, 144, 472, 736, 1472, -1248, 1472, -1248, 1248, -1216, 1248, 736, 1192, 648, 1192, -1216, 1184, -1248, 1184, -1248, 432, -896, 432, -896, 464, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 816, -400, 816, -400, 912, -288, 912, -288, 1136, -192, 1136, -192, 1168, -56, 1168, -56, 1192, 72, 1192, 72, 1136, 648, 1136, -1248, 336, -1248, 32, -480, 32, -480, 96, -896, 304, -416, 96, -416, 32, -288, 32, -288, 368, -496, 368, -736, 304, -496, 472, -400, 472, -400, 648, -496, 648, -496, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -896, 336)
@@ -148,7 +149,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(196618, 983040, 15, 196619, 983040, 15, 393227, 983040, 15, 393226, 983040, 15, 327691, 983040, 15, 262155, 983040, 15)
+layer_2/tile_data = PackedInt32Array(196618, 983040, 15, 196619, 983040, 15, 393227, 983040, 15, 393226, 983040, 15, 327691, 983040, 15, 262155, 983040, 15, -720887, 458752, 7)
 script = ExtResource("2_4g2cg")
 playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
@@ -670,13 +671,20 @@ questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_a73mm")]
-position = Vector2(1216, -1440)
+z_index = 0
+position = Vector2(1216, -1376)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsSewersKey"]
-position = Vector2(1216, -1400)
+z_index = 1
+position = Vector2(1216, -1384)
 texture = ExtResource("26_nder6")
+
+[node name="GrateSprite" type="Sprite2D" parent="Quests/BathroomsSewersKey"]
+z_index = -1
+position = Vector2(1216, -1288)
+texture = ExtResource("29_yc6uq")
 
 [node name="BathroomsUnlockSewers" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
