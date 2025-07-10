@@ -78,14 +78,17 @@ func DamagedExtraOperation(_direction: Vector2, _tier: EnemyStunned.StunTier):
 
 func IsRepelled(direction: Vector2):
 	if (repelledSpeed > 0):
-		isRepelled = true
-		emit_signal("stop_attack")
-		velocity = Vector2.ZERO
-		repelledTimer = repelledTime
-		repelledDirection = direction
-		repelledPosition = self.global_position
-		enemyRepelled.look_at(enemyRepelled.global_position + repelledDirection)
-		enemyRepelled.rotation_degrees += repelledOffset
+		StartRepelled(direction)
+
+func StartRepelled(direction: Vector2):
+	isRepelled = true
+	emit_signal("stop_attack")
+	velocity = Vector2.ZERO
+	repelledTimer = repelledTime
+	repelledDirection = direction
+	repelledPosition = self.global_position
+	enemyRepelled.look_at(enemyRepelled.global_position + repelledDirection)
+	enemyRepelled.rotation_degrees += repelledOffset
 
 func Repelled(delta):
 	if (isRepelled):
@@ -110,3 +113,6 @@ func QuestSignal():
 	if (questToSendProgressSignal != null):
 		if (sendSignalToQuestOnlyOnce): questSignalSent = true
 		questToSendProgressSignal.AdvanceStageByObject(self)
+
+func AdvanceBossPhase():
+	pass

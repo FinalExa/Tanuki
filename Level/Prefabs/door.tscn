@@ -14,6 +14,7 @@ size = Vector2(72, 32)
 size = Vector2(72, 32)
 
 [node name="Door" type="StaticBody2D" node_paths=PackedStringArray("centralCollider", "closedSprite", "openSprite") groups=["Interactable"]]
+y_sort_enabled = true
 script = ExtResource("1_d7y0m")
 centralCollider = NodePath("CentralCollider")
 closedSprite = NodePath("ClosedSprite")

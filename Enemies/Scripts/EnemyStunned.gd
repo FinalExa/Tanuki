@@ -1,6 +1,7 @@
 class_name EnemyStunned
 extends Node
 
+signal start_stun_signal
 signal end_stun_signal
 
 @export var stunDuration: float
@@ -35,6 +36,7 @@ func ExecuteStunStartup(direction: Vector2, tier: StunTier):
 	if (stunnedFromAlert):
 		enemyController.enemyPatrol.select_new_patrol_indicator()
 		stunnedFromAlert = false
+	emit_signal("start_stun_signal")
 
 func end_stun():
 	ExecuteStunEnd()

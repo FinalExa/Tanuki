@@ -5,9 +5,9 @@ enum SceneType
 {
 	TEST,
 	KITCHEN,
-	KITCHEN_ROOF,
+	BATHROOMS,
 	GARDEN,
-	HALL
+	HALL,
 }
 
 @export var playerSpawnPoint: Node2D
@@ -37,7 +37,8 @@ func Initialize():
 func SetKeys():
 	if (levelUnlockKeys.size() > 0):
 		for i in levelUnlockKeys.size():
-			levelUnlockKeys[i].gameplayScene = self
+			if (levelUnlockKeys[i] != null):
+				levelUnlockKeys[i].gameplayScene = self
 	if (levelSpecialKey != null):
 		levelSpecialKey.gameplayScene = self
 
@@ -81,10 +82,11 @@ func SetCurrentKeysForPlayer():
 		var currentIDArray: Array[int] = playerRef.playerProgressionTrack.currentIDArray
 		var currentUsedArray: Array[int] = playerRef.playerProgressionTrack.currentUsedKeysArray
 		for i in currentIDArray.size():
-			levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
-			if (currentUsedArray[i] != -1):
-				levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
-	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType)):
+			if (levelUnlockKeys[currentIDArray[i]] != null):
+				levelUnlockKeys[currentIDArray[i]].AlreadyGotThisKey()
+				if (currentUsedArray[i] != -1 && levelUnlockKeyDoors.size() > 0):
+					levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
+	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType) && levelSpecialKey != null):
 		levelSpecialKey.AlreadyGotThisKey()
 
 func SetPlayerSpawn(spawnPoint: Vector2):

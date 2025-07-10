@@ -87,4 +87,4 @@ undetectableDuration = 0.3
 [node name="TransformationLock" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
 script = ExtResource("11_hswyo")
 transformationChange = NodePath("..")
-transformationLockDuration = 1.5
+transformationLockDuration = 0.5

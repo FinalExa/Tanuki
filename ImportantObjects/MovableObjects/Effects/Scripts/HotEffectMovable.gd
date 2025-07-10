@@ -24,6 +24,7 @@ func StartupOldTags():
 		oldTags.push_back(movableRef.movableObjectProperties[i])
 
 func StartupTimer():
+	hotTimer = 0
 	progressBar.value = 0
 	progressBar.max_value = hotDuration * barMultiplier
 	effectGraphics.hide()
@@ -64,3 +65,7 @@ func OnAttach():
 
 func OnAttachEnd():
 	progressBar.hide()
+
+func OnForceDetach():
+	StartupTimer()
+	SetTagsToMovable(oldTags)

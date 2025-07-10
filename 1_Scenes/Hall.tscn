@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=96 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -142,6 +142,9 @@ size = Vector2(448, 112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fws7"]
 size = Vector2(256, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euj8n"]
+size = Vector2(128, 256)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7gbn"]
 size = Vector2(512, 256)
 
@@ -149,9 +152,9 @@ size = Vector2(512, 256)
 size = Vector2(3584, 608)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b0ej7"]
-vertices = PackedVector2Array(-1760, 1232, -1760, 1056, -480, 1056, -1664, 1232, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, 992, 32, 480, 576, -992, 576, -992, 32, 992, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1504, 1056, 1504, 1376, -1664, 1328, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, -1760, 1600, -1760, 1328)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(8, 11, 12, 9), PackedInt32Array(9, 13, 10), PackedInt32Array(10, 14, 15), PackedInt32Array(6, 10, 15, 5), PackedInt32Array(5, 15, 16, 2), PackedInt32Array(16, 17, 18, 2), PackedInt32Array(18, 19, 20, 21, 3), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(25, 26, 27), PackedInt32Array(22, 25, 27), PackedInt32Array(20, 22, 27, 28), PackedInt32Array(28, 29, 30, 31, 21), PackedInt32Array(20, 28, 21), PackedInt32Array(18, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, -480, 1056, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, -992, 576, -992, 32, 992, 32, 992, 576, 480, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, -1760, 1600, -1760, 1328, -1664, 1328, -1664, 1232, -1760, 1232)])
+vertices = PackedVector2Array(-1760, 1232, -1760, 1056, -480, 1056, -1664, 1232, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, 992, 32, 480, 576, -992, 576, -992, 32, 992, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1096, 1056, 1096, 1104, -1664, 1328, 1208, 1104, 1208, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, -1760, 1600, -1760, 1328)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(8, 11, 12, 9), PackedInt32Array(9, 13, 10), PackedInt32Array(10, 14, 15), PackedInt32Array(6, 10, 15, 5), PackedInt32Array(5, 15, 16, 2), PackedInt32Array(16, 17, 18, 2), PackedInt32Array(18, 19, 20, 21, 3), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(29, 30, 31), PackedInt32Array(26, 29, 31), PackedInt32Array(25, 26, 31, 32), PackedInt32Array(32, 33, 34, 35, 21), PackedInt32Array(22, 25, 32, 21, 20), PackedInt32Array(18, 3, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, -480, 1056, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, -992, 576, -992, 32, 992, 32, 992, 576, 480, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1096, 1056, 1096, 1104, 1208, 1104, 1208, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, -1760, 1600, -1760, 1328, -1664, 1328, -1664, 1232, -1760, 1232)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xd0cj"]
 vertices = PackedVector2Array(80, 2320, 288, 2368, -288, 2368, -80, 2320, 288, 2464, 480, 1696, 480, 3136, 288, 2544, 288, 2832, -480, 3136, 224, 2832, -224, 2832, 224, 2544, -288, 2832, -480, 1696, -288, 2544, -224, 2544, 80, 2184, -80, 2184, -288, 2464)
@@ -219,8 +222,8 @@ levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallPaintingRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
-travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen")]
-travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
+travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen"), NodePath("Teleports/TravelToBathrooms")]
+travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver"), NodePath("Teleports/TravelToBathrooms/BathroomReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
 
 [node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
@@ -438,7 +441,6 @@ position = Vector2(0, 2944)
 scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(-288, 3048)
@@ -572,7 +574,7 @@ shape = SubResource("CircleShape2D_0akyk")
 
 [node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
 position = Vector2(0, -48)
-dialogueText = Array[String](["Thank you... my agony... is gone...", "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?", "Right... bedrooms, bottom... Kitchen, left... Dojo...", "There's a strong Hyottoko man in the dojo, watch out...", "I will, thank you!"])
+dialogueText = Array[String](["Thank you... my agony... is gone...", "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?", "Right... bedrooms, top... Kitchen, left... Bathrooms.", "There's a cleaner stronger than usual in the bathrooms, watch out...", "I will, thank you!"])
 characterTalking = Array[int]([2, 0, 2, 2, 0])
 cameraFocuses = [NodePath("."), null, NodePath("."), NodePath("."), null]
 isOnInteraction = true
@@ -594,15 +596,15 @@ rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("24_hg15b")
 
-[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete", "advanceOtherQuestsOnEnd")]
+[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
 questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("WardenSleepingDialogue"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
 questItemsStages = Array[int]([0, 0, 1, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true])
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 
 [node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
 position = Vector2(1088, 1280)
@@ -650,7 +652,6 @@ position = Vector2(520, 1920)
 scale = Vector2(1, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="HallCleanDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_2xstp")
@@ -664,7 +665,6 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 position = Vector2(-896, 2432)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
-destroyOnEnd = true
 
 [node name="HallUnlockWoodenKatana" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1108,6 +1108,18 @@ shape = SubResource("RectangleShape2D_6fws7")
 [node name="KitchenReceiver" type="Node2D" parent="Teleports/TravelToKitchen"]
 position = Vector2(0, 144)
 
+[node name="TravelToBathrooms" parent="Teleports" instance=ExtResource("3_7xfqb")]
+position = Vector2(-1120, 256)
+sceneToLoad = "res://1_Scenes/Bathrooms.tscn"
+removeTransformation = true
+deleteRoomData = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToBathrooms"]
+shape = SubResource("RectangleShape2D_euj8n")
+
+[node name="BathroomReceiver" type="Node2D" parent="Teleports/TravelToBathrooms"]
+position = Vector2(224, 0)
+
 [node name="SavePoints" type="Node2D" parent="."]
 
 [node name="SavePoint" parent="SavePoints" instance=ExtResource("4_lfw02")]
@@ -1153,7 +1165,7 @@ position = Vector2(0, 1408)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard4/Guard4PatrolIndicator")]
 
 [node name="Guard5" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(-448, 256)
+position = Vector2(-448, 96)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard5/Guard5PatrolIndicator")]
 
 [node name="EnemyPatrolPoints" type="Node2D" parent="."]
@@ -1256,10 +1268,10 @@ waitActions = Array[float]([0.5, 0.5, 0.5, 0.5, 0.5, 0.5])
 lookActions = Array[int]([1, 0, 2, 0, 1, 3])
 
 [node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard5"]
-position = Vector2(-640, 256)
+position = Vector2(-640, 96)
 
 [node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard5"]
-position = Vector2(640, 256)
+position = Vector2(640, 96)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 

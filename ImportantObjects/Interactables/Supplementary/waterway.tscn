@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd3gaf23mwna6"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/Waterway.gd" id="1_gjdjg"]
+
+[node name="Waterway" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_gjdjg")

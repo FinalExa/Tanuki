@@ -259,3 +259,4 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="end_stun_signal" from="EnemyStunned" to="Rotator/CleanerAttackHitbox" method="SetHitboxOn"]
+[connection signal="start_stun_signal" from="EnemyStunned" to="Rotator/CleanerAttackHitbox" method="SetHitboxOff"]

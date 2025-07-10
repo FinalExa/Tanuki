@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://nxs64fn68deh"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/WaterSourceInteractable.gd" id="1_lhv8i"]
+[ext_resource type="Texture2D" uid="uid://ttfdo7nbabqr" path="res://ImportantObjects/Interactables/Sprites/WaterSource.png" id="1_vp55a"]
+[ext_resource type="Texture2D" uid="uid://ds5cndxt36wv3" path="res://ImportantObjects/Interactables/Sprites/WaterSourceFull.png" id="2_h2ab2"]
+
+[node name="WaterSource" type="StaticBody2D" node_paths=PackedStringArray("emptySprite", "fullSprite") groups=["Interactable"]]
+script = ExtResource("1_lhv8i")
+emptySprite = NodePath("EmptySprite")
+fullSprite = NodePath("FullSprite")
+neededProperties = Array[String](["Gear"])
+hasCooldown = true
+cooldownDuration = 7.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-40, -64, -64, -40, -64, 40, -40, 64, 40, 64, 64, 40, 64, -40, 40, -64)
+
+[node name="EmptySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vp55a")
+
+[node name="FullSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_h2ab2")

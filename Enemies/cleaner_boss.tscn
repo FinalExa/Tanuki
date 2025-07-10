@@ -1,0 +1,267 @@
+[gd_scene load_steps=35 format=3 uid="uid://dw6tj3wwi0a1c"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerBossController.gd" id="1_fjo4w"]
+[ext_resource type="AudioStream" uid="uid://bdgqxosutqk8k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step1.wav" id="2_f0xit"]
+[ext_resource type="AudioStream" uid="uid://be4oq56u3k3dg" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step2.wav" id="3_mfcmx"]
+[ext_resource type="AudioStream" uid="uid://ddax2nsv881nc" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step3.wav" id="4_1n1xp"]
+[ext_resource type="AudioStream" uid="uid://0ufr67oxq67a" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step4.wav" id="5_fxu5a"]
+[ext_resource type="AudioStream" uid="uid://oejjot82t08k" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step5.wav" id="6_bcv3h"]
+[ext_resource type="AudioStream" uid="uid://b3ytuo4171ann" path="res://Enemies/Sounds/Cleaner/Movement/Running-Cleaner step6.wav" id="7_g3jqw"]
+[ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="8_pgvgf"]
+[ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="9_a10bf"]
+[ext_resource type="AudioStream" uid="uid://bhlflr7kkndli" path="res://Enemies/Sounds/Guard/Stunned_Guar-Hit.wav" id="10_jq0x3"]
+[ext_resource type="Texture2D" uid="uid://bgimxjm44r66i" path="res://Enemies/Sprites/Governante-Boss-sprite.png" id="11_oxecu"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="12_ahneb"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="13_oob5v"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="14_fsc24"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="15_xvsaj"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="16_x2pe0"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="17_a0ulx"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerBossRotator.gd" id="18_y6g6m"]
+[ext_resource type="PackedScene" uid="uid://cm3apc14xngam" path="res://Enemies/cleaner_boss_attack_hitbox.tscn" id="19_njgwt"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_od2c3"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="21_g60x6"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="22_q3wvc"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="23_jcnvg"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="24_3cm6o"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="25_k3xx4"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="26_sac84"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="27_rlrjj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="28_gv6gs"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="29_8sutx"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="30_3j8i2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7381m"]
+radius = 16.0
+height = 80.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0wd2"]
+atlas = ExtResource("11_oxecu")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0wd2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1udvi"]
+font = ExtResource("16_x2pe0")
+font_size = 18
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CleanerBoss" type="CharacterBody2D" node_paths=PackedStringArray("attackArea", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_fjo4w")
+attackArea = NodePath("Rotator/CleanerBossAttackHitbox")
+newSpeed = 600.0
+enemyName = "CleanerBoss"
+repelledTime = 0.3
+repelledDistance = 350.0
+repelledOffset = -90.0
+enemyMovement = NodePath("EnemyMovement")
+enemyRotator = NodePath("Rotator")
+enemyPatrol = NodePath("EnemyPatrol")
+enemyStatus = NodePath("EnemyStatus")
+enemyStunned = NodePath("EnemyStunned")
+enemyRepelled = NodePath("EnemyRepelled")
+spriteRef = NodePath("AnimatedSprite2D")
+enemyMovementSounds = NodePath("CleanerMovementSounds")
+hitByPlayerSound = NodePath("Sounds/HitByPlayer")
+stunnedHit = NodePath("Sounds/StunnedHit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7381m")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 100.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Node" type="Node2D" parent="Sounds"]
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("2_f0xit")
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("3_mfcmx")
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("4_1n1xp")
+
+[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("5_fxu5a")
+
+[node name="Step5" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("6_bcv3h")
+
+[node name="Step6" type="AudioStreamPlayer2D" parent="Sounds/Node"]
+stream = ExtResource("7_g3jqw")
+
+[node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
+max_distance = 800.0
+
+[node name="HitByPlayer" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("8_pgvgf")
+max_distance = 500.0
+
+[node name="StunnedChirp" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("9_a10bf")
+max_distance = 500.0
+
+[node name="StunnedHit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("10_jq0x3")
+max_distance = 500.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_d6h4v")
+animation = &"idle"
+
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
+script = ExtResource("12_ahneb")
+enemyController = NodePath("..")
+navigationAgent = NodePath("../NavigationAgent2D")
+defaultMovementSpeed = 800.0
+distanceTolerance = 10.0
+repathTimerDuration = 0.25
+
+[node name="CleanerMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
+script = ExtResource("13_oob5v")
+enemyController = NodePath("..")
+cleanerMovementSounds = [NodePath("../Sounds/Node/Step1"), NodePath("../Sounds/Node/Step2"), NodePath("../Sounds/Node/Step3"), NodePath("../Sounds/Node/Step4"), NodePath("../Sounds/Node/Step5"), NodePath("../Sounds/Node/Step6")]
+currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
+
+[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
+script = ExtResource("14_fsc24")
+enemyController = NodePath("..")
+startupDuration = 0.1
+timeSpentDoingExtraPatrol = 60.0
+
+[node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
+script = ExtResource("15_xvsaj")
+stunDuration = 5.0
+stunnedText = "STUNNED"
+stunnedSound = NodePath("../Sounds/StunnedChirp")
+enemyController = NodePath("..")
+
+[node name="EnemyStatus" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -96.0
+offset_right = 80.0
+offset_bottom = -70.0
+label_settings = SubResource("LabelSettings_1udvi")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_a0ulx")
+
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
+script = ExtResource("18_y6g6m")
+upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
+downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
+leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
+rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
+lookAtOffset = 90.0
+mainNodeRef = NodePath("..")
+rotationSpeed = 120.0
+rotationWeight = 0.1
+rotationDegreesOffset = 0.5
+
+[node name="CleanerBossAttackHitbox" parent="Rotator" instance=ExtResource("19_njgwt")]
+position = Vector2(0, -128)
+
+[node name="RotationPoints" type="Node2D" parent="."]
+
+[node name="UpRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, -112)
+
+[node name="DownRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, 112)
+
+[node name="LeftRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(-112, 0)
+
+[node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(112, 0)
+
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("20_od2c3")]
+enemyController = NodePath("..")
+
+[node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("21_g60x6")
+root = NodePath("Sequence")
+
+[node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
+script = ExtResource("22_q3wvc")
+children = [NodePath("SelectorStunned"), NodePath("SelectorPatrol")]
+
+[node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("23_jcnvg")
+children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
+
+[node name="GuardIsInStun" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("24_3cm6o")
+enemyController = NodePath("../../../..")
+
+[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyStunned", "enemyController")]
+script = ExtResource("25_k3xx4")
+enemyStunned = NodePath("../../../../EnemyStunned")
+enemyController = NodePath("../../../..")
+
+[node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("23_jcnvg")
+children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
+
+[node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("26_sac84")
+enemyController = NodePath("../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
+script = ExtResource("23_jcnvg")
+children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
+
+[node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("27_rlrjj")
+enemyPatrol = NodePath("../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
+script = ExtResource("22_q3wvc")
+children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
+
+[node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("28_gv6gs")
+enemyPatrol = NodePath("../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("23_jcnvg")
+children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRotation")]
+
+[node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("29_8sutx")
+enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../../..")
+
+[node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("30_3j8i2")
+enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../../..")
+
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
+[connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
+[connection signal="reached_destination" from="EnemyMovement" to="." method="_on_enemy_movement_reached_destination"]
+[connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="end_stun_signal" from="EnemyStunned" to="Rotator/CleanerBossAttackHitbox" method="SetHitboxOn"]
+[connection signal="start_stun_signal" from="EnemyStunned" to="Rotator/CleanerBossAttackHitbox" method="SetHitboxOff"]

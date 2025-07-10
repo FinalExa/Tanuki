@@ -53,11 +53,11 @@ func DeleteLeftoverObject():
 		currentObject = null
 
 func _on_area_entered(area):
-	if (area is MovableObject && !objectsInRange.has(area)):
+	if (area != null && area is MovableObject && !objectsInRange.has(area)):
 		objectsInRange.push_back(area)
 		area.TurnCloseFeedbackOn(currentObject)
 
 func _on_area_exited(area):
-	if (area is MovableObject && objectsInRange.has(area)):
+	if (area != null && area is MovableObject && objectsInRange.has(area)):
 		objectsInRange.erase(area)
 		area.TurnCloseFeedbackOff(currentObject)

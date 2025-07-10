@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5jd70j1vc6kc"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_7claj"]
+[ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="2_l6t1k"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_nabl3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0pvl"]
+atlas = ExtResource("2_l6t1k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_droqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0pvl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mw6g"]
+size = Vector2(64, 64)
+
+[node name="GrateClosed" type="Node2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_7claj")
+neededProperties = Array[String](["Slim"])
+destroyOnEnd = true
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlay = "idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_droqo")
+animation = &"idle"
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_nabl3")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("RectangleShape2D_3mw6g")

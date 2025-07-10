@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://uueuynaswt7r"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_elx3a"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_jr1so"]
+[ext_resource type="Texture2D" uid="uid://7aehmyx0ilh" path="res://ImportantObjects/MovableObjects/Sprites/MetalRod.png" id="2_sw15h"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_acef5"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_5wpar"]
+[ext_resource type="PackedScene" uid="uid://2dh182jq6fm1" path="res://ImportantObjects/MovableObjects/Effects/hot_effect_movable.tscn" id="6_dd6ba"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha1ng"]
+radius = 8.0
+height = 64.0
+
+[node name="MetalRod" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_elx3a")
+movableObjectName = "Metal Rod"
+movableObjectProperties = Array[String](["Rod"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ha1ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sw15h")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_jr1so")]
+position = Vector2(0, -32)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_acef5")]
+position = Vector2(0, -32)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_5wpar")]
+offset_top = -96.0
+offset_bottom = -48.0
+
+[node name="HotEffectMovable" parent="." node_paths=PackedStringArray("movableRef") instance=ExtResource("6_dd6ba")]
+movableRef = NodePath("..")
+newTags = Array[String](["Hot"])
+
+[connection signal="on_attach" from="." to="HotEffectMovable" method="OnAttach"]
+[connection signal="on_attach_end" from="." to="HotEffectMovable" method="OnAttachEnd"]
+[connection signal="on_force_detach" from="." to="HotEffectMovable" method="OnForceDetach"]

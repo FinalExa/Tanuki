@@ -5,7 +5,7 @@ extends Node
 
 func ActivateTransformation():
 	if (transformationChange.playerRef.playerInputs.transformInput && transformationChange.currentTransformationSet && !transformationChange.isTransformed && !transformationChange.transformationLocked):
-		transformationChange.transformationOriginalObject.GenerateTransformationObject()
+		transformationChange.transformationOriginalObject.call_deferred("GenerateTransformationObject")
 		TransformationFeedbackActivation(true)
 		if (transformationChange.currentTransformationObject.transformedAttackPath != ""):
 			transformationChange.emit_signal("send_transformation_has_attack", true, transformationChange.currentTransformationObject.transformedAttackName)

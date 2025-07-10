@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cked3biudowj0"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_elq7v"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_fnjwf"]
+[ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="2_hgv3q"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_hy7r4"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_g37i7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g03k"]
+size = Vector2(48, 64)
+
+[node name="Ladder" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_elq7v")
+movableObjectName = "Ladder"
+movableObjectProperties = Array[String](["Ladder"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_3g03k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_hgv3q")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_fnjwf")]
+position = Vector2(0, -80)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_hy7r4")]
+position = Vector2(0, -80)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_g37i7")]
+offset_top = -144.0
+offset_bottom = -96.0

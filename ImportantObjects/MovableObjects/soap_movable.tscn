@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1d4efkvcuwga"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_dheoi"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_auhgn"]
+[ext_resource type="Texture2D" uid="uid://2pmee75j0pk3" path="res://ImportantObjects/MovableObjects/Sprites/Soap.png" id="2_hgb2w"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_p67w2"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_tsyw5"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunner.gd" id="6_12ll7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnib2"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ofx0"]
+radius = 32.0
+
+[node name="Soap" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_dheoi")
+movableObjectName = "Soap"
+movableObjectProperties = Array[String](["Soap"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dnib2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hgb2w")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_auhgn")]
+position = Vector2(0, -32)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_p67w2")]
+position = Vector2(0, -32)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_tsyw5")]
+offset_top = -96.0
+offset_bottom = -48.0
+
+[node name="EnemyStunner" type="Area2D" parent="." node_paths=PackedStringArray("movableRef")]
+script = ExtResource("6_12ll7")
+enemyNames = Array[String](["Guard", "Cleaner", "CleanerBoss"])
+movableRef = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStunner"]
+shape = SubResource("CircleShape2D_3ofx0")
+
+[connection signal="body_entered" from="EnemyStunner" to="EnemyStunner" method="_on_body_entered"]

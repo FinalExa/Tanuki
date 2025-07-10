@@ -3,12 +3,18 @@ extends Area2D
 
 var sceneMasterRef: SceneMaster
 var playerRef: PlayerCharacter
+var selfPath: String
 @export var removeTransformationBeforeSave: bool
 @export var onEnter: bool
 @export var oneTimeSave: bool
 
 func _ready():
 	sceneMasterRef = get_tree().root.get_child(0)
+	selfPath = self.get_path()
+	if (sceneMasterRef.oneTimeSavePoints.size() == 0):
+		sceneMasterRef.LoadMapData()
+	if (sceneMasterRef.oneTimeSavePoints.has(selfPath)):
+		queue_free()
 
 func Save():
 	if (removeTransformationBeforeSave):
@@ -16,9 +22,8 @@ func Save():
 	if (!oneTimeSave):
 		sceneMasterRef.Save()
 	else:
-		var selfPath: String = self.get_path()
 		if (!sceneMasterRef.oneTimeSavePoints.has(selfPath)):
-			sceneMasterRef.SaveAndDeleteOneTimeSave(self.get_path())
+			sceneMasterRef.SaveAndDeleteOneTimeSave(selfPath)
 		self.queue_free()
 
 func _on_body_entered(body):

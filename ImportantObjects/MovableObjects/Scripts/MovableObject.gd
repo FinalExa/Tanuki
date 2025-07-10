@@ -3,6 +3,7 @@ extends Area2D
 
 signal on_attach
 signal on_attach_end
+signal on_force_detach
 
 @export var movableObjectName: String
 @export var movableObjectProperties: Array[String]
@@ -19,6 +20,10 @@ func _ready():
 	GetCollisionShape()
 	ForceTurnCloseFeedbackOff()
 	movableLabel.text = movableObjectName
+	ReadyOperations()
+
+func ReadyOperations():
+	pass
 
 func GetCollisionShape():
 	for i in self.get_child_count():
@@ -46,6 +51,7 @@ func Reset():
 func ResetParentAndPosition():
 	ResetParent()
 	self.global_position = originalPosition
+	emit_signal("on_force_detach")
 
 func SpawnFeedback(feedbackToSpawn: String):
 	var file_scene = load(feedbackToSpawn)

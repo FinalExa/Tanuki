@@ -3,13 +3,13 @@ extends Node2D
 
 var gameplayScene: GameplayScene
 @export var questName: String
-
 @export var questItemsToOperate: Array[Node2D]
 @export var questItemsStages: Array[int]
 @export var questItemsOnOffState: Array[bool]
 @export var questStageAdvancers: Array[Node2D]
-@export var objectsToDeleteAtQuestComplete: Array[Node2D]
 @export var advanceOtherQuestsOnEnd: Array[MapQuest]
+@export var objectsToFinalizeAtQuestComplete: Array[GenericInteractable]
+@export var objectsToDeleteAtQuestComplete: Array[Node2D]
 
 var advancedBy: Node2D
 var currentQuestStage: int = 0
@@ -52,6 +52,7 @@ func CheckForLastStage():
 		currentQuestStage = lastStage
 		AdvanceOtherQuestsOnEnd()
 		SaveQuestStatus(true)
+		FinalizeObjectsAfterQuestComplete()
 		CleanUpAfterQuestComplete()
 
 func AdvanceOtherQuestsOnEnd():
@@ -59,6 +60,12 @@ func AdvanceOtherQuestsOnEnd():
 		for i in advanceOtherQuestsOnEnd.size():
 			if (advanceOtherQuestsOnEnd[i] != null):
 				advanceOtherQuestsOnEnd[i].AdvanceStage(false, false)
+
+func FinalizeObjectsAfterQuestComplete():
+	if (objectsToFinalizeAtQuestComplete.size() > 0):
+		for i in objectsToFinalizeAtQuestComplete.size():
+			if (objectsToFinalizeAtQuestComplete[i] != null):
+				objectsToFinalizeAtQuestComplete[i].FinalStateExtraExecution()
 
 func CleanUpAfterQuestComplete():
 	for i in objectsToDeleteAtQuestComplete.size():

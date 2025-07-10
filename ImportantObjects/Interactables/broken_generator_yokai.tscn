@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba8kwpi28fbtg"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BrokenGeneratorInteractable.gd" id="1_20hxi"]
+[ext_resource type="Texture2D" uid="uid://vrt75b6elrrb" path="res://ImportantObjects/Interactables/Sprites/bathroomGeneratorYokaiBroken.png" id="2_75nek"]
+[ext_resource type="Texture2D" uid="uid://bq03a5vyqa0ja" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart1.png" id="3_gtsw3"]
+[ext_resource type="Texture2D" uid="uid://c5biaql674od1" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart2.png" id="4_a4n8t"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="5_2jafu"]
+[ext_resource type="Texture2D" uid="uid://dni5gu3ok10y6" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart3.png" id="5_3rrk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gghcd"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luqhy"]
+radius = 128.0
+
+[node name="BrokenGeneratorYokai" type="StaticBody2D" node_paths=PackedStringArray("partSprites") groups=["Interactable"]]
+script = ExtResource("1_20hxi")
+partSprites = [NodePath("Part0"), NodePath("Part1"), NodePath("Part2")]
+neededProperties = Array[String](["GeneratorPart"])
+receiveRefAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_gghcd")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+texture = ExtResource("2_75nek")
+
+[node name="Part0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -38)
+texture = ExtResource("3_gtsw3")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -126)
+texture = ExtResource("4_a4n8t")
+
+[node name="Part2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -206)
+texture = ExtResource("5_3rrk0")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("5_2jafu")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CircleShape2D_luqhy")
