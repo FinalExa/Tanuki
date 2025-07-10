@@ -10,7 +10,7 @@ var heated: bool
 @export var waterwaysToActivate: Array[Waterway]
 
 func GetFilled(_filler):
-	if (!waterObtained):
+	if (!waterObtained && visible):
 		ObtainWater()
 		FillWaterways()
 

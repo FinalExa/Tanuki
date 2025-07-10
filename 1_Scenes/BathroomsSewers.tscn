@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=42 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="27_fs6rg"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_vb6aw"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
+[ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="31_0e6vi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_03o23"]
 vertices = PackedVector2Array(256, -1040, 256, -1408, 896, -1408, 272, -1040, 272, -880, 896, -896, 624, -16, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 784, 144, 768, 624, 768, 144, 784, -16, 624, 0, 256, 0, 256, -880)
@@ -597,3 +598,8 @@ position = Vector2(832, -160)
 
 [node name="4" type="Node2D" parent="PatrolPoints/CleanerRight"]
 position = Vector2(832, 1208)
+
+[node name="MovableObjects" type="Node2D" parent="."]
+
+[node name="Soap" parent="MovableObjects" instance=ExtResource("31_0e6vi")]
+position = Vector2(1088, -576)
