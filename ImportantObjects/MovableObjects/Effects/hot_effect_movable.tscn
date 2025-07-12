@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d7ppo7drkdbi" path="res://ImportantObjects/MovableObjects/Effects/Sprites/HotTimer.png" id="4_8cru0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdux4"]
-radius = 64.0
+radius = 128.25
 
 [node name="HotEffectMovable" type="Area2D" node_paths=PackedStringArray("effectGraphics", "progressBar")]
 script = ExtResource("1_2po03")

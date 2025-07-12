@@ -134,9 +134,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_o622i")
 questName = "BathroomsRepairBrokenGenerator"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BathroomGeneratorYokai"), NodePath("BrokenGeneratorYokai"), NodePath("BathroomGeneratorYokai"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, true, false, true, false, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("BathroomGeneratorYokai"), NodePath("BrokenGeneratorYokai"), NodePath("BathroomGeneratorYokai"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("KeySprite"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 0, 1, 1, 1, 2, 2, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, true, false, false, true])
 objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokai")]
 objectsToDeleteAtQuestComplete = [NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3"), NodePath("MetalRod")]
 

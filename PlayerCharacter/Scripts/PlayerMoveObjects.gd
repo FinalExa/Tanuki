@@ -38,6 +38,7 @@ func ObjectObtained():
 func DropMovableObject():
 	if (currentObject != null):
 		currentObject.ResetParent()
+		currentObject.global_position = playerCharacter.global_position
 		currentObject = null
 
 func ForceDropMovableObject():
