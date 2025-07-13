@@ -22,7 +22,7 @@ script = ExtResource("1_kh7o0")
 waterSprite = NodePath("Water")
 heatedSprite = NodePath("Hot")
 bridgeLowSprite = NodePath("BridgeLow")
-bridgeHighSprite = NodePath("BridgeBridgeHigh")
+bridgeHighSprite = NodePath("BridgeHigh")
 removableCollisionShape = NodePath("RemovableCollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,6 +52,6 @@ texture = ExtResource("4_ih682")
 visible = false
 texture = ExtResource("5_e6kgb")
 
-[node name="BridgeBridgeHigh" type="Sprite2D" parent="."]
+[node name="BridgeHigh" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("5_6a1xj")

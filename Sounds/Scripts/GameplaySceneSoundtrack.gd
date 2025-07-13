@@ -1,6 +1,8 @@
 class_name GameplaySceneSoundtrack
 extends Node
 
+var defaultVolume: float = -10.0
+var minVolume: float = -80.0
 @export var baseSoundtrack: AudioStreamPlayer
 @export var transformedSoundtrack: AudioStreamPlayer
 @export var specialRoomSoundTrack: AudioStreamPlayer
@@ -10,7 +12,7 @@ func _ready():
 
 func PlayAll():
 	baseSoundtrack.play()
-	transformedSoundtrack.volume_db = -10.0
+	baseSoundtrack.volume_db = defaultVolume
 	transformedSoundtrack.play()
 	transformedSoundtrack.volume_db = -80.0
 	specialRoomSoundTrack.play()
@@ -20,15 +22,15 @@ func SetSoundtrackVolume(soundtrack: AudioStreamPlayer, volume: float):
 	soundtrack.volume_db = volume
 
 func ActivateTransformed():
-	SetSoundtrackVolume(transformedSoundtrack, 0)
+	SetSoundtrackVolume(transformedSoundtrack, defaultVolume)
 
 func DeactivateTransformed():
-	SetSoundtrackVolume(transformedSoundtrack, -80.0)
+	SetSoundtrackVolume(transformedSoundtrack, minVolume)
 
 func ActivateSpecialRoom():
-	SetSoundtrackVolume(baseSoundtrack, -80.0)
-	SetSoundtrackVolume(specialRoomSoundTrack, -10.0)
+	SetSoundtrackVolume(baseSoundtrack, minVolume)
+	SetSoundtrackVolume(specialRoomSoundTrack, defaultVolume)
 
 func DeactivateSpecialRoom():
-	SetSoundtrackVolume(specialRoomSoundTrack, -80.0)
-	SetSoundtrackVolume(baseSoundtrack, -10.0)
+	SetSoundtrackVolume(specialRoomSoundTrack, minVolume)
+	SetSoundtrackVolume(baseSoundtrack, defaultVolume)

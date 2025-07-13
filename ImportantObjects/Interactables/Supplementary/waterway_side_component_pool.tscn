@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/WaterwayComponent.gd" id="1_o8ayv"]
 [ext_resource type="Texture2D" uid="uid://6fevgsdmi8nv" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayPoolSideGround.png" id="2_olpe2"]
-[ext_resource type="Texture2D" uid="uid://dw13e3expebtn" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeLow.png" id="3_aba52"]
+[ext_resource type="Texture2D" uid="uid://bkiem3rv3lh8q" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgePoolLow.png" id="3_awdrj"]
 [ext_resource type="Texture2D" uid="uid://cox75oucxmrl1" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayPoolSide.png" id="4_1hpi2"]
 [ext_resource type="Texture2D" uid="uid://sx7s2mhuuveu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayHotPool.png" id="5_76v1l"]
-[ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_ccxm4"]
+[ext_resource type="Texture2D" uid="uid://cc4vqv3xtmxuc" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgePoolHigh.png" id="6_tnhme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
-size = Vector2(96, 24)
+size = Vector2(96, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_553o8"]
-size = Vector2(96, 24)
+size = Vector2(96, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
-size = Vector2(96, 80)
+size = Vector2(96, 64)
 
 [node name="WaterwaySideComponentPool" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
@@ -22,15 +22,15 @@ script = ExtResource("1_o8ayv")
 waterSprite = NodePath("Water")
 heatedSprite = NodePath("Hot")
 bridgeLowSprite = NodePath("BridgeLow")
-bridgeHighSprite = NodePath("BridgeBridgeHigh")
+bridgeHighSprite = NodePath("BridgeHigh")
 removableCollisionShape = NodePath("RemovableCollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, -52)
+position = Vector2(-16, -48)
 shape = SubResource("RectangleShape2D_ytkui")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 52)
+position = Vector2(-16, 48)
 shape = SubResource("RectangleShape2D_553o8")
 
 [node name="RemovableCollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,7 +42,7 @@ texture = ExtResource("2_olpe2")
 
 [node name="BridgeLow" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("3_aba52")
+texture = ExtResource("3_awdrj")
 
 [node name="Water" type="Sprite2D" parent="."]
 visible = false
@@ -52,6 +52,6 @@ texture = ExtResource("4_1hpi2")
 visible = false
 texture = ExtResource("5_76v1l")
 
-[node name="BridgeBridgeHigh" type="Sprite2D" parent="."]
+[node name="BridgeHigh" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("5_ccxm4")
+texture = ExtResource("6_tnhme")
