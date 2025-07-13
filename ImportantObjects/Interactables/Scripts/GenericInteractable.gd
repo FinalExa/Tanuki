@@ -25,6 +25,7 @@ func ReadyOperations():
 
 func _process(delta):
 	Cooldown(delta)
+	ProcessOperations()
 
 func FirstStartup():
 	pass
@@ -53,6 +54,9 @@ func ExecuteExtraEffect():
 	pass
 
 func FinalStateExtraExecution():
+	pass
+
+func ProcessOperations():
 	pass
 
 func ExecuteRefEffect(_receivedRef):

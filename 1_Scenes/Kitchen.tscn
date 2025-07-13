@@ -285,12 +285,15 @@ specialRoomSoundTrack = NodePath("SpRoom_ST")
 
 [node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("4_8n2er")
+bus = &"Soundtrack"
 
 [node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("5_66ste")
+bus = &"Soundtrack"
 
 [node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("6_06f6s")
+bus = &"Soundtrack"
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true

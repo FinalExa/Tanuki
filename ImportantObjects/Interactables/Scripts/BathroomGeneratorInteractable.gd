@@ -2,6 +2,7 @@ extends GenericInteractable
 
 var waterObtained: bool
 var heated: bool
+var waterwaysFillingMe: Array[Waterway]
 
 @export var emptySprite: Sprite2D
 @export var fullSprite: Sprite2D
@@ -9,10 +10,13 @@ var heated: bool
 
 @export var waterwaysToActivate: Array[Waterway]
 
-func GetFilled(_filler):
-	if (!waterObtained && visible):
-		ObtainWater()
-		FillWaterways()
+func GetFilled(filler):
+	if (!waterObtained):
+		if (!waterwaysFillingMe.has(filler)):
+			waterwaysFillingMe.push_back(filler)
+		if (visible):
+			ObtainWater()
+			FillWaterways()
 
 func ObtainWater():
 	waterObtained = true
@@ -24,8 +28,18 @@ func ObtainHeat():
 	fullSprite.hide()
 	heatedSprite.show()
 
-func GetUnfilled(_filler):
-	pass
+func GetUnfilled(filler):
+	if (!waterObtained):
+		if (waterwaysFillingMe.has(filler)):
+			waterwaysFillingMe.erase(filler)
+
+func ProcessOperations():
+	WaitForActivation()
+
+func WaitForActivation():
+	if (!waterObtained && waterwaysFillingMe.size() > 0 && visible):
+		ObtainWater()
+		FillWaterways()
 
 func FillWaterways():
 	for i in waterwaysToActivate.size():

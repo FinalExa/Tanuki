@@ -223,12 +223,15 @@ specialRoomSoundTrack = NodePath("SpRoom_ST")
 
 [node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("4_p6si2")
+bus = &"Soundtrack"
 
 [node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("5_cd325")
+bus = &"Soundtrack"
 
 [node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("6_h56u8")
+bus = &"Soundtrack"
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1370,11 +1373,10 @@ rotation = 1.5708
 [node name="WaterwayComponent2" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" instance=ExtResource("14_4x8ki")]
 position = Vector2(-128, 128)
 
-[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+[node name="WaterwayComponent3" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/Waterway4" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
 position = Vector2(-128, 232)
 waterSprite = NodePath("../WaterwayComponent2/Water")
 bridgeLowSprite = NodePath("../WaterwayComponent2/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent2/BridgeBridgeHigh")
 removableCollisionShape = NodePath("../WaterwayComponent2/RemovableCollisionShape2D")
 
 [node name="Transformations" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap"]
