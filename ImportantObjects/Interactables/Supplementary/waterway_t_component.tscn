@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf13ijl7i0smc"]
+[gd_scene load_steps=10 format=3 uid="uid://bf13ijl7i0smc"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/WaterwayComponent.gd" id="1_kh7o0"]
 [ext_resource type="Texture2D" uid="uid://803re3250md" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayTGround.png" id="2_pyhqc"]
 [ext_resource type="Texture2D" uid="uid://dw13e3expebtn" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeLow.png" id="3_m3fhx"]
 [ext_resource type="Texture2D" uid="uid://iuiofydj6sie" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayT.png" id="4_ih682"]
 [ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_6a1xj"]
+[ext_resource type="Texture2D" uid="uid://eox63smmw6qp" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayHotT.png" id="5_e6kgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
 size = Vector2(32, 64)
@@ -15,10 +16,11 @@ size = Vector2(32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
 size = Vector2(64, 96)
 
-[node name="WaterwayTComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
+[node name="WaterwayTComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
 script = ExtResource("1_kh7o0")
 waterSprite = NodePath("Water")
+heatedSprite = NodePath("Hot")
 bridgeLowSprite = NodePath("BridgeLow")
 bridgeHighSprite = NodePath("BridgeBridgeHigh")
 removableCollisionShape = NodePath("RemovableCollisionShape2D")
@@ -45,6 +47,10 @@ texture = ExtResource("3_m3fhx")
 [node name="Water" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_ih682")
+
+[node name="Hot" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_e6kgb")
 
 [node name="BridgeBridgeHigh" type="Sprite2D" parent="."]
 visible = false

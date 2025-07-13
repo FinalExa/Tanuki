@@ -3,6 +3,7 @@ extends Node2D
 
 @export var objectsToFill: Array[Node2D]
 var currentFillers: Array[Node2D]
+var currentHeaters: Array[Node2D]
 var waterwayComponents: Array[WaterwayComponent]
 var activated: bool
 
@@ -18,7 +19,7 @@ func GetComponents():
 
 func ActivateComponents():
 	for i in waterwayComponents.size():
-		waterwayComponents[i].SetWater()
+		waterwayComponents[i].SetWater(CheckIfHeated())
 
 func DeactivateComponents():
 	for i in waterwayComponents.size():
@@ -36,6 +37,15 @@ func Deactivate():
 		activated = false
 		RemoveFillObjects()
 
+func CheckIfHeated():
+	if (currentHeaters.size() > 0):
+		return true
+	return false
+
+func ActivateHeat():
+	if (currentHeaters.size() > 0 && activated):
+		ActivateComponents()
+
 func AddFiller(filler):
 	if (!currentFillers.has(filler)):
 		currentFillers.push_back(filler)
@@ -45,6 +55,11 @@ func RemoveFiller(filler):
 	if (currentFillers.has(filler)):
 		currentFillers.erase(filler)
 		Deactivate()
+
+func AddHeater(heater):
+	if (!currentHeaters.has(heater)):
+		currentHeaters.push_back(heater)
+		ActivateHeat()
 
 func FillObjects():
 	for i in objectsToFill.size():

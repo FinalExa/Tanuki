@@ -782,13 +782,14 @@ sendSignalToQuestOnDestroyed = true
 [node name="LanternWithWarden" parent="Quests/KitchenDropLantern" instance=ExtResource("24_ribs3")]
 position = Vector2(1280, 408)
 
-[node name="KitchenHelpChef" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="KitchenHelpChef" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToFinalizeAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenHelpChef"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ChefYokai"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("ChefYokaiTrapped"), NodePath("ChefYokai"), NodePath("StartDialogue"), NodePath("MidDialogue"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("../../Keys/UnlockKey3")]
 questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, false, true, true])
+objectsToFinalizeAtQuestComplete = [NodePath("ChefYokai")]
 
 [node name="StartDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 position = Vector2(-1152, -1112)

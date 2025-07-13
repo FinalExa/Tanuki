@@ -36,13 +36,24 @@ func CheckForRightMovable(playerRef: PlayerCharacter):
 	var movableRef: MovableObject = playerRef.playerMoveObjects.currentObject
 	if (movableRef.movableObjectProperties.has(coldFoodProperty) && selectedColdFood == movableRef.movableObjectName && !gotColdFood):
 		playerRef.playerMoveObjects.DeleteLeftoverObject()
-		coldFoodRequest.hide()
-		gotColdFood = true
+		GetColdFood()
 	if (movableRef.movableObjectProperties.has(hotFoodProperty) && selectedHotFood == movableRef.movableObjectName && !gotHotFood):
 		playerRef.playerMoveObjects.DeleteLeftoverObject()
-		hotFoodRequest.hide()
-		gotHotFood = true
+		GetHotFood()
 	if (gotColdFood && gotHotFood):
 		ExecuteExtraEffect()
 		FinalState()
 		done = true
+
+func GetColdFood():
+	coldFoodRequest.hide()
+	gotColdFood = true
+
+func GetHotFood():
+	hotFoodRequest.hide()
+	gotHotFood = true
+
+func FinalStateExtraExecution():
+	GetColdFood()
+	GetHotFood()
+	done = true

@@ -31,6 +31,10 @@ func FillWaterways():
 	for i in waterwaysToActivate.size():
 		waterwaysToActivate[i].AddFiller(self)
 
+func HeatWaterways():
+	for i in waterwaysToActivate.size():
+		waterwaysToActivate[i].AddHeater(self)
+
 func ExecuteRefEffect(ref):
 	if (waterObtained && !heated):
 		var movableRef: MovableObject = ref.playerMoveObjects.currentObject
@@ -42,6 +46,7 @@ func FinalStateExtraExecution():
 	waterObtained = true
 	heated = true
 	FillWaterways()
+	HeatWaterways()
 	emptySprite.hide()
 	fullSprite.hide()
 	heatedSprite.show()

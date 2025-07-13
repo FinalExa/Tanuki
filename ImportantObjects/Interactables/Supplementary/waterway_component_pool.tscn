@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://drc230rx5jty8"]
+[gd_scene load_steps=10 format=3 uid="uid://drc230rx5jty8"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/WaterwayComponent.gd" id="1_ikk41"]
 [ext_resource type="Texture2D" uid="uid://cngaq7nxm4gy0" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayPoolInternalGround.png" id="2_ur757"]
 [ext_resource type="Texture2D" uid="uid://dw13e3expebtn" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeLow.png" id="3_26r3y"]
 [ext_resource type="Texture2D" uid="uid://dyh2xshg38hbt" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayPoolInternal.png" id="4_ae42v"]
 [ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_4aios"]
+[ext_resource type="Texture2D" uid="uid://sx7s2mhuuveu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayHotPool.png" id="5_xsure"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
 size = Vector2(128, 24)
@@ -15,10 +16,11 @@ size = Vector2(128, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
 size = Vector2(128, 80)
 
-[node name="WaterwayComponentPool" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
+[node name="WaterwayComponentPool" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
 script = ExtResource("1_ikk41")
 waterSprite = NodePath("Water")
+heatedSprite = NodePath("Hot")
 bridgeLowSprite = NodePath("BridgeLow")
 bridgeHighSprite = NodePath("BridgeBridgeHigh")
 removableCollisionShape = NodePath("RemovableCollisionShape2D")
@@ -44,6 +46,10 @@ texture = ExtResource("3_26r3y")
 [node name="Water" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_ae42v")
+
+[node name="Hot" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_xsure")
 
 [node name="BridgeBridgeHigh" type="Sprite2D" parent="."]
 visible = false
