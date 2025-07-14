@@ -13,9 +13,17 @@ func _process(_delta):
 
 func SelectObjectInRange():
 	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.grabInput):
-		currentObject = objectsInRange[GetMovableObject()]
-		currentObject.AttachToPlayer(self)
-		currentObject.TurnAllFeedbacksOff()
+		var tempArray: Array[MovableObject]
+		for i in objectsInRange.size():
+			if (objectsInRange[i] != null):
+				tempArray.push_back(objectsInRange[i])
+		objectsInRange.clear()
+		for i in tempArray.size():
+			objectsInRange.push_back(tempArray[i])
+		if (objectsInRange.size() > 0):
+			currentObject = objectsInRange[GetMovableObject()]
+			currentObject.AttachToPlayer(self)
+			currentObject.TurnAllFeedbacksOff()
 
 func GetMovableObject():
 	var minDist: float
@@ -56,7 +64,7 @@ func DeleteLeftoverObject():
 func _on_area_entered(area):
 	if (area != null && area is MovableObject && !objectsInRange.has(area)):
 		objectsInRange.push_back(area)
-		area.TurnCloseFeedbackOn(currentObject)
+		if (area != null): area.TurnCloseFeedbackOn(currentObject)
 
 func _on_area_exited(area):
 	if (area != null && area is MovableObject && objectsInRange.has(area)):
