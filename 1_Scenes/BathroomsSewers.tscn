@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bqdtyyf6k3rp"]
+[gd_scene load_steps=43 format=3 uid="uid://bqdtyyf6k3rp"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_haeea"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_w4qb1"]
@@ -59,7 +59,10 @@ size = Vector2(192, 1280)
 size = Vector2(192, 3344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2ggf"]
-size = Vector2(175.998, 1024)
+size = Vector2(176, 896)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_optoc"]
+size = Vector2(192, 127.999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mmqg"]
 size = Vector2(512, 192)
@@ -105,15 +108,12 @@ specialRoomSoundTrack = NodePath("SpRoom_ST")
 
 [node name="Base_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("4_6qgl2")
-bus = &"Soundtrack"
 
 [node name="Transformed_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("5_25gvt")
-bus = &"Soundtrack"
 
 [node name="SpRoom_ST" type="AudioStreamPlayer" parent="Soundtrack"]
 stream = ExtResource("6_diyhy")
-bus = &"Soundtrack"
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -550,11 +550,18 @@ position = Vector2(-128, -120)
 shape = SubResource("RectangleShape2D_ihjmx")
 
 [node name="MoveInteractionObject3" parent="WaterCurrents" instance=ExtResource("23_w4u03")]
-position = Vector2(256, 1680)
+position = Vector2(192, 1672)
 rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject3"]
 shape = SubResource("RectangleShape2D_r2ggf")
+
+[node name="MoveInteractionObject5" parent="WaterCurrents" instance=ExtResource("23_w4u03")]
+position = Vector2(704, 1664)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject5"]
+shape = SubResource("RectangleShape2D_optoc")
 
 [node name="MoveInteractionObject4" parent="WaterCurrents" instance=ExtResource("23_w4u03")]
 position = Vector2(1024, 1664)
