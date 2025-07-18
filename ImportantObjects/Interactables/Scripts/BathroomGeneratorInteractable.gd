@@ -51,8 +51,8 @@ func HeatWaterways():
 
 func ExecuteRefEffect(ref):
 	if (waterObtained && !heated):
-		var movableRef: MovableObject = ref.playerMoveObjects.currentObject
-		movableRef.ResetParentAndPosition()
+		var playerMoveObjects: PlayerMoveObjects = ref.playerMoveObjects
+		playerMoveObjects.ForceDropMovableObject()
 		ExecuteExtraEffect()
 		FinalState()
 
