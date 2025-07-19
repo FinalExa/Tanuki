@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://nxs64fn68deh"]
+[gd_scene load_steps=5 format=3 uid="uid://nxs64fn68deh"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/WaterSourceInteractable.gd" id="1_lhv8i"]
 [ext_resource type="Texture2D" uid="uid://ttfdo7nbabqr" path="res://ImportantObjects/Interactables/Sprites/WaterSource.png" id="1_vp55a"]
 [ext_resource type="Texture2D" uid="uid://ds5cndxt36wv3" path="res://ImportantObjects/Interactables/Sprites/WaterSourceFull.png" id="2_h2ab2"]
+[ext_resource type="Texture2D" uid="uid://78vh1ohvft70" path="res://ImportantObjects/Interactables/Sprites/hourglass.png" id="4_3jvpc"]
 
-[node name="WaterSource" type="StaticBody2D" node_paths=PackedStringArray("emptySprite", "fullSprite") groups=["Interactable"]]
+[node name="WaterSource" type="StaticBody2D" node_paths=PackedStringArray("emptySprite", "fullSprite", "bar") groups=["Interactable"]]
 script = ExtResource("1_lhv8i")
 emptySprite = NodePath("EmptySprite")
 fullSprite = NodePath("FullSprite")
+bar = NodePath("TextureProgressBar")
+barMultiplier = 10.0
 neededProperties = Array[String](["Gear"])
 hasCooldown = true
-cooldownDuration = 7.0
+cooldownDuration = 10.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-40, -64, -64, -40, -64, 40, -40, 64, 40, 64, 64, 40, 64, -40, 40, -64)
@@ -20,3 +23,12 @@ texture = ExtResource("1_vp55a")
 
 [node name="FullSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_h2ab2")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 1
+offset_left = -16.0
+offset_top = -104.0
+offset_right = 16.0
+offset_bottom = -72.0
+fill_mode = 3
+texture_progress = ExtResource("4_3jvpc")

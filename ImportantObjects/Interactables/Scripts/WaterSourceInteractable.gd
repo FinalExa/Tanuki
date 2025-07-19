@@ -3,6 +3,8 @@ extends GenericInteractable
 
 @export var emptySprite: Sprite2D
 @export var fullSprite: Sprite2D
+@export var bar: TextureProgressBar
+@export var barMultiplier: float
 
 @export var alwaysFilled: bool
 @export var waterwaysToActivate: Array[Waterway]
@@ -10,6 +12,7 @@ var filledBy: Array[Waterway]
 
 func ReadyOperations():
 	CheckIfAlwaysFull()
+	bar.max_value = cooldownDuration * barMultiplier
 
 func CheckIfAlwaysFull():
 	if (alwaysFilled):
@@ -24,11 +27,15 @@ func FullMode():
 func EmptyMode():
 	fullSprite.hide()
 	emptySprite.show()
+	bar.value = bar.min_value
 
 func CooldownActivatedEffect():
 	if (filledBy.size() > 0 || alwaysFilled):
 		for i in waterwaysToActivate.size():
 			waterwaysToActivate[i].AddFiller(self)
+
+func CooldownActiveEffect(delta):
+	bar.value = cooldownTimer * barMultiplier
 
 func CooldownFinishedEffect():
 	for i in waterwaysToActivate.size():

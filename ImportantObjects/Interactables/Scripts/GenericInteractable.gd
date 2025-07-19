@@ -66,11 +66,15 @@ func Cooldown(delta):
 	if (cooldownActive):
 		if (cooldownTimer > 0):
 			cooldownTimer -= delta
+			CooldownActiveEffect(delta)
 			return
 		cooldownActive = false
 		CooldownFinishedEffect()
 
 func CooldownActivatedEffect():
+	pass
+
+func CooldownActiveEffect(_delta):
 	pass
 
 func CooldownFinishedEffect():
