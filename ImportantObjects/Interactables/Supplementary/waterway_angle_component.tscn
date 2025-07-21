@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_8lvpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
-size = Vector2(64, 24)
+size = Vector2(32, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_553o8"]
-size = Vector2(24, 64)
+size = Vector2(40, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
-size = Vector2(72, 72)
+size = Vector2(40, 40)
 
 [node name="WaterwayAngleComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
@@ -26,11 +26,11 @@ bridgeHighSprite = NodePath("BridgeHigh")
 removableCollisionShape = NodePath("RemovableCollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -52)
+position = Vector2(0, -44)
 shape = SubResource("RectangleShape2D_ytkui")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-52, 0)
+position = Vector2(-44, 0)
 shape = SubResource("RectangleShape2D_553o8")
 
 [node name="RemovableCollisionShape2D" type="CollisionShape2D" parent="."]

@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cyvdm76fow7xu" path="res://ImportantObjects/Interactables/Supplementary/Sprites/WaterwayBridgeHigh.png" id="5_kvqjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytkui"]
-size = Vector2(64, 24)
+size = Vector2(32, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_553o8"]
-size = Vector2(64, 24)
+size = Vector2(32, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pps"]
-size = Vector2(64, 80)
+size = Vector2(32, 80)
 
 [node name="WaterwayComponent" type="StaticBody2D" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape")]
 z_index = -1
