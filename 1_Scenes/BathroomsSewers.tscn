@@ -33,9 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="31_0e6vi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_03o23"]
-vertices = PackedVector2Array(256, -1040, 256, -1408, 896, -1408, 272, -1040, 272, -880, 896, -896, 624, -16, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 784, 144, 768, 624, 768, 144, 784, -16, 624, 0, 256, 0, 256, -880)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(5, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 20, 21), PackedInt32Array(14, 16, 21), PackedInt32Array(13, 14, 21, 22), PackedInt32Array(10, 13, 22, 23), PackedInt32Array(22, 24, 25, 23), PackedInt32Array(10, 23, 26, 9), PackedInt32Array(6, 27, 28, 29, 4), PackedInt32Array(6, 5, 9, 26)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(256, -1408, 896, -1408, 896, -896, 1152, -896, 1152, -144, 1136, -144, 1136, 16, 1152, 16, 1152, 624, 1136, 624, 1136, 784, 1152, 784, 1152, 928, 1248, 928, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 768, 624, 768, 144, 784, 144, 784, -16, 624, -16, 624, 0, 256, 0, 256, -880, 272, -880, 272, -1040, 256, -1040)])
+vertices = PackedVector2Array(256, -1040, 256, -1408, 896, -1408, 272, -1040, 272, -880, 896, -896, 784, -16, 624, -16, 1248, -896, 1248, 1504, 768, 1504, 784, 784, 768, 784, 784, 624, 768, 624, 768, 144, 784, 144, 624, 0, 256, 0, 256, -880)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6, 7), PackedInt32Array(5, 8, 9, 10, 11), PackedInt32Array(10, 12, 11), PackedInt32Array(5, 11, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(5, 13, 16), PackedInt32Array(5, 16, 6), PackedInt32Array(4, 7, 17, 18, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(256, -1408, 896, -1408, 896, -896, 1248, -896, 1248, 1504, 768, 1504, 768, 784, 784, 784, 784, 624, 768, 624, 768, 144, 784, 144, 784, -16, 624, -16, 624, 0, 256, 0, 256, -880, 272, -880, 272, -1040, 256, -1040)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jdejm"]
 radius = 128.0
@@ -67,7 +67,7 @@ size = Vector2(192, 127.999)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mmqg"]
 size = Vector2(512, 192)
 
-[node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
+[node name="BathroomsSewers" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "mapQuests", "unlocksAfterQuestStages", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("1_haeea")
 format = 2
@@ -207,18 +207,6 @@ position = Vector2(960, -1472)
 alwaysFilled = true
 waterwaysToActivate = [NodePath("../../Waterways/Waterway"), NodePath("../../Waterways/Waterway10")]
 
-[node name="WaterSource2" parent="Quests/BathroomsRepairBrokenGenerator/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("12_4r0v7")]
-position = Vector2(1216, -960)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway2"), NodePath("../../Waterways/Waterway")]
-
-[node name="WaterSource3" parent="Quests/BathroomsRepairBrokenGenerator/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("12_4r0v7")]
-position = Vector2(1216, -64)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway2"), NodePath("../../Waterways/Waterway3")]
-
-[node name="WaterSource4" parent="Quests/BathroomsRepairBrokenGenerator/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("12_4r0v7")]
-position = Vector2(1216, 704)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway3"), NodePath("../../Waterways/Waterway4")]
-
 [node name="WaterSource5" parent="Quests/BathroomsRepairBrokenGenerator/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("12_4r0v7")]
 position = Vector2(192, -960)
 waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../Waterways/Waterway")]
@@ -238,9 +226,8 @@ waterwaysToActivate = [NodePath("../../Waterways/Waterway7"), NodePath("../../Wa
 [node name="Waterways" type="Node2D" parent="Quests/BathroomsRepairBrokenGenerator"]
 y_sort_enabled = true
 
-[node name="Waterway" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("13_7eao1")]
+[node name="Waterway" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" instance=ExtResource("13_7eao1")]
 position = Vector2(960, -1216)
-objectsToFill = [NodePath("../../WaterSources/WaterSource2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway" instance=ExtResource("14_8pii6")]
 position = Vector2(0, -128)
@@ -255,53 +242,18 @@ hasBridge = true
 position = Vector2(128, 256)
 rotation = 1.5708
 
+[node name="WaterwayComponent5" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_8pii6")]
+position = Vector2(256, 256)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent4/Water")
+heatedSprite = NodePath("../WaterwayComponent4/Hot")
+bridgeLowSprite = NodePath("../WaterwayComponent4/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent4/BridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent4/RemovableCollisionShape2D")
+
 [node name="WaterwayAngleComponent" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway" instance=ExtResource("16_85bqs")]
 position = Vector2(0, 256)
 rotation = 1.5708
-
-[node name="Waterway2" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("13_7eao1")]
-position = Vector2(1216, -576)
-objectsToFill = [NodePath("../../WaterSources/WaterSource2"), NodePath("../../WaterSources/WaterSource3")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-position = Vector2(0, -256)
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-position = Vector2(0, -128)
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-position = Vector2(0, 128)
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-position = Vector2(0, 256)
-
-[node name="WaterwayComponent6" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway2" instance=ExtResource("14_8pii6")]
-position = Vector2(0, 384)
-
-[node name="Waterway3" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("13_7eao1")]
-position = Vector2(1216, 320)
-objectsToFill = [NodePath("../../WaterSources/WaterSource3"), NodePath("../../WaterSources/WaterSource4")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway3" instance=ExtResource("14_8pii6")]
-position = Vector2(0, -256)
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway3" instance=ExtResource("14_8pii6")]
-position = Vector2(0, -128)
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway3" instance=ExtResource("14_8pii6")]
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway3" instance=ExtResource("14_8pii6")]
-position = Vector2(0, 128)
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway3" instance=ExtResource("14_8pii6")]
-position = Vector2(0, 256)
-
-[node name="Waterway4" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" instance=ExtResource("13_7eao1")]
-position = Vector2(1216, 832)
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRepairBrokenGenerator/Waterways/Waterway4" instance=ExtResource("14_8pii6")]
 
 [node name="Waterway5" parent="Quests/BathroomsRepairBrokenGenerator/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("13_7eao1")]
 position = Vector2(192, -480)
