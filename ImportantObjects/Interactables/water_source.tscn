@@ -27,8 +27,8 @@ texture = ExtResource("2_h2ab2")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -16.0
-offset_top = -104.0
+offset_top = -16.0
 offset_right = 16.0
-offset_bottom = -72.0
+offset_bottom = 16.0
 fill_mode = 3
 texture_progress = ExtResource("4_3jvpc")
