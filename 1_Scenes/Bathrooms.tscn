@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=87 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="14_vrk40"]
 [ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="15_3wwmr"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="16_e5cn5"]
+[ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="16_xnscj"]
 [ext_resource type="PackedScene" uid="uid://uueuynaswt7r" path="res://ImportantObjects/MovableObjects/metal_rod_movable.tscn" id="17_dnihd"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
@@ -80,15 +81,6 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ga7d"]
 radius = 128.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_81j6f"]
-radius = 128.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4sf27"]
-radius = 128.25
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3qv04"]
-radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jjrb"]
 radius = 128.0
@@ -166,9 +158,6 @@ size = Vector2(192, 84)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auacd"]
 size = Vector2(120, 928)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmr0j"]
-size = Vector2(128, 416)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01bbf"]
 size = Vector2(396, 64)
 
@@ -234,6 +223,7 @@ stream = ExtResource("6_h56u8")
 y_sort_enabled = true
 
 [node name="GeneratorRoomRegion" type="NavigationRegion2D" parent="NavigationRegions"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_iokbp")
 
 [node name="BathroomRegion" type="NavigationRegion2D" parent="NavigationRegions"]
@@ -273,10 +263,10 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivatePools"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea3")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath(""), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"), NodePath(""), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath(""), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3/DialogueArea3")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, true, true, true, true, true, false, false, false, true, true, true])
-objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2"), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3")]
+objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath(""), NodePath("../BathroomsSaveGenerator3/BathroomGeneratorYokai3")]
 
 [node name="DialogueArea" parent="Quests/BathroomsActivatePools" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
@@ -293,8 +283,8 @@ shape = SubResource("CircleShape2D_b04x4")
 y_sort_enabled = true
 
 [node name="WaterSource" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-64, -448)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway"), NodePath("../../Waterways/Waterway4"), NodePath("../../Waterways/Waterway3")]
+position = Vector2(-416, -368)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway"), NodePath(""), NodePath("../../Waterways/Waterway3")]
 
 [node name="WaterSource2" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-64, -960)
@@ -308,10 +298,6 @@ waterwaysToActivate = [NodePath("../../Waterways/Waterway6")]
 [node name="WaterSource4" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(320, -448)
 waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../Waterways/Waterway")]
-
-[node name="WaterSource5" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-704, -448)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway7"), NodePath("../../Waterways/Waterway4")]
 
 [node name="Waterways" type="Node2D" parent="Quests/BathroomsActivatePools"]
 y_sort_enabled = true
@@ -345,38 +331,48 @@ rotation = 1.5708
 position = Vector2(160, 0)
 
 [node name="Waterway3" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-64, -704)
+position = Vector2(-320, -960)
 objectsToFill = [NodePath("../../WaterSources/WaterSource"), NodePath("../../WaterSources/WaterSource2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -128)
+position = Vector2(128, 0)
+rotation = 1.5708
 
 [node name="WaterwayComponent8" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
+rotation = 1.5708
 hasBridge = true
 
 [node name="WaterwayComponent9" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, 128)
-
-[node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-384, -448)
-objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../WaterSources/WaterSource")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
-position = Vector2(192, 0)
+position = Vector2(-128, 0)
 rotation = 1.5708
 
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
-position = Vector2(64, 0)
-rotation = 1.5708
-hasBridge = true
+[node name="WaterwayComponent10" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(-256, 128)
+waterSprite = NodePath("../WaterwayComponent9/Water")
+heatedSprite = NodePath("../WaterwayComponent9/Hot")
+bridgeLowSprite = NodePath("../WaterwayComponent9/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent9/BridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent9/RemovableCollisionShape2D")
 
-[node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
-position = Vector2(-64, 0)
-rotation = 1.5708
+[node name="WaterwayComponent11" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(-256, 256)
+waterSprite = NodePath("../WaterwayComponent9/Water")
+heatedSprite = NodePath("../WaterwayComponent9/Hot")
+bridgeLowSprite = NodePath("../WaterwayComponent9/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent9/BridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent9/RemovableCollisionShape2D")
 
-[node name="WaterwayComponent4" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
-position = Vector2(-192, 0)
-rotation = 1.5708
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("15_3wwmr")]
+position = Vector2(-256, 0)
+rotation = 3.14159
+
+[node name="WaterwayAngleComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("15_3wwmr")]
+position = Vector2(-256, 384)
+waterSprite = NodePath("../WaterwayAngleComponent/Water")
+heatedSprite = NodePath("../WaterwayAngleComponent/Hot")
+bridgeLowSprite = NodePath("../WaterwayAngleComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayAngleComponent/BridgeHigh")
+removableCollisionShape = NodePath("../WaterwayAngleComponent/RemovableCollisionShape2D")
 
 [node name="Waterway5" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(512, -448)
@@ -418,21 +414,37 @@ position = Vector2(0, -64)
 [node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, 64)
 
-[node name="Waterway7" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-704, -696)
-objectsToFill = [NodePath("../../../BathroomsSaveGenerator2/BathroomGeneratorYokai2"), NodePath("../../WaterSources/WaterSource5")]
+[node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" instance=ExtResource("12_vc1fv")]
+position = Vector2(-672, -496)
+
+[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
+
+[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+position = Vector2(128, 128)
+rotation = 1.5708
+waterSprite = NodePath("../WaterwayComponent/Water")
+heatedSprite = NodePath("../WaterwayComponent/Hot")
+bridgeLowSprite = NodePath("../WaterwayComponent/BridgeLow")
+bridgeHighSprite = NodePath("../WaterwayComponent/BridgeHigh")
+removableCollisionShape = NodePath("../WaterwayComponent/RemovableCollisionShape2D")
+
+[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("15_3wwmr")]
+position = Vector2(0, 128)
+rotation = 1.5708
+
+[node name="Waterway7" parent="Quests/BathroomsActivatePools/Waterways" instance=ExtResource("12_vc1fv")]
+position = Vector2(-240, -368)
 
 [node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, 120)
+position = Vector2(-48, 0)
+rotation = 1.5708
 
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -8)
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -136)
+[node name="WaterwayTComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("16_xnscj")]
+position = Vector2(80, 0)
+rotation = 3.14159
 
 [node name="MetalRod" parent="Quests/BathroomsActivatePools" instance=ExtResource("17_dnihd")]
-position = Vector2(-312, -336)
+position = Vector2(-984, -336)
 
 [node name="HeatSourceActivator" parent="Quests/BathroomsActivatePools" instance=ExtResource("18_ff0db")]
 position = Vector2(-352, -1256)
@@ -504,43 +516,10 @@ texture = ExtResource("26_nder6")
 [node name="BathroomsSaveGenerator2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
 script = ExtResource("10_67fd8")
 questName = "BathroomsSaveGenerator2"
-questItemsToOperate = [NodePath("BathroomGeneratorYokai2/DialogueArea2"), NodePath("BathroomGeneratorYokai2/DialogueArea"), NodePath("BathroomGeneratorYokai2/DialogueArea2")]
+questItemsToOperate = [NodePath(""), NodePath(""), NodePath("")]
 questItemsStages = Array[int]([0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
-
-[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(-704, -880)
-waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway7")]
-questToSendProgressSignal = NodePath("..")
-sendSignalToQuestOnDestroyed = true
-
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["If only someone could fill me with hot water again...", "Hey, how do I do that?", "Ohhh... someone willing to help me... wonderful! I will explain it...", "See that filter over there? It gathers the water from the underground, if it's blue it means it's filled.", "Find something mechanical to activate it, it will fill that waterway below it, and activate the filter connected to the waterway.", "After a while, the filter will stop releasing water, and the waterways connected to it will return empty.", "If you make water reach us, we will start producing it endlessly and fill the waterways connected to us.", "That water doesn't seem hot though, any hints on how to warm it?", "Ask my brother... I forgot how that part worked..."])
-characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../../BathroomsActivatePools/WaterSources/WaterSource3"), NodePath("../../../BathroomsActivatePools/Waterways/Waterway6"), NodePath(".."), NodePath(".."), null, NodePath("../../../BathroomsSaveGenerator3/BathroomGeneratorYokai3")]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea"]
-shape = SubResource("CircleShape2D_81j6f")
-
-[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks for saving me! I sense my brothers are still ill, please save them!", "Will do."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"]
-shape = SubResource("CircleShape2D_4sf27")
-
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"]
-shape = SubResource("CircleShape2D_3qv04")
 
 [node name="BathroomsSaveGenerator3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
 script = ExtResource("10_67fd8")
@@ -551,7 +530,7 @@ questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
 [node name="BathroomGeneratorYokai3" parent="Quests/BathroomsSaveGenerator3" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(104, -160)
+position = Vector2(-672, -552)
 waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway5"), NodePath("../../BathroomsRescueOldYokai/WaterwayPool")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
@@ -636,9 +615,6 @@ position = Vector2(0.00012207, -832)
 
 [node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
 position = Vector2(0.00012207, -704)
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(0.00012207, -576)
 
 [node name="WaterwayComponent6" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
 position = Vector2(0.00012207, -448)
@@ -1491,6 +1467,7 @@ position = Vector2(-1216, -1024)
 position = Vector2(-1248, 1216)
 
 [node name="Towel" parent="TransformationObjects" instance=ExtResource("41_4w2mt")]
+visible = false
 position = Vector2(-320, 256)
 
 [node name="Vase" parent="TransformationObjects" instance=ExtResource("44_k83du")]
@@ -1536,11 +1513,6 @@ position = Vector2(488, -256)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase11" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-160, -840)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
 [node name="Vase12" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-432, 696)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
@@ -1581,6 +1553,7 @@ position = Vector2(-384, -704)
 position = Vector2(576, 128)
 
 [node name="Enemies" type="Node2D" parent="."]
+visible = false
 y_sort_enabled = true
 
 [node name="CleanerUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
@@ -1798,25 +1771,6 @@ position = Vector2(8, 176)
 
 [node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
 position = Vector2(8, 304)
-
-[node name="LocalAllowedItems9" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(-160, -688)
-allowedObjects = Array[String](["Vase"])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems9"]
-shape = SubResource("RectangleShape2D_nmr0j")
-
-[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, -144)
-
-[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, -16)
-
-[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, 112)
-
-[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, 208)
 
 [node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(352, -256)
