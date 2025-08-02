@@ -5,6 +5,7 @@ signal on_attach
 signal on_attach_end
 signal on_force_detach
 
+var playerMoveObjects: PlayerMoveObjects
 @export var movableObjectName: String
 @export var movableObjectProperties: Array[String]
 var originalParent: Node2D
@@ -34,7 +35,8 @@ func GetCollisionShape():
 func AttachToPlayer(playerMoveObjects: PlayerMoveObjects):
 	call_deferred("Attach", playerMoveObjects)
 
-func Attach(playerMoveObjects: PlayerMoveObjects):
+func Attach(mov: PlayerMoveObjects):
+	playerMoveObjects = mov
 	self.reparent(playerMoveObjects)
 	collisionShape.disabled = true
 	self.global_position = playerMoveObjects.global_position
@@ -47,6 +49,7 @@ func Reset():
 	self.reparent(originalParent)
 	collisionShape.disabled = false
 	emit_signal("on_attach_end")
+	playerMoveObjects = null
 
 func ResetParentAndPosition():
 	ResetParent()

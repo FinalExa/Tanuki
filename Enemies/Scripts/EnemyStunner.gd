@@ -10,4 +10,4 @@ func _on_body_entered(body):
 
 func StunEnemy(enemyController: EnemyController):
 	enemyController.is_damaged(movableRef.global_position.direction_to(enemyController.global_position), stunTier)
-	movableRef.ResetParentAndPosition()
+	movableRef.playerMoveObjects.ForceDropMovableObject()

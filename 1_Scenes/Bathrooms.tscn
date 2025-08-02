@@ -199,7 +199,7 @@ keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUnlockSewers"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUnlockSewers"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
 travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("Teleport/TravelToSewers")]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("Teleport/TravelToSewers/SewersReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -262,10 +262,10 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivatePools"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea3")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, true, true, true, true, true, false, false, false, true, true, true])
-objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai3")]
+objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), null, NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
 
 [node name="DialogueArea" parent="Quests/BathroomsActivatePools" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
@@ -283,7 +283,7 @@ y_sort_enabled = true
 
 [node name="WaterSource" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-448, -576)
-waterwaysToActivate = [null, NodePath("../../Waterways/Waterway4"), NodePath("../../Waterways/Waterway3")]
+waterwaysToActivate = [NodePath("../../Waterways/Waterway4"), NodePath("../../Waterways/Waterway3")]
 
 [node name="WaterSource2" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-64, -960)
@@ -296,13 +296,10 @@ waterwaysToActivate = [NodePath("../../Waterways/Waterway6")]
 
 [node name="WaterSource4" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(224, -368)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), null]
+waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../../BathroomsRescueOldYokai/WaterwayPool")]
 
-[node name="WaterSource5" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("emptySprite", "fullSprite", "bar", "waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+[node name="WaterSource5" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(320, -832)
-emptySprite = NodePath("../WaterSource4/EmptySprite")
-fullSprite = NodePath("../WaterSource4/FullSprite")
-bar = NodePath("../WaterSource4/TextureProgressBar")
 waterwaysToActivate = [NodePath("../../Waterways/Waterway2"), NodePath("../../Waterways/Waterway7")]
 
 [node name="Waterways" type="Node2D" parent="Quests/BathroomsActivatePools"]
@@ -310,7 +307,7 @@ y_sort_enabled = true
 
 [node name="Waterway2" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(160, -960)
-objectsToFill = [NodePath("../../../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource2")]
+objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../WaterSources/WaterSource2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
 position = Vector2(-96, 0)
@@ -336,28 +333,19 @@ hasBridge = true
 [node name="WaterwayComponent9" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 rotation = 1.5708
 
-[node name="WaterwayComponent10" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+[node name="WaterwayComponent10" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(-128, 128)
-waterSprite = NodePath("../WaterwayComponent9/Water")
-heatedSprite = NodePath("../WaterwayComponent9/Hot")
-bridgeLowSprite = NodePath("../WaterwayComponent9/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent9/BridgeHigh")
-removableCollisionShape = NodePath("../WaterwayComponent9/RemovableCollisionShape2D")
 
-[node name="WaterwayComponent11" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+[node name="WaterwayComponent11" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
 position = Vector2(-128, 256)
-waterSprite = NodePath("../WaterwayComponent9/Water")
-heatedSprite = NodePath("../WaterwayComponent9/Hot")
-bridgeLowSprite = NodePath("../WaterwayComponent9/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent9/BridgeHigh")
-removableCollisionShape = NodePath("../WaterwayComponent9/RemovableCollisionShape2D")
 
 [node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("15_3wwmr")]
 position = Vector2(-128, 0)
 rotation = 3.14159
 
-[node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" instance=ExtResource("12_vc1fv")]
+[node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-448, -416)
+objectsToFill = [NodePath("../../WaterSources/WaterSource"), NodePath("../../../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -32)
@@ -368,7 +356,7 @@ rotation = 1.5708
 
 [node name="Waterway5" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(416, -368)
-objectsToFill = [NodePath("../../../BathroomsSaveGenerator2/BathroomGeneratorYokai3"), NodePath("../../WaterSources/WaterSource4")]
+objectsToFill = [NodePath("../../../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource4")]
 
 [node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, -256)
@@ -427,11 +415,12 @@ position = Vector2(776, 1408)
 navigation_polygon = SubResource("NavigationPolygon_o5oxm")
 
 [node name="BathroomsSaveGenerator1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSaveGenerator1"
-questItemsToOperate = [NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("BathroomGeneratorYokai/DialogueArea2")]
-questItemsStages = Array[int]([0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true])
+questItemsToOperate = [NodePath("BathroomGeneratorYokai/DialogueArea3"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea3")]
+questItemsStages = Array[int]([0, 1, 1, 1])
+questItemsOnOffState = Array[bool]([false, false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsSaveGenerator1" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
@@ -440,82 +429,97 @@ waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
-dialogueText = Array[String](["So... empty...", "Hey you! You have a key I see, can you give it to me?", "I can't... even if I want to...", "Why?", "I need to be refilled with hot water... I used to produce hot water for the bathrooms, but they turned me off...", "I can help you with that if you give me your key.", "I would be saved... Can I bother you to help also my other two brothers...", "...before I give you the key?", "I am in a hurry... but okay, if those are your conditions fine.", "Thanks... I am too tired to explain how to do it... ask my two brothers...", "Will do."])
+[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["So... empty...", "Hey you! You have a key I see, can you give it to me?", "I can't... even if I want to...", "Why?", "I need to be refilled with hot water... I used to produce hot water for the bathrooms, but they turned me off...", "I can help you with that if you give me your key.", "I would be saved... Can I bother you to help also my brother...", "...before I give you the key?", "I am in a hurry... but okay, if those are your conditions fine.", "Thanks... I am too tired to explain how to do it... ask my two brothers...", "Will do."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
+deleteOnDone = true
+advanceQuest = true
+questRef = NodePath("../../../BathroomsGenerator1Dialogue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea"]
 shape = SubResource("CircleShape2D_slmiq")
 
 [node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
+dialogueText = Array[String](["So, how do I fill you with water again?", "Oh... right.", "See those? Those are water sources.", "This one in particular is always filled with water, if you hit a filled water source with something mechanical...", "...it will fill any waterways it's connected to, for a limited amount of time.", "IfIf water from a waterway reaches me, I'll become able to produce water again...", "...and permanently fill any waterways close to me.", "Remember that after a while the water sources will stop providing water to the waterways.", "Thanks for the explanation, I'll try."])
+characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 2, 2, 0])
+cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"]
+shape = SubResource("CircleShape2D_slmiq")
+
+[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Thanks for saving me! I sense my brothers are still ill, please save them!", "Will do."])
 characterTalking = Array[int]([2, 0])
 cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"]
 shape = SubResource("CircleShape2D_yd2w3")
 
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
+[node name="DialogueArea4" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem.", "As an extra advice, I'll tell you a trick! The guards and cleaners here HATE to step on soap. You should try it, it's funny when I see it!", "That sounds VERY useful actually, thank you sad generator!"])
 characterTalking = Array[int]([2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"]
 shape = SubResource("CircleShape2D_2ga7d")
 
 [node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai"]
 position = Vector2(0, -152)
 texture = ExtResource("26_nder6")
 
+[node name="BathroomsGenerator1Dialogue" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+script = ExtResource("10_67fd8")
+questName = "BathroomsGenerator1Dialogue"
+questItemsToOperate = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+objectsToDeleteAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea")]
+
 [node name="BathroomsSaveGenerator2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSaveGenerator2"
-questItemsToOperate = [NodePath("BathroomGeneratorYokai3/DialogueArea2"), NodePath("BathroomGeneratorYokai3/DialogueArea"), NodePath("BathroomGeneratorYokai3/DialogueArea2")]
+questItemsToOperate = [NodePath("BathroomGeneratorYokai2/DialogueArea2"), NodePath("BathroomGeneratorYokai2/DialogueArea"), NodePath("BathroomGeneratorYokai2/DialogueArea2")]
 questItemsStages = Array[int]([0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
-[node name="BathroomGeneratorYokai3" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
 position = Vector2(-376, -344)
-waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway5"), NodePath("../../BathroomsRescueOldYokai/WaterwayPool")]
+waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway4"), NodePath("../../BathroomsRescueOldYokai/WaterwayPool")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
+[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Hot... water...", "Hello there, can I help you...?", "Yes please... if you manage to fill me with water... I'll need to become heated again...", "How do I do that?", "Give me a metallic object that has been heated, only after I got filled with water... please...", "I'll search for it!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea"]
 shape = SubResource("CircleShape2D_2jjrb")
 
-[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
+[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Thanks for saving me! I sense my brothers are still ill, please save them!", "Will do."])
 characterTalking = Array[int]([2, 0])
 cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"]
 shape = SubResource("CircleShape2D_ik03u")
 
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-visible = false
+[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
 characterTalking = Array[int]([2, 0])
 cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"]
 shape = SubResource("CircleShape2D_jm5or")
 
 [node name="BathroomsRescueOldYokai" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
@@ -564,7 +568,7 @@ position = Vector2(-152, 576)
 
 [node name="WaterwayPool" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-240, 768)
-objectsToFill = [NodePath("../Watersources/WaterSource"), NodePath("../Watersources/WaterSource2")]
+objectsToFill = [NodePath("../Watersources/WaterSource"), NodePath("../Watersources/WaterSource2"), NodePath("../../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
 
 [node name="WaterwayComponent" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
 position = Vector2(80, -824)
@@ -1538,7 +1542,6 @@ position = Vector2(896, -1424)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerUpperRight/CUpperRight")]
 
 [node name="GuardUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
-visible = false
 position = Vector2(544, -1120)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardUpperRight/GUpperRight")]
 
