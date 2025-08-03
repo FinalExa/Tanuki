@@ -32,8 +32,8 @@ func GetCollisionShape():
 			collisionShape = get_child(i)
 			return
 
-func AttachToPlayer(playerMoveObjects: PlayerMoveObjects):
-	call_deferred("Attach", playerMoveObjects)
+func AttachToPlayer(playerMov: PlayerMoveObjects):
+	call_deferred("Attach", playerMov)
 
 func Attach(mov: PlayerMoveObjects):
 	playerMoveObjects = mov

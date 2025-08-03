@@ -34,7 +34,7 @@ func CooldownActivatedEffect():
 		for i in waterwaysToActivate.size():
 			waterwaysToActivate[i].AddFiller(self)
 
-func CooldownActiveEffect(delta):
+func CooldownActiveEffect(_delta):
 	bar.value = cooldownTimer * barMultiplier
 
 func CooldownFinishedEffect():
