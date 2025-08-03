@@ -390,7 +390,7 @@ position = Vector2(0, 16)
 rotation = 1.5708
 
 [node name="MetalRod" parent="Quests/BathroomsActivatePools" instance=ExtResource("17_dnihd")]
-position = Vector2(-1088, -768)
+position = Vector2(-640, -576)
 
 [node name="HeatSourceActivator" parent="Quests/BathroomsActivatePools" instance=ExtResource("18_ff0db")]
 position = Vector2(128, -832)
@@ -1529,7 +1529,7 @@ transformedTexture = NodePath("../Vase/Sprite2D")
 y_sort_enabled = true
 
 [node name="Soap" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
-position = Vector2(-384, -704)
+position = Vector2(-640, -832)
 
 [node name="Soap2" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
 position = Vector2(576, 128)

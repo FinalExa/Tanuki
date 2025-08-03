@@ -13,7 +13,7 @@ func _process(_delta):
 
 func SelectObjectInRange():
 	if (currentObject == null && objectsInRange.size() > 0 && !transformationChange.isTransformed && playerInputs.grabInput):
-		var tempArray: Array[MovableObject]
+		var tempArray: Array[MovableObject] = []
 		for i in objectsInRange.size():
 			if (objectsInRange[i] != null):
 				tempArray.push_back(objectsInRange[i])
