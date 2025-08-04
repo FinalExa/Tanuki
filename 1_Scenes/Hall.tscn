@@ -1150,24 +1150,20 @@ position = Vector2(8, 1336)
 shape = SubResource("RectangleShape2D_c83ad")
 
 [node name="Guard1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(-320, 2240)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1/Guard1PatrolIndicator")]
+position = Vector2(896, 2048)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1/Guard1PatrolIndicator"), NodePath("../../EnemyPatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
 
 [node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(896, 2048)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard2/Guard2PatrolIndicator")]
+position = Vector2(-896, 2048)
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard2/Guard2PatrolIndicator"), NodePath("../../EnemyPatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
 
 [node name="Guard3" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(-896, 2048)
+position = Vector2(0, 1408)
 patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard3/Guard3PatrolIndicator")]
 
 [node name="Guard4" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
-position = Vector2(0, 1408)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard4/Guard4PatrolIndicator")]
-
-[node name="Guard5" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(-448, 96)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard5/Guard5PatrolIndicator")]
+patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard4/Guard4PatrolIndicator")]
 
 [node name="EnemyPatrolPoints" type="Node2D" parent="."]
 
@@ -1184,94 +1180,94 @@ lookActions = Array[int]([2, 1, 3, 0])
 [node name="1" type="Node2D" parent="EnemyPatrolPoints/Warden1"]
 position = Vector2(1088, 1280)
 
-[node name="Guard1" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="CentralRoom" type="Node2D" parent="EnemyPatrolPoints"]
 
-[node name="Guard1PatrolIndicator" parent="EnemyPatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="CentralRoomPatrolIndicator" parent="EnemyPatrolPoints/CentralRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(0, 2112)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([3, 1, 2, 0])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="1" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
 position = Vector2(-320, 1792)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
 position = Vector2(320, 1792)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="3" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
 position = Vector2(320, 2496)
 
-[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="4" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
 position = Vector2(-320, 2496)
 
-[node name="Guard2" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard1" type="Node2D" parent="EnemyPatrolPoints"]
 
-[node name="Guard2PatrolIndicator" parent="EnemyPatrolPoints/Guard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard1PatrolIndicator" parent="EnemyPatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(768, 2416)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 2, 1, 2])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
+[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
 position = Vector2(896, 2816)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
 position = Vector2(896, 1920)
 
-[node name="Guard3" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard2" type="Node2D" parent="EnemyPatrolPoints"]
 
-[node name="Guard3PatrolIndicator" parent="EnemyPatrolPoints/Guard3" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard2PatrolIndicator" parent="EnemyPatrolPoints/Guard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(-768, 2416)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../1"), NodePath("../3")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 1, 3, 1, 0, 3])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
 position = Vector2(-896, 2432)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
 position = Vector2(-896, 2688)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
 position = Vector2(-896, 2048)
 
-[node name="Guard4" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard3" type="Node2D" parent="EnemyPatrolPoints"]
 
-[node name="Guard4PatrolIndicator" parent="EnemyPatrolPoints/Guard4" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard3PatrolIndicator" parent="EnemyPatrolPoints/Guard3" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(0, 1024)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0, 1, 1, 2, 0, 2, 0, 1])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../3")]
 waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
 lookActions = Array[int]([1, 2, 1, 3, 2, 3])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
+[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
 position = Vector2(-960, 1152)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
 position = Vector2(960, 1152)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
+[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
 position = Vector2(0, 1152)
 
-[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
+[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
 position = Vector2(0, 512)
 
-[node name="Guard5" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard4" type="Node2D" parent="EnemyPatrolPoints"]
 
-[node name="Guard5PatrolIndicator" parent="EnemyPatrolPoints/Guard5" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard4PatrolIndicator" parent="EnemyPatrolPoints/Guard4" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(0, 256)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 2, 0, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([0.5, 0.5, 0.5, 0.5, 0.5, 0.5])
 lookActions = Array[int]([1, 0, 2, 0, 1, 3])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard5"]
+[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
 position = Vector2(-640, 96)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard5"]
+[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard4"]
 position = Vector2(640, 96)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
