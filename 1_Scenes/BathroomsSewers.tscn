@@ -104,6 +104,7 @@ travelingReceivers = [NodePath("Teleport/TravelToBathrooms/BathroomsReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
 
 [node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
+process_mode = 3
 script = ExtResource("3_myj88")
 baseSoundtrack = NodePath("Base_ST")
 transformedSoundtrack = NodePath("Transformed_ST")
