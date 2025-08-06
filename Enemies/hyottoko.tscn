@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cdkro5e6qvfs4"]
+[gd_scene load_steps=44 format=3 uid="uid://cdkro5e6qvfs4"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoController.gd" id="1_v2k34"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_m52v4"]
@@ -15,10 +15,11 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="9_5jpci"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="10_o85p4"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_rlnxy"]
-[ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/hyottoko_attack.tscn" id="12_ap1sf"]
+[ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/Attacks/hyottoko_attack.tscn" id="12_ap1sf"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="13_inx1f"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="14_b1r2r"]
 [ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="15_4i71t"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoEntranced.gd" id="15_bna02"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="15_h7btj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="16_up2r5"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="17_jo8pb"]
@@ -66,7 +67,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 384.0
 
-[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Hyottoko" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "hyottokoEntranced", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_v2k34")
@@ -74,6 +75,7 @@ hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 200.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
 hyottokoAttack = NodePath("Rotator/HyottokoAttack")
+hyottokoEntranced = NodePath("HyottokoEntranced")
 enemyName = "Hyottoko"
 repelledTime = 0.3
 repelledDistance = 200.0
@@ -173,6 +175,9 @@ hyottokoController = NodePath("..")
 enemyMovement = NodePath("../EnemyMovement")
 distanceFromPointToReach = 50.0
 durationAfterReachingPoint = 8.0
+
+[node name="HyottokoEntranced" type="Node" parent="."]
+script = ExtResource("15_bna02")
 
 [node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
