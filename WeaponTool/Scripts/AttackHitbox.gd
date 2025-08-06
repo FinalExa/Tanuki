@@ -5,12 +5,16 @@ var hitTargets: Array[Node2D]
 var targetsInRange: Array[Node2D]
 var characterRef: Node2D
 var activated: bool
+@export var lockInPlace: bool
+var originalRotationDegrees: float
 
 func _ready():
 	EndAttack()
+	if (lockInPlace): originalRotationDegrees = self.global_rotation_degrees
 
 func _physics_process(_delta):
 	Attack()
+	CheckForLockInPlace()
 
 func StartAttack():
 	self.show()
@@ -26,6 +30,9 @@ func Attack():
 		for i in targetsInRange.size():
 			if (targetsInRange[i] != null && VerifyIfTargetIsHittable(targetsInRange[i])):
 				LaunchAttackOnTargetInRange(targetsInRange[i])
+
+func CheckForLockInPlace():
+	if (lockInPlace): self.global_rotation_degrees = originalRotationDegrees
 
 func VerifyIfTargetIsHittable(target: Node2D):
 	if (target != null && !hitTargets.has(target)):

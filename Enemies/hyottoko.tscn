@@ -176,14 +176,15 @@ enemyMovement = NodePath("../EnemyMovement")
 distanceFromPointToReach = 50.0
 durationAfterReachingPoint = 8.0
 
-[node name="HyottokoEntranced" type="Node" parent="."]
+[node name="HyottokoEntranced" type="Node" parent="." node_paths=PackedStringArray("hyottokoController")]
 script = ExtResource("15_bna02")
+hyottokoController = NodePath("..")
 
 [node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
-offset_top = -96.0
+offset_top = -128.0
 offset_right = 80.0
-offset_bottom = -70.0
+offset_bottom = -102.0
 label_settings = SubResource("LabelSettings_qg4sj")
 horizontal_alignment = 1
 vertical_alignment = 1
