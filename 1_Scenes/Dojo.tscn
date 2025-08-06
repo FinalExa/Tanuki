@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=20 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="11_ukdqv"]
 [ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="11_vxy4v"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="12_wmoll"]
+[ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
+[ext_resource type="PackedScene" uid="uid://daasdexpenkl8" path="res://ImportantObjects/PuzzleObjects/enemy_door.tscn" id="16_v1wlf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ss"]
 size = Vector2(256, 64)
@@ -148,10 +150,10 @@ patrolActions = Array[int]([1, 1])
 moveActions = [NodePath("../1"), NodePath("../2")]
 
 [node name="1" type="Node2D" parent="PatrolPoints/Hyottoko1"]
-position = Vector2(-432, 384)
+position = Vector2(432, 384)
 
 [node name="2" type="Node2D" parent="PatrolPoints/Hyottoko1"]
-position = Vector2(432, 384)
+position = Vector2(-432, 384)
 
 [node name="TransformationObjects" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -176,5 +178,15 @@ shape = SubResource("RectangleShape2D_yiudn")
 
 [node name="MovableObjects" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="RoomDoors" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="HyottokoPerformanceArea" parent="RoomDoors" node_paths=PackedStringArray("doorToActivate") instance=ExtResource("15_3bqrb")]
+position = Vector2(-192, 192)
+doorToActivate = NodePath("../EnemyDoor")
+
+[node name="EnemyDoor" parent="RoomDoors" instance=ExtResource("16_v1wlf")]
+position = Vector2(0, -64)
 
 [connection signal="body_entered" from="Teleports/TravelToKitchen" to="Teleports/TravelToKitchen" method="_on_body_entered"]

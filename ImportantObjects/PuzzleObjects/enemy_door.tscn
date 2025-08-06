@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://daasdexpenkl8"]
+
+[ext_resource type="Texture2D" uid="uid://dk1lya5w4lwig" path="res://ImportantObjects/PuzzleObjects/Sprites/EnemyDoor.png" id="1_7rt3r"]
+[ext_resource type="Script" path="res://ImportantObjects/PuzzleObjects/Scripts/EnemyDoor.gd" id="1_rt5ad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6vc4"]
+size = Vector2(256, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho7wi"]
+size = Vector2(384, 512)
+
+[node name="EnemyDoor" type="StaticBody2D" node_paths=PackedStringArray("collisionShapeRef")]
+script = ExtResource("1_rt5ad")
+activated = true
+collisionShapeRef = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_q6vc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7rt3r")
+
+[node name="GuardChecker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardChecker"]
+shape = SubResource("RectangleShape2D_ho7wi")
+
+[connection signal="body_entered" from="GuardChecker" to="." method="GuardIn"]
+[connection signal="body_exited" from="GuardChecker" to="." method="GuardOut"]
