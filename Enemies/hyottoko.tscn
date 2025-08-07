@@ -204,9 +204,12 @@ rotationSpeed = 5.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController")]
+[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController", "collisionShape")]
 script = ExtResource("22_7gqey")
 hyottokoController = NodePath("../..")
+collisionShape = NodePath("CollisionShape2D")
+baseRadius = 384.0
+extendedRadius = 640.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
 shape = SubResource("CircleShape2D_tvwmf")
