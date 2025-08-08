@@ -209,7 +209,8 @@ script = ExtResource("22_7gqey")
 hyottokoController = NodePath("../..")
 collisionShape = NodePath("CollisionShape2D")
 baseRadius = 384.0
-extendedRadius = 640.0
+extendedRadius = 512.0
+timeBeforeUnset = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
 shape = SubResource("CircleShape2D_tvwmf")
