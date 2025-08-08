@@ -61,7 +61,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey")]
+mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -92,16 +92,16 @@ position = Vector2(0, -64)
 position = Vector2(0, -896)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("2_p0fr7")]
-position = Vector2(-5456, -1640)
+position = Vector2(-2432, 1408)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("2_p0fr7")]
-position = Vector2(-5456, -1640)
+position = Vector2(1792, 640)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("2_p0fr7")]
-position = Vector2(-5456, -1640)
+position = Vector2(2304, -1600)
 
 [node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("3_p3epd")]
-position = Vector2(-5456, -1640)
+position = Vector2(0, -3392)
 
 [node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("5_00v31")]
 position = Vector2(0, -1728)
@@ -207,6 +207,22 @@ script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummiesKey"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
 questItemsStages = Array[int]([0, 5])
+questItemsOnOffState = Array[bool]([false, true])
+
+[node name="DojoDefeatHyottoko" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoDefeatHyottoko"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("../../Keys/UnlockKey4")]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+
+[node name="DojoRepairArmor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoRepairArmor"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("../../Keys/UnlockKey5")]
+questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 
 [node name="NavigationRegions" type="Node2D" parent="."]
