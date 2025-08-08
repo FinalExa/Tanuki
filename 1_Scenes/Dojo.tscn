@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=24 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -10,11 +10,14 @@
 [ext_resource type="AudioStream" uid="uid://cdoh7kufhvt2g" path="res://Sounds/Soundtrack/TransformedSoundtrack.wav" id="5_xrox1"]
 [ext_resource type="AudioStream" uid="uid://cafqngd8sj3od" path="res://Sounds/Soundtrack/SpecialRoomSountrack.wav" id="6_3hv5n"]
 [ext_resource type="Script" path="res://Level/SceneChange/Scripts/TravelingArea.gd" id="10_xvod3"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="11_jj1ml"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="11_lmg8k"]
 [ext_resource type="PackedScene" uid="uid://cdkro5e6qvfs4" path="res://Enemies/hyottoko.tscn" id="11_ukdqv"]
 [ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="11_vxy4v"]
+[ext_resource type="PackedScene" uid="uid://d4lbhm0hffw4w" path="res://ImportantObjects/Interactables/training_dummy.tscn" id="12_wk7n5"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="12_wmoll"]
 [ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
+[ext_resource type="PackedScene" uid="uid://du00h8n41wpjo" path="res://ImportantObjects/TransformationObjects/wooden_katana.tscn" id="16_q2htk"]
 [ext_resource type="PackedScene" uid="uid://daasdexpenkl8" path="res://ImportantObjects/PuzzleObjects/enemy_door.tscn" id="16_v1wlf"]
 [ext_resource type="PackedScene" uid="uid://wp8gaky0p2qp" path="res://ImportantObjects/PuzzleObjects/enemy_door_horizontal.tscn" id="17_ivdyh"]
 
@@ -22,14 +25,14 @@
 size = Vector2(256, 64)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
-vertices = PackedVector2Array(1696, 160, 1888, 160, 2528, 1600, 1056, 1600, 1056, 960, 1104, 208, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1600, -2528, 1600, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, 736, -832, -736, -992, -736, -1584, -688, -1584, 736, -992, 1056, -832, -688, -1632, 736, -1632, 1888, -192, 1056, -992, 1056, -1584, 1104, -1584, 2528, -192, 1104, -1632, 2528, -1632, 2528, 160, 1696, -192, 1056, -192, 736, -192, 96, -192, 96, 160, 736, 160, 736, 800, -736, 800, -680, 208, -96, 160, -96, -192, -736, -832, -736, -192, -1056, -832, -1696, -192, -1056, -192, -1696, 160, -1056, 800, -1056, 160, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 160)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(14, 15, 16, 10), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(17, 20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27, 28, 29), PackedInt32Array(27, 30, 31, 28), PackedInt32Array(32, 33, 34, 35, 36), PackedInt32Array(35, 37, 38, 36), PackedInt32Array(1, 39, 2), PackedInt32Array(32, 1, 0, 40), PackedInt32Array(33, 32, 40, 29), PackedInt32Array(40, 41, 29), PackedInt32Array(28, 33, 29), PackedInt32Array(24, 42, 43, 25), PackedInt32Array(44, 45, 46), PackedInt32Array(47, 48, 49, 44, 46, 9, 8), PackedInt32Array(43, 44, 49, 50), PackedInt32Array(25, 43, 50, 51), PackedInt32Array(50, 52, 51), PackedInt32Array(23, 25, 51, 53), PackedInt32Array(17, 23, 53, 54), PackedInt32Array(53, 55, 54), PackedInt32Array(16, 17, 54, 56), PackedInt32Array(10, 16, 56, 57), PackedInt32Array(56, 58, 57), PackedInt32Array(8, 10, 57, 47), PackedInt32Array(47, 59, 48), PackedInt32Array(48, 60, 49), PackedInt32Array(61, 62, 5), PackedInt32Array(5, 63, 0), PackedInt32Array(61, 5, 4), PackedInt32Array(46, 61, 4, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-736, 1600, -736, 960, -1056, 960, -1056, 1600, -2528, 1600, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -736, -992, -736, -1584, -688, -1584, -688, -1632, 736, -1632, 736, -992, 1056, -992, 1056, -1584, 1104, -1584, 1104, -1632, 2528, -1632, 2528, -192, 1888, -192, 1888, 160, 2528, 160, 2528, 1600, 1056, 1600, 1056, 960, 736, 960, 736, 1600), PackedVector2Array(-1056, -832, -736, -832, -736, -192, -96, -192, -96, 160, -680, 160, -680, 208, -736, 208, -736, 800, -1056, 800, -1056, 160, -1696, 160, -1696, -192, -1056, -192), PackedVector2Array(96, 160, 96, -192, 736, -192, 736, -832, 1056, -832, 1056, -192, 1696, -192, 1696, 160, 1104, 160, 1104, 208, 1056, 208, 1056, 800, 736, 800, 736, 160)])
+vertices = PackedVector2Array(1696, 160, 1888, 160, 2528, 1600, 1056, 1600, 1056, 960, 1104, 208, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1600, -2528, 1600, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1056, 800, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -1696, -192, -736, -992, -736, -1584, -688, -1584, -688, -1632, 680, -1632, 680, -1584, -96, -192, -736, -832, 736, -1584, 736, -992, 96, -192, 1888, -192, 1056, -992, 1056, -1584, 1104, -1584, 2528, -192, 1104, -1632, 2528, -1632, 2528, 160, 1696, -192, 1056, -832, 1056, -192, 736, -832, 736, -192, 96, 160, 736, 160, 736, 800, -680, 208, -96, 160, -736, 800, -736, -192, -1056, -832, -1056, -192, -1696, 160, -1056, 160, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 160)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(10, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(18, 21, 22, 23, 24, 25), PackedInt32Array(26, 27, 28), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 26, 31, 34, 35, 36), PackedInt32Array(37, 38, 39, 40, 41), PackedInt32Array(40, 42, 43, 41), PackedInt32Array(1, 44, 2), PackedInt32Array(37, 1, 0, 45), PackedInt32Array(38, 37, 45, 46), PackedInt32Array(45, 47, 46), PackedInt32Array(35, 38, 46, 48), PackedInt32Array(48, 49, 36), PackedInt32Array(50, 51, 52), PackedInt32Array(53, 54, 50, 52, 9, 8, 55), PackedInt32Array(36, 50, 54, 32), PackedInt32Array(32, 56, 33), PackedInt32Array(57, 58, 25), PackedInt32Array(59, 60, 17), PackedInt32Array(55, 61, 53), PackedInt32Array(53, 62, 54), PackedInt32Array(63, 64, 5), PackedInt32Array(5, 65, 0), PackedInt32Array(63, 5, 4), PackedInt32Array(52, 63, 4, 9), PackedInt32Array(55, 8, 10, 17), PackedInt32Array(59, 17, 16), PackedInt32Array(59, 16, 18, 25), PackedInt32Array(57, 25, 24), PackedInt32Array(57, 24, 26, 33), PackedInt32Array(26, 28, 31), PackedInt32Array(36, 35, 48)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-736, 1600, -736, 960, -1056, 960, -1056, 1600, -2528, 1600, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -736, -992, -736, -1584, -688, -1584, -688, -1632, 680, -1632, 680, -1584, 736, -1584, 736, -992, 1056, -992, 1056, -1584, 1104, -1584, 1104, -1632, 2528, -1632, 2528, -192, 1888, -192, 1888, 160, 2528, 160, 2528, 1600, 1056, 1600, 1056, 960, 736, 960, 736, 1600), PackedVector2Array(-1056, -832, -736, -832, -736, -192, -96, -192, -96, 160, -680, 160, -680, 208, -736, 208, -736, 800, -1056, 800, -1056, 160, -1696, 160, -1696, -192, -1056, -192), PackedVector2Array(96, 160, 96, -192, 736, -192, 736, -832, 1056, -832, 1056, -192, 1696, -192, 1696, 160, 1104, 160, 1104, 208, 1056, 208, 1056, 800, 736, 800, 736, 160)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
 
-[node name="Dojo" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
+[node name="Dojo" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("1_wqlac")
 format = 2
@@ -58,6 +61,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
+mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -85,7 +89,7 @@ y_sort_enabled = true
 position = Vector2(0, -64)
 
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("2_p0fr7")]
-position = Vector2(-5456, -1640)
+position = Vector2(0, -896)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("2_p0fr7")]
 position = Vector2(-5456, -1640)
@@ -126,6 +130,84 @@ position = Vector2(0, -240)
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummy1"
+questItemsToOperate = [null, null]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+
+[node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
+position = Vector2(448, 320)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DojoHitTrainingDummy2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummy2"
+questItemsToOperate = [null, null]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+
+[node name="TraningDummy" parent="Quests/DojoHitTrainingDummy2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
+position = Vector2(-512, -688)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DojoHitTrainingDummy3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummy3"
+questItemsToOperate = [null, null]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+
+[node name="TraningDummy" parent="Quests/DojoHitTrainingDummy3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
+position = Vector2(384, -680)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DojoHitTrainingDummy4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummy4"
+questItemsToOperate = [null, null]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+
+[node name="TraningDummy" parent="Quests/DojoHitTrainingDummy4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
+position = Vector2(-400, -1128)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DojoHitTrainingDummy5" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummy5"
+questItemsToOperate = [null, null]
+questItemsStages = Array[int]([0, 1])
+questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+
+[node name="TraningDummy" parent="Quests/DojoHitTrainingDummy5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
+position = Vector2(344, -1144)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DojoHitTrainingDummiesKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummiesKey"
+questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
+questItemsStages = Array[int]([0, 5])
+questItemsOnOffState = Array[bool]([false, true])
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -176,6 +258,9 @@ position = Vector2(-2520, 192)
 
 [node name="TaikoDrum6" parent="TransformationObjects" instance=ExtResource("11_vxy4v")]
 position = Vector2(1064, 192)
+
+[node name="WoodenKatana" parent="TransformationObjects" instance=ExtResource("16_q2htk")]
+position = Vector2(704, -1600)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 y_sort_enabled = true
