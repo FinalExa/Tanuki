@@ -174,8 +174,9 @@ enemyController = NodePath("..")
 script = ExtResource("19_w7wg4")
 hyottokoController = NodePath("..")
 enemyMovement = NodePath("../EnemyMovement")
+reachPointText = "REACHING POINT"
 distanceFromPointToReach = 50.0
-durationAfterReachingPoint = 8.0
+durationAfterReachingPoint = 3.0
 
 [node name="HyottokoEntranced" type="Node" parent="." node_paths=PackedStringArray("hyottokoController")]
 script = ExtResource("15_bna02")

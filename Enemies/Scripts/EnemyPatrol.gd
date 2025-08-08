@@ -92,7 +92,6 @@ func restart_patrol():
 	set_current_patrol_routine()
 
 func resume_patrol():
-	print("resume")
 	AdvanceIndexTo(GetClosestMovementLocation())
 	enemyController.isInPatrol = true
 	patrolStopped = false

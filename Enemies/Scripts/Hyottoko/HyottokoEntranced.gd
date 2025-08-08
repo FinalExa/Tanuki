@@ -13,11 +13,11 @@ func SetEntranced(receivedArea: HyottokoPerformanceArea):
 		hyottokoController.hyottokoReachPoint.StopReachingPoint()
 		hyottokoController.enemyPatrol.stop_patrol()
 		hyottokoController.enemyMovement.set_location_target(performanceArea.global_position)
-		hyottokoController.enemyStatus.text = entrancedText
+		hyottokoController.enemyStatus.updateText(entrancedText)
 
 func UnsetEntranced():
 	if (hyottokoController.isEntranced):
 		hyottokoController.isEntranced = false
 		performanceArea = null
 		hyottokoController.enemyPatrol.resume_patrol()
-		hyottokoController.enemyStatus.text = ""
+		hyottokoController.enemyStatus.updateText("")

@@ -13,6 +13,7 @@ var playerSpotStatus: int
 
 func _ready():
 	playerSpotStatus = -1
+	unsetTimer = 0
 	collisionShape.shape.radius = baseRadius
 
 func _process(delta):
@@ -22,13 +23,12 @@ func _physics_process(delta):
 	RangeRaycast()
 
 func RangeRaycast():
-	if (target != null && !hyottokoController.isStunned && !hyottokoController.isReachingPoint):
+	if (target != null && !hyottokoController.isEntranced && !hyottokoController.isStunned && !hyottokoController.isReachingPoint):
 		var space_state = hyottokoController.get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(hyottokoController.global_position, target.global_position)
 		query.exclude = [hyottokoController, collisionShape, hyottokoController.hyottokoAttack]
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
-			print(result.collider.name)
 			if (result.collider is PlayerCharacter):
 				if (!CheckPlayerTransformationStatus(result.collider)):
 					SetSpottingPlayer()
