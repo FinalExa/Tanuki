@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	UnsetTimer(delta)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	RangeRaycast()
 
 func RangeRaycast():

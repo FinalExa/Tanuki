@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=26 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bd2v04u24dqkg" path="res://ImportantObjects/TransformationObjects/taiko_drum.tscn" id="11_vxy4v"]
 [ext_resource type="PackedScene" uid="uid://d4lbhm0hffw4w" path="res://ImportantObjects/Interactables/training_dummy.tscn" id="12_wk7n5"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="12_wmoll"]
+[ext_resource type="PackedScene" uid="uid://bkqvnelnxu72d" path="res://NPC/armor_yokai_npc.tscn" id="13_mswqt"]
 [ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
+[ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="15_n14hp"]
 [ext_resource type="PackedScene" uid="uid://du00h8n41wpjo" path="res://ImportantObjects/TransformationObjects/wooden_katana.tscn" id="16_q2htk"]
 [ext_resource type="PackedScene" uid="uid://daasdexpenkl8" path="res://ImportantObjects/PuzzleObjects/enemy_door.tscn" id="16_v1wlf"]
 [ext_resource type="PackedScene" uid="uid://wp8gaky0p2qp" path="res://ImportantObjects/PuzzleObjects/enemy_door_horizontal.tscn" id="17_ivdyh"]
@@ -98,7 +100,7 @@ position = Vector2(-2432, 1408)
 position = Vector2(1792, 640)
 
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("2_p0fr7")]
-position = Vector2(2304, -1600)
+position = Vector2(2208, -1504)
 
 [node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("3_p3epd")]
 position = Vector2(0, -3392)
@@ -225,6 +227,9 @@ questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("../../Keys/U
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 
+[node name="ArmorYokaiNPC" parent="Quests/DojoRepairArmor" instance=ExtResource("13_mswqt")]
+position = Vector2(2208, -1568)
+
 [node name="NavigationRegions" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -237,6 +242,14 @@ y_sort_enabled = true
 [node name="Hyottoko1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_ukdqv")]
 position = Vector2(0, 384)
 patrolIndicators = [NodePath("../../PatrolPoints/Hyottoko1/Hyottoko1PatrolIndicator")]
+
+[node name="Hyottoko2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_ukdqv")]
+position = Vector2(0, -1408)
+patrolIndicators = [NodePath("../../PatrolPoints/Hyottoko2/Hyottoko2PatrolIndicator")]
+
+[node name="Guard1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("15_n14hp")]
+position = Vector2(-1792, -896)
+patrolIndicators = [NodePath("../../PatrolPoints/Guard1/Guard1PatrolIndicator")]
 
 [node name="PatrolPoints" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -253,6 +266,32 @@ position = Vector2(432, 384)
 
 [node name="2" type="Node2D" parent="PatrolPoints/Hyottoko1"]
 position = Vector2(-432, 384)
+
+[node name="Hyottoko2" type="Node2D" parent="PatrolPoints"]
+
+[node name="Hyottoko2PatrolIndicator" parent="PatrolPoints/Hyottoko2" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+position = Vector2(0, -1408)
+patrolActions = Array[int]([1, 1])
+moveActions = [NodePath("../1"), NodePath("../2")]
+
+[node name="1" type="Node2D" parent="PatrolPoints/Hyottoko2"]
+position = Vector2(-640, -1408)
+
+[node name="2" type="Node2D" parent="PatrolPoints/Hyottoko2"]
+position = Vector2(640, -1408)
+
+[node name="Guard1" type="Node2D" parent="PatrolPoints"]
+
+[node name="Guard1PatrolIndicator" parent="PatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+position = Vector2(0, -896)
+patrolActions = Array[int]([1, 1])
+moveActions = [NodePath("../1"), NodePath("../2")]
+
+[node name="1" type="Node2D" parent="PatrolPoints/Guard1"]
+position = Vector2(-1792, -896)
+
+[node name="2" type="Node2D" parent="PatrolPoints/Guard1"]
+position = Vector2(1792, -896)
 
 [node name="TransformationObjects" type="Node2D" parent="."]
 y_sort_enabled = true

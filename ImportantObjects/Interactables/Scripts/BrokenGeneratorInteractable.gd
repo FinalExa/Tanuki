@@ -9,9 +9,9 @@ func ReadyOperations():
 
 func ExecuteRefEffect(ref):
 	if (ref is PlayerCharacter):
-		RepairGenerator(ref)
+		RepairParts(ref)
 
-func RepairGenerator(playerRef: PlayerCharacter):
+func RepairParts(playerRef: PlayerCharacter):
 	if (!done && playerRef.playerMoveObjects.currentObject is GeneratorPartMovable):
 		var generatorPart: GeneratorPartMovable = playerRef.playerMoveObjects.currentObject
 		if (!partSprites[generatorPart.partID].visible):
