@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhdwvmxc42e7f"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/BrokenPartMovable.gd" id="1_c6nld"]
+[ext_resource type="Texture2D" uid="uid://ds00x56bfruhh" path="res://ImportantObjects/MovableObjects/Sprites/KatanaPart1.png" id="2_w0ya8"]
+[ext_resource type="Texture2D" uid="uid://bhfoyawgr6he2" path="res://ImportantObjects/MovableObjects/Sprites/KatanaPart2.png" id="3_3pga3"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="5_w7pah"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="6_4gct2"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="7_goqeq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_482on"]
+radius = 16.0
+
+[node name="KatanaPart" type="Area2D" node_paths=PackedStringArray("partSprites", "movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_c6nld")
+partSprites = [NodePath("Part1"), NodePath("Part2")]
+movableObjectName = "Katana Part"
+movableObjectProperties = Array[String](["KatanaPart"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_482on")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_w0ya8")
+
+[node name="Part2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_3pga3")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("5_w7pah")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("6_4gct2")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("7_goqeq")]
+offset_top = -104.0
+offset_bottom = -56.0

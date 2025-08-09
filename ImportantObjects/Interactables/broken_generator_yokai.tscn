@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ba8kwpi28fbtg"]
 
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BrokenGeneratorInteractable.gd" id="1_20hxi"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BrokenPartsInteractable.gd" id="1_20hxi"]
 [ext_resource type="Texture2D" uid="uid://vrt75b6elrrb" path="res://ImportantObjects/Interactables/Sprites/bathroomGeneratorYokaiBroken.png" id="2_75nek"]
 [ext_resource type="Texture2D" uid="uid://bq03a5vyqa0ja" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart1.png" id="3_gtsw3"]
 [ext_resource type="Texture2D" uid="uid://c5biaql674od1" path="res://ImportantObjects/MovableObjects/Sprites/GeneratorYokaiPart2.png" id="4_a4n8t"]

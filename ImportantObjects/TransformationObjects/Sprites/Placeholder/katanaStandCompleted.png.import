@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://delv822vkhbua"
-path="res://.godot/imported/katanaStandCompleted.png-4dcf7aea3689bb9c498a9a9bf5878840.ctex"
+path="res://.godot/imported/katanaStandCompleted.png-4ec70d8f900f123fb0422a8b5b58ad46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/katanaStandCompleted.png"
-dest_files=["res://.godot/imported/katanaStandCompleted.png-4dcf7aea3689bb9c498a9a9bf5878840.ctex"]
+source_file="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/katanaStandCompleted.png"
+dest_files=["res://.godot/imported/katanaStandCompleted.png-4ec70d8f900f123fb0422a8b5b58ad46.ctex"]
 
 [params]
 
