@@ -14,6 +14,8 @@ sceneSelector = NodePath("SceneSelector")
 playerRef = NodePath("PlayerCharacter")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("2_ja04r")]
+zoom = Vector2(0.9, 0.9)
+position_smoothing_speed = 100.0
 playerRef = NodePath("../PlayerCharacter")
 
 [node name="FrameMaster" type="Node" parent="."]

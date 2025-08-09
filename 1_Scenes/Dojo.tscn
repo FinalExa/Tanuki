@@ -246,6 +246,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="Katana" parent="Quests/DojoRepairArmor" instance=ExtResource("16_amd8p")]
+position = Vector2(2288, -1648)
 
 [node name="KatanaPart1" parent="Quests/DojoRepairArmor" instance=ExtResource("15_eyl2a")]
 position = Vector2(-2304, -1536)

@@ -17,8 +17,8 @@ enum SpeedTier {
 	FAST
 }
 
-var speedTiersMaxSpeed: Array[float] = [300.0, 500.0, 700.0]
-var speedTiersAcceleration: Array[float] = [500.0, 700.0, 900.0]
+var speedTiersMaxSpeed: Array[float] = [400.0, 600.0, 800.0]
+var speedTiersAcceleration: Array[float] = [600.0, 900.0, 1200.0]
 
 func _ready():
 	currentSpeed = 0
