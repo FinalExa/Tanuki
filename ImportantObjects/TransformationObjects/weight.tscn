@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cggbv0epl6wm6"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_0qie3"]
+[ext_resource type="Texture2D" uid="uid://d0phxkqgobo1q" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/Weight.png" id="2_5lgrh"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_5gklq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4iox"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2kvt6"]
+radius = 128.0
+
+[node name="Weight" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+collision_layer = 3
+script = ExtResource("1_0qie3")
+transformedName = "Weight"
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Pound"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/weight_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/weight.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_i4iox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5lgrh")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_5gklq")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_2kvt6")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

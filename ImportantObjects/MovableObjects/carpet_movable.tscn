@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://fxipi0kx4u31"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_3e3uj"]
+[ext_resource type="Texture2D" uid="uid://demuo5oqu4bhd" path="res://ImportantObjects/MovableObjects/Sprites/TargetCarpet.png" id="2_ls3ri"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_wweie"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_ndbne"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_7kbgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1fvs"]
+size = Vector2(64, 64)
+
+[node name="Carpet" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_3e3uj")
+movableObjectName = "Carpet"
+movableObjectProperties = Array[String](["Carpet"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1fvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ls3ri")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_wweie")]
+position = Vector2(0, -48)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_ndbne")]
+position = Vector2(0, -48)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_7kbgs")]
+offset_top = -112.0
+offset_bottom = -64.0
