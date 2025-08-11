@@ -19,10 +19,12 @@ var attackLaunched: bool
 var attackInCooldown: bool
 var attackFrame: int
 var currentPhase: int
+var attackLocked: bool
 
 func _ready():
 	frameMaster = get_tree().root.get_child(0).frameMaster
 	frameMaster.RegisterAttack(self)
+	attackLocked = false
 	RemoveAttackHitboxes()
 	currentPhase = 0
 	ExtraReadyOperations()
@@ -68,10 +70,11 @@ func DeactivateOtherTypeOfAttackHitbox():
 			attackHitboxInstance.get_child(i).disabled = true
 
 func start_attack():
-	attackLaunched = true
-	attackFrame = 0
-	characterRef.velocity = Vector2.ZERO
-	ExecuteAttackPhase()
+	if (!attackLocked):
+		attackLaunched = true
+		attackFrame = 0
+		characterRef.velocity = Vector2.ZERO
+		ExecuteAttackPhase()
 
 func ExecuteAttackPhase():
 	PrepareHitboxes()
