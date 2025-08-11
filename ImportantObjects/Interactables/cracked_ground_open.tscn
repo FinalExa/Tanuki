@@ -11,6 +11,7 @@ size = Vector2(64, 40)
 size = Vector2(128, 128)
 
 [node name="CrackedGroundOpen" type="StaticBody2D" groups=["Interactable"]]
+z_index = -1
 script = ExtResource("1_glep1")
 neededProperties = Array[String](["Carpet"])
 destroyOnEnd = true

@@ -7,6 +7,7 @@
 size = Vector2(88, 80)
 
 [node name="CrackedGroundCovered" type="Area2D" groups=["Interactable"]]
+z_index = -1
 script = ExtResource("1_50fs0")
 neededProperties = Array[String](["Carpet"])
 destroyOnEnd = true

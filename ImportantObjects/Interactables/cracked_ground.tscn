@@ -7,6 +7,7 @@
 size = Vector2(48, 24)
 
 [node name="CrackedGround" type="StaticBody2D" groups=["Interactable"]]
+z_index = -1
 script = ExtResource("1_44lwh")
 neededProperties = Array[String](["Pound"])
 destroyOnEnd = true
