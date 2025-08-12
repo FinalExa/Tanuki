@@ -11,6 +11,8 @@ var gameplayScene: GameplayScene
 @export var objectsToFinalizeAtQuestComplete: Array[GenericInteractable]
 @export var objectsToDeleteAtQuestComplete: Array[Node2D]
 
+@export var questIndex: Array[QuestIndex]
+
 var advancedBy: Node2D
 var currentQuestStage: int = 0
 var lastStage: int

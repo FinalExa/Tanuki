@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=43 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://y6lrwv8yoovn" path="res://ImportantObjects/Interactables/cracked_ground.tscn" id="13_j36ec"]
 [ext_resource type="PackedScene" uid="uid://bkqvnelnxu72d" path="res://NPC/armor_yokai_npc.tscn" id="13_mswqt"]
 [ext_resource type="PackedScene" uid="uid://fxipi0kx4u31" path="res://ImportantObjects/MovableObjects/carpet_movable.tscn" id="13_uk5yp"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="13_yb20v"]
 [ext_resource type="PackedScene" uid="uid://nf6spvq1hahh" path="res://ImportantObjects/Interactables/katana_stand_empty.tscn" id="14_iqtss"]
 [ext_resource type="PackedScene" uid="uid://dygwbqftwoueg" path="res://ImportantObjects/Interactables/cracked_ground_open.tscn" id="14_uc3pt"]
 [ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
@@ -48,6 +49,16 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1968, 1216, 1968, 1056,
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ss"]
 size = Vector2(256, 64)
+
+[sub_resource type="Resource" id="Resource_b2jf8"]
+script = ExtResource("13_yb20v")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_p6fwi"]
+script = ExtResource("13_yb20v")
+itemStage = 0
+itemOperation = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
@@ -172,6 +183,7 @@ questItemsToOperate = [null, null]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
+questIndex = Array[ExtResource("13_yb20v")]([SubResource("Resource_b2jf8"), SubResource("Resource_p6fwi")])
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(448, 320)
@@ -345,6 +357,7 @@ y_sort_enabled = true
 position = Vector2(0, 384)
 patrolActions = Array[int]([1, 1])
 moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([null])
 
 [node name="1" type="Node2D" parent="PatrolPoints/Hyottoko1"]
 position = Vector2(432, 384)
