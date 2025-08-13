@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=45 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c6na3os1xnmkk" path="res://ImportantObjects/TransformationObjects/magic_oil.tscn" id="23_qge8d"]
 [ext_resource type="PackedScene" uid="uid://cggbv0epl6wm6" path="res://ImportantObjects/TransformationObjects/weight.tscn" id="24_5px1x"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/impaired_movement_trap.tscn" id="37_u7ahp"]
+[ext_resource type="PackedScene" uid="uid://dekhtmbc3y6ms" path="res://ImportantObjects/Traps/center_pull_trap.tscn" id="38_flqoo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
 vertices = PackedVector2Array(2528, -1632, 2528, -192, 2336, -592, 2336, -672, 1696, 160, 1696, -192, 1888, -192, 1888, 160, 736, -832, 736, -192, 552, -496, 552, -568, 96, -192, 472, -496, 2272, -592, 1104, -1632, 2272, -672, 1104, -1584, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1600, -2528, 1600, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1056, 800, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -1696, -192, -736, -992, -736, -1632, 680, -1632, 680, -1584, -96, -192, -736, -832, 736, -1584, 736, -992, 472, -568, 1056, -992, 1056, -1584, 1056, -192, 1056, -832, 96, 160, 736, 160, 736, 800, -680, 208, -96, 160, -736, 800, -736, -192, -1056, -832, -1056, -192, -1696, 160, -1056, 160, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 208, 1104, 160, 1888, 1312, 1056, 1600, 1056, 960, 2528, 1312, 2528, 1600)
@@ -582,5 +583,8 @@ position = Vector2(512, 512)
 
 [node name="ImpairedMovementTrap2" parent="Traps" instance=ExtResource("37_u7ahp")]
 position = Vector2(384, 512)
+
+[node name="CenterPullTrap" parent="Traps" instance=ExtResource("38_flqoo")]
+position = Vector2(-256, 640)
 
 [connection signal="body_entered" from="Teleports/TravelToKitchen" to="Teleports/TravelToKitchen" method="_on_body_entered"]
