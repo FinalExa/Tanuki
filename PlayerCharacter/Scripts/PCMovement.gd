@@ -14,11 +14,12 @@ var movementEnabled: bool
 enum SpeedTier {
 	SLOW,
 	NORMAL,
-	FAST
+	FAST,
+	SUPER_SLOW
 }
 
-var speedTiersMaxSpeed: Array[float] = [400.0, 600.0, 800.0]
-var speedTiersAcceleration: Array[float] = [600.0, 900.0, 1200.0]
+var speedTiersMaxSpeed: Array[float] = [400.0, 600.0, 800.0, 150.0]
+var speedTiersAcceleration: Array[float] = [600.0, 900.0, 1200.0, 225.0]
 
 func _ready():
 	currentSpeed = 0

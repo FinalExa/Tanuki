@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=51 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerTrapEffects.gd" id="16_g3ud7"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMoveObjects.gd" id="22_cgx5a"]
 [ext_resource type="PackedScene" uid="uid://bthx5dpkp5buy" path="res://PlayerCharacter/transformation_change.tscn" id="23_rwuxc"]
@@ -215,7 +216,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hwtr"]
 radius = 128.996
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack", "playerMoveObjects")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack", "playerMoveObjects", "playerTrapEffects")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -229,6 +230,7 @@ playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
 playerProgressionTrack = NodePath("PlayerProgressionTrack")
 playerMoveObjects = NodePath("PlayerMoveObjects")
+playerTrapEffects = NodePath("PlayerTrapEffects")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -286,6 +288,10 @@ stream = ExtResource("8_bh82x")
 
 [node name="PlayerProgressionTrack" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
 script = ExtResource("17_pusai")
+playerRef = NodePath("..")
+
+[node name="PlayerTrapEffects" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
+script = ExtResource("16_g3ud7")
 playerRef = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -3,6 +3,7 @@ extends Area2D
 
 @export var effectNegateProperty: String
 @export var effect: TrapObjectEffect
+@export var worksOnEnemies: Array[String]
 var objectsInArea: Array[Node2D]
 var activated: bool
 var enabled: bool
@@ -16,24 +17,16 @@ func _physics_process(delta):
 		ExecuteEffects(delta)
 
 func ExecuteEffects(delta):
-	if (objectsInArea.size()>0):
+	if (objectsInArea.size() > 0):
 		for i in objectsInArea.size():
-			if (objectsInArea[i] is PlayerCharacter):
-				PlayerEffects(objectsInArea[i], delta)
-			else:
+			if (objectsInArea[i] is EnemyController && worksOnEnemies.size() > 0 && worksOnEnemies.has(objectsInArea[i].enemyName)):
 				EnemyEffects(objectsInArea[i], delta)
 
-func PlayerEffects(playerRef: PlayerCharacter, delta):
-	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationObject.transformedProperties.has(effectNegateProperty)):
-		effect.NegatedEffect(playerRef, delta)
+func EnemyEffects(enemyRef: EnemyController, delta):
+	if (enemyRef.enemyProperties.has(effectNegateProperty)):
+		effect.NegatedEffect(enemyRef, delta)
 		return
-	effect.NormalEffect(playerRef, delta)
-
-func EnemyEffects(guardRef: GuardController, delta):
-	if (guardRef.enemyProperties.has(effectNegateProperty)):
-		effect.NegatedEffect(guardRef, delta)
-		return
-	effect.NormalEffect(guardRef, delta)
+	effect.NormalEffect(enemyRef, delta)
 
 func TurnOff():
 	enabled = false
@@ -43,11 +36,22 @@ func TurnOn():
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is EnemyController):
-		if(!objectsInArea.has(body)):
+		if (!objectsInArea.has(body)):
 			objectsInArea.push_back(body)
+			if (body is PlayerCharacter):
+				RegisterToPlayer(body)
 
 func _on_body_exited(body):
 	if (body is PlayerCharacter || body is EnemyController):
-		if(objectsInArea.has(body)):
-			effect.OnLeaveEffect(body)
+		if (objectsInArea.has(body)):
+			if (body is PlayerCharacter):
+				UnregisterFromPlayer(body)
+			else:
+				effect.OnLeaveEffect(body)
 			objectsInArea.erase(body)
+
+func RegisterToPlayer(playerRef: PlayerCharacter):
+	playerRef.playerTrapEffects.RegisterEffect(self)
+
+func UnregisterFromPlayer(playerRef: PlayerCharacter):
+	playerRef.playerTrapEffects.UnregisterEffect(self)

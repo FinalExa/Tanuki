@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="13_6kems"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="15_iwd6s"]
 [ext_resource type="PackedScene" uid="uid://bkk5sawajplil" path="res://ImportantObjects/TransformationObjects/axe.tscn" id="16_j6b5p"]
-[ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="16_sympw"]
+[ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/forced_movement_trap.tscn" id="16_sympw"]
 [ext_resource type="PackedScene" uid="uid://cygqv32do77c7" path="res://NPC/nerd_tanuki_npc.tscn" id="17_81wbq"]
 [ext_resource type="PackedScene" uid="uid://ducvtd6hdhad5" path="res://NPC/cool_tanuki_npc.tscn" id="18_5oidj"]
 [ext_resource type="PackedScene" uid="uid://ckfrax1v487wt" path="res://NPC/sword_tanuki_npc.tscn" id="19_d0a2y"]
@@ -615,9 +615,8 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/OldTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_swubk")
 
-[node name="MoveInteractionObject" parent="Quests/GardenLowerTheBridge" node_paths=PackedStringArray("effect") instance=ExtResource("16_sympw")]
+[node name="MoveInteractionObject" parent="Quests/GardenLowerTheBridge" instance=ExtResource("16_sympw")]
 position = Vector2(288, -896)
-effect = NodePath("../../../WaterCurrents/MoveInteractionObject/MoveEffect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/MoveInteractionObject"]
 shape = SubResource("RectangleShape2D_sqy54")
@@ -764,9 +763,8 @@ position = Vector2(0, -64)
 [node name="TreeBridgeTile2" parent="Quests/GardenChopTree1/TreeBridge" instance=ExtResource("21_705du")]
 position = Vector2(0, 64)
 
-[node name="MoveInteractionObject" parent="Quests/GardenChopTree1" node_paths=PackedStringArray("effect") instance=ExtResource("16_sympw")]
+[node name="MoveInteractionObject" parent="Quests/GardenChopTree1" instance=ExtResource("16_sympw")]
 position = Vector2(1408, -1472)
-effect = NodePath("../../../WaterCurrents/MoveInteractionObject7/MoveEffect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenChopTree1/MoveInteractionObject"]
 shape = SubResource("RectangleShape2D_kws2m")

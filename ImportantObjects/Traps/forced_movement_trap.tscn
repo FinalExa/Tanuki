@@ -7,6 +7,7 @@
 script = ExtResource("1_pnuh3")
 effectNegateProperty = "Heavy"
 effect = NodePath("ForcedMovementEffect")
+worksOnEnemies = Array[String](["Guard", "Hyottoko", "Cleaner", "Warden"])
 
 [node name="ForcedMovementEffect" parent="." instance=ExtResource("2_yxd0a")]
 
