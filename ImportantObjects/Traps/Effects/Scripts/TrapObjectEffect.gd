@@ -1,4 +1,4 @@
-class_name InteractionObjectEffect
+class_name TrapObjectEffect
 extends Node2D
 
 func execute_effect_normally(_receivedBody: CharacterBody2D, _delta):

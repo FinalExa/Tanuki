@@ -108,7 +108,7 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is NavigationRegion2D):
 		objectToOperate.enabled = true
 		return
-	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
+	if (objectToOperate is TransformationObjectData || objectToOperate is TrapObject):
 		objectToOperate.TurnOn()
 	objectToOperate.show()
 	objectToOperate.set_process(true)
@@ -130,7 +130,7 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is NavigationRegion2D):
 		objectToOperate.enabled = false
 		return
-	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
+	if (objectToOperate is TransformationObjectData || objectToOperate is TrapObject):
 		objectToOperate.TurnOff()
 	objectToOperate.hide()
 	objectToOperate.set_process(false)

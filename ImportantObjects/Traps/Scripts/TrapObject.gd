@@ -1,11 +1,8 @@
-class_name InteractionObject
+class_name TrapObject
 extends Area2D
 
 @export var effectNegateProperty: String
-@export var effect: InteractionObjectEffect
-@export var savedOnDestroy: bool
-@export var objectToSendDestoySignal: Node2D
-var sceneMaster: SceneMaster
+@export var effect: TrapObjectEffect
 var objectsInArea: Array[Node2D]
 var activated: bool
 var enabled: bool
@@ -13,7 +10,6 @@ var enabled: bool
 func _ready():
 	activated = true
 	enabled = true
-	sceneMaster = get_tree().root.get_child(0)
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is EnemyController):
@@ -49,17 +45,6 @@ func execute_effect_on_guard(guardRef: GuardController, delta):
 		effect.execute_negated_effect(guardRef, delta)
 		return
 	effect.execute_effect_normally(guardRef, delta)
-
-func SaveOnDestroy():
-	if (savedOnDestroy):
-		sceneMaster.AddPathString(self)
-
-func SaveDestroySignalToOtherObject():
-	if (objectToSendDestoySignal != null):
-		objectToSendDestoySignal.DestroyedSignal()
-
-func ExecuteLoadOperation():
-	pass
 
 func TurnOff():
 	enabled = false

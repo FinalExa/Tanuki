@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdhy5nro0tk1h"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Traps/Scripts/TrapObject.gd" id="1_pnuh3"]
+[ext_resource type="PackedScene" uid="uid://dkg4qfj0uslkq" path="res://ImportantObjects/Traps/Effects/forced_movement_effect.tscn" id="2_yxd0a"]
+
+[node name="ForcedMovementTrap" type="Area2D" node_paths=PackedStringArray("effect")]
+script = ExtResource("1_pnuh3")
+effectNegateProperty = "Heavy"
+effect = NodePath("ForcedMovementEffect")
+
+[node name="ForcedMovementEffect" parent="." instance=ExtResource("2_yxd0a")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

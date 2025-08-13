@@ -1,4 +1,5 @@
-extends InteractionObjectEffect
+extends TrapObjectEffect
+
 @export var movementDistancePerTick: float
 @export var directionStartPoint: Node2D
 @export var directionEndPoint: Node2D

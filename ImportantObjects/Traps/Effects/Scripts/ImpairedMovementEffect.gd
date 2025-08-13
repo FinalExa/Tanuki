@@ -1,4 +1,4 @@
-extends InteractionObjectEffect
+extends TrapObjectEffect
 
 @export var playerSpeedWhileCaptured: float
 @export var callGuardHitbox: CallGuardHitbox
