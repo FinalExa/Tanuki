@@ -348,6 +348,10 @@ texture = ExtResource("23_pqr3h")
 position = Vector2(-1344, -960)
 patrolIndicators = [NodePath("../../PatrolPoints/Guard1/Guard1PatrolIndicator")]
 
+[node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("15_n14hp")]
+position = Vector2(640, 256)
+patrolIndicators = [NodePath("../../PatrolPoints/Guard2/Guard2PatrolIndicator")]
+
 [node name="PatrolPoints" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -436,6 +440,18 @@ position = Vector2(1184, -960)
 
 [node name="4" type="Node2D" parent="PatrolPoints/Guard1"]
 position = Vector2(1792, -960)
+
+[node name="Guard2" type="Node2D" parent="PatrolPoints"]
+
+[node name="Guard2PatrolIndicator" parent="PatrolPoints/Guard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+position = Vector2(640, 256)
+patrolActions = Array[int]([1, 2, 0])
+moveActions = [NodePath("../1")]
+waitActions = Array[float]([5.0])
+lookActions = Array[int]([0])
+
+[node name="1" type="Node2D" parent="PatrolPoints/Guard2"]
+position = Vector2(640, 256)
 
 [node name="TransformationObjects" type="Node2D" parent="."]
 y_sort_enabled = true

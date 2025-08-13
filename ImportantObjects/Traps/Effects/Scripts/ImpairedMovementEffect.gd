@@ -7,15 +7,15 @@ var playerHasBeenCaptured: bool = false
 var hitboxActive: bool = false
 
 func _ready():
-	remove_call_hitbox()
+	DeactivateCall()
 
-func execute_effect_normally(receivedBody, _delta):
+func NormalEffect(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
 		SlowAndKeepToCenter(receivedBody)
 
 func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 	if (!hitboxActive):
-		add_call_hitbox()
+		ActivateCall()
 	if (!playerHasBeenCaptured):
 		playerRef.movementRef.set_max_speed(PCMovement.SpeedTier.SLOW)
 		if (!playerHasBeenMoved):
@@ -26,7 +26,7 @@ func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 		playerRef.transformationChangeRef.DeactivateTransformation()
 		playerRef.movementRef.set_max_speed(PCMovement.SpeedTier.SLOW)
 
-func execute_negated_effect(receivedBody, _delta):
+func NegatedEffect(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):
 		LetPlayerMove(receivedBody)
 
@@ -35,7 +35,7 @@ func LetPlayerMove(playerRef: PlayerCharacter):
 		playerRef.movementRef.reset_max_speed()
 		playerHasBeenCaptured = false
 
-func execute_leave_effect(receivedBody):
+func OnLeaveEffect(receivedBody):
 	if (receivedBody is PlayerCharacter):
 		PlayerLeftArea(receivedBody)
 
@@ -44,12 +44,12 @@ func PlayerLeftArea(playerRef: PlayerCharacter):
 	playerHasBeenCaptured = false
 	playerHasBeenMoved = false
 	if (hitboxActive):
-		remove_call_hitbox()
+		DeactivateCall()
 
-func remove_call_hitbox():
+func DeactivateCall():
 	callGuardHitbox.SetInactive()
 	hitboxActive = false
 
-func add_call_hitbox():
+func ActivateCall():
 	callGuardHitbox.SetActive()
 	hitboxActive = true

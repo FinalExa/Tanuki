@@ -7,13 +7,13 @@ extends TrapObjectEffect
 var direction: Vector2
 
 func _ready():
-	calculate_direction()
+	GetDirection()
 	arrowSprite.hide()
 
-func calculate_direction():
+func GetDirection():
 	direction = directionStartPoint.global_position.direction_to(directionEndPoint.global_position)
 
-func execute_effect_normally(receivedBody: CharacterBody2D, _delta):
+func NormalEffect(receivedBody: CharacterBody2D, _delta):
 	receivedBody.velocity = direction * movementDistancePerTick
 	if (receivedBody is PlayerCharacter):
 		receivedBody.playerMoveObjects.ForceDropMovableObject()

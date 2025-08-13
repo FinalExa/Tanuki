@@ -1,11 +1,11 @@
 class_name TrapObjectEffect
 extends Node2D
 
-func execute_effect_normally(_receivedBody: CharacterBody2D, _delta):
+func NormalEffect(_receivedBody: CharacterBody2D, _delta):
 	pass
 
-func execute_negated_effect(_receivedBody: CharacterBody2D, _delta):
+func NegatedEffect(_receivedBody: CharacterBody2D, _delta):
 	pass
 
-func execute_leave_effect(_receivedBody: CharacterBody2D):
+func OnLeaveEffect(_receivedBody: CharacterBody2D):
 	pass

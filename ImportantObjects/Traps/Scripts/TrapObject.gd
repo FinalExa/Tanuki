@@ -11,6 +11,36 @@ func _ready():
 	activated = true
 	enabled = true
 
+func _physics_process(delta):
+	if (enabled && activated):
+		ExecuteEffects(delta)
+
+func ExecuteEffects(delta):
+	if (objectsInArea.size()>0):
+		for i in objectsInArea.size():
+			if (objectsInArea[i] is PlayerCharacter):
+				PlayerEffects(objectsInArea[i], delta)
+			else:
+				EnemyEffects(objectsInArea[i], delta)
+
+func PlayerEffects(playerRef: PlayerCharacter, delta):
+	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationObject.transformedProperties.has(effectNegateProperty)):
+		effect.NegatedEffect(playerRef, delta)
+		return
+	effect.NormalEffect(playerRef, delta)
+
+func EnemyEffects(guardRef: GuardController, delta):
+	if (guardRef.enemyProperties.has(effectNegateProperty)):
+		effect.NegatedEffect(guardRef, delta)
+		return
+	effect.NormalEffect(guardRef, delta)
+
+func TurnOff():
+	enabled = false
+
+func TurnOn():
+	enabled = true
+
 func _on_body_entered(body):
 	if (body is PlayerCharacter || body is EnemyController):
 		if(!objectsInArea.has(body)):
@@ -19,35 +49,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if (body is PlayerCharacter || body is EnemyController):
 		if(objectsInArea.has(body)):
-			effect.execute_leave_effect(body)
+			effect.OnLeaveEffect(body)
 			objectsInArea.erase(body)
-
-func _physics_process(delta):
-	if (enabled && activated):
-		execute_effects(delta)
-
-func execute_effects(delta):
-	if (objectsInArea.size()>0):
-		for i in objectsInArea.size():
-			if (objectsInArea[i] is PlayerCharacter):
-				execute_effect_on_player(objectsInArea[i], delta)
-			else:
-				execute_effect_on_guard(objectsInArea[i], delta)
-
-func execute_effect_on_player(playerRef: PlayerCharacter, delta):
-	if (playerRef.transformationChangeRef.isTransformed && playerRef.transformationChangeRef.currentTransformationObject.transformedProperties.has(effectNegateProperty)):
-		effect.execute_negated_effect(playerRef, delta)
-		return
-	effect.execute_effect_normally(playerRef, delta)
-
-func execute_effect_on_guard(guardRef: GuardController, delta):
-	if (guardRef.enemyProperties.has(effectNegateProperty)):
-		effect.execute_negated_effect(guardRef, delta)
-		return
-	effect.execute_effect_normally(guardRef, delta)
-
-func TurnOff():
-	enabled = false
-
-func TurnOn():
-	enabled = true
