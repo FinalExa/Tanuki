@@ -17,7 +17,7 @@ func SlowAndKeepToCenter(playerRef: PlayerCharacter):
 	if (!hitboxActive):
 		ActivateCall()
 	if (playerRef.transformationChangeRef.isTransformed):
-		playerRef.transformationChangeRef.DeactivateTransformation()
+		playerRef.transformationChangeRef.transformationActivation.DeactivateTransformation()
 
 func NegatedEffect(receivedBody, _delta):
 	if (receivedBody is PlayerCharacter):

@@ -53,15 +53,17 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1968, 1216, 1968, 1056,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ss"]
 size = Vector2(256, 64)
 
-[sub_resource type="Resource" id="Resource_b2jf8"]
+[sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
+itemToOperate = NodePath("UltraKeyTileMap")
 itemStage = 0
 itemOperation = 0
 
-[sub_resource type="Resource" id="Resource_p6fwi"]
+[sub_resource type="Resource" id="Resource_8i53x"]
 script = ExtResource("13_yb20v")
-itemStage = 0
-itemOperation = 0
+itemToOperate = NodePath("UltraKeyTileMap")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
@@ -101,7 +103,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor")]
+mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -141,12 +143,14 @@ position = Vector2(2304, 352)
 position = Vector2(2208, -1504)
 
 [node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("3_p3epd")]
-position = Vector2(0, -3392)
+position = Vector2(0, -1856)
 
-[node name="LevelUnlockKeyDoor" parent="Keys" instance=ExtResource("5_00v31")]
+[node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("5_00v31")]
 position = Vector2(0, -1728)
 sceneType = 5
 requiredKeys = 3
+advancesQuest = true
+questToAdvance = NodePath("../../Quests/DojoUltraKey")
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -195,7 +199,6 @@ questItemsToOperate = [null, null]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
-questIndex = Array[ExtResource("13_yb20v")]([SubResource("Resource_b2jf8"), SubResource("Resource_p6fwi")])
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(448, 320)
@@ -327,6 +330,35 @@ position = Vector2(-2304, -1536)
 [node name="KatanaPart2" parent="Quests/DojoRepairArmor" instance=ExtResource("15_eyl2a")]
 position = Vector2(1216, 256)
 partID = 1
+
+[node name="DojoUltraKey" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoUltraKey"
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_8i53x")])
+
+[node name="UltraKeyTileMap" type="TileMap" parent="Quests/DojoUltraKey"]
+y_sort_enabled = true
+tile_set = ExtResource("1_wqlac")
+format = 2
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -999
+layer_0/tile_data = PackedInt32Array(-917510, 65536, 3, -851974, 65536, 4, -917509, 131072, 3, -851973, 131072, 4, -917508, 65536, 3, -851972, 65536, 4, -917507, 131072, 3, -851971, 131072, 4, -917506, 65536, 3, -851970, 65536, 4, -917505, 131072, 3, -851969, 131072, 4, -983040, 65536, 3, -917504, 65536, 4, -983039, 131072, 3, -917503, 131072, 4, -983038, 65536, 3, -917502, 65536, 4, -983037, 131072, 3, -917501, 131072, 4, -983036, 65536, 3, -917500, 65536, 4, -983035, 131072, 3, -917499, 131072, 4, -1114108, 65536, 3, -1048572, 65536, 4, -1114107, 131072, 3, -1048571, 131072, 4, -1245180, 65536, 3, -1179644, 65536, 4, -1245179, 131072, 3, -1179643, 131072, 4, -1048582, 65536, 3, -983046, 65536, 4, -1048581, 131072, 3, -983045, 131072, 4, -1179654, 65536, 3, -1114118, 65536, 4, -1179653, 131072, 3, -1114117, 131072, 4, -1310726, 65536, 3, -1245190, 65536, 4, -1310725, 131072, 3, -1245189, 131072, 4, -1310724, 65536, 3, -1245188, 65536, 4, -1310723, 131072, 3, -1245187, 131072, 4, -1310722, 65536, 3, -1245186, 65536, 4, -1310721, 131072, 3, -1245185, 131072, 4, -1376256, 65536, 3, -1310720, 65536, 4, -1376255, 131072, 3, -1310719, 131072, 4, -1376254, 65536, 3, -1310718, 65536, 4, -1376253, 131072, 3, -1310717, 131072, 4, -1376252, 65536, 3, -1310716, 65536, 4, -1376251, 131072, 3, -1310715, 131072, 4, -1245182, 65536, 3, -1179646, 65536, 4, -1245181, 131072, 3, -1179645, 131072, 4, -1245184, 65536, 3, -1179648, 65536, 4, -1245183, 131072, 3, -1179647, 131072, 4, -1179650, 65536, 3, -1114114, 65536, 4, -1179649, 131072, 3, -1114113, 131072, 4, -1179652, 65536, 3, -1114116, 65536, 4, -1179651, 131072, 3, -1114115, 131072, 4, -1048580, 65536, 3, -983044, 65536, 4, -1048579, 131072, 3, -983043, 131072, 4, -1048578, 65536, 3, -983042, 65536, 4, -1048577, 131072, 3, -983041, 131072, 4, -1114112, 65536, 3, -1048576, 65536, 4, -1114111, 131072, 3, -1048575, 131072, 4, -1114110, 65536, 3, -1048574, 65536, 4, -1114109, 131072, 3, -1048573, 131072, 4, -1441798, 65536, 3, -1376262, 65536, 4, -1441797, 131072, 3, -1376261, 131072, 4, -1441796, 65536, 3, -1376260, 65536, 4, -1441795, 131072, 3, -1376259, 131072, 4, -1441794, 65536, 3, -1376258, 65536, 4, -1441793, 131072, 3, -1376257, 131072, 4, -1507328, 65536, 3, -1441792, 65536, 4, -1507327, 131072, 3, -1441791, 131072, 4, -1507326, 65536, 3, -1441790, 65536, 4, -1507325, 131072, 3, -1441789, 131072, 4, -1507324, 65536, 3, -1441788, 65536, 4, -1507323, 131072, 3, -1441787, 131072, 4, -1572870, 65536, 3, -1507334, 65536, 4, -1572869, 131072, 3, -1507333, 131072, 4, -1572868, 65536, 3, -1507332, 65536, 4, -1572867, 131072, 3, -1507331, 131072, 4, -1572866, 65536, 3, -1507330, 65536, 4, -1572865, 131072, 3, -1507329, 131072, 4, -1638400, 65536, 3, -1572864, 65536, 4, -1638399, 131072, 3, -1572863, 131072, 4, -1638398, 65536, 3, -1572862, 65536, 4, -1638397, 131072, 3, -1572861, 131072, 4, -1638396, 65536, 3, -1572860, 65536, 4, -1638395, 131072, 3, -1572859, 131072, 4, -917511, 0, 1, -1572871, 0, 1, -1507335, 0, 1, -1441799, 0, 1, -1376263, 0, 1, -1310727, 0, 1, -1245191, 0, 1, -1179655, 0, 1, -1114119, 0, 1, -1048583, 0, 1, -983047, 0, 1, -1638407, 0, 1, -1703930, 262144, 1, -1638394, 262144, 1, -1572858, 262144, 1, -1507322, 262144, 1, -1441786, 262144, 1, -1376250, 262144, 1, -1310714, 262144, 1, -1245178, 262144, 1, -1179642, 262144, 1, -1114106, 262144, 1, -1048570, 262144, 1, -983034, 262144, 1, -1638406, 131072, 1, -1638405, 131072, 1, -1638404, 131072, 1, -1638403, 131072, 1, -1638402, 131072, 1, -1638401, 131072, 1, -1703936, 131072, 1, -1703935, 131072, 1, -1703934, 131072, 1, -1703933, 131072, 1, -1703932, 131072, 1, -1703931, 131072, 1)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Furniture"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
