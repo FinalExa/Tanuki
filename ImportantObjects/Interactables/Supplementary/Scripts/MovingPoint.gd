@@ -30,3 +30,5 @@ func MoveObject(delta):
 				objectToMove.translate(objectToMove.global_position.direction_to(path[pathIndex].global_position) * speed * delta)
 			else:
 				pathIndex += 1
+			return
+		EndPath()
