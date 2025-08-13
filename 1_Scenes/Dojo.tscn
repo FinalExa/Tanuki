@@ -357,7 +357,6 @@ y_sort_enabled = true
 position = Vector2(0, 384)
 patrolActions = Array[int]([1, 1])
 moveActions = [NodePath("../1"), NodePath("../2")]
-patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([null])
 
 [node name="1" type="Node2D" parent="PatrolPoints/Hyottoko1"]
 position = Vector2(432, 384)

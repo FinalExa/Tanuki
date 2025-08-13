@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkg4qfj0uslkq"]
+[gd_scene load_steps=3 format=3 uid="uid://dkg4qfj0uslkq"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Traps/Effects/Scripts/MoveEffect.gd" id="1_m0hfp"]
+[ext_resource type="Texture2D" uid="uid://bdcya6ygjgm77" path="res://ImportantObjects/Traps/Sprites/Placeholder/Arrow.png" id="2_6ablt"]
 
-[node name="MoveEffect" type="Node2D" node_paths=PackedStringArray("directionStartPoint", "directionEndPoint")]
+[node name="MoveEffect" type="Node2D" node_paths=PackedStringArray("directionStartPoint", "directionEndPoint", "arrowSprite")]
 script = ExtResource("1_m0hfp")
 movementDistancePerTick = 750.0
 directionStartPoint = NodePath("StartPoint")
 directionEndPoint = NodePath("EndPoint")
+arrowSprite = NodePath("ArrowSprite")
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6ablt")
 
 [node name="StartPoint" type="Node2D" parent="."]
 

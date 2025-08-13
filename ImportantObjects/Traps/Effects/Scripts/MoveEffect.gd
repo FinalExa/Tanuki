@@ -2,10 +2,12 @@ extends InteractionObjectEffect
 @export var movementDistancePerTick: float
 @export var directionStartPoint: Node2D
 @export var directionEndPoint: Node2D
+@export var arrowSprite: Node2D
 var direction: Vector2
 
 func _ready():
 	calculate_direction()
+	arrowSprite.hide()
 
 func calculate_direction():
 	direction = directionStartPoint.global_position.direction_to(directionEndPoint.global_position)

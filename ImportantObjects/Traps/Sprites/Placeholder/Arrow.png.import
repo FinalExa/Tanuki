@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chj86yel3n8na"
-path="res://.godot/imported/Trappola TapisRoulant.png-ffd038d4f35970444cb83e14a0c60333.ctex"
+uid="uid://bdcya6ygjgm77"
+path="res://.godot/imported/Arrow.png-fd43e8a29d240f4c535e738cf2539df9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Traps/Sprites/Placeholder/Trappola TapisRoulant.png"
-dest_files=["res://.godot/imported/Trappola TapisRoulant.png-ffd038d4f35970444cb83e14a0c60333.ctex"]
+source_file="res://ImportantObjects/Traps/Sprites/Placeholder/Arrow.png"
+dest_files=["res://.godot/imported/Arrow.png-fd43e8a29d240f4c535e738cf2539df9.ctex"]
 
 [params]
 
