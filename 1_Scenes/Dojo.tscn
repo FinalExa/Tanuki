@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=49 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -56,6 +56,12 @@ size = Vector2(256, 64)
 [sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_fh3b4"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
 itemStage = 0
 itemOperation = 0
 
@@ -335,7 +341,7 @@ partID = 1
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoUltraKey"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_8i53x")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_8i53x")])
 
 [node name="UltraKeyTileMap" type="TileMap" parent="Quests/DojoUltraKey"]
 y_sort_enabled = true

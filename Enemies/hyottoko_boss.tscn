@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="6_7g25p"]
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="7_kay07"]
 [ext_resource type="AudioStream" uid="uid://d0inohxl2el40" path="res://Enemies/Sounds/Hyottoko/Attack - Hyottoko.wav" id="8_kxmyv"]
-[ext_resource type="Texture2D" uid="uid://ck5hjkk3kc8c" path="res://Enemies/Sprites/Hyottoko200.png" id="9_kglhk"]
+[ext_resource type="Texture2D" uid="uid://doty0qjp6fjju" path="res://Enemies/Sprites/Hyottoko_Boss.png" id="9_ptm78"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="10_jcxqr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_tendj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="12_1171r"]
@@ -40,18 +40,19 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="38_fthuo"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="39_uhvsy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rshso"]
+radius = 16.0
+height = 80.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkvre"]
-atlas = ExtResource("9_kglhk")
-region = Rect2(0, 0, 148, 131)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoiy6"]
+atlas = ExtResource("9_ptm78")
+region = Rect2(0, 0, 164, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jkvre")
+"texture": SubResource("AtlasTexture_eoiy6")
 }],
 "loop": true,
 "name": &"idle",
@@ -93,7 +94,9 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2aaw5")
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rshso")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
@@ -139,7 +142,7 @@ max_distance = 500.0
 stream = ExtResource("8_kxmyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -80)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
