@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6opax3mruvjx"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerHealth.gd" id="1_4ovwh"]
+[ext_resource type="Texture2D" uid="uid://cvrdomx6m1cwc" path="res://PlayerCharacter/Sprites/Temporary/HeartContainer.png" id="2_jymkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skkyn"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hva6m"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jpyx"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a22u7"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55ssd"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bih4q"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnjyg"]
+atlas = ExtResource("2_jymkr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwy7w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skkyn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hva6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jpyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a22u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55ssd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bih4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnjyg")
+}],
+"loop": false,
+"name": &"lost_heart",
+"speed": 6.0
+}]
+
+[node name="PlayerHealth" type="Node2D" node_paths=PackedStringArray("heartSpriteRef")]
+script = ExtResource("1_4ovwh")
+maxHealth = 2
+heartSpriteRef = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gwy7w")
+animation = &"idle"

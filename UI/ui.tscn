@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=31 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://c0kidv2ddxiuq" path="res://UI/Sprite/UI_Timer.png" id="9_5iig8"]
 [ext_resource type="Texture2D" uid="uid://bsqeym0flup3u" path="res://Level/Temporary/magic_cube.png" id="9_kgvep"]
 [ext_resource type="AudioStream" uid="uid://b2sak1h1wojxg" path="res://PlayerCharacter/Sounds/Game Over.wav" id="9_x7y7m"]
+[ext_resource type="Script" path="res://UI/Script/UIHearts.gd" id="10_0qe22"]
+[ext_resource type="Texture2D" uid="uid://bor4l02ia21yg" path="res://PlayerCharacter/Sprites/Temporary/HeartContainerFull.png" id="11_n7r00"]
+[ext_resource type="Texture2D" uid="uid://8a4ckvp353g" path="res://PlayerCharacter/Sprites/Temporary/HeartContainerEmpty.png" id="12_5mt4i"]
 [ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sl7vy"]
@@ -53,7 +56,7 @@ font_size = 20
 font = ExtResource("3_gk6g8")
 font_size = 20
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter", "loadingScreen")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "uIHearts", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter", "loadingScreen")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -70,6 +73,7 @@ attackNameLabel = NodePath("AttackName")
 mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("PauseMenuPanel")
 dialogueUI = NodePath("DialogueUI")
+uIHearts = NodePath("Hearts")
 optionsPanel = NodePath("OptionsPanel")
 controlsPanel = NodePath("ControlsPanel")
 gameOverPanel = NodePath("GameOverPanel")
@@ -171,6 +175,64 @@ position = Vector2(93.5, 984)
 scale = Vector2(0.867188, 0.859375)
 texture = ExtResource("9_kgvep")
 
+[node name="Hearts" type="Control" parent="." node_paths=PackedStringArray("fullHeartsArray", "emptyHeartsArray")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_0qe22")
+fullHeartsArray = [NodePath("HeartFull1"), NodePath("HeartFull2")]
+emptyHeartsArray = [NodePath("HeartEmpty1"), NodePath("HeartEmpty2")]
+
+[node name="HeartFull1" type="TextureRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 48.0
+offset_right = 224.0
+offset_bottom = 80.0
+texture = ExtResource("11_n7r00")
+
+[node name="HeartFull2" type="TextureRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 288.0
+offset_bottom = 80.0
+texture = ExtResource("11_n7r00")
+
+[node name="HeartFull3" type="TextureRect" parent="Hearts"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 48.0
+offset_right = 352.0
+offset_bottom = 80.0
+texture = ExtResource("11_n7r00")
+
+[node name="HeartEmpty1" type="TextureRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 48.0
+offset_right = 224.0
+offset_bottom = 80.0
+texture = ExtResource("12_5mt4i")
+
+[node name="HeartEmpty2" type="TextureRect" parent="Hearts"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 48.0
+offset_right = 288.0
+offset_bottom = 80.0
+texture = ExtResource("12_5mt4i")
+
+[node name="HeartEmpty3" type="TextureRect" parent="Hearts"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 48.0
+offset_right = 352.0
+offset_bottom = 80.0
+texture = ExtResource("12_5mt4i")
+
 [node name="LoadingScreen" type="TextureRect" parent="."]
 visible = false
 self_modulate = Color(0, 0, 0, 1)
@@ -210,9 +272,9 @@ attackNotAvailableTexture = ExtResource("4_hkgms")
 [node name="TransformationBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 192.0
-offset_top = 72.0
+offset_top = 104.0
 offset_right = 608.0
-offset_bottom = 112.0
+offset_bottom = 144.0
 scale = Vector2(1.5, 1.5)
 texture_under = ExtResource("4_rcdvg")
 texture_over = ExtResource("12_xdw6c")

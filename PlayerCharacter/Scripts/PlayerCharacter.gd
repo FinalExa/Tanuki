@@ -10,6 +10,7 @@ var sceneRef: Node2D
 @export var spriteRef: AnimatedSprite2D
 @export var playerHUD: PlayerHUD
 @export var playerMovement: PCMovement
+@export var playerHealth: PlayerHealth
 @export var playerRotator: PlayerRotator
 @export var playerRepelled: PlayerRepelled
 @export var playerAttack: PlayerAttack
@@ -62,7 +63,7 @@ func GameOver(receivedNode: Node2D):
 	if (transformationInvincibility):
 		emit_signal("transformationInvincibilityInteracted", receivedNode)
 	else:
-		ForceGameOver()
+		playerHealth.ReceiveDamage(1)
 
 func ForceGameOver():
 	playerHUD.GameOverScreen()
