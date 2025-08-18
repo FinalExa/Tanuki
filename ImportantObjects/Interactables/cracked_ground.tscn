@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8sbaxcvkqppu" path="res://ImportantObjects/Interactables/Sprites/CrackedGround.png" id="2_pykt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
-size = Vector2(48, 24)
+size = Vector2(16, 16)
 
 [node name="CrackedGround" type="StaticBody2D" groups=["Interactable"]]
 z_index = -1
@@ -13,7 +13,6 @@ neededProperties = Array[String](["Pound"])
 destroyOnEnd = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -4)
 shape = SubResource("RectangleShape2D_kufeo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

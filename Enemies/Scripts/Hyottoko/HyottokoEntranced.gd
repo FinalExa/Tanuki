@@ -3,6 +3,9 @@ extends Node
 
 @export var hyottokoController: HyottokoController
 @export var entrancedText: String
+@export var expires: bool
+@export var expireDuration: float
+var expireTimer: float
 var performanceArea: HyottokoPerformanceArea
 
 func SetEntranced(receivedArea: HyottokoPerformanceArea):
@@ -14,6 +17,7 @@ func SetEntranced(receivedArea: HyottokoPerformanceArea):
 		hyottokoController.enemyPatrol.stop_patrol()
 		hyottokoController.enemyMovement.set_location_target(performanceArea.global_position)
 		hyottokoController.enemyStatus.updateText(entrancedText)
+		if (expires): expireTimer = expireDuration
 
 func UnsetEntranced():
 	if (hyottokoController.isEntranced):

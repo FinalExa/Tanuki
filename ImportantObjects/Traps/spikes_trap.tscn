@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg74iekfo8u6g"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Traps/Scripts/TrapObject.gd" id="1_d35hp"]
+[ext_resource type="PackedScene" uid="uid://dkgga7ylmhv11" path="res://ImportantObjects/Traps/Effects/spikes_effect.tscn" id="2_gd6hx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqtd5"]
+size = Vector2(112, 112)
+
+[node name="TrapObject" type="Area2D" node_paths=PackedStringArray("effect")]
+z_index = -1
+script = ExtResource("1_d35hp")
+effectNegateProperty = "Heavy"
+effect = NodePath("SpikesEffect")
+
+[node name="SpikesEffect" parent="." instance=ExtResource("2_gd6hx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oqtd5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

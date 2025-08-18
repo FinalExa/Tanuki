@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="17_fuo20"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="18_f15dd"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoRange.gd" id="19_dh4i4"]
-[ext_resource type="PackedScene" uid="uid://ctfcwjmwtwcqe" path="res://Enemies/Attacks/hyottoko_attack.tscn" id="20_qpahx"]
+[ext_resource type="PackedScene" uid="uid://bvs6yt6gnm2dg" path="res://Enemies/Attacks/hyottoko_boss_attack.tscn" id="20_8lud5"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="21_5vidj"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="22_n3bhb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="23_erqam"]
@@ -73,10 +73,11 @@ radius = 640.0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ar0p4")
+newSpeed = 300.0
 hyottokoRange = NodePath("Rotator/HyottokoRange")
-hyottokoPushDistanceFromPlayer = 200.0
+hyottokoPushDistanceFromPlayer = 250.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
-hyottokoAttack = NodePath("Rotator/HyottokoAttack")
+hyottokoAttack = NodePath("Rotator/HyottokoBossAttack")
 hyottokoEntranced = NodePath("HyottokoEntranced")
 enemyName = "HyottokoBoss"
 repelledTime = 0.3
@@ -150,7 +151,7 @@ animation = &"idle"
 script = ExtResource("10_jcxqr")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
-defaultMovementSpeed = 250.0
+defaultMovementSpeed = 350.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 
@@ -179,18 +180,20 @@ hyottokoController = NodePath("..")
 enemyMovement = NodePath("../EnemyMovement")
 reachPointText = "REACHING POINT"
 distanceFromPointToReach = 50.0
-durationAfterReachingPoint = 3.0
+durationAfterReachingPoint = 1.0
 
 [node name="HyottokoEntranced" type="Node" parent="." node_paths=PackedStringArray("hyottokoController")]
 script = ExtResource("15_0kboj")
 hyottokoController = NodePath("..")
 entrancedText = "ENTRANCED"
+expires = true
+expireDuration = 5.0
 
 [node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
-offset_top = -128.0
+offset_top = -192.0
 offset_right = 80.0
-offset_bottom = -102.0
+offset_bottom = -166.0
 label_settings = SubResource("LabelSettings_qg4sj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -214,13 +217,13 @@ hyottokoController = NodePath("../..")
 collisionShape = NodePath("CollisionShape2D")
 baseRadius = 640.0
 extendedRadius = 896.0
-timeBeforeUnset = 2.5
+timeBeforeUnset = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
 shape = SubResource("CircleShape2D_tvwmf")
 debug_color = Color(0, 0.6, 0, 0.0196078)
 
-[node name="HyottokoAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("20_qpahx")]
+[node name="HyottokoBossAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("20_8lud5")]
 attackSounds = [null, NodePath("../../Sounds/NormalAttack")]
 characterRef = NodePath("../..")
 
@@ -269,7 +272,7 @@ enemyController = NodePath("../../..")
 
 [node name="TaskHyottokoIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttack", "enemyController")]
 script = ExtResource("28_j4fuj")
-enemyAttack = NodePath("../../../Rotator/HyottokoAttack")
+enemyAttack = NodePath("../../../Rotator/HyottokoBossAttack")
 enemyController = NodePath("../../..")
 
 [node name="SelectorReachPoint" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
@@ -313,7 +316,7 @@ enemyController = NodePath("../../../../..")
 
 [node name="TaskHyottokoStartAttack" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("hyottokoAttack", "enemyController")]
 script = ExtResource("34_cx3xe")
-hyottokoAttack = NodePath("../../../../../Rotator/HyottokoAttack")
+hyottokoAttack = NodePath("../../../../../Rotator/HyottokoBossAttack")
 enemyController = NodePath("../../../../..")
 
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
@@ -360,8 +363,6 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="damaged_no_direction" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
 [connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
 [connection signal="repelled" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
-[connection signal="stop_attack" from="." to="Rotator/HyottokoAttack" method="ForceEndAttack"]
-[connection signal="reached_destination" from="EnemyMovement" to="." method="_on_enemy_movement_reached_destination"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_exited"]
