@@ -12,8 +12,8 @@ func ExecuteRefEffect(ref):
 		RepairParts(ref)
 
 func RepairParts(playerRef: PlayerCharacter):
-	if (!done && playerRef.playerMoveObjects.currentObject is GeneratorPartMovable):
-		var generatorPart: GeneratorPartMovable = playerRef.playerMoveObjects.currentObject
+	if (!done && playerRef.playerMoveObjects.currentObject is BrokenPartMovable):
+		var generatorPart: BrokenPartMovable = playerRef.playerMoveObjects.currentObject
 		if (!partSprites[generatorPart.partID].visible):
 			partSprites[generatorPart.partID].show()
 			partsObtained += 1
