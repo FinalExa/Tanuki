@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bwf0dip768kw"]
+[gd_scene load_steps=48 format=3 uid="uid://bwf0dip768kw"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoBossController.gd" id="1_ar0p4"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_o76tx"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="22_n3bhb"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="23_erqam"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="24_o4gxp"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoBossIsCaptured.gd" id="25_520sj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="25_jrme0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="26_k5qn7"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsEntranced.gd" id="27_i3dau"]
@@ -42,8 +43,8 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="39_uhvsy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rshso"]
-radius = 16.0
-height = 80.0
+radius = 8.0
+height = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71bxp"]
 atlas = ExtResource("9_ptm78")
@@ -108,7 +109,7 @@ hitByPlayerSound = NodePath("Sounds/HitByPlayer")
 stunnedHit = NodePath("Sounds/StunnedHit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rshso")
 
@@ -263,7 +264,12 @@ root = NodePath("Sequence")
 
 [node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
 script = ExtResource("23_erqam")
-children = [NodePath("SelectorStunned"), NodePath("TaskHyottokoIsEntranced"), NodePath("TaskHyottokoIsAttacking"), NodePath("SelectorReachPoint"), NodePath("SelectorSpottedPlayer"), NodePath("SelectorPatrol")]
+children = [NodePath("TaskHyottokoBossIsCaptured"), NodePath("SelectorStunned"), NodePath("TaskHyottokoIsEntranced"), NodePath("TaskHyottokoIsAttacking"), NodePath("SelectorReachPoint"), NodePath("SelectorSpottedPlayer"), NodePath("SelectorPatrol")]
+
+[node name="TaskHyottokoBossIsCaptured" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("hyottokoBossController", "enemyController")]
+script = ExtResource("25_520sj")
+hyottokoBossController = NodePath("../../..")
+enemyController = NodePath("../../..")
 
 [node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("24_o4gxp")

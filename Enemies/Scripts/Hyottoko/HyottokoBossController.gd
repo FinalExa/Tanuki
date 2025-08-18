@@ -5,13 +5,24 @@ var isCaptured: bool
 @export var newSpeed: float
 
 func IsRepelled(direction: Vector2):
-	if (repelledSpeed > 0 && isStunned):
+	if (repelledSpeed > 0 && (isReachingPoint || isEntranced)):
 		StartRepelled(direction)
 
-func AdvanceBossPhase():
-	if (questToSendProgressSignal != null):
-		questToSendProgressSignal.AdvanceStageByObject(self)
-	enemyStunned.end_stun()
-	enemyMovement.set_movement_speed(newSpeed)
-	enemyPatrol.reset_patrol()
-	enemyPatrol.restart_patrol()
+func SetCaptured():
+	if (!isCaptured):
+		isCaptured = true
+		InterruptAttacks()
+		hyottokoReachPoint.StopReachingPoint()
+		hyottokoEntranced.UnsetEntranced()
+		enemyRepelled.StopRepel()
+		enemyPatrol.stop_patrol()
+		enemyMovement.set_new_target(null)
+		velocity = Vector2.ZERO
+		spriteRef.play("trapped")
+		enemyStatus.updateText("")
+
+func UnsetCaptured():
+	if (isCaptured):
+		isCaptured = false
+		spriteRef.play("idle")
+		enemyPatrol.resume_patrol()

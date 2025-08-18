@@ -12,6 +12,8 @@ func RandomizePositions():
 		for i in objectsToRandomizePosition.size():
 			randomIndex = randi_range(0, positions.size() - 1)
 			objectsToRandomizePosition[i].global_position = positions[randomIndex].global_position
+			if (objectsToRandomizePosition[i] is MovableObject):
+				objectsToRandomizePosition[i].originalPosition = objectsToRandomizePosition[i].global_position
 			positions.remove_at(randomIndex)
 			if (positions.size() == 0):
 				break
