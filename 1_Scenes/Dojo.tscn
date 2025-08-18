@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=65 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cggbv0epl6wm6" path="res://ImportantObjects/TransformationObjects/weight.tscn" id="24_5px1x"]
 [ext_resource type="PackedScene" uid="uid://bwf0dip768kw" path="res://Enemies/hyottoko_boss.tscn" id="25_5xb54"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexMove.gd" id="27_ur1lr"]
+[ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="28_keksd"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/impaired_movement_trap.tscn" id="37_u7ahp"]
 [ext_resource type="PackedScene" uid="uid://dekhtmbc3y6ms" path="res://ImportantObjects/Traps/center_pull_trap.tscn" id="38_flqoo"]
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/MovingPoint.gd" id="39_25stu"]
@@ -73,6 +74,12 @@ itemToOperate = NodePath("NavigationRegions/NavigationRegion2D2")
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_v8pec"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SavePoint")
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_8i53x"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
@@ -82,6 +89,12 @@ itemOperation = 1
 [sub_resource type="Resource" id="Resource_0n775"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("NavigationRegions/NavigationRegion2D2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_u26w0"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SavePoint")
 itemStage = 1
 itemOperation = 1
 
@@ -105,6 +118,9 @@ destination = NodePath("../4")
 script = ExtResource("27_ur1lr")
 destination = NodePath("../3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d208k"]
+size = Vector2(1536, 1504)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3b50u"]
 vertices = PackedVector2Array(-736, -1728, -736, -3168, 736, -3168, 736, -1728)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -114,6 +130,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-736, -1728, -736, -316
 vertices = PackedVector2Array(-32, -1632, -32, -1728, 32, -1728, 32, -1632)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -1632, -32, -1728, 32, -1728, 32, -1632)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx5e"]
+size = Vector2(512, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
@@ -385,7 +404,7 @@ partID = 1
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoUltraKey"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_c8rri"), SubResource("Resource_8i53x"), SubResource("Resource_0n775")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_c8rri"), SubResource("Resource_v8pec"), SubResource("Resource_8i53x"), SubResource("Resource_0n775"), SubResource("Resource_u26w0")])
 
 [node name="UltraKeyTileMap" type="TileMap" parent="Quests/DojoUltraKey"]
 y_sort_enabled = true
@@ -401,7 +420,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(-983041, 131072, 1, -1048576, 131072, 1, -983042, 131072, 1, -1048575, 131072, 1, -1507330, 131072, 1, -1507329, 131072, 1, -1572864, 131072, 1, -1572863, 131072, 1)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -439,6 +458,12 @@ position = Vector2(0, -2944)
 
 [node name="HyottokoBoss2" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/Enemies/PatrolPoints"]
 
+[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/DojoUltraKey/UltraKeyTileMap" instance=ExtResource("28_keksd")]
+position = Vector2(0, -2448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/PlayerInSpecialRoomSoundTrigger"]
+shape = SubResource("RectangleShape2D_d208k")
+
 [node name="NavigationRegions" type="Node2D" parent="Quests/DojoUltraKey"]
 y_sort_enabled = true
 
@@ -447,6 +472,14 @@ navigation_polygon = SubResource("NavigationPolygon_3b50u")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Quests/DojoUltraKey/NavigationRegions"]
 navigation_polygon = SubResource("NavigationPolygon_8xonv")
+
+[node name="SavePoint" parent="Quests/DojoUltraKey" instance=ExtResource("11_lmg8k")]
+position = Vector2(0, -1808)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/SavePoint"]
+shape = SubResource("RectangleShape2D_bgx5e")
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true

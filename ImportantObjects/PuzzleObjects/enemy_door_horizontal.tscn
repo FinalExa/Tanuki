@@ -7,7 +7,7 @@
 size = Vector2(256, 288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho7wi"]
-size = Vector2(640, 512)
+size = Vector2(768, 512)
 
 [node name="EnemyDoorHorizontal" type="StaticBody2D" node_paths=PackedStringArray("collisionShapeRef")]
 script = ExtResource("1_752vn")

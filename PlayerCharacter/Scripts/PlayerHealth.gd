@@ -15,7 +15,7 @@ func Startup():
 	playerRef.playerHUD.uIHearts.Refill()
 	SetHealthToMax()
 
-func _process(delta):
+func _process(_delta):
 	SwapAnimation()
 
 func UpdateMaxHealth(value: int):
