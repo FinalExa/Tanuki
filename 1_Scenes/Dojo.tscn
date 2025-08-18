@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=64 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -40,6 +40,8 @@
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexMove.gd" id="27_ur1lr"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="28_keksd"]
 [ext_resource type="PackedScene" uid="uid://dg74iekfo8u6g" path="res://ImportantObjects/Traps/spikes_trap.tscn" id="29_3cs4o"]
+[ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="29_3lpre"]
+[ext_resource type="Script" path="res://Level/Random/Scripts/ObjectPositionRandomizer.gd" id="34_kaanr"]
 [ext_resource type="PackedScene" uid="uid://t5bj457j8aaf" path="res://ImportantObjects/Traps/impaired_movement_trap.tscn" id="37_u7ahp"]
 [ext_resource type="PackedScene" uid="uid://dekhtmbc3y6ms" path="res://ImportantObjects/Traps/center_pull_trap.tscn" id="38_flqoo"]
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/MovingPoint.gd" id="39_25stu"]
@@ -458,6 +460,10 @@ shape = SubResource("RectangleShape2D_d208k")
 [node name="Traps" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
 y_sort_enabled = true
 
+[node name="DirtyFloorUnremoveable" parent="Quests/DojoUltraKey/UltraKeyTileMap/Traps" instance=ExtResource("29_3lpre")]
+position = Vector2(0, -1728)
+scale = Vector2(1, 0.5)
+
 [node name="TrapObject" parent="Quests/DojoUltraKey/UltraKeyTileMap/Traps" instance=ExtResource("29_3cs4o")]
 position = Vector2(-320, -2752)
 
@@ -505,6 +511,8 @@ y_sort_enabled = true
 
 [node name="TaikoDrum" parent="Quests/DojoUltraKey/UltraKeyTileMap/Transformations" instance=ExtResource("11_vxy4v")]
 position = Vector2(0, -3168)
+
+[node name="Weight" parent="Quests/DojoUltraKey/UltraKeyTileMap/Transformations" instance=ExtResource("24_5px1x")]
 
 [node name="EnemyDoors" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
 y_sort_enabled = true
@@ -558,6 +566,37 @@ pointToTeleport = NodePath("../TeleportPoint")
 [node name="TeleportAreaButton4" parent="Quests/DojoUltraKey/UltraKeyTileMap/Teleports" node_paths=PackedStringArray("pointToTeleport") instance=ExtResource("11_4gg0j")]
 position = Vector2(-1408, -2432)
 pointToTeleport = NodePath("../TeleportPoint")
+
+[node name="ObjectPositionRandomizer" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap" node_paths=PackedStringArray("objectsToRandomizePosition", "positions")]
+script = ExtResource("34_kaanr")
+objectsToRandomizePosition = [NodePath("../Transformations/Weight")]
+positions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
+
+[node name="1" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(-1216, -2432)
+
+[node name="2" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(-512, -3648)
+
+[node name="3" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(512, -3648)
+
+[node name="4" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(1152, -2432)
+
+[node name="5" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(-640, -2816)
+
+[node name="6" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
+position = Vector2(640, -2048)
+
+[node name="Puzzle" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="CrackedGround" parent="Quests/DojoUltraKey/UltraKeyTileMap/Puzzle" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("13_j36ec")]
+position = Vector2(0, -2432)
+questToSendProgressSignal = NodePath("../../..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="NavigationRegions" type="Node2D" parent="Quests/DojoUltraKey"]
 z_index = -1

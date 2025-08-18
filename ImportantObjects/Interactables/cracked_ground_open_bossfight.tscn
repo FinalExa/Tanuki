@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5com5je141na"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/CrackedGroundOpenBossfight.gd" id="1_owkxe"]
+[ext_resource type="Texture2D" uid="uid://iqaio1rg6e0i" path="res://ImportantObjects/Interactables/Sprites/CrackedGroundOpen.png" id="2_x8jry"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_qvlem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhiu"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6sq3"]
+size = Vector2(128, 128)
+
+[node name="CrackedGroundOpenBossfight" type="StaticBody2D" groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_owkxe")
+captureDuration = null
+neededProperties = Array[String](["ArmorPiece"])
+hasCooldown = null
+cooldownDuration = null
+sendSignalToQuestOnDestroyed = null
+destroyOnEnd = null
+receiveRefAttack = true
+animationToPlay = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x8jry")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_qvlem")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("RectangleShape2D_vvhiu")
+
+[node name="CaptureBossArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureBossArea"]
+shape = SubResource("RectangleShape2D_s6sq3")
+
+[connection signal="body_entered" from="CaptureBossArea" to="." method="_on_capture_boss_area_body_entered"]

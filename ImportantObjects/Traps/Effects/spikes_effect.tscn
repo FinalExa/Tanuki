@@ -90,6 +90,7 @@ animations = [{
 script = ExtResource("1_dvll1")
 spriteRef = NodePath("AnimatedSprite2D")
 phaseDuration = 5.0
+spikeOutTime = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r7pc2")

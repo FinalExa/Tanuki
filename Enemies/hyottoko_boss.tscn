@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bwf0dip768kw"]
+[gd_scene load_steps=47 format=3 uid="uid://bwf0dip768kw"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoBossController.gd" id="1_ar0p4"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_o76tx"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="7_kay07"]
 [ext_resource type="AudioStream" uid="uid://d0inohxl2el40" path="res://Enemies/Sounds/Hyottoko/Attack - Hyottoko.wav" id="8_kxmyv"]
 [ext_resource type="Texture2D" uid="uid://doty0qjp6fjju" path="res://Enemies/Sprites/Hyottoko_Boss.png" id="9_ptm78"]
+[ext_resource type="Texture2D" uid="uid://do6kl8t7bho8a" path="res://Enemies/Sprites/Hyottoko_Boss_Trapped.png" id="10_55v5c"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="10_jcxqr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_tendj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="12_1171r"]
@@ -44,19 +45,31 @@
 radius = 16.0
 height = 80.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoiy6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_71bxp"]
 atlas = ExtResource("9_ptm78")
-region = Rect2(0, 0, 164, 160)
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whf2c"]
+atlas = ExtResource("10_55v5c")
+region = Rect2(0, 0, 136, 180)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eoiy6")
+"texture": SubResource("AtlasTexture_71bxp")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
-"speed": 1.0
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whf2c")
+}],
+"loop": false,
+"name": &"trapped",
+"speed": 5.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qg4sj"]
@@ -143,7 +156,7 @@ max_distance = 500.0
 stream = ExtResource("8_kxmyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -80)
+position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 

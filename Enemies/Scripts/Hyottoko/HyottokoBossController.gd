@@ -1,5 +1,7 @@
+class_name HyottokoBossController
 extends HyottokoController
 
+var isCaptured: bool
 @export var newSpeed: float
 
 func IsRepelled(direction: Vector2):

@@ -1,4 +1,4 @@
-class_name GeneratorPartMovable
+class_name BrokenPartMovable
 extends MovableObject
 
 @export var partID: int
