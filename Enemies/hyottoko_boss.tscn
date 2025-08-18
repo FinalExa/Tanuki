@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bwf0dip768kw"]
+[gd_scene load_steps=54 format=3 uid="uid://bwf0dip768kw"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoBossController.gd" id="1_ar0p4"]
 [ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_o76tx"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://do6kl8t7bho8a" path="res://Enemies/Sprites/Hyottoko_Boss_Trapped.png" id="10_55v5c"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="10_jcxqr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_tendj"]
+[ext_resource type="Texture2D" uid="uid://dw7hmls1uir6" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Head.png" id="11_vlfy2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="12_1171r"]
+[ext_resource type="Texture2D" uid="uid://dpfcel8touhnh" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Body.png" id="12_n8i33"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="13_oblj2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoReachPoint.gd" id="14_l5ydc"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoEntranced.gd" id="15_0kboj"]
@@ -73,6 +75,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp8nu"]
+atlas = ExtResource("11_vlfy2")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivjaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp8nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5quwe"]
+atlas = ExtResource("12_n8i33")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4ygt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5quwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_qg4sj"]
 font = ExtResource("16_tr5f6")
 font_size = 18
@@ -83,11 +115,12 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
 radius = 640.0
 
-[node name="HyottokoBoss" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "hyottokoEntranced", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="HyottokoBoss" type="CharacterBody2D" node_paths=PackedStringArray("armorPieces", "hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "hyottokoEntranced", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ar0p4")
 newSpeed = 300.0
+armorPieces = [NodePath("ArmorHead"), NodePath("ArmorBody")]
 hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 250.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
@@ -160,6 +193,16 @@ stream = ExtResource("8_kxmyv")
 position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
+
+[node name="ArmorHead" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_ivjaj")
+
+[node name="ArmorBody" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_v4ygt")
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
 script = ExtResource("10_jcxqr")

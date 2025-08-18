@@ -3,6 +3,7 @@ extends HyottokoController
 
 var isCaptured: bool
 @export var newSpeed: float
+@export var armorPieces: Array[AnimatedSprite2D]
 
 func IsRepelled(direction: Vector2):
 	if (repelledSpeed > 0 && (isReachingPoint || isEntranced)):

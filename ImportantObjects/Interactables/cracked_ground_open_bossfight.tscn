@@ -10,15 +10,15 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhiu"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6sq3"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_j45ga"]
+radius = 128.0
 
 [node name="CrackedGroundOpenBossfight" type="StaticBody2D" node_paths=PackedStringArray("bossPosition") groups=["Interactable"]]
 z_index = -1
 script = ExtResource("1_ih1nd")
 captureDuration = 10.0
 bossPosition = NodePath("BossLocation")
-neededProperties = Array[String](["ArmorPiece"])
+neededProperties = Array[String](["ArmorPart"])
 receiveRefAttack = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_kufeo")
 texture = ExtResource("2_x8jry")
 
 [node name="BossLocation" type="Node2D" parent="."]
-position = Vector2(0, 24)
+position = Vector2(0, 88)
 
 [node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_qvlem")]
 interactableToOperate = NodePath("..")
@@ -39,6 +39,6 @@ shape = SubResource("RectangleShape2D_vvhiu")
 [node name="CaptureBossArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureBossArea"]
-shape = SubResource("RectangleShape2D_s6sq3")
+shape = SubResource("CircleShape2D_j45ga")
 
 [connection signal="body_entered" from="CaptureBossArea" to="." method="_on_capture_boss_area_body_entered"]

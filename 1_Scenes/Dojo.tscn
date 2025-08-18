@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=77 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -46,6 +46,8 @@
 [ext_resource type="PackedScene" uid="uid://dekhtmbc3y6ms" path="res://ImportantObjects/Traps/center_pull_trap.tscn" id="38_flqoo"]
 [ext_resource type="PackedScene" uid="uid://c5com5je141na" path="res://ImportantObjects/Interactables/cracked_ground_open_bossfight.tscn" id="38_s3sja"]
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/MovingPoint.gd" id="39_25stu"]
+[ext_resource type="PackedScene" uid="uid://5jxo0fj5of1y" path="res://NPC/hyottoko_boss_npc.tscn" id="39_dk7ea"]
+[ext_resource type="PackedScene" uid="uid://dj8gyu4bdrdht" path="res://ImportantObjects/MovableObjects/armor_part.tscn" id="39_fw0ah"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
 vertices = PackedVector2Array(2528, -1632, 2528, -192, 2336, -592, 2336, -672, 1696, 160, 1696, -192, 1888, -192, 1888, 160, 736, -832, 736, -192, 552, -496, 552, -568, -1776, 656, -1568, 848, -2448, 848, -2192, 656, -1568, 400, -1776, 592, -1680, 400, 96, -192, 472, -496, 2272, -592, 1104, -1632, 2272, -672, 1104, -1584, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1232, -1248, 1232, -1248, 848, -1056, 800, -1520, 848, -1520, 336, -1056, 160, -2448, 912, -1440, 912, -1440, 1040, -1392, 1040, -1392, 912, -1296, 912, -1296, 1424, -1248, 1424, -1248, 1296, -1056, 1296, -1056, 1600, -2528, 1600, -2528, 1424, -1392, 1424, -1392, 1136, -1440, 1136, -1440, 1360, -2528, 1360, -2528, 400, -2464, 400, -2464, 656, -2416, 656, -2416, 400, -1904, 400, -2192, 592, -1904, 336, -2528, 336, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1680, 336, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -1696, -192, -736, -992, -736, -1632, 680, -1632, 680, -1584, -96, -192, -736, -832, 736, -1584, 736, -992, 472, -568, 1056, -992, 1056, -1584, 1056, -192, 1056, -832, 96, 160, 736, 160, 736, 800, -680, 208, -96, 160, -736, 800, -736, -192, -1056, -832, -1056, -192, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 208, 1104, 160, 1888, 1312, 1056, 1600, 1056, 960, 2528, 1312, 2528, 1600, -1696, 160)
@@ -84,6 +86,12 @@ itemToOperate = NodePath("UltraKeyTileMap/Puzzle/CrackedGroundOpenBossfight")
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_6s6q4"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_8i53x"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
@@ -100,6 +108,18 @@ itemOperation = 1
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/CrackedGroundOpenBossfight")
 itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_usod5"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_rswxe"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_67u4n"]
@@ -130,12 +150,27 @@ radius = 248.0
 height = 1008.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3b50u"]
-vertices = PackedVector2Array(-288, -2912, -288, -3008, 280, -3008, 280, -2912, 288, -1888, 736, -1728, -736, -1728, -288, -1888, 736, -3168, 560, -2144, 560, -2720, 480, -2144, 288, -1984, 480, -2720, -288, -1984, -480, -2144, -480, -2720, -736, -3168, -560, -2720, -560, -2144)
+vertices = PackedVector2Array(-288, -2912, -288, -3008, 288, -3008, 288, -2912, 288, -1888, 736, -1728, -736, -1728, -288, -1888, 736, -3168, 560, -2144, 560, -2720, 480, -2144, 288, -1984, 480, -2720, -288, -1984, -480, -2144, -480, -2720, -736, -3168, -560, -2720, -560, -2144)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 5, 9, 10), PackedInt32Array(11, 9, 5, 4, 12), PackedInt32Array(13, 11, 12, 14, 15, 16), PackedInt32Array(17, 8, 10, 13), PackedInt32Array(17, 13, 16), PackedInt32Array(17, 16, 18), PackedInt32Array(6, 17, 18, 19), PackedInt32Array(7, 6, 19, 15, 14)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-736, -1728, -736, -3168, 736, -3168, 736, -1728), PackedVector2Array(-288, -1984, 288, -1984, 288, -1888, -288, -1888), PackedVector2Array(-288, -2912, -288, -3008, 280, -3008, 280, -2912), PackedVector2Array(480, -2720, 560, -2720, 560, -2144, 480, -2144), PackedVector2Array(-560, -2720, -480, -2720, -480, -2144, -560, -2144)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-736, -1728, -736, -3168, 736, -3168, 736, -1728), PackedVector2Array(-288, -1984, 288, -1984, 288, -1888, -288, -1888), PackedVector2Array(-288, -2912, -288, -3008, 288, -3008, 288, -2912), PackedVector2Array(480, -2720, 560, -2720, 560, -2144, 480, -2144), PackedVector2Array(-560, -2720, -480, -2720, -480, -2144, -560, -2144)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx5e"]
 size = Vector2(512, 224)
+
+[sub_resource type="Resource" id="Resource_ytedo"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SavePoint")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_nj3us"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SavePoint")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msrk8"]
+size = Vector2(384, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
@@ -175,7 +210,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey")]
+mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey"), NodePath("Quests/DojoGetUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -214,8 +249,10 @@ position = Vector2(2304, 352)
 [node name="UnlockKey5" parent="Keys" instance=ExtResource("2_p0fr7")]
 position = Vector2(2208, -1504)
 
-[node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("3_p3epd")]
+[node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_p3epd")]
 position = Vector2(0, -2304)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/DojoGetUltraKey")
 
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("5_00v31")]
 position = Vector2(0, -1728)
@@ -415,11 +452,12 @@ position = Vector2(-2304, -1536)
 position = Vector2(1216, 256)
 partID = 1
 
-[node name="DojoUltraKey" type="Node2D" parent="Quests"]
+[node name="DojoUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoUltraKey"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_v8pec"), SubResource("Resource_ohqgy"), SubResource("Resource_8i53x"), SubResource("Resource_u26w0"), SubResource("Resource_8txm8")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_v8pec"), SubResource("Resource_ohqgy"), SubResource("Resource_6s6q4"), SubResource("Resource_8i53x"), SubResource("Resource_u26w0"), SubResource("Resource_8txm8"), SubResource("Resource_usod5"), SubResource("Resource_rswxe")])
+objectsToDeleteAtQuestComplete = [NodePath("UltraKeyTileMap/Enemies/HyottokoBoss"), NodePath("UltraKeyTileMap/MovableObjects/ArmorPart1"), NodePath("UltraKeyTileMap/MovableObjects/ArmortPart2"), NodePath("UltraKeyTileMap/Traps")]
 
 [node name="UltraKeyTileMap" type="TileMap" parent="Quests/DojoUltraKey"]
 y_sort_enabled = true
@@ -540,6 +578,7 @@ y_sort_enabled = true
 position = Vector2(0, -3168)
 
 [node name="Weight" parent="Quests/DojoUltraKey/UltraKeyTileMap/Transformations" instance=ExtResource("24_5px1x")]
+position = Vector2(-1408, -2688)
 
 [node name="EnemyDoors" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
 y_sort_enabled = true
@@ -596,7 +635,7 @@ pointToTeleport = NodePath("../TeleportPoint")
 
 [node name="ObjectPositionRandomizer" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap" node_paths=PackedStringArray("objectsToRandomizePosition", "positions")]
 script = ExtResource("34_kaanr")
-objectsToRandomizePosition = [NodePath("../Transformations/Weight")]
+objectsToRandomizePosition = [NodePath("../Transformations/Weight"), NodePath("../MovableObjects/ArmorPart1"), NodePath("../MovableObjects/ArmortPart2")]
 positions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
 
 [node name="1" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
@@ -619,8 +658,24 @@ position = Vector2(0, -2432)
 questToSendProgressSignal = NodePath("../../..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="CrackedGroundOpenBossfight" parent="Quests/DojoUltraKey/UltraKeyTileMap/Puzzle" instance=ExtResource("38_s3sja")]
+[node name="CrackedGroundOpenBossfight" parent="Quests/DojoUltraKey/UltraKeyTileMap/Puzzle" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("38_s3sja")]
 position = Vector2(0, -2432)
+questToSendProgressSignal = NodePath("../../..")
+sendSignalToQuestOnDestroyed = true
+destroyOnEnd = true
+
+[node name="HyottokoBossNPC" parent="Quests/DojoUltraKey/UltraKeyTileMap/Puzzle" instance=ExtResource("39_dk7ea")]
+position = Vector2(0, -2418)
+
+[node name="MovableObjects" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
+y_sort_enabled = true
+
+[node name="ArmorPart1" parent="Quests/DojoUltraKey/UltraKeyTileMap/MovableObjects" instance=ExtResource("39_fw0ah")]
+position = Vector2(-1408, -2688)
+
+[node name="ArmortPart2" parent="Quests/DojoUltraKey/UltraKeyTileMap/MovableObjects" instance=ExtResource("39_fw0ah")]
+position = Vector2(-1408, -2688)
+partID = 1
 
 [node name="NavigationRegions" type="Node2D" parent="Quests/DojoUltraKey"]
 z_index = -1
@@ -636,6 +691,19 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_bgx5e")
+
+[node name="DojoGetUltraKey" type="Node2D" parent="Quests"]
+script = ExtResource("11_jj1ml")
+questName = "DojoGetUltraKey"
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ytedo"), SubResource("Resource_nj3us")])
+
+[node name="SavePoint" parent="Quests/DojoGetUltraKey" instance=ExtResource("11_lmg8k")]
+position = Vector2(0, -2304)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoGetUltraKey/SavePoint"]
+shape = SubResource("RectangleShape2D_msrk8")
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true

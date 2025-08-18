@@ -33,7 +33,7 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	if (currentQuestStage < lastStage):
 		if (questIndexes.size() > 0):
 			for i in questIndexes.size():
-				if (CurrentStageOperations(forcedAdvance, get_node(questIndexes[i].itemToOperate), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
+				if (CurrentStageOperations(forcedAdvance, get_node_or_null(questIndexes[i].itemToOperate), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
 					continue
 				break
 		else:
