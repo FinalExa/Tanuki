@@ -14,8 +14,8 @@ enum LookDirections {
 	RIGHT
 }
 
+@export var patrolIndexes: Array[PatrolIndex]
 @export var patrolActions: Array[ActionTypes]
 @export var moveActions: Array[Node2D]
 @export var waitActions: Array[float]
 @export var lookActions: Array[LookDirections]
-@export var patrolIndexes: Array[PatrolIndex]

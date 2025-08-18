@@ -67,7 +67,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
-radius = 384.0
+radius = 640.0
 
 [node name="HyottokoBoss" type="CharacterBody2D" node_paths=PackedStringArray("hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "hyottokoEntranced", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
@@ -212,8 +212,8 @@ rotationDegreesOffset = 0.5
 script = ExtResource("19_dh4i4")
 hyottokoController = NodePath("../..")
 collisionShape = NodePath("CollisionShape2D")
-baseRadius = 384.0
-extendedRadius = 512.0
+baseRadius = 640.0
+extendedRadius = 896.0
 timeBeforeUnset = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
