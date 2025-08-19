@@ -42,3 +42,4 @@ shape = SubResource("RectangleShape2D_vvhiu")
 shape = SubResource("CircleShape2D_j45ga")
 
 [connection signal="body_entered" from="CaptureBossArea" to="." method="_on_capture_boss_area_body_entered"]
+[connection signal="body_exited" from="CaptureBossArea" to="." method="_on_capture_boss_area_body_exited"]

@@ -7,6 +7,7 @@ var bossRef: HyottokoBossController
 var captureTimer: float
 
 func _process(delta):
+	CheckForBoss()
 	CapturedTimer(delta)
 
 func ExecuteRefEffect(receivedRef):
@@ -14,7 +15,7 @@ func ExecuteRefEffect(receivedRef):
 		AddArmorPiece(receivedRef)
 
 func AddArmorPiece(playerRef: PlayerCharacter):
-	if (playerRef.playerMoveObjects.currentObject is BrokenPartMovable && bossRef != null && armorAdded < bossRef.armorPieces.size()):
+	if (playerRef.playerMoveObjects.currentObject is BrokenPartMovable && captureTimer > 0 && armorAdded < bossRef.armorPieces.size()):
 		armorAdded += 1
 		bossRef.armorPieces[playerRef.playerMoveObjects.currentObject.partID].show()
 		playerRef.playerMoveObjects.DeleteLeftoverObject()
@@ -26,6 +27,10 @@ func AddArmorPiece(playerRef: PlayerCharacter):
 			bossRef.UpdateSpeed()
 			bossRef.UnsetCaptured()
 
+func CheckForBoss():
+	if (bossRef != null && bossRef.isRepelled):
+		bossRef.SetCaptured() 
+
 func CapturedTimer(delta):
 	if (captureTimer > 0):
 		if (bossRef.global_position != bossPosition.global_position):
@@ -33,14 +38,16 @@ func CapturedTimer(delta):
 		captureTimer -= delta
 		if (captureTimer <= 0):
 			bossRef.UnsetCaptured()
-			bossRef = null
 
 func SetCaptured(hyottokoBoss: HyottokoBossController):
 	if (hyottokoBoss.isRepelled):
-		bossRef = hyottokoBoss
 		captureTimer = captureDuration
 		bossRef.SetCaptured()
 
 func _on_capture_boss_area_body_entered(body):
 	if (body is HyottokoBossController):
-		SetCaptured(body)
+		bossRef = body
+
+func _on_capture_boss_area_body_exited(body):
+	if (body is HyottokoBossController):
+		bossRef = null
