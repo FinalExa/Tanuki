@@ -8,8 +8,6 @@ radius = 8.0
 height = 32.0
 
 [node name="TraningDummy" type="StaticBody2D" groups=["Interactable"]]
-z_index = 1
-y_sort_enabled = true
 script = ExtResource("1_kco7q")
 neededProperties = Array[String](["Smack", "Slash"])
 

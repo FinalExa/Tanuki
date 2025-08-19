@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=88 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqvnelnxu72d" path="res://NPC/armor_yokai_npc.tscn" id="13_mswqt"]
 [ext_resource type="PackedScene" uid="uid://fxipi0kx4u31" path="res://ImportantObjects/MovableObjects/carpet_movable.tscn" id="13_uk5yp"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="13_yb20v"]
+[ext_resource type="Texture2D" uid="uid://cc16flkj3534a" path="res://ImportantObjects/Interactables/Sprites/TrainingDummyFeedback.png" id="14_05sjx"]
 [ext_resource type="PackedScene" uid="uid://nf6spvq1hahh" path="res://ImportantObjects/Interactables/katana_stand_empty.tscn" id="14_iqtss"]
 [ext_resource type="PackedScene" uid="uid://dygwbqftwoueg" path="res://ImportantObjects/Interactables/cracked_ground_open.tscn" id="14_uc3pt"]
 [ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
@@ -61,6 +62,66 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1968, 1216, 1968, 1056,
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ss"]
 size = Vector2(256, 64)
+
+[sub_resource type="Resource" id="Resource_ey8sr"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_hbpq7"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ee7l1"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pfmuk"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_d4vck"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_nethm"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_udyei"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_11ltm"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6f273"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pevrs"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/FeedbackSprite")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
@@ -312,13 +373,11 @@ pointToTeleport = NodePath("../PlayerSpawn")
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+[node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy1"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ey8sr"), SubResource("Resource_hbpq7")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
@@ -326,13 +385,15 @@ position = Vector2(448, 320)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DojoHitTrainingDummy2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+[node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy1/TraningDummy"]
+position = Vector2(0, -101)
+texture = ExtResource("14_05sjx")
+
+[node name="DojoHitTrainingDummy2" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy2"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ee7l1"), SubResource("Resource_pfmuk")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
@@ -340,13 +401,15 @@ position = Vector2(-2304, -888)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DojoHitTrainingDummy3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+[node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy2/TraningDummy"]
+position = Vector2(0, -101)
+texture = ExtResource("14_05sjx")
+
+[node name="DojoHitTrainingDummy3" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy3"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4vck"), SubResource("Resource_nethm")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
@@ -354,13 +417,15 @@ position = Vector2(1536, -640)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DojoHitTrainingDummy4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+[node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy3/TraningDummy"]
+position = Vector2(0, -101)
+texture = ExtResource("14_05sjx")
+
+[node name="DojoHitTrainingDummy4" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy4"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_udyei"), SubResource("Resource_11ltm")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
@@ -368,19 +433,25 @@ position = Vector2(-2368, 424)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DojoHitTrainingDummy5" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
+[node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy4/TraningDummy"]
+position = Vector2(0, -101)
+texture = ExtResource("14_05sjx")
+
+[node name="DojoHitTrainingDummy5" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy5"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_6f273"), SubResource("Resource_pevrs")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(2496, 1472)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy5/TraningDummy"]
+position = Vector2(0, -101)
+texture = ExtResource("14_05sjx")
 
 [node name="DojoHitTrainingDummiesKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
 y_sort_enabled = true
@@ -397,7 +468,7 @@ questName = "DojoDefeatHyottoko"
 questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("DefeatedHyottokoNPC"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("DefeatedHyottokoNPC"), NodePath("../../Keys/UnlockKey4")]
 questItemsStages = Array[int]([0, 0, 0, 0, 1, 2, 3, 3])
 questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("Carpet"), NodePath("CrackedGround"), NodePath("CrackedGroundOpen"), NodePath("../../Enemies/Hyottoko5")]
+objectsToDeleteAtQuestComplete = [NodePath("Carpet"), NodePath("CrackedGround"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("../../Enemies/Hyottoko5")]
 
 [node name="Carpet" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("13_uk5yp")]
 position = Vector2(-1280, -640)
