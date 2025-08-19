@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cek5x81rd0yiw"]
+[gd_scene load_steps=32 format=3 uid="uid://cek5x81rd0yiw"]
 
 [ext_resource type="Script" path="res://UI/Script/UI.gd" id="1_3fp2r"]
 [ext_resource type="Script" path="res://UI/Script/SavedTransformationTexture.gd" id="3_b5f0c"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bor4l02ia21yg" path="res://PlayerCharacter/Sprites/Temporary/HeartContainerFull.png" id="11_n7r00"]
 [ext_resource type="Texture2D" uid="uid://8a4ckvp353g" path="res://PlayerCharacter/Sprites/Temporary/HeartContainerEmpty.png" id="12_5mt4i"]
 [ext_resource type="Texture2D" uid="uid://blo33cbur6pwe" path="res://UI/Sprite/Ui_prova_BARRA.png" id="12_xdw6c"]
+[ext_resource type="Texture2D" uid="uid://u44adj3452es" path="res://UI/Sprite/UI_Square_Progress.png" id="16_kiha4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sl7vy"]
 font = ExtResource("3_gk6g8")
@@ -56,7 +57,7 @@ font_size = 20
 font = ExtResource("3_gk6g8")
 font_size = 20
 
-[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "uIHearts", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter", "loadingScreen")]
+[node name="UI" type="Control" node_paths=PackedStringArray("timerBar", "transformationNameLabel", "attackNameLabel", "pauseMenuPanel", "dialogueUI", "uIHearts", "rollCooldown", "optionsPanel", "controlsPanel", "gameOverPanel", "gameOverLabel", "gameOverSound", "keyCounter", "loadingScreen")]
 process_mode = 3
 z_index = 4096
 z_as_relative = false
@@ -74,6 +75,7 @@ mainMenuPath = "res://1_Scenes/MainMenu.tscn"
 pauseMenuPanel = NodePath("Menus/PauseMenuPanel")
 dialogueUI = NodePath("Menus/DialogueUI")
 uIHearts = NodePath("Hearts")
+rollCooldown = NodePath("RollCooldown")
 optionsPanel = NodePath("Menus/OptionsPanel")
 controlsPanel = NodePath("Menus/ControlsPanel")
 gameOverPanel = NodePath("Menus/GameOverPanel")
@@ -268,6 +270,19 @@ script = ExtResource("4_e360h")
 attackReadyTexture = ExtResource("8_m5hmn")
 attackInCooldownTexture = ExtResource("9_5iig8")
 attackNotAvailableTexture = ExtResource("4_hkgms")
+
+[node name="RollCooldown" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 920.0
+offset_right = 274.0
+offset_bottom = 1004.0
+scale = Vector2(1.5, 1.5)
+fill_mode = 2
+texture_under = ExtResource("5_qelf8")
+texture_over = ExtResource("4_ep5f1")
+texture_progress = ExtResource("16_kiha4")
+tint_progress = Color(0, 1, 0, 1)
 
 [node name="TransformationBar" type="TextureProgressBar" parent="."]
 layout_mode = 0

@@ -359,13 +359,15 @@ attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 
-[node name="PlayerRoll" parent="Rotator" node_paths=PackedStringArray("playerInputs", "playerHUD", "playerMovement", "playerMoveObjects", "transformationChange", "characterRef") instance=ExtResource("25_xu48g")]
+[node name="PlayerRoll" parent="Rotator" node_paths=PackedStringArray("playerInputs", "playerHUD", "playerMovement", "playerMoveObjects", "transformationChange", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("25_xu48g")]
 playerInputs = NodePath("../../PlayerInputs")
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 playerMovement = NodePath("../PlayerMovement")
 playerMoveObjects = NodePath("../../PlayerMoveObjects")
 transformationChange = NodePath("../TransformationChange")
 attackDuration = 10
+attackHitboxes = [null]
+attackSounds = [null]
 characterRef = NodePath("../..")
 
 [connection signal="area_entered" from="PlayerMoveObjects" to="PlayerMoveObjects" method="_on_area_entered"]

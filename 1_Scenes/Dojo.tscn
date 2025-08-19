@@ -587,12 +587,12 @@ position = Vector2(0, -2832)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/PlayerInSpecialRoomSoundTrigger"]
 shape = SubResource("RectangleShape2D_d208k")
 
-[node name="Traps" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
-y_sort_enabled = true
-
-[node name="DirtyFloorUnremoveable" parent="Quests/DojoUltraKey/UltraKeyTileMap/Traps" instance=ExtResource("29_3lpre")]
+[node name="DirtyFloorUnremoveable" parent="Quests/DojoUltraKey/UltraKeyTileMap" instance=ExtResource("29_3lpre")]
 position = Vector2(0, -1728)
 scale = Vector2(1, 0.5)
+
+[node name="Traps" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap"]
+y_sort_enabled = true
 
 [node name="TrapObject" parent="Quests/DojoUltraKey/UltraKeyTileMap/Traps" instance=ExtResource("29_3cs4o")]
 position = Vector2(-320, -2752)

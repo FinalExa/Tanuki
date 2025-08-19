@@ -14,6 +14,7 @@ signal attack_cooldown
 @export var pauseMenuPanel: Panel
 @export var dialogueUI: DialogueUI
 @export var uIHearts: UIHearts
+@export var rollCooldown: TextureProgressBar
 @export var optionsPanel: Panel
 @export var controlsPanel: Panel
 @export var gameOverPanel: Panel

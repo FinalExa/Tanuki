@@ -10,10 +10,14 @@ extends ExecuteAttack
 func _process(_delta):
 	CheckForInput()
 
+func ExtraReadyOperations():
+	playerHUD.rollCooldown.max_value = attackCooldown
+	playerHUD.rollCooldown.value = attackCooldown
+
 func CheckForInput():
 	if (!attackLaunched && characterRef.playerInputs.rollInput):
 		playerMoveObjects.DropMovableObject()
-		if (transformationChange.currentTransformationObject != null): transformationChange.transformationActivation.DeactivateTransformation()
+		if (transformationChange.isTransformed): transformationChange.transformationActivation.DeactivateTransformation()
 		playerMovement.DisableMovement()
 		playerInputs.SetInputsToZero()
 		playerInputs.inputsLocked = true
@@ -24,3 +28,9 @@ func OnAttackEnd():
 	playerMovement.EnableMovement()
 	playerInputs.inputsLocked = false
 	characterRef.invincibilityFrames = false
+
+func ActiveCooldownFeedback():
+	playerHUD.rollCooldown.value = attackFrame
+
+func EndCooldownFeedback():
+	playerHUD.rollCooldown.value = attackCooldown
