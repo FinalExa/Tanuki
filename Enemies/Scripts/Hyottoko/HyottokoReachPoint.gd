@@ -14,9 +14,11 @@ func SetPointToReach(point: Vector2):
 	hyottokoController.InterruptAttacks()
 	pointToReach = point
 	pointReachedTimer = durationAfterReachingPoint
+	hyottokoController.enemyPatrol.stop_patrol()
 	enemyMovement.set_location_target(pointToReach)
 	hyottokoController.enemyStatus.updateText(reachPointText)
 
 func StopReachingPoint():
 	hyottokoController.isReachingPoint = false
 	hyottokoController.enemyStatus.updateText("")
+	hyottokoController.enemyPatrol.resume_patrol()

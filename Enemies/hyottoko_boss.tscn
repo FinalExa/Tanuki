@@ -120,7 +120,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ar0p4")
 newSpeed = 300.0
-armorPieces = [NodePath("ArmorHead"), NodePath("ArmorBody")]
+armorPieces = [NodePath("AnimatedSprite2D/ArmorBody"), NodePath("AnimatedSprite2D/ArmorHead")]
 hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 250.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
@@ -194,14 +194,12 @@ position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="ArmorHead" type="AnimatedSprite2D" parent="."]
+[node name="ArmorHead" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
-position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_ivjaj")
 
-[node name="ArmorBody" type="AnimatedSprite2D" parent="."]
+[node name="ArmorBody" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
-position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_v4ygt")
 
 [node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
@@ -236,8 +234,8 @@ script = ExtResource("14_l5ydc")
 hyottokoController = NodePath("..")
 enemyMovement = NodePath("../EnemyMovement")
 reachPointText = "REACHING POINT"
-distanceFromPointToReach = 50.0
-durationAfterReachingPoint = 1.0
+distanceFromPointToReach = 25.0
+durationAfterReachingPoint = 3.0
 
 [node name="HyottokoEntranced" type="Node" parent="." node_paths=PackedStringArray("hyottokoController")]
 script = ExtResource("15_0kboj")

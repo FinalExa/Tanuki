@@ -23,6 +23,7 @@ func AddArmorPiece(playerRef: PlayerCharacter):
 			ExecuteExtraEffect()
 			FinalState()
 		else:
+			bossRef.UpdateSpeed()
 			bossRef.UnsetCaptured()
 
 func CapturedTimer(delta):

@@ -9,6 +9,10 @@ func IsRepelled(direction: Vector2):
 	if (repelledSpeed > 0 && (isReachingPoint || isEntranced)):
 		StartRepelled(direction)
 
+func UpdateSpeed():
+	enemyMovement.set_movement_speed(newSpeed)
+	enemyMovement.defaultMovementSpeed = newSpeed
+
 func SetCaptured():
 	if (!isCaptured):
 		isCaptured = true

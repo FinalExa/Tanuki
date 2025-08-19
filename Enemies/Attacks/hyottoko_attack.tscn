@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyLaunchHitbox.gd" id="3_lyp7r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0jhtg"]
-radius = 64.0
-height = 192.0
+radius = 48.0
+height = 160.0
 
 [node name="HyottokoAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_26npr")
