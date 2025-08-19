@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=53 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b6opax3mruvjx" path="res://PlayerCharacter/player_health.tscn" id="18_q1ai0"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMoveObjects.gd" id="22_cgx5a"]
 [ext_resource type="PackedScene" uid="uid://bthx5dpkp5buy" path="res://PlayerCharacter/transformation_change.tscn" id="23_rwuxc"]
+[ext_resource type="PackedScene" uid="uid://wnlenbg2y7b1" path="res://PlayerCharacter/player_roll.tscn" id="25_xu48g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -217,7 +218,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hwtr"]
 radius = 128.996
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerHealth", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack", "playerMoveObjects", "playerTrapEffects")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerHealth", "playerRotator", "playerRepelled", "playerAttack", "playerRoll", "playerProgressionTrack", "playerMoveObjects", "playerTrapEffects")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -230,6 +231,7 @@ playerHealth = NodePath("PlayerHealth")
 playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
+playerRoll = NodePath("Rotator/PlayerRoll")
 playerProgressionTrack = NodePath("PlayerProgressionTrack")
 playerMoveObjects = NodePath("PlayerMoveObjects")
 playerTrapEffects = NodePath("PlayerTrapEffects")
@@ -355,6 +357,15 @@ playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 playerMoveObjects = NodePath("../../PlayerMoveObjects")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
+characterRef = NodePath("../..")
+
+[node name="PlayerRoll" parent="Rotator" node_paths=PackedStringArray("playerInputs", "playerHUD", "playerMovement", "playerMoveObjects", "transformationChange", "characterRef") instance=ExtResource("25_xu48g")]
+playerInputs = NodePath("../../PlayerInputs")
+playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
+playerMovement = NodePath("../PlayerMovement")
+playerMoveObjects = NodePath("../../PlayerMoveObjects")
+transformationChange = NodePath("../TransformationChange")
+attackDuration = 10
 characterRef = NodePath("../..")
 
 [connection signal="area_entered" from="PlayerMoveObjects" to="PlayerMoveObjects" method="_on_area_entered"]
