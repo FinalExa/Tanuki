@@ -7,11 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhiu"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwxak"]
+radius = 192.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j45ga"]
-radius = 128.0
+radius = 192.167
 
 [node name="CrackedGroundOpenBossfight" type="StaticBody2D" node_paths=PackedStringArray("bossPosition") groups=["Interactable"]]
 z_index = -1
@@ -34,7 +34,7 @@ position = Vector2(0, 88)
 interactableToOperate = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
-shape = SubResource("RectangleShape2D_vvhiu")
+shape = SubResource("CircleShape2D_lwxak")
 
 [node name="CaptureBossArea" type="Area2D" parent="."]
 

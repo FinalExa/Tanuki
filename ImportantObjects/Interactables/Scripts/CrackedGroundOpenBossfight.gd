@@ -29,7 +29,7 @@ func AddArmorPiece(playerRef: PlayerCharacter):
 
 func CheckForBoss():
 	if (bossRef != null && bossRef.isRepelled):
-		bossRef.SetCaptured() 
+		SetCaptured() 
 
 func CapturedTimer(delta):
 	if (captureTimer > 0):
@@ -39,8 +39,7 @@ func CapturedTimer(delta):
 		if (captureTimer <= 0):
 			bossRef.UnsetCaptured()
 
-func SetCaptured(hyottokoBoss: HyottokoBossController):
-	if (hyottokoBoss.isRepelled):
+func SetCaptured():
 		captureTimer = captureDuration
 		bossRef.SetCaptured()
 
