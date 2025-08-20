@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="22_8m8y5"]
 [ext_resource type="Texture2D" uid="uid://ga8arqpfhbr4" path="res://ImportantObjects/Interactables/Sprites/UpHole.png" id="22_rpbjv"]
 [ext_resource type="Texture2D" uid="uid://y2g4i7p2okey" path="res://ImportantObjects/MovableObjects/Sprites/Ladder.png" id="23_sd8m4"]
-[ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/move_interaction_object.tscn" id="23_w4u03"]
+[ext_resource type="PackedScene" uid="uid://bdhy5nro0tk1h" path="res://ImportantObjects/Traps/forced_movement_trap.tscn" id="23_w4u03"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="27_fs6rg"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_vb6aw"]
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="29_f4he4"]
@@ -517,10 +517,9 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject"]
 shape = SubResource("RectangleShape2D_0q6tb")
 
-[node name="MoveInteractionObject6" parent="WaterCurrents" node_paths=PackedStringArray("effect") instance=ExtResource("23_w4u03")]
+[node name="MoveInteractionObject6" parent="WaterCurrents" instance=ExtResource("23_w4u03")]
 position = Vector2(1424, 1408)
 rotation = 1.5708
-effect = NodePath("../MoveInteractionObject/MoveEffect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject6"]
 shape = SubResource("RectangleShape2D_w42jl")
