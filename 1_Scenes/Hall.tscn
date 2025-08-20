@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=97 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -145,6 +145,9 @@ size = Vector2(256, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euj8n"]
 size = Vector2(128, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp3ok"]
+size = Vector2(128, 256)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7gbn"]
 size = Vector2(512, 256)
 
@@ -222,8 +225,8 @@ levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/HallGetPassword"), NodePath("Quests/HallFixEntrance"), NodePath("Quests/HallPaintingRoom"), NodePath("Quests/HallStopTheDoor"), NodePath("Quests/HallStunWarden"), NodePath("Quests/HallMakeWardenSleep"), NodePath("Quests/HallCleanDirtyFloor1"), NodePath("Quests/HallCleanDirtyFloor2"), NodePath("Quests/HallUnlockWoodenKatana"), NodePath("Quests/HallUltraKey")]
-travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen"), NodePath("Teleports/TravelToBathrooms")]
-travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver"), NodePath("Teleports/TravelToBathrooms/BathroomReceiver")]
+travelingAreas = [NodePath("Teleports/TravelToGarden"), NodePath("Teleports/TravelToKitchen"), NodePath("Teleports/TravelToBathrooms"), NodePath("Teleports/TravelToBedroomLunchroom")]
+travelingReceivers = [NodePath("Teleports/TravelToGarden/GardenReceiver"), NodePath("Teleports/TravelToKitchen/KitchenReceiver"), NodePath("Teleports/TravelToBathrooms/BathroomReceiver"), NodePath("Teleports/TravelToBedroomLunchroom/BedroomLunchroomReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
 
 [node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
@@ -1120,6 +1123,18 @@ shape = SubResource("RectangleShape2D_euj8n")
 
 [node name="BathroomReceiver" type="Node2D" parent="Teleports/TravelToBathrooms"]
 position = Vector2(224, 0)
+
+[node name="TravelToBedroomLunchroom" parent="Teleports" instance=ExtResource("3_7xfqb")]
+position = Vector2(1120, 256)
+sceneToLoad = "res://1_Scenes/BedroomLunchroom.tscn"
+removeTransformation = true
+deleteRoomData = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToBedroomLunchroom"]
+shape = SubResource("RectangleShape2D_gp3ok")
+
+[node name="BedroomLunchroomReceiver" type="Node2D" parent="Teleports/TravelToBedroomLunchroom"]
+position = Vector2(-224, 0)
 
 [node name="SavePoints" type="Node2D" parent="."]
 
