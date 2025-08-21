@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=118 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://fxipi0kx4u31" path="res://ImportantObjects/MovableObjects/carpet_movable.tscn" id="13_uk5yp"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="13_yb20v"]
 [ext_resource type="Texture2D" uid="uid://cc16flkj3534a" path="res://ImportantObjects/Interactables/Sprites/TrainingDummyFeedback.png" id="14_05sjx"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="14_hrc4d"]
 [ext_resource type="PackedScene" uid="uid://nf6spvq1hahh" path="res://ImportantObjects/Interactables/katana_stand_empty.tscn" id="14_iqtss"]
 [ext_resource type="PackedScene" uid="uid://dygwbqftwoueg" path="res://ImportantObjects/Interactables/cracked_ground_open.tscn" id="14_uc3pt"]
 [ext_resource type="PackedScene" uid="uid://dbh8rob5cinuq" path="res://Enemies/hyottoko_performance_area.tscn" id="15_3bqrb"]
@@ -30,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://ci3o0j5x8g8n2" path="res://ImportantObjects/Interactables/cracked_ground_covered.tscn" id="15_k27bj"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="15_n14hp"]
 [ext_resource type="PackedScene" uid="uid://bjykcdg1avvqu" path="res://ImportantObjects/TransformationObjects/katana.tscn" id="16_amd8p"]
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueIndex.gd" id="16_m885m"]
 [ext_resource type="PackedScene" uid="uid://du00h8n41wpjo" path="res://ImportantObjects/TransformationObjects/wooden_katana.tscn" id="16_q2htk"]
 [ext_resource type="PackedScene" uid="uid://daasdexpenkl8" path="res://ImportantObjects/PuzzleObjects/enemy_door.tscn" id="16_v1wlf"]
 [ext_resource type="PackedScene" uid="uid://bkm5fl6eccp12" path="res://NPC/defeated_hyottoko_NPC.tscn" id="17_cwk76"]
@@ -63,6 +65,162 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1968, 1216, 1968, 1056,
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k5ss"]
 size = Vector2(256, 64)
+
+[sub_resource type="Resource" id="Resource_n0c05"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SwordYokaiNPC/DialogueArea2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_m6bbw"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SwordYokaiNPC/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_xi3iv"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("SwordYokaiNPC/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6qxg5"]
+script = ExtResource("16_m885m")
+dialogueText = "I see you're a brave one! Hehehehehe!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xcxf3"]
+script = ExtResource("16_m885m")
+dialogueText = "Uhhhhm, yes?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_x5b3t"]
+script = ExtResource("16_m885m")
+dialogueText = "To venture into the dojo... All alone, you poor poor thing!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_v08o6"]
+script = ExtResource("16_m885m")
+dialogueText = "Okay. This guy seems useless, let's move on."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_oeoag"]
+script = ExtResource("16_m885m")
+dialogueText = "NONONONONO! Wait please... I'm all alone here... I want a friend..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_lxcna"]
+script = ExtResource("16_m885m")
+dialogueText = "That's... rather sad and pathetic to hear..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ncvbs"]
+script = ExtResource("16_m885m")
+dialogueText = "Wait! If you become my friend I'll tell you the secret to pass through this area..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_oknsf"]
+script = ExtResource("16_m885m")
+dialogueText = "Oh. That's something, okay \"friend\". Shoot."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_dih5c"]
+script = ExtResource("16_m885m")
+dialogueText = "Yay! My first friend! Alright friend: see the hyottoko men in the area? They are actually gatekeepers."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Enemies/Hyottoko1")
+
+[sub_resource type="Resource" id="Resource_bk1cg"]
+script = ExtResource("16_m885m")
+dialogueText = "If they stand on those platforms and dance, they'll open the passages for you!"
+characterTalking = 2
+cameraFocus = NodePath("../../../../EnemyDoors/HyottokoPerformanceArea")
+
+[sub_resource type="Resource" id="Resource_w68xl"]
+script = ExtResource("16_m885m")
+dialogueText = "I assume they'll let me through that dark area... how do I make them stand on those platforms?"
+characterTalking = 0
+cameraFocus = NodePath("../../../../EnemyDoors/EnemyDoor")
+
+[sub_resource type="Resource" id="Resource_hi7ll"]
+script = ExtResource("16_m885m")
+dialogueText = "I heard that if you start making music, they'll follow you in a trance like state! Once on a platform while in that state they'll stay on it unless launched away!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_avvtp"]
+script = ExtResource("16_m885m")
+dialogueText = "Okay, that's actually really useful. Thanks friend."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_70wcx"]
+script = ExtResource("16_m885m")
+dialogueText = "If you need to refresh your memory, talk to me! We're friends after all!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4rjw"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_jndp6"]
+script = ExtResource("16_m885m")
+dialogueText = "Hey friend, I forgot about the whole door thing again."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_1jani"]
+script = ExtResource("16_m885m")
+dialogueText = "No problem friend!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_t2506"]
+script = ExtResource("16_m885m")
+dialogueText = "Those passages are locked."
+characterTalking = 2
+cameraFocus = NodePath("../../../../EnemyDoors/EnemyDoor")
+
+[sub_resource type="Resource" id="Resource_44yhx"]
+script = ExtResource("16_m885m")
+dialogueText = "Hyottoko men around the area can act as gatekeepers"
+characterTalking = 2
+cameraFocus = NodePath("../../../../Enemies/Hyottoko1")
+
+[sub_resource type="Resource" id="Resource_5sctl"]
+script = ExtResource("16_m885m")
+dialogueText = "Find anything that can produce music to make them follow you, and make them reach the platforms close to the passage you want to open!"
+characterTalking = 2
+cameraFocus = NodePath("../../../../EnemyDoors/HyottokoPerformanceArea")
+
+[sub_resource type="Resource" id="Resource_od6jn"]
+script = ExtResource("16_m885m")
+dialogueText = "If you want to remove them from a passage, launch them away with your leaf!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_33lot"]
+script = ExtResource("16_m885m")
+dialogueText = "Huh, weird that you know about my leaf. Anyways, thanks. You're a good friend."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_vthgp"]
+script = ExtResource("16_m885m")
+dialogueText = "No problem! If you still need a refresher talk to me again!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85ecc"]
+radius = 128.25
 
 [sub_resource type="Resource" id="Resource_ey8sr"]
 script = ExtResource("13_yb20v")
@@ -272,7 +430,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey"), NodePath("Quests/DojoGetUltraKey")]
+mapQuests = [NodePath("Quests/DojoTutorialDialogue"), NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey"), NodePath("Quests/DojoGetUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -373,6 +531,31 @@ pointToTeleport = NodePath("../PlayerSpawn")
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="DojoTutorialDialogue" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoTutorialDialogue"
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_n0c05"), SubResource("Resource_m6bbw"), SubResource("Resource_xi3iv")])
+
+[node name="SwordYokaiNPC" parent="Quests/DojoTutorialDialogue" instance=ExtResource("50_iymq2")]
+position = Vector2(-384, 1408)
+
+[node name="DialogueArea1" parent="Quests/DojoTutorialDialogue/SwordYokaiNPC" node_paths=PackedStringArray("questRef") instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_6qxg5"), SubResource("Resource_xcxf3"), SubResource("Resource_x5b3t"), SubResource("Resource_v08o6"), SubResource("Resource_oeoag"), SubResource("Resource_lxcna"), SubResource("Resource_ncvbs"), SubResource("Resource_oknsf"), SubResource("Resource_dih5c"), SubResource("Resource_bk1cg"), SubResource("Resource_w68xl"), SubResource("Resource_hi7ll"), SubResource("Resource_avvtp"), SubResource("Resource_70wcx")])
+isOnInteraction = true
+advanceQuest = true
+questRef = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoTutorialDialogue/SwordYokaiNPC/DialogueArea1"]
+shape = SubResource("CircleShape2D_o4rjw")
+
+[node name="DialogueArea2" parent="Quests/DojoTutorialDialogue/SwordYokaiNPC" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_jndp6"), SubResource("Resource_1jani"), SubResource("Resource_t2506"), SubResource("Resource_44yhx"), SubResource("Resource_5sctl"), SubResource("Resource_od6jn"), SubResource("Resource_33lot"), SubResource("Resource_vthgp")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoTutorialDialogue/SwordYokaiNPC/DialogueArea2"]
+shape = SubResource("CircleShape2D_85ecc")
 
 [node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
@@ -1166,10 +1349,5 @@ position = Vector2(-384, 8)
 scale = Vector2(0.5, 0.5)
 pointToTeleport = NodePath("../../../Teleports/MazeReset")
 interact = false
-
-[node name="NPCs" type="Node2D" parent="."]
-
-[node name="SwordYokaiNPC" parent="NPCs" instance=ExtResource("50_iymq2")]
-position = Vector2(-384, 1408)
 
 [connection signal="body_entered" from="Teleports/TravelToKitchen" to="Teleports/TravelToKitchen" method="_on_body_entered"]

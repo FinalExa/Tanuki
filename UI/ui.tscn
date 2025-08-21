@@ -99,6 +99,7 @@ F/Action Button: Talk
 E/Right Trigger: transform/stop transformation
 LEFT CLICK/Left Bumper: attack/advance dialogue
 RIGHT CLICK/Left Trigger: grab
+SPACE: roll
 Esc/Start: Pause Menu"
 label_settings = SubResource("LabelSettings_sl7vy")
 horizontal_alignment = 1

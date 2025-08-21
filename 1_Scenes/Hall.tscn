@@ -289,19 +289,17 @@ questItemsOnOffState = Array[bool]([false, false, false, false, false, false, fa
 [node name="PasswordNPC" parent="Quests/HallGetPassword" instance=ExtResource("3_653qg")]
 position = Vector2(-128, 2240)
 
-[node name="PasswordNPCBaseDialogue" parent="Quests/HallGetPassword/PasswordNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="PasswordNPCBaseDialogue" parent="Quests/HallGetPassword/PasswordNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["Hey! I want to...", "...go through that wall!", "...if you want that, give me the password, please.", "A password? No other way?", "No.", "Hm... any help at least in finding that?", "No.", "Please?", "Okay. But only because I don't like the new guards causing a ruckus here, and you seem like an intruder to them. It's gonna be fun.", "See the brush close to me? Take it...", "...find the color yokais, they'll give you their magical color...", "...and write the password on that table.", "I also see that you have a leaf with you, convenient. You can use it to reset the password progress if it's wrong.", "The password hints should be around here, be wary that it's updated constantly. If you get captured it will change by the time you get back in.", "I got it, thanks!", "Good luck in finding it, even I don't know it. I am just here for information about it.", "But if you open it, I'll give you my key, to spite those guards.", "Ohhh! Thanks! I really need keys!", "I know."])
 characterTalking = Array[int]([0, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2])
-cameraFocuses = [null, NodePath("../../BlockerWalls"), NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../../../Transformations/Brush"), NodePath("../../../../NPCs/ColorYokais/ColorYokai"), NodePath("../../PasswordTable"), NodePath(".."), NodePath(".."), null, NodePath(".."), NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCBaseDialogue"]
 shape = SubResource("CircleShape2D_sxp2p")
 
-[node name="PasswordNPCQuestCompleteDialogue" parent="Quests/HallGetPassword/PasswordNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="PasswordNPCQuestCompleteDialogue" parent="Quests/HallGetPassword/PasswordNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["Congratulations for getting the right password.", "Thanks! Any useful advice for me?", "Some magic walls may miss a color, if you give it to them, they'll disappear.", "Ohoh! Sounds useful, thanks!"])
 characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCQuestCompleteDialogue"]
@@ -409,28 +407,25 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(-288, 3008)
 
-[node name="EntranceNPCCleanDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="EntranceNPCCleanDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["*sniff* *sob* *sniff*", "Huh, why are you crying?", "*sniff* oh... a guest... wait...", "Hm?", "You're not one of those guards! Maybe you can help me...?", "I'm kinda in a hurry here... do you know anything about keys? I'll help you in that case.", "Keys? Yes. I am tasked to protect one! But... I'm willing to ignore that if you help me.", "Go on, I'm all ears.", "*sniff* Thank you.", "*ahem* THOSE BUFOONS WHO MANAGE THINGS HERE HAVE MADE A MESS OF THE ENTRANCE, THE ENTRANCE I AM TASKED TO LOOK OUT FOR!", "See the carpet? No? Well, it's because of the brown goop.", "Touching it will deplete your energies... it won't harm you though, don't worry.", "Find something to clean it, then speak to me, I need other things to clear the entrance. I will also open the other doors here once you're done with it, as thanks.", "Okay. Will do."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath("../../DirtyFloor"), NodePath("../../DirtyFloor"), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCCleanDialogue"]
 shape = SubResource("CircleShape2D_x1y16")
 
-[node name="EntranceNPCGetBackBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="EntranceNPCGetBackBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["Thanks for cleaning the carpet.", "No problem! What's next?", "Those guards... they removed my physical body from here, it's a bell like me. Can you get it back here?", "I got ya.", "Should be in one of the rooms around here, they just trashed it like it was nothing..."])
 characterTalking = Array[int]([2, 0, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCGetBackBellDialogue"]
 shape = SubResource("CircleShape2D_tywjs")
 
-[node name="EntranceNPCColorTheBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="EntranceNPCColorTheBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["So... that should be everything yes?", "Actually... I have a last request for you.", "*sigh* Go on.", "My poor body... has lost all of it's color, it was of a proud yellow! Are you able to restore it in any way?", "I'll check.", "Thank you! I'll give you the key if you manage to do it."])
 characterTalking = Array[int]([0, 2, 0, 2, 0, 2])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCColorTheBellDialogue"]
@@ -449,10 +444,9 @@ sendSignalToQuestOnDestroyed = true
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(-288, 3048)
 
-[node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["Thank you for everything! I am so happy!", "Do you have any other useful info for me, now-happy bell?", "The painting in the corridor above this rooms feels so... incomplete. Like it's lacking... color, you know? I believe it's on purpose.", "Hey, that sounds useful. Thank you."])
 characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceCompletedNPC/EntranceCompletedDialogue"]
@@ -566,21 +560,19 @@ navigation_polygon = SubResource("NavigationPolygon_o12u4")
 [node name="SadGuardNPC" parent="Quests/HallStopTheDoor" instance=ExtResource("25_nwgbr")]
 position = Vector2(976, 504)
 
-[node name="SadGuardFirstDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="SadGuardFirstDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" instance=ExtResource("10_oxkx2")]
 position = Vector2(0, -48)
 dialogueText = Array[String](["Oh no a guard! I have to hide, quick!", "It's pointless...", "Huh?", "It's pointless... pointless...", "...you okay?", "...an intruder... it's still pointless... it's been days...", "Days of what?", "I haven't slept... in days... because of this door...", "The bedrooms are on the right of this room, my bed is close to this wall... this door... has been possessed.", "It keeps. Making. NOISE!", "I CAN'T SLEEP!", "I think a door stop would be able to crush those teeth... but... no energy to find it...", "Hehehe... thanks for the juicy info, insomniac guard! I see a key behind this door: I do this for you and you stay silent about this, deal?", "Deal... I can't take this anymore, please..."])
 characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0, 2])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFirstDialogue"]
 shape = SubResource("CircleShape2D_0akyk")
 
-[node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" instance=ExtResource("10_oxkx2")]
 position = Vector2(0, -48)
 dialogueText = Array[String](["Thank you... my agony... is gone...", "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?", "Right... bedrooms, top... Kitchen, left... Bathrooms.", "There's a cleaner stronger than usual in the bathrooms, watch out...", "I will, thank you!"])
 characterTalking = Array[int]([2, 0, 2, 2, 0])
-cameraFocuses = [NodePath("."), null, NodePath("."), NodePath("."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFinalDialogue"]
@@ -610,22 +602,20 @@ questItemsOnOffState = Array[bool]([false, false, false, false, true, false, tru
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
 
-[node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" instance=ExtResource("10_oxkx2")]
 position = Vector2(1088, 1280)
 dialogueText = Array[String](["This job to watch the key is so demanding... I'm so sleepy right now.", "Thankfully that chair doesn't have a pillow... otherwise... I would be VERY tempted...", "Haha... let's keep watch to the corridor, hopefully it's just another boring day without any intruder... *yawn*", "This guy wants to sleep eh? Let's give him sleep! Heheheheh..."])
 characterTalking = Array[int]([2, 2, 2, 0])
-cameraFocuses = [NodePath("../../../Enemies/Warden1"), NodePath("../Chair"), NodePath("../../../Enemies/Warden1"), null]
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallMakeWardenSleep/WardenAwakeDialogue"]
 shape = SubResource("CircleShape2D_asgj7")
 
-[node name="WardenSleepingDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="WardenSleepingDialogue" parent="Quests/HallMakeWardenSleep" instance=ExtResource("10_oxkx2")]
 position = Vector2(1152, 1088)
 dialogueText = Array[String](["ZZZ... ZZZ... *snore*", "Well, looks like he won't be waking up soon, hehe..."])
 characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../../../Enemies/Warden1"), null]
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 
@@ -1046,10 +1036,9 @@ shape = SubResource("RectangleShape2D_lmr0x")
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
 position = Vector2(1664, 752)
 
-[node name="DialogueArea" parent="Quests/HallUltraKey/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="DialogueArea" parent="Quests/HallUltraKey/OldTanukiNPC" instance=ExtResource("10_oxkx2")]
 dialogueText = Array[String](["Master! We meet again.", "Daichi, since you are here, one last detail about this mansion.", "I'm all ears master!", "The door you just opened by finding the keys in this area, is used to seal a special type of key.", "Special key? What about it?", "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys.", "Oh... that sounds annoy- great!", "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy.", "Hmhm, I will keep my eyes peeled!", "Good luck, Daichi.", "Thank you, master!"])
 characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/OldTanukiNPC/DialogueArea"]

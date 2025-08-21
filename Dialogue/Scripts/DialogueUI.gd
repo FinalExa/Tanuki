@@ -19,9 +19,7 @@ enum DialogueCharacters {
 	OTHER
 }
 
-var currentDialogueText: Array[String]
-var currentCharacterTalking: Array[DialogueCharacters]
-var currentCameraFocuses: Array[Node2D]
+var currentDialogueIndexes: Array[DialogueIndex]
 var currentString: String
 var currentIndex: int
 var currentSource: DialogueArea
@@ -31,10 +29,21 @@ func _ready():
 	leftSprite.play("default")
 	rightSprite.play("default")
 
+func StartNewDialogueWithIndex(indexArray: Array[DialogueIndex], source: DialogueArea):
+	currentDialogueIndexes = indexArray
+	currentIndex = 0
+	currentSource = source
+	SetCurrentText()
+	self.show()
+	dialogueActive = true
+
 func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], focus: Array[Node2D], source: DialogueArea):
-	currentDialogueText = text
-	currentCharacterTalking = characters
-	currentCameraFocuses = focus
+	for i in text.size():
+		var dialogueIndex: DialogueIndex = DialogueIndex.new()
+		dialogueIndex.dialogueText = text[i]
+		dialogueIndex.characterTalking = characters[i]
+		dialogueIndex.cameraFocus = dialogueIndex.SetPath(source, focus[i])
+		currentDialogueIndexes.push_back(dialogueIndex)
 	currentIndex = 0
 	currentSource = source
 	SetCurrentText()
@@ -53,10 +62,10 @@ func ExecuteDialogue(delta):
 
 func ProgressivelyShowDialogue(delta):
 	if (Input.is_action_just_pressed("attack")):
-		dialogueText.text = currentDialogueText[currentIndex]
+		dialogueText.text = currentDialogueIndexes[currentIndex].dialogueText
 		dialogueDoneShowing = true
 		return
-	if (currentString != currentDialogueText[currentIndex]):
+	if (currentString != currentDialogueIndexes[currentIndex].dialogueText):
 		if (currentTextIndex < currentTextLenght):
 			if (internalTimer < dialogueIntervalBetweenCharacters):
 				internalTimer += delta
@@ -67,7 +76,7 @@ func ProgressivelyShowDialogue(delta):
 
 func AdvanceTextIndex():
 	internalTimer -= dialogueIntervalBetweenCharacters
-	currentString += currentDialogueText[currentIndex][currentTextIndex]
+	currentString += currentDialogueIndexes[currentIndex].dialogueText[currentTextIndex]
 	currentTextIndex += 1
 	dialogueText.text = currentString
 	if (internalTimer >= dialogueIntervalBetweenCharacters):
@@ -78,10 +87,11 @@ func SetCurrentText():
 	internalTimer = 0
 	dialogueDoneShowing = false
 	currentTextIndex = 0
-	if (currentCameraFocuses[currentIndex] != null): playerHUD.playerRef.cameraRef.SetNewCameraTarget(currentCameraFocuses[currentIndex])
+	var focus: Node2D = currentDialogueIndexes[currentIndex].GetCameraFocus(currentSource)
+	if (focus != null): playerHUD.playerRef.cameraRef.SetNewCameraTarget(focus)
 	else: playerHUD.playerRef.cameraRef.ResetToPlayer()
-	currentTextLenght = currentDialogueText[currentIndex].length()
-	if (currentCharacterTalking[currentIndex] == DialogueCharacters.DAICHI):
+	currentTextLenght = currentDialogueIndexes[currentIndex].dialogueText.length()
+	if (currentDialogueIndexes[currentIndex].characterTalking == DialogueCharacters.DAICHI):
 		leftSprite.show()
 		rightSprite.hide()
 	else:
@@ -91,7 +101,7 @@ func SetCurrentText():
 func WaitForContinue():
 	if (Input.is_action_just_pressed("attack")):
 		currentIndex += 1
-		if (currentIndex >= currentDialogueText.size()):
+		if (currentIndex >= currentDialogueIndexes.size()):
 			EndDialogue()
 		else:
 			SetCurrentText()
@@ -101,5 +111,6 @@ func EndDialogue():
 	playerHUD.playerRef.cameraRef.ResetToPlayer()
 	self.hide()
 	dialogueText.text = ""
+	currentDialogueIndexes.clear()
 	currentSource.DialogueDone()
 	playerHUD.EndForcePause()

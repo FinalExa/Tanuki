@@ -558,10 +558,9 @@ navigation_polygon = SubResource("NavigationPolygon_uenql")
 position = Vector2(-192, -704)
 activated = true
 
-[node name="DialogueArea" parent="Rooms/RoomB/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="DialogueArea" parent="Rooms/RoomB/HeatSourceActivator" instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Ohh we meet again, cold oni!", "My savior! Finally, someone who can help me!", "My brothers have been trapped in the next room, inside the furnaces. Please break them free!", "All right, all right, I’ll see what I can do. Maybe there is something around here that I can transform into.", "Thank you! I’m sure they will help you once you free them!", "Oh and also, there's TWO of them trapped.", "I will keep that in mind."])
 characterTalking = Array[int]([0, 2, 2, 0, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath("../../KitchenCameraFocus"), null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/RoomB/HeatSourceActivator/DialogueArea"]
@@ -663,10 +662,9 @@ questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2")]
 position = Vector2(-576, -1472)
 activated = true
 
-[node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniStationaryDialogue1" parent="Quests/KitchenSaveTheOni/HeatSourceActivator" instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["There you are! This room feels safe enough... well, I believe I can help you with the chef here.", "Are you serious?", "Indeed I am. If I remember correctly, he needs heat to perform his magic, heat which I provide! Hehehehe...", "That's interesting... I'll be back soon..."])
 characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/HeatSourceActivator/OniStationaryDialogue1"]
@@ -676,11 +674,10 @@ shape = SubResource("CircleShape2D_mq0me")
 position = Vector2(1984, 632)
 activated = true
 
-[node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni/HeatSourceActivator2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniStationaryDialogue2" parent="Quests/KitchenSaveTheOni/HeatSourceActivator2" instance=ExtResource("26_b0qex")]
 position = Vector2(0, 1)
 dialogueText = Array[String](["Do you see these blocks of ice? I have hidden a key in the room to prank the guards! I will help you melt each one, so we’re even!", "Fantastic! How do we melt them?", "Intense heat should suffice. Anything that looks like it's heatable in that kitchen?", "I'll go check... Be right back once I find it!"])
 characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/HeatSourceActivator2/OniStationaryDialogue2"]
@@ -691,10 +688,9 @@ position = Vector2(2496, -224)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace" instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do"])
 characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace/OniTrappedDialogue"]
@@ -705,10 +701,9 @@ position = Vector2(1728, -1248)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniTrappedDialogue" parent="Quests/KitchenSaveTheOni/Furnace2" instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Help! Can you get me out of here? You’ll need something heavy but powerful to break this “cage”. If you will help me, I will help you in your quest… pretty please!!!", "Fine, I’ll see what I can do."])
 characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/Furnace2/OniTrappedDialogue"]
@@ -717,22 +712,20 @@ shape = SubResource("CircleShape2D_tfxnb")
 [node name="FurnaceFake" parent="Quests/KitchenSaveTheOni" instance=ExtResource("19_sfcgv")]
 position = Vector2(1216, -1216)
 
-[node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniFreedDialogue1" parent="Quests/KitchenSaveTheOni" instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
 dialogueText = Array[String](["Finally, I am freeeeeee! Thank you… as promised if you want my help...", " I’ll be near inside the room west to here, with the good 'ol Chef of the mansion. He might help ya.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 2, 0])
-cameraFocuses = [null, NodePath("../HeatSourceActivator"), null]
 deleteOnDone = true
 activatedByQuest = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniFreedDialogue1"]
 shape = SubResource("CircleShape2D_m7mm8")
 
-[node name="OniFreedDialogue2" parent="Quests/KitchenSaveTheOni" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="OniFreedDialogue2" parent="Quests/KitchenSaveTheOni" instance=ExtResource("26_b0qex")]
 position = Vector2(-4992, -3096)
 dialogueText = Array[String](["Thank you so much! I didn’t know what to do… come with me! I want to repay the favor...", "Meet me outside the fridge room… near the blocks of ice.", "Oook, but this better not be a prank."])
 characterTalking = Array[int]([2, 2, 0])
-cameraFocuses = [null, NodePath("../HeatSourceActivator2"), null]
 deleteOnDone = true
 activatedByQuest = true
 
@@ -748,11 +741,10 @@ questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/KeySprite"), NodePath("Kitchen2Dialogue")]
 
-[node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" instance=ExtResource("26_b0qex")]
 position = Vector2(1088, 0)
 dialogueText = Array[String](["Bwaha-ha! Nobody has ever stolen this key from me!", "I’m always wide awake! I never lost my sights on this key, ever! Bwaha-ahahahah!", "Wide awake, eh? Maybe if I manage to hit him with something hurtful... he will go all \"sleepy\" and I can grab that key... hehehehehe..."])
 characterTalking = Array[int]([2, 2, 0])
-cameraFocuses = [NodePath("../../../Enemies/WardenC1"), NodePath("../../../Enemies/WardenC1"), null]
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 
@@ -769,11 +761,10 @@ questItemsOnOffState = Array[bool]([false, false, false, false, false, true, tru
 advanceOtherQuestsOnEnd = [NodePath("../KitchenStunWarden")]
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush"), NodePath("../../Enemies/WardenC1"), NodePath("../../Enemies/WardenAlertArea")]
 
-[node name="DialogueArea" parent="Quests/KitchenDropLantern" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="DialogueArea" parent="Quests/KitchenDropLantern" instance=ExtResource("26_b0qex")]
 position = Vector2(1712, -264)
 dialogueText = Array[String](["A weird device... with a rope... hmmm... maybe...?", "... definitely connected to that! But it looks like it's missing a piece... like a handle?", "If I find a handle I should bring it here."])
 characterTalking = Array[int]([0, 0, 0])
-cameraFocuses = [null, NodePath("../FloatingLantern"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenDropLantern/DialogueArea"]
@@ -810,31 +801,28 @@ questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, false, true, true])
 objectsToFinalizeAtQuestComplete = [NodePath("ChefYokai")]
 
-[node name="StartDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="StartDialogue" parent="Quests/KitchenHelpChef" instance=ExtResource("26_b0qex")]
 position = Vector2(-1152, -1112)
 dialogueText = Array[String](["Help me please!", "Huh... you look like you've been captured.", "Yes... I had the audacity to disagree with Gozo the other day... and I ended up here.", "I was the Chef of this mansion! This is so unfair.", "I am kind in a hurry... if you have anything that gets me a key I'll help you, though.", "A key? YES! But please, CUT these ropes down first, so we can talk properly.", "Okay. I'll try to find a way to cut the ropes.", "Thank you!"])
 characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2])
-cameraFocuses = [NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped"), NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped"), null, NodePath("../ChefYokaiTrapped")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/StartDialogue"]
 shape = SubResource("CircleShape2D_1yhwf")
 
-[node name="MidDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="MidDialogue" parent="Quests/KitchenHelpChef" instance=ExtResource("26_b0qex")]
 position = Vector2(-1152, -1112)
 dialogueText = Array[String](["Alright, I freed you. Where's my key?", "Yes, about that. I locked it away from the guards here with my food magic!", "Food magic?", "Yes, to reach it I'll need two ingredients, one of which is hot.", "I believe you can read exactly what ingredients I want.", "Indeed I do. I have to bring them to you, yes?", "Yes, and about the hot one... you'll need an heat source of some kind to get it.", "And when you heat them up... you'll have to be fast otherwise they'll turn cold again!", "I got you. Will be back for my key!"])
 characterTalking = Array[int]([0, 2, 0, 2, 2, 0, 2, 2, 0])
-cameraFocuses = [null, NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), NodePath("../ChefYokai"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/MidDialogue"]
 shape = SubResource("CircleShape2D_qgs8e")
 
-[node name="EndDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="EndDialogue" parent="Quests/KitchenHelpChef" instance=ExtResource("26_b0qex")]
 position = Vector2(-1152, -1112)
 dialogueText = Array[String](["Thanks again for everything!", "No problem. Do you have any advice for me?", "Hm... I believe you are searching for special keys, yes?", "I am, continue.", "Well... I saw the magical space for this one, you'll see there are two rooms. Be fast in the first room, and patient in the second.", "That's a great help, thank you!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
-cameraFocuses = [NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null, NodePath("../ChefYokai"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenHelpChef/EndDialogue"]
@@ -1063,21 +1051,19 @@ position = Vector2(2368, -1279)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="RatDialogue1" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="RatDialogue1" parent="Quests/KitchenFeedRat" instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Hey you! You look like someone who is lost… let’s make a deal: if you bring me some cheese I will give you in return this splendid key that I stole from one of the guards.", "And since I’m a kind soul, maybe I can even tell you a secret that you don’t know about this place.", "Fine, you are lucky that I need that key."])
 characterTalking = Array[int]([2, 2, 0])
-cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue1"]
 shape = SubResource("CircleShape2D_7ihbc")
 
-[node name="RatDialogue2" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("26_b0qex")]
+[node name="RatDialogue2" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("questRef") instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Oh oh oh, nice. *munch munch munch*", "What a nice meal I had… here’s your key.", "What about the secret?", "Oh, right. If you didn't know about it, some plants around here grow very tall and fast when they are watered.", "Really? Uh, this is actually useful. Thanks, lazy rat."])
 characterTalking = Array[int]([2, 2, 0, 2, 0])
-cameraFocuses = [NodePath("../Rat"), NodePath("../Rat"), null, NodePath("../Rat"), null]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -1085,11 +1071,10 @@ questRef = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue2"]
 shape = SubResource("CircleShape2D_3ak33")
 
-[node name="RatDialogue3" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="RatDialogue3" parent="Quests/KitchenFeedRat" instance=ExtResource("26_b0qex")]
 position = Vector2(2368, -1279)
 dialogueText = Array[String](["Can you say that secret again? I forgot it.", "Really? What a bad memory you have… fine. Some plants around here grow very tall and fast when they are watered. Don’t forget it again!", "I regret feeding you…"])
 characterTalking = Array[int]([0, 2, 0])
-cameraFocuses = [null, NodePath("../Rat"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue3"]
@@ -1299,10 +1284,9 @@ y_sort_enabled = true
 position = Vector2(-2496, 480)
 activated = true
 
-[node name="DialogueArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="DialogueArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator" instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Oh, an oni!", "AS fhasd bfi -sdfsd9u8 iìia0i0if0adsfm cjz9'^?!BrfouikjaSB", "...ooooookay..."])
 characterTalking = Array[int]([0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator/DialogueArea"]
