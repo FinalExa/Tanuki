@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=214 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -560,6 +560,105 @@ characterTalking = 0
 cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn33c"]
+
+[sub_resource type="Resource" id="Resource_gqqtd"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey4")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_hvq1m"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("CrackedGroundOpen")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_lc6gd"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("CrackedGroundCovered")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_remnq"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DefeatedHyottokoNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_3jdx5"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_m3xvx"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("CrackedGroundOpen")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_rnf26"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("CrackedGroundCovered")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_07j8d"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DefeatedHyottokoNPC")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_urlr4"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea2")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_qaa5u"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_j8ioy"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey4")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_qc4cq"]
+script = ExtResource("16_m885m")
+dialogueText = "Hey, that Hyottoko has the key! I bet I could steal it from him, but how?"
+characterTalking = 0
+cameraFocus = NodePath("../../../Enemies/Hyottoko5")
+
+[sub_resource type="Resource" id="Resource_d2bfl"]
+script = ExtResource("16_m885m")
+dialogueText = "That spot seems cracked, I bet that if I could break it and then cover it with something I can lure him there and snatch that key from him. I'm such a devilish genius."
+characterTalking = 0
+cameraFocus = NodePath("../CrackedGround")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nspiu"]
+radius = 184.174
+
+[sub_resource type="Resource" id="Resource_a316e"]
+script = ExtResource("16_m885m")
+dialogueText = "So, to recap: break that spot, cover it and then lure the hyottoko there. Seems solid! Not like that spot eheh."
+characterTalking = 0
+cameraFocus = NodePath("../DefeatedHyottokoNPC")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qujc"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_la0r1"]
+script = ExtResource("16_m885m")
+dialogueText = "Hah, take that! Who says that only mice get lured into traps?"
+characterTalking = 0
+cameraFocus = NodePath("../DefeatedHyottokoNPC")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8455"]
+radius = 128.0
 
 [sub_resource type="Resource" id="Resource_uu4yf"]
 script = ExtResource("13_yb20v")
@@ -1163,14 +1262,36 @@ shape = SubResource("CircleShape2D_vn33c")
 position = Vector2(0, -101)
 texture = ExtResource("14_05sjx")
 
-[node name="DojoDefeatHyottoko" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="DojoDefeatHyottoko" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoDefeatHyottoko"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("DefeatedHyottokoNPC"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("DefeatedHyottokoNPC"), NodePath("../../Keys/UnlockKey4")]
-questItemsStages = Array[int]([0, 0, 0, 0, 1, 2, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, true])
-objectsToDeleteAtQuestComplete = [NodePath("Carpet"), NodePath("CrackedGround"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("../../Enemies/Hyottoko5")]
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_gqqtd"), SubResource("Resource_hvq1m"), SubResource("Resource_lc6gd"), SubResource("Resource_remnq"), SubResource("Resource_3jdx5"), SubResource("Resource_m3xvx"), SubResource("Resource_rnf26"), SubResource("Resource_07j8d"), SubResource("Resource_urlr4"), SubResource("Resource_qaa5u"), SubResource("Resource_j8ioy")])
+objectsToDeleteAtQuestComplete = [NodePath("Carpet"), NodePath("CrackedGround"), NodePath("CrackedGroundOpen"), NodePath("CrackedGroundCovered"), NodePath("../../Enemies/Hyottoko5"), NodePath("DialogueArea1")]
+
+[node name="DialogueArea1" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("14_hrc4d")]
+position = Vector2(2432, 896)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_qc4cq"), SubResource("Resource_d2bfl")])
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoDefeatHyottoko/DialogueArea1"]
+shape = SubResource("CircleShape2D_nspiu")
+
+[node name="DialogueArea2" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("14_hrc4d")]
+position = Vector2(2432, 896)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_a316e")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoDefeatHyottoko/DialogueArea2"]
+shape = SubResource("CircleShape2D_4qujc")
+
+[node name="DialogueArea3" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("14_hrc4d")]
+position = Vector2(2304, 256)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_la0r1")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoDefeatHyottoko/DialogueArea3"]
+shape = SubResource("CircleShape2D_e8455")
 
 [node name="Carpet" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("13_uk5yp")]
 position = Vector2(-1280, -640)
