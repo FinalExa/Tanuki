@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=235 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -828,6 +828,24 @@ itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_vgnrl"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea1")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_djlob"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ccj6f"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_8i53x"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
@@ -840,15 +858,39 @@ itemToOperate = NodePath("SavePoint")
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_15pb1"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea1")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_8txm8"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/CrackedGroundOpenBossfight")
 itemStage = 2
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_qp7lf"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea2")
+itemStage = 2
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_usod5"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_1kyjo"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea2")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_6jpmi"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("DialogueArea3")
 itemStage = 3
 itemOperation = 1
 
@@ -884,6 +926,81 @@ height = 1024.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qj1l8"]
 radius = 248.0
 height = 1008.0
+
+[sub_resource type="Resource" id="Resource_wfphk"]
+script = ExtResource("16_m885m")
+dialogueText = "BWA-HAHAHA! THE SPECIAL KEY OF THIS AREA IS SAFE IN MY HANDS! BWAHAHA!"
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyTileMap/Enemies/HyottokoBoss")
+
+[sub_resource type="Resource" id="Resource_48gas"]
+script = ExtResource("16_m885m")
+dialogueText = "Looks like I'll have to defeat this guy to proceed... hmm..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xklbk"]
+size = Vector2(512, 224)
+
+[sub_resource type="Resource" id="Resource_igid7"]
+script = ExtResource("16_m885m")
+dialogueText = "Okay. Now that I've opened this hole in the ground, I think I can make him fall in it..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_emmha"]
+script = ExtResource("16_m885m")
+dialogueText = "However, I don't think it would be enough... I'll have to at least stun him with music and then launch him in... but hm, he'll probably escape..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_awxfd"]
+script = ExtResource("16_m885m")
+dialogueText = "Maybe if I manage to dress him up with something heavy while he's trapped he could stay still in the ground! Let's try that."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_50amh"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_jqm8n"]
+script = ExtResource("16_m885m")
+dialogueText = "HEY! PLEASE HELP! COME ON MANNNNN!!!"
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+
+[sub_resource type="Resource" id="Resource_53pio"]
+script = ExtResource("16_m885m")
+dialogueText = "Why would I help you..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_w1evr"]
+script = ExtResource("16_m885m")
+dialogueText = "COME ON DAIC- EHM MAN! FREE ME! WE WERE JUST EHM... PLAYING!"
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+
+[sub_resource type="Resource" id="Resource_jom71"]
+script = ExtResource("16_m885m")
+dialogueText = "How do you know my name... ugh whatever. I'm not freeing you, goodbye."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_h7byq"]
+script = ExtResource("16_m885m")
+dialogueText = "NOOOOOOOOOOOOOOOOOOOOOOOO!"
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyTileMap/Puzzle/HyottokoBossNPC")
+
+[sub_resource type="Resource" id="Resource_opmes"]
+script = ExtResource("16_m885m")
+dialogueText = "That guy is sure loud... my poor ears."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkx2q"]
+radius = 128.25
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3b50u"]
 vertices = PackedVector2Array(-288, -2912, -288, -3008, 288, -3008, 288, -2912, 288, -1888, 736, -1728, -736, -1728, -288, -1888, 736, -3168, 560, -2144, 560, -2720, 480, -2144, 288, -1984, 480, -2720, -288, -1984, -480, -2144, -480, -2720, -736, -3168, -560, -2720, -560, -2144)
@@ -1364,8 +1481,8 @@ partID = 1
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoUltraKey"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_v8pec"), SubResource("Resource_ohqgy"), SubResource("Resource_6s6q4"), SubResource("Resource_8i53x"), SubResource("Resource_u26w0"), SubResource("Resource_8txm8"), SubResource("Resource_usod5"), SubResource("Resource_rswxe")])
-objectsToDeleteAtQuestComplete = [NodePath("UltraKeyTileMap/Enemies/HyottokoBoss"), NodePath("UltraKeyTileMap/MovableObjects/ArmorPart1"), NodePath("UltraKeyTileMap/MovableObjects/ArmortPart2"), NodePath("UltraKeyTileMap/Traps")]
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4asy"), SubResource("Resource_fh3b4"), SubResource("Resource_v8pec"), SubResource("Resource_ohqgy"), SubResource("Resource_6s6q4"), SubResource("Resource_vgnrl"), SubResource("Resource_djlob"), SubResource("Resource_ccj6f"), SubResource("Resource_8i53x"), SubResource("Resource_u26w0"), SubResource("Resource_15pb1"), SubResource("Resource_8txm8"), SubResource("Resource_qp7lf"), SubResource("Resource_usod5"), SubResource("Resource_1kyjo"), SubResource("Resource_6jpmi"), SubResource("Resource_rswxe")])
+objectsToDeleteAtQuestComplete = [NodePath("UltraKeyTileMap/Enemies/HyottokoBoss"), NodePath("UltraKeyTileMap/MovableObjects/ArmorPart1"), NodePath("UltraKeyTileMap/MovableObjects/ArmortPart2"), NodePath("UltraKeyTileMap/Traps"), NodePath("DialogueArea1")]
 
 [node name="UltraKeyTileMap" type="TileMap" parent="Quests/DojoUltraKey"]
 y_sort_enabled = true
@@ -1584,6 +1701,30 @@ position = Vector2(-1408, -2688)
 [node name="ArmortPart2" parent="Quests/DojoUltraKey/UltraKeyTileMap/MovableObjects" instance=ExtResource("39_fw0ah")]
 position = Vector2(-1408, -2688)
 partID = 1
+
+[node name="DialogueArea1" parent="Quests/DojoUltraKey" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -1808)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_wfphk"), SubResource("Resource_48gas")])
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/DialogueArea1"]
+shape = SubResource("RectangleShape2D_xklbk")
+
+[node name="DialogueArea2" parent="Quests/DojoUltraKey" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -2432)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_igid7"), SubResource("Resource_emmha"), SubResource("Resource_awxfd")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/DialogueArea2"]
+shape = SubResource("CircleShape2D_50amh")
+
+[node name="DialogueArea3" parent="Quests/DojoUltraKey" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -2432)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_jqm8n"), SubResource("Resource_53pio"), SubResource("Resource_w1evr"), SubResource("Resource_jom71"), SubResource("Resource_h7byq"), SubResource("Resource_opmes")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoUltraKey/DialogueArea3"]
+shape = SubResource("CircleShape2D_vkx2q")
 
 [node name="NavigationRegions" type="Node2D" parent="Quests/DojoUltraKey"]
 z_index = -1
