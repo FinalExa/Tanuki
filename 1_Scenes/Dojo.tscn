@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=196 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -561,6 +561,144 @@ cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn33c"]
 
+[sub_resource type="Resource" id="Resource_uu4yf"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_q78cs"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("KatanaStandFull")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kud4j"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("Katana")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_q53dw"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tn0tl"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("KatanaStandEmpty")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_o5nbp"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("KatanaStandFull")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_0x5ab"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("KatanaStandFull")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_idq6n"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("Katana")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_536nn"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea1")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ruy2q"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_e0omr"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_hexg3"]
+script = ExtResource("16_m885m")
+dialogueText = "SMALL CREATURE. YOU CAN BE MY SAVIOR."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_4lhsj"]
+script = ExtResource("16_m885m")
+dialogueText = "REFORGE MY SWORD. GET A KEY."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ggcw1"]
+script = ExtResource("16_m885m")
+dialogueText = "Woah, convenient! How do I reforge it?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_cghgd"]
+script = ExtResource("16_m885m")
+dialogueText = "IT HAS BEEN BROKEN IN TWO PIECES. THEY SHOULD BE IN THIS AREA. BRING THEM HERE. I WILL REPAIR IT WITH MY MAGIC."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_d8daf"]
+script = ExtResource("16_m885m")
+dialogueText = "ONCE IT HAS BEEN FORMED AGAIN FIND MAGIC OIL AND SPRINKLE IT ON THE SWORD. IT WILL BE RESTORED. AND I WILL GIVE YOU YOUR KEY."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_f3px8"]
+script = ExtResource("16_m885m")
+dialogueText = "Will do, creepy armor!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3c5d0"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_hekg8"]
+script = ExtResource("16_m885m")
+dialogueText = "Say, creepy armor, anything useful for this area?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_4ib0a"]
+script = ExtResource("16_m885m")
+dialogueText = "HM. THERE IS A POWERFUL BEING PAST THE LOCKED DOOR. BE CAREFUL."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_he1t4"]
+script = ExtResource("16_m885m")
+dialogueText = "I HEARD THAT HE'S THE BOSS OF THE HYOTTOKO MEN IN ALL OF THE MANSION."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_c3n4m"]
+script = ExtResource("16_m885m")
+dialogueText = "Huh. Sounds worrying."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_1w8dv"]
+script = ExtResource("16_m885m")
+dialogueText = "BE CAREFUL SMALL ONE."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4iopi"]
+radius = 128.25
+
 [sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
@@ -1053,19 +1191,33 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DefeatedHyottokoNPC" parent="Quests/DojoDefeatHyottoko" instance=ExtResource("17_cwk76")]
-position = Vector2(2304, 256)
+position = Vector2(2304, 272)
 
-[node name="DojoRepairArmor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="DojoRepairArmor" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoRepairArmor"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("KatanaStandFull"), NodePath("Katana"), NodePath("KatanaStandEmpty"), NodePath("KatanaStandFull"), NodePath("KatanaStandFull"), NodePath("Katana"), NodePath("../../Keys/UnlockKey5")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true, true])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_uu4yf"), SubResource("Resource_q78cs"), SubResource("Resource_kud4j"), SubResource("Resource_q53dw"), SubResource("Resource_tn0tl"), SubResource("Resource_o5nbp"), SubResource("Resource_0x5ab"), SubResource("Resource_idq6n"), SubResource("Resource_536nn"), SubResource("Resource_ruy2q"), SubResource("Resource_e0omr")])
 objectsToDeleteAtQuestComplete = [NodePath("KatanaStandEmpty"), NodePath("KatanaStandFull")]
 
 [node name="ArmorYokaiNPC" parent="Quests/DojoRepairArmor" instance=ExtResource("13_mswqt")]
 position = Vector2(2208, -1632)
+
+[node name="DialogueArea1" parent="Quests/DojoRepairArmor/ArmorYokaiNPC" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -40)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_hexg3"), SubResource("Resource_4lhsj"), SubResource("Resource_ggcw1"), SubResource("Resource_cghgd"), SubResource("Resource_d8daf"), SubResource("Resource_f3px8")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoRepairArmor/ArmorYokaiNPC/DialogueArea1"]
+shape = SubResource("CircleShape2D_3c5d0")
+
+[node name="DialogueArea2" parent="Quests/DojoRepairArmor/ArmorYokaiNPC" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -40)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_hekg8"), SubResource("Resource_4ib0a"), SubResource("Resource_he1t4"), SubResource("Resource_c3n4m"), SubResource("Resource_1w8dv")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoRepairArmor/ArmorYokaiNPC/DialogueArea2"]
+shape = SubResource("CircleShape2D_4iopi")
 
 [node name="KatanaStandEmpty" parent="Quests/DojoRepairArmor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("14_iqtss")]
 position = Vector2(2288, -1648)
