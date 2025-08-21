@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=85 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -19,11 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="14_vrk40"]
 [ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="15_3wwmr"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="16_e5cn5"]
-[ext_resource type="PackedScene" uid="uid://bf13ijl7i0smc" path="res://ImportantObjects/Interactables/Supplementary/waterway_t_component.tscn" id="16_xnscj"]
 [ext_resource type="PackedScene" uid="uid://uueuynaswt7r" path="res://ImportantObjects/MovableObjects/metal_rod_movable.tscn" id="17_dnihd"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
-[ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="20_157dr"]
 [ext_resource type="PackedScene" uid="uid://2dmqq3qyx765" path="res://NPC/old_yokai_npc.tscn" id="23_1ik6l"]
 [ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
 [ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
@@ -52,26 +50,21 @@
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
-vertices = PackedVector2Array(-1248, -1088, -1248, -1504, -912, -1504, -912, -1264, -1176, -1088, -864, -1504, 752, -1504, 752, -1392, 16, -1424, 800, -1392, 800, -1504, 1240, -1504, 1136, -1448, 1240, -1448, 1136, -1264, 752, -1072, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 800, -784, 1168, -560, 800, -560, 752, -784, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -128, -64, -128, -336, 144, -288, 144, -336, 304, -288, 304, -336, 448, -336, 448, -664, 464, -664, 464, -768, 400, -768, 400, -912, 352, -912, 352, -992, 16, -992, 16, -1040, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -992, -480, -992, -864, -1264, -480, -656, -528, -656, -864, -912, -528, -496, -480, -496, -480, -336, -192, -336, -192, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -864, -624, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -144, -1424)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(11, 13, 12), PackedInt32Array(9, 12, 14, 15), PackedInt32Array(14, 16, 17, 18), PackedInt32Array(18, 19, 15, 14), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(23, 25, 26, 24), PackedInt32Array(20, 24, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(38, 39, 40, 41), PackedInt32Array(40, 42, 41), PackedInt32Array(38, 41, 43), PackedInt32Array(43, 44, 45, 38), PackedInt32Array(38, 45, 46, 47, 28, 35), PackedInt32Array(20, 48, 49, 50, 15), PackedInt32Array(15, 50, 51, 52, 7, 9), PackedInt32Array(52, 53, 54), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61), PackedInt32Array(61, 62, 63), PackedInt32Array(64, 63, 65, 66, 67, 3), PackedInt32Array(68, 69, 70), PackedInt32Array(70, 71, 72, 73, 74), PackedInt32Array(70, 74, 75, 76, 77, 68), PackedInt32Array(66, 68, 77, 67), PackedInt32Array(78, 79, 80, 81), PackedInt32Array(81, 82, 83, 84, 78), PackedInt32Array(52, 54, 57, 7), PackedInt32Array(58, 61, 63, 64), PackedInt32Array(28, 31, 32, 35), PackedInt32Array(27, 28, 47, 48), PackedInt32Array(20, 27, 48), PackedInt32Array(7, 57, 8), PackedInt32Array(5, 8, 85), PackedInt32Array(64, 5, 85, 58), PackedInt32Array(4, 3, 67, 78, 84)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, -912, -1504, -912, -1264, -864, -1264, -864, -1504, 752, -1504, 752, -1392, 800, -1392, 800, -1504, 1240, -1504, 1240, -1448, 1136, -1448, 1136, -1264, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 1168, -560, 800, -560, 800, -784, 752, -784, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, -128, -64, -128, -336, 144, -336, 144, -288, 304, -288, 304, -336, 448, -336, 448, -664, 464, -664, 464, -768, 400, -768, 400, -912, 352, -912, 352, -992, 16, -992, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -992, -480, -992, -480, -656, -528, -656, -528, -496, -480, -496, -480, -336, -192, -336, -192, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -864, -624, -864, -912, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
+vertices = PackedVector2Array(-1248, -1088, -1248, -1504, -912, -1504, -912, -1264, -1176, -1088, -864, -1504, 752, -1504, 752, -1392, 16, -1424, 800, -1392, 800, -1504, 1240, -1504, 1136, -1448, 1240, -1448, 1136, -1264, 752, -1072, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 800, -784, 1168, -560, 800, -560, 752, -784, 16, -880, 16, -1040, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 416, -64, 416, 32, 352, 32, 352, -64, -16, -64, -16, -296, 8, -296, 8, -360, -16, -360, -16, -880, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -360, -136, -360, -864, -624, -136, -296, -112, -296, -112, -64, -736, -64, -736, 32, -800, 32, -800, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -864, -912, -864, -1264, -144, -1424)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(11, 13, 12), PackedInt32Array(9, 12, 14, 15), PackedInt32Array(14, 16, 17, 18), PackedInt32Array(18, 19, 15, 14), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(23, 25, 26, 24), PackedInt32Array(20, 24, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(30, 48, 49, 50, 28, 27), PackedInt32Array(29, 51, 52, 53, 15), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(69, 70, 71, 62), PackedInt32Array(71, 72, 73, 62), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 78, 79, 80, 74), PackedInt32Array(7, 9, 15, 53), PackedInt32Array(63, 66, 69, 62, 61), PackedInt32Array(58, 62, 81, 57), PackedInt32Array(82, 54, 57, 81, 74), PackedInt32Array(30, 33, 34, 37, 40), PackedInt32Array(30, 40, 41), PackedInt32Array(74, 80, 4, 3, 82), PackedInt32Array(54, 82, 5, 83), PackedInt32Array(44, 47, 48, 30, 41), PackedInt32Array(15, 20, 29), PackedInt32Array(7, 53, 8), PackedInt32Array(83, 5, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, -912, -1504, -912, -1264, -864, -1264, -864, -1504, 752, -1504, 752, -1392, 800, -1392, 800, -1504, 1240, -1504, 1240, -1448, 1136, -1448, 1136, -1264, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 1168, -560, 800, -560, 800, -784, 752, -784, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 416, -64, 416, 32, 352, 32, 352, -64, -16, -64, -16, -296, 8, -296, 8, -360, -16, -360, -16, -880, 16, -880, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -360, -136, -360, -136, -296, -112, -296, -112, -64, -736, -64, -736, 32, -800, 32, -800, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -864, -624, -864, -912, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n4xe7"]
-vertices = PackedVector2Array(-1168, 1352, -1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -896, 464, -1008, 976, -1160, 976, -1160, 880, -896, 424, -1248, 880, -1248, 424, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -624, 1264, -672, 1264, -280, 912, -280, 1128, -192, 1128, -192, 1168, -624, 1472, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -672, 1472, -1168, 1472, -1248, 280, -1248, 32, -1024, 32, -1024, 112, -1184, 280, -928, 112, -928, 144, -736, 304, -880, 144, -880, 32, -200, 32, -200, 152, -400, 368, -120, 152, -120, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 736, 464, 648, 32, 736, 32, 496, 464, 144, 368, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 208, 656, 144, 656, 208, 576, 144, 576, -120, 368, -120, 240, -200, 240, -200, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -896, 304, -896, 344, -1184, 344)
+vertices = PackedVector2Array(-1168, 1352, -1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -896, 464, -1008, 976, -1160, 976, -1160, 880, -896, 424, -1248, 880, -1248, 424, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -624, 1264, -672, 1264, -280, 912, -280, 1128, -192, 1128, -192, 1168, -624, 1472, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -672, 1472, -1168, 1472, -1248, 280, -1248, 32, -1024, 32, -1024, 112, -1184, 280, -928, 112, -928, 144, -736, 304, -880, 144, -880, 32, -120, 32, -120, 152, -400, 368, -8, 152, -8, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 736, 464, 648, 32, 736, 32, 496, 464, 144, 368, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 208, 656, 144, 656, 208, 576, 144, 576, -8, 368, -8, 240, -120, 240, -120, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -896, 304, -896, 344, -1184, 344)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(11, 13, 14, 12), PackedInt32Array(8, 15, 16, 17), PackedInt32Array(9, 8, 17), PackedInt32Array(9, 17, 18, 7), PackedInt32Array(19, 20, 21, 22, 23, 24), PackedInt32Array(22, 25, 26, 23), PackedInt32Array(23, 26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(30, 33, 29, 28), PackedInt32Array(18, 19, 24, 34, 35, 0, 7), PackedInt32Array(3, 4, 7, 0), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(39, 41, 42), PackedInt32Array(43, 44, 45, 46, 47, 48), PackedInt32Array(49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(55, 57, 58, 56), PackedInt32Array(52, 53, 56, 59, 60), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(69, 70, 71, 72, 65), PackedInt32Array(61, 64, 65, 72, 73), PackedInt32Array(72, 74, 73), PackedInt32Array(61, 73, 75, 59), PackedInt32Array(75, 76, 60, 59), PackedInt32Array(60, 77, 78, 52), PackedInt32Array(79, 80, 48), PackedInt32Array(48, 81, 82, 83), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(48, 83, 86), PackedInt32Array(48, 86, 43), PackedInt32Array(87, 88, 89, 40, 39, 42), PackedInt32Array(87, 42, 44, 43), PackedInt32Array(79, 48, 47, 49), PackedInt32Array(78, 79, 49), PackedInt32Array(78, 49, 52)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -1008, 976, -1160, 976, -1160, 880, -1248, 880, -1248, 424, -896, 424, -896, 464, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -280, 912, -280, 1128, -192, 1128, -192, 1168, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -624, 1472, -624, 1264, -672, 1264, -672, 1472, -1168, 1472, -1168, 1352), PackedVector2Array(-1248, 32, -1024, 32, -1024, 112, -928, 112, -928, 144, -880, 144, -880, 32, -200, 32, -200, 152, -120, 152, -120, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 648, 32, 736, 32, 736, 464, 496, 464, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 144, 656, 208, 656, 208, 576, 144, 576, 144, 368, -120, 368, -120, 240, -200, 240, -200, 368, -400, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -736, 304, -896, 304, -896, 344, -1184, 344, -1184, 280, -1248, 280)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -1008, 976, -1160, 976, -1160, 880, -1248, 880, -1248, 424, -896, 424, -896, 464, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -280, 912, -280, 1128, -192, 1128, -192, 1168, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -624, 1472, -624, 1264, -672, 1264, -672, 1472, -1168, 1472, -1168, 1352), PackedVector2Array(-1248, 32, -1024, 32, -1024, 112, -928, 112, -928, 144, -880, 144, -880, 32, -120, 32, -120, 152, -8, 152, -8, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 648, 32, 736, 32, 736, 464, 496, 464, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 144, 656, 208, 656, 208, 576, 144, 576, 144, 368, -8, 368, -8, 240, -120, 240, -120, 368, -400, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -736, 304, -896, 304, -896, 344, -1184, 344, -1184, 280, -1248, 280)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_46unh"]
-vertices = PackedVector2Array(816, 240, 816, 32, 992, 32, 896, 240, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 904, 1184, 904, 1088, 816, 1472, 816, 1184, 896, 336, 816, 1088, 816, 336)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(8, 11, 12, 9), PackedInt32Array(3, 2, 6, 10, 13), PackedInt32Array(13, 10, 14, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(816, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 816, 1472, 816, 1184, 904, 1184, 904, 1088, 816, 1088, 816, 336, 896, 336, 896, 240, 816, 240)])
+vertices = PackedVector2Array(816, 240, 816, 32, 992, 32, 896, 240, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 816, 1472, 816, 1312, 904, 1184, 736, 1312, 736, 1240, 816, 1240, 816, 1184, 904, 1088, 816, 1088, 816, 672, 736, 672, 736, 608, 816, 608, 816, 336, 896, 336)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 12, 13, 14), PackedInt32Array(14, 15, 11), PackedInt32Array(16, 17, 18), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23, 8), PackedInt32Array(3, 2, 6, 8, 23), PackedInt32Array(18, 21, 8, 16), PackedInt32Array(11, 16, 8), PackedInt32Array(11, 10, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(816, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 816, 1472, 816, 1312, 736, 1312, 736, 1240, 816, 1240, 816, 1184, 904, 1184, 904, 1088, 816, 1088, 816, 672, 736, 672, 736, 608, 816, 608, 816, 336, 896, 336, 896, 240, 816, 240)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b04x4"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_o5oxm"]
-vertices = PackedVector2Array(-800, -64, -736, -64, -736, 32, -800, 32, 352, -64, 416, -64, 416, 32, 352, 32, 736, 608, 816, 608, 816, 672, 736, 672, 736, 1248, 816, 1248, 816, 1312, 736, 1312)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-800, -64, -736, -64, -736, 32, -800, 32), PackedVector2Array(352, -64, 416, -64, 416, 32, 352, 32), PackedVector2Array(736, 608, 816, 608, 816, 672, 736, 672), PackedVector2Array(736, 1248, 816, 1248, 816, 1312, 736, 1312)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slmiq"]
 radius = 128.0
@@ -187,7 +180,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65532, 65536, 65536, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -8, 131072, 65536, -9, 131072, 1, -10, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786439, 65536, 65536, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 720905, 131072, 1, 720902, 65536, 1, 720901, 131072, 1, 720900, 131072, 1, 720899, 131072, 1, 720898, 131072, 1, 720897, 131072, 1, 720896, 131072, 1, 786431, 131072, 1, 786430, 131072, 1, 786429, 131072, 1, 786428, 131072, 1, 786427, 131072, 1, 786426, 196608, 1, 786425, 131072, 1, 786424, 131072, 1, 786423, 131072, 1, 786422, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 720906, 262144, 2, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, 786421, 0, 2, 720885, 0, 1, 655349, 0, 1, 589813, 0, 1, 524277, 0, 1, 458741, 0, 1, 393205, 0, 1, 327669, 0, 1, 262133, 0, 1, 196597, 0, 1, 131061, 0, 1, 65525, 0, 1, -11, 0, 1, -786443, 0, 1, -720907, 0, 1, -655371, 0, 1, -589835, 0, 1, -524299, 0, 1, -458763, 0, 1, -393227, 0, 1, -327691, 0, 1, -262155, 0, 1, -196619, 0, 1, -131083, 0, 1, -65547, 0, 1, 720903, 131072, 1, 720904, 131072, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 131072, 1, -327690, 131072, 1, -327689, 131072, 1, -327688, 131072, 1, -327687, 262144, 2, -786426, 262144, 2, 65528, 0, 2, -327671, 131072, 1, -327672, 131072, 1, -327673, 131072, 1, -327674, 65536, 1, 524278, 131072, 1, 524279, 131072, 1, 196613, 131072, 1, 196612, 131072, 1, -393223, 262144, 1, -393210, 262144, 1, 4, 262144, 1, 65540, 262144, 2, 720890, 0, 1, -720903, 262144, 1, -655367, 262144, 2)
+layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65532, 65536, 65536, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -8, 131072, 65536, -9, 131072, 1, -10, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786439, 65536, 65536, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 720905, 131072, 1, 720902, 65536, 1, 720901, 131072, 1, 720900, 131072, 1, 720899, 131072, 1, 720898, 131072, 1, 720897, 131072, 1, 720896, 131072, 1, 786431, 131072, 1, 786430, 131072, 1, 786429, 131072, 1, 786428, 131072, 1, 786427, 131072, 1, 786426, 196608, 1, 786425, 131072, 1, 786424, 131072, 1, 786423, 131072, 1, 786422, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 720906, 262144, 2, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, 786421, 0, 2, 720885, 0, 1, 655349, 0, 1, 589813, 0, 1, 524277, 0, 1, 458741, 0, 1, 393205, 0, 1, 327669, 0, 1, 262133, 0, 1, 196597, 0, 1, 131061, 0, 1, 65525, 0, 1, -11, 0, 1, -786443, 0, 1, -720907, 0, 1, -655371, 0, 1, -589835, 0, 1, -524299, 0, 1, -458763, 0, 1, -393227, 0, 1, -327691, 0, 1, -262155, 0, 1, -196619, 0, 1, -131083, 0, 1, -65547, 0, 1, 720903, 131072, 1, 720904, 131072, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 131072, 1, -327690, 131072, 1, -327689, 131072, 1, -327688, 131072, 1, -327687, 262144, 2, -786426, 262144, 2, 65528, 0, 2, -327671, 131072, 1, -327672, 131072, 1, -327673, 131072, 1, -327674, 65536, 1, 524278, 131072, 1, 524279, 131072, 1, 196613, 131072, 1, 196612, 131072, 1, -393223, 262144, 1, -393210, 262144, 1, 4, 262144, 1, 65540, 262144, 2, 720890, 0, 1, -720903, 262144, 1, -655367, 262144, 2, 589830, 720896, 4, 655366, 720896, 5, 262150, 720896, 4, 327686, 720896, 5, -7, 327680, 3, -6, 393216, 3, -65534, 327680, 3, -65533, 393216, 3)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -224,6 +217,7 @@ stream = ExtResource("5_cd325")
 stream = ExtResource("6_h56u8")
 
 [node name="NavigationRegions" type="Node2D" parent="."]
+z_index = -1
 y_sort_enabled = true
 
 [node name="GeneratorRoomRegion" type="NavigationRegion2D" parent="NavigationRegions"]
@@ -266,9 +260,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivatePools"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("Doors/Door"), NodePath("Doors/Door2"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("ConnectRoomsRegion"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3")]
-questItemsStages = Array[int]([0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true, true, true, true, true, true, false, false, true, true])
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3")]
+questItemsStages = Array[int]([0, 0, 0, 2, 2, 2, 2, 2, 2, 2])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, true, false, false, true, true])
 objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
 
 [node name="DialogueArea" parent="Quests/BathroomsActivatePools" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
@@ -282,141 +276,12 @@ activatedByQuest = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsActivatePools/DialogueArea"]
 shape = SubResource("CircleShape2D_b04x4")
 
-[node name="WaterSources" type="Node2D" parent="Quests/BathroomsActivatePools"]
-y_sort_enabled = true
-
-[node name="WaterSource" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-448, -576)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway4"), NodePath("../../Waterways/Waterway3")]
-
-[node name="WaterSource2" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-64, -960)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway2"), NodePath("../../Waterways/Waterway3"), NodePath("../../Waterways/Waterway6")]
-
-[node name="WaterSource3" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-64, -1344)
-alwaysFilled = true
-waterwaysToActivate = [NodePath("../../Waterways/Waterway6")]
-
-[node name="WaterSource4" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(224, -368)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../../BathroomsRescueOldYokai/WaterwayPool")]
-
-[node name="WaterSource5" parent="Quests/BathroomsActivatePools/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(320, -832)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway2"), NodePath("../../Waterways/Waterway7")]
-
-[node name="Waterways" type="Node2D" parent="Quests/BathroomsActivatePools"]
-y_sort_enabled = true
-
-[node name="Waterway2" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(160, -960)
-objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../WaterSources/WaterSource2")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(-96, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(32, 0)
-rotation = 1.5708
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway2" instance=ExtResource("15_3wwmr")]
-position = Vector2(160, 0)
-rotation = 4.71239
-
-[node name="Waterway3" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-320, -960)
-objectsToFill = [NodePath("../../WaterSources/WaterSource"), NodePath("../../WaterSources/WaterSource2")]
-
-[node name="WaterwayComponent8" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(128, 0)
-rotation = 1.5708
-hasBridge = true
-
-[node name="WaterwayComponent9" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-rotation = 1.5708
-
-[node name="WaterwayComponent10" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(-128, 128)
-
-[node name="WaterwayComponent11" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(-128, 256)
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway3" instance=ExtResource("15_3wwmr")]
-position = Vector2(-128, 0)
-rotation = 3.14159
-
-[node name="Waterway4" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-448, -416)
-objectsToFill = [NodePath("../../WaterSources/WaterSource"), NodePath("../../../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -32)
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway4" instance=ExtResource("15_3wwmr")]
-position = Vector2(0, 48)
-rotation = 1.5708
-
-[node name="Waterway5" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(416, -368)
-objectsToFill = [NodePath("../../../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource4")]
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -256)
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -128)
-hasBridge = true
-
-[node name="WaterwayComponent6" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
-position = Vector2(-64, 6.10352e-05)
-rotation = 1.5708
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway5" instance=ExtResource("15_3wwmr")]
-
-[node name="Waterway6" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-64, -1152)
-objectsToFill = [NodePath("../../WaterSources/WaterSource2")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -64)
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsActivatePools/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, 64)
-
-[node name="Waterway7" parent="Quests/BathroomsActivatePools/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(320, -720)
-objectsToFill = [NodePath("../../../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource5")]
-
-[node name="WaterwayAngleComponent" parent="Quests/BathroomsActivatePools/Waterways/Waterway7" instance=ExtResource("15_3wwmr")]
-position = Vector2(0, 16)
-rotation = 1.5708
-
 [node name="MetalRod" parent="Quests/BathroomsActivatePools" instance=ExtResource("17_dnihd")]
 position = Vector2(-1216, -320)
 
 [node name="HeatSourceActivator" parent="Quests/BathroomsActivatePools" instance=ExtResource("18_ff0db")]
 position = Vector2(128, -832)
 activated = true
-
-[node name="Doors" type="Node2D" parent="Quests/BathroomsActivatePools"]
-y_sort_enabled = true
-
-[node name="Door" parent="Quests/BathroomsActivatePools/Doors" instance=ExtResource("19_cvryn")]
-position = Vector2(-768, 0)
-
-[node name="Door2" parent="Quests/BathroomsActivatePools/Doors" instance=ExtResource("19_cvryn")]
-position = Vector2(384, 0)
-
-[node name="DoorVertical" parent="Quests/BathroomsActivatePools/Doors" instance=ExtResource("20_157dr")]
-position = Vector2(776, 768)
-
-[node name="DoorVertical2" parent="Quests/BathroomsActivatePools/Doors" instance=ExtResource("20_157dr")]
-position = Vector2(776, 1408)
-
-[node name="ConnectRoomsRegion" type="NavigationRegion2D" parent="Quests/BathroomsActivatePools"]
-navigation_polygon = SubResource("NavigationPolygon_o5oxm")
 
 [node name="BathroomsSaveGenerator1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
@@ -428,8 +293,8 @@ questItemsOnOffState = Array[bool]([false, false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsSaveGenerator1" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(416, -680)
-waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway7"), NodePath("../../BathroomsActivatePools/Waterways/Waterway5")]
+position = Vector2(-64, -304)
+waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway2"), NodePath("../../../Puzzle/Waterways/Waterway3Pool")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -448,7 +313,7 @@ shape = SubResource("CircleShape2D_slmiq")
 [node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["So, how do I fill you with water again?", "Oh... right.", "See those? Those are water sources.", "This one in particular is always filled with water, if you hit a filled water source with something mechanical...", "...it will fill any waterways it's connected to, for a limited amount of time.", "If water from a waterway reaches me, I'll become able to produce water again...", "...and permanently fill any waterways close to me.", "Remember that after a while the water sources will stop providing water to the waterways.", "Thanks for the explanation, I'll try."])
 characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath("../../../BathroomsActivatePools/WaterSources/WaterSource3"), NodePath("../../../BathroomsActivatePools/WaterSources/WaterSource3"), NodePath("../../../BathroomsActivatePools/Waterways/Waterway6"), NodePath(".."), NodePath(".."), NodePath(".."), null]
+cameraFocuses = [null, NodePath(".."), NodePath("../../../../Puzzle/WaterSources/WaterSource1"), NodePath("../../../../Puzzle/WaterSources/WaterSource1"), NodePath("../../../../Puzzle/Waterways/Waterway1"), NodePath(".."), NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"]
@@ -494,9 +359,8 @@ questItemsStages = Array[int]([0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
-[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(-376, -344)
-waterwaysToActivate = [NodePath("../../BathroomsActivatePools/Waterways/Waterway4"), NodePath("../../BathroomsRescueOldYokai/WaterwayPool")]
+[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(352, -784)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -570,199 +434,6 @@ shape = SubResource("CircleShape2D_aubck")
 
 [node name="OldYokai" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_vkv67")]
 position = Vector2(-152, 576)
-
-[node name="WaterwayPool" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-240, 768)
-objectsToFill = [NodePath("../Watersources/WaterSource"), NodePath("../Watersources/WaterSource2"), NodePath("../../BathroomsSaveGenerator2/BathroomGeneratorYokai2"), NodePath("../../BathroomsActivatePools/WaterSources/WaterSource4")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, -824)
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, -696)
-
-[node name="WaterwayComponent6" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, -448)
-
-[node name="WaterwayComponent10" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(0.00012207, 192)
-
-[node name="WaterwayComponent11" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(-208, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent12" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(-320, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent13" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(-448, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, -952)
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, -1008)
-
-[node name="WaterwayAngleComponentPool" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
-position = Vector2(304, 64)
-
-[node name="WaterwaySideComponentPool" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(304, -64)
-
-[node name="WaterwaySideComponentPool2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(304, -192)
-
-[node name="WaterwaySideComponentPool3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(176, 64)
-rotation = 1.5708
-
-[node name="WaterwaySideComponentPool4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(48, 64)
-rotation = 1.5708
-
-[node name="WaterwaySideComponentPool5" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(-80, -64)
-rotation = 3.14159
-
-[node name="WaterwaySideComponentPool6" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(-80, -192)
-rotation = 3.14159
-hasBridge = true
-
-[node name="WaterwaySideComponentPool7" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(48, -320)
-rotation = 4.71239
-
-[node name="WaterwaySideComponentPool8" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("32_7lw7r")]
-position = Vector2(176, -320)
-rotation = 4.71239
-
-[node name="WaterwayComponentPool" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
-position = Vector2(48, -64)
-
-[node name="WaterwayComponentPool2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
-position = Vector2(48, -192)
-hasBridge = true
-
-[node name="WaterwayComponentPool3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
-position = Vector2(176, -192)
-
-[node name="WaterwayComponentPool4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("24_431i6")]
-position = Vector2(176, -64)
-
-[node name="WaterwayAngleComponentPool2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
-position = Vector2(-80, 64)
-rotation = 1.5708
-
-[node name="WaterwayAngleComponentPool3" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
-position = Vector2(-80, -320)
-rotation = 3.14159
-
-[node name="WaterwayAngleComponentPool4" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("31_s5uyt")]
-position = Vector2(304, -320)
-rotation = 4.71239
-
-[node name="WaterwayAngleComponent2" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("15_3wwmr")]
-position = Vector2(0.00012207, 320)
-rotation = 1.5708
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(-48, -1136)
-rotation = 1.5708
-hasBridge = true
-
-[node name="WaterwayTComponent" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("16_xnscj")]
-position = Vector2(80, -1136)
-rotation = 3.14159
-
-[node name="WaterwayComponent7" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(208, -1136)
-rotation = 1.5708
-
-[node name="WaterwayComponent8" parent="Quests/BathroomsRescueOldYokai/WaterwayPool" instance=ExtResource("14_4x8ki")]
-position = Vector2(336, -1136)
-rotation = 1.5708
-hasBridge = true
-
-[node name="Watersources" type="Node2D" parent="Quests/BathroomsRescueOldYokai"]
-
-[node name="WaterSource" parent="Quests/BathroomsRescueOldYokai/Watersources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-816, 768)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway")]
-
-[node name="WaterSource2" parent="Quests/BathroomsRescueOldYokai/Watersources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-112, 1088)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway2")]
-
-[node name="WaterSource3" parent="Quests/BathroomsRescueOldYokai/Watersources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
-position = Vector2(-816, 384)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway"), NodePath("../../Waterways/Waterway3")]
-
-[node name="Waterways" type="Node2D" parent="Quests/BathroomsRescueOldYokai"]
-
-[node name="Waterway" parent="Quests/BathroomsRescueOldYokai/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-816, 640)
-objectsToFill = [NodePath("../../Watersources/WaterSource3")]
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway" instance=ExtResource("14_4x8ki")]
-hasBridge = true
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway" instance=ExtResource("14_4x8ki")]
-position = Vector2(0, -128)
-
-[node name="Waterway3" parent="Quests/BathroomsRescueOldYokai/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
-position = Vector2(-1088, 384)
-objectsToFill = [NodePath("../../Watersources/WaterSource3")]
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(144, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(16, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(-112, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway3" instance=ExtResource("14_4x8ki")]
-position = Vector2(-136, 0)
-rotation = 1.5708
-
-[node name="Waterway2" parent="Quests/BathroomsRescueOldYokai/Waterways" instance=ExtResource("12_vc1fv")]
-position = Vector2(192, 1088)
-
-[node name="WaterwayComponent" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(-176, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent2" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(-48, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent3" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(80, 0)
-rotation = 1.5708
-hasBridge = true
-
-[node name="WaterwayComponent4" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(208, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent5" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(336, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent6" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(464, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent7" parent="Quests/BathroomsRescueOldYokai/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
-position = Vector2(520, 0)
-rotation = 1.5708
 
 [node name="BathroomsCleanFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -2001,3 +1672,219 @@ position = Vector2(0, 64)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
 position = Vector2(0, 192)
+
+[node name="Puzzle" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="WaterSources" type="Node2D" parent="Puzzle"]
+y_sort_enabled = true
+
+[node name="WaterSource1" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-64, -1344)
+alwaysFilled = true
+waterwaysToActivate = [NodePath("../../Waterways/Waterway1")]
+
+[node name="WaterSource2" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-64, -960)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway1"), NodePath("../../Waterways/Waterway2")]
+
+[node name="WaterSource3" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-816, 768)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway3Pool"), NodePath("../../Waterways/Waterway4")]
+
+[node name="WaterSource4" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-816, 384)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway4"), NodePath("../../Waterways/Waterway5")]
+
+[node name="WaterSource5" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
+position = Vector2(-112, 1088)
+waterwaysToActivate = [NodePath("../../Waterways/Waterway3Pool"), NodePath("../../Waterways/Waterway6")]
+
+[node name="Waterways" type="Node2D" parent="Puzzle"]
+y_sort_enabled = true
+
+[node name="Waterway1" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-64, -1152)
+objectsToFill = [NodePath("../../WaterSources/WaterSource2")]
+
+[node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway1" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -64)
+
+[node name="WaterwayComponent2" parent="Puzzle/Waterways/Waterway1" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 64)
+
+[node name="Waterway2" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-64, -704)
+objectsToFill = [NodePath("../../WaterSources/WaterSource2"), NodePath("../../../Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai")]
+
+[node name="WaterwayComponent10" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -128)
+
+[node name="WaterwayComponent11" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
+
+[node name="WaterwayComponent12" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 128)
+
+[node name="WaterwayComponent13" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 256)
+
+[node name="Waterway3Pool" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-240, 768)
+objectsToFill = [NodePath("../../../Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2"), NodePath("../../WaterSources/WaterSource3"), NodePath("../../WaterSources/WaterSource5")]
+
+[node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(176, -824)
+
+[node name="WaterwayComponent4" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(176, -696)
+
+[node name="WaterwayComponent6" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(176, -448)
+
+[node name="WaterwayComponent10" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(0.00012207, 192)
+
+[node name="WaterwayComponent11" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(-208, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent12" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(-320, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent13" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(-448, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(176, -952)
+
+[node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
+position = Vector2(176, -1008)
+
+[node name="WaterwayAngleComponentPool" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("31_s5uyt")]
+position = Vector2(304, 64)
+
+[node name="WaterwaySideComponentPool" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(304, -64)
+
+[node name="WaterwaySideComponentPool2" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(304, -192)
+
+[node name="WaterwaySideComponentPool3" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(176, 64)
+rotation = 1.5708
+
+[node name="WaterwaySideComponentPool4" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(48, 64)
+rotation = 1.5708
+
+[node name="WaterwaySideComponentPool5" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-80, -64)
+rotation = 3.14159
+
+[node name="WaterwaySideComponentPool6" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(-80, -192)
+rotation = 3.14159
+hasBridge = true
+
+[node name="WaterwaySideComponentPool7" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(48, -320)
+rotation = 4.71239
+
+[node name="WaterwaySideComponentPool8" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("32_7lw7r")]
+position = Vector2(176, -320)
+rotation = 4.71239
+
+[node name="WaterwayComponentPool" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("24_431i6")]
+position = Vector2(48, -64)
+
+[node name="WaterwayComponentPool2" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("24_431i6")]
+position = Vector2(48, -192)
+hasBridge = true
+
+[node name="WaterwayComponentPool3" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("24_431i6")]
+position = Vector2(176, -192)
+
+[node name="WaterwayComponentPool4" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("24_431i6")]
+position = Vector2(176, -64)
+
+[node name="WaterwayAngleComponentPool2" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-80, 64)
+rotation = 1.5708
+
+[node name="WaterwayAngleComponentPool3" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("31_s5uyt")]
+position = Vector2(-80, -320)
+rotation = 3.14159
+
+[node name="WaterwayAngleComponentPool4" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("31_s5uyt")]
+position = Vector2(304, -320)
+rotation = 4.71239
+
+[node name="WaterwayAngleComponent2" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("15_3wwmr")]
+position = Vector2(0.00012207, 320)
+rotation = 1.5708
+
+[node name="Waterway4" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-816, 576)
+objectsToFill = [NodePath("../../WaterSources/WaterSource3"), NodePath("../../WaterSources/WaterSource4")]
+
+[node name="WaterwayComponent2" parent="Puzzle/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, 64)
+hasBridge = true
+
+[node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway4" instance=ExtResource("14_4x8ki")]
+position = Vector2(0, -64)
+
+[node name="Waterway5" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(-1088, 384)
+objectsToFill = [NodePath("../../WaterSources/WaterSource4")]
+
+[node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
+position = Vector2(144, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
+position = Vector2(16, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
+position = Vector2(-112, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent4" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
+position = Vector2(-136, 0)
+rotation = 1.5708
+
+[node name="Waterway6" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
+position = Vector2(336, 1088)
+objectsToFill = [NodePath("../../WaterSources/WaterSource5")]
+
+[node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(-320, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent2" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(-192, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(-64, 0)
+rotation = 1.5708
+hasBridge = true
+
+[node name="WaterwayComponent4" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(64, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent5" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(192, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent6" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(320, 0)
+rotation = 1.5708
+
+[node name="WaterwayComponent7" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
+position = Vector2(376, 0)
+rotation = 1.5708

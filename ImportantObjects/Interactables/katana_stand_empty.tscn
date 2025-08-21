@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://nf6spvq1hahh"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BrokenPartsInteractable.gd" id="1_65ra0"]
+[ext_resource type="Texture2D" uid="uid://14t3btlc5duj" path="res://ImportantObjects/Interactables/Sprites/katanaStandEmpty.png" id="2_oj0y4"]
+[ext_resource type="Texture2D" uid="uid://ds00x56bfruhh" path="res://ImportantObjects/MovableObjects/Sprites/KatanaPart1.png" id="3_vovvj"]
+[ext_resource type="Texture2D" uid="uid://bhfoyawgr6he2" path="res://ImportantObjects/MovableObjects/Sprites/KatanaPart2.png" id="4_ywedu"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="6_13wjb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0jr6y"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luqhy"]
+radius = 128.0
+
+[node name="KatanaStandEmpty" type="StaticBody2D" node_paths=PackedStringArray("partSprites") groups=["Interactable"]]
+script = ExtResource("1_65ra0")
+partSprites = [NodePath("Part0"), NodePath("Part1")]
+neededProperties = Array[String](["KatanaPart"])
+destroyOnEnd = true
+receiveRefAttack = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0jr6y")
+
+[node name="Part0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, -48)
+texture = ExtResource("3_vovvj")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-19, -48)
+texture = ExtResource("4_ywedu")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_oj0y4")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("6_13wjb")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CircleShape2D_luqhy")

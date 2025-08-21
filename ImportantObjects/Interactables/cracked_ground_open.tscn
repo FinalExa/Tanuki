@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dygwbqftwoueg"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_glep1"]
+[ext_resource type="Texture2D" uid="uid://iqaio1rg6e0i" path="res://ImportantObjects/Interactables/Sprites/CrackedGroundOpen.png" id="2_pkjgm"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_c3m7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
+size = Vector2(64, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhiu"]
+size = Vector2(128, 128)
+
+[node name="CrackedGroundOpen" type="StaticBody2D" groups=["Interactable"]]
+z_index = -1
+script = ExtResource("1_glep1")
+neededProperties = Array[String](["Carpet"])
+destroyOnEnd = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -4)
+shape = SubResource("RectangleShape2D_kufeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pkjgm")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_c3m7i")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("RectangleShape2D_vvhiu")

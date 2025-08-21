@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6na3os1xnmkk"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_3ap2v"]
+[ext_resource type="Texture2D" uid="uid://dpwg4rpxvc3tr" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/MagicOil.png" id="2_42qnh"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_ufop2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xklpx"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0a0q"]
+radius = 96.3328
+
+[node name="MagicOil" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_3ap2v")
+transformedName = "Magic Oil"
+transformedSpeedTier = 1
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedAttackName = "Oil"
+transformedAttackPath = "res://ImportantObjects/TransformationObjects/Attacks/magic_oil_attack.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/magic_oil.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xklpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.03897e-28, -32)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_42qnh")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_ufop2")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_o0a0q")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

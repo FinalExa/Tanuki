@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwjv3epmwsebb"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Traps/Effects/Scripts/CenterPullEffect.gd" id="1_vd8m7"]
+
+[node name="CenterPullEffect" type="Node2D"]
+script = ExtResource("1_vd8m7")
+pullForce = 150.0
+distanceFromCenter = 25.0

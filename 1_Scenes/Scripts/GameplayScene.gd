@@ -8,6 +8,10 @@ enum SceneType
 	BATHROOMS,
 	GARDEN,
 	HALL,
+	DOJO,
+	BEDROOM_LUNCHROOM,
+	GARDENTWO,
+	TEMPLE
 }
 
 @export var playerSpawnPoint: Node2D

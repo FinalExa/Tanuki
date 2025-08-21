@@ -54,4 +54,5 @@ func TransformationActive(delta):
 		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)
 
 func TransformationFeedbackActivation(status: bool):
-	get_tree().root.get_child(0).sceneSelector.currentScene.ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationChange.currentTransformationObject.transformedName, status)
+	var currentScene: GameplayScene = get_tree().root.get_child(0).sceneSelector.currentScene
+	currentScene.ActivateOrDeactivateFeedbackForLocalAllowedItems(transformationChange.currentTransformationObject.transformedName, status)

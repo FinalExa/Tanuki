@@ -18,7 +18,7 @@
 [ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="16_x2pe0"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="17_a0ulx"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Cleaner/CleanerBossRotator.gd" id="18_y6g6m"]
-[ext_resource type="PackedScene" uid="uid://cm3apc14xngam" path="res://Enemies/cleaner_boss_attack_hitbox.tscn" id="19_njgwt"]
+[ext_resource type="PackedScene" uid="uid://cm3apc14xngam" path="res://Enemies/Attacks/cleaner_boss_attack_hitbox.tscn" id="19_njgwt"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="20_od2c3"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="21_g60x6"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="22_q3wvc"]
@@ -62,7 +62,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_fjo4w")
 attackArea = NodePath("Rotator/CleanerBossAttackHitbox")
-newSpeed = 600.0
+newSpeed = 700.0
 enemyName = "CleanerBoss"
 repelledTime = 0.3
 repelledDistance = 350.0
@@ -133,7 +133,7 @@ animation = &"idle"
 script = ExtResource("12_ahneb")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
-defaultMovementSpeed = 800.0
+defaultMovementSpeed = 900.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 

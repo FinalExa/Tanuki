@@ -2,6 +2,7 @@ class_name DialogueArea
 extends Area2D
 
 @export var dialogueExecutingICD: float
+@export var dialogueIndexes: Array[DialogueIndex]
 @export var dialogueText: Array[String]
 @export var characterTalking: Array[DialogueUI.DialogueCharacters]
 @export var cameraFocuses: Array[Node2D]
@@ -59,6 +60,11 @@ func PlayerIn():
 		StartDialogue(player)
 
 func StartDialogue(playerRef: PlayerCharacter):
+	if (dialogueIndexes.size() > 0):
+		playerRef.playerHUD.ForcePause()
+		playerRef.playerHUD.dialogueUI.StartNewDialogueWithIndex(dialogueIndexes, self)
+		dialogueExecuting = true
+		return
 	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == cameraFocuses.size() && dialogueText.size() > 0):
 		playerRef.playerHUD.ForcePause()
 		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, cameraFocuses, self)

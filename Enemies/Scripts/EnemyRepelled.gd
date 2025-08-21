@@ -3,7 +3,7 @@ extends Area2D
 
 @export var attackTag: String
 @export var enemyController: EnemyController
-@export var objectsInStopRange: Array[Node2D]
+var objectsInStopRange: Array[Node2D]
 
 var interactablesInRange: Array[GenericInteractable]
 var activatedInteractables: Array[GenericInteractable]

@@ -28,35 +28,56 @@ func _ready():
 
 func set_current_patrol_routine():
 	if (enemyController.isInPatrol):
-		var currentAction: PatrolIndicator.ActionTypes  = loadedPatrolIndicator.patrolActions[patrolIndex]
-		if (currentAction == loadedPatrolIndicator.ActionTypes.WAIT):
-			Wait(loadedPatrolIndicator.waitActions[patrolWaitIndex])
+		if (loadedPatrolIndicator.patrolIndexes.size() > 0):
+			ExecuteRoutine()
 		else:
-			if (currentAction == loadedPatrolIndicator.ActionTypes.MOVE):
-				Move(loadedPatrolIndicator.moveActions[patrolMovementIndex])
-			else:
-				LookAround(loadedPatrolIndicator.lookActions[patrolLookAroundIndex])
-		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
+			OldRoutine()
+
+func ExecuteRoutine():
+	var currentAction: PatrolIndex  = loadedPatrolIndicator.patrolIndexes[patrolIndex]
+	if (currentAction is PatrolIndexWait):
+		Wait(currentAction.waitDuration)
+	else:
+		if (currentAction is PatrolIndexMove):
+			Move(currentAction.ReturnDestination(loadedPatrolIndicator))
+		else:
+			if (currentAction is PatrolIndexLook):
+				LookAround(currentAction.lookDirection)
+	patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolIndexes.size())
+
+func OldRoutine():
+	var currentAction: PatrolIndicator.ActionTypes  = loadedPatrolIndicator.patrolActions[patrolIndex]
+	if (currentAction == loadedPatrolIndicator.ActionTypes.WAIT):
+		Wait(loadedPatrolIndicator.waitActions[patrolWaitIndex])
+	else:
+		if (currentAction == loadedPatrolIndicator.ActionTypes.MOVE):
+			Move(loadedPatrolIndicator.moveActions[patrolMovementIndex])
+		else:
+			LookAround(loadedPatrolIndicator.lookActions[patrolLookAroundIndex])
+	patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
 
 func Move(target):
 	enemyController.enemyMovement.set_location_target(target.global_position)
 	enemyController.enemyMovement.reset_movement_speed()
 	enemyController.enemyRotator.setLookingAtPosition(target.global_position)
-	patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
+	if (loadedPatrolIndicator.patrolIndexes.size() == 0):
+		patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 
 func Wait(timer):
 	waitTimer = timer
 	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyRotator.stopLooking()
 	isWaiting = true
-	patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
+	if (loadedPatrolIndicator.patrolIndexes.size() == 0):
+		patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 
 func LookAround(rotationPoint):
 	enemyController.enemyMovement.set_new_target(null)
 	enemyController.enemyRotator.stopLooking()
 	enemyController.enemyRotator.rotateTo(rotationPoint)
-	patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 	isRotating = true
+	if (loadedPatrolIndicator.patrolIndexes.size() == 0):
+		patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
 
 func set_new_index(currentIndex: int, valueChange:int , size:int):
 	currentIndex += valueChange
@@ -161,12 +182,15 @@ func AdvanceIndexTo(targetIndex: int):
 	patrolLookAroundIndex = 0
 	for i in targetIndex:
 		var currentAction: PatrolIndicator.ActionTypes = loadedPatrolIndicator.patrolActions[patrolIndex]
-		if (currentAction == PatrolIndicator.ActionTypes.MOVE):
+		if (currentAction == PatrolIndicator.ActionTypes.MOVE && loadedPatrolIndicator.patrolIndexes.size() == 0):
 			patrolMovementIndex = set_new_index(patrolMovementIndex, 1, loadedPatrolIndicator.moveActions.size())
 		else:
-			if (currentAction == PatrolIndicator.ActionTypes.WAIT):
+			if (currentAction == PatrolIndicator.ActionTypes.WAIT && loadedPatrolIndicator.patrolIndexes.size() == 0):
 				patrolWaitIndex = set_new_index(patrolWaitIndex, 1, loadedPatrolIndicator.waitActions.size())
 			else:
-				if (currentAction == PatrolIndicator.ActionTypes.LOOK_AROUND):
+				if (currentAction == PatrolIndicator.ActionTypes.LOOK_AROUND && loadedPatrolIndicator.patrolIndexes.size() == 0):
 					patrolLookAroundIndex = set_new_index(patrolLookAroundIndex, 1, loadedPatrolIndicator.lookActions.size())
-		patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())
+		if (loadedPatrolIndicator.patrolIndexes.size() > 0):
+			patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolIndexes.size())
+		else:
+			patrolIndex = set_new_index(patrolIndex, 1, loadedPatrolIndicator.patrolActions.size())

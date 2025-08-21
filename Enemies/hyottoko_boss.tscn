@@ -1,0 +1,435 @@
+[gd_scene load_steps=55 format=3 uid="uid://bwf0dip768kw"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoBossController.gd" id="1_ar0p4"]
+[ext_resource type="AudioStream" uid="uid://jwa5ygrin5l2" path="res://Enemies/Sounds/Hyottoko/Movement/Step 1 Walking - Hyottoko.wav" id="2_o76tx"]
+[ext_resource type="AudioStream" uid="uid://bvh17klfimnj0" path="res://Enemies/Sounds/Hyottoko/Movement/Step 2 Walking - Hyottoko.wav" id="3_i2jhj"]
+[ext_resource type="AudioStream" uid="uid://cn5xhs1ns67nu" path="res://Enemies/Sounds/Hyottoko/Movement/Step 3 Walking - Hyottoko.wav" id="4_eykbd"]
+[ext_resource type="AudioStream" uid="uid://dm1x8xqq55i6t" path="res://Enemies/Sounds/Hyottoko/Movement/Step 4 Walking - Hyottoko.wav" id="5_gxsmo"]
+[ext_resource type="AudioStream" uid="uid://dq5p8efxxls7a" path="res://Enemies/Sounds/Guard/Hit By Player.wav" id="6_7g25p"]
+[ext_resource type="AudioStream" uid="uid://c30xdgocdbnp8" path="res://Enemies/Sounds/Guard/Stunned_Guar-Chipchip.wav" id="7_kay07"]
+[ext_resource type="AudioStream" uid="uid://d0inohxl2el40" path="res://Enemies/Sounds/Hyottoko/Attack - Hyottoko.wav" id="8_kxmyv"]
+[ext_resource type="Texture2D" uid="uid://doty0qjp6fjju" path="res://Enemies/Sprites/Hyottoko_Boss.png" id="9_ptm78"]
+[ext_resource type="Texture2D" uid="uid://do6kl8t7bho8a" path="res://Enemies/Sprites/Hyottoko_Boss_Trapped.png" id="10_55v5c"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="10_jcxqr"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_tendj"]
+[ext_resource type="Texture2D" uid="uid://dw7hmls1uir6" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Head.png" id="11_vlfy2"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="12_1171r"]
+[ext_resource type="Texture2D" uid="uid://dpfcel8touhnh" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Body.png" id="12_n8i33"]
+[ext_resource type="Script" path="res://Level/AllPurpose/Scripts/FollowHorizontalFlipOf.gd" id="12_y1ow1"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStunned.gd" id="13_oblj2"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoReachPoint.gd" id="14_l5ydc"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoEntranced.gd" id="15_0kboj"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="16_tr5f6"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="17_fuo20"]
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="18_f15dd"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Hyottoko/HyottokoRange.gd" id="19_dh4i4"]
+[ext_resource type="PackedScene" uid="uid://bvs6yt6gnm2dg" path="res://Enemies/Attacks/hyottoko_boss_attack.tscn" id="20_8lud5"]
+[ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="21_5vidj"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="22_n3bhb"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="23_erqam"]
+[ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="24_o4gxp"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoBossIsCaptured.gd" id="25_520sj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardIsInStun.gd" id="25_jrme0"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Stunned/GuardStunnedTimer.gd" id="26_k5qn7"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsEntranced.gd" id="27_i3dau"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsAttacking.gd" id="28_j4fuj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoIsReachingPoint.gd" id="29_si8xm"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointMovement.gd" id="30_4gfqa"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoReachingPointTimer.gd" id="31_vqw66"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskIsSpottingPlayer.gd" id="32_4xm32"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoApproachPlayer.gd" id="33_4hg2w"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Hyottoko/TaskHyottokoStartAttack.gd" id="34_cx3xe"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardIsInPatrol.gd" id="35_vwajv"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolStartup.gd" id="36_55kef"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardExtraPatrolTimer.gd" id="37_15wu6"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="38_fthuo"]
+[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="39_uhvsy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rshso"]
+radius = 8.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71bxp"]
+atlas = ExtResource("9_ptm78")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whf2c"]
+atlas = ExtResource("10_55v5c")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71bxp")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whf2c")
+}],
+"loop": false,
+"name": &"trapped",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5quwe"]
+atlas = ExtResource("12_n8i33")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4ygt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5quwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp8nu"]
+atlas = ExtResource("11_vlfy2")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivjaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp8nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qg4sj"]
+font = ExtResource("16_tr5f6")
+font_size = 18
+font_color = Color(1, 0, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvwmf"]
+radius = 640.0
+
+[node name="HyottokoBoss" type="CharacterBody2D" node_paths=PackedStringArray("armorPieces", "hyottokoRange", "hyottokoReachPoint", "hyottokoAttack", "hyottokoEntranced", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ar0p4")
+newSpeed = 300.0
+armorPieces = [NodePath("ArmorBody"), NodePath("ArmorHead")]
+hyottokoRange = NodePath("Rotator/HyottokoRange")
+hyottokoPushDistanceFromPlayer = 250.0
+hyottokoReachPoint = NodePath("HyottokoReachPoint")
+hyottokoAttack = NodePath("Rotator/HyottokoBossAttack")
+hyottokoEntranced = NodePath("HyottokoEntranced")
+enemyName = "HyottokoBoss"
+repelledTime = 0.3
+repelledDistance = 200.0
+repelledOffset = -90.0
+enemyMovement = NodePath("EnemyMovement")
+enemyRotator = NodePath("Rotator")
+enemyPatrol = NodePath("EnemyPatrol")
+enemyStatus = NodePath("EnemyStatus")
+enemyStunned = NodePath("EnemyStunned")
+enemyRepelled = NodePath("EnemyRepelled")
+spriteRef = NodePath("AnimatedSprite2D")
+enemyMovementSounds = NodePath("HyottokoMovementSounds")
+hitByPlayerSound = NodePath("Sounds/HitByPlayer")
+stunnedHit = NodePath("Sounds/StunnedHit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rshso")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 100.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Movement" type="Node2D" parent="Sounds"]
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
+stream = ExtResource("2_o76tx")
+max_distance = 800.0
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
+stream = ExtResource("3_i2jhj")
+max_distance = 800.0
+
+[node name="Step3" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
+stream = ExtResource("4_eykbd")
+max_distance = 800.0
+
+[node name="Step4" type="AudioStreamPlayer2D" parent="Sounds/Movement"]
+stream = ExtResource("5_gxsmo")
+max_distance = 800.0
+
+[node name="CurrentMovementSound" type="AudioStreamPlayer2D" parent="Sounds"]
+max_distance = 800.0
+
+[node name="HitByPlayer" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_7g25p")
+max_distance = 500.0
+
+[node name="StunnedChirp" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("7_kay07")
+max_distance = 500.0
+
+[node name="StunnedHit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_7g25p")
+max_distance = 500.0
+
+[node name="NormalAttack" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_kxmyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_d6h4v")
+animation = &"idle"
+
+[node name="ArmorBody" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_v4ygt")
+script = ExtResource("12_y1ow1")
+objectToFollow = NodePath("../AnimatedSprite2D")
+
+[node name="ArmorHead" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_ivjaj")
+script = ExtResource("12_y1ow1")
+objectToFollow = NodePath("../AnimatedSprite2D")
+
+[node name="EnemyMovement" type="Node" parent="." node_paths=PackedStringArray("enemyController", "navigationAgent")]
+script = ExtResource("10_jcxqr")
+enemyController = NodePath("..")
+navigationAgent = NodePath("../NavigationAgent2D")
+defaultMovementSpeed = 350.0
+distanceTolerance = 10.0
+repathTimerDuration = 0.25
+
+[node name="HyottokoMovementSounds" type="Node" parent="." node_paths=PackedStringArray("enemyController", "cleanerMovementSounds", "currentMovementSound")]
+script = ExtResource("11_tendj")
+enemyController = NodePath("..")
+cleanerMovementSounds = [NodePath("../Sounds/Movement/Step1"), NodePath("../Sounds/Movement/Step2"), NodePath("../Sounds/Movement/Step3"), NodePath("../Sounds/Movement/Step4")]
+currentMovementSound = NodePath("../Sounds/CurrentMovementSound")
+
+[node name="EnemyPatrol" type="Node" parent="." node_paths=PackedStringArray("enemyController")]
+script = ExtResource("12_1171r")
+enemyController = NodePath("..")
+startupDuration = 0.1
+timeSpentDoingExtraPatrol = 60.0
+
+[node name="EnemyStunned" type="Node" parent="." node_paths=PackedStringArray("stunnedSound", "enemyController")]
+script = ExtResource("13_oblj2")
+stunDuration = 5.0
+stunnedText = "STUNNED"
+stunnedSound = NodePath("../Sounds/StunnedChirp")
+enemyController = NodePath("..")
+
+[node name="HyottokoReachPoint" type="Node" parent="." node_paths=PackedStringArray("hyottokoController", "enemyMovement")]
+script = ExtResource("14_l5ydc")
+hyottokoController = NodePath("..")
+enemyMovement = NodePath("../EnemyMovement")
+reachPointText = "REACHING POINT"
+distanceFromPointToReach = 25.0
+durationAfterReachingPoint = 3.0
+
+[node name="HyottokoEntranced" type="Node" parent="." node_paths=PackedStringArray("hyottokoController")]
+script = ExtResource("15_0kboj")
+hyottokoController = NodePath("..")
+entrancedText = "ENTRANCED"
+expires = true
+expireDuration = 5.0
+
+[node name="EnemyStatus" type="Label" parent="."]
+offset_left = -80.0
+offset_top = -192.0
+offset_right = 80.0
+offset_bottom = -166.0
+label_settings = SubResource("LabelSettings_qg4sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_fuo20")
+
+[node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
+script = ExtResource("18_f15dd")
+upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
+downRotationPoint = NodePath("../RotationPoints/DownRotationPoint")
+leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
+rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
+lookAtOffset = 90.0
+mainNodeRef = NodePath("..")
+rotationSpeed = 5.0
+rotationWeight = 0.1
+rotationDegreesOffset = 0.5
+
+[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController", "collisionShape")]
+script = ExtResource("19_dh4i4")
+hyottokoController = NodePath("../..")
+collisionShape = NodePath("CollisionShape2D")
+baseRadius = 640.0
+extendedRadius = 896.0
+timeBeforeUnset = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
+shape = SubResource("CircleShape2D_tvwmf")
+debug_color = Color(0, 0.6, 0, 0.0196078)
+
+[node name="HyottokoBossAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("20_8lud5")]
+attackSounds = [null, NodePath("../../Sounds/NormalAttack")]
+characterRef = NodePath("../..")
+
+[node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("21_5vidj")]
+enemyController = NodePath("..")
+
+[node name="RotationPoints" type="Node2D" parent="."]
+
+[node name="UpRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, -112)
+
+[node name="DownRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(0, 112)
+
+[node name="LeftRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(-112, 0)
+
+[node name="RightRotationPoint" type="Node2D" parent="RotationPoints"]
+position = Vector2(112, 0)
+
+[node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("22_n3bhb")
+root = NodePath("Sequence")
+
+[node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
+script = ExtResource("23_erqam")
+children = [NodePath("TaskHyottokoBossIsCaptured"), NodePath("SelectorStunned"), NodePath("TaskHyottokoIsEntranced"), NodePath("TaskHyottokoIsAttacking"), NodePath("SelectorReachPoint"), NodePath("SelectorSpottedPlayer"), NodePath("SelectorPatrol")]
+
+[node name="TaskHyottokoBossIsCaptured" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("hyottokoBossController", "enemyController")]
+script = ExtResource("25_520sj")
+hyottokoBossController = NodePath("../../..")
+enemyController = NodePath("../../..")
+
+[node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("GuardIsInStun"), NodePath("GuardStunnedTimer")]
+
+[node name="GuardIsInStun" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("25_jrme0")
+enemyController = NodePath("../../../..")
+
+[node name="GuardStunnedTimer" type="Node" parent="BehaviorTree/Sequence/SelectorStunned" node_paths=PackedStringArray("enemyStunned", "enemyController")]
+script = ExtResource("26_k5qn7")
+enemyStunned = NodePath("../../../../EnemyStunned")
+enemyController = NodePath("../../../..")
+
+[node name="TaskHyottokoIsEntranced" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("hyottokoController", "enemyController")]
+script = ExtResource("27_i3dau")
+hyottokoController = NodePath("../../..")
+enemyController = NodePath("../../..")
+
+[node name="TaskHyottokoIsAttacking" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("enemyAttack", "enemyController")]
+script = ExtResource("28_j4fuj")
+enemyAttack = NodePath("../../../Rotator/HyottokoBossAttack")
+enemyController = NodePath("../../..")
+
+[node name="SelectorReachPoint" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("TaskHyottokoIsReachingPoint"), NodePath("Sequence")]
+
+[node name="TaskHyottokoIsReachingPoint" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("hyottokoController", "enemyController")]
+script = ExtResource("29_si8xm")
+hyottokoController = NodePath("../../../..")
+enemyController = NodePath("../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint" node_paths=PackedStringArray("children")]
+script = ExtResource("23_erqam")
+children = [NodePath("TaskHyottokoReachingPointMovement"), NodePath("TaskHyottokoReachingPointTimer")]
+
+[node name="TaskHyottokoReachingPointMovement" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+script = ExtResource("30_4gfqa")
+hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
+enemyController = NodePath("../../../../..")
+
+[node name="TaskHyottokoReachingPointTimer" type="Node" parent="BehaviorTree/Sequence/SelectorReachPoint/Sequence" node_paths=PackedStringArray("hyottokoReachPoint", "enemyController")]
+script = ExtResource("31_vqw66")
+hyottokoReachPoint = NodePath("../../../../../HyottokoReachPoint")
+enemyController = NodePath("../../../../..")
+
+[node name="SelectorSpottedPlayer" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("TaskIsSpottingPlayer"), NodePath("Sequence")]
+
+[node name="TaskIsSpottingPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("32_4xm32")
+enemyController = NodePath("../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer" node_paths=PackedStringArray("children")]
+script = ExtResource("23_erqam")
+children = [NodePath("TaskHyottokoApproachPlayer"), NodePath("TaskHyottokoStartAttack")]
+
+[node name="TaskHyottokoApproachPlayer" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("33_4hg2w")
+enemyController = NodePath("../../../../..")
+
+[node name="TaskHyottokoStartAttack" type="Node" parent="BehaviorTree/Sequence/SelectorSpottedPlayer/Sequence" node_paths=PackedStringArray("hyottokoAttack", "enemyController")]
+script = ExtResource("34_cx3xe")
+hyottokoAttack = NodePath("../../../../../Rotator/HyottokoBossAttack")
+enemyController = NodePath("../../../../..")
+
+[node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
+
+[node name="GuardIsInPatrol" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("enemyController")]
+script = ExtResource("35_vwajv")
+enemyController = NodePath("../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("GuardPatrolStartup"), NodePath("Sequence")]
+
+[node name="GuardPatrolStartup" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("36_55kef")
+enemyPatrol = NodePath("../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../..")
+
+[node name="Sequence" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector" node_paths=PackedStringArray("children")]
+script = ExtResource("23_erqam")
+children = [NodePath("GuardExtraPatrolTimer"), NodePath("Selector")]
+
+[node name="GuardExtraPatrolTimer" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("37_15wu6")
+enemyPatrol = NodePath("../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../..")
+
+[node name="Selector" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence" node_paths=PackedStringArray("children")]
+script = ExtResource("24_o4gxp")
+children = [NodePath("GuardPatrolExecuteWait"), NodePath("GuardPatrolWaitForRotation")]
+
+[node name="GuardPatrolExecuteWait" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("38_fthuo")
+enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../../..")
+
+[node name="GuardPatrolWaitForRotation" type="Node" parent="BehaviorTree/Sequence/SelectorPatrol/Selector/Sequence/Selector" node_paths=PackedStringArray("enemyPatrol", "enemyController")]
+script = ExtResource("39_uhvsy")
+enemyPatrol = NodePath("../../../../../../../EnemyPatrol")
+enemyController = NodePath("../../../../../../..")
+
+[connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
+[connection signal="damaged_no_direction" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
+[connection signal="repelled" from="." to="EnemyPatrol" method="OnEnemyRepelled"]
+[connection signal="repelled" from="." to="HyottokoReachPoint" method="StopReachingPoint"]
+[connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
+[connection signal="body_entered" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_entered"]
+[connection signal="body_exited" from="Rotator/HyottokoRange" to="Rotator/HyottokoRange" method="_on_body_exited"]

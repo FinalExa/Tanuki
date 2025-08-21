@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="13_onumf"]
 [ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="16_6grt2"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BehaviorTree.gd" id="18_7fx25"]
-[ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
+[ext_resource type="PackedScene" uid="uid://cv04igefuaynb" path="res://Enemies/Attacks/cleaner_attack_hitbox.tscn" id="18_kg6tm"]
 [ext_resource type="PackedScene" uid="uid://chhvyoiwnhv4" path="res://Enemies/enemy_repelled.tscn" id="19_e0463"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Sequence.gd" id="19_joed8"]
 [ext_resource type="Script" path="res://BehaviorTree/Scripts/BT_Selector.gd" id="20_ssalh"]
@@ -128,7 +128,7 @@ animation = &"idle"
 script = ExtResource("6_tgxdo")
 enemyController = NodePath("..")
 navigationAgent = NodePath("../NavigationAgent2D")
-defaultMovementSpeed = 600.0
+defaultMovementSpeed = 700.0
 distanceTolerance = 10.0
 repathTimerDuration = 0.25
 

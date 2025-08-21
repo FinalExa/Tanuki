@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dytsemqjjsrvn"]
+
+[ext_resource type="Script" path="res://Level/SceneChange/Scripts/TeleportArea.gd" id="1_yd6o1"]
+[ext_resource type="Texture2D" uid="uid://g1hpk5yik53i" path="res://Level/Sprites/Placeholder/TeleportTile.png" id="2_4t83s"]
+[ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="2_8t6f2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_42bkk"]
+font = ExtResource("2_8t6f2")
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o38a"]
+size = Vector2(128, 128)
+
+[node name="TeleportAreaButton" type="Area2D" node_paths=PackedStringArray("label")]
+process_mode = 3
+script = ExtResource("1_yd6o1")
+interact = true
+label = NodePath("Label")
+interactText = "PRESS F TO TELEPORT"
+teleportDuration = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = -81.0
+label_settings = SubResource("LabelSettings_42bkk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_4t83s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1o38a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

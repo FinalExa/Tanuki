@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkqvnelnxu72d"]
+
+[ext_resource type="Texture2D" uid="uid://d10khcl6x3xv7" path="res://NPC/Sprites/ArmorYokaiNPC.png" id="1_01hw6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o50jb"]
+radius = 16.0
+height = 80.0001
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tms4q"]
+atlas = ExtResource("1_01hw6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tms4q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="ArmorYokaiNPC" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o50jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"

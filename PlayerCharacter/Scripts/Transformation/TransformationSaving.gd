@@ -23,8 +23,7 @@ func SetNewTransformation():
 		transformationChange.emit_signal("send_transformation_active_info", transformationChange.transformationTimer, transformationChange.transformationDuration, transformationChange.currentTransformationObject.transformedName)
 
 func SaveNewTransformation(trsObjectToSave: TransformationObjectData):
-	if (trsObjectToSave.scene_file_path != transformationChange.currentOriginalObjectPath):
-		transformationChange.transformationTimer = 0
+	transformationChange.transformationTimer = 0
 	transformationChange.currentTransformationSet = true
 	transformationChange.currentOriginalObjectPath = trsObjectToSave.scene_file_path
 	transformationChange.transformationOriginalObject.GenerateTransformationObject()

@@ -3,6 +3,7 @@ extends Node2D
 
 var gameplayScene: GameplayScene
 @export var questName: String
+@export var questIndexes: Array[QuestIndex]
 @export var questItemsToOperate: Array[Node2D]
 @export var questItemsStages: Array[int]
 @export var questItemsOnOffState: Array[bool]
@@ -15,24 +16,52 @@ var advancedBy: Node2D
 var currentQuestStage: int = 0
 var lastStage: int
 
+enum ItemOperation
+{
+	OFF,
+	ON
+}
+
 func SetLastStage():
-	lastStage = questItemsStages[questItemsStages.size() - 1] + 1
+	if (questIndexes.size() > 0):
+		lastStage = questIndexes[questItemsStages.size() - 1].itemStage + 1
+	else:
+		lastStage = questItemsStages[questItemsStages.size() - 1] + 1
 
 func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	SaveQuestStatus(save)
 	if (currentQuestStage < lastStage):
-		for i in questItemsStages.size():
-			if (forcedAdvance && questItemsToOperate[i] is DialogueArea && questItemsToOperate[i].activatedByQuest):
-				questItemsToOperate[i].queue_free()
-				continue
-			if (questItemsStages[i] == currentQuestStage):
-				call_deferred("OnOff", questItemsToOperate[i], questItemsOnOffState[i])
-				continue
-			if (questItemsStages[i] > currentQuestStage):
+		if (questIndexes.size() > 0):
+			for i in questIndexes.size():
+				if (CurrentStageOperations(forcedAdvance, get_node_or_null(questIndexes[i].itemToOperate), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
+					continue
+				break
+		else:
+			for i in questItemsStages.size():
+				if (questItemsToOperate[i] == null):
+					continue
+				if (CurrentStageOperationsOld(forcedAdvance, questItemsToOperate[i], questItemsStages[i], questItemsOnOffState[i])):
+					continue
 				break
 		SaveQuestStatus(save)
 		CheckForLastStage()
 		return
+
+func CurrentStageOperationsOld(forcedAdvance: bool, item: Node2D, stage: int, onOff: bool):
+	var boolValue: ItemOperation = ItemOperation.OFF
+	if (onOff): boolValue = ItemOperation.ON
+	return CurrentStageOperations(forcedAdvance, item, stage, boolValue)
+
+func CurrentStageOperations(forcedAdvance: bool, item: Node2D, stage: int, operation: ItemOperation):
+	if (forcedAdvance && item is DialogueArea && item.activatedByQuest):
+		item.queue_free()
+		return true
+	if (stage == currentQuestStage):
+		QuestItemOperations(item, operation)
+		return true
+	if (stage > currentQuestStage):
+		return false
+	return true
 
 func SaveQuestStatus(save: bool):
 	if (save):
@@ -89,12 +118,14 @@ func AdvanceToStage(stageToAdvance: int):
 	while (currentQuestStage < stageToAdvance):
 		AdvanceStage(false, true)
 
-func OnOff(objectToOperate: Node2D, status: bool):
+func QuestItemOperations(objectToOperate: Node2D, operation: ItemOperation):
 	if (objectToOperate != null):
-		if (status):
-			ActivateObjectToOperate(objectToOperate)
+		if (operation == ItemOperation.OFF):
+			call_deferred("DeactivateObjectToOperate", objectToOperate)
 			return
-		DeactivateObjectToOperate(objectToOperate)
+		if (operation == ItemOperation.ON):
+			call_deferred("ActivateObjectToOperate", objectToOperate)
+			return
 
 func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is DoorOpenClose):
@@ -106,7 +137,7 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is NavigationRegion2D):
 		objectToOperate.enabled = true
 		return
-	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
+	if (objectToOperate is TransformationObjectData || objectToOperate is TrapObject):
 		objectToOperate.TurnOn()
 	objectToOperate.show()
 	objectToOperate.set_process(true)
@@ -128,7 +159,7 @@ func DeactivateObjectToOperate(objectToOperate: Node2D):
 	if (objectToOperate is NavigationRegion2D):
 		objectToOperate.enabled = false
 		return
-	if (objectToOperate is TransformationObjectData || objectToOperate is InteractionObject):
+	if (objectToOperate is TransformationObjectData || objectToOperate is TrapObject):
 		objectToOperate.TurnOff()
 	objectToOperate.hide()
 	objectToOperate.set_process(false)

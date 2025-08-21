@@ -10,15 +10,19 @@ var sceneRef: Node2D
 @export var spriteRef: AnimatedSprite2D
 @export var playerHUD: PlayerHUD
 @export var playerMovement: PCMovement
+@export var playerHealth: PlayerHealth
 @export var playerRotator: PlayerRotator
 @export var playerRepelled: PlayerRepelled
 @export var playerAttack: PlayerAttack
+@export var playerRoll: PlayerRoll
 @export var playerProgressionTrack: PlayerProgressionTrack
 @export var playerMoveObjects: PlayerMoveObjects
+@export var playerTrapEffects: PlayerTrapEffects
 @export var cameraRef: Camera2D
 var buttonInteractionReady: bool
 var savePointInteractionReady: bool
 var savedSavePoint: SavePoint
+var invincibilityFrames: bool
 var transformationInvincibility: bool
 var isTraveling: bool
 var positionalTraveling: bool
@@ -61,7 +65,8 @@ func GameOver(receivedNode: Node2D):
 	if (transformationInvincibility):
 		emit_signal("transformationInvincibilityInteracted", receivedNode)
 	else:
-		ForceGameOver()
+		if (!invincibilityFrames):
+			playerHealth.ReceiveDamage(1)
 
 func ForceGameOver():
 	playerHUD.GameOverScreen()

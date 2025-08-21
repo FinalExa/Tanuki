@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwjy5n3f6gtxh"]
+[gd_scene load_steps=5 format=3 uid="uid://bwjy5n3f6gtxh"]
 
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformObjectAttack.gd" id="1_7lodv"]
 [ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/TaikoSpecialHitbox.gd" id="2_4n41i"]
+[ext_resource type="Texture2D" uid="uid://p4wonp5f4ycn" path="res://ImportantObjects/TransformationObjects/Attacks/Sprites/TaikoDrumAttack.png" id="3_n0hnj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i5gwa"]
-radius = 576.056
+radius = 512.063
 
 [node name="TaikoDrumAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7lodv")
+attackTag = "TaikoDrum"
 attackDuration = 20
 attackCooldown = 60
 attackPhasesLaunch = Array[int]([0])
@@ -16,9 +18,14 @@ attackSounds = [null]
 
 [node name="TaikoSpecialHitbox" type="Area2D" parent="."]
 script = ExtResource("2_4n41i")
+lockInPlace = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TaikoSpecialHitbox"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_n0hnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TaikoSpecialHitbox"]
 shape = SubResource("CircleShape2D_i5gwa")
-debug_color = Color(0.807843, 0.392157, 0.352941, 0.419608)
 
 [connection signal="body_entered" from="TaikoSpecialHitbox" to="TaikoSpecialHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="TaikoSpecialHitbox" to="TaikoSpecialHitbox" method="_on_body_exited"]

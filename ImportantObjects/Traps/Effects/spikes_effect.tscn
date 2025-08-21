@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://dkgga7ylmhv11"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Traps/Effects/Scripts/SpikesEffect.gd" id="1_dvll1"]
+[ext_resource type="Texture2D" uid="uid://d3er8520cnlef" path="res://ImportantObjects/Traps/Sprites/Placeholder/SpikeTrap.png" id="2_x27il"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nycku"]
+atlas = ExtResource("2_x27il")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2sm2"]
+atlas = ExtResource("2_x27il")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kon5"]
+atlas = ExtResource("2_x27il")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3313o"]
+atlas = ExtResource("2_x27il")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asgpd"]
+atlas = ExtResource("2_x27il")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rsvh"]
+atlas = ExtResource("2_x27il")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px7yq"]
+atlas = ExtResource("2_x27il")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4dlb"]
+atlas = ExtResource("2_x27il")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqmg2"]
+atlas = ExtResource("2_x27il")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrtuk"]
+atlas = ExtResource("2_x27il")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7pc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nycku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2sm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kon5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3313o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asgpd")
+}],
+"loop": false,
+"name": &"SpikesIn",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rsvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px7yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4dlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqmg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrtuk")
+}],
+"loop": false,
+"name": &"SpikesOut",
+"speed": 15.0
+}]
+
+[node name="SpikesEffect" type="Node2D" node_paths=PackedStringArray("spriteRef")]
+script = ExtResource("1_dvll1")
+spriteRef = NodePath("AnimatedSprite2D")
+phaseDuration = 5.0
+spikeOutTime = 0.3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r7pc2")
+animation = &"SpikesIn"
+frame = 4
+frame_progress = 1.0

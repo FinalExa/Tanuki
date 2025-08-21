@@ -10,6 +10,7 @@ var grabInput: bool
 var transformInput: bool
 var obtainTransformationInput: bool
 var talkInput: bool
+var rollInput: bool
 var pauseInput: bool
 
 func _process(_delta):
@@ -23,6 +24,7 @@ func GetInputs():
 		GetTransformInput()
 		GetObtainTransformationInput()
 		GetTalkInput()
+		GetRollInput()
 	GetPauseInput()
 
 func GetMovementInput():
@@ -58,6 +60,12 @@ func GetTalkInput():
 		return
 	talkInput = false
 
+func GetRollInput():
+	if (Input.is_action_just_pressed("roll")):
+		rollInput = true
+		return
+	rollInput = false
+
 func GetPauseInput():
 	if (Input.is_action_just_pressed("pause")):
 		pauseInput = true
@@ -71,3 +79,4 @@ func SetInputsToZero():
 	transformInput = false
 	obtainTransformationInput = false
 	talkInput = false
+	rollInput = false

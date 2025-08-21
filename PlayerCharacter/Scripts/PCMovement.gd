@@ -9,16 +9,18 @@ signal movement_direction
 var currentMaxSpeed: float
 var currentAcceleration: float
 var currentSpeed: float
+var currentExternalForce: Vector2
 var movementEnabled: bool
 
 enum SpeedTier {
 	SLOW,
 	NORMAL,
-	FAST
+	FAST,
+	SUPER_SLOW
 }
 
-var speedTiersMaxSpeed: Array[float] = [300.0, 500.0, 700.0]
-var speedTiersAcceleration: Array[float] = [500.0, 700.0, 900.0]
+var speedTiersMaxSpeed: Array[float] = [400.0, 600.0, 800.0, 150.0]
+var speedTiersAcceleration: Array[float] = [600.0, 900.0, 1200.0, 225.0]
 
 func _ready():
 	currentSpeed = 0
@@ -50,7 +52,7 @@ func set_current_speed(delta):
 	else: 
 		if(playerRef.playerInputs.inputDirection!=Vector2.ZERO):
 			currentSpeed = clamp(currentSpeed + (currentAcceleration * delta), 0, currentMaxSpeed)
-	rigidbodyRef.velocity = playerRef.playerInputs.inputDirection * currentSpeed
+	rigidbodyRef.velocity = (playerRef.playerInputs.inputDirection * currentSpeed) + currentExternalForce
 	emit_signal("movement_direction", playerRef.playerInputs.inputDirection)
 	
 func reset_max_speed():
@@ -78,3 +80,6 @@ func EnableMovement():
 
 func SetToZero():
 	playerRef.velocity = Vector2.ZERO
+
+func AddExternalForce(force: Vector2):
+	currentExternalForce = force

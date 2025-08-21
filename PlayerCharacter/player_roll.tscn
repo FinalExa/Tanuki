@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://wnlenbg2y7b1"]
+
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRoll.gd" id="1_4x7d3"]
+
+[node name="PlayerRoll" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
+script = ExtResource("1_4x7d3")
+attackDuration = 20
+attackCooldown = 120
+attackPhasesLaunch = Array[int]([0])
+attackHitboxes = [null]
+attackSounds = [null]
+attackMovements = Array[float]([2000.0])

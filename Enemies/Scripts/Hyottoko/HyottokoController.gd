@@ -3,12 +3,13 @@ extends EnemyController
 
 var isSpottingPlayer: bool
 var isReachingPoint: bool
-var isInRage: bool
+var isEntranced: bool
 
 @export var hyottokoRange: HyottokoRange
 @export var hyottokoPushDistanceFromPlayer: float
 @export var hyottokoReachPoint: HyottokoReachPoint
 @export var hyottokoAttack: ExecuteAttack
+@export var hyottokoEntranced: HyottokoEntranced
 var playerRef: PlayerCharacter
 
 func InterruptAttacks():

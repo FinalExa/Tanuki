@@ -14,6 +14,11 @@ func ReadyOperations():
 	CheckIfAlwaysFull()
 	bar.max_value = cooldownDuration * barMultiplier
 
+func AttackInteraction(receivedString: String):
+	if (neededProperties.has(receivedString) && !cooldownActive && (filledBy.size() > 0 || alwaysFilled)):
+		ExecuteExtraEffect()
+		FinalState()
+
 func CheckIfAlwaysFull():
 	if (alwaysFilled):
 		FullMode()

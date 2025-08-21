@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=53 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -19,9 +19,12 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMovementSounds.gd" id="15_4hghg"]
 [ext_resource type="AudioStream" uid="uid://bhkwjvhngjtj6" path="res://PlayerCharacter/Sounds/Tanuki_Main Attack.wav" id="15_fe3wv"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerRepelled.gd" id="15_v4kpo"]
+[ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerTrapEffects.gd" id="16_g3ud7"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerProgressionTrack.gd" id="17_pusai"]
+[ext_resource type="PackedScene" uid="uid://b6opax3mruvjx" path="res://PlayerCharacter/player_health.tscn" id="18_q1ai0"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMoveObjects.gd" id="22_cgx5a"]
 [ext_resource type="PackedScene" uid="uid://bthx5dpkp5buy" path="res://PlayerCharacter/transformation_change.tscn" id="23_rwuxc"]
+[ext_resource type="PackedScene" uid="uid://wnlenbg2y7b1" path="res://PlayerCharacter/player_roll.tscn" id="25_xu48g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
 atlas = ExtResource("14_6hj2i")
@@ -215,7 +218,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hwtr"]
 radius = 128.996
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerRotator", "playerRepelled", "playerAttack", "playerProgressionTrack", "playerMoveObjects")]
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("playerInputs", "transformationChangeRef", "movementRef", "spriteRef", "playerHUD", "playerMovement", "playerHealth", "playerRotator", "playerRepelled", "playerAttack", "playerRoll", "playerProgressionTrack", "playerMoveObjects", "playerTrapEffects")]
 collision_layer = 11
 script = ExtResource("1_0akyq")
 playerInputs = NodePath("PlayerInputs")
@@ -224,11 +227,14 @@ movementRef = NodePath("Rotator/PlayerMovement")
 spriteRef = NodePath("AnimatedSprite2D")
 playerHUD = NodePath("CanvasLayer/HBoxContainer/UI")
 playerMovement = NodePath("Rotator/PlayerMovement")
+playerHealth = NodePath("PlayerHealth")
 playerRotator = NodePath("Rotator")
 playerRepelled = NodePath("PlayerRepelled")
 playerAttack = NodePath("Rotator/PlayerAttack")
+playerRoll = NodePath("Rotator/PlayerRoll")
 playerProgressionTrack = NodePath("PlayerProgressionTrack")
 playerMoveObjects = NodePath("PlayerMoveObjects")
+playerTrapEffects = NodePath("PlayerTrapEffects")
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -288,9 +294,17 @@ stream = ExtResource("8_bh82x")
 script = ExtResource("17_pusai")
 playerRef = NodePath("..")
 
+[node name="PlayerTrapEffects" type="Node" parent="." node_paths=PackedStringArray("playerRef")]
+script = ExtResource("16_g3ud7")
+playerRef = NodePath("..")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5la1i")
 animation = &"idle"
+
+[node name="PlayerHealth" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("18_q1ai0")]
+position = Vector2(0, -56)
+playerRef = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -343,6 +357,17 @@ playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 playerMoveObjects = NodePath("../../PlayerMoveObjects")
 attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
+characterRef = NodePath("../..")
+
+[node name="PlayerRoll" parent="Rotator" node_paths=PackedStringArray("playerInputs", "playerHUD", "playerMovement", "playerMoveObjects", "transformationChange", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("25_xu48g")]
+playerInputs = NodePath("../../PlayerInputs")
+playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
+playerMovement = NodePath("../PlayerMovement")
+playerMoveObjects = NodePath("../../PlayerMoveObjects")
+transformationChange = NodePath("../TransformationChange")
+attackDuration = 10
+attackHitboxes = [null]
+attackSounds = [null]
 characterRef = NodePath("../..")
 
 [connection signal="area_entered" from="PlayerMoveObjects" to="PlayerMoveObjects" method="_on_area_entered"]

@@ -72,6 +72,7 @@ func ClearTrash():
 func ReloadScene():
 	playerRef.transformationChangeRef.transformationTimer = 0
 	playerRef.playerHUD.timerBar.UpdateTimer(playerRef.transformationChangeRef.transformationTimer, playerRef.transformationChangeRef.transformationDuration)
+	playerRef.playerHealth.Startup()
 	sceneMaster.LoadPlayerData()
 	if (sceneMaster.playerRef.currentScenePath != currentScene.scene_file_path):
 		ChangeScene(sceneMaster.playerRef.currentScenePath)
