@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=172 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -36,6 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://daasdexpenkl8" path="res://ImportantObjects/PuzzleObjects/enemy_door.tscn" id="16_v1wlf"]
 [ext_resource type="PackedScene" uid="uid://bkm5fl6eccp12" path="res://NPC/defeated_hyottoko_NPC.tscn" id="17_cwk76"]
 [ext_resource type="PackedScene" uid="uid://wp8gaky0p2qp" path="res://ImportantObjects/PuzzleObjects/enemy_door_horizontal.tscn" id="17_ivdyh"]
+[ext_resource type="PackedScene" uid="uid://cjl4n06c8nslm" path="res://Level/Prefabs/traning_dummies_carpet.tscn" id="17_k18eh"]
+[ext_resource type="Texture2D" uid="uid://ituev7de7gf6" path="res://Level/Sprites/LanternFeedback.png" id="18_y0pm1"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="23_pqr3h"]
 [ext_resource type="PackedScene" uid="uid://c6na3os1xnmkk" path="res://ImportantObjects/TransformationObjects/magic_oil.tscn" id="23_qge8d"]
 [ext_resource type="PackedScene" uid="uid://cggbv0epl6wm6" path="res://ImportantObjects/TransformationObjects/weight.tscn" id="24_5px1x"]
@@ -228,6 +230,36 @@ itemToOperate = NodePath("../../Keys/UnlockKey2")
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_2fb5w"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback1")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_3itbs"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_q22e4"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_63orr"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback4")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kto0a"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback5")
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_fsdhb"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy1/TraningDummy/DialogueArea1")
@@ -257,6 +289,36 @@ script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy5/TraningDummy/DialogueArea1")
 itemStage = 1
 itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_52tit"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback1")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ro8jg"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_e2plp"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback3")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_4dp21"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback4")
+itemStage = 4
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_pbeuo"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback5")
+itemStage = 5
+itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_tel2b"]
 script = ExtResource("13_yb20v")
@@ -778,7 +840,35 @@ shape = SubResource("CircleShape2D_85ecc")
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummiesKey"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_q0p80"), SubResource("Resource_fsdhb"), SubResource("Resource_ppu1t"), SubResource("Resource_uhvh5"), SubResource("Resource_trdao"), SubResource("Resource_o47xq"), SubResource("Resource_tel2b")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_q0p80"), SubResource("Resource_2fb5w"), SubResource("Resource_3itbs"), SubResource("Resource_q22e4"), SubResource("Resource_63orr"), SubResource("Resource_kto0a"), SubResource("Resource_fsdhb"), SubResource("Resource_ppu1t"), SubResource("Resource_uhvh5"), SubResource("Resource_trdao"), SubResource("Resource_o47xq"), SubResource("Resource_52tit"), SubResource("Resource_ro8jg"), SubResource("Resource_e2plp"), SubResource("Resource_4dp21"), SubResource("Resource_pbeuo"), SubResource("Resource_tel2b")])
+
+[node name="TraningDummiesCarpet" parent="Quests/DojoHitTrainingDummiesKey" instance=ExtResource("17_k18eh")]
+position = Vector2(0, -896)
+
+[node name="LanternFeedback1" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
+z_index = 1
+position = Vector2(0, -127)
+texture = ExtResource("18_y0pm1")
+
+[node name="LanternFeedback2" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
+z_index = 1
+position = Vector2(96, -63)
+texture = ExtResource("18_y0pm1")
+
+[node name="LanternFeedback3" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
+z_index = 1
+position = Vector2(72, 49)
+texture = ExtResource("18_y0pm1")
+
+[node name="LanternFeedback4" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
+z_index = 1
+position = Vector2(-72, 49)
+texture = ExtResource("18_y0pm1")
+
+[node name="LanternFeedback5" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
+z_index = 1
+position = Vector2(-88, -63)
+texture = ExtResource("18_y0pm1")
 
 [node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
@@ -1258,7 +1348,7 @@ position = Vector2(0, 384)
 patrolIndicators = [NodePath("../PatrolPoints/Hyottoko1/Hyottoko1PatrolIndicator")]
 
 [node name="Hyottoko2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_ukdqv")]
-position = Vector2(0, -1152)
+position = Vector2(0, -1160)
 patrolIndicators = [NodePath("../PatrolPoints/Hyottoko2/Hyottoko2PatrolIndicator")]
 
 [node name="Hyottoko3" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_ukdqv")]
