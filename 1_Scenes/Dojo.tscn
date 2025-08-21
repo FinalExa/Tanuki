@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=89 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -49,6 +49,7 @@
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/MovingPoint.gd" id="39_25stu"]
 [ext_resource type="PackedScene" uid="uid://5jxo0fj5of1y" path="res://NPC/hyottoko_boss_npc.tscn" id="39_dk7ea"]
 [ext_resource type="PackedScene" uid="uid://dj8gyu4bdrdht" path="res://ImportantObjects/MovableObjects/armor_part.tscn" id="39_fw0ah"]
+[ext_resource type="PackedScene" uid="uid://bfc0mgjbxpede" path="res://NPC/sword_yokai_npc.tscn" id="50_iymq2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
 vertices = PackedVector2Array(2528, -1632, 2528, -192, 2336, -592, 2336, -672, 1696, 160, 1696, -192, 1888, -192, 1888, 160, 736, -832, 736, -192, 552, -496, 552, -568, -1776, 656, -1568, 848, -2448, 848, -2192, 656, -1568, 400, -1776, 592, -1680, 400, 96, -192, 472, -496, 2272, -592, 1104, -1632, 2272, -672, 1104, -1584, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1232, -1248, 1232, -1248, 848, -1056, 800, -1520, 848, -1520, 336, -1056, 160, -2448, 912, -1440, 912, -1440, 1040, -1392, 1040, -1392, 912, -1296, 912, -1296, 1424, -1248, 1424, -1248, 1296, -1056, 1296, -1056, 1600, -2528, 1600, -2528, 1424, -1392, 1424, -1392, 1136, -1440, 1136, -1440, 1360, -2528, 1360, -2528, 400, -2464, 400, -2464, 656, -2416, 656, -2416, 400, -1904, 400, -2192, 592, -1904, 336, -2528, 336, -2528, 208, -2480, 208, -2480, 160, -1888, 160, -1680, 336, -1888, -192, -2528, -192, -2528, -1584, -2480, -1584, -2480, -1632, -1056, -1632, -1056, -992, -1696, -192, -736, -992, -736, -1632, 680, -1632, 680, -1584, -96, -192, -736, -832, 736, -1584, 736, -992, 472, -568, 1056, -992, 1056, -1584, 1056, -192, 1056, -832, 96, 160, 736, 160, 736, 800, -680, 208, -96, 160, -736, 800, -736, -192, -1056, -832, -1056, -192, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 208, 1104, 160, 1888, 1312, 1056, 1600, 1056, 960, 2528, 1312, 2528, 1600, -1696, 160)
@@ -1165,5 +1166,10 @@ position = Vector2(-384, 8)
 scale = Vector2(0.5, 0.5)
 pointToTeleport = NodePath("../../../Teleports/MazeReset")
 interact = false
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="SwordYokaiNPC" parent="NPCs" instance=ExtResource("50_iymq2")]
+position = Vector2(-384, 1408)
 
 [connection signal="body_entered" from="Teleports/TravelToKitchen" to="Teleports/TravelToKitchen" method="_on_body_entered"]
