@@ -313,7 +313,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(458760, 589824, 7, 458759, 589824, 7, 458758, 589824, 7, 458757, 589824, 7, 458755, 589824, 7, 458754, 589824, 7, 458753, 589824, 7, 458752, 524288, 7, -655360, 524288, 7, -655359, 589824, 7, -655358, 589824, 7, -655357, 655360, 7, 458764, 589824, 7, 458761, 655360, 7, 458756, 655360, 6, 458762, 589824, 7, 458763, 589824, 7, 458765, 589824, 7, 458766, 589824, 7, 458767, 589824, 7, 458768, 589824, 7, 458769, 589824, 7, 458770, 589824, 7, 458771, 589824, 7, 458772, 589824, 7, 458773, 589824, 7, 458774, 589824, 7, 458775, 589824, 7, 458776, 589824, 7, 458777, 589824, 7, 458778, 589824, 7, 458779, 589824, 7, 458780, 589824, 7, 458781, 589824, 7, 458782, 524288, 6, 524287, 589824, 6, 458751, 589824, 5, 393215, 589824, 5, 327679, 589824, 5, 262143, 589824, 5, 196607, 589824, 5, 131071, 589824, 5, 65535, 589824, 5, -1, 589824, 5, -65537, 589824, 5, -131073, 589824, 5, -196609, 589824, 5, -262145, 589824, 5, -327681, 589824, 5, -393217, 589824, 5, -458753, 589824, 5, -524289, 589824, 5, -589825, 589824, 5, -655361, 589824, 5, -720897, 589824, 5, -786433, 589824, 5, -851969, 589824, 5, -917505, 589824, 5, -983041, 589824, 5, -1048577, 589824, 5, -1114113, 589824, 5, -1179649, 589824, 5, -1245185, 589824, 5, -1310721, 589824, 5, -1376257, 589824, 5, -1441793, 589824, 5, -1507298, 524288, 5, -1441762, 524288, 5, -1376226, 524288, 5, -1310690, 524288, 5, -1245154, 524288, 5, -1179618, 524288, 5, -1114082, 524288, 5, -1048546, 524288, 5, -983010, 524288, 5, -917474, 524288, 5, -851938, 524288, 5, -786402, 524288, 5, -720866, 524288, 5, -655330, 524288, 5, -589794, 524288, 5, -524258, 524288, 5, -458722, 524288, 5, -393186, 524288, 5, -327650, 524288, 5, -262114, 524288, 5, -196578, 524288, 5, -131042, 524288, 5, -65506, 524288, 5, 30, 524288, 5, 65566, 524288, 5, 131102, 524288, 5, 196638, 524288, 5, 262174, 524288, 5, 327710, 524288, 5, 393246, 524288, 5, -1769473, 589824, 5, -1703937, 589824, 5, -1638401, 589824, 5, -1572865, 589824, 5, -1507329, 589824, 5, -1572834, 524288, 5, -1638370, 524288, 5, -1703906, 524288, 5, -1769442, 524288, 5, -1834978, 524288, 5, -1638384, 65536, 6, -1638383, 65536, 6, -1638382, 65536, 6, -1638381, 65536, 6, -1638380, 65536, 6, -1638379, 65536, 6, -1638378, 65536, 6, -1638377, 65536, 6, -1638376, 65536, 6, -1638375, 65536, 6, -1638374, 65536, 6, -1638373, 65536, 6, -1638372, 65536, 6, -1638387, 65536, 6, -1638388, 65536, 6, -1638389, 65536, 6, -1638390, 65536, 6, -1638391, 65536, 6, -1638392, 65536, 6, -1638393, 65536, 6, -1638394, 65536, 6, -1638395, 65536, 6, -1638396, 65536, 6, -1638397, 65536, 6, -1638398, 65536, 6, -1638399, 65536, 6, -1835009, 589824, 5, -1900545, 589824, 5, -1966081, 589824, 5, -2031617, 589824, 5, -1900514, 524288, 5, -1966050, 524288, 5, -2031586, 524288, 5, -2097122, 524288, 5, -1507327, 65536, 8, -1507326, 65536, 8, -1507325, 65536, 8, -1507324, 65536, 8, -1507323, 65536, 8, -1507322, 65536, 8, -1507321, 65536, 8, -1507320, 65536, 8, -1507319, 65536, 8, -1507318, 65536, 8, -1507317, 65536, 8, -1507316, 65536, 8, -1507315, 65536, 8, -1507312, 65536, 8, -1507311, 65536, 8, -1507310, 65536, 8, -1507309, 65536, 8, -1507308, 65536, 8, -1507307, 65536, 8, -1507306, 65536, 8, -1507305, 65536, 8, -1507304, 65536, 8, -1507303, 65536, 8, -1507302, 65536, 8, -1507301, 65536, 8, -1507300, 65536, 8, -1507328, 0, 8, -1507299, 65536, 12, -1572835, 65536, 11, -1572864, 0, 7, -1638400, 0, 6, -1638371, 65536, 10, -1572836, 65536, 7, -1572837, 65536, 7, -1572838, 65536, 7, -1572839, 65536, 7, -1572840, 65536, 7, -1572841, 65536, 7, -1572842, 65536, 7, -1572843, 65536, 7, -1572844, 65536, 7, -1572845, 65536, 7, -1572846, 65536, 7, -1572847, 65536, 7, -1572848, 65536, 7, -1572849, 65536, 7, -1572850, 65536, 7, -1572851, 65536, 7, -1572852, 65536, 7, -1572853, 65536, 7, -1572854, 65536, 7, -1572855, 65536, 7, -1572856, 65536, 7, -1572857, 65536, 7, -1572858, 65536, 7, -1572859, 65536, 7, -1572860, 65536, 7, -1572861, 65536, 7, -1572862, 65536, 7, -1572863, 65536, 7)
+layer_1/tile_data = PackedInt32Array(458760, 589824, 7, 458759, 589824, 7, 458758, 589824, 7, 458757, 589824, 7, 458755, 589824, 7, 458754, 589824, 7, 458753, 589824, 7, 458752, 524288, 7, -655360, 524288, 7, -655359, 589824, 7, -655358, 589824, 7, -655357, 655360, 7, 458764, 589824, 7, 458761, 655360, 7, 458756, 655360, 6, 458762, 589824, 7, 458763, 589824, 7, 458765, 589824, 7, 458766, 589824, 7, 458767, 589824, 7, 458768, 589824, 7, 458769, 589824, 7, 458770, 589824, 7, 458771, 589824, 7, 458772, 589824, 7, 458773, 589824, 7, 458774, 589824, 7, 458775, 589824, 7, 458776, 589824, 7, 458777, 589824, 7, 458778, 589824, 7, 458779, 589824, 7, 458780, 589824, 7, 458781, 589824, 7, 458782, 524288, 6, 524287, 589824, 6, 458751, 589824, 5, 393215, 589824, 5, 327679, 589824, 5, 262143, 589824, 5, 196607, 589824, 5, 131071, 589824, 5, 65535, 589824, 5, -1, 589824, 5, -65537, 589824, 5, -131073, 589824, 5, -196609, 589824, 5, -262145, 589824, 5, -327681, 589824, 5, -393217, 589824, 5, -458753, 589824, 5, -524289, 589824, 5, -589825, 589824, 5, -655361, 589824, 5, -720897, 589824, 5, -786433, 589824, 5, -851969, 589824, 5, -917505, 589824, 5, -983041, 589824, 5, -1048577, 589824, 5, -1114113, 589824, 5, -1179649, 589824, 5, -1245185, 589824, 5, -1310721, 589824, 5, -1376257, 589824, 5, -1441793, 589824, 5, -1507298, 524288, 5, -1441762, 524288, 5, -1376226, 524288, 5, -1310690, 524288, 5, -1245154, 524288, 5, -1179618, 524288, 5, -1114082, 524288, 5, -1048546, 524288, 5, -983010, 524288, 5, -917474, 524288, 5, -851938, 524288, 5, -786402, 524288, 5, -720866, 524288, 5, -655330, 524288, 5, -589794, 524288, 5, -524258, 524288, 5, -458722, 524288, 5, -393186, 524288, 5, -327650, 524288, 5, -262114, 524288, 5, -196578, 524288, 5, -131042, 524288, 5, -65506, 524288, 5, 30, 524288, 5, 65566, 524288, 5, 131102, 524288, 5, 196638, 524288, 5, 262174, 524288, 5, 327710, 524288, 5, 393246, 524288, 5, -1769473, 589824, 5, -1703937, 589824, 5, -1638401, 589824, 5, -1572865, 589824, 5, -1507329, 589824, 5, -1572834, 524288, 5, -1638370, 524288, 5, -1703906, 524288, 5, -1769442, 524288, 5, -1834978, 524288, 5, -1638384, 65536, 6, -1638383, 65536, 6, -1638382, 65536, 6, -1638381, 65536, 6, -1638380, 65536, 6, -1638379, 65536, 6, -1638378, 65536, 6, -1638377, 65536, 6, -1638376, 65536, 6, -1638375, 65536, 6, -1638374, 65536, 6, -1638373, 65536, 6, -1638372, 65536, 6, -1638387, 65536, 6, -1638388, 65536, 6, -1638389, 65536, 6, -1638390, 65536, 6, -1638391, 65536, 6, -1638392, 65536, 6, -1638393, 65536, 6, -1638394, 65536, 6, -1638395, 65536, 6, -1638396, 65536, 6, -1638397, 65536, 6, -1638398, 65536, 6, -1638399, 65536, 6, -1835009, 589824, 5, -1900545, 589824, 5, -1966081, 589824, 5, -2031617, 589824, 5, -1900514, 524288, 5, -1966050, 524288, 5, -2031586, 524288, 5, -2097122, 524288, 5, -1507327, 65536, 8, -1507326, 65536, 8, -1507325, 65536, 8, -1507324, 65536, 8, -1507323, 65536, 8, -1507322, 65536, 8, -1507321, 65536, 8, -1507320, 65536, 8, -1507319, 65536, 8, -1507318, 65536, 8, -1507317, 65536, 8, -1507316, 65536, 8, -1507315, 65536, 8, -1507312, 65536, 8, -1507311, 65536, 8, -1507310, 65536, 8, -1507309, 65536, 8, -1507308, 65536, 8, -1507307, 65536, 8, -1507306, 65536, 8, -1507305, 65536, 8, -1507304, 65536, 8, -1507303, 65536, 8, -1507302, 65536, 8, -1507301, 65536, 8, -1507300, 65536, 8, -1507328, 0, 8, -1507299, 65536, 12, -1572835, 65536, 11, -1572864, 0, 7, -1638400, 0, 6, -1638371, 65536, 10, -1572836, 65536, 7, -1572837, 65536, 7, -1572838, 65536, 7, -1572839, 65536, 7, -1572840, 65536, 7, -1572841, 65536, 7, -1572842, 65536, 7, -1572843, 65536, 7, -1572844, 65536, 7, -1572845, 65536, 7, -1572846, 65536, 7, -1572847, 65536, 7, -1572848, 65536, 7, -1572849, 65536, 7, -1572850, 65536, 7, -1572851, 65536, 7, -1572852, 65536, 7, -1572853, 65536, 7, -1572854, 65536, 7, -1572855, 65536, 7, -1572856, 65536, 7, -1572857, 65536, 7, -1572858, 65536, 7, -1572859, 65536, 7, -1572860, 65536, 7, -1572861, 65536, 7, -1572862, 65536, 7, -1572863, 65536, 7, -65525, 983040, 15, -65526, 983040, 15)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -491,9 +491,10 @@ sendSignalToQuestOnDestroyed = true
 [node name="OldTanukiNPC" parent="Quests/GardenDestroyTheBush" instance=ExtResource("13_6kems")]
 position = Vector2(192, 1032)
 
-[node name="DialogueArea" parent="Quests/GardenDestroyTheBush/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenDestroyTheBush/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Oh-ho! You finally arrived young-un.", "Master!", "It's time to put the skills you have learned to the test, I have blocked the access to the mansion to do a quick review with you...", "See the bush here?", "I left a grasscutter close, transform into it, cut it by attacking and proceed onwards.", "If you trained properly you should see a small blue flame around objects you can transform into, be sure to remember it!", "Yes master, I will!"])
 characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../Bush"), NodePath("../../Grasscutter"), NodePath("../../Grasscutter"), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenDestroyTheBush/OldTanukiNPC/DialogueArea"]
@@ -502,10 +503,11 @@ shape = SubResource("CircleShape2D_p6gpt")
 [node name="Grasscutter" parent="Quests/GardenDestroyTheBush" instance=ExtResource("11_e1yl6")]
 position = Vector2(1152, 1088)
 
-[node name="DialogueArea" parent="Quests/GardenDestroyTheBush" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenDestroyTheBush" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(-2048, 0)
 dialogueText = Array[String](["Oh-ho! Nice job young-un.", "Thanks, master!", "Let's move to the next area, please go forward."])
 characterTalking = Array[int]([2, 0, 2])
+cameraFocuses = [NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC")]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -530,18 +532,20 @@ position = Vector2(1216, 832)
 [node name="OldTanukiNPC" parent="Quests/GardenCrossTheWater" instance=ExtResource("13_6kems")]
 position = Vector2(960, 736)
 
-[node name="DialogueArea" parent="Quests/GardenCrossTheWater/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenCrossTheWater/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Your second test is to cross these waters, they will normally repel you though.", "As I taught you, some items have certain properties that let you cross certain environments.", "This statue is heavy enough to cross water, try transforming into it, and then cross to the other side."])
 characterTalking = Array[int]([2, 2, 2])
+cameraFocuses = [NodePath(".."), NodePath(".."), NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenCrossTheWater/OldTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_4nvqd")
 
-[node name="DialogueArea" parent="Quests/GardenCrossTheWater" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenCrossTheWater" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(640, 256)
 dialogueText = Array[String](["Well done, young-un.", "Thanks master!", "However... I have to return the things around here in the state they were before, or they'll catch us.", "You'll also lose this transformation, it will make moving around here too easy...", "Why can't I have it easy, master?", "Because... if you can't enter the mansion on your own and have to rely on my help, you'll get captured A LOT.", "Ohhh! I getcha.", "Don't worry though, if you can find the statue in it's original location it's yours to use.", "Yippie!"])
 characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0])
+cameraFocuses = [NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null, NodePath("../OldTanukiNPC"), null]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -602,9 +606,10 @@ sendSignalToQuestOnDestroyed = true
 [node name="OldTanukiNPC" parent="Quests/GardenLowerTheBridge" instance=ExtResource("13_6kems")]
 position = Vector2(64, -576)
 
-[node name="DialogueArea" parent="Quests/GardenLowerTheBridge/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenLowerTheBridge/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Next up young-un, do you remember your leafmanship training?", "Yes, master!", "Now that your senses have been honed, you should be able to see when you can interact with something with your leaf.", "Like here, can you see the windy aura in that area?", "Yes, I can see it master.", "It means that when you attack it with your leaf, something will happen, try it.", "Ohoh! Interesting.", "Remember that to attack with your leaf you cannot be currently transformed.", "Yes, yes...", "Once you are done with it, go to the other side."])
 characterTalking = Array[int]([2, 0, 2, 2, 0, 2, 0, 2, 0, 2])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../ButtonToPush"), NodePath("../../ButtonToPush"), NodePath(".."), null, NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/OldTanukiNPC/DialogueArea"]
@@ -616,10 +621,11 @@ position = Vector2(288, -896)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/MoveInteractionObject"]
 shape = SubResource("RectangleShape2D_sqy54")
 
-[node name="DialogueArea" parent="Quests/GardenLowerTheBridge" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenLowerTheBridge" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(288, -1088)
 dialogueText = Array[String](["Nicely done young-un, we are almost done with the review.", "Let me reach you really quick to explain the final step of this review."])
 characterTalking = Array[int]([2, 2])
+cameraFocuses = [NodePath("../OldTanukiNPC"), NodePath("../OldTanukiNPC")]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -637,29 +643,32 @@ questItemsOnOffState = Array[bool]([false, false, false, false, false, false, fa
 advanceOtherQuestsOnEnd = [NodePath("../GardenChopTree1")]
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemy/Guard1/KeySprite"), NodePath("OldTanukiNPC"), NodePath("DialogueArea"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2")]
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 position = Vector2(640, -1088)
 dialogueText = Array[String](["Ok young-un, now for an harder challenge...", "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset.", "To avoid that, transform and hide, if you have done your training properly it's quite easy.", "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide.", "Try to avoid the guard and get to the axe I stole from the mansion, it's...", "Right there. Once you reach this point, save the axe as your transformation, transform into it...", "...AND HIT THAT GUARD!", "I'll explain more once you have done all of this. Get working, young-un.", "Yessir!"])
 characterTalking = Array[int]([2, 2, 2, 2, 2, 2, 2, 2, 0])
+cameraFocuses = [NodePath("../OldTanukiNPC"), NodePath("../../../Enemy/Guard1"), NodePath("../OldTanukiNPC"), NodePath("../../../TransformationObjects/GardenFlower4"), NodePath("../OldTanukiNPC"), NodePath("../Axe"), NodePath("../../../Enemy/Guard1"), NodePath("../OldTanukiNPC"), null]
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea"]
 shape = SubResource("RectangleShape2D_ns61c")
 
-[node name="DialogueArea2" parent="Quests/GardenStunGuard" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea2" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 position = Vector2(-2048, 0)
 dialogueText = Array[String](["QUICK YOUNG-UN, GRAB THAT KEY!", "ONCE YOU HAVE GOT IT, COME HERE!"])
 characterTalking = Array[int]([2, 2])
+cameraFocuses = [NodePath("../../../Keys/UnlockKey1"), NodePath("../OldTanukiNPC2")]
 deleteOnDone = true
 activatedByQuest = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea2"]
 shape = SubResource("CircleShape2D_hf5vy")
 
-[node name="DialogueArea3" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea3" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(1024, -2560)
 dialogueText = Array[String](["Nice job, you grabbed a key!", "What's that for, master?", "You see, young-un, to enter the mansion you will need to collect 3 keys, you have just gotten one.", "Sooo... two more to go!", "Indeed, you have completed the review of your training, use what you learned to get the other two keys.", "Also, from what I know, inside the mansion is full of keys to find to proceed, so view this as a proper training area before venturing inside.", "It's quite more crowded inside, after all.", "I am going to impress you master!", "Well, good luck Daichi.", "Thank you master!", "If you wanna review your skills, some of your tanuki friends are here in the area before, to explain the basics again.", "I shall be going now."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 2, 0, 2, 0, 2, 2])
+cameraFocuses = [NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2")]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -670,9 +679,10 @@ shape = SubResource("RectangleShape2D_166fq")
 [node name="OldTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(640, -1088)
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Ok young-un, now for an harder challenge...", "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset.", "To avoid that, transform and hide, if you have done your training properly it's quite easy.", "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide.", "Try to avoid the guard and get to the axe I stole from the mansion, it's...", "Right there. Once you reach this point, save the axe as your transformation, transform into it...", "...AND HIT THAT GUARD!", "I'll explain more once you have done all of this. Get working, young-un.", "Yessir!"])
 characterTalking = Array[int]([2, 2, 2, 2, 2, 2, 2, 2, 0])
+cameraFocuses = [NodePath(".."), NodePath("../../../../Enemy/Guard1"), NodePath(".."), NodePath("../../../../TransformationObjects/GardenFlower4"), NodePath(".."), NodePath("../../Axe"), NodePath("../../../../Enemy/Guard1"), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC/DialogueArea"]
@@ -681,9 +691,10 @@ shape = SubResource("CircleShape2D_swubk")
 [node name="OldTanukiNPC2" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(864, -2432)
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Young-un, you seem to have forgotten the key.", "It's here, grab it, then come back here."])
 characterTalking = Array[int]([2, 2])
+cameraFocuses = [NodePath(".."), NodePath("../../../../Keys/UnlockKey1")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC2/DialogueArea"]
@@ -695,9 +706,10 @@ position = Vector2(1024, -2560)
 [node name="NerdTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("17_81wbq")]
 position = Vector2(832, -192)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/NerdTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea4" parent="Quests/GardenStunGuard/NerdTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Hello, Daichi.", "Oh heya! Master told me that I could review with you!", "Indeed. I'll explain the transformation again.", "There are certain objects around which you can transform into, they have a small blue flame inside it.", "Get close to those objects and press SHIFT, you will save that object as a transformation. Then press E to transform into the object.", "Once transformed you have a certain amount of energy, once the energy is exhausted, you lose the transformation and have to get it back.", "You cannot save the same item to replenish energy, it won't work because that item already was manifested with your transformation magic, you can only replace it with new items.", "Some transformation have attacks, which are used via LEFT CLICK while transformed. Attacking will consume a flat amount of energy, after the attack is done.", "Certain transformations drain more over time or while attacking.", "Is that all?", "Yes, if you want to listen to this again, I am here.", "Thank you!"])
 characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/NerdTanukiNPC/DialogueArea4"]
@@ -706,9 +718,10 @@ shape = SubResource("CircleShape2D_4a443")
 [node name="CoolTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("18_5oidj")]
 position = Vector2(928, -640)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/CoolTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea4" parent="Quests/GardenStunGuard/CoolTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["YOOOO! IT'S MY LITTLE BRO!", "Heya, \"big bro\"!", "WASSUP! ARE YOU HERE FOR THE SUMMARY TO FACE OFF GUARDS?! I AM YOUR MAN THEN!", "WELL, I AM GONNA BE BRIEF WITH YA BRO.", "FIND A TRANSFORMATION THAT YOU FEEL LIKE YOU CAN SMACK GUARDS WITH, AND HIT THEM!", "THEY WILL BE STUNNED FOR SOME TIME!", "WHILE IN THE HEAT OF THE MOMENT, YOU MIGHT LOSE YOUR TRANSFORMATION! WORRY NOT!!! JUST FIND ANY CLOSE OBJECT, AND TRY TO HIDE AWAY WITH HIT, JUST DON'T BE SEEN MOVING!", "IF THEY SEE YOU WHILE MOVING THEY'LL KNOW SOMETHING IS WRONG, ALSO! TRY TO STAY ON THE STARRY PATH, IT MEANS IT'S THE RIGHT THING TO HIDE THERE!", "IF YOU HIDE AWAY FROM THE STARRY PATH ON THE GROUND, THEY WILL ALSO KNOW SOMETHING IS AMISS!", "THAT WAS EVERYTHING, GOOD LUCK LITTLE BRO!", "Thanks, \"big bro\"...", "...", "...my poor ears."])
 characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, null, null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/CoolTanukiNPC/DialogueArea4"]
@@ -717,9 +730,10 @@ shape = SubResource("CircleShape2D_hya11")
 [node name="SwordTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("19_d0a2y")]
 position = Vector2(512, -640)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/SwordTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea4" parent="Quests/GardenStunGuard/SwordTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Oh, it's the leaf master, did master manage to recruit such an authority in leafmanship as you?", "...", "...", "...", "Silent, are you? I suppose you are here to explain the leaf...", "...", "...I can attack with my leaf by pressing LEFT CLICK while not transformed...", "...thanks to my Tanuki senses, I can see certain areas which are \"windy with leaves\", if I hit those areas, something will happen...", "...and if I attack one of my foes with the leaf, it will repel them away!", "...is that right?", "...", "...", "*nods*", "...thanks, leaf master!", "(What a weird guy...)"])
 characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 0])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, null, null, null, NodePath(".."), null, NodePath(".."), null, null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SwordTanukiNPC/DialogueArea4"]
@@ -978,17 +992,19 @@ position = Vector2(1920, -2176)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Hey you! Yes you!", "Hm?", "I saw that you got a shiny before!", "A shiny? Wha-", "I believe you call it a... key!", "Oh! Continue, I am interested...", "I have one!", "Ohh, wanna give it to me?", "Hmm, you seem like a crafty one hehe... I am hungry.", "And?", "Bring me food...", "Acorns are good! There's a tree there...", "But there are some noisy ones there... so I can't go alone.", "Bring me an acorn, and I'll give you that key!", "Okay, scaredy squirrel, I'll grab that acorn for you.", "Yay!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../AcornTree"), NodePath("../../DialogueGuardNode"), NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_fn6fk")
 
-[node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here with a key.", "Oh, thank you!"])
 characterTalking = Array[int]([0, 2, 2, 0])
+cameraFocuses = [null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea2"]
@@ -997,9 +1013,10 @@ shape = SubResource("CircleShape2D_ndmof")
 [node name="OldTanukiNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("13_6kems")]
 position = Vector2(3456, 128)
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects by pressing RIGHT CLICK; you can't transform into everything.", "While you're transporting an object, if you transform or attack with your leaf you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
 characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 0])
+cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/OldTanukiNPC/DialogueArea"]
@@ -1019,10 +1036,11 @@ sendSignalToQuestOnDestroyed = true
 [node name="Acorn" parent="Quests/GardenSquirrelQuest" instance=ExtResource("27_spjub")]
 position = Vector2(3328, -64)
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 position = Vector2(1920, -2176)
 dialogueText = Array[String](["Thanks for this treat! Here's your key! *nom nom nom*", "No problem."])
 characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath("../SquirrelNPC"), null]
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
@@ -1050,17 +1068,19 @@ sendSignalToQuestOnDestroyed = true
 [node name="ColdOniNPC" parent="Quests/GardenOniQuest" instance=ExtResource("26_fw4lj")]
 position = Vector2(1176, -512)
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest/ColdOniNPC" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["An oni? It doesn't seem you're all right... need help?", "So... cold... help... me...", "I don't think I can do anything right now... sorry..."])
 characterTalking = Array[int]([0, 2, 0])
+cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_s1tay")
 
-[node name="DialogueArea2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["So... cold... help... me...", "Hey, I managed to lit up a bonfire in another area, can you reach it?", "No... can you bring me... there?", "Hmm... you have anything to offer?", "I... stole... a key... from the guards... before...", "Oh! Just what I need, I'm game! Let me transport you!", "Thank... you..."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2])
+cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 deleteOnDone = true
 advanceQuest = true
@@ -1075,18 +1095,20 @@ position = Vector2(1176, -512)
 [node name="HeatSourceActivator" parent="Quests/GardenOniQuest" instance=ExtResource("28_gtcmu")]
 position = Vector2(2888, -1536)
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Do you know anything about another key around there?", "Hmmm... I think I saw a squirrel with it...", "Oh, that sounds helpful... Thank you!"])
 characterTalking = Array[int]([0, 2, 0])
+cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/DialogueArea"]
 shape = SubResource("CircleShape2D_7joh1")
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(2888, -1536)
 dialogueText = Array[String](["Whew, thanks! Here, grab the key I promised you.", "Thanks for the key, hehe..."])
 characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath("../HeatSourceActivator"), null]
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")

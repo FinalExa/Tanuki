@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=160 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -222,6 +222,48 @@ cameraFocus = NodePath("..")
 [sub_resource type="CircleShape2D" id="CircleShape2D_85ecc"]
 radius = 128.25
 
+[sub_resource type="Resource" id="Resource_q0p80"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_fsdhb"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../DojoHitTrainingDummy1/TraningDummy/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ppu1t"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../DojoHitTrainingDummy2/TraningDummy/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uhvh5"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../DojoHitTrainingDummy3/TraningDummy/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_trdao"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../DojoHitTrainingDummy4/TraningDummy/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_o47xq"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../DojoHitTrainingDummy5/TraningDummy/DialogueArea1")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tel2b"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 5
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_ey8sr"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
@@ -233,6 +275,41 @@ script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_snhh1"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ppl0l"]
+script = ExtResource("16_m885m")
+dialogueText = "Hmmm... Why am I getting the feeling to hit this traning dummy...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_kupl5"]
+script = ExtResource("16_m885m")
+dialogueText = "If only I had the right tool to hit it though..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1mtb"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_tyxwx"]
+script = ExtResource("16_m885m")
+dialogueText = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH! IT HURTS!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_tgbgv"]
+script = ExtResource("16_m885m")
+dialogueText = "...wow."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i63af"]
 
 [sub_resource type="Resource" id="Resource_ee7l1"]
 script = ExtResource("13_yb20v")
@@ -246,6 +323,41 @@ itemToOperate = NodePath("TraningDummy/FeedbackSprite")
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_rul8d"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_5hmx6"]
+script = ExtResource("16_m885m")
+dialogueText = "Hmmm... Why am I getting the feeling to hit this traning dummy...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_dddhq"]
+script = ExtResource("16_m885m")
+dialogueText = "If only I had the right tool to hit it though..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1qe3"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_y5vat"]
+script = ExtResource("16_m885m")
+dialogueText = "MOTHERFUCKER!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_hmcno"]
+script = ExtResource("16_m885m")
+dialogueText = "Hey, I think that word is not appropriate for this game."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2d3y"]
+
 [sub_resource type="Resource" id="Resource_d4vck"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
@@ -257,6 +369,41 @@ script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_sna1y"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_3u5h7"]
+script = ExtResource("16_m885m")
+dialogueText = "Hmmm... Why am I getting the feeling to hit this traning dummy...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_wvmbh"]
+script = ExtResource("16_m885m")
+dialogueText = "If only I had the right tool to hit it though..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vch0b"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_lxo46"]
+script = ExtResource("16_m885m")
+dialogueText = "MY POOR, POOR WOODEN SKIN! IT HURTSSS!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xud6q"]
+script = ExtResource("16_m885m")
+dialogueText = "I feel mean now."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0s71"]
 
 [sub_resource type="Resource" id="Resource_udyei"]
 script = ExtResource("13_yb20v")
@@ -270,6 +417,41 @@ itemToOperate = NodePath("TraningDummy/FeedbackSprite")
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_bwdlv"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_re54w"]
+script = ExtResource("16_m885m")
+dialogueText = "Hmmm... Why am I getting the feeling to hit this traning dummy...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_uu180"]
+script = ExtResource("16_m885m")
+dialogueText = "If only I had the right tool to hit it though..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lys7"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_i7dm4"]
+script = ExtResource("16_m885m")
+dialogueText = "Hey, that hurt!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_57xlc"]
+script = ExtResource("16_m885m")
+dialogueText = "Why are you so awfully calm about this...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybs37"]
+
 [sub_resource type="Resource" id="Resource_6f273"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
@@ -281,6 +463,41 @@ script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_3vbuy"]
+script = ExtResource("13_yb20v")
+itemToOperate = NodePath("TraningDummy/DialogueArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_jf1si"]
+script = ExtResource("16_m885m")
+dialogueText = "Hmmm... Why am I getting the feeling to hit this traning dummy...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ybywp"]
+script = ExtResource("16_m885m")
+dialogueText = "If only I had the right tool to hit it though..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o35n"]
+radius = 128.0
+
+[sub_resource type="Resource" id="Resource_8r7if"]
+script = ExtResource("16_m885m")
+dialogueText = "WHY DO THEY KEEP HITTING ME! WHAT HAVE I DONE?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_2f5v8"]
+script = ExtResource("16_m885m")
+dialogueText = "You are literally a training dummy."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vn33c"]
 
 [sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
@@ -430,7 +647,7 @@ keyTypeToShow = 5
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/DojoTutorialDialogue"), NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey"), NodePath("Quests/DojoGetUltraKey")]
+mapQuests = [NodePath("Quests/DojoTutorialDialogue"), NodePath("Quests/DojoHitTrainingDummiesKey"), NodePath("Quests/DojoHitTrainingDummy1"), NodePath("Quests/DojoHitTrainingDummy2"), NodePath("Quests/DojoHitTrainingDummy3"), NodePath("Quests/DojoHitTrainingDummy4"), NodePath("Quests/DojoHitTrainingDummy5"), NodePath("Quests/DojoDefeatHyottoko"), NodePath("Quests/DojoRepairArmor"), NodePath("Quests/DojoUltraKey"), NodePath("Quests/DojoGetUltraKey")]
 travelingAreas = [NodePath("Teleports/TravelToKitchen")]
 travelingReceivers = [NodePath("Teleports/TravelToKitchen/KitchenReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -557,17 +774,38 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoTutorialDialogue/SwordYokaiNPC/DialogueArea2"]
 shape = SubResource("CircleShape2D_85ecc")
 
+[node name="DojoHitTrainingDummiesKey" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("11_jj1ml")
+questName = "DojoHitTrainingDummiesKey"
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_q0p80"), SubResource("Resource_fsdhb"), SubResource("Resource_ppu1t"), SubResource("Resource_uhvh5"), SubResource("Resource_trdao"), SubResource("Resource_o47xq"), SubResource("Resource_tel2b")])
+
 [node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy1"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ey8sr"), SubResource("Resource_hbpq7")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ey8sr"), SubResource("Resource_hbpq7"), SubResource("Resource_snhh1")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(448, 320)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy1/TraningDummy" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_ppl0l"), SubResource("Resource_kupl5")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy1/TraningDummy/DialogueArea1"]
+shape = SubResource("CircleShape2D_r1mtb")
+
+[node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy1/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(-5632, -320)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_tyxwx"), SubResource("Resource_tgbgv")])
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy1/TraningDummy/DialogueArea2"]
+shape = SubResource("CircleShape2D_i63af")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy1/TraningDummy"]
 position = Vector2(0, -101)
@@ -577,13 +815,28 @@ texture = ExtResource("14_05sjx")
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy2"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ee7l1"), SubResource("Resource_pfmuk")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ee7l1"), SubResource("Resource_pfmuk"), SubResource("Resource_rul8d")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(-2304, -888)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy2/TraningDummy" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_5hmx6"), SubResource("Resource_dddhq")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy2/TraningDummy/DialogueArea1"]
+shape = SubResource("CircleShape2D_o1qe3")
+
+[node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy2/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(-2880, 888)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_y5vat"), SubResource("Resource_hmcno")])
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy2/TraningDummy/DialogueArea2"]
+shape = SubResource("CircleShape2D_x2d3y")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy2/TraningDummy"]
 position = Vector2(0, -101)
@@ -593,13 +846,28 @@ texture = ExtResource("14_05sjx")
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy3"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4vck"), SubResource("Resource_nethm")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4vck"), SubResource("Resource_nethm"), SubResource("Resource_sna1y")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(1536, -640)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy3/TraningDummy" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_3u5h7"), SubResource("Resource_wvmbh")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy3/TraningDummy/DialogueArea1"]
+shape = SubResource("CircleShape2D_vch0b")
+
+[node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy3/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(-6720, 640)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_lxo46"), SubResource("Resource_xud6q")])
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy3/TraningDummy/DialogueArea2"]
+shape = SubResource("CircleShape2D_q0s71")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy3/TraningDummy"]
 position = Vector2(0, -101)
@@ -609,13 +877,28 @@ texture = ExtResource("14_05sjx")
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy4"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_udyei"), SubResource("Resource_11ltm")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_udyei"), SubResource("Resource_11ltm"), SubResource("Resource_bwdlv")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
 position = Vector2(-2368, 424)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy4/TraningDummy" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_re54w"), SubResource("Resource_uu180")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy4/TraningDummy/DialogueArea1"]
+shape = SubResource("CircleShape2D_0lys7")
+
+[node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy4/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(-2816, -424)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_i7dm4"), SubResource("Resource_57xlc")])
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy4/TraningDummy/DialogueArea2"]
+shape = SubResource("CircleShape2D_ybs37")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy4/TraningDummy"]
 position = Vector2(0, -101)
@@ -625,7 +908,7 @@ texture = ExtResource("14_05sjx")
 y_sort_enabled = true
 script = ExtResource("11_jj1ml")
 questName = "DojoHitTrainingDummy5"
-questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_6f273"), SubResource("Resource_pevrs")])
+questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_6f273"), SubResource("Resource_pevrs"), SubResource("Resource_3vbuy")])
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
@@ -633,17 +916,24 @@ position = Vector2(2496, 1472)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy5/TraningDummy" instance=ExtResource("14_hrc4d")]
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_jf1si"), SubResource("Resource_ybywp")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy5/TraningDummy/DialogueArea1"]
+shape = SubResource("CircleShape2D_7o35n")
+
+[node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy5/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(-7680, -1472)
+dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_8r7if"), SubResource("Resource_2f5v8")])
+activatedByQuest = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/DojoHitTrainingDummy5/TraningDummy/DialogueArea2"]
+shape = SubResource("CircleShape2D_vn33c")
+
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy5/TraningDummy"]
 position = Vector2(0, -101)
 texture = ExtResource("14_05sjx")
-
-[node name="DojoHitTrainingDummiesKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
-y_sort_enabled = true
-script = ExtResource("11_jj1ml")
-questName = "DojoHitTrainingDummiesKey"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 5])
-questItemsOnOffState = Array[bool]([false, true])
 
 [node name="DojoDefeatHyottoko" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
