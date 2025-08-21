@@ -29,29 +29,40 @@ func _ready():
 	leftSprite.play("default")
 	rightSprite.play("default")
 
+func _process(delta):
+	ExecuteDialogue(delta)
+
 func StartNewDialogueWithIndex(indexArray: Array[DialogueIndex], source: DialogueArea):
-	currentDialogueIndexes = indexArray
+	for i in indexArray.size():
+		currentDialogueIndexes.push_back(CreateIndex(indexArray[i].dialogueText, indexArray[i].characterTalking, indexArray[i].cameraFocus))
 	currentIndex = 0
 	currentSource = source
 	SetCurrentText()
 	self.show()
 	dialogueActive = true
+
+func CreateIndex(text: String, character: DialogueCharacters, focus: NodePath):
+	var dialogueIndex: DialogueIndex = DialogueIndex.new()
+	dialogueIndex.dialogueText = text
+	dialogueIndex.characterTalking = character
+	dialogueIndex.cameraFocus = focus
+	return dialogueIndex
 
 func StartNewDialogue(text: Array[String], characters: Array[DialogueCharacters], focus: Array[Node2D], source: DialogueArea):
 	for i in text.size():
-		var dialogueIndex: DialogueIndex = DialogueIndex.new()
-		dialogueIndex.dialogueText = text[i]
-		dialogueIndex.characterTalking = characters[i]
-		dialogueIndex.cameraFocus = dialogueIndex.SetPath(source, focus[i])
-		currentDialogueIndexes.push_back(dialogueIndex)
+		currentDialogueIndexes.push_back(CreateIndexOld(text[i], characters[i], focus[i], source))
 	currentIndex = 0
 	currentSource = source
 	SetCurrentText()
 	self.show()
 	dialogueActive = true
 
-func _process(delta):
-	ExecuteDialogue(delta)
+func CreateIndexOld(text: String, character: DialogueCharacters, focus: Node2D, source: DialogueArea):
+	var dialogueIndex: DialogueIndex = DialogueIndex.new()
+	dialogueIndex.dialogueText = text
+	dialogueIndex.characterTalking = character
+	dialogueIndex.cameraFocus = dialogueIndex.SetPath(source, focus)
+	return dialogueIndex
 
 func ExecuteDialogue(delta):
 	if (dialogueActive):

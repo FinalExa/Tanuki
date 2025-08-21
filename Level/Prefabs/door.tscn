@@ -13,7 +13,7 @@ size = Vector2(72, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fe1m"]
 size = Vector2(72, 32)
 
-[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("centralCollider", "closedSprite", "openSprite") groups=["Interactable"]]
+[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("centralCollider", "closedSprite", "openSprite")]
 y_sort_enabled = true
 script = ExtResource("1_d7y0m")
 centralCollider = NodePath("CentralCollider")
