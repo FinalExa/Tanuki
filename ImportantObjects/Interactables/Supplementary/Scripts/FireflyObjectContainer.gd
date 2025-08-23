@@ -3,6 +3,7 @@ extends Area2D
 
 @export var initialState: bool
 @export var excludeArray: Array[Node2D]
+var firefliesInArea: Array[Firefly]
 var currentState: bool
 var objectsToUpdateArray: Array[Node2D]
 
@@ -15,6 +16,18 @@ func GenerateObjectArray():
 	for i in self.get_child_count():
 		if (!excludeArray.has(self.get_child(i))):
 			objectsToUpdateArray.push_back(self.get_child(i))
+
+func RegisterFirefly(firefly: Firefly):
+	if (!firefliesInArea.has(firefly)):
+		firefliesInArea.push_back(firefly)
+		if (firefliesInArea.size() > 0 && currentState == initialState):
+			SwapState()
+
+func UnregisterFirefly(firefly: Firefly):
+	if (firefliesInArea.has(firefly)):
+		firefliesInArea.erase(firefly)
+		if (firefliesInArea.size() == 0 && currentState != initialState):
+			SwapState()
 
 func SwapState():
 	currentState = !currentState

@@ -47,16 +47,16 @@ func ReleaseBeforeDelete():
 	var i: int = containersInArea.size() - 1
 	if (i >= 0):
 		while i >= 0:
-			containersInArea[i].SwapState()
+			containersInArea[i].UnregisterFirefly(self)
 			containersInArea.remove_at(i)
 			i -= 1
 
 func _on_area_entered(area):
 	if (area is FireflyObjectContainer && !containersInArea.has(area)):
 		containersInArea.push_back(area)
-		area.SwapState()
+		area.RegisterFirefly(self)
 
 func _on_area_exited(area):
 	if (area is FireflyObjectContainer && containersInArea.has(area)):
 		containersInArea.erase(area)
-		area.SwapState()
+		area.UnregisterFirefly(self)
