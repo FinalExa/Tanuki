@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8pfbhk0l2cjk"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TransformationObjectData.gd" id="1_3sw0t"]
+[ext_resource type="Texture2D" uid="uid://d3c8afnoiebkw" path="res://ImportantObjects/TransformationObjects/Sprites/Placeholder/GreenCandle.png" id="2_p8ntj"]
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Scripts/TriggerArea.gd" id="3_sncyt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nv0e"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwq03"]
+radius = 128.25
+
+[node name="GreenCandle" type="StaticBody2D" node_paths=PackedStringArray("transformedCollider", "transformedTexture")]
+script = ExtResource("1_3sw0t")
+transformedName = "Green Candle"
+transformedSpeedTier = 1
+transformedCollider = NodePath("CollisionShape2D")
+transformedTexture = NodePath("Sprite2D")
+transformedPassivePath = "res://ImportantObjects/TransformationObjects/Passives/green_candle_passive.tscn"
+originalObjectPath = "res://ImportantObjects/TransformationObjects/green_candle.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_5nv0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -31)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_p8ntj")
+
+[node name="TriggerArea" type="Area2D" parent="." node_paths=PackedStringArray("transformationObjectData")]
+script = ExtResource("3_sncyt")
+transformationObjectData = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_vwq03")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="TriggerArea" method="_on_body_exited"]

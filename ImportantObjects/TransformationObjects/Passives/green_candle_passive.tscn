@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmd1ohndp38gy"]
+
+[ext_resource type="Script" path="res://ImportantObjects/TransformationObjects/Passives/Scripts/GreenCandlePassive.gd" id="1_4hr6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7pll"]
+radius = 128.25
+
+[node name="GreenCandlePassive" type="Area2D" node_paths=PackedStringArray("fireflySpot")]
+script = ExtResource("1_4hr6w")
+fireflySpot = NodePath("FireflySpot")
+fireflyHouseGroupName = "FireflyHouse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q7pll")
+
+[node name="FireflySpot" type="Node2D" parent="."]
+position = Vector2(32, -32)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

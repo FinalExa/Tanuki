@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfddo5b6m5g6f"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/FireflyObjectContainer.gd" id="1_1g7ks"]
+[ext_resource type="Texture2D" uid="uid://gmywfl4sv02k" path="res://ImportantObjects/Interactables/Supplementary/Sprites/FireflyYokaiObjectContainer.png" id="2_kks3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7p8k"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6yee"]
+atlas = ExtResource("2_kks3s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li4n0"]
+atlas = ExtResource("2_kks3s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n25u"]
+atlas = ExtResource("2_kks3s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggy5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6yee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li4n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n25u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li4n0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireflyObjectContainer" type="Area2D" node_paths=PackedStringArray("excludeArray")]
+script = ExtResource("1_1g7ks")
+excludeArray = [NodePath("CollisionShape2D"), NodePath("AnimatedSprite2D")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u7p8k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ggy5g")
+autoplay = "default"
+frame_progress = 0.947471
