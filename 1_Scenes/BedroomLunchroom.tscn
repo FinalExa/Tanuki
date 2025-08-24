@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=20 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://wmcf3so5kd65" path="res://ImportantObjects/Interactables/Supplementary/firefly_house_full.tscn" id="13_vo8w2"]
 [ext_resource type="PackedScene" uid="uid://bfddo5b6m5g6f" path="res://ImportantObjects/Interactables/Supplementary/firefly_object_container.tscn" id="14_ugxoi"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="15_xudx6"]
+[ext_resource type="PackedScene" uid="uid://dvkb1wrtepasr" path="res://ImportantObjects/Interactables/Supplementary/food_cart.tscn" id="16_d8ry3"]
+[ext_resource type="PackedScene" uid="uid://c2wnulh4bjj5l" path="res://ImportantObjects/Interactables/Supplementary/food_cart_checkpoint.tscn" id="17_h6nnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvp6"]
 size = Vector2(160, 256)
@@ -135,3 +137,19 @@ position = Vector2(896, -64)
 position = Vector2(1280, -64)
 
 [node name="Vase" parent="Saves/FireflyObjectContainer" instance=ExtResource("15_xudx6")]
+
+[node name="FoodCart" parent="Saves" node_paths=PackedStringArray("startingCheckpoint") instance=ExtResource("16_d8ry3")]
+position = Vector2(1152, 256)
+startingCheckpoint = NodePath("../FoodCartCheckpoint")
+
+[node name="FoodCartCheckpoint" parent="Saves" instance=ExtResource("17_h6nnl")]
+position = Vector2(1152, 256)
+availableDirections = Array[bool]([true, false, false, true])
+
+[node name="FoodCartCheckpoint2" parent="Saves" instance=ExtResource("17_h6nnl")]
+position = Vector2(1984, 256)
+availableDirections = Array[bool]([false, false, true, false])
+
+[node name="FoodCartCheckpoint3" parent="Saves" instance=ExtResource("17_h6nnl")]
+position = Vector2(1152, 64)
+availableDirections = Array[bool]([false, true, false, false])
