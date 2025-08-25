@@ -1,11 +1,12 @@
 class_name FoodCart
 extends StaticBody2D
 
-@export var directionObjects: Array[Node2D]
-@export var launchAreas: Array[FoodCartLaunchArea]
-@export var startingCheckpoint: FoodCartCheckpoint
 @export var launchSpeed: float
 @export var afterLaunchICD: float
+@export var startingCheckpoint: FoodCartCheckpoint
+@export var damageArea: FoodCartDamageArea
+@export var directionObjects: Array[Node2D]
+@export var launchAreas: Array[FoodCartLaunchArea]
 var cooldown: float
 var cooldownActive: float
 var currentCheckpoint: FoodCartCheckpoint
@@ -37,6 +38,7 @@ func CalculateDirections():
 func SetCheckpointReached(checkpoint: FoodCartCheckpoint):
 	oldCheckPoint = null
 	currentCheckpoint = checkpoint
+	damageArea.Deactivate()
 	for i in currentCheckpoint.availableDirections.size():
 		if (currentCheckpoint.availableDirections[i]):
 			launchAreas[i].Activate()
@@ -46,6 +48,7 @@ func SetCheckpointReached(checkpoint: FoodCartCheckpoint):
 func LaunchTo(id: int):
 	oldCheckPoint = currentCheckpoint
 	currentCheckpoint = null
+	damageArea.Activate()
 	for i in launchAreas.size():
 		launchAreas[i].Deactivate()
 	cooldown = afterLaunchICD

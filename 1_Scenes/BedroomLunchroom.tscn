@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=21 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bfddo5b6m5g6f" path="res://ImportantObjects/Interactables/Supplementary/firefly_object_container.tscn" id="14_ugxoi"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="15_xudx6"]
 [ext_resource type="PackedScene" uid="uid://dvkb1wrtepasr" path="res://ImportantObjects/Interactables/Supplementary/food_cart.tscn" id="16_d8ry3"]
+[ext_resource type="PackedScene" uid="uid://dcnrgwgkdsj6s" path="res://ImportantObjects/Interactables/test_obstacle.tscn" id="16_f75vh"]
 [ext_resource type="PackedScene" uid="uid://c2wnulh4bjj5l" path="res://ImportantObjects/Interactables/Supplementary/food_cart_checkpoint.tscn" id="17_h6nnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvp6"]
@@ -127,29 +128,35 @@ oneTimeSave = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Saves/SavePoint"]
 shape = SubResource("RectangleShape2D_5ehwp")
 
-[node name="GreenCandle" parent="Saves" instance=ExtResource("12_i0sbb")]
+[node name="MechanicsTest" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GreenCandle" parent="MechanicsTest" instance=ExtResource("12_i0sbb")]
 position = Vector2(512, -64)
 
-[node name="FireflyHouseFull" parent="Saves" instance=ExtResource("13_vo8w2")]
+[node name="FireflyHouseFull" parent="MechanicsTest" instance=ExtResource("13_vo8w2")]
 position = Vector2(896, -64)
 
-[node name="FireflyObjectContainer" parent="Saves" instance=ExtResource("14_ugxoi")]
+[node name="FireflyObjectContainer" parent="MechanicsTest" instance=ExtResource("14_ugxoi")]
 position = Vector2(1280, -64)
 
-[node name="Vase" parent="Saves/FireflyObjectContainer" instance=ExtResource("15_xudx6")]
+[node name="Vase" parent="MechanicsTest/FireflyObjectContainer" instance=ExtResource("15_xudx6")]
 
-[node name="FoodCart" parent="Saves" node_paths=PackedStringArray("startingCheckpoint") instance=ExtResource("16_d8ry3")]
+[node name="Obstacle" parent="MechanicsTest" instance=ExtResource("16_f75vh")]
+position = Vector2(1664, 256)
+
+[node name="FoodCart" parent="MechanicsTest" node_paths=PackedStringArray("startingCheckpoint") instance=ExtResource("16_d8ry3")]
 position = Vector2(1152, 256)
 startingCheckpoint = NodePath("../FoodCartCheckpoint")
 
-[node name="FoodCartCheckpoint" parent="Saves" instance=ExtResource("17_h6nnl")]
+[node name="FoodCartCheckpoint" parent="MechanicsTest" instance=ExtResource("17_h6nnl")]
 position = Vector2(1152, 256)
 availableDirections = Array[bool]([true, false, false, true])
 
-[node name="FoodCartCheckpoint2" parent="Saves" instance=ExtResource("17_h6nnl")]
+[node name="FoodCartCheckpoint2" parent="MechanicsTest" instance=ExtResource("17_h6nnl")]
 position = Vector2(1984, 256)
 availableDirections = Array[bool]([false, false, true, false])
 
-[node name="FoodCartCheckpoint3" parent="Saves" instance=ExtResource("17_h6nnl")]
+[node name="FoodCartCheckpoint3" parent="MechanicsTest" instance=ExtResource("17_h6nnl")]
 position = Vector2(1152, 64)
 availableDirections = Array[bool]([false, true, false, false])
