@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=78 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
 [ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
 [ext_resource type="PackedScene" uid="uid://drc230rx5jty8" path="res://ImportantObjects/Interactables/Supplementary/waterway_component_pool.tscn" id="24_431i6"]
-[ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="25_a73mm"]
 [ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="25_hmgvd"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="26_07hvu"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="26_nder6"]
@@ -34,15 +33,11 @@
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="27_bdgoy"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_pv3og"]
 [ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="29_6sxxu"]
-[ext_resource type="PackedScene" uid="uid://c5jd70j1vc6kc" path="res://ImportantObjects/Interactables/grate_closed.tscn" id="29_dqkhl"]
-[ext_resource type="Texture2D" uid="uid://dn3jwf4sx7ys4" path="res://ImportantObjects/Interactables/Sprites/Grate.png" id="29_yc6uq"]
 [ext_resource type="PackedScene" uid="uid://b0u1qq11857bj" path="res://Enemies/boss_advancer.tscn" id="30_427wy"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
 [ext_resource type="PackedScene" uid="uid://3yfbephdlbok" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component_pool.tscn" id="31_s5uyt"]
 [ext_resource type="PackedScene" uid="uid://bkv686hf317o0" path="res://ImportantObjects/Interactables/Supplementary/waterway_side_component_pool.tscn" id="32_7lw7r"]
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="34_taace"]
-[ext_resource type="Texture2D" uid="uid://dey3jtqhafvno" path="res://ImportantObjects/Interactables/Sprites/GrateOpen.png" id="39_sxs3x"]
-[ext_resource type="PackedScene" uid="uid://c1srj5qekq184" path="res://ImportantObjects/TransformationObjects/towel.tscn" id="41_4w2mt"]
 [ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="42_2bcdm"]
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="43_2cow1"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="44_k83du"]
@@ -133,38 +128,32 @@ size = Vector2(256, 384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
 size = Vector2(128, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubcq0"]
-size = Vector2(64, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yslo8"]
 size = Vector2(256, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fynbx"]
-size = Vector2(496, 1504)
+size = Vector2(504, 1908)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auacd"]
-size = Vector2(384, 224)
+size = Vector2(368, 896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01bbf"]
 size = Vector2(512, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi1fs"]
-size = Vector2(384, 128)
+size = Vector2(376, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y42t"]
 size = Vector2(512, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vasx0"]
-size = Vector2(624, 256)
+size = Vector2(496, 896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbjrg"]
 size = Vector2(512, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kynkg"]
-size = Vector2(240, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kka7m"]
-size = Vector2(128, 512)
+size = Vector2(368, 504)
 
 [node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
@@ -180,14 +169,14 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 917504, 131072, 1, 983039, 131072, 1, 983038, 131072, 1, 983037, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 1, -10, 131072, 0, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 0, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5)
+layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 917504, 131072, 1, 983039, 131072, 1, 983038, 131072, 1, 983037, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 0, -10, 131072, 1, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 0, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5, 65525, 0, 1, 131061, 655360, 4, 196597, 655360, 5, 262131, 131072, 1, 262132, 131072, 1, 262133, 196608, 1)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(196618, 983040, 15, 196619, 983040, 15, 393227, 983040, 15, 393226, 983040, 15, 327691, 983040, 15, 262155, 983040, 15, -720887, 458752, 7)
+layer_2/tile_data = PackedInt32Array(196618, 983040, 15, 196619, 983040, 15, 393227, 983040, 15, 393226, 983040, 15, 327691, 983040, 15, 262155, 983040, 15)
 script = ExtResource("2_4g2cg")
 playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
@@ -196,8 +185,8 @@ levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUnlockSewers"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
-travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("Teleport/TravelToSewers")]
-travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("Teleport/TravelToSewers/SewersReceiver")]
+travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("")]
+travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
 
 [node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
@@ -240,7 +229,7 @@ position = Vector2(552, -800)
 position = Vector2(1200, 264)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(-1024, 1120)
+position = Vector2(-1496, 1256)
 
 [node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
 position = Vector2(-1472, -3456)
@@ -360,8 +349,9 @@ questItemsStages = Array[int]([0, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
-[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(352, -784)
+[node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(-1624, 776)
+waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway5")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -390,6 +380,48 @@ cameraFocuses = [NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"]
+shape = SubResource("CircleShape2D_jm5or")
+
+[node name="BathroomGeneratorYokai3" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("emptySprite", "fullSprite", "heatedSprite", "waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(720, 1368)
+emptySprite = NodePath("../BathroomGeneratorYokai2/Empty")
+fullSprite = NodePath("../BathroomGeneratorYokai2/Full")
+heatedSprite = NodePath("../BathroomGeneratorYokai2/Heated")
+waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway6")]
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Hot... water...", "Hello there, can I help you...?", "Yes please... if you manage to fill me with water... I'll need to become heated again...", "How do I do that?", "Give me a metallic object that has been heated, only after I got filled with water... please...", "I'll search for it!"])
+characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
+cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null, NodePath("../../BathroomGeneratorYokai2"), null, NodePath("../../BathroomGeneratorYokai2"), null]
+isOnInteraction = true
+interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea/Label")
+dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea/DialogueIcon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea"]
+shape = SubResource("CircleShape2D_2jjrb")
+
+[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Thanks for saving me! I sense my brother is still ill, please save him!", "Will do."])
+characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null]
+isOnInteraction = true
+interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea2/Label")
+dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea2/DialogueIcon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea2"]
+shape = SubResource("CircleShape2D_ik03u")
+
+[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
+dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
+characterTalking = Array[int]([2, 0])
+cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null]
+isOnInteraction = true
+interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea3/Label")
+dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea3/DialogueIcon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea3"]
 shape = SubResource("CircleShape2D_jm5or")
 
 [node name="BathroomsRescueOldYokai" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
@@ -447,7 +479,7 @@ questStageAdvancers = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePat
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2"), NodePath("DirtyFloor3"), NodePath("DirtyFloor4"), NodePath("DirtyFloor5"), NodePath("DirtyFloor6"), NodePath("DirtyFloor7")]
 
 [node name="CleanerNPC" parent="Quests/BathroomsCleanFloor" instance=ExtResource("25_hmgvd")]
-position = Vector2(-1152, 1088)
+position = Vector2(-1496, 1456)
 
 [node name="DialogueArea" parent="Quests/BathroomsCleanFloor/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 dialogueText = Array[String](["Oh no a cleaner! I don't want to be hit!", "Naaaaah, I am in pause. No worries.", "You cleaners have pauses?", "Yeah... \"pauses\"... hm, now that I think about it you've seen me slacking... I'm going to be in trouble.", "Hey hey, I'll stay silent if you give me something in return you know?", "Hmmm... what about a key?", "That's exactly what I am looking for!", "Then let's make a deal: do my job for me, clean the brown goop around here and I'll give it to you.", "Okay, deal.", "There should be 7 of them around here, once you'll clean all of them, I'll give you your key."])
@@ -504,7 +536,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor6" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(880, 80)
+position = Vector2(848, 280)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -517,26 +549,10 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSewersKey"
-questItemsToOperate = [NodePath("KeySprite"), NodePath("DialogueArea")]
+questItemsToOperate = [NodePath(""), NodePath("DialogueArea")]
 questItemsStages = Array[int]([1, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
-
-[node name="ButtonToPush" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_a73mm")]
-z_index = 0
-position = Vector2(1216, -1376)
-questToSendProgressSignal = NodePath("..")
-sendSignalToQuestOnDestroyed = true
-
-[node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsSewersKey"]
-z_index = 1
-position = Vector2(1216, -1384)
-texture = ExtResource("26_nder6")
-
-[node name="GrateSprite" type="Sprite2D" parent="Quests/BathroomsSewersKey"]
-z_index = -1
-position = Vector2(1216, -1288)
-texture = ExtResource("29_yc6uq")
+objectsToDeleteAtQuestComplete = [NodePath("")]
 
 [node name="DialogueArea" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
@@ -553,15 +569,10 @@ shape = SubResource("CircleShape2D_31tgn")
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsUnlockSewers"
-questItemsToOperate = [NodePath("../../Teleport/TravelToSewers"), NodePath("../../Teleport/TravelToSewers")]
+questItemsToOperate = [NodePath(""), NodePath("")]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("GrateClosed")]
-
-[node name="GrateClosed" parent="Quests/BathroomsUnlockSewers" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("29_dqkhl")]
-position = Vector2(-480, -1440)
-questToSendProgressSignal = NodePath("..")
-sendSignalToQuestOnDestroyed = true
+objectsToDeleteAtQuestComplete = [NodePath("")]
 
 [node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1079,21 +1090,6 @@ shape = SubResource("RectangleShape2D_5v6nd")
 [node name="HallReceiver" type="Node2D" parent="Teleport/TravelToHall"]
 position = Vector2(-160, 0)
 
-[node name="TravelToSewers" parent="Teleport" instance=ExtResource("3_abhd1")]
-position = Vector2(-480, -1440)
-sceneToLoad = "res://1_Scenes/BathroomsSewers.tscn"
-removeTransformation = true
-
-[node name="OpenSprite" type="Sprite2D" parent="Teleport/TravelToSewers"]
-z_index = -1
-texture = ExtResource("39_sxs3x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/TravelToSewers"]
-shape = SubResource("RectangleShape2D_ubcq0")
-
-[node name="SewersReceiver" type="Node2D" parent="Teleport/TravelToSewers"]
-position = Vector2(0, 192)
-
 [node name="SavePoints" type="Node2D" parent="."]
 
 [node name="SavePoint" parent="SavePoints" instance=ExtResource("8_agnml")]
@@ -1120,21 +1116,33 @@ transformedTexture = NodePath("../Gear/Sprite2D")
 position = Vector2(168, 640)
 
 [node name="Broom" parent="TransformationObjects" instance=ExtResource("30_g2xji")]
-position = Vector2(-1248, 1216)
-
-[node name="Towel" parent="TransformationObjects" instance=ExtResource("41_4w2mt")]
-position = Vector2(-1216, 312)
+position = Vector2(-1608, 1456)
 
 [node name="Vase" parent="TransformationObjects" instance=ExtResource("44_k83du")]
-position = Vector2(840, 1136)
+position = Vector2(840, 1832)
 
 [node name="Vase2" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(832, 288)
+position = Vector2(840, 56)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase3" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-1232, -768)
+position = Vector2(-1608, -736)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase12" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1352, -736)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase13" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1352, -1504)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase14" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1608, -1504)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
@@ -1147,7 +1155,12 @@ transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase6" parent="TransformationObjects" instance=ExtResource("44_k83du")]
-position = Vector2(-960, 64)
+position = Vector2(-1352, 64)
+
+[node name="Vase15" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1608, 64)
+transformedCollider = NodePath("../Vase6/CollisionShape2D")
+transformedTexture = NodePath("../Vase6/Sprite2D")
 
 [node name="Vase7" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-1224, 928)
@@ -1160,17 +1173,44 @@ transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase8" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(584, 32)
+position = Vector2(456, 32)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase19" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(712, 32)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase20" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(712, 432)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase21" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(456, 432)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase9" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-1232, 1400)
+position = Vector2(-1608, 1824)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase10" parent="TransformationObjects" instance=ExtResource("44_k83du")]
-position = Vector2(704, 944)
+[node name="Vase16" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1608, 1072)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase17" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1216, 1072)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase18" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(-1216, 1824)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="MovableObjects" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1182,6 +1222,7 @@ position = Vector2(-384, -192)
 position = Vector2(648, 192)
 
 [node name="Enemies" type="Node2D" parent="."]
+visible = false
 y_sort_enabled = true
 
 [node name="CleanerUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
@@ -1333,7 +1374,7 @@ position = Vector2(-512, 992)
 [node name="AllowedZones" type="Node2D" parent="."]
 
 [node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(1032, 752)
+position = Vector2(1032, 960)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems"]
@@ -1484,29 +1525,74 @@ position = Vector2(184, 592)
 position = Vector2(184, 720)
 
 [node name="LocalAllowedItems2" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(-1088, -784)
+position = Vector2(-1480, -1088)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems2"]
 shape = SubResource("RectangleShape2D_auacd")
 
 [node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(-128, -48)
+position = Vector2(-136, -384)
 
 [node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(-128, 80)
+position = Vector2(-136, -256)
 
 [node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(0, -48)
+position = Vector2(-136, -128)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(0, 80)
+position = Vector2(-136, 0)
 
 [node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(128, -48)
+position = Vector2(-136, 128)
 
 [node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
-position = Vector2(128, 80)
+position = Vector2(-136, 256)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-136, 384)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -384)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -256)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -128)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 0)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 128)
+
+[node name="LocalAllowedItemsFeedback13" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 256)
+
+[node name="LocalAllowedItemsFeedback14" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 384)
+
+[node name="LocalAllowedItemsFeedback15" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, -384)
+
+[node name="LocalAllowedItemsFeedback16" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, -256)
+
+[node name="LocalAllowedItemsFeedback17" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, -128)
+
+[node name="LocalAllowedItemsFeedback18" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, 0)
+
+[node name="LocalAllowedItemsFeedback19" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, 128)
+
+[node name="LocalAllowedItemsFeedback20" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, 256)
+
+[node name="LocalAllowedItemsFeedback21" parent="AllowedZones/LocalAllowedItems2" instance=ExtResource("45_gimc5")]
+position = Vector2(120, 384)
 
 [node name="LocalAllowedItems3" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(1024, -1136)
@@ -1540,19 +1626,47 @@ position = Vector2(64, 56)
 position = Vector2(192, 56)
 
 [node name="LocalAllowedItems4" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(-1088, 64)
+position = Vector2(-1480, 256)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems4"]
 shape = SubResource("RectangleShape2D_oi1fs")
 
 [node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
-position = Vector2(-128, 0)
+position = Vector2(-136, 192)
 
 [node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 192)
 
 [node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
-position = Vector2(128, 0)
+position = Vector2(120, 192)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-136, 64)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, 64)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(120, 64)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-136, -64)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -64)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(120, -64)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-136, -192)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(-8, -192)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems4" instance=ExtResource("45_gimc5")]
+position = Vector2(120, -192)
 
 [node name="LocalAllowedItems5" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(1024, -640)
@@ -1586,41 +1700,95 @@ position = Vector2(64, 64)
 position = Vector2(192, 64)
 
 [node name="LocalAllowedItems6" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(-968, 1408)
+position = Vector2(-1416, 1408)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems6"]
 shape = SubResource("RectangleShape2D_vasx0")
 
-[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(-248, -64)
-
 [node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(-120, -64)
+position = Vector2(-200, 320)
 
 [node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(8, -64)
+position = Vector2(-72, 320)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(136, -64)
+position = Vector2(56, 320)
 
 [node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(264, -64)
+position = Vector2(184, 320)
 
-[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(-248, 64)
+[node name="LocalAllowedItemsFeedback26" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-200, -320)
+
+[node name="LocalAllowedItemsFeedback27" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-72, -320)
+
+[node name="LocalAllowedItemsFeedback28" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(56, -320)
+
+[node name="LocalAllowedItemsFeedback29" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(184, -320)
 
 [node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(-120, 64)
+position = Vector2(-200, 448)
 
 [node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(8, 64)
+position = Vector2(-72, 448)
 
 [node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(136, 64)
+position = Vector2(56, 448)
 
 [node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
-position = Vector2(264, 64)
+position = Vector2(184, 448)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-200, 64)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-72, 64)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(56, 64)
+
+[node name="LocalAllowedItemsFeedback13" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(184, 64)
+
+[node name="LocalAllowedItemsFeedback14" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-200, 192)
+
+[node name="LocalAllowedItemsFeedback15" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-72, 192)
+
+[node name="LocalAllowedItemsFeedback16" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(56, 192)
+
+[node name="LocalAllowedItemsFeedback17" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(184, 192)
+
+[node name="LocalAllowedItemsFeedback18" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-200, -192)
+
+[node name="LocalAllowedItemsFeedback19" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-72, -192)
+
+[node name="LocalAllowedItemsFeedback20" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(56, -192)
+
+[node name="LocalAllowedItemsFeedback21" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(184, -192)
+
+[node name="LocalAllowedItemsFeedback22" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-200, -64)
+
+[node name="LocalAllowedItemsFeedback23" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(-72, -64)
+
+[node name="LocalAllowedItemsFeedback24" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(56, -64)
+
+[node name="LocalAllowedItemsFeedback25" parent="AllowedZones/LocalAllowedItems6" instance=ExtResource("45_gimc5")]
+position = Vector2(184, -64)
 
 [node name="LocalAllowedItems7" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(-1408, 896)
@@ -1654,42 +1822,47 @@ position = Vector2(64, 64)
 position = Vector2(192, 64)
 
 [node name="LocalAllowedItems8" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(648, 128)
+position = Vector2(584, 256)
 allowedObjects = Array[String](["Vase"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems8"]
 shape = SubResource("RectangleShape2D_kynkg")
 
 [node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
-position = Vector2(-64, -64)
+position = Vector2(-120, 64)
 
 [node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
-position = Vector2(64, -64)
+position = Vector2(8, 64)
 
 [node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
-position = Vector2(-64, 64)
+position = Vector2(-120, 192)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
-position = Vector2(64, 64)
+position = Vector2(8, 192)
 
-[node name="LocalAllowedItems9" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
-position = Vector2(704, 768)
-allowedObjects = Array[String](["Vase"])
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(136, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems9"]
-shape = SubResource("RectangleShape2D_kka7m")
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(136, 192)
 
-[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, -192)
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(-120, -192)
 
-[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, -64)
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -192)
 
-[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, 64)
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(-120, -64)
 
-[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("45_gimc5")]
-position = Vector2(0, 192)
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(8, -64)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(136, -192)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("45_gimc5")]
+position = Vector2(136, -64)
 
 [node name="Puzzle" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1708,7 +1881,7 @@ waterwaysToActivate = [NodePath("../../Waterways/Waterway1"), NodePath("../../Wa
 
 [node name="WaterSource4" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-1024, 752)
-waterwaysToActivate = [NodePath(""), NodePath("../../Waterways/Waterway5")]
+waterwaysToActivate = [NodePath("../../Waterways/Waterway5")]
 
 [node name="WaterSource5" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-112, 1344)
@@ -1744,7 +1917,7 @@ position = Vector2(0, 256)
 
 [node name="Waterway3Pool" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-448, 896)
-objectsToFill = [NodePath("../../../Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2"), NodePath(""), NodePath("../../WaterSources/WaterSource5")]
+objectsToFill = [NodePath("../../../Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../../Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterSource4"), NodePath("../../WaterSources/WaterSource5")]
 
 [node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(176, -824)
@@ -1866,23 +2039,15 @@ rotation = 1.5708
 [node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(-112, 0)
 rotation = 1.5708
+hasBridge = true
 
 [node name="WaterwayComponent4" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(-240, 0)
 rotation = 1.5708
 
-[node name="WaterwayComponent5" parent="Puzzle/Waterways/Waterway5" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
-position = Vector2(-320, 0)
-rotation = 1.5708
-waterSprite = NodePath("../WaterwayComponent4/Water")
-heatedSprite = NodePath("../WaterwayComponent4/Hot")
-bridgeLowSprite = NodePath("../WaterwayComponent4/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent4/BridgeHigh")
-removableCollisionShape = NodePath("../WaterwayComponent4/RemovableCollisionShape2D")
-
 [node name="Waterway6" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(336, 1344)
-objectsToFill = [NodePath("../../WaterSources/WaterSource5")]
+objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../../Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3")]
 
 [node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
 position = Vector2(-320, 0)
@@ -1907,8 +2072,4 @@ rotation = 1.5708
 
 [node name="WaterwayComponent6" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
 position = Vector2(320, 0)
-rotation = 1.5708
-
-[node name="WaterwayComponent7" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
-position = Vector2(376, 0)
 rotation = 1.5708
