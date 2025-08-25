@@ -28,6 +28,7 @@ script = ExtResource("1_ex6qh")
 directionObjects = [NodePath("UP"), NodePath("DOWN"), NodePath("LEFT"), NodePath("RIGHT")]
 launchAreas = [NodePath("FoodCartLaunchAreaUP"), NodePath("FoodCartLaunchAreaDOWN"), NodePath("FoodCartLaunchAreaLEFT"), NodePath("FoodCartLaunchAreaRIGHT")]
 launchSpeed = 1000.0
+afterLaunchICD = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -56)
