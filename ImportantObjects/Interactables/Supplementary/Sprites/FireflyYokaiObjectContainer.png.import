@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3543tqthutl6"
-path="res://.godot/imported/money.png-d0297d1ae2e0bf39580f20ee5bc447eb.ctex"
+uid="uid://gmywfl4sv02k"
+path="res://.godot/imported/FireflyYokaiObjectContainer.png-9b584bc351b4f7193a9148f2fab3c25f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/ActivationObjects/Sprites/money.png"
-dest_files=["res://.godot/imported/money.png-d0297d1ae2e0bf39580f20ee5bc447eb.ctex"]
+source_file="res://ImportantObjects/Interactables/Supplementary/Sprites/FireflyYokaiObjectContainer.png"
+dest_files=["res://.godot/imported/FireflyYokaiObjectContainer.png-9b584bc351b4f7193a9148f2fab3c25f.ctex"]
 
 [params]
 

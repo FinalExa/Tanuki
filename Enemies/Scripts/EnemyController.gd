@@ -45,7 +45,7 @@ func _ready():
 	ReadyOperations()
 
 func _process(_delta):
-	GuardAnimations()
+	EnemyAnimations()
 
 func _physics_process(delta):
 	Repelled(delta)
@@ -54,7 +54,7 @@ func _physics_process(delta):
 func ReadyOperations():
 	pass
 
-func GuardAnimations():
+func EnemyAnimations():
 	if (velocity.x < 0):
 		spriteRef.flip_h = true
 	else:

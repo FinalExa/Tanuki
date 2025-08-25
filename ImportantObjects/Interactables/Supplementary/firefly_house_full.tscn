@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://wmcf3so5kd65"]
+
+[ext_resource type="Texture2D" uid="uid://c0ary1klt0pu3" path="res://ImportantObjects/Interactables/Supplementary/Sprites/FireflyHouseFull.png" id="1_6ykxj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cxseq"]
+radius = 24.0
+height = 80.0
+
+[node name="FireflyHouseFull" type="StaticBody2D" groups=["FireflyHouse"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_6ykxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cxseq")

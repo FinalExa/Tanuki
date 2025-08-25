@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvkb1wrtepasr"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/FoodCart.gd" id="1_ex6qh"]
+[ext_resource type="Texture2D" uid="uid://b8hi32g3fkcuh" path="res://ImportantObjects/Interactables/Sprites/FoodCart.png" id="2_4fm7n"]
+[ext_resource type="PackedScene" uid="uid://dmboqu7yvbhis" path="res://ImportantObjects/Interactables/Supplementary/food_cart_launch_area.tscn" id="3_fwq5p"]
+[ext_resource type="PackedScene" uid="uid://by3htcny7yq2s" path="res://ImportantObjects/Interactables/Supplementary/food_cart_damage_area.tscn" id="4_0ec5q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vsi4"]
+radius = 32.0
+height = 80.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc6c1"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lei76"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5aauy"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqiyf"]
+size = Vector2(16, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqgod"]
+radius = 64.4981
+
+[node name="FoodCart" type="StaticBody2D" node_paths=PackedStringArray("damageArea", "directionObjects", "launchAreas")]
+script = ExtResource("1_ex6qh")
+launchSpeed = 1000.0
+afterLaunchICD = 0.5
+damageArea = NodePath("FoodCartDamageArea")
+directionObjects = [NodePath("Directions/UP"), NodePath("Directions/DOWN"), NodePath("Directions/LEFT"), NodePath("Directions/RIGHT")]
+launchAreas = [NodePath("Directions/FoodCartLaunchAreaUP"), NodePath("Directions/FoodCartLaunchAreaDOWN"), NodePath("Directions/FoodCartLaunchAreaLEFT"), NodePath("Directions/FoodCartLaunchAreaRIGHT")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+texture = ExtResource("2_4fm7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8vsi4")
+
+[node name="Directions" type="Node2D" parent="."]
+
+[node name="UP" type="Node2D" parent="Directions"]
+position = Vector2(0, -8)
+
+[node name="FoodCartLaunchAreaUP" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
+foodCart = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/FoodCartLaunchAreaUP"]
+shape = SubResource("RectangleShape2D_fc6c1")
+
+[node name="DOWN" type="Node2D" parent="Directions"]
+position = Vector2(0, 8)
+
+[node name="FoodCartLaunchAreaDOWN" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
+position = Vector2(0, -64)
+foodCart = NodePath("../..")
+id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/FoodCartLaunchAreaDOWN"]
+shape = SubResource("RectangleShape2D_lei76")
+
+[node name="LEFT" type="Node2D" parent="Directions"]
+position = Vector2(-8, 0)
+
+[node name="FoodCartLaunchAreaLEFT" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
+position = Vector2(48, -24)
+foodCart = NodePath("../..")
+id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/FoodCartLaunchAreaLEFT"]
+shape = SubResource("RectangleShape2D_5aauy")
+
+[node name="RIGHT" type="Node2D" parent="Directions"]
+position = Vector2(8, 0)
+
+[node name="FoodCartLaunchAreaRIGHT" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
+position = Vector2(-48, -24)
+foodCart = NodePath("../..")
+id = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Directions/FoodCartLaunchAreaRIGHT"]
+shape = SubResource("RectangleShape2D_eqiyf")
+
+[node name="CheckpointLocator" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointLocator"]
+shape = SubResource("CircleShape2D_dqgod")
+
+[node name="FoodCartDamageArea" parent="." instance=ExtResource("4_0ec5q")]
+
+[connection signal="area_entered" from="CheckpointLocator" to="." method="CheckForCheckpoints"]

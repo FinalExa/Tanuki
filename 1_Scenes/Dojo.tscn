@@ -232,31 +232,31 @@ itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_2fb5w"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback1")
+itemToOperate = NodePath("Feedbacks/LanternFeedback1")
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_3itbs"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback2")
+itemToOperate = NodePath("Feedbacks/LanternFeedback2")
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_q22e4"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback3")
+itemToOperate = NodePath("Feedbacks/LanternFeedback3")
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_63orr"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback4")
+itemToOperate = NodePath("Feedbacks/LanternFeedback4")
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_kto0a"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback5")
+itemToOperate = NodePath("Feedbacks/LanternFeedback5")
 itemStage = 0
 itemOperation = 0
 
@@ -292,31 +292,31 @@ itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_52tit"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback1")
+itemToOperate = NodePath("Feedbacks/LanternFeedback1")
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ro8jg"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback2")
+itemToOperate = NodePath("Feedbacks/LanternFeedback2")
 itemStage = 2
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_e2plp"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback3")
+itemToOperate = NodePath("Feedbacks/LanternFeedback3")
 itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_4dp21"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback4")
+itemToOperate = NodePath("Feedbacks/LanternFeedback4")
 itemStage = 4
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_pbeuo"]
 script = ExtResource("13_yb20v")
-itemToOperate = NodePath("TraningDummiesCarpet/LanternFeedback5")
+itemToOperate = NodePath("Feedbacks/LanternFeedback5")
 itemStage = 5
 itemOperation = 1
 
@@ -1199,29 +1199,26 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_q0p80"), Su
 [node name="TraningDummiesCarpet" parent="Quests/DojoHitTrainingDummiesKey" instance=ExtResource("17_k18eh")]
 position = Vector2(0, -896)
 
-[node name="LanternFeedback1" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
-z_index = 1
-position = Vector2(0, -127)
+[node name="Feedbacks" type="Node2D" parent="Quests/DojoHitTrainingDummiesKey"]
+
+[node name="LanternFeedback1" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/Feedbacks"]
+position = Vector2(0, -1023)
 texture = ExtResource("18_y0pm1")
 
-[node name="LanternFeedback2" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
-z_index = 1
-position = Vector2(96, -63)
+[node name="LanternFeedback2" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/Feedbacks"]
+position = Vector2(96, -959)
 texture = ExtResource("18_y0pm1")
 
-[node name="LanternFeedback3" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
-z_index = 1
-position = Vector2(72, 49)
+[node name="LanternFeedback3" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/Feedbacks"]
+position = Vector2(72, -847)
 texture = ExtResource("18_y0pm1")
 
-[node name="LanternFeedback4" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
-z_index = 1
-position = Vector2(-72, 49)
+[node name="LanternFeedback4" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/Feedbacks"]
+position = Vector2(-72, -847)
 texture = ExtResource("18_y0pm1")
 
-[node name="LanternFeedback5" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/TraningDummiesCarpet"]
-z_index = 1
-position = Vector2(-88, -63)
+[node name="LanternFeedback5" type="Sprite2D" parent="Quests/DojoHitTrainingDummiesKey/Feedbacks"]
+position = Vector2(-88, -959)
 texture = ExtResource("18_y0pm1")
 
 [node name="DojoHitTrainingDummy1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
@@ -1237,6 +1234,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy1/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -32)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_ppl0l"), SubResource("Resource_kupl5")])
 isOnInteraction = true
 
@@ -1268,6 +1266,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy2/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -32)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_5hmx6"), SubResource("Resource_dddhq")])
 isOnInteraction = true
 
@@ -1299,6 +1298,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy3/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -32)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_3u5h7"), SubResource("Resource_wvmbh")])
 isOnInteraction = true
 
@@ -1330,6 +1330,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy4/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -32)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_re54w"), SubResource("Resource_uu180")])
 isOnInteraction = true
 
@@ -1361,6 +1362,7 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DialogueArea1" parent="Quests/DojoHitTrainingDummy5/TraningDummy" instance=ExtResource("14_hrc4d")]
+position = Vector2(0, -32)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_jf1si"), SubResource("Resource_ybywp")])
 isOnInteraction = true
 
