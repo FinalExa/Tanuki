@@ -24,7 +24,15 @@ func ExecuteActivationStatus():
 func Activation():
 	self.show()
 	collisionShapeRef.disabled = false
+	ActivationExtra()
+
+func ActivationExtra():
+	pass
 
 func Deactivation():
 	self.hide()
 	collisionShapeRef.disabled = true
+	DeactivationExtra()
+
+func DeactivationExtra():
+	pass
