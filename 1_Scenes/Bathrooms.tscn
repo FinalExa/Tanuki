@@ -984,8 +984,9 @@ questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_mqk2i"), Su
 objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokai")]
 objectsToDeleteAtQuestComplete = [NodePath("PositionRandomizer"), NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3")]
 
-[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
 position = Vector2(-1624, 776)
+waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway5")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -2475,7 +2476,7 @@ rotation = 4.71239
 
 [node name="Waterway5" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-1296, 752)
-objectsToFill = [NodePath("../../WaterSources/WaterSource4")]
+objectsToFill = [NodePath("../../WaterSources/WaterSource4"), NodePath("../../../Quests/BathroomsRepairGenerator/BathroomGeneratorYokai")]
 
 [node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway5" instance=ExtResource("14_4x8ki")]
 position = Vector2(144, 0)
