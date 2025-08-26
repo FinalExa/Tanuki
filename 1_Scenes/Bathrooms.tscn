@@ -45,19 +45,19 @@
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
-vertices = PackedVector2Array(-1248, -1088, -1248, -1504, -912, -1504, -912, -1264, -1176, -1088, -864, -1504, 752, -1504, 752, -1392, 16, -1424, 800, -1392, 800, -1504, 1240, -1504, 1136, -1448, 1240, -1448, 1136, -1264, 752, -1072, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 800, -784, 1168, -560, 800, -560, 752, -784, 16, -880, 16, -1040, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 416, -64, 416, 32, 352, 32, 352, -64, -16, -64, -16, -296, 8, -296, 8, -360, -16, -360, -16, -880, -16, -1040, -16, -1264, 16, -1264, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -360, -136, -360, -864, -624, -136, -296, -112, -296, -112, -64, -736, -64, -736, 32, -800, 32, -800, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -864, -912, -864, -1264, -144, -1424)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(11, 13, 12), PackedInt32Array(9, 12, 14, 15), PackedInt32Array(14, 16, 17, 18), PackedInt32Array(18, 19, 15, 14), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(23, 25, 26, 24), PackedInt32Array(20, 24, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(30, 48, 49, 50, 28, 27), PackedInt32Array(29, 51, 52, 53, 15), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(58, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(69, 70, 71, 62), PackedInt32Array(71, 72, 73, 62), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 78, 79, 80, 74), PackedInt32Array(7, 9, 15, 53), PackedInt32Array(63, 66, 69, 62, 61), PackedInt32Array(58, 62, 81, 57), PackedInt32Array(82, 54, 57, 81, 74), PackedInt32Array(30, 33, 34, 37, 40), PackedInt32Array(30, 40, 41), PackedInt32Array(74, 80, 4, 3, 82), PackedInt32Array(54, 82, 5, 83), PackedInt32Array(44, 47, 48, 30, 41), PackedInt32Array(15, 20, 29), PackedInt32Array(7, 53, 8), PackedInt32Array(83, 5, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, -912, -1504, -912, -1264, -864, -1264, -864, -1504, 752, -1504, 752, -1392, 800, -1392, 800, -1504, 1240, -1504, 1240, -1448, 1136, -1448, 1136, -1264, 1248, -1264, 1248, -1168, 1152, -1168, 1152, -1072, 752, -1072, 752, -1008, 1248, -1008, 1248, -688, 1168, -688, 1168, -560, 800, -560, 800, -784, 752, -784, 752, -496, 1248, -496, 1248, -408, 1208, -408, 1208, -328, 1248, -328, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 416, -64, 416, 32, 352, 32, 352, -64, -16, -64, -16, -296, 8, -296, 8, -360, -16, -360, -16, -880, 16, -880, 16, -1040, -16, -1040, -16, -1264, 16, -1264, 16, -1424, -144, -1424, -144, -1264, -112, -1264, -112, -1040, -144, -1040, -144, -880, -112, -880, -112, -360, -136, -360, -136, -296, -112, -296, -112, -64, -736, -64, -736, 32, -800, 32, -800, -64, -1168, -64, -1168, -120, -1248, -120, -1248, -624, -864, -624, -864, -912, -912, -912, -912, -688, -1168, -688, -1168, -816, -1248, -816, -1248, -1008, -1176, -1008, -1176, -1088, -1248, -1088)])
+vertices = PackedVector2Array(-1152, -288, -344, -296, -328, -296, -328, -64, -992, -64, -328, -880, -328, -416, -344, -416, -1424, -448, -368, -880, -1152, -352, -1280, -352, 103.354, -64, -216, -64, -216, -296, -200, -296, 816, -1304, 816, -1504, 1248, -1504, 1248, -1152, 1128, -1152, 1128, -1056, 816, -1056, 816, -1248, 736, -1304, 736, -1248, -176, -1264, -176, -1440, 816, -920, 816, -992, 1248, -992, 1248, -704, 1152, -704, 1152, -576, 1248, -576, 1248, -416, 816, -416, 816, -864, 736, -920, 736, -864, -176, -880, -176, -1040, 736, -352, 968, -352, 968, -288, 160, -64, 1096, -288, 1096, -352, 1248, -352, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 160, 0, 104, 0, -200, -416, -216, -416, -216, -880, -216, -1040, -216, -1264, -368, -1264, -328, -1264, -328, -1040, -368, -1040, -992, 0, -1056, 0, -1056, -64, -1632, -64, -1280, -288, -1328, -1120, -1328, -800, -1632, -800, -1632, -1440, -1328, -1440, -1328, -1176, -1248, -1120, -1248, -1176, -1248, -608, -1552, -448, -1632, -608, -1552, -576, -1424, -576, -1248, -1504, -368, -1440, 736, -1504)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(1, 0, 10, 7), PackedInt32Array(8, 7, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 20), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(16, 20, 23, 24), PackedInt32Array(24, 23, 25, 26, 27), PackedInt32Array(28, 29, 30, 31, 32), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(33, 36, 37, 32), PackedInt32Array(28, 32, 37, 38), PackedInt32Array(38, 37, 39, 40, 41), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(46, 49, 50, 44), PackedInt32Array(50, 51, 52, 53), PackedInt32Array(44, 50, 53), PackedInt32Array(44, 53, 45), PackedInt32Array(45, 54, 55, 12), PackedInt32Array(56, 57, 58, 40), PackedInt32Array(41, 59, 60, 26, 25), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(4, 65, 66, 67), PackedInt32Array(0, 4, 67), PackedInt32Array(0, 67, 68, 69), PackedInt32Array(70, 71, 72, 73), PackedInt32Array(73, 74, 75), PackedInt32Array(70, 73, 75), PackedInt32Array(76, 70, 75, 77), PackedInt32Array(64, 9, 8), PackedInt32Array(56, 40, 39, 42, 45, 12, 15), PackedInt32Array(61, 64, 8, 78), PackedInt32Array(8, 11, 69, 68, 79), PackedInt32Array(79, 68, 80, 81), PackedInt32Array(81, 80, 78, 82), PackedInt32Array(8, 82, 78), PackedInt32Array(61, 78, 76), PackedInt32Array(61, 76, 77), PackedInt32Array(61, 77, 83, 84), PackedInt32Array(84, 83, 85, 27), PackedInt32Array(27, 85, 24), PackedInt32Array(41, 25, 38)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, 736, -1504, 736, -1304, 816, -1304, 816, -1504, 1248, -1504, 1248, -1152, 1128, -1152, 1128, -1056, 816, -1056, 816, -1248, 736, -1248, 736, -920, 816, -920, 816, -992, 1248, -992, 1248, -704, 1152, -704, 1152, -576, 1248, -576, 1248, -416, 816, -416, 816, -864, 736, -864, 736, -352, 968, -352, 968, -288, 1096, -288, 1096, -352, 1248, -352, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 160, -64, 160, 0, 104, 0, 103.354, -64, -216, -64, -216, -296, -200, -296, -200, -416, -216, -416, -216, -880, -176, -880, -176, -1040, -216, -1040, -216, -1264, -176, -1264, -176, -1440, -368, -1440, -368, -1264, -328, -1264, -328, -1040, -368, -1040, -368, -880, -328, -880, -328, -416, -344, -416, -344, -296, -328, -296, -328, -64, -992, -64, -992, 0, -1056, 0, -1056, -64, -1632, -64, -1632, -608, -1248, -608, -1248, -1120, -1328, -1120, -1328, -800, -1632, -800, -1632, -1440, -1328, -1440, -1328, -1176, -1248, -1176), PackedVector2Array(-1552, -576, -1552, -448, -1424, -448, -1424, -576), PackedVector2Array(-1280, -288, -1152, -288, -1152, -352, -1280, -352)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n4xe7"]
-vertices = PackedVector2Array(-1168, 1352, -1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -896, 464, -1008, 976, -1160, 976, -1160, 880, -896, 424, -1248, 880, -1248, 424, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -624, 1264, -672, 1264, -280, 912, -280, 1128, -192, 1128, -192, 1168, -624, 1472, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -672, 1472, -1168, 1472, -1248, 280, -1248, 32, -1024, 32, -1024, 112, -1184, 280, -928, 112, -928, 144, -736, 304, -880, 144, -880, 32, -120, 32, -120, 152, -400, 368, -8, 152, -8, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 736, 464, 648, 32, 736, 32, 496, 464, 144, 368, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 208, 656, 144, 656, 208, 576, 144, 576, -8, 368, -8, 240, -120, 240, -120, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -896, 304, -896, 344, -1184, 344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(11, 13, 14, 12), PackedInt32Array(8, 15, 16, 17), PackedInt32Array(9, 8, 17), PackedInt32Array(9, 17, 18, 7), PackedInt32Array(19, 20, 21, 22, 23, 24), PackedInt32Array(22, 25, 26, 23), PackedInt32Array(23, 26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(30, 33, 29, 28), PackedInt32Array(18, 19, 24, 34, 35, 0, 7), PackedInt32Array(3, 4, 7, 0), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(39, 41, 42), PackedInt32Array(43, 44, 45, 46, 47, 48), PackedInt32Array(49, 50, 51, 52), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(55, 57, 58, 56), PackedInt32Array(52, 53, 56, 59, 60), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68, 69), PackedInt32Array(69, 70, 71, 72, 65), PackedInt32Array(61, 64, 65, 72, 73), PackedInt32Array(72, 74, 73), PackedInt32Array(61, 73, 75, 59), PackedInt32Array(75, 76, 60, 59), PackedInt32Array(60, 77, 78, 52), PackedInt32Array(79, 80, 48), PackedInt32Array(48, 81, 82, 83), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(48, 83, 86), PackedInt32Array(48, 86, 43), PackedInt32Array(87, 88, 89, 40, 39, 42), PackedInt32Array(87, 42, 44, 43), PackedInt32Array(79, 48, 47, 49), PackedInt32Array(78, 79, 49), PackedInt32Array(78, 49, 52)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, 1352, -1248, 1248, -1216, 1248, -1216, 1184, -1248, 1184, -1248, 1040, -1008, 1040, -1008, 976, -1160, 976, -1160, 880, -1248, 880, -1248, 424, -896, 424, -896, 464, -864, 464, -864, 688, -896, 688, -896, 848, -736, 848, -736, 808, -400, 808, -400, 912, -280, 912, -280, 1128, -192, 1128, -192, 1168, -32, 1168, -32, 1128, 736, 1128, 736, 1472, -624, 1472, -624, 1264, -672, 1264, -672, 1472, -1168, 1472, -1168, 1352), PackedVector2Array(-1248, 32, -1024, 32, -1024, 112, -928, 112, -928, 144, -880, 144, -880, 32, -120, 32, -120, 152, -8, 152, -8, 32, 496, 32, 496, 272, 544, 272, 544, 80, 648, 80, 648, 32, 736, 32, 736, 464, 496, 464, 496, 528, 736, 528, 736, 896, 640, 896, 640, 992, 736, 992, 736, 1048, -32, 1048, -32, 1008, -200, 1008, -200, 912, 144, 912, 144, 656, 208, 656, 208, 576, 144, 576, 144, 368, -8, 368, -8, 240, -120, 240, -120, 368, -400, 368, -400, 720, -736, 720, -736, 688, -768, 688, -768, 464, -736, 464, -736, 304, -896, 304, -896, 344, -1184, 344, -1184, 280, -1248, 280)])
+vertices = PackedVector2Array(-1312, 888, -1312, 992, -1520, 992, -1520, 888, -1632, 888, -1632, 808, -1120, 808, -1120, 848, -1120, 888, -928, 848, -928, 808, -624, 808, -624, 1056, -160, 1056, -160, 1248, -208, 1248, -32, 1440, -32, 1400, 736, 1400, 736, 1512, 816, 1512, 816, 1568, 736, 1568, 736, 1888, -1120, 1888, -1120, 1440, -1200, 1384, -1120, 1384, -208, 1440, -1200, 1440, -1200, 1776, -1304, 1776, -1528, 1136, -1296, 1136, -1304, 1888, -1536, 1888, -1536, 1776, -1632, 1776, -1632, 1136, -1528, 1056, -1296, 1056, -1200, 1136, 352, 544, -32, 1264, -56, 1264, -48, 480, 352, 224, -1248, 232, -1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 296, -224, 296, -224, 32, 104, 32, 104, 0, 160, 0, 160, 32, 352, 32, 352, 160, -224, 352, 432, 160, 432, 96, 528, 96, 632, 368, 528, 368, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 480, 528, 480, 432, 368, 432, 224, 736, 544, 736, 1264, 640, 1264, 640, 1296, -32, 1296, -224, 480, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1552, 696, -1552, 640, -1248, 544, -1632, 640, -1632, 544, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 232, -1328, 128, -1248, 280)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(8, 0, 7, 9), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(19, 22, 25, 26, 27, 28), PackedInt32Array(29, 30, 31, 32, 33), PackedInt32Array(31, 34, 35, 36, 32), PackedInt32Array(36, 37, 38, 32), PackedInt32Array(32, 39, 40, 33), PackedInt32Array(33, 41, 26), PackedInt32Array(29, 33, 26), PackedInt32Array(25, 29, 26), PackedInt32Array(27, 8, 9, 12, 28), PackedInt32Array(12, 15, 28), PackedInt32Array(19, 28, 16), PackedInt32Array(42, 43, 44, 45, 46), PackedInt32Array(47, 48, 49), PackedInt32Array(49, 50, 51, 52), PackedInt32Array(52, 53, 54), PackedInt32Array(55, 56, 57), PackedInt32Array(57, 58, 59, 60), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(64, 65, 66, 67, 68), PackedInt32Array(66, 69, 70, 71, 67), PackedInt32Array(71, 72, 73, 67), PackedInt32Array(67, 74, 75, 68), PackedInt32Array(68, 76, 77), PackedInt32Array(64, 68, 77), PackedInt32Array(62, 64, 77, 46), PackedInt32Array(42, 78, 79, 80), PackedInt32Array(42, 80, 81, 82, 43), PackedInt32Array(46, 45, 83, 63, 62), PackedInt32Array(84, 85, 86, 52), PackedInt32Array(86, 87, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(93, 95, 96, 94), PackedInt32Array(97, 98, 99, 100, 101), PackedInt32Array(101, 102, 103, 104), PackedInt32Array(97, 101, 104, 105), PackedInt32Array(104, 106, 105), PackedInt32Array(107, 97, 105, 47), PackedInt32Array(57, 60, 63, 55), PackedInt32Array(54, 55, 63, 84), PackedInt32Array(52, 54, 84), PackedInt32Array(52, 86, 89, 90, 94, 107, 49), PackedInt32Array(47, 49, 107)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1120, 1384, -1120, 888, -1312, 888, -1312, 992, -1520, 992, -1520, 888, -1632, 888, -1632, 808, -1120, 808, -1120, 848, -928, 848, -928, 808, -624, 808, -624, 1056, -160, 1056, -160, 1248, -208, 1248, -208, 1440, -32, 1440, -32, 1400, 736, 1400, 736, 1512, 816, 1512, 816, 1568, 736, 1568, 736, 1888, -1120, 1888, -1120, 1440, -1200, 1440, -1200, 1776, -1304, 1776, -1304, 1888, -1536, 1888, -1536, 1776, -1632, 1776, -1632, 1136, -1528, 1136, -1528, 1056, -1296, 1056, -1296, 1136, -1200, 1136, -1200, 1384), PackedVector2Array(-1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 296, -224, 296, -224, 32, 104, 32, 104, 0, 160, 0, 160, 32, 352, 32, 352, 160, 432, 160, 432, 96, 528, 96, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 368, 632, 480, 528, 480, 528, 368, 432, 368, 432, 224, 352, 224, 352, 544, 736, 544, 736, 1264, 640, 1264, 640, 1296, -32, 1296, -32, 1264, -56, 1264, -48, 480, -224, 480, -224, 352, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1552, 696, -1552, 640, -1632, 640, -1632, 544, -1248, 544, -1248, 280, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 128, -1328, 232, -1248, 232)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_46unh"]
-vertices = PackedVector2Array(816, 240, 816, 32, 992, 32, 896, 240, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 816, 1472, 816, 1312, 904, 1184, 736, 1312, 736, 1240, 816, 1240, 816, 1184, 904, 1088, 816, 1088, 816, 672, 736, 672, 736, 608, 816, 608, 816, 336, 896, 336)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 12, 13, 14), PackedInt32Array(14, 15, 11), PackedInt32Array(16, 17, 18), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 22, 23, 8), PackedInt32Array(3, 2, 6, 8, 23), PackedInt32Array(18, 21, 8, 16), PackedInt32Array(11, 16, 8), PackedInt32Array(11, 10, 14)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(816, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 1248, 32, 1248, 1472, 816, 1472, 816, 1312, 736, 1312, 736, 1240, 816, 1240, 816, 1184, 904, 1184, 904, 1088, 816, 1088, 816, 672, 736, 672, 736, 608, 816, 608, 816, 336, 896, 336, 896, 240, 816, 240)])
+vertices = PackedVector2Array(1248, 96, 1256, 1776, 1136, 1776, 1144, 96, 816, 608, 816, 96, 920, 96, 920, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 896, 1776, 816, 672, 1144, 32, 1136, 1888, 896, 1888, 816, 1776, 736, 672, 736, 608)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 4, 6, 11, 14, 3, 2), PackedInt32Array(2, 15, 16, 12), PackedInt32Array(12, 17, 13), PackedInt32Array(13, 18, 19, 4), PackedInt32Array(11, 6, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(816, 96, 920, 96, 920, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 1144, 32, 1144, 96, 1248, 96, 1256, 1776, 1136, 1776, 1136, 1888, 896, 1888, 896, 1776, 816, 1776, 816, 672, 736, 672, 736, 608, 816, 608)])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b04x4"]
 
@@ -185,8 +185,8 @@ levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
 mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUnlockSewers"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
-travelingAreas = [NodePath("Teleport/TravelToHall"), NodePath("")]
-travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), NodePath("")]
+travelingAreas = [NodePath("Teleport/TravelToHall"), null]
+travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), null]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
 
 [node name="Soundtrack" type="Node" parent="." node_paths=PackedStringArray("baseSoundtrack", "transformedSoundtrack", "specialRoomSoundTrack")]
@@ -206,7 +206,6 @@ stream = ExtResource("5_cd325")
 stream = ExtResource("6_h56u8")
 
 [node name="NavigationRegions" type="Node2D" parent="."]
-visible = false
 z_index = -1
 y_sort_enabled = true
 
@@ -270,7 +269,7 @@ shape = SubResource("CircleShape2D_b04x4")
 position = Vector2(-1216, -320)
 
 [node name="HeatSourceActivator" parent="Quests/BathroomsActivatePools" instance=ExtResource("18_ff0db")]
-position = Vector2(128, -832)
+position = Vector2(552, 200)
 activated = true
 
 [node name="BathroomsSaveGenerator1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
@@ -511,7 +510,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_0c5cn")
 
 [node name="DirtyFloor1" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(-912, 904)
+position = Vector2(-392, 1224)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -526,22 +525,22 @@ questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor4" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(-1112, -504)
+position = Vector2(1016, -704)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor5" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(360, -1120)
+position = Vector2(1056, -1376)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor6" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(848, 280)
+position = Vector2(-1536, -984)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
 [node name="DirtyFloor7" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_07hvu")]
-position = Vector2(-616, -1352)
+position = Vector2(-1016, 64)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -549,10 +548,10 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSewersKey"
-questItemsToOperate = [NodePath(""), NodePath("DialogueArea")]
+questItemsToOperate = [null, NodePath("DialogueArea")]
 questItemsStages = Array[int]([1, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("")]
+objectsToDeleteAtQuestComplete = [null]
 
 [node name="DialogueArea" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
@@ -569,10 +568,10 @@ shape = SubResource("CircleShape2D_31tgn")
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsUnlockSewers"
-questItemsToOperate = [NodePath(""), NodePath("")]
+questItemsToOperate = [null, null]
 questItemsStages = Array[int]([0, 1])
 questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [NodePath("")]
+objectsToDeleteAtQuestComplete = [null]
 
 [node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1108,12 +1107,14 @@ y_sort_enabled = true
 position = Vector2(-1216, -1024)
 
 [node name="Gear2" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("14_vrk40")]
-position = Vector2(1248, -344)
+position = Vector2(1032, -320)
 transformedCollider = NodePath("../Gear/CollisionShape2D")
 transformedTexture = NodePath("../Gear/Sprite2D")
 
-[node name="Gear3" parent="TransformationObjects" instance=ExtResource("14_vrk40")]
-position = Vector2(168, 640)
+[node name="Gear4" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("14_vrk40")]
+position = Vector2(-1488, -480)
+transformedCollider = NodePath("../Gear/CollisionShape2D")
+transformedTexture = NodePath("../Gear/Sprite2D")
 
 [node name="Broom" parent="TransformationObjects" instance=ExtResource("30_g2xji")]
 position = Vector2(-1608, 1456)
@@ -1121,8 +1122,18 @@ position = Vector2(-1608, 1456)
 [node name="Vase" parent="TransformationObjects" instance=ExtResource("44_k83du")]
 position = Vector2(840, 1832)
 
+[node name="Vase22" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(1224, 1832)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
 [node name="Vase2" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(840, 56)
+position = Vector2(840, 32)
+transformedCollider = NodePath("../Vase/CollisionShape2D")
+transformedTexture = NodePath("../Vase/Sprite2D")
+
+[node name="Vase10" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
+position = Vector2(1224, 32)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
@@ -1216,21 +1227,20 @@ transformedTexture = NodePath("../Vase/Sprite2D")
 y_sort_enabled = true
 
 [node name="Soap" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
-position = Vector2(-384, -192)
+position = Vector2(872, -976)
 
 [node name="Soap2" parent="MovableObjects" instance=ExtResource("29_6sxxu")]
-position = Vector2(648, 192)
+position = Vector2(-1480, 256)
 
 [node name="Enemies" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 
 [node name="CleanerUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
-position = Vector2(608, -704)
+position = Vector2(392, -704)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerUpperRight/CUpperRight")]
 
 [node name="GuardUpperRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
-position = Vector2(1024, -896)
+position = Vector2(264, -896)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardUpperRight/GUpperRight")]
 
 [node name="CleanerUpperLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
@@ -1238,19 +1248,19 @@ position = Vector2(-832, -256)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerUpperLeft/CUpperLeft")]
 
 [node name="GuardUpperLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
-position = Vector2(-704, -1152)
+position = Vector2(-640, -1152)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardUpperLeft/GUpperLeft")]
 
 [node name="GuardMiddleLeft" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("43_2cow1")]
-position = Vector2(64, 192)
+position = Vector2(64, 320)
 patrolIndicators = [NodePath("../../PatrolPoints/GuardMiddleLeft/GMiddleLeft")]
 
 [node name="CleanerMiddleRight" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
-position = Vector2(384, 640)
+position = Vector2(288, 640)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerMiddleRight/CMiddleRight")]
 
 [node name="CleanerLower" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("42_2bcdm")]
-position = Vector2(0, 1312)
+position = Vector2(-824, 1536)
 patrolIndicators = [NodePath("../../PatrolPoints/CleanerLower/CLower")]
 
 [node name="PatrolPoints" type="Node2D" parent="."]
@@ -1258,118 +1268,100 @@ patrolIndicators = [NodePath("../../PatrolPoints/CleanerLower/CLower")]
 [node name="CleanerUpperRight" type="Node2D" parent="PatrolPoints"]
 
 [node name="CUpperRight" parent="PatrolPoints/CleanerUpperRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(608, -704)
+position = Vector2(384, -704)
 patrolActions = Array[int]([1, 0, 1, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0])
 
 [node name="1" type="Node2D" parent="PatrolPoints/CleanerUpperRight"]
-position = Vector2(608, -192)
+position = Vector2(384, -192)
 
 [node name="2" type="Node2D" parent="PatrolPoints/CleanerUpperRight"]
-position = Vector2(608, -1344)
+position = Vector2(384, -1344)
 
 [node name="GuardUpperRight" type="Node2D" parent="PatrolPoints"]
 
 [node name="GUpperRight" parent="PatrolPoints/GuardUpperRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
 position = Vector2(768, -1040)
-patrolActions = Array[int]([1, 2, 0, 1, 1, 1, 2, 0, 1, 1])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../3"), NodePath("../2")]
-waitActions = Array[float]([1.0, 1.0])
-lookActions = Array[int]([2, 2])
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
+moveActions = [NodePath("../1")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+lookActions = Array[int]([1, 3, 0, 2])
 
 [node name="1" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
-position = Vector2(1216, -896)
-
-[node name="2" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
-position = Vector2(704, -896)
-
-[node name="3" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
-position = Vector2(704, -1312)
-
-[node name="4" type="Node2D" parent="PatrolPoints/GuardUpperRight"]
-position = Vector2(1024, -1312)
+position = Vector2(256, -896)
 
 [node name="CleanerUpperLeft" type="Node2D" parent="PatrolPoints"]
 
 [node name="CUpperLeft" parent="PatrolPoints/CleanerUpperLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(-640, -768)
-patrolActions = Array[int]([1, 0, 1, 1, 0, 1])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../2")]
+position = Vector2(-832, -896)
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../2"), NodePath("../1")]
 waitActions = Array[float]([1.0, 1.0])
 
 [node name="1" type="Node2D" parent="PatrolPoints/CleanerUpperLeft"]
-position = Vector2(-960, -256)
+position = Vector2(-832, -256)
 
 [node name="2" type="Node2D" parent="PatrolPoints/CleanerUpperLeft"]
-position = Vector2(-640, -256)
-
-[node name="3" type="Node2D" parent="PatrolPoints/CleanerUpperLeft"]
-position = Vector2(-640, -992)
+position = Vector2(-832, -1408)
 
 [node name="GuardUpperLeft" type="Node2D" parent="PatrolPoints"]
 
 [node name="GUpperLeft" parent="PatrolPoints/GuardUpperLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
 position = Vector2(-640, -1152)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../1"), NodePath("../2")]
-waitActions = Array[float]([1.0, 1.0])
-lookActions = Array[int]([2, 3])
+patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
+moveActions = [NodePath("../1")]
+waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
+lookActions = Array[int]([0, 2, 1, 3])
 
 [node name="1" type="Node2D" parent="PatrolPoints/GuardUpperLeft"]
-position = Vector2(-256, -1152)
-
-[node name="2" type="Node2D" parent="PatrolPoints/GuardUpperLeft"]
-position = Vector2(-1088, -1152)
+position = Vector2(-704, -960)
 
 [node name="GuardMiddleLeft" type="Node2D" parent="PatrolPoints"]
 
 [node name="GMiddleLeft" parent="PatrolPoints/GuardMiddleLeft" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(-160, 192)
+position = Vector2(-280, 320)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0, 1.0])
 lookActions = Array[int]([3, 2, 2])
 
 [node name="1" type="Node2D" parent="PatrolPoints/GuardMiddleLeft"]
-position = Vector2(-512, 192)
+position = Vector2(-1024, 320)
 
 [node name="2" type="Node2D" parent="PatrolPoints/GuardMiddleLeft"]
-position = Vector2(384, 192)
+position = Vector2(264, 320)
 
 [node name="CleanerMiddleRight" type="Node2D" parent="PatrolPoints"]
 
 [node name="CMiddleRight" parent="PatrolPoints/CleanerMiddleRight" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(384, 704)
-patrolActions = Array[int]([1, 0, 1, 1, 0, 0])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../2")]
+position = Vector2(288, 904)
+patrolActions = Array[int]([1, 0, 1, 0])
+moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0])
 
 [node name="1" type="Node2D" parent="PatrolPoints/CleanerMiddleRight"]
-position = Vector2(384, 384)
+position = Vector2(288, 200)
 
 [node name="2" type="Node2D" parent="PatrolPoints/CleanerMiddleRight"]
-position = Vector2(384, 992)
-
-[node name="3" type="Node2D" parent="PatrolPoints/CleanerMiddleRight"]
-position = Vector2(32, 992)
+position = Vector2(288, 1160)
 
 [node name="CleanerLower" type="Node2D" parent="PatrolPoints"]
 
 [node name="CLower" parent="PatrolPoints/CleanerLower" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(0, 1312)
+position = Vector2(-136, 1536)
 patrolActions = Array[int]([1, 0, 1, 1, 0, 1])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0])
 
 [node name="1" type="Node2D" parent="PatrolPoints/CleanerLower"]
-position = Vector2(448, 1312)
+position = Vector2(312, 1536)
 
 [node name="2" type="Node2D" parent="PatrolPoints/CleanerLower"]
-position = Vector2(-512, 1312)
+position = Vector2(-832, 1544)
 
 [node name="3" type="Node2D" parent="PatrolPoints/CleanerLower"]
-position = Vector2(-512, 992)
+position = Vector2(-832, 1024)
 
 [node name="AllowedZones" type="Node2D" parent="."]
 
@@ -1908,6 +1900,7 @@ objectsToFill = [NodePath("../../WaterSources/WaterSource2"), NodePath("../../..
 position = Vector2(0, -128)
 
 [node name="WaterwayComponent11" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
+hasBridge = true
 
 [node name="WaterwayComponent12" parent="Puzzle/Waterways/Waterway2" instance=ExtResource("14_4x8ki")]
 position = Vector2(0, 128)
