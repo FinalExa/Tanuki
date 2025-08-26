@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=113 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -19,19 +19,27 @@
 [ext_resource type="PackedScene" uid="uid://cy8nuapccvlb" path="res://ImportantObjects/TransformationObjects/gear.tscn" id="14_vrk40"]
 [ext_resource type="PackedScene" uid="uid://dunwdvfw43pns" path="res://ImportantObjects/Interactables/Supplementary/waterway_angle_component.tscn" id="15_3wwmr"]
 [ext_resource type="PackedScene" uid="uid://bwcm3t4bt577t" path="res://ImportantObjects/Interactables/bathroom_generator_yokai.tscn" id="16_e5cn5"]
+[ext_resource type="PackedScene" uid="uid://b4sx5ar76wid7" path="res://ImportantObjects/Interactables/bathtub.tscn" id="16_ly3oc"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="16_yv3nw"]
 [ext_resource type="PackedScene" uid="uid://uueuynaswt7r" path="res://ImportantObjects/MovableObjects/metal_rod_movable.tscn" id="17_dnihd"]
+[ext_resource type="PackedScene" uid="uid://ct3xjudtmgwwd" path="res://Level/Prefabs/bathtub_hot.tscn" id="17_se3l3"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
+[ext_resource type="PackedScene" uid="uid://cr1jhbadh652j" path="res://ImportantObjects/PuzzleObjects/stun_area.tscn" id="19_vm5a5"]
+[ext_resource type="Texture2D" uid="uid://dy3tbybe3dtj3" path="res://Level/Sprites/Smoke.png" id="20_cvt8r"]
 [ext_resource type="PackedScene" uid="uid://2dmqq3qyx765" path="res://NPC/old_yokai_npc.tscn" id="23_1ik6l"]
 [ext_resource type="PackedScene" uid="uid://cbj8tgoohbttu" path="res://ImportantObjects/Interactables/reach_point.tscn" id="23_5o1xi"]
 [ext_resource type="PackedScene" uid="uid://cpo706hx1ahgt" path="res://ImportantObjects/MovableObjects/old_yokai_movable.tscn" id="23_vkv67"]
 [ext_resource type="PackedScene" uid="uid://drc230rx5jty8" path="res://ImportantObjects/Interactables/Supplementary/waterway_component_pool.tscn" id="24_431i6"]
 [ext_resource type="PackedScene" uid="uid://d1vcjt7a8otp8" path="res://NPC/cleaner_npc.tscn" id="25_hmgvd"]
 [ext_resource type="PackedScene" uid="uid://b5vxcfds746gx" path="res://ImportantObjects/Interactables/dirty_floor.tscn" id="26_07hvu"]
+[ext_resource type="PackedScene" uid="uid://ba8kwpi28fbtg" path="res://ImportantObjects/Interactables/broken_generator_yokai.tscn" id="26_kojik"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="26_nder6"]
 [ext_resource type="PackedScene" uid="uid://dw6tj3wwi0a1c" path="res://Enemies/cleaner_boss.tscn" id="27_2wag8"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="27_bdgoy"]
+[ext_resource type="PackedScene" uid="uid://cxqyfwccmhdor" path="res://ImportantObjects/MovableObjects/generator_part.tscn" id="27_s1mc4"]
 [ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="28_pv3og"]
+[ext_resource type="Script" path="res://Level/Random/Scripts/ObjectPositionRandomizer.gd" id="28_rx8q0"]
 [ext_resource type="PackedScene" uid="uid://b1d4efkvcuwga" path="res://ImportantObjects/MovableObjects/soap_movable.tscn" id="29_6sxxu"]
 [ext_resource type="PackedScene" uid="uid://b0u1qq11857bj" path="res://Enemies/boss_advancer.tscn" id="30_427wy"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="30_g2xji"]
@@ -79,6 +87,135 @@ radius = 128.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_jm5or"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_r6kqn"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kfcrv"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_465r2"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_5ctfj"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("StunArea1")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_1om32"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueebr"]
+size = Vector2(368, 864)
+
+[sub_resource type="Resource" id="Resource_iynx3"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tq8t8"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("StunArea2")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o6is4"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lfc2"]
+size = Vector2(496, 480)
+
+[sub_resource type="Resource" id="Resource_cjmb3"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dng5v"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("StunArea3")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_j6jbb"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathtubHot")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wimv8"]
+size = Vector2(496, 608)
+
+[sub_resource type="Resource" id="Resource_v7cep"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_e4cnk"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldYokaiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_a77lk"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldYokai")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_f64iq"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("ReachPoint/OldYokaiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dn0s6"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldYokaiNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_yyt02"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldYokaiNPC")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_k4ti4"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldYokai")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_1b5ma"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("ReachPoint/OldYokaiNPC")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_uvx6i"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 3
+itemOperation = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mi2j"]
 radius = 128.25
 
@@ -93,7 +230,35 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0c5cn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_31tgn"]
+[sub_resource type="Resource" id="Resource_mqk2i"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_wcjea"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathroomGeneratorYokai")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vropu"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BrokenGeneratorYokai")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_w0rme"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathroomGeneratorYokai")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_t5qcu"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 2
+itemOperation = 1
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqwrs"]
 vertices = PackedVector2Array(-1128, -1944, -1248, -1600, -1248, -2256, -1200, -2256, -1128, -2192, -1200, -2352, -1248, -2352, -1248, -2544, -1048, -2544, -1048, -2656, -120, -2656, -272, -2576, -120, -2576, -272, -1768, -304, -1768, -664, -2024, -304, -1688, -496, -1688, -496, -1768, -664, -1768, -752, -2024, -752, -2064, -912, -2064, -912, -2024, -1048, -2024, -1048, -2192, -912, -1944, -912, -1904, -744, -1904, -744, -1688, -80, -1688, -80, -1776, -32, -1776, -32, -1600, 464, -2752, -1744, -2752, -1616, -2776, -752, -2928, -528, -2928, -912, -2928, -1616, -2864, -1488, -2912, -1712, -2776, -1744, -2912, -1712, -2864, 352, -3424, 464, -3424, -112, -2928, -112, -2992, -112, -3568, -112, -3632, 352, -3600, -1488, -4000, -1680, -4000, -1680, -4248, -1568, -4208, -1568, -4248, -1408, -4208, -1408, -4248, -672, -4248, -672, -4208, -512, -4208, -512, -4248, 352, -4248, 352, -4208, -112, -3888, -272, -3888, 392, -4208, 392, -3600, -112, -3824, -224, -3632, -224, -3824, -272, -3760, -368, -3760, -368, -3888, -528, -3888, -528, -3824, -416, -3824, -416, -3632, -528, -3632, -368, -3568, -368, -3696, -272, -3696, -272, -3568, -752, -3632, -864, -3632, -864, -3760, -808, -3760, -808, -3824, -752, -3824, -912, -3888, -912, -3760, -1008, -3760, -1008, -3888, -1168, -3824, -1056, -3824, -1056, -3632, -1168, -3632, -1008, -3568, -1008, -3696, -912, -3696, -912, -3568, -224, -2992, -224, -3184, -112, -3184, -112, -3248, -752, -3568, -528, -3568, -272, -3248, -272, -3120, -368, -3120, -368, -3248, -528, -3248, -528, -3184, -416, -3184, -416, -2992, -528, -2992, -368, -2928, -368, -3056, -272, -3056, -272, -2928, -752, -2992, -864, -2992, -864, -3184, -752, -3184, -912, -3248, -912, -3120, -1008, -3120, -1008, -3248, -1168, -3184, -1056, -3184, -1056, -2992, -1168, -2992, -1008, -2928, -1008, -3056, -912, -3056, -1168, -2928, -1168, -3248, -1168, -3568, -752, -3248, -1168, -3888, -752, -3888)
@@ -169,7 +334,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 917504, 131072, 1, 983039, 131072, 1, 983038, 131072, 1, 983037, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 0, -10, 131072, 1, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 0, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5, 65525, 0, 1, 131061, 655360, 4, 196597, 655360, 5, 262131, 131072, 1, 262132, 131072, 1, 262133, 196608, 1)
+layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 917504, 131072, 1, 983039, 131072, 1, 983038, 131072, 1, 983037, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 0, -10, 131072, 1, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 65536, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5, 65525, 0, 1, 131061, 655360, 4, 196597, 655360, 5, 262131, 131072, 1, 262132, 131072, 1, 262133, 196608, 1)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -182,9 +347,9 @@ playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
 keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
-levelUnlockKeys = [NodePath("Keys/UnlockKey1"), null, NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), null]
+levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsSewersKey"), NodePath("Quests/BathroomsUnlockSewers"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsActivateBathtubs"), NodePath("Quests/BathroomsSetBathtub1"), NodePath("Quests/BathroomsSetBathtub2"), NodePath("Quests/BathroomsSetBathtub3"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsRepairGenerator"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
 travelingAreas = [NodePath("Teleport/TravelToHall"), null]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), null]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -222,13 +387,19 @@ navigation_polygon = SubResource("NavigationPolygon_46unh")
 y_sort_enabled = true
 
 [node name="UnlockKey1" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(552, -800)
+position = Vector2(-192, -320)
+
+[node name="UnlockKey2" parent="Keys" instance=ExtResource("7_nuelj")]
+position = Vector2(-1536, -1344)
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_nuelj")]
-position = Vector2(1200, 264)
+position = Vector2(1088, 256)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_nuelj")]
 position = Vector2(-1496, 1256)
+
+[node name="UnlockKey5" parent="Keys" instance=ExtResource("7_nuelj")]
+position = Vector2(-1496, 656)
 
 [node name="SpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("8_bxkg3")]
 position = Vector2(-1472, -3456)
@@ -249,10 +420,10 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivatePools"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"), NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), null, NodePath("../../Keys/UnlockKey1"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite"), NodePath("DialogueArea"), NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"), null, NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"), null]
 questItemsStages = Array[int]([0, 0, 0, 2, 2, 2, 2, 2, 2, 2])
 questItemsOnOffState = Array[bool]([false, false, false, true, false, true, false, false, true, true])
-objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
+objectsToFinalizeAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai"), null]
 
 [node name="DialogueArea" parent="Quests/BathroomsActivatePools" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
@@ -279,7 +450,7 @@ questName = "BathroomsSaveGenerator1"
 questItemsToOperate = [NodePath("BathroomGeneratorYokai/DialogueArea3"), NodePath("BathroomGeneratorYokai/DialogueArea"), NodePath("BathroomGeneratorYokai/DialogueArea2"), NodePath("BathroomGeneratorYokai/DialogueArea3")]
 questItemsStages = Array[int]([0, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, true])
-advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools"), NodePath("../BathroomsRescueOldYokai")]
 
 [node name="BathroomGeneratorYokai" parent="Quests/BathroomsSaveGenerator1" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
 position = Vector2(-272, -304)
@@ -349,8 +520,8 @@ questItemsOnOffState = Array[bool]([false, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivatePools")]
 
 [node name="BathroomGeneratorYokai2" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(-1624, 776)
-waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway5")]
+position = Vector2(720, 1368)
+waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway6")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -381,55 +552,316 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"]
 shape = SubResource("CircleShape2D_jm5or")
 
-[node name="BathroomGeneratorYokai3" parent="Quests/BathroomsSaveGenerator2" node_paths=PackedStringArray("emptySprite", "fullSprite", "heatedSprite", "waterwaysToActivate", "questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
-position = Vector2(720, 1368)
-emptySprite = NodePath("../BathroomGeneratorYokai2/Empty")
-fullSprite = NodePath("../BathroomGeneratorYokai2/Full")
-heatedSprite = NodePath("../BathroomGeneratorYokai2/Heated")
-waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway6")]
+[node name="BathroomsActivateBathtubs" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsActivateBathtubs"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_r6kqn"), SubResource("Resource_kfcrv")])
+
+[node name="BathroomsSetBathtub1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsSetBathtub1"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_465r2"), SubResource("Resource_5ctfj"), SubResource("Resource_1om32")])
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
+objectsToDeleteAtQuestComplete = [NodePath("Bathtub1")]
+
+[node name="Bathtub1" parent="Quests/BathroomsSetBathtub1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
+position = Vector2(-1536, -1440)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Hot... water...", "Hello there, can I help you...?", "Yes please... if you manage to fill me with water... I'll need to become heated again...", "How do I do that?", "Give me a metallic object that has been heated, only after I got filled with water... please...", "I'll search for it!"])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
-cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null, NodePath("../../BathroomGeneratorYokai2"), null, NodePath("../../BathroomGeneratorYokai2"), null]
-isOnInteraction = true
-interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea/Label")
-dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea/DialogueIcon")
+[node name="BathtubHot" parent="Quests/BathroomsSetBathtub1" instance=ExtResource("17_se3l3")]
+position = Vector2(-1536, -1440)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea"]
-shape = SubResource("CircleShape2D_2jjrb")
+[node name="StunArea1" parent="Quests/BathroomsSetBathtub1" node_paths=PackedStringArray("collisionShapeRef") instance=ExtResource("19_vm5a5")]
+position = Vector2(-1480, -1104)
+collisionShapeRef = NodePath("CollisionShape2D")
 
-[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks for saving me! I sense my brother is still ill, please save him!", "Will do."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null]
-isOnInteraction = true
-interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea2/Label")
-dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea2/DialogueIcon")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+shape = SubResource("RectangleShape2D_ueebr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea2"]
-shape = SubResource("CircleShape2D_ik03u")
+[node name="Sprite2D" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, -368)
+texture = ExtResource("20_cvt8r")
 
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3" node_paths=PackedStringArray("cameraFocuses", "interactionLabel", "dialogueIcon") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../../BathroomGeneratorYokai2"), null]
-isOnInteraction = true
-interactionLabel = NodePath("../../BathroomGeneratorYokai2/DialogueArea3/Label")
-dialogueIcon = NodePath("../../BathroomGeneratorYokai2/DialogueArea3/DialogueIcon")
+[node name="Sprite2D2" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, -368)
+texture = ExtResource("20_cvt8r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3/DialogueArea3"]
-shape = SubResource("CircleShape2D_jm5or")
+[node name="Sprite2D3" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, -368)
+texture = ExtResource("20_cvt8r")
 
-[node name="BathroomsRescueOldYokai" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="Sprite2D4" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, 8)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, 8)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, 8)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(-120, 272)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(8, 272)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Quests/BathroomsSetBathtub1/StunArea1"]
+z_index = 1
+position = Vector2(136, 272)
+texture = ExtResource("20_cvt8r")
+
+[node name="BathroomsSetBathtub2" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsSetBathtub2"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_iynx3"), SubResource("Resource_tq8t8"), SubResource("Resource_o6is4")])
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
+objectsToDeleteAtQuestComplete = [NodePath("Bathtub2")]
+
+[node name="Bathtub2" parent="Quests/BathroomsSetBathtub2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
+position = Vector2(1152, -1448)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="BathtubHot" parent="Quests/BathroomsSetBathtub2" instance=ExtResource("17_se3l3")]
+position = Vector2(1152, -1448)
+
+[node name="StunArea2" parent="Quests/BathroomsSetBathtub2" node_paths=PackedStringArray("collisionShapeRef") instance=ExtResource("19_vm5a5")]
+position = Vector2(1032, -1296)
+collisionShapeRef = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+shape = SubResource("RectangleShape2D_7lfc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-200, -176)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-72, -176)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(56, -176)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(184, -176)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-200, -48)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-72, -48)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(56, -48)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(184, -48)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-192, 80)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(-64, 80)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(64, 80)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Quests/BathroomsSetBathtub2/StunArea2"]
+z_index = 1
+position = Vector2(192, 80)
+texture = ExtResource("20_cvt8r")
+
+[node name="BathroomsSetBathtub3" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsSetBathtub3"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_cjmb3"), SubResource("Resource_dng5v"), SubResource("Resource_j6jbb")])
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
+objectsToDeleteAtQuestComplete = [NodePath("Bathtub3")]
+
+[node name="Bathtub3" parent="Quests/BathroomsSetBathtub3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
+position = Vector2(1152, -936)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="BathtubHot" parent="Quests/BathroomsSetBathtub3" instance=ExtResource("17_se3l3")]
+position = Vector2(1152, -936)
+
+[node name="StunArea3" parent="Quests/BathroomsSetBathtub3" node_paths=PackedStringArray("collisionShapeRef") instance=ExtResource("19_vm5a5")]
+position = Vector2(1032, -720)
+collisionShapeRef = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+shape = SubResource("RectangleShape2D_wimv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-200, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-72, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(56, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(184, -240)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-200, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-72, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(56, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(184, -112)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-200, 16)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-72, 16)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(56, 16)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(184, 16)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-200, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(-72, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(56, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Quests/BathroomsSetBathtub3/StunArea3"]
+z_index = 1
+position = Vector2(184, 144)
+texture = ExtResource("20_cvt8r")
+
+[node name="BathroomsRescueOldYokai" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsRescueOldYokai"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ReachPoint/OldYokaiNPC"), NodePath("OldYokai"), NodePath("OldYokaiNPC"), NodePath("OldYokai"), NodePath("../../Keys/UnlockKey3"), NodePath("ReachPoint/OldYokaiNPC")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true])
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_v7cep"), SubResource("Resource_e4cnk"), SubResource("Resource_a77lk"), SubResource("Resource_f64iq"), SubResource("Resource_dn0s6"), SubResource("Resource_yyt02"), SubResource("Resource_k4ti4"), SubResource("Resource_1b5ma"), SubResource("Resource_uvx6i")])
 objectsToDeleteAtQuestComplete = [NodePath("OldYokai")]
 
 [node name="ReachPoint" parent="Quests/BathroomsRescueOldYokai" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("23_5o1xi")]
@@ -544,34 +976,78 @@ position = Vector2(-1016, 64)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="BathroomsSewersKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="BathroomsRepairGenerator" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
-questName = "BathroomsSewersKey"
-questItemsToOperate = [null, NodePath("DialogueArea")]
-questItemsStages = Array[int]([1, 1])
-questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [null]
+questName = "BathroomsRepairGenerator"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_mqk2i"), SubResource("Resource_wcjea"), SubResource("Resource_vropu"), SubResource("Resource_w0rme"), SubResource("Resource_t5qcu")])
+objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokai")]
+objectsToDeleteAtQuestComplete = [NodePath("PositionRandomizer"), NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3")]
 
-[node name="DialogueArea" parent="Quests/BathroomsSewersKey" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-position = Vector2(-5632, 0)
-dialogueText = Array[String](["Hmm... I thought that key was going to be an easy find... but it seems it fell down below, I wonder if there's a way to reach it..."])
-characterTalking = Array[int]([0])
-cameraFocuses = [null]
-deleteOnDone = true
-activatedByQuest = true
+[node name="BathroomGeneratorYokai" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_e5cn5")]
+position = Vector2(-1624, 776)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSewersKey/DialogueArea"]
-shape = SubResource("CircleShape2D_31tgn")
+[node name="BrokenGeneratorYokai" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_kojik")]
+position = Vector2(-1624, 776)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
-[node name="BathroomsUnlockSewers" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
-y_sort_enabled = true
-script = ExtResource("10_67fd8")
-questName = "BathroomsUnlockSewers"
-questItemsToOperate = [null, null]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
-objectsToDeleteAtQuestComplete = [null]
+[node name="GeneratorPart1" parent="Quests/BathroomsRepairGenerator" instance=ExtResource("27_s1mc4")]
+position = Vector2(-1408, -960)
+
+[node name="GeneratorPart2" parent="Quests/BathroomsRepairGenerator" instance=ExtResource("27_s1mc4")]
+position = Vector2(-1408, -960)
+partID = 1
+
+[node name="GeneratorPart3" parent="Quests/BathroomsRepairGenerator" instance=ExtResource("27_s1mc4")]
+position = Vector2(-1408, -960)
+partID = 2
+
+[node name="PositionRandomizer" type="Node2D" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("objectsToRandomizePosition", "positions")]
+script = ExtResource("28_rx8q0")
+objectsToRandomizePosition = [NodePath("../GeneratorPart1"), NodePath("../GeneratorPart2"), NodePath("../GeneratorPart3")]
+positions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8"), NodePath("9"), NodePath("10"), NodePath("11"), NodePath("12"), NodePath("13")]
+
+[node name="1" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-1408, -960)
+
+[node name="2" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(1152, -1280)
+
+[node name="3" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(896, -576)
+
+[node name="4" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(1152, -192)
+
+[node name="5" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-1600, -192)
+
+[node name="6" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-1600, 192)
+
+[node name="7" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-768, 576)
+
+[node name="8" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(640, 960)
+
+[node name="9" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(704, 256)
+
+[node name="10" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(832, 192)
+
+[node name="11" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-896, 1728)
+
+[node name="12" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(576, 1728)
+
+[node name="13" type="Node2D" parent="Quests/BathroomsRepairGenerator/PositionRandomizer"]
+position = Vector2(-1408, 1664)
 
 [node name="BathroomsUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToFinalizeAtQuestComplete", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1144,16 +1620,6 @@ transformedTexture = NodePath("../Vase/Sprite2D")
 
 [node name="Vase12" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
 position = Vector2(-1352, -736)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase13" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-1352, -1504)
-transformedCollider = NodePath("../Vase/CollisionShape2D")
-transformedTexture = NodePath("../Vase/Sprite2D")
-
-[node name="Vase14" parent="TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("44_k83du")]
-position = Vector2(-1608, -1504)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
@@ -1873,7 +2339,7 @@ waterwaysToActivate = [NodePath("../../Waterways/Waterway1"), NodePath("../../Wa
 
 [node name="WaterSource4" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-1024, 752)
-waterwaysToActivate = [NodePath("../../Waterways/Waterway5")]
+waterwaysToActivate = [NodePath("../../Waterways/Waterway5"), NodePath("../../Waterways/Waterway3Pool")]
 
 [node name="WaterSource5" parent="Puzzle/WaterSources" node_paths=PackedStringArray("waterwaysToActivate") instance=ExtResource("11_6lhvk")]
 position = Vector2(-112, 1344)
@@ -1910,7 +2376,7 @@ position = Vector2(0, 256)
 
 [node name="Waterway3Pool" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(-448, 896)
-objectsToFill = [NodePath("../../../Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../../Quests/BathroomsUltraKey/UltraKeyRoomTileMap/Room2Puzzle/WaterSource4"), NodePath("../../WaterSources/WaterSource5")]
+objectsToFill = [NodePath("../../../Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../WaterSources/WaterSource4"), NodePath("../../WaterSources/WaterSource5")]
 
 [node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(176, -824)
@@ -1924,13 +2390,8 @@ position = Vector2(176, -448)
 [node name="WaterwayComponent10" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(336, 192)
 
-[node name="WaterwayComponent14" parent="Puzzle/Waterways/Waterway3Pool" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+[node name="WaterwayComponent14" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(336, 320)
-waterSprite = NodePath("../WaterwayComponent10/Water")
-heatedSprite = NodePath("../WaterwayComponent10/Hot")
-bridgeLowSprite = NodePath("../WaterwayComponent10/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent10/BridgeHigh")
-removableCollisionShape = NodePath("../WaterwayComponent10/RemovableCollisionShape2D")
 
 [node name="WaterwayComponent11" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(-208, -144)
@@ -1950,13 +2411,8 @@ position = Vector2(176, -952)
 [node name="WaterwayComponent3" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(176, -1008)
 
-[node name="WaterwayComponent5" parent="Puzzle/Waterways/Waterway3Pool" node_paths=PackedStringArray("waterSprite", "heatedSprite", "bridgeLowSprite", "bridgeHighSprite", "removableCollisionShape") instance=ExtResource("14_4x8ki")]
+[node name="WaterwayComponent5" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("14_4x8ki")]
 position = Vector2(176, -1136)
-waterSprite = NodePath("../WaterwayComponent3/Water")
-heatedSprite = NodePath("../WaterwayComponent3/Hot")
-bridgeLowSprite = NodePath("../WaterwayComponent3/BridgeLow")
-bridgeHighSprite = NodePath("../WaterwayComponent3/BridgeHigh")
-removableCollisionShape = NodePath("../WaterwayComponent3/RemovableCollisionShape2D")
 
 [node name="WaterwayAngleComponentPool" parent="Puzzle/Waterways/Waterway3Pool" instance=ExtResource("31_s5uyt")]
 position = Vector2(304, 64)
@@ -2040,7 +2496,7 @@ rotation = 1.5708
 
 [node name="Waterway6" parent="Puzzle/Waterways" node_paths=PackedStringArray("objectsToFill") instance=ExtResource("12_vc1fv")]
 position = Vector2(336, 1344)
-objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../../Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai3")]
+objectsToFill = [NodePath("../../WaterSources/WaterSource5"), NodePath("../../../Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2")]
 
 [node name="WaterwayComponent" parent="Puzzle/Waterways/Waterway6" instance=ExtResource("14_4x8ki")]
 position = Vector2(-320, 0)

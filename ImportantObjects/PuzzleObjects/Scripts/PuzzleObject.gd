@@ -3,6 +3,7 @@ extends Node2D
 
 @export var activated: bool
 @export var collisionShapeRef: CollisionShape2D
+var active: bool
 
 func _ready():
 	ReadyOperations()
@@ -24,6 +25,7 @@ func ExecuteActivationStatus():
 func Activation():
 	self.show()
 	collisionShapeRef.disabled = false
+	active = true
 	ActivationExtra()
 
 func ActivationExtra():
@@ -32,6 +34,7 @@ func ActivationExtra():
 func Deactivation():
 	self.hide()
 	collisionShapeRef.disabled = true
+	active = false
 	DeactivationExtra()
 
 func DeactivationExtra():

@@ -7,10 +7,10 @@ func _process(delta):
 	StunEnemiesInArea()
 
 func StunEnemiesInArea():
-	if (activated):
+	if (active):
 		for i in enemiesInRange.size():
 			if (!enemiesStunned.has(enemiesInRange[i])):
-				enemiesInRange[i].is_damaged(Vector2.ZERO, EnemyStunned.StunTier.HIGH)
+				enemiesInRange[i].Damaged(Vector2.ZERO, EnemyStunned.StunTier.LOW)
 				enemiesStunned.push_back(enemiesInRange[i])
 
 func _on_body_entered(body):
