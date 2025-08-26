@@ -38,7 +38,7 @@ func MovableCheck(movable: MovableObject):
 		if (selectedProperty != ""):
 			if (!interactableToOperate.receiveRefAttack):
 				interactableToOperate.AttackInteraction(selectedProperty)
-				playerRef.playerMoveObjects.DeleteLeftoverObject()
+				playerRef.playerMoveObjects.ForceDropMovableObject()
 			else:
 				interactableToOperate.ExecuteRefEffect(playerRef)
 
