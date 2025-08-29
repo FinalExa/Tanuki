@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4sx5ar76wid7"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_gfl1v"]
+[ext_resource type="Texture2D" uid="uid://gor6db6u1ypl" path="res://ImportantObjects/Interactables/Sprites/BathtubCold.png" id="2_up60u"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/area_interaction_check.tscn" id="3_7eyn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u5x4"]
+size = Vector2(96.0005, 256)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cmvv"]
+radius = 104.0
+height = 384.0
+
+[node name="Bathtub" type="StaticBody2D" groups=["Interactable"]]
+z_index = 1
+script = ExtResource("1_gfl1v")
+neededProperties = Array[String](["Hot"])
+destroyOnEnd = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+texture = ExtResource("2_up60u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.00013363, -39.9998)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3u5x4")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_7eyn8")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+position = Vector2(0, -40)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3cmvv")
