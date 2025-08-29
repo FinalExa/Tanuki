@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct3xjudtmgwwd"]
+
+[ext_resource type="Texture2D" uid="uid://dhr3t7lxrduxa" path="res://Level/Sprites/BathtubHot.png" id="1_p50sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6fq8"]
+size = Vector2(96.0005, 256)
+
+[node name="BathtubHot" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -56)
+texture = ExtResource("1_p50sn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.00013363, -39.9998)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_i6fq8")
