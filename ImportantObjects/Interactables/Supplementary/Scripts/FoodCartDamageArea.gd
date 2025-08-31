@@ -8,7 +8,7 @@ var activated: bool
 var objectsInRange: Array[Node2D]
 var enemiesInRange: Array[EnemyController]
 
-func _process(delta):
+func _process(_delta):
 	ExecuteDamage()
 
 func ExecuteDamage():

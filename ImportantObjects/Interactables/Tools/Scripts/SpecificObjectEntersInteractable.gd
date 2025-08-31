@@ -5,7 +5,7 @@ extends Area2D
 @export var objectThatActivatesInteractable: Node2D
 var objectIn: bool
 
-func _process(delta):
+func _process(_delta):
 	ExecuteEffect()
 
 func _on_body_entered(body):

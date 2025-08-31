@@ -9,7 +9,7 @@ var isAttachingOrDetaching: bool
 var firefliesAround: Array[Firefly]
 var fireflyHousesAround: Array[Node2D]
 
-func _process(delta):
+func _process(_delta):
 	GreenCandleOperations()
 
 func GreenCandleOperations():

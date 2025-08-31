@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var interactableToOperate: GenericInteractable
+@export var keepMovable: bool
 
 var playerRef: PlayerCharacter
 
@@ -8,7 +9,7 @@ func _process(_delta):
 	CheckForRightTransformationTag()
 
 func CheckForRightTransformationTag():
-	if (interactableToOperate != null && interactableToOperate.visible && playerRef != null): 
+	if (interactableToOperate != null && interactableToOperate.is_processing() && playerRef != null): 
 		PlayerCheck()
 		if (playerRef.playerMoveObjects.currentObject != null && playerRef.playerMoveObjects.currentObject is MovableObject):
 			MovableCheck(playerRef.playerMoveObjects.currentObject)
@@ -38,7 +39,8 @@ func MovableCheck(movable: MovableObject):
 		if (selectedProperty != ""):
 			if (!interactableToOperate.receiveRefAttack):
 				interactableToOperate.AttackInteraction(selectedProperty)
-				playerRef.playerMoveObjects.ForceDropMovableObject()
+				if (!keepMovable):
+					playerRef.playerMoveObjects.ForceDropMovableObject()
 			else:
 				interactableToOperate.ExecuteRefEffect(playerRef)
 

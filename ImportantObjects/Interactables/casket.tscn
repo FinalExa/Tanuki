@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://7iheqlnnub2j"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_apd8h"]
+[ext_resource type="Texture2D" uid="uid://b4x07gsnodvrr" path="res://ImportantObjects/Interactables/Sprites/casket.png" id="2_shdab"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/Tools/area_interaction_check.tscn" id="3_j5mr6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwyxa"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_125pk"]
+radius = 96.0
+
+[node name="Casket" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_apd8h")
+neededProperties = Array[String](["Keychain"])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_shdab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dwyxa")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("3_j5mr6")]
+interactableToOperate = NodePath("..")
+keepMovable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_125pk")
