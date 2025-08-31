@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hi32g3fkcuh"
-path="res://.godot/imported/FoodCart.png-26c6ac76944aa2c0e8ee3614ca8c9c80.ctex"
+uid="uid://drd43rk8ta82u"
+path="res://.godot/imported/LunchroomTableBroken.png-8d45510d785434249379ecdd55d51e46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ImportantObjects/Interactables/Sprites/FoodCart.png"
-dest_files=["res://.godot/imported/FoodCart.png-26c6ac76944aa2c0e8ee3614ca8c9c80.ctex"]
+source_file="res://ImportantObjects/Interactables/Sprites/LunchroomTableBroken.png"
+dest_files=["res://.godot/imported/LunchroomTableBroken.png-8d45510d785434249379ecdd55d51e46.ctex"]
 
 [params]
 
