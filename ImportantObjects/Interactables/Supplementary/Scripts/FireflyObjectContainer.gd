@@ -2,6 +2,8 @@ class_name FireflyObjectContainer
 extends Area2D
 
 @export var initialState: bool
+@export var onColor: Color
+@export var offColor: Color
 @export var excludeArray: Array[Node2D]
 var firefliesInArea: Array[Firefly]
 var currentState: bool
@@ -37,11 +39,11 @@ func SetState():
 	if (objectsToUpdateArray.size() > 0):
 		for i in objectsToUpdateArray.size():
 			if (currentState):
-				Activate(objectsToUpdateArray[i])
+				ActivateObject(objectsToUpdateArray[i])
 			else:
-				Deactivate(objectsToUpdateArray[i])
+				DeactivateObject(objectsToUpdateArray[i])
 
-func Activate(object: Node2D):
+func ActivateObject(object: Node2D):
 	if (object is DoorOpenClose):
 		object.OpenDoor()
 		return
@@ -50,7 +52,7 @@ func Activate(object: Node2D):
 		return
 	if (object is TransformationObjectData || object is TrapObject):
 		object.TurnOn()
-	object.show()
+	object.modulate = onColor
 	object.set_process(true)
 	for i in object.get_child_count():
 		if (object.get_child(i) is CollisionShape2D || object.get_child(i) is CollisionPolygon2D):
@@ -60,7 +62,7 @@ func Activate(object: Node2D):
 	if (object is DialogueArea):
 		object.ActivatedByQuest()
 
-func Deactivate(object: Node2D):
+func DeactivateObject(object: Node2D):
 	if (object is DoorOpenClose):
 		object.CloseDoor()
 		return
@@ -69,7 +71,7 @@ func Deactivate(object: Node2D):
 		return
 	if (object is TransformationObjectData || object is TrapObject):
 		object.TurnOff()
-	object.hide()
+	object.modulate = offColor
 	object.set_process(false)
 	for i in object.get_child_count():
 		if (object.get_child(i) is CollisionShape2D || object.get_child(i) is CollisionPolygon2D):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=47 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -12,18 +12,48 @@
 [ext_resource type="PackedScene" uid="uid://bhev8beol8k3u" path="res://Level/UnlockKey/special_unlock_key.tscn" id="9_w4g3s"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="11_d2wd2"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="11_iugyx"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="11_yhkfv"]
+[ext_resource type="PackedScene" uid="uid://brruc8gd481hv" path="res://Enemies/PatrolIndicator/patrol_indicator.tscn" id="12_dhu8k"]
+[ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="12_dpmq2"]
 [ext_resource type="PackedScene" uid="uid://b8pfbhk0l2cjk" path="res://ImportantObjects/TransformationObjects/green_candle.tscn" id="12_i0sbb"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="12_qrwt2"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexMove.gd" id="13_rroll"]
 [ext_resource type="PackedScene" uid="uid://wmcf3so5kd65" path="res://ImportantObjects/Interactables/Supplementary/firefly_house_full.tscn" id="13_vo8w2"]
 [ext_resource type="PackedScene" uid="uid://b8pxm44ns52d4" path="res://ImportantObjects/Interactables/firefly_house_empty.tscn" id="13_wqyij"]
 [ext_resource type="PackedScene" uid="uid://bfddo5b6m5g6f" path="res://ImportantObjects/Interactables/Supplementary/firefly_object_container.tscn" id="14_ugxoi"]
+[ext_resource type="PackedScene" uid="uid://caby6rujvduxj" path="res://NPC/trip_wire_helper_npc.tscn" id="15_ua82q"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="15_xudx6"]
 [ext_resource type="PackedScene" uid="uid://dvkb1wrtepasr" path="res://ImportantObjects/Interactables/Supplementary/food_cart.tscn" id="16_d8ry3"]
 [ext_resource type="PackedScene" uid="uid://dcnrgwgkdsj6s" path="res://ImportantObjects/Interactables/test_obstacle.tscn" id="16_f75vh"]
+[ext_resource type="PackedScene" uid="uid://uxvh02t1uir1" path="res://ImportantObjects/MovableObjects/trip_wire_part.tscn" id="16_nnmdc"]
+[ext_resource type="PackedScene" uid="uid://bdw02gipoyngk" path="res://ImportantObjects/Interactables/trip_wire_to_build.tscn" id="17_fgwqi"]
 [ext_resource type="PackedScene" uid="uid://c2wnulh4bjj5l" path="res://ImportantObjects/Interactables/Supplementary/food_cart_checkpoint.tscn" id="17_h6nnl"]
+[ext_resource type="PackedScene" uid="uid://b65uopcfctcub" path="res://ImportantObjects/Interactables/trip_wire.tscn" id="19_p4711"]
+[ext_resource type="PackedScene" uid="uid://cytdhfnhm0tv6" path="res://ImportantObjects/Interactables/Tools/specific_object_enters_interactable.tscn" id="20_vbo31"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q4p24"]
+vertices = PackedVector2Array(4528, 224, 5984, -2400, 5984, 576, 4528, 288, 4528, -2016, 2224, 224, 2224, -2400, 2896, -2400, 2896, -2080, 2976, -2080, 2976, -2400, 4448, -2400, 4448, -2080, 4528, -2080, 4528, -2400, 4448, -2016, 2976, -2016, 4448, -1728, 2976, -1728, 2896, -2016, 2896, 224, 2976, 224, 2976, -96, 4448, -96, 4448, 224, 4528, 576, 4448, 288, 2976, 288, 4448, 576, 2976, 576, 2896, 288, 2224, 288, 2896, 576, 2224, 576, 2144, 288, 2144, 224, 2144, 576, 1824, 576, 1760, -96, 1824, 672, 2144, 672, 2144, 1344, 1440, 1344, 1440, 672, 1760, 672, 1760, 576, 1056, 672, 1360, 672, 1360, 1344, 672, 1344, 672, 672, 992, 672, 1056, 576, 992, 576, 288, 672, 592, 672, 592, 1344, -96, 1344, -96, 672, 224, 672, 288, 576, 224, 576, -96, 576, -96, -96, 224, -96, 288, -96, 224, -192, -96, -192, -96, -864, 592, -864, 592, -192, 288, -192, 992, -96, 1056, -96, 992, -192, 672, -192, 672, -864, 1360, -864, 1360, -192, 1056, -192, 1824, -96, 1760, -192, 1440, -192, 1440, -864, 2144, -864, 2144, -192, 1824, -192, 2144, -96)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 1), PackedInt32Array(13, 1, 4), PackedInt32Array(12, 13, 4, 15), PackedInt32Array(9, 12, 15, 16), PackedInt32Array(15, 17, 18, 16), PackedInt32Array(8, 9, 16, 19), PackedInt32Array(5, 8, 19), PackedInt32Array(5, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(2, 25, 3), PackedInt32Array(24, 0, 3, 26), PackedInt32Array(21, 24, 26, 27), PackedInt32Array(26, 28, 29, 27), PackedInt32Array(20, 21, 27, 30), PackedInt32Array(5, 20, 30, 31), PackedInt32Array(30, 32, 33, 31), PackedInt32Array(5, 31, 34, 35), PackedInt32Array(34, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(42, 43, 44), PackedInt32Array(39, 42, 44, 37), PackedInt32Array(37, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(49, 50, 51), PackedInt32Array(46, 49, 51, 52), PackedInt32Array(52, 51, 53), PackedInt32Array(54, 55, 56, 57), PackedInt32Array(57, 58, 59), PackedInt32Array(54, 57, 59, 60), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(60, 61, 64, 65), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(69, 70, 71), PackedInt32Array(66, 69, 71, 64), PackedInt32Array(64, 71, 65), PackedInt32Array(53, 60, 65, 72), PackedInt32Array(52, 53, 72, 73), PackedInt32Array(74, 75, 76, 77), PackedInt32Array(77, 78, 79), PackedInt32Array(74, 77, 79, 72), PackedInt32Array(72, 79, 73), PackedInt32Array(45, 52, 73, 38), PackedInt32Array(37, 45, 38), PackedInt32Array(35, 34, 38, 80), PackedInt32Array(81, 82, 83, 84), PackedInt32Array(84, 85, 86), PackedInt32Array(81, 84, 86, 38), PackedInt32Array(38, 86, 80), PackedInt32Array(35, 80, 87)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2224, -2400, 2896, -2400, 2896, -2080, 2976, -2080, 2976, -2400, 4448, -2400, 4448, -2080, 4528, -2080, 4528, -2400, 5984, -2400, 5984, 576, 4528, 576, 4528, 288, 4448, 288, 4448, 576, 2976, 576, 2976, 288, 2896, 288, 2896, 576, 2224, 576, 2224, 288, 2144, 288, 2144, 576, 1824, 576, 1824, 672, 2144, 672, 2144, 1344, 1440, 1344, 1440, 672, 1760, 672, 1760, 576, 1056, 576, 1056, 672, 1360, 672, 1360, 1344, 672, 1344, 672, 672, 992, 672, 992, 576, 288, 576, 288, 672, 592, 672, 592, 1344, -96, 1344, -96, 672, 224, 672, 224, 576, -96, 576, -96, -96, 224, -96, 224, -192, -96, -192, -96, -864, 592, -864, 592, -192, 288, -192, 288, -96, 992, -96, 992, -192, 672, -192, 672, -864, 1360, -864, 1360, -192, 1056, -192, 1056, -96, 1760, -96, 1760, -192, 1440, -192, 1440, -864, 2144, -864, 2144, -192, 1824, -192, 1824, -96, 2144, -96, 2144, 224, 2224, 224), PackedVector2Array(2896, -2016, 2976, -2016, 2976, -1728, 4448, -1728, 4448, -2016, 4528, -2016, 4528, 224, 4448, 224, 4448, -96, 2976, -96, 2976, 224, 2896, 224)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvp6"]
 size = Vector2(160, 256)
+
+[sub_resource type="Resource" id="Resource_wdylw"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_naxpj"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_3mjcf"]
+script = ExtResource("13_rroll")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_sky6b"]
+script = ExtResource("13_rroll")
+destination = NodePath("../4")
 
 [sub_resource type="Resource" id="Resource_cq0tf"]
 script = ExtResource("12_qrwt2")
@@ -48,6 +78,34 @@ script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("FireflyHouseFull")
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_bffje"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ith2p"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("FireflyObjectContainer")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dpew5"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("FireflyObjectContainer")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_lwqiv"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nelbd"]
+radius = 64.0
+height = 640.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ehwp"]
 size = Vector2(256, 512)
@@ -81,7 +139,7 @@ keyTypeToShow = 6
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
 levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BLRefillFireflyHouses"), NodePath("Quests/BLEmptyFireflyHouse1"), NodePath("Quests/BLEmptyFireflyHouse2"), NodePath("Quests/BLEmptyFireflyHouse3"), NodePath("Quests/BLEmptyFireflyHouse4"), NodePath("Quests/BLEmptyFireflyHouse5")]
+mapQuests = [NodePath("Quests/BLRefillFireflyHouses"), NodePath("Quests/BLEmptyFireflyHouse1"), NodePath("Quests/BLEmptyFireflyHouse2"), NodePath("Quests/BLEmptyFireflyHouse3"), NodePath("Quests/BLEmptyFireflyHouse4"), NodePath("Quests/BLEmptyFireflyHouse5"), NodePath("Quests/BLTripCleaner")]
 travelingAreas = [NodePath("Teleports/TravelToHall")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/HallReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -111,6 +169,7 @@ position = Vector2(0, -576)
 [node name="UnlockKey2" parent="Keys" instance=ExtResource("7_xxpi2")]
 
 [node name="UnlockKey3" parent="Keys" instance=ExtResource("7_xxpi2")]
+position = Vector2(3328, 256)
 
 [node name="UnlockKey4" parent="Keys" instance=ExtResource("7_xxpi2")]
 
@@ -122,6 +181,12 @@ sceneType = 6
 requiredKeys = 3
 
 [node name="SpecialUnlockKey" parent="Keys" instance=ExtResource("9_w4g3s")]
+
+[node name="NavigationRegions" type="Node2D" parent="."]
+z_index = -1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegions"]
+navigation_polygon = SubResource("NavigationPolygon_q4p24")
 
 [node name="Teleports" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -141,6 +206,39 @@ shape = SubResource("RectangleShape2D_kkvp6")
 
 [node name="HallReceiver" type="Node2D" parent="Teleports/TravelToHall"]
 position = Vector2(224, 0)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Cleaner" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("11_yhkfv")]
+position = Vector2(2560, -128)
+patrolIndicators = [NodePath("../PatrolIndicators/Cleaner/CleanerPatrolIndicator")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Cleaner"]
+position = Vector2(0, 24)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_dpmq2")
+
+[node name="PatrolIndicators" type="Node2D" parent="Enemies"]
+
+[node name="Cleaner" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="CleanerPatrolIndicator" parent="Enemies/PatrolIndicators/Cleaner" instance=ExtResource("12_dhu8k")]
+position = Vector2(3712, -896)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_wdylw"), SubResource("Resource_naxpj"), SubResource("Resource_3mjcf"), SubResource("Resource_sky6b")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner"]
+position = Vector2(2560, 256)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner"]
+position = Vector2(4864, 256)
+
+[node name="3" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner"]
+position = Vector2(4864, -2048)
+
+[node name="4" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner"]
+position = Vector2(2560, -2048)
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -230,6 +328,46 @@ sendSignalToQuestOnDestroyed = true
 [node name="FireflyHouseFull" parent="Quests/BLEmptyFireflyHouse5" instance=ExtResource("13_vo8w2")]
 position = Vector2(4552, -2384)
 
+[node name="BLTripCleaner" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
+y_sort_enabled = true
+script = ExtResource("11_d2wd2")
+questName = "BLTripCleaner"
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_bffje"), SubResource("Resource_ith2p"), SubResource("Resource_dpew5"), SubResource("Resource_lwqiv")])
+objectsToDeleteAtQuestComplete = [NodePath("TripwirePart1"), NodePath("TripwirePart2"), NodePath("TripwirePart3"), NodePath("TripwireToBuild"), NodePath("../../Enemies/Cleaner"), NodePath("FireflyObjectContainer")]
+
+[node name="TripWireHelperNPC" parent="Quests/BLTripCleaner" instance=ExtResource("15_ua82q")]
+position = Vector2(3264, 128)
+
+[node name="TripwirePart1" parent="Quests/BLTripCleaner" instance=ExtResource("16_nnmdc")]
+position = Vector2(2112, -384)
+
+[node name="TripwirePart2" parent="Quests/BLTripCleaner" instance=ExtResource("16_nnmdc")]
+position = Vector2(3456, -1920)
+partID = 1
+
+[node name="TripwirePart3" parent="Quests/BLTripCleaner" instance=ExtResource("16_nnmdc")]
+position = Vector2(5760, -384)
+partID = 2
+
+[node name="TripwireToBuild" parent="Quests/BLTripCleaner" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_fgwqi")]
+position = Vector2(3200, 256)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="FireflyObjectContainer" parent="Quests/BLTripCleaner" instance=ExtResource("14_ugxoi")]
+position = Vector2(3200, 256)
+
+[node name="Tripwire" parent="Quests/BLTripCleaner/FireflyObjectContainer" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_p4711")]
+questToSendProgressSignal = NodePath("../..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="SpecificObjectEntersInteractable" parent="Quests/BLTripCleaner/FireflyObjectContainer" node_paths=PackedStringArray("interactableToOperate", "objectThatActivatesInteractable") instance=ExtResource("20_vbo31")]
+interactableToOperate = NodePath("../Tripwire")
+objectThatActivatesInteractable = NodePath("../../../../Enemies/Cleaner")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLTripCleaner/FireflyObjectContainer/SpecificObjectEntersInteractable"]
+shape = SubResource("CapsuleShape2D_nelbd")
+
 [node name="Saves" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -248,11 +386,6 @@ y_sort_enabled = true
 [node name="FireflyHouseFull" parent="FireflyPuzzle" instance=ExtResource("13_vo8w2")]
 position = Vector2(0, -640)
 
-[node name="FireflyObjectContainer" parent="FireflyPuzzle" instance=ExtResource("14_ugxoi")]
-position = Vector2(1280, -64)
-
-[node name="Vase" parent="FireflyPuzzle/FireflyObjectContainer" instance=ExtResource("15_xudx6")]
-
 [node name="Transformations" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -263,7 +396,7 @@ position = Vector2(512, -64)
 position = Vector2(2048, 512)
 
 [node name="GreenCandle3" parent="Transformations" instance=ExtResource("12_i0sbb")]
-position = Vector2(3456, -120)
+position = Vector2(2208, -1088)
 
 [node name="GreenCandle4" parent="Transformations" instance=ExtResource("12_i0sbb")]
 position = Vector2(3712, -2424)
@@ -276,6 +409,11 @@ position = Vector2(4544, -384)
 
 [node name="GreenCandle7" parent="Transformations" instance=ExtResource("12_i0sbb")]
 position = Vector2(2160, 1024)
+
+[node name="FireflyObjectContainerVase" parent="Transformations" instance=ExtResource("14_ugxoi")]
+position = Vector2(1280, -64)
+
+[node name="Vase" parent="Transformations/FireflyObjectContainerVase" instance=ExtResource("15_xudx6")]
 
 [node name="FoodCartPuzzle" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -51,7 +51,8 @@ func ReleaseBeforeDelete():
 	var i: int = containersInArea.size() - 1
 	if (i >= 0):
 		while i >= 0:
-			containersInArea[i].UnregisterFirefly(self)
+			if (containersInArea[i] != null):
+				containersInArea[i].UnregisterFirefly(self)
 			containersInArea.remove_at(i)
 			i -= 1
 
