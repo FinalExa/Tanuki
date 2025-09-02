@@ -42,19 +42,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 24.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_luf3t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eye0"]
 atlas = ExtResource("13_nkr5b")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fa4gl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qiah"]
 atlas = ExtResource("13_nkr5b")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_luf3t")
+"texture": SubResource("AtlasTexture_5eye0")
 }],
 "loop": false,
 "name": &"idle",
@@ -62,7 +62,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fa4gl")
+"texture": SubResource("AtlasTexture_7qiah")
 }],
 "loop": false,
 "name": &"spotted",
@@ -148,7 +148,7 @@ stream = ExtResource("12_0ydj3")
 max_distance = 1500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -32)
+position = Vector2(8, -40)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 autoplay = "idle"
@@ -183,9 +183,9 @@ enemyController = NodePath("..")
 
 [node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
-offset_top = -96.0
+offset_top = -128.0
 offset_right = 80.0
-offset_bottom = -70.0
+offset_bottom = -102.0
 label_settings = SubResource("LabelSettings_rwhw3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -199,7 +199,7 @@ leftRotationPoint = NodePath("../RotationPoints/LeftRotationPoint")
 rightRotationPoint = NodePath("../RotationPoints/RightRotationPoint")
 lookAtOffset = 90.0
 mainNodeRef = NodePath("..")
-rotationSpeed = 3.0
+rotationSpeed = 5.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
@@ -208,8 +208,8 @@ script = ExtResource("21_y1wbi")
 enemyController = NodePath("../..")
 checkMaxValue = 100.0
 checkScreamThreshold = 75.0
-checkIncreasePerSecond = 75.0
-checkDecreasePerSecond = 50.0
+checkIncreasePerSecond = 100.0
+checkDecreasePerSecond = 25.0
 enemyStatus = NodePath("../../EnemyStatus")
 checkSound = NodePath("../../Sounds/CheckStart")
 spottedSound = NodePath("../../Sounds/PlayerSpotted")
@@ -223,7 +223,7 @@ position = Vector2(0, -128)
 polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 384, -832, -384, -832)
 
 [node name="Lantern" type="Sprite2D" parent="Rotator"]
-position = Vector2(0, -80)
+position = Vector2(0, -160)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("22_ro7qr")
 script = ExtResource("23_w0wgc")

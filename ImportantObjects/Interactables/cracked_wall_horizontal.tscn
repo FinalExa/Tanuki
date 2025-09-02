@@ -7,7 +7,6 @@
 size = Vector2(31.9991, 256)
 
 [node name="CrackedWallHorizontal" type="StaticBody2D" groups=["Interactable"]]
-z_index = 1
 script = ExtResource("1_b7337")
 neededProperties = Array[String](["CartDamage"])
 destroyOnEnd = true
