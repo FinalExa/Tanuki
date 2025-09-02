@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=74 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -36,9 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://7iheqlnnub2j" path="res://ImportantObjects/Interactables/casket.tscn" id="29_gu1wb"]
 [ext_resource type="PackedScene" uid="uid://dcnrgwgkdsj6s" path="res://ImportantObjects/Interactables/lunchroom_table_broken.tscn" id="30_sajnv"]
 [ext_resource type="PackedScene" uid="uid://w12vbmkgrn6y" path="res://ImportantObjects/Interactables/cart_obstacle_left.tscn" id="31_6yola"]
-[ext_resource type="PackedScene" uid="uid://oi62qmgaxl7p" path="res://ImportantObjects/Interactables/cracked_wall.tscn" id="31_f8wxe"]
+[ext_resource type="PackedScene" uid="uid://oi62qmgaxl7p" path="res://ImportantObjects/Interactables/cracked_wall_vertical.tscn" id="31_f8wxe"]
 [ext_resource type="PackedScene" uid="uid://dc2vv7addf3dm" path="res://ImportantObjects/Interactables/cart_obstacle_up.tscn" id="31_ptv11"]
 [ext_resource type="PackedScene" uid="uid://b3o080xoxsodx" path="res://ImportantObjects/Interactables/gong.tscn" id="32_jah22"]
+[ext_resource type="PackedScene" uid="uid://qndjp3xjcvdm" path="res://ImportantObjects/Interactables/cracked_wall_horizontal.tscn" id="34_w02ec"]
 [ext_resource type="PackedScene" uid="uid://xjeam37vwd2j" path="res://ImportantObjects/TransformationObjects/gong_mace.tscn" id="36_254a5"]
 [ext_resource type="Script" path="res://Level/Random/Scripts/ObjectPositionRandomizer.gd" id="37_ei2jk"]
 [ext_resource type="PackedScene" uid="uid://c4sgaoi453qqj" path="res://ImportantObjects/Interactables/cart_revolving_door.tscn" id="40_3blha"]
@@ -173,9 +174,9 @@ itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_0h4eg"]
 script = ExtResource("12_qrwt2")
-itemToOperate = NodePath("NavigationRegion2D")
+itemToOperate = NodePath("CrackedWallHorizontal")
 itemStage = 1
-itemOperation = 1
+itemOperation = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_71du1"]
 vertices = PackedVector2Array(6496, -1440, 6496, -1632, 7008, -1632, 6576, -1440, 7008, -1216, 6576, -1216)
@@ -554,6 +555,28 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/BLDestroyCrackedWallVertical"]
 navigation_polygon = SubResource("NavigationPolygon_71du1")
+
+[node name="BLDestroyCrackedWallHorizontal1" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
+script = ExtResource("11_d2wd2")
+questName = "BLDestroyCrackedWallHorizontal1"
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_0h4eg")])
+objectsToDeleteAtQuestComplete = [NodePath("CrackedWallHorizontal")]
+
+[node name="CrackedWallHorizontal" parent="Quests/BLDestroyCrackedWallHorizontal1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("34_w02ec")]
+position = Vector2(5760, -704)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
+[node name="BLDestroyCrackedWallHorizontal2" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
+script = ExtResource("11_d2wd2")
+questName = "BLDestroyCrackedWallHorizontal2"
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_0h4eg")])
+objectsToDeleteAtQuestComplete = [NodePath("CrackedWallHorizontal")]
+
+[node name="CrackedWallHorizontal" parent="Quests/BLDestroyCrackedWallHorizontal2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("34_w02ec")]
+position = Vector2(6272, -704)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
 
 [node name="BLHitGong" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 script = ExtResource("11_d2wd2")
