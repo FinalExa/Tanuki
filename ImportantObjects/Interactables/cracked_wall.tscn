@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikvxn"]
 size = Vector2(384, 16.0014)
 
-[node name="CrackedWall" type="StaticBody2D" groups=["Interactable"]]
+[node name="CrackedWallVertical" type="StaticBody2D" groups=["Interactable"]]
 z_index = 1
 script = ExtResource("1_lxdw5")
 neededProperties = Array[String](["CartDamage"])

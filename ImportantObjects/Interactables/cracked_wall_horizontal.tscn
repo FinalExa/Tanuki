@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://qndjp3xjcvdm"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_b7337"]
+[ext_resource type="Texture2D" uid="uid://8hn4whdkmpkv" path="res://ImportantObjects/Interactables/Sprites/CrackedWallHorizontal.png" id="2_xs6ps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikvxn"]
+size = Vector2(31.9991, 256)
+
+[node name="CrackedWallHorizontal" type="StaticBody2D" groups=["Interactable"]]
+z_index = 1
+script = ExtResource("1_b7337")
+neededProperties = Array[String](["CartDamage"])
+destroyOnEnd = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xs6ps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 48)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ikvxn")

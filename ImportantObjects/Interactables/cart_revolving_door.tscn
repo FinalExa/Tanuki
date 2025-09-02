@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4sgaoi453qqj"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_lsetl"]
+[ext_resource type="Texture2D" uid="uid://ds02lm3guxefk" path="res://ImportantObjects/Interactables/Sprites/CartRevolvingDoor.png" id="2_c6p7m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12o8y"]
+atlas = ExtResource("2_c6p7m")
+region = Rect2(0, 0, 256, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afrda"]
+atlas = ExtResource("2_c6p7m")
+region = Rect2(0, 0, 256, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3tnm"]
+atlas = ExtResource("2_c6p7m")
+region = Rect2(256, 0, 256, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdvmb"]
+atlas = ExtResource("2_c6p7m")
+region = Rect2(512, 0, 256, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43hge"]
+atlas = ExtResource("2_c6p7m")
+region = Rect2(768, 0, 256, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hopl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12o8y")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afrda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3tnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdvmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43hge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afrda")
+}],
+"loop": false,
+"name": &"rotate",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikvxn"]
+size = Vector2(32.0002, 256)
+
+[node name="CartRevolvingDoor" type="StaticBody2D" node_paths=PackedStringArray("animatedSpriteRef") groups=["Interactable"]]
+script = ExtResource("1_lsetl")
+neededProperties = Array[String](["CartDamage"])
+animatedSpriteRef = NodePath("AnimatedSprite2D")
+animationToPlayOnInteraction = "rotate"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hopl3")
+animation = &"rotate"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 48)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ikvxn")
