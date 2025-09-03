@@ -18,6 +18,9 @@ func ExecuteDamage():
 
 func StunAllEnemies():
 	for i in enemiesInRange.size():
+		if (enemiesInRange[i] is WardenBossController):
+			enemiesInRange[i].AdvanceBossPhase()
+			continue
 		if (!enemiesInRange[i].isStunned):
 			enemiesInRange[i].Damaged(enemiesInRange[i].global_position.direction_to(self.global_position), EnemyStunned.StunTier.HIGH)
 

@@ -716,6 +716,7 @@ y_sort_enabled = true
 position = Vector2(2432, -3456)
 wardenAlertArea = NodePath("../WardenAlertArea")
 patrolIndicators = [NodePath("../PatrolPoints/WardenBoss/WardenBossPatrolIndicator")]
+debug = true
 
 [node name="WardenAlertArea" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(2432, -3456)

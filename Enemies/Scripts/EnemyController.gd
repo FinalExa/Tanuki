@@ -9,17 +9,11 @@ signal stop_attack
 var isInPatrol: bool = true
 var isStunned: bool
 var isRepelled: bool
-var repelledTimer: float
-var repelledSpeed: float
-var repelledDirection: Vector2
-var repelledPosition: Vector2
 var characterRef
 
 @export var enemyName: String
 @export var patrolIndicators: Array[PatrolIndicator]
-@export var repelledTime: float
-@export var repelledDistance: float
-@export var repelledOffset: float
+
 @export var startingIndex: int
 @export var enemyProperties: Array[String]
 @export var enemyMovement: EnemyMovement
@@ -35,20 +29,17 @@ var characterRef
 @export var questToSendProgressSignal: MapQuest
 @export var sendSignalToQuestOnStunned: bool
 @export var sendSignalToQuestOnlyOnce: bool
+@export var debug: bool
 var questSignalSent: bool
 
 func _ready():
 	spriteRef.play("idle")
-	repelledSpeed = 0
-	if (repelledTime > 0):
-		repelledSpeed = repelledDistance / repelledTime
 	ReadyOperations()
 
 func _process(_delta):
 	EnemyAnimations()
 
-func _physics_process(delta):
-	Repelled(delta)
+func _physics_process(_delta):
 	move_and_slide()
 
 func ReadyOperations():
@@ -77,33 +68,15 @@ func DamagedExtraOperation(_direction: Vector2, _tier: EnemyStunned.StunTier):
 	pass
 
 func IsRepelled(direction: Vector2):
-	if (repelledSpeed > 0):
-		StartRepelled(direction)
-
-func StartRepelled(direction: Vector2):
-	isRepelled = true
-	emit_signal("stop_attack")
-	velocity = Vector2.ZERO
-	repelledTimer = repelledTime
-	repelledDirection = direction
-	repelledPosition = self.global_position
-	enemyRepelled.look_at(enemyRepelled.global_position + repelledDirection)
-	enemyRepelled.rotation_degrees += repelledOffset
-
-func Repelled(delta):
-	if (isRepelled):
-		if (repelledTimer > 0):
-			repelledTimer -= delta
-			velocity = repelledSpeed * repelledDirection
-			return
-		EndRepel()
+	if (enemyRepelled.repelledSpeed > 0):
+		enemyRepelled.StartRepelled(direction)
 
 func EndRepel():
+	RepelEndExtraOperation()
 	velocity = Vector2.ZERO
-	RepelExtraOperation()
 	isRepelled = false
 
-func RepelExtraOperation():
+func RepelEndExtraOperation():
 	pass
 
 func GetRotator():

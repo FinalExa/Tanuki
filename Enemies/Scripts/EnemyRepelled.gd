@@ -3,15 +3,49 @@ extends Area2D
 
 @export var attackTag: String
 @export var enemyController: EnemyController
+@export var repelledTime: float
+@export var repelledDistance: float
+@export var repelledOffset: float
+
+var repelledTimer: float
+var repelledSpeed: float
+var repelledDirection: Vector2
+var repelledPosition: Vector2
 var objectsInStopRange: Array[Node2D]
 
 var interactablesInRange: Array[GenericInteractable]
 var activatedInteractables: Array[GenericInteractable]
 
+func _ready():
+	repelledSpeed = 0
+	if (repelledTime > 0):
+		repelledSpeed = repelledDistance / repelledTime
+
 func _process(_delta):
 	StopRepel()
 	ActivateInteractables()
 	ClearArrays()
+
+func _physics_process(delta):
+	Repelled(delta)
+
+func StartRepelled(direction: Vector2):
+	enemyController.isRepelled = true
+	emit_signal("stop_attack")
+	enemyController.velocity = Vector2.ZERO
+	repelledTimer = repelledTime
+	repelledDirection = direction
+	repelledPosition = self.global_position
+	look_at(global_position + repelledDirection)
+	rotation_degrees += repelledOffset
+
+func Repelled(delta):
+	if (enemyController.isRepelled):
+		if (repelledTimer > 0):
+			repelledTimer -= delta
+			enemyController.velocity = repelledSpeed * repelledDirection
+			return
+		enemyController.EndRepel()
 
 func ActivateInteractables():
 	if (enemyController.isRepelled && interactablesInRange.size() > 0 && interactablesInRange.size() != activatedInteractables.size()):

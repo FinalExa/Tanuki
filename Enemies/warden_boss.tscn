@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://bbq7xnljmyksd"]
 
-[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenController.gd" id="1_bmshy"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenBossController.gd" id="1_rs7f3"]
 [ext_resource type="AudioStream" uid="uid://rflcma3mfp7v" path="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav" id="2_afdyk"]
 [ext_resource type="AudioStream" uid="uid://ccsybw22a7182" path="res://Enemies/Sounds/Warden/Movement/2 - Steps - Warden.wav" id="3_guqyw"]
 [ext_resource type="AudioStream" uid="uid://derlv357fielb" path="res://Enemies/Sounds/Warden/Movement/3 - Steps - Warden.wav" id="4_7wfn8"]
@@ -42,19 +42,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 24.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5eye0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p4x7"]
 atlas = ExtResource("13_nkr5b")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(0, 0, 128, 144)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7qiah"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw4wa"]
 atlas = ExtResource("13_nkr5b")
-region = Rect2(128, 0, 128, 128)
+region = Rect2(128, 0, 128, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d6h4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5eye0")
+"texture": SubResource("AtlasTexture_2p4x7")
 }],
 "loop": false,
 "name": &"idle",
@@ -62,7 +62,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7qiah")
+"texture": SubResource("AtlasTexture_nw4wa")
 }],
 "loop": false,
 "name": &"spotted",
@@ -76,13 +76,13 @@ font_color = Color(1, 0, 1, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="WardenBoss" type="CharacterBody2D" node_paths=PackedStringArray("wardenCheck", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="WardenBoss" type="CharacterBody2D" node_paths=PackedStringArray("wardenCheck", "wardenCollider", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_bmshy")
+script = ExtResource("1_rs7f3")
 wardenCheck = NodePath("Rotator/WardenCheck")
+wardenCollider = NodePath("CollisionShape2D")
 enemyName = "WardenBoss"
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -148,7 +148,7 @@ stream = ExtResource("12_0ydj3")
 max_distance = 1500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -40)
+position = Vector2(8, -48)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 autoplay = "idle"
@@ -183,9 +183,9 @@ enemyController = NodePath("..")
 
 [node name="EnemyStatus" type="Label" parent="."]
 offset_left = -80.0
-offset_top = -128.0
+offset_top = -144.0
 offset_right = 80.0
-offset_bottom = -102.0
+offset_bottom = -118.0
 label_settings = SubResource("LabelSettings_rwhw3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -203,9 +203,9 @@ rotationSpeed = 5.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
-[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
+[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("wardenController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
 script = ExtResource("21_y1wbi")
-enemyController = NodePath("../..")
+wardenController = NodePath("../..")
 checkMaxValue = 100.0
 checkScreamThreshold = 75.0
 checkIncreasePerSecond = 100.0
@@ -249,6 +249,7 @@ position = Vector2(112, 0)
 
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("25_ffbox")]
 enemyController = NodePath("..")
+repelledOffset = -90.0
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("26_gmt6t")
@@ -336,6 +337,7 @@ enemyController = NodePath("../../../../../../..")
 
 [connection signal="damaged" from="." to="EnemyPatrol" method="_on_enemy_damaged"]
 [connection signal="damaged" from="." to="Rotator/WardenCheck" method="_on_warden_damaged"]
+[connection signal="reached_destination" from="EnemyMovement" to="." method="_on_enemy_movement_reached_destination"]
 [connection signal="reached_destination" from="EnemyMovement" to="EnemyPatrol" method="_on_guard_movement_reached_destination"]
 [connection signal="body_entered" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/WardenCheck" to="Rotator/WardenCheck" method="_on_body_exited"]

@@ -64,9 +64,6 @@ script = ExtResource("1_fjo4w")
 attackArea = NodePath("Rotator/CleanerBossAttackHitbox")
 newSpeed = 700.0
 enemyName = "CleanerBoss"
-repelledTime = 0.3
-repelledDistance = 350.0
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -197,6 +194,9 @@ position = Vector2(112, 0)
 
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("20_od2c3")]
 enemyController = NodePath("..")
+repelledTime = 0.3
+repelledDistance = 350.0
+repelledOffset = -90.0
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("21_g60x6")

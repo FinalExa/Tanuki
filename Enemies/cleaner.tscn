@@ -61,9 +61,6 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lfxg5")
 enemyName = "Cleaner"
-repelledTime = 0.3
-repelledDistance = 350.0
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -192,6 +189,9 @@ position = Vector2(112, 0)
 
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("19_e0463")]
 enemyController = NodePath("..")
+repelledTime = 0.3
+repelledDistance = 350.0
+repelledOffset = -90.0
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("18_7fx25")

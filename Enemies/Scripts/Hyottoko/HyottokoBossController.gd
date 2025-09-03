@@ -6,8 +6,8 @@ var isCaptured: bool
 @export var armorPieces: Array[AnimatedSprite2D]
 
 func IsRepelled(direction: Vector2):
-	if (repelledSpeed > 0 && (isReachingPoint || isEntranced)):
-		StartRepelled(direction)
+	if (enemyRepelled.repelledSpeed > 0 && (isReachingPoint || isEntranced)):
+		enemyRepelled.StartRepelled(direction)
 
 func UpdateSpeed():
 	enemyMovement.set_movement_speed(newSpeed)
