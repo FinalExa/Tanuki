@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 func StartRepelled(direction: Vector2):
 	enemyController.isRepelled = true
-	emit_signal("stop_attack")
+	enemyController.emit_signal("stop_attack")
 	enemyController.velocity = Vector2.ZERO
 	repelledTimer = repelledTime
 	repelledDirection = direction

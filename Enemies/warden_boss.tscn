@@ -220,7 +220,7 @@ spottedAnimationName = "spotted"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/WardenCheck"]
 modulate = Color(1, 1, 1, 0.313726)
 position = Vector2(0, -128)
-polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 384, -832, -384, -832)
+polygon = PackedVector2Array(-128, 0, -64, 128, 64, 128, 128, 0, 384, -512, 512, -1024, -512, -1024, -384, -512)
 
 [node name="Lantern" type="Sprite2D" parent="Rotator"]
 position = Vector2(0, -160)

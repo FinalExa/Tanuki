@@ -9,7 +9,7 @@ radius = 96.3328
 script = ExtResource("1_0gnq6")
 cartTag = "CartDamage"
 interactableGroup = "Interactable"
-enemiesToStun = Array[String](["Guard", "Cleaner", "Hyottoko", "Warden"])
+enemiesToStun = Array[String](["Guard", "Cleaner", "Hyottoko", "Warden", "WardenBoss"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j4t06")

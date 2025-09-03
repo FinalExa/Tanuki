@@ -39,6 +39,7 @@ animations = [{
 }]
 
 [node name="FireflyObjectContainer" type="Area2D" node_paths=PackedStringArray("excludeArray")]
+y_sort_enabled = true
 script = ExtResource("1_1g7ks")
 onColor = Color(1, 1, 1, 1)
 offColor = Color(0.25098, 0.792157, 0.45098, 0.313726)
