@@ -1189,7 +1189,7 @@ availableDirections = Array[bool]([true, false, false, true])
 
 [node name="FoodCartCheckpoint31" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Checkpoints" instance=ExtResource("17_h6nnl")]
 position = Vector2(3200, -6112)
-availableDirections = Array[bool]([false, true, false, false])
+availableDirections = Array[bool]([false, true, true, false])
 
 [node name="FoodCartCheckpoint32" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Checkpoints" instance=ExtResource("17_h6nnl")]
 position = Vector2(3200, -5632)
@@ -1263,6 +1263,10 @@ cartCheckpointToEdit = NodePath("../../Checkpoints/FoodCartCheckpoint26")
 [node name="CartObstacleLeft2" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Obstacles" node_paths=PackedStringArray("cartCheckpointToEdit") instance=ExtResource("31_6yola")]
 position = Vector2(2928, -5504)
 cartCheckpointToEdit = NodePath("../../Checkpoints/FoodCartCheckpoint6")
+
+[node name="CartObstacleLeft3" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Obstacles" node_paths=PackedStringArray("cartCheckpointToEdit") instance=ExtResource("31_6yola")]
+position = Vector2(384, -7232)
+cartCheckpointToEdit = NodePath("../../Checkpoints/FoodCartCheckpoint20")
 
 [node name="CartObstacleRight" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Obstacles" node_paths=PackedStringArray("cartCheckpointToEdit") instance=ExtResource("49_j5sux")]
 position = Vector2(2432, -7168)
