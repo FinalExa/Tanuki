@@ -1122,7 +1122,7 @@ position = Vector2(128, -7296)
 availableDirections = Array[bool]([true, true, false, false])
 
 [node name="FoodCartCheckpoint21" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Checkpoints" instance=ExtResource("17_h6nnl")]
-position = Vector2(1408, -7552)
+position = Vector2(1408, -7488)
 availableDirections = Array[bool]([false, true, false, false])
 
 [node name="FoodCartCheckpoint22" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/CartPuzzle/Checkpoints" instance=ExtResource("17_h6nnl")]
