@@ -45,6 +45,9 @@ func CheckIfPlayerIsSeen():
 		else:
 			if (wardenBossController.wardenCheck.currentEyes.has(self)):
 				wardenBossController.wardenCheck.currentEyes.erase(self)
+		return
+	if (wardenBossController.wardenCheck.currentEyes.has(self)):
+		wardenBossController.wardenCheck.currentEyes.erase(self)
 
 func SwapStatus():
 	SetStatus(!currentStatus)
