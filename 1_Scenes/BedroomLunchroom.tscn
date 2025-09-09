@@ -813,6 +813,21 @@ texture = ExtResource("39_bik4r")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies/WardenBossEye"]
 polygon = PackedVector2Array(-64, -32, 64, -32, 256, 640, -256, 640)
 
+[node name="WardenBossEye2" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("wardenBossController", "directionFeedback") instance=ExtResource("38_82xbr")]
+position = Vector2(-64, -3648)
+wardenBossController = NodePath("../WardenBoss")
+startingStatus = true
+directionFeedback = NodePath("DirectionFeedback")
+
+[node name="DirectionFeedback" type="Sprite2D" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies/WardenBossEye2"]
+position = Vector2(200, 0)
+rotation = 1.5708
+texture = ExtResource("39_bik4r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies/WardenBossEye2"]
+position = Vector2(24, -48)
+polygon = PackedVector2Array(-56, -16, 616, -208, 616, 304, -56, 112)
+
 [node name="WardenAlertArea" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(1664, -3600)
 
