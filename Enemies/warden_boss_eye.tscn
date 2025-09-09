@@ -1,0 +1,160 @@
+[gd_scene load_steps=19 format=3 uid="uid://3r0mn8am7frj"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenBossEye.gd" id="1_qw6b6"]
+[ext_resource type="Texture2D" uid="uid://bbo1iwop6x8su" path="res://Enemies/Sprites/Warden_Boss_Eye.png" id="2_1qbgs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6iobb"]
+radius = 16.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hima2"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahf3k"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amf05"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn0os"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyjch"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am71d"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn8ws"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjp7g"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2y1a"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb8cm"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3goel"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p842i"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd7yb"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mugv2"]
+atlas = ExtResource("2_1qbgs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7kdjn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hima2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahf3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hima2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amf05")
+}],
+"loop": true,
+"name": &"close_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn0os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyjch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am71d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn8ws")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjp7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2y1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjp7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb8cm")
+}],
+"loop": true,
+"name": &"open_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3goel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p842i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd7yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mugv2")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[node name="WardenBossEye" type="Area2D" node_paths=PackedStringArray("spriteRef", "bodyCollider")]
+script = ExtResource("1_qw6b6")
+openDuration = 10.0
+closeDuration = 3.0
+spriteRef = NodePath("AnimatedSprite2D")
+bodyCollider = NodePath("Body/CollisionShape2D")
+openIdleAnimation = "open_idle"
+closeIdleAnimation = "close_idle"
+openingAnimation = "opening"
+closingAnimation = "closing"
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6iobb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_7kdjn")
+animation = &"close_idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

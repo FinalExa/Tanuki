@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=120 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -45,8 +45,10 @@
 [ext_resource type="PackedScene" uid="uid://dx3hwntm58q13" path="res://ImportantObjects/Interactables/dirty_floor_unremoveable.tscn" id="36_n6s4p"]
 [ext_resource type="Script" path="res://Level/Random/Scripts/ObjectPositionRandomizer.gd" id="37_ei2jk"]
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="37_v73xs"]
+[ext_resource type="PackedScene" uid="uid://3r0mn8am7frj" path="res://Enemies/warden_boss_eye.tscn" id="38_82xbr"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="38_fc3pw"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexLook.gd" id="38_sgp8m"]
+[ext_resource type="Texture2D" uid="uid://r4m7hf5ppi6q" path="res://Enemies/Sprites/WardenLightCone.png" id="39_bik4r"]
 [ext_resource type="PackedScene" uid="uid://c4sgaoi453qqj" path="res://ImportantObjects/Interactables/cart_revolving_door.tscn" id="40_3blha"]
 [ext_resource type="PackedScene" uid="uid://8wi1qqq5sl7a" path="res://Level/Prefabs/wall_tile_vertical.tscn" id="42_gb25x"]
 [ext_resource type="PackedScene" uid="uid://nxf1x824g44r" path="res://ImportantObjects/Interactables/cart_obstacle_down.tscn" id="43_505q4"]
@@ -796,6 +798,20 @@ wardenAlertArea = NodePath("../WardenAlertArea")
 patrolIndicators = [NodePath("../PatrolPoints/WardenBoss/WardenBossPatrolIndicator")]
 questToSendProgressSignal = NodePath("../../..")
 debug = true
+
+[node name="WardenBossEye" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("wardenBossController", "directionFeedback") instance=ExtResource("38_82xbr")]
+position = Vector2(640, -4672)
+wardenBossController = NodePath("../WardenBoss")
+startingStatus = true
+directionFeedback = NodePath("DirectionFeedback")
+
+[node name="DirectionFeedback" type="Sprite2D" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies/WardenBossEye"]
+position = Vector2(0, 192)
+rotation = 3.14159
+texture = ExtResource("39_bik4r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies/WardenBossEye"]
+polygon = PackedVector2Array(-64, -32, 64, -32, 256, 640, -256, 640)
 
 [node name="WardenAlertArea" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(1664, -3600)

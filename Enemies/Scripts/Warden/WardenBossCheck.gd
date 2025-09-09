@@ -2,7 +2,18 @@ extends WardenCheck
 
 @export var hands: Array[WardenBossHand]
 @export var handStartingPositions: Array[Node2D]
+var currentEyes: Array[WardenBossEye]
 var handsActive: bool
+
+func _physics_process(_delta):
+	if (!EyeHasSpottedPlayer()):
+		WardenCheckRaycast()
+
+func EyeHasSpottedPlayer():
+	if (activated && currentEyes.size() > 0):
+		raycastResult = currentEyes[0].raycastResult
+		return true
+	return false
 
 func ReadyOperations():
 	for i in hands.size():

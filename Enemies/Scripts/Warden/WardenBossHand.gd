@@ -30,9 +30,9 @@ func TrackPlayer(delta):
 			playerHit = true
 			playerHitTimer = playerHitCooldown
 
-func GetFinalMovementSpeed(playerRef: PlayerCharacter):
+func GetFinalMovementSpeed(player: PlayerCharacter):
 	var finalSpeed: float = movementSpeed
-	if (self.global_position.distance_to(playerRef.global_position) >= extraSpeedMinDistance):
+	if (self.global_position.distance_to(player.global_position) >= extraSpeedMinDistance):
 		finalSpeed += extraSpeed
 	return finalSpeed
 
