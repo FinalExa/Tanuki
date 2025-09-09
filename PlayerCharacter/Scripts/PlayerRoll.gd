@@ -6,6 +6,7 @@ extends ExecuteAttack
 @export var playerMovement: PCMovement
 @export var playerMoveObjects: PlayerMoveObjects
 @export var transformationChange: TransformationChange
+var playerRef: PlayerCharacter
 
 func _process(_delta):
 	CheckForInput()
@@ -13,6 +14,7 @@ func _process(_delta):
 func ExtraReadyOperations():
 	playerHUD.rollCooldown.max_value = attackCooldown
 	playerHUD.rollCooldown.value = attackCooldown
+	playerRef = characterRef
 
 func CheckForInput():
 	if (!attackLaunched && characterRef.playerInputs.rollInput):

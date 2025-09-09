@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbq7xnljmyksd"]
+[gd_scene load_steps=45 format=3 uid="uid://bbq7xnljmyksd"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenBossController.gd" id="1_rs7f3"]
 [ext_resource type="AudioStream" uid="uid://rflcma3mfp7v" path="res://Enemies/Sounds/Warden/Movement/1 - Steps - Warden.wav" id="2_afdyk"]
@@ -19,8 +19,9 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenStunned.gd" id="17_s0f7n"]
 [ext_resource type="FontFile" uid="uid://bi4u2bg5tc01s" path="res://UI/Font/BubblegumSans-Regular.ttf" id="18_07yl2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyStatus.gd" id="19_ol2nm"]
+[ext_resource type="PackedScene" uid="uid://33qbhcrvm7kd" path="res://Enemies/warden_boss_hand.tscn" id="20_ffkbp"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyRotator.gd" id="20_u78ax"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenCheck.gd" id="21_y1wbi"]
+[ext_resource type="Script" path="res://Enemies/WardenBossCheck.gd" id="22_h0l2c"]
 [ext_resource type="Texture2D" uid="uid://beqdchybbxs75" path="res://Enemies/Sprites/Lanterna blu.png" id="22_ro7qr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/LanternRotation.gd" id="23_w0wgc"]
 [ext_resource type="Texture2D" uid="uid://r4m7hf5ppi6q" path="res://Enemies/Sprites/WardenLightCone.png" id="24_entyw"]
@@ -191,6 +192,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("19_ol2nm")
 
+[node name="Hands" type="Node2D" parent="."]
+
+[node name="WardenBossHand1" parent="Hands" instance=ExtResource("20_ffkbp")]
+movementSpeed = 400.0
+extraSpeedMinDistance = 400.0
+
+[node name="1" type="Node2D" parent="Hands"]
+position = Vector2(-96, 0)
+
+[node name="WardenBossHand2" parent="Hands" instance=ExtResource("20_ffkbp")]
+movementSpeed = 200.0
+extraSpeed = 800.0
+extraSpeedMinDistance = 250.0
+
+[node name="2" type="Node2D" parent="Hands"]
+position = Vector2(96, 0)
+
 [node name="Rotator" type="Node2D" parent="." node_paths=PackedStringArray("upRotationPoint", "downRotationPoint", "leftRotationPoint", "rightRotationPoint", "mainNodeRef")]
 script = ExtResource("20_u78ax")
 upRotationPoint = NodePath("../RotationPoints/UpRotationPoint")
@@ -203,8 +221,10 @@ rotationSpeed = 5.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
-[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("wardenController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
-script = ExtResource("21_y1wbi")
+[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hands", "handStartingPositions", "wardenController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
+script = ExtResource("22_h0l2c")
+hands = [NodePath("../../Hands/WardenBossHand1"), NodePath("../../Hands/WardenBossHand2")]
+handStartingPositions = [NodePath("../../Hands/1"), NodePath("../../Hands/2")]
 wardenController = NodePath("../..")
 checkMaxValue = 100.0
 checkScreamThreshold = 75.0

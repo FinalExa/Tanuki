@@ -302,9 +302,12 @@ playerRef = NodePath("..")
 sprite_frames = SubResource("SpriteFrames_5la1i")
 animation = &"idle"
 
-[node name="PlayerHealth" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("18_q1ai0")]
+[node name="PlayerHealth" parent="." node_paths=PackedStringArray("playerRef", "playerSprite") instance=ExtResource("18_q1ai0")]
 position = Vector2(0, -56)
 playerRef = NodePath("..")
+playerSprite = NodePath("../AnimatedSprite2D")
+invincibilityTime = 2.0
+invincibilityFlicker = 0.1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

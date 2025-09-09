@@ -14,6 +14,7 @@ extends Area2D
 @export var idleAnimationName: String
 @export var spottedAnimationName: String
 var activated: bool
+var playerSpotted: bool
 var isInIdleAnimation: bool
 var wardenAlertArea: WardenAlertArea
 var checkCurrentValue: float
@@ -25,6 +26,10 @@ var spottedSoundPlayed: bool
 func _ready():
 	Activate()
 	checkCurrentValue = 0
+	ReadyOperations()
+
+func ReadyOperations():
+	pass
 
 func _physics_process(_delta):
 	WardenCheckRaycast()
@@ -60,14 +65,22 @@ func _on_body_exited(body):
 func IncreaseCheckValue(delta):
 	PlayCheckSound()
 	checkCurrentValue = clamp(checkCurrentValue + (delta * checkIncreasePerSecond), checkMinValue, checkMaxValue)
+	OnWardenCheckIncrease()
 	PlaySpottedSound()
 	UpdateLabelValue()
+
+func OnWardenCheckIncrease():
+	pass
 
 func DecreaseCheckValue(delta):
 	ResetSpottedSound()
 	checkCurrentValue = clamp(checkCurrentValue - (delta * checkDecreasePerSecond), checkMinValue, checkMaxValue)
+	OnWardenCheckDecrease()
 	ResetCheckSound()
 	UpdateLabelValue()
+
+func OnWardenCheckDecrease():
+	pass
 
 func AddArea():
 	wardenAlertArea.SetActive()

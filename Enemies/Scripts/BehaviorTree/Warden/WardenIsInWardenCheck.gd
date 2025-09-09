@@ -3,12 +3,11 @@ extends GuardNode
 @export var wardenCheck: WardenCheck
 @export var wardenDecreaseICD: float = 1.5
 var timer: float
-var playerSpotted: bool
 
 func Evaluate(delta):
 	if (wardenCheck.raycastResult != null && wardenCheck.raycastResult is PlayerCharacter):
-		playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
-		if (playerSpotted):
+		wardenCheck.playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
+		if (wardenCheck.playerSpotted):
 			timer = wardenDecreaseICD
 			enemyController.enemyPatrol.stop_patrol()
 			enemyController.enemyRotator.setLookingAtNode(wardenCheck.playerRef)
@@ -26,7 +25,7 @@ func DecreaseTimer(delta):
 	DecreaseAndResetWarden(delta)
 
 func DecreaseAndResetWarden(delta):
-	playerSpotted = false
+	wardenCheck.playerSpotted = false
 	wardenCheck.DecreaseCheckValue(delta)
 	if (wardenCheck.checkCurrentValue < wardenCheck.checkScreamThreshold):
 		wardenCheck.CheckToRemoveArea()
