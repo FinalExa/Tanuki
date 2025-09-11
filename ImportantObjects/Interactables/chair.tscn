@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_oe2it"]
 [ext_resource type="Texture2D" uid="uid://dc05xcwf83ihw" path="res://ImportantObjects/Interactables/Sprites/Chair.png" id="2_muiqp"]
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_frnay"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Tools/Scripts/AreaInteractionCheck.gd" id="3_frnay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kufeo"]
 size = Vector2(64, 64)

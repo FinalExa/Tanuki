@@ -1,28 +1,28 @@
 [gd_scene load_steps=11 format=3 uid="uid://dvkb1wrtepasr"]
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Supplementary/Scripts/FoodCart.gd" id="1_ex6qh"]
-[ext_resource type="Texture2D" uid="uid://b8hi32g3fkcuh" path="res://ImportantObjects/Interactables/Sprites/FoodCart.png" id="2_4fm7n"]
+[ext_resource type="Texture2D" uid="uid://b8hi32g3fkcuh" path="res://ImportantObjects/Interactables/Supplementary/Sprites/FoodCart.png" id="2_vpl8m"]
 [ext_resource type="PackedScene" uid="uid://dmboqu7yvbhis" path="res://ImportantObjects/Interactables/Supplementary/food_cart_launch_area.tscn" id="3_fwq5p"]
 [ext_resource type="PackedScene" uid="uid://by3htcny7yq2s" path="res://ImportantObjects/Interactables/Supplementary/food_cart_damage_area.tscn" id="4_0ec5q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vsi4"]
-radius = 32.0
-height = 80.0
+radius = 64.0
+height = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc6c1"]
-size = Vector2(80, 16)
+size = Vector2(128, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lei76"]
-size = Vector2(80, 16)
+size = Vector2(128, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aauy"]
-size = Vector2(16, 64)
+size = Vector2(16, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqiyf"]
-size = Vector2(16, 64)
+size = Vector2(16, 112)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqgod"]
-radius = 64.4981
+radius = 64.0
 
 [node name="FoodCart" type="StaticBody2D" node_paths=PackedStringArray("damageArea", "directionObjects", "launchAreas")]
 script = ExtResource("1_ex6qh")
@@ -34,10 +34,10 @@ launchAreas = [NodePath("Directions/FoodCartLaunchAreaUP"), NodePath("Directions
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -56)
-texture = ExtResource("2_4fm7n")
+texture = ExtResource("2_vpl8m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -40)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8vsi4")
 
@@ -56,7 +56,7 @@ shape = SubResource("RectangleShape2D_fc6c1")
 position = Vector2(0, 8)
 
 [node name="FoodCartLaunchAreaDOWN" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
-position = Vector2(0, -64)
+position = Vector2(0, -112)
 foodCart = NodePath("../..")
 id = 1
 
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_lei76")
 position = Vector2(-8, 0)
 
 [node name="FoodCartLaunchAreaLEFT" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
-position = Vector2(48, -24)
+position = Vector2(88, -56)
 foodCart = NodePath("../..")
 id = 2
 
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_5aauy")
 position = Vector2(8, 0)
 
 [node name="FoodCartLaunchAreaRIGHT" parent="Directions" node_paths=PackedStringArray("foodCart") instance=ExtResource("3_fwq5p")]
-position = Vector2(-48, -24)
+position = Vector2(-88, -56)
 foodCart = NodePath("../..")
 id = 3
 
@@ -89,7 +89,9 @@ shape = SubResource("RectangleShape2D_eqiyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpointLocator"]
 shape = SubResource("CircleShape2D_dqgod")
+debug_color = Color(0, 0, 0.701961, 0.419608)
 
 [node name="FoodCartDamageArea" parent="." instance=ExtResource("4_0ec5q")]
+position = Vector2(0, -56)
 
 [connection signal="area_entered" from="CheckpointLocator" to="." method="CheckForCheckpoints"]

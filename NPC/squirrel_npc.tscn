@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_43y3n"]
 [ext_resource type="Texture2D" uid="uid://6lnw7are12e" path="res://NPC/Sprites/squirrel.png" id="1_626df"]
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_0jnef"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Tools/Scripts/AreaInteractionCheck.gd" id="3_0jnef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o50jb"]
 radius = 16.0

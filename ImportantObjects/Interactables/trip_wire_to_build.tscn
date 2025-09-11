@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdw02gipoyngk"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/BrokenPartsInteractable.gd" id="1_dx8wc"]
+[ext_resource type="Texture2D" uid="uid://b1wb40ygua1dr" path="res://ImportantObjects/MovableObjects/Sprites/Tripwire_Stake.png" id="2_g6436"]
+[ext_resource type="Texture2D" uid="uid://dy3jngh662a6h" path="res://ImportantObjects/Interactables/Sprites/TripwireWireDeployed.png" id="3_gmxut"]
+[ext_resource type="PackedScene" uid="uid://jdma316w6rr3" path="res://ImportantObjects/Interactables/Tools/area_interaction_check.tscn" id="6_w3rpv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlio3"]
+radius = 64.0
+height = 640.0
+
+[node name="TripwireToBuild" type="Node2D" node_paths=PackedStringArray("partSprites") groups=["Interactable"]]
+script = ExtResource("1_dx8wc")
+partSprites = [NodePath("Part0"), NodePath("Part1"), NodePath("Part2")]
+neededProperties = Array[String](["TripwirePart"])
+receiveRefAttack = true
+
+[node name="Part0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -256)
+texture = ExtResource("2_g6436")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_gmxut")
+
+[node name="Part2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 256)
+texture = ExtResource("2_g6436")
+
+[node name="AreaInteractionCheck" parent="." node_paths=PackedStringArray("interactableToOperate") instance=ExtResource("6_w3rpv")]
+interactableToOperate = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteractionCheck"]
+shape = SubResource("CapsuleShape2D_hlio3")

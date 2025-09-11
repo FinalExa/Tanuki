@@ -1,21 +1,36 @@
 extends GuardNode
 
 @export var wardenCheck: WardenCheck
-var playerSpotted: bool
+@export var wardenDecreaseICD: float = 1.5
+var timer: float
 
 func Evaluate(delta):
 	if (wardenCheck.raycastResult != null && wardenCheck.raycastResult is PlayerCharacter):
-		playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
-		if (playerSpotted):
+		wardenCheck.playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
+		if (wardenCheck.playerSpotted):
+			timer = wardenDecreaseICD
 			enemyController.enemyPatrol.stop_patrol()
 			enemyController.enemyRotator.setLookingAtNode(wardenCheck.playerRef)
 			return NodeState.FAILURE
-	playerSpotted = false
-	wardenCheck.DecreaseCheckValue(delta)
-	wardenCheck.CheckToRemoveArea()
-	if (!enemyController.isInPatrol):
-		enemyController.enemyPatrol.resume_patrol()
+		DecreaseAndResetWarden(delta)
+		return NodeState.SUCCESS
+	else:
+		DecreaseTimer(delta)
 	return NodeState.SUCCESS
+
+func DecreaseTimer(delta):
+	if (timer > 0):
+		timer -= delta
+		return
+	DecreaseAndResetWarden(delta)
+
+func DecreaseAndResetWarden(delta):
+	wardenCheck.playerSpotted = false
+	wardenCheck.DecreaseCheckValue(delta)
+	if (wardenCheck.checkCurrentValue < wardenCheck.checkScreamThreshold):
+		wardenCheck.CheckToRemoveArea()
+		if (!enemyController.isInPatrol):
+			enemyController.enemyPatrol.resume_patrol()
 
 func CheckForPlayerCurrentHiddenStatus(playerRef: PlayerCharacter):
 	if (playerRef.transformationChangeRef.get_if_transformed_in_right_zone() != 1 ||

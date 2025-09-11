@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://33qbhcrvm7kd"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/Warden/WardenBossHand.gd" id="1_m7apb"]
+[ext_resource type="Texture2D" uid="uid://m643vgn6r466" path="res://Enemies/Sprites/Warden_Boss_Hand.png" id="1_wvfax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w15jf"]
+atlas = ExtResource("1_wvfax")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3muw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w15jf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkkpc"]
+radius = 32.0
+
+[node name="WardenBossHand" type="Area2D"]
+script = ExtResource("1_m7apb")
+movementSpeed = 300.0
+extraSpeed = 1000.0
+extraSpeedMinDistance = 300.0
+playerHitCooldown = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40)
+sprite_frames = SubResource("SpriteFrames_p3muw")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vkkpc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

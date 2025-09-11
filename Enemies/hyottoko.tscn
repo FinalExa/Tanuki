@@ -78,9 +78,6 @@ hyottokoReachPoint = NodePath("HyottokoReachPoint")
 hyottokoAttack = NodePath("Rotator/HyottokoAttack")
 hyottokoEntranced = NodePath("HyottokoEntranced")
 enemyName = "Hyottoko"
-repelledTime = 0.3
-repelledDistance = 200.0
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -223,6 +220,9 @@ characterRef = NodePath("../..")
 
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("25_wfjgg")]
 enemyController = NodePath("..")
+repelledTime = 0.3
+repelledDistance = 350.0
+repelledOffset = -90.0
 
 [node name="RotationPoints" type="Node2D" parent="."]
 

@@ -9,10 +9,9 @@ height = 80.0
 [node name="FireflyHouseFull" type="StaticBody2D" groups=["FireflyHouse"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -40)
 texture = ExtResource("1_6ykxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cxseq")

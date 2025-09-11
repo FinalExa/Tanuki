@@ -1,6 +1,7 @@
 class_name Firefly
 extends Area2D
 
+@export var fireflyTag: String
 @export var lifeDuration: float
 @export var timerFeedback: TextureProgressBar
 @export var timerMultiplier: float
@@ -40,14 +41,18 @@ func LifeTimer(delta):
 			timerFeedback.value = lifeTimer * timerMultiplier
 			return
 		timerFeedback.value = 0
-		ReleaseBeforeDelete()
-		self.queue_free()
+		EndFirefly()
+
+func EndFirefly():
+	ReleaseBeforeDelete()
+	self.queue_free()
 
 func ReleaseBeforeDelete():
 	var i: int = containersInArea.size() - 1
 	if (i >= 0):
 		while i >= 0:
-			containersInArea[i].UnregisterFirefly(self)
+			if (containersInArea[i] != null):
+				containersInArea[i].UnregisterFirefly(self)
 			containersInArea.remove_at(i)
 			i -= 1
 
@@ -60,3 +65,9 @@ func _on_area_exited(area):
 	if (area is FireflyObjectContainer && containersInArea.has(area)):
 		containersInArea.erase(area)
 		area.UnregisterFirefly(self)
+
+func _on_body_entered(body):
+	if (body is GenericInteractable):
+		if (body.neededProperties.has(fireflyTag)):
+			body.AttackInteraction(fireflyTag)
+			EndFirefly()

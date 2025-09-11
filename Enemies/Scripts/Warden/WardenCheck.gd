@@ -1,7 +1,7 @@
 class_name WardenCheck
 extends Area2D
 
-@export var enemyController: EnemyController
+@export var wardenController: WardenController
 @export var checkMaxValue: float
 @export var checkMinValue: float
 @export var checkScreamThreshold: float
@@ -13,17 +13,23 @@ extends Area2D
 @export var wardenSprite: AnimatedSprite2D
 @export var idleAnimationName: String
 @export var spottedAnimationName: String
+var activated: bool
+var playerSpotted: bool
 var isInIdleAnimation: bool
 var wardenAlertArea: WardenAlertArea
 var checkCurrentValue: float
 var raycastResult: Node2D
 var playerRef: PlayerCharacter
-var playerIn: bool
 var checkSoundPlayed: bool
 var spottedSoundPlayed: bool
 
 func _ready():
+	Activate()
 	checkCurrentValue = 0
+	ReadyOperations()
+
+func ReadyOperations():
+	pass
 
 func _physics_process(_delta):
 	WardenCheckRaycast()
@@ -32,10 +38,11 @@ func _process(_delta):
 	PlayAnimations()
 
 func WardenCheckRaycast():
-	if (playerIn):
-		var space_state = enemyController.get_world_2d().direct_space_state
+	if (playerRef != null && activated):
+		var space_state = wardenController.get_world_2d().direct_space_state
 		raycastResult = null
-		var query = PhysicsRayQueryParameters2D.create(enemyController.global_position, playerRef.global_position)
+		var query = PhysicsRayQueryParameters2D.create(wardenController.global_position, playerRef.global_position)
+		query.exclude = [wardenController, wardenController.wardenCollider]
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			raycastResult = result.collider
@@ -49,25 +56,31 @@ func UpdateLabelValue():
 
 func _on_body_entered(body):
 	if (body is PlayerCharacter):
-		playerIn = true
 		playerRef = body
 
 func _on_body_exited(body):
 	if (body is PlayerCharacter):
-		playerIn = false
 		playerRef = null
 
 func IncreaseCheckValue(delta):
 	PlayCheckSound()
 	checkCurrentValue = clamp(checkCurrentValue + (delta * checkIncreasePerSecond), checkMinValue, checkMaxValue)
+	OnWardenCheckIncrease()
 	PlaySpottedSound()
 	UpdateLabelValue()
+
+func OnWardenCheckIncrease():
+	pass
 
 func DecreaseCheckValue(delta):
 	ResetSpottedSound()
 	checkCurrentValue = clamp(checkCurrentValue - (delta * checkDecreasePerSecond), checkMinValue, checkMaxValue)
+	OnWardenCheckDecrease()
 	ResetCheckSound()
 	UpdateLabelValue()
+
+func OnWardenCheckDecrease():
+	pass
 
 func AddArea():
 	wardenAlertArea.SetActive()
@@ -81,13 +94,13 @@ func EndWardenCheck():
 
 func CheckToRemoveArea():
 	RemoveArea()
-	if (enemyController.enemyRotator.isLookingAtNode && enemyController.enemyRotator.target is PlayerCharacter):
-		enemyController.enemyRotator.stopLooking()
+	if (wardenController.enemyRotator.isLookingAtNode && wardenController.enemyRotator.target is PlayerCharacter):
+		wardenController.enemyRotator.stopLooking()
 
 func _on_warden_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 	if (raycastResult is PlayerCharacter):
 		EndWardenCheck()
-		enemyController.enemyStunned.start_stun(direction, tier)
+		wardenController.enemyStunned.start_stun(direction, tier)
 
 func PlayCheckSound():
 	if (checkCurrentValue == checkMinValue && !checkSoundPlayed):
@@ -116,3 +129,11 @@ func PlaySpottedSound():
 func ResetSpottedSound():
 	if (checkCurrentValue == checkMaxValue && spottedSoundPlayed):
 		spottedSoundPlayed = false
+
+func Activate():
+	self.show()
+	activated = true
+
+func Deactivate():
+	self.hide()
+	activated = false

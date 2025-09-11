@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_y8ui0"]
 [ext_resource type="Texture2D" uid="uid://5ocjm7ptlb3a" path="res://ImportantObjects/Interactables/Sprites/campfireOn.png" id="2_cjxtt"]
-[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/AreaInteractionCheck.gd" id="3_isih8"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Tools/Scripts/AreaInteractionCheck.gd" id="3_isih8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmb6d"]
 radius = 16.0

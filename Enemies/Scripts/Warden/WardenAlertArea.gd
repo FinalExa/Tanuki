@@ -17,7 +17,7 @@ func SetInactive():
 	activated = false
 
 func UpdatePlayerPositionToGuardsInArea():
-	if (activated && wardenCheck.playerIn && guardsInArea.size() > 0):
+	if (activated && wardenCheck.playerRef != null && guardsInArea.size() > 0):
 		for i in guardsInArea.size():
 			SetGuardInAlert(guardsInArea[i])
 			UpdateGuardWithInfo(guardsInArea[i])

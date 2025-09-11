@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://uxvh02t1uir1"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/BrokenPartMovable.gd" id="1_0ckxy"]
+[ext_resource type="Texture2D" uid="uid://b1wb40ygua1dr" path="res://ImportantObjects/MovableObjects/Sprites/Tripwire_Stake.png" id="2_6ed8r"]
+[ext_resource type="Texture2D" uid="uid://wuwk0amqdxrn" path="res://ImportantObjects/MovableObjects/Sprites/Tripwire_Wire.png" id="3_yxmiu"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="5_vx48g"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="6_dfr08"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="7_d4r1t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_482on"]
+radius = 16.0
+
+[node name="TripwirePart" type="Area2D" node_paths=PackedStringArray("partSprites", "movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_0ckxy")
+partSprites = [NodePath("Part1"), NodePath("Part2"), NodePath("Part3")]
+movableObjectName = "Tripwire Part"
+movableObjectProperties = Array[String](["TripwirePart"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_482on")
+
+[node name="Part1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_6ed8r")
+
+[node name="Part2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_yxmiu")
+
+[node name="Part3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_6ed8r")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("5_vx48g")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("6_dfr08")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("7_d4r1t")]
+offset_top = -104.0
+offset_bottom = -56.0

@@ -16,6 +16,6 @@ func is_damaged(direction: Vector2, tier: EnemyStunned.StunTier):
 		enemyStunned.stunnedFromAlert = true
 	Damaged(direction, tier)
 
-func RepelExtraOperation():
+func RepelEndExtraOperation():
 	if (!isStunned && !isInAlert):
-		guardResearch.InitializeResearchWithLocation(repelledPosition)
+		guardResearch.InitializeResearchWithLocation(enemyRepelled.repelledPosition)

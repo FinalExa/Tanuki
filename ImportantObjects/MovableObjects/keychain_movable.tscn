@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://o3u7dbcsmcay"]
+
+[ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/MovableObject.gd" id="1_1rlu4"]
+[ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="2_6d786"]
+[ext_resource type="Texture2D" uid="uid://mgpxpaa2m6gq" path="res://ImportantObjects/MovableObjects/Sprites/Keychain.png" id="2_vmnmu"]
+[ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="3_xe4mc"]
+[ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="4_1tb7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00afp"]
+radius = 8.0
+
+[node name="Keychain" type="Area2D" node_paths=PackedStringArray("movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
+script = ExtResource("1_1rlu4")
+movableObjectName = "Keychain"
+movableObjectProperties = Array[String](["Keychain"])
+movableFeedbackFar = NodePath("MovableFeedbackFar")
+movableFeedbackClose = NodePath("MovableFeedbackClose")
+movableLabel = NodePath("MovableLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_00afp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_vmnmu")
+
+[node name="MovableFeedbackFar" parent="." instance=ExtResource("2_6d786")]
+position = Vector2(0, -40)
+
+[node name="MovableFeedbackClose" parent="." instance=ExtResource("3_xe4mc")]
+position = Vector2(0, -40)
+
+[node name="MovableLabel" parent="." instance=ExtResource("4_1tb7d")]
+offset_top = -104.0
+offset_bottom = -56.0

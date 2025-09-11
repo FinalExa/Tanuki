@@ -7,8 +7,9 @@ var activated: bool
 @export var enemiesToStun: Array[String]
 var objectsInRange: Array[Node2D]
 var enemiesInRange: Array[EnemyController]
+var stunnedEnemies: Array[EnemyController]
 
-func _process(delta):
+func _process(_delta):
 	ExecuteDamage()
 
 func ExecuteDamage():
@@ -18,8 +19,17 @@ func ExecuteDamage():
 
 func StunAllEnemies():
 	for i in enemiesInRange.size():
-		if (!enemiesInRange[i].isStunned):
-			enemiesInRange[i].Damaged(enemiesInRange[i].global_position.direction_to(self.global_position), EnemyStunned.StunTier.HIGH)
+		StunEnemy(enemiesInRange[i])
+
+func StunEnemy(enemy: EnemyController):
+	if (!stunnedEnemies.has(enemy)):
+		stunnedEnemies.push_back(enemy)
+		if (enemy is WardenBossController && !enemy.isStunned):
+			enemy.Damaged(enemy.global_position.direction_to(self.global_position), EnemyStunned.StunTier.LOW)
+			enemy.AdvanceBossPhase()
+			return
+		if (!enemy.isStunned):
+			enemy.Damaged(enemy.global_position.direction_to(self.global_position), EnemyStunned.StunTier.HIGH)
 
 func InteractWithObjects():
 	var nullFound: bool
@@ -40,6 +50,7 @@ func Activate():
 
 func Deactivate():
 	activated = false
+	stunnedEnemies.clear()
 
 func _on_body_entered(body):
 	if (body is EnemyController && !enemiesInRange.has(body) && enemiesToStun.has(body.enemyName)):

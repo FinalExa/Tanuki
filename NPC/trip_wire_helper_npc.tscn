@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://caby6rujvduxj"]
+
+[ext_resource type="Texture2D" uid="uid://doicbscfqt1uj" path="res://NPC/Sprites/TripWireHelper.png" id="1_ma015"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrer8"]
+atlas = ExtResource("1_ma015")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrer8")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="TripWireHelperNPC" type="Node2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -56)
+sprite_frames = SubResource("SpriteFrames_ayldj")
+animation = &"idle"

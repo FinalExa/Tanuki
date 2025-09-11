@@ -133,9 +133,6 @@ guardAlert = NodePath("Rotator/GuardAlert")
 guardDistraction = NodePath("Rotator/GuardDistraction")
 enemyAttack = NodePath("Rotator/GuardAttack")
 enemyName = "Guard"
-repelledTime = 0.3
-repelledDistance = 500.0
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -742,6 +739,9 @@ position = Vector2(112, 0)
 
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("30_tkhpn")]
 enemyController = NodePath("..")
+repelledTime = 0.3
+repelledDistance = 350.0
+repelledOffset = -90.0
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("10_ixflf")

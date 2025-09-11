@@ -5,8 +5,8 @@ extends EnemyController
 @export var newSpeed: float
 
 func IsRepelled(direction: Vector2):
-	if (repelledSpeed > 0 && isStunned):
-		StartRepelled(direction)
+	if (enemyRepelled.repelledSpeed > 0 && isStunned):
+		enemyRepelled.StartRepelled(direction)
 
 func AdvanceBossPhase():
 	if (questToSendProgressSignal != null):
@@ -19,7 +19,6 @@ func AdvanceBossPhase():
 		enemyPatrol.restart_patrol()
 		enemyMovement.currentMovementSpeed = newSpeed
 		attackArea.SetHitboxOff()
-
 
 func _on_enemy_movement_reached_destination():
 	if (attackArea.hitboxOff):

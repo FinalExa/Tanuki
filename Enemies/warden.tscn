@@ -104,13 +104,13 @@ font_color = Color(1, 0, 1, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("wardenCheck", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Warden" type="CharacterBody2D" node_paths=PackedStringArray("wardenCheck", "wardenCollider", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ixgu4")
 wardenCheck = NodePath("Rotator/WardenCheck")
+wardenCollider = NodePath("CollisionShape2D")
 enemyName = "Warden"
-repelledOffset = -90.0
 enemyMovement = NodePath("EnemyMovement")
 enemyRotator = NodePath("Rotator")
 enemyPatrol = NodePath("EnemyPatrol")
@@ -230,9 +230,9 @@ rotationSpeed = 3.0
 rotationWeight = 0.5
 rotationDegreesOffset = 0.5
 
-[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("enemyController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
+[node name="WardenCheck" type="Area2D" parent="Rotator" node_paths=PackedStringArray("wardenController", "enemyStatus", "checkSound", "spottedSound", "wardenSprite")]
 script = ExtResource("18_d02ip")
-enemyController = NodePath("../..")
+wardenController = NodePath("../..")
 checkMaxValue = 100.0
 checkScreamThreshold = 75.0
 checkIncreasePerSecond = 75.0

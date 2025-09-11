@@ -10,6 +10,7 @@ extends Node2D
 @export var receiveRefAttack: bool
 @export var animatedSpriteRef: AnimatedSprite2D
 @export var animationToPlay: String
+@export var animationToPlayOnInteraction: String
 var parentRef: Node2D
 var cooldownActive: bool
 var cooldownTimer: float
@@ -41,14 +42,20 @@ func AttackInteraction(receivedString: String):
 
 func FinalState():
 	if (!hasCooldown):
+		PlayAnimationOnInteract()
 		if (sendSignalToQuestOnDestroyed): QuestSignal()
 		if (destroyOnEnd): queue_free()
 		FinalStateExtraExecution()
 		return
+	PlayAnimationOnInteract()
 	cooldownTimer = cooldownDuration
 	cooldownActive = true
 	CooldownActivatedEffect()
 	FinalStateExtraExecution()
+
+func PlayAnimationOnInteract():
+	if (animatedSpriteRef != null && animationToPlayOnInteraction != ""):
+		animatedSpriteRef.play(animationToPlayOnInteraction)
 
 func ExecuteExtraEffect():
 	pass

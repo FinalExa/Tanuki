@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc2vv7addf3dm"]
+
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/CartObstacle.gd" id="1_vb52b"]
+[ext_resource type="Texture2D" uid="uid://cb1uvhf6o1rqb" path="res://ImportantObjects/Interactables/Sprites/CartBreakableWallUp.png" id="2_2uyib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikvxn"]
+size = Vector2(96, 256)
+
+[node name="CartObstacleUp" type="StaticBody2D" groups=["Interactable"]]
+z_index = 1
+script = ExtResource("1_vb52b")
+directionToAdd = 1
+neededProperties = Array[String](["CartDamage"])
+destroyOnEnd = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_2uyib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -48)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ikvxn")
