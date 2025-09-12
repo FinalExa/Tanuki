@@ -282,7 +282,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallGetPassword"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("NavigationRegion2D"), NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue"), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("PasswordNPC/PasswordNPCBaseDialogue"), NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue"), NodePath("NavigationRegion2D"), NodePath("../../Keys/UnlockKey1")]
+questItemsToOperate = [NodePath("../../Keys/UnlockKey1"), NodePath("NavigationRegion2D"), NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue"), null, null, null, null, null, null, null, null, null, null, NodePath("PasswordNPC/PasswordNPCBaseDialogue"), NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue"), NodePath("NavigationRegion2D"), NodePath("../../Keys/UnlockKey1")]
 questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true])
 
@@ -692,7 +692,7 @@ questName = "HallUltraKey"
 questItemsToOperate = [NodePath("HallUltraKeyTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("BathroomsDoor"), NodePath("OldTanukiNPC")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 3])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, true, true, true, true, false])
-objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath(""), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath(""), NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), NodePath(""), NodePath("HallUltraKeyTileMap/Enemies/Guard3")]
+objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), null, NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), null, NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), null, NodePath("HallUltraKeyTileMap/Enemies/Guard3")]
 
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
