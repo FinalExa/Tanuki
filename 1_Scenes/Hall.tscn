@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=164 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -312,6 +312,42 @@ vertices = PackedVector2Array(-1504, 800, -1312, 800, -1312, 1056, -1504, 1056)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 1056, -1312, 800, -1504, 800)])
 
+[sub_resource type="Resource" id="Resource_b2r8o"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_0s4ju"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kjbwf"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o4hf3"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("DoorEvil")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_w1jq1"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SadGuardNPC/SadGuardFirstDialogue")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_evah7"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o12u4"]
 vertices = PackedVector2Array(992, 672, 992, 960, 560, 960, 800, 672, 560, 672, 736, 672, 736, 576, 800, 576)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
@@ -323,11 +359,164 @@ radius = 128.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5g0j"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_5eng3"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_s63aq"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("KeySprite")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_u2mt6"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_umrq6"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("ChairWardenNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_yvfxw"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("WardenSleepingDialogue")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_cw068"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("Chair")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_276pm"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("ChairWardenNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_8oqwl"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("WardenAwakeDialogue")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_8fm7r"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("WardenSleepingDialogue")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_asgj7"]
 radius = 384.083
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmuxl"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_2ttpn"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("DirtyFloor")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_v0163"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("DirtyFloor")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_aux4q"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("WoodenKatana")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_cvs7x"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("KatanaSprite")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ycpq3"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("WoodenKatana")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_qp45a"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("HallUltraKeyTileMap")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_61qc8"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_cyk12"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SavePoint")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ub4sk"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SavePoint2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_agg8y"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pp3jb"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("HallUltraKeyTileMap")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_nvi25"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SavePoint")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_43elw"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ykrko"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_8d8d5"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("SavePoint2")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_de5gl"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("Doors")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
+radius = 128.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lked1"]
 size = Vector2(112, 384)
@@ -343,9 +532,6 @@ size = Vector2(128, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmr0x"]
 size = Vector2(2048, 1504)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
-radius = 128.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d0iyo"]
 vertices = PackedVector2Array(2376, -1328, 2376, -1464, 2528, -1504, 2528, -1088, 1968, -1504, 2232, -1464, 2336, -1088, 2232, -1328, 1968, -1088, 2272, -1088, 608, -64, 544, -64, 544, -480, 672, -480, 672, -576, 544, -576, 544, -992, 800, -992, 800, -1088, 544, -1088, 544, -1504, 1888, -1504, 1888, -1088, 1504, -1088, 2272, -992, 2336, -992, 2528, -992, 2528, -704, 2408, -704, 2408, -608, 2208, -608, 2208, -704, 1504, -992, 1888, -704, 1888, -448, 1312, -448, 1312, -1088, 992, -992, 1232, -992, 1232, -352, 1072, -576, 1968, -352, 1968, -608, 2528, -64, 2528, -608, 864, -480, 992, -480, 992, -64, 672, -64, 672, 32, 608, 32, 864, -576, 1072, -64, 992, -1088)
@@ -426,7 +612,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(524283, 196608, 1, 458756, 65536, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 851963, 131072, 65536, 851958, 65536, 65536, 851959, 131072, 1, 851960, 131072, 1, 786436, 65536, 65536, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 65536, 786442, 327680, 3, 786443, 393216, 3, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 786444, 65536, 1, 524274, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 458761, 131072, 1, 458764, 65536, 65536, 524300, 262144, 1, 589836, 262144, 1, 655372, 720896, 4, 720908, 720896, 5, 458760, 65536, 1, 851961, 131072, 1, 851962, 131072, 1, 917494, 262144, 1, 983030, 262144, 1, 1179638, 262144, 1, 1245174, 65536, 0, 1310710, 262144, 1, 851977, 0, 1, 1048585, 0, 1, 1114121, 0, 1, 1179657, 131072, 0, 1245193, 0, 1, 1441801, 0, 1, 917499, 0, 1, 1179643, 0, 1, 1245179, 131072, 0, 983035, 0, 1, 1245175, 131072, 1, 1245178, 131072, 1, 1245176, 327680, 3, 1245177, 393216, 3, 1179652, 65536, 0, 1572854, 262144, 1, 1507337, 0, 1, 1638391, 131072, 1, 1638392, 131072, 1, 1638393, 131072, 1, 1638394, 131072, 1, 1638395, 196608, 1, 1638396, 131072, 1, 1638397, 131072, 1, 1638398, 131072, 1, 1572865, 131072, 1, 1572866, 131072, 1, 1572867, 131072, 1, 1572868, 65536, 1, 1572869, 131072, 1, 1572870, 131072, 1, 1572871, 131072, 1, 1572872, 131072, 1, 1572873, 196608, 1, 1638390, 65536, 1, 851972, 262144, 1, 1048580, 262144, 1, 1114116, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1507332, 262144, 1, 1310715, 0, 1, 1507323, 0, 1, 1572859, 0, 1, 1376253, 0, 1, 1441789, 0, 2, 1376254, 262144, 1, 1310721, 0, 1, 1310722, 262144, 1, 1376258, 262144, 2, 1245183, 131072, 1, 1179648, 131072, 1, 1245182, 131072, 1, 1179649, 131072, 1, 1179653, 131072, 1, 1179656, 131072, 1, 1179654, 327680, 3, 1179655, 393216, 3, -2, 131072, 1, -65535, 131072, 1, 1638399, 327680, 3, 1572864, 393216, 3, 458747, 0, 1, 393211, 0, 1, 327675, 131072, 65536, 327672, 131072, 1, 327671, 0, 2, 262135, 0, 1, 65527, 0, 1, -8, 131072, 1, -9, 0, 1, -5, 131072, 1, -4, 131072, 1, -3, 131072, 1, -65534, 131072, 1, -65530, 131072, 1, -65529, 131072, 1, -65528, 262144, 1, 8, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 262151, 131072, 1, 262148, 65536, 65536, 327684, 262144, 1, 393220, 262144, 1, 327673, 131072, 1, 327674, 131072, 1, 327688, 262144, 1, 393224, 262144, 1, 1441790, 262144, 2, 1376257, 0, 2, 851953, 0, 1, 917489, 0, 1, 983025, 0, 1, 1048561, 0, 1, 1114097, 0, 1, 1179633, 0, 1, 1245169, 0, 1, 1310705, 0, 1, 1376241, 0, 1, 1441777, 0, 1, 1507313, 0, 1, 1572849, 0, 1, 1638385, 0, 2, 1638389, 131072, 1, 1638388, 131072, 1, 1638387, 131072, 1, 1638386, 131072, 1, 1572874, 131072, 1, 1572875, 131072, 1, 1572876, 131072, 1, 1572877, 196608, 1, 851981, 0, 1, 917517, 0, 1, 983053, 0, 1, 1048589, 0, 1, 1114125, 0, 1, 1179661, 0, 1, 1245197, 0, 1, 1310733, 0, 1, 1376269, 0, 1, 1441805, 0, 1, 1507341, 0, 1, 720909, 0, 1, 655373, 0, 1, 589837, 0, 1, 524301, 0, 1, 458765, 131072, 65536, 786445, 131072, 0, 851957, 131072, 1, 851954, 131072, 1, 851955, 327680, 3, 851956, 393216, 3, 1376246, 262144, 1, -7, 131072, 1, -6, 131072, 1, 458763, 131072, 1, 458762, 131072, 1, -65533, 131072, 1)
+layer_1/tile_data = PackedInt32Array(524283, 196608, 1, 458756, 65536, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 851963, 131072, 65536, 851958, 65536, 65536, 851959, 131072, 1, 851960, 131072, 1, 786436, 65536, 65536, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 65536, 786442, 327680, 3, 786443, 393216, 3, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 786444, 65536, 1, 524274, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 458761, 131072, 1, 458764, 65536, 65536, 524300, 262144, 1, 589836, 262144, 1, 655372, 720896, 4, 720908, 720896, 5, 458760, 65536, 1, 851961, 131072, 1, 851962, 131072, 1, 917494, 262144, 1, 983030, 262144, 2, 1179638, 262144, 1, 1245174, 65536, 0, 1310710, 262144, 1, 851977, 0, 2, 1048585, 0, 1, 1114121, 0, 1, 1179657, 131072, 0, 1245193, 0, 2, 1441801, 0, 1, 917499, 0, 1, 1179643, 0, 1, 1245179, 131072, 0, 983035, 0, 1, 1245175, 131072, 1, 1245178, 131072, 1, 1245176, 327680, 3, 1245177, 393216, 3, 1179652, 65536, 0, 1572854, 262144, 1, 1507337, 0, 1, 1638391, 131072, 1, 1638392, 131072, 1, 1638393, 131072, 1, 1638394, 131072, 1, 1638395, 196608, 1, 1638396, 131072, 1, 1638397, 131072, 1, 1638398, 131072, 1, 1572865, 131072, 1, 1572866, 131072, 1, 1572867, 131072, 1, 1572868, 65536, 1, 1572869, 131072, 1, 1572870, 131072, 1, 1572871, 131072, 1, 1572872, 131072, 1, 1572873, 196608, 1, 1638390, 65536, 1, 851972, 262144, 1, 1048580, 262144, 1, 1114116, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1507332, 262144, 1, 1310715, 0, 1, 1507323, 0, 1, 1572859, 0, 1, 1376253, 0, 1, 1441789, 0, 2, 1376254, 262144, 1, 1310721, 0, 1, 1310722, 262144, 1, 1376258, 262144, 2, 1245183, 131072, 1, 1179648, 131072, 1, 1245182, 131072, 1, 1179649, 131072, 1, 1179653, 131072, 1, 1179656, 131072, 1, 1179654, 327680, 3, 1179655, 393216, 3, -2, 131072, 1, -65535, 131072, 1, 1638399, 327680, 3, 1572864, 393216, 3, 458747, 0, 1, 393211, 0, 1, 327675, 131072, 65536, 327672, 131072, 1, 327671, 0, 2, 262135, 0, 1, 65527, 0, 1, -8, 131072, 1, -9, 0, 1, -5, 131072, 1, -4, 131072, 1, -3, 131072, 1, -65534, 131072, 1, -65530, 131072, 1, -65529, 131072, 1, -65528, 262144, 1, 8, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 262151, 131072, 1, 262148, 65536, 65536, 327684, 262144, 1, 393220, 262144, 1, 327673, 131072, 1, 327674, 131072, 1, 327688, 262144, 1, 393224, 262144, 1, 1441790, 262144, 2, 1376257, 0, 2, 851953, 0, 1, 917489, 0, 1, 983025, 0, 1, 1048561, 0, 1, 1114097, 0, 1, 1179633, 0, 1, 1245169, 0, 1, 1310705, 0, 1, 1376241, 0, 1, 1441777, 0, 1, 1507313, 0, 1, 1572849, 0, 1, 1638385, 0, 2, 1638389, 131072, 1, 1638388, 131072, 1, 1638387, 131072, 1, 1638386, 131072, 1, 1572874, 131072, 1, 1572875, 131072, 1, 1572876, 131072, 1, 1572877, 196608, 1, 851981, 0, 1, 917517, 0, 1, 983053, 0, 1, 1048589, 0, 1, 1114125, 0, 1, 1179661, 0, 1, 1245197, 0, 1, 1310733, 0, 1, 1376269, 0, 1, 1441805, 0, 1, 1507341, 0, 1, 720909, 0, 1, 655373, 0, 1, 589837, 0, 1, 524301, 0, 1, 458765, 131072, 65536, 786445, 131072, 0, 851957, 131072, 1, 851954, 131072, 1, 851955, 327680, 3, 851956, 393216, 3, 1376246, 262144, 2, -7, 131072, 1, -6, 131072, 1, 458763, 131072, 1, 458762, 131072, 1, -65533, 131072, 1, -327672, 262144, 65537)
 layer_2/name = "Decorations"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -741,14 +927,12 @@ position = Vector2(-1216, 960)
 [node name="WallTile2" parent="Quests/HallPaintingRoom" instance=ExtResource("21_7ck5r")]
 position = Vector2(-1600, 960)
 
-[node name="HallStopTheDoor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallStopTheDoor" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallStopTheDoor"
-questItemsToOperate = [NodePath("NavigationRegion2D"), NodePath("NavigationRegion2D"), NodePath("DoorEvil"), NodePath("DoorStopMovable"), NodePath("SadGuardNPC/SadGuardFirstDialogue"), NodePath("SadGuardNPC/SadGuardFinalDialogue")]
-questItemsStages = Array[int]([0, 1, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, true, false, false, false, true])
-objectsToDeleteAtQuestComplete = [NodePath("ColorDoor")]
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_b2r8o"), SubResource("Resource_0s4ju"), SubResource("Resource_kjbwf"), SubResource("Resource_o4hf3"), SubResource("Resource_w1jq1"), SubResource("Resource_evah7")])
+objectsToDeleteAtQuestComplete = [NodePath("ColorDoor"), NodePath("DoorStopMovable")]
 
 [node name="DoorStopMovable" parent="Quests/HallStopTheDoor" instance=ExtResource("22_2d6nn")]
 position = Vector2(1664, 1088)
@@ -788,13 +972,11 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFinalDialogue"]
 shape = SubResource("CircleShape2D_h5g0j")
 
-[node name="HallStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="HallStunWarden" type="Node2D" parent="Quests"]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallStunWarden"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey5"), NodePath("KeySprite"), NodePath("../../Keys/UnlockKey5")]
-questItemsStages = Array[int]([0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true])
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_5eng3"), SubResource("Resource_s63aq"), SubResource("Resource_u2mt6")])
 
 [node name="KeySprite" type="Sprite2D" parent="Quests/HallStunWarden"]
 position = Vector2(1080, 1288)
@@ -802,15 +984,14 @@ rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("24_hg15b")
 
-[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="HallMakeWardenSleep" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
-questItemsToOperate = [NodePath("ChairWardenNPC"), NodePath("WardenSleepingDialogue"), NodePath("PillowMovable"), NodePath("Chair"), NodePath("ChairWardenNPC"), NodePath("WardenAwakeDialogue"), NodePath("WardenSleepingDialogue")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, false, true])
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_umrq6"), SubResource("Resource_yvfxw"), SubResource("Resource_cw068"), SubResource("Resource_276pm"), SubResource("Resource_8oqwl"), SubResource("Resource_8fm7r")])
+questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
-objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea")]
+objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea"), NodePath("PillowMovable")]
 
 [node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
 position = Vector2(1088, 1280)
@@ -845,12 +1026,10 @@ position = Vector2(896, 448)
 [node name="ChairWardenNPC" parent="Quests/HallMakeWardenSleep" instance=ExtResource("25_e4ed7")]
 position = Vector2(1152, 1088)
 
-[node name="HallCleanDirtyFloor1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallCleanDirtyFloor1" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_2xstp")
 questName = "HallCleanDirtyFloor1"
-questItemsToOperate = [NodePath("DirtyFloor")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_2ttpn")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/HallCleanDirtyFloor1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("9_wwcrv")]
@@ -862,6 +1041,7 @@ sendSignalToQuestOnDestroyed = true
 [node name="HallCleanDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_2xstp")
 questName = "HallCleanDirtyFloor2"
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_v0163")])
 questItemsToOperate = [NodePath("DirtyFloor")]
 questItemsStages = Array[int]([1])
 questItemsOnOffState = Array[bool]([false])
@@ -872,13 +1052,11 @@ position = Vector2(-896, 2432)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="HallUnlockWoodenKatana" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallUnlockWoodenKatana" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUnlockWoodenKatana"
-questItemsToOperate = [NodePath("WoodenKatana"), NodePath("KatanaSprite"), NodePath("WoodenKatana")]
-questItemsStages = Array[int]([0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true])
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_aux4q"), SubResource("Resource_cvs7x"), SubResource("Resource_ycpq3")])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/HallUnlockWoodenKatana" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("32_fn87w")]
@@ -893,14 +1071,12 @@ texture = ExtResource("32_g2167")
 [node name="WoodenKatana" parent="Quests/HallUnlockWoodenKatana" instance=ExtResource("32_2mlbu")]
 position = Vector2(1088, 2704)
 
-[node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUltraKey"
-questItemsToOperate = [NodePath("HallUltraKeyTileMap"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("HallUltraKeyTileMap"), NodePath("OldTanukiNPC"), NodePath("NavigationRegion2D"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("BathroomsDoor"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, true, true, true, true, false])
-objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), NodePath("HallUltraKeyTileMap/Enemies/Guard3")]
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_qp45a"), SubResource("Resource_61qc8"), SubResource("Resource_cyk12"), SubResource("Resource_ub4sk"), SubResource("Resource_agg8y"), SubResource("Resource_pp3jb"), SubResource("Resource_nvi25"), SubResource("Resource_43elw"), SubResource("Resource_ykrko"), SubResource("Resource_8d8d5"), SubResource("Resource_de5gl")])
+objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), NodePath("HallUltraKeyTileMap/Enemies/Guard3"), NodePath("HallUltraKeyTileMap/NPCs/OldTanukiNPC")]
 
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
@@ -968,6 +1144,18 @@ position = Vector2(704, -992)
 [node name="ColorYokai4" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("6_2boio")]
 position = Vector2(1000, -1528)
 colorOfYokai = 3
+
+[node name="OldTanukiNPC" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("28_jorvy")]
+position = Vector2(896, -272)
+
+[node name="DialogueArea" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+dialogueText = Array[String](["Master! We meet again.", "Daichi, since you are here, one last detail about this mansion.", "I'm all ears master!", "The door you just opened by finding the keys in this area, is used to seal a special type of key.", "Special key? What about it?", "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys.", "Oh... that sounds annoy- great!", "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy.", "Hmhm, I will keep my eyes peeled!", "Good luck, Daichi.", "Thank you, master!"])
+characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0])
+cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs/OldTanukiNPC/DialogueArea"]
+shape = SubResource("CircleShape2D_fo38d")
 
 [node name="Transformations" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
 y_sort_enabled = true
@@ -1228,27 +1416,19 @@ position = Vector2(1536, -784)
 visible = false
 shape = SubResource("RectangleShape2D_lmr0x")
 
-[node name="OldTanukiNPC" parent="Quests/HallUltraKey" instance=ExtResource("28_jorvy")]
-position = Vector2(896, -272)
-
-[node name="DialogueArea" parent="Quests/HallUltraKey/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Master! We meet again.", "Daichi, since you are here, one last detail about this mansion.", "I'm all ears master!", "The door you just opened by finding the keys in this area, is used to seal a special type of key.", "Special key? What about it?", "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys.", "Oh... that sounds annoy- great!", "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy.", "Hmhm, I will keep my eyes peeled!", "Good luck, Daichi.", "Thank you, master!"])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
-isOnInteraction = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/OldTanukiNPC/DialogueArea"]
-shape = SubResource("CircleShape2D_fo38d")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallUltraKey"]
 navigation_polygon = SubResource("NavigationPolygon_d0iyo")
 
-[node name="KitchenDoor" parent="Quests/HallUltraKey" instance=ExtResource("28_vyf6r")]
+[node name="Doors" type="Node2D" parent="Quests/HallUltraKey" node_paths=PackedStringArray("doors")]
+script = ExtResource("24_xxx4m")
+doors = [NodePath("KitchenDoor"), NodePath("BedroomDoor"), NodePath("BathroomsDoor")]
 
-[node name="BedroomDoor" parent="Quests/HallUltraKey" instance=ExtResource("15_wqf5n")]
+[node name="KitchenDoor" parent="Quests/HallUltraKey/Doors" instance=ExtResource("28_vyf6r")]
+
+[node name="BedroomDoor" parent="Quests/HallUltraKey/Doors" instance=ExtResource("15_wqf5n")]
 position = Vector2(1032, 384)
 
-[node name="BathroomsDoor" parent="Quests/HallUltraKey" instance=ExtResource("15_wqf5n")]
+[node name="BathroomsDoor" parent="Quests/HallUltraKey/Doors" instance=ExtResource("15_wqf5n")]
 position = Vector2(-1032, 384)
 
 [node name="SavePoint" parent="Quests/HallUltraKey" instance=ExtResource("4_lfw02")]
