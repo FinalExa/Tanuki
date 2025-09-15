@@ -451,7 +451,6 @@ position = Vector2(-224, 256)
 sendToTravelID = 3
 sceneToLoad = "res://1_Scenes/Hall.tscn"
 removeTransformation = true
-deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToHall"]
 shape = SubResource("RectangleShape2D_kkvp6")
