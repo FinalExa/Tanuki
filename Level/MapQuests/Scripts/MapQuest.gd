@@ -128,6 +128,9 @@ func QuestItemOperations(objectToOperate: Node2D, operation: ItemOperation):
 			return
 
 func ActivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is MultipleDoorManager):
+		objectToOperate.OpenAll()
+		return
 	if (objectToOperate is DoorOpenClose):
 		objectToOperate.OpenDoor()
 		return
@@ -150,6 +153,9 @@ func ActivateObjectToOperate(objectToOperate: Node2D):
 		objectToOperate.ActivatedByQuest()
 
 func DeactivateObjectToOperate(objectToOperate: Node2D):
+	if (objectToOperate is MultipleDoorManager):
+		objectToOperate.CloseAll()
+		return
 	if (objectToOperate is DoorOpenClose):
 		objectToOperate.CloseDoor()
 		return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=127 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bkms22kne3ecu" path="res://ImportantObjects/Interactables/color_door.tscn" id="23_p6qod"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="24_hg15b"]
 [ext_resource type="Texture2D" uid="uid://wvv68g1s08dw" path="res://ImportantObjects/Interactables/Sprites/Painting.png" id="24_pyogi"]
+[ext_resource type="Script" path="res://Level/Prefabs/Scripts/MultipleDoorManager.gd" id="24_xxx4m"]
 [ext_resource type="PackedScene" uid="uid://d3b2y5u3omnwj" path="res://ImportantObjects/Interactables/chair.tscn" id="25_5q0m2"]
 [ext_resource type="PackedScene" uid="uid://cpmnjx776a7tl" path="res://NPC/chair_warden_npc.tscn" id="25_e4ed7"]
 [ext_resource type="PackedScene" uid="uid://c5vyx3tnh3ply" path="res://NPC/sad_guard_npc.tscn" id="25_nwgbr"]
@@ -110,6 +111,138 @@ radius = 128.0
 vertices = PackedVector2Array(-1232, 2720, -1232, 2912, -1312, 2912, -1312, 2720, -1312, 2144, -1312, 1952, -1232, 1952, -1232, 2144, 1232, 2016, 1232, 1824, 1312, 1824, 1312, 2016, 1232, 2592, 1312, 2592, 1312, 2784, 1232, 2784)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1312, 2720, -1312, 2912, -1232, 2912, -1232, 2720), PackedVector2Array(-1312, 2144, -1312, 1952, -1232, 1952, -1232, 2144), PackedVector2Array(1232, 2016, 1232, 1824, 1312, 1824, 1312, 2016), PackedVector2Array(1232, 2592, 1312, 2592, 1312, 2784, 1232, 2784)])
+
+[sub_resource type="Resource" id="Resource_1l4vy"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_5fivf"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_n85p6"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_swc0a"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vreho"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellTableWithUncoloredBell")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_8n5xi"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceCompletedNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_r1fwf"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("Doors")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_6yi6o"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellMovable")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_k3o2k"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ocujm"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCCleanDialogue")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_8kxar"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_qctw6"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellMovable")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_uck52"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("Doors")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_cy8o8"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellTable")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_8aeis"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellMovable")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vyw6l"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellTableWithUncoloredBell")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_jkaep"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dlet2"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ajqj2"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("BellTableWithUncoloredBell")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_qcr42"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceNPC")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_v80x3"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("EntranceCompletedNPC")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_mwfe5"]
+script = ExtResource("11_0376i")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 3
+itemOperation = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x1y16"]
 radius = 128.0
@@ -428,13 +561,11 @@ position = Vector2(192, 2328)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallGetPassword"]
 navigation_polygon = SubResource("NavigationPolygon_ufbmp")
 
-[node name="HallFixEntrance" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallFixEntrance" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallFixEntrance"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("NavigationRegion2D"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceCompletedNPC"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("NavigationRegion2D"), NodePath("EntranceNPC/EntranceNPCCleanDialogue"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("Doors/DoorVertical"), NodePath("Doors/DoorVertical2"), NodePath("Doors/DoorVertical3"), NodePath("Doors/DoorVertical4"), NodePath("BellTable"), NodePath("BellMovable"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue"), NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue"), NodePath("BellTableWithUncoloredBell"), NodePath("EntranceNPC"), NodePath("EntranceCompletedNPC"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, true, false, true, true, true, true, true, false, false, true, false, true, false, false, true, true])
+questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_1l4vy"), SubResource("Resource_5fivf"), SubResource("Resource_n85p6"), SubResource("Resource_swc0a"), SubResource("Resource_vreho"), SubResource("Resource_8n5xi"), SubResource("Resource_r1fwf"), SubResource("Resource_6yi6o"), SubResource("Resource_k3o2k"), SubResource("Resource_ocujm"), SubResource("Resource_8kxar"), SubResource("Resource_qctw6"), SubResource("Resource_uck52"), SubResource("Resource_cy8o8"), SubResource("Resource_8aeis"), SubResource("Resource_vyw6l"), SubResource("Resource_jkaep"), SubResource("Resource_dlet2"), SubResource("Resource_ajqj2"), SubResource("Resource_qcr42"), SubResource("Resource_v80x3"), SubResource("Resource_mwfe5")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
@@ -477,6 +608,11 @@ scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="BellTableWithUncoloredBell" parent="Quests/HallFixEntrance" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("14_hi4qj")]
+position = Vector2(-288, 3064)
+questToSendProgressSignal = NodePath("..")
+sendSignalToQuestOnDestroyed = true
+
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(-288, 3048)
 
@@ -494,18 +630,15 @@ position = Vector2(-288, 3064)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="BellTableWithUncoloredBell" parent="Quests/HallFixEntrance" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("14_hi4qj")]
-position = Vector2(-288, 3064)
-questToSendProgressSignal = NodePath("..")
-sendSignalToQuestOnDestroyed = true
-
 [node name="BellMovable" parent="Quests/HallFixEntrance" instance=ExtResource("14_8833u")]
 position = Vector2(-1152, 1856)
 
-[node name="Doors" type="Node2D" parent="Quests/HallFixEntrance"]
+[node name="Doors" type="Node2D" parent="Quests/HallFixEntrance" node_paths=PackedStringArray("doors")]
 y_sort_enabled = true
+script = ExtResource("24_xxx4m")
+doors = [NodePath("DoorVertical1"), NodePath("DoorVertical2"), NodePath("DoorVertical3"), NodePath("DoorVertical4")]
 
-[node name="DoorVertical" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
+[node name="DoorVertical1" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
 position = Vector2(520, 2048)
 
 [node name="DoorVertical2" parent="Quests/HallFixEntrance/Doors" instance=ExtResource("15_wqf5n")]
