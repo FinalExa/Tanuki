@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b26bn2ct5upyr"]
+[gd_scene load_steps=69 format=3 uid="uid://b26bn2ct5upyr"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardController.gd" id="1_lw4ue"]
 [ext_resource type="AudioStream" uid="uid://bxa6d8sxrobcs" path="res://Enemies/Sounds/Guard/NormalSteps/Step 1-Patrol_movement.wav" id="2_6htqk"]
@@ -43,11 +43,9 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardCheck.gd" id="23_emrch"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchLaunch.gd" id="23_logam"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckHitboxChecker.gd" id="23_wfykk"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistraction.gd" id="24_dy37m"]
 [ext_resource type="Texture2D" uid="uid://4ralt65r34yh" path="res://Enemies/Sprites/GuardLightCone.png" id="24_rkyot"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardMainResearchRaycast.gd" id="24_s705y"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardCheckReduction.gd" id="24_wi1hx"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Guard/GuardDistractionDiffuseArea.gd" id="25_7n1xk"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardMainCheckExecution.gd" id="25_83w75"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Check/GuardPreCheck.gd" id="25_ydjbr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Research/GuardResearchEndCooldown.gd" id="26_h724o"]
@@ -61,8 +59,6 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolExecuteWait.gd" id="37_gpmfi"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Patrol/GuardPatrolWaitForRotation.gd" id="38_pil26"]
 [ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Alert/GuardAlertLostTrackOfTarget.gd" id="40_0ufq6"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Distracted/TaskGuardIsDistracted.gd" id="53_3ga1i"]
-[ext_resource type="Script" path="res://Enemies/Scripts/BehaviorTree/Distracted/TaskGuardMoveToDistractionItem.gd" id="54_ox2aj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2aaw5"]
 radius = 24.0
@@ -120,17 +116,13 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_45eyc"]
 radius = 64.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pnfgo"]
-radius = 577.997
-
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "guardDistraction", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
+[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("guardCheck", "guardResearch", "guardAlert", "enemyAttack", "enemyMovement", "enemyRotator", "enemyPatrol", "enemyStatus", "enemyStunned", "enemyRepelled", "spriteRef", "enemyMovementSounds", "hitByPlayerSound", "stunnedHit")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lw4ue")
 guardCheck = NodePath("Rotator/GuardCheck")
 guardResearch = NodePath("Rotator/GuardResearch")
 guardAlert = NodePath("Rotator/GuardAlert")
-guardDistraction = NodePath("Rotator/GuardDistraction")
 enemyAttack = NodePath("Rotator/GuardAttack")
 enemyName = "Guard"
 enemyMovement = NodePath("EnemyMovement")
@@ -376,26 +368,6 @@ position = Vector2(-160.001, 240)
 
 [node name="Target23" type="Node2D" parent="Rotator/GuardCheck/RayTargets"]
 position = Vector2(159.999, 240)
-
-[node name="GuardDistraction" type="Area2D" parent="Rotator" node_paths=PackedStringArray("guardController", "guardDistractionDiffuseArea")]
-script = ExtResource("24_dy37m")
-guardController = NodePath("../..")
-guardDistractionDiffuseArea = NodePath("GuardDistractionDiffuseArea")
-guardCheckValueOnEnd = 35.0
-distractedObjDistance = 150.0
-distractionGroup = "GuardAttract"
-possibleDistractionGroup = "PossibleGuardAttract"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rotator/GuardDistraction"]
-modulate = Color(1, 1, 1, 0.0196078)
-polygon = PackedVector2Array(80, -88, -80, -88, -160, -256, -192, -512, 192, -512, 160, -256)
-
-[node name="GuardDistractionDiffuseArea" type="Area2D" parent="Rotator/GuardDistraction"]
-script = ExtResource("25_7n1xk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/GuardDistraction/GuardDistractionDiffuseArea"]
-shape = SubResource("CircleShape2D_pnfgo")
-debug_color = Color(0, 0, 0.701961, 0.0196078)
 
 [node name="GuardResearch" type="Node2D" parent="Rotator" node_paths=PackedStringArray("rayTargets", "secondaryRayTargets", "researchEnterSound", "guardController")]
 script = ExtResource("26_kna6o")
@@ -718,6 +690,7 @@ position = Vector2(160, 0)
 position = Vector2(-160, 0)
 
 [node name="AlertScreamArea" parent="Rotator/GuardAlert" instance=ExtResource("16_22bn2")]
+visible = false
 
 [node name="GuardAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("13_3c0sx")]
 attackSounds = [null, null]
@@ -749,7 +722,7 @@ root = NodePath("Sequence")
 
 [node name="Sequence" type="Node" parent="BehaviorTree" node_paths=PackedStringArray("children")]
 script = ExtResource("11_hsu07")
-children = [NodePath("SelectorStunned"), NodePath("GuardIsAttacking"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck"), NodePath("SelectorDistracted"), NodePath("SelectorPatrol")]
+children = [NodePath("SelectorStunned"), NodePath("GuardIsAttacking"), NodePath("SelectorAlert"), NodePath("SelectorResearch"), NodePath("SelectorCheck"), NodePath("SelectorPatrol")]
 
 [node name="SelectorStunned" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
@@ -893,22 +866,6 @@ script = ExtResource("26_q20lg")
 guardCheck = NodePath("../../../../../../Rotator/GuardCheck")
 enemyController = NodePath("../../../../../..")
 
-[node name="SelectorDistracted" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
-script = ExtResource("15_ixdn1")
-children = [NodePath("TaskGuardIsDistracted"), NodePath("TaskGuardMoveToDistractionItem")]
-
-[node name="TaskGuardIsDistracted" type="Node" parent="BehaviorTree/Sequence/SelectorDistracted" node_paths=PackedStringArray("guardDistraction", "enemyController")]
-script = ExtResource("53_3ga1i")
-guardDistraction = NodePath("../../../../Rotator/GuardDistraction")
-enemyController = NodePath("../../../..")
-
-[node name="TaskGuardMoveToDistractionItem" type="Node" parent="BehaviorTree/Sequence/SelectorDistracted" node_paths=PackedStringArray("guardDistraction", "enemyMovement", "enemyRotator", "enemyController")]
-script = ExtResource("54_ox2aj")
-guardDistraction = NodePath("../../../../Rotator/GuardDistraction")
-enemyMovement = NodePath("../../../../EnemyMovement")
-enemyRotator = NodePath("../../../../Rotator")
-enemyController = NodePath("../../../..")
-
 [node name="SelectorPatrol" type="Node" parent="BehaviorTree/Sequence" node_paths=PackedStringArray("children")]
 script = ExtResource("15_ixdn1")
 children = [NodePath("GuardIsInPatrol"), NodePath("Selector")]
@@ -964,7 +921,3 @@ enemyController = NodePath("../../../../../../..")
 [connection signal="body_exited" from="Rotator/GuardContact" to="Rotator/GuardContact" method="_on_body_exited"]
 [connection signal="body_entered" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_entered"]
 [connection signal="body_exited" from="Rotator/GuardCheck" to="Rotator/GuardCheck" method="_on_body_exited"]
-[connection signal="body_entered" from="Rotator/GuardDistraction" to="Rotator/GuardDistraction" method="_on_body_entered"]
-[connection signal="body_exited" from="Rotator/GuardDistraction" to="Rotator/GuardDistraction" method="_on_body_exited"]
-[connection signal="body_entered" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Rotator/GuardDistraction/GuardDistractionDiffuseArea" to="Rotator/GuardDistraction/GuardDistractionDiffuseArea" method="_on_body_exited"]
