@@ -3,7 +3,7 @@ extends PuzzleObject
 var enemiesInRange: Array[EnemyController]
 var enemiesStunned: Array[EnemyController]
 
-func _process(delta):
+func _process(_delta):
 	StunEnemiesInArea()
 
 func StunEnemiesInArea():
