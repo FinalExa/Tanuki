@@ -7,6 +7,7 @@ var gameplayScene: GameplayScene
 @export var questItemsToOperate: Array[Node2D]
 @export var questItemsStages: Array[int]
 @export var questItemsOnOffState: Array[bool]
+@export var questAltItems: Array[Node2D]
 @export var questStageAdvancers: Array[Node2D]
 @export var advanceOtherQuestsOnEnd: Array[MapQuest]
 @export var objectsToFinalizeAtQuestComplete: Array[GenericInteractable]
@@ -33,7 +34,7 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	if (currentQuestStage < lastStage):
 		if (questIndexes.size() > 0):
 			for i in questIndexes.size():
-				if (CurrentStageOperations(forcedAdvance, get_node_or_null(questIndexes[i].itemToOperate), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
+				if (CurrentStageOperations(forcedAdvance, GetCurrentQuestItem(questIndexes[i]), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
 					continue
 				break
 		else:
@@ -46,6 +47,11 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 		SaveQuestStatus(save)
 		CheckForLastStage()
 		return
+
+func GetCurrentQuestItem(currentQuestIndex: QuestIndex):
+	if (currentQuestIndex.useAltItem && questAltItems[currentQuestIndex.altItemToOperate] != null):
+		return questAltItems[currentQuestIndex.altItemToOperate]
+	return get_node_or_null(currentQuestIndex.itemToOperate)
 
 func CurrentStageOperationsOld(forcedAdvance: bool, item: Node2D, stage: int, onOff: bool):
 	var boolValue: ItemOperation = ItemOperation.OFF

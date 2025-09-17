@@ -100,60 +100,80 @@ waitDuration = 5.0
 [sub_resource type="Resource" id="Resource_cq0tf"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_aoqrj"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 5
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_k65yd"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("FireflyHouseFull")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_1lq3f"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("FireflyHouseFull")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_kvnl0"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("CasketContainer/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_218i1"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("CasketContainer/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_bffje"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_ith2p"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("FireflyObjectContainer")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_dpew5"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("FireflyObjectContainer")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_lwqiv"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
@@ -164,30 +184,40 @@ height = 640.0
 [sub_resource type="Resource" id="Resource_vck8u"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("CartObstacleLeft")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_0h4eg"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("CrackedWallHorizontal")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_cjh4h"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey4")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_ujyff"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey4")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_0m6e1"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
@@ -199,42 +229,56 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(6496, -480, 6576, -480,
 [sub_resource type="Resource" id="Resource_7psvu"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_gdghm"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ajfdv"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("UltraKeyRoomTileMap")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_ugoe4"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_hwoig"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("UltraKeyRoomTileMap")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_2ylic"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_d10sd"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("UltraKeyRoomTileMap/Enemies/WardenBoss")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
 
@@ -330,24 +374,32 @@ size = Vector2(4096, 5600)
 [sub_resource type="Resource" id="Resource_wycot"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_xoyxq"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_v3mno"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_g6xqw"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 

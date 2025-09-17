@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=186 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -57,46 +57,62 @@
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="47_68q7c"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="48_qq1ev"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="51_uowth"]
+[ext_resource type="PackedScene" uid="uid://b7kmimphyyi8y" path="res://Enemies/cleaner.tscn" id="56_c1b7i"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexMove.gd" id="58_rvel4"]
 
 [sub_resource type="Resource" id="Resource_bt8ap"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_r0kio"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_6vjpl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_5ye4b"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCBaseDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_tnajp"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_be1ex"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_2nbqj"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -204,132 +220,176 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1312, 2720, -1312, 291
 [sub_resource type="Resource" id="Resource_1l4vy"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_5fivf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_n85p6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_swc0a"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_vreho"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_8n5xi"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceCompletedNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_r1fwf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_6yi6o"]
 script = ExtResource("11_0376i")
-itemToOperate = NodePath("BellMovable")
+itemToOperate = NodePath("")
+useAltItem = true
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_k3o2k"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ocujm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCCleanDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_8kxar"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_qctw6"]
 script = ExtResource("11_0376i")
-itemToOperate = NodePath("BellMovable")
+itemToOperate = NodePath("")
+useAltItem = true
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_uck52"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_cy8o8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTable")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_8aeis"]
 script = ExtResource("11_0376i")
-itemToOperate = NodePath("BellMovable")
+itemToOperate = NodePath("")
+useAltItem = true
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_vyw6l"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_jkaep"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_dlet2"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ajqj2"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_qcr42"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_v80x3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceCompletedNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_mwfe5"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
@@ -353,48 +413,64 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-560, 2016, -480, 2016,
 [sub_resource type="Resource" id="Resource_8pcma"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_jynrm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PaintingComplete")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_baoxj"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("RoomAStructure")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_2ki8v"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_2ywd3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PaintingComplete")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_awv7f"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("RoomAStructure")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_bqww8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_655e3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -406,36 +482,48 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 105
 [sub_resource type="Resource" id="Resource_b2r8o"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_0s4ju"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_kjbwf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_o4hf3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DoorEvil")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_w1jq1"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFirstDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_evah7"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -453,54 +541,72 @@ radius = 128.0
 [sub_resource type="Resource" id="Resource_5eng3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_s63aq"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("KeySprite")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_u2mt6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_umrq6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("ChairWardenNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_yvfxw"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenSleepingDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_cw068"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Chair")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_276pm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("ChairWardenNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_8oqwl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenAwakeDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_8fm7r"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenSleepingDialogue")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -513,96 +619,128 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_2ttpn"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DirtyFloor")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_v0163"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DirtyFloor")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_aux4q"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WoodenKatana")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_cvs7x"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("KatanaSprite")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_ycpq3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WoodenKatana")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_qp45a"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("HallUltraKeyTileMap")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_61qc8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_cyk12"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_ub4sk"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_agg8y"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_pp3jb"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("HallUltraKeyTileMap")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_nvi25"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_43elw"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ykrko"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_8d8d5"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_de5gl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
@@ -652,6 +790,22 @@ size = Vector2(512, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c83ad"]
 size = Vector2(3584, 608)
+
+[sub_resource type="Resource" id="Resource_ob6wh"]
+script = ExtResource("58_rvel4")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_43qaw"]
+script = ExtResource("58_rvel4")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_6466h"]
+script = ExtResource("58_rvel4")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_r6v3m"]
+script = ExtResource("58_rvel4")
+destination = NodePath("../2")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b0ej7"]
 vertices = PackedVector2Array(-240, 3080, 480, 3136, -480, 3136, -336, 3080, 288, 2464, 480, 1600, 288, 2544, 288, 2368, 288, 2832, 224, 2832, -224, 2832, 224, 2544, -240, 2992, -480, 1600, -336, 2992, -288, 2832, -288, 2544, -304, 2464, -1760, 1232, -1760, 1056, -480, 1056, -1664, 1232, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, 992, 32, 480, 576, -992, 576, -992, 32, 992, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, -1504, 1600, 1096, 1056, 1096, 1104, 1208, 1104, 1208, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 1440, 1600, 1440, 1696, 1744, 1696, 1744, 3136, 1312, 3136, 1312, 1696, 1376, 1696, 1376, 1600, 72, 2368, 72, 2184, -72, 2184, -72, 2368, -304, 2368, -224, 2544, -1504, 1696, -1312, 1696, -1312, 3136, -1760, 3136, -1760, 1696, -1568, 1696, -1568, 1600, -1760, 1600, -1760, 1328, -1664, 1328)
@@ -882,12 +1036,13 @@ position = Vector2(192, 2328)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/HallGetPassword"]
 navigation_polygon = SubResource("NavigationPolygon_ufbmp")
 
-[node name="HallFixEntrance" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
+[node name="HallFixEntrance" type="Node2D" parent="Quests" node_paths=PackedStringArray("questAltItems", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallFixEntrance"
 questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_1l4vy"), SubResource("Resource_5fivf"), SubResource("Resource_n85p6"), SubResource("Resource_swc0a"), SubResource("Resource_vreho"), SubResource("Resource_8n5xi"), SubResource("Resource_r1fwf"), SubResource("Resource_6yi6o"), SubResource("Resource_k3o2k"), SubResource("Resource_ocujm"), SubResource("Resource_8kxar"), SubResource("Resource_qctw6"), SubResource("Resource_uck52"), SubResource("Resource_cy8o8"), SubResource("Resource_8aeis"), SubResource("Resource_vyw6l"), SubResource("Resource_jkaep"), SubResource("Resource_dlet2"), SubResource("Resource_ajqj2"), SubResource("Resource_qcr42"), SubResource("Resource_v80x3"), SubResource("Resource_mwfe5")])
-objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
+questAltItems = [NodePath("BellMovable")]
+objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor"), NodePath("BellMovable")]
 
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(-288, 3008)
@@ -1603,7 +1758,7 @@ y_sort_enabled = true
 [node name="Warden1" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators", "questToSendProgressSignal") instance=ExtResource("26_61bmt")]
 position = Vector2(1088, 1280)
 wardenAlertArea = NodePath("../Warden1AlertArea")
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Warden1/Warden1PatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Warden1/Warden1PatrolIndicator")]
 questToSendProgressSignal = NodePath("../../Quests/HallStunWarden")
 sendSignalToQuestOnStunned = true
 sendSignalToQuestOnlyOnce = true
@@ -1616,21 +1771,29 @@ shape = SubResource("RectangleShape2D_c83ad")
 
 [node name="Guard1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(896, 2048)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1/Guard1PatrolIndicator"), NodePath("../../EnemyPatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard1/Guard1PatrolIndicator"), NodePath("../PatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
 
 [node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(-896, 2048)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard2/Guard2PatrolIndicator"), NodePath("../../EnemyPatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard2/Guard2PatrolIndicator"), NodePath("../PatrolPoints/CentralRoom/CentralRoomPatrolIndicator")]
 
 [node name="Guard3" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(0, 1408)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard3/Guard3PatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard3/Guard3PatrolIndicator")]
 
-[node name="EnemyPatrolPoints" type="Node2D" parent="."]
+[node name="Cleaner1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("56_c1b7i")]
+position = Vector2(1536, 2432)
+patrolIndicators = [NodePath("../PatrolPoints/Cleaner1/Cleaner1PatrolIndicator")]
 
-[node name="Warden1" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Cleaner2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("56_c1b7i")]
+position = Vector2(-1536, 2432)
+patrolIndicators = [NodePath("../PatrolPoints/Cleaner2/Cleaner2PatrolIndicator")]
 
-[node name="Warden1PatrolIndicator" type="Node2D" parent="EnemyPatrolPoints/Warden1" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolPoints" type="Node2D" parent="Enemies"]
+
+[node name="Warden1" type="Node2D" parent="Enemies/PatrolPoints"]
+
+[node name="Warden1PatrolIndicator" type="Node2D" parent="Enemies/PatrolPoints/Warden1" node_paths=PackedStringArray("moveActions")]
 position = Vector2(1088, 1280)
 script = ExtResource("27_mnraf")
 patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
@@ -1638,83 +1801,107 @@ moveActions = [NodePath("../1")]
 waitActions = Array[float]([3.0, 3.0, 3.0, 3.0])
 lookActions = Array[int]([2, 1, 3, 0])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Warden1"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Warden1"]
 position = Vector2(1088, 1280)
 
-[node name="CentralRoom" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="CentralRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="CentralRoomPatrolIndicator" parent="EnemyPatrolPoints/CentralRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="CentralRoomPatrolIndicator" parent="Enemies/PatrolPoints/CentralRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(0, 2112)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([3, 1, 2, 0])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/CentralRoom"]
 position = Vector2(-320, 1792)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/CentralRoom"]
 position = Vector2(320, 1792)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/CentralRoom"]
 position = Vector2(320, 2496)
 
-[node name="4" type="Node2D" parent="EnemyPatrolPoints/CentralRoom"]
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/CentralRoom"]
 position = Vector2(-320, 2496)
 
-[node name="Guard1" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard1" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Guard1PatrolIndicator" parent="EnemyPatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard1PatrolIndicator" parent="Enemies/PatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(768, 2416)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 2, 1, 2])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
 position = Vector2(896, 2816)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard1"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
 position = Vector2(896, 1920)
 
-[node name="Guard2" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard2" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Guard2PatrolIndicator" parent="EnemyPatrolPoints/Guard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard2PatrolIndicator" parent="Enemies/PatrolPoints/Guard2" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(-768, 2416)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../1"), NodePath("../3")]
 waitActions = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 lookActions = Array[int]([0, 1, 3, 1, 0, 3])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Guard2"]
 position = Vector2(-896, 2432)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Guard2"]
 position = Vector2(-896, 2688)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard2"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/Guard2"]
 position = Vector2(-896, 2048)
 
-[node name="Guard3" type="Node2D" parent="EnemyPatrolPoints"]
+[node name="Guard3" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Guard3PatrolIndicator" parent="EnemyPatrolPoints/Guard3" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard3PatrolIndicator" parent="Enemies/PatrolPoints/Guard3" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(0, 1024)
 patrolActions = Array[int]([1, 2, 0, 2, 0, 1, 2, 0, 2, 0, 1, 1, 2, 0, 2, 0, 1])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../3")]
 waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
 lookActions = Array[int]([1, 2, 1, 3, 2, 3])
 
-[node name="1" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Guard3"]
 position = Vector2(-960, 1152)
 
-[node name="2" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Guard3"]
 position = Vector2(960, 1152)
 
-[node name="3" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/Guard3"]
 position = Vector2(0, 1152)
 
-[node name="4" type="Node2D" parent="EnemyPatrolPoints/Guard3"]
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/Guard3"]
 position = Vector2(0, 512)
+
+[node name="Cleaner1" type="Node2D" parent="Enemies/PatrolPoints"]
+
+[node name="Cleaner1PatrolIndicator" parent="Enemies/PatrolPoints/Cleaner1" instance=ExtResource("36_8gipu")]
+position = Vector2(-1536, 2432)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ob6wh"), SubResource("Resource_43qaw")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Cleaner1"]
+position = Vector2(-1536, 1920)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Cleaner1"]
+position = Vector2(-1536, 2944)
+
+[node name="Cleaner2" type="Node2D" parent="Enemies/PatrolPoints"]
+
+[node name="Cleaner2PatrolIndicator" parent="Enemies/PatrolPoints/Cleaner2" instance=ExtResource("36_8gipu")]
+position = Vector2(1536, 2432)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_6466h"), SubResource("Resource_r6v3m")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/Cleaner2"]
+position = Vector2(1536, 2944)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Cleaner2"]
+position = Vector2(1536, 1920)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 
