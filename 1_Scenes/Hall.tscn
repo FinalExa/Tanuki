@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=180 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cupcsejhhamu2" path="res://Level/Prefabs/password_blocker_wall_vertical.tscn" id="13_lp0wu"]
 [ext_resource type="PackedScene" uid="uid://de38bsyswamo3" path="res://ImportantObjects/MovableObjects/bell_movable.tscn" id="14_8833u"]
 [ext_resource type="PackedScene" uid="uid://bcbe6lchl4yr2" path="res://ImportantObjects/Interactables/bell_table_with_uncolored_bell.tscn" id="14_hi4qj"]
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueIndex.gd" id="14_qvrtm"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="14_ro1u6"]
 [ext_resource type="PackedScene" uid="uid://0td2heahhjul" path="res://Level/Prefabs/door_vertical.tscn" id="15_wqf5n"]
 [ext_resource type="PackedScene" uid="uid://dw1hwjif77sfj" path="res://ImportantObjects/Interactables/painting_wall.tscn" id="18_t8rl2"]
@@ -98,6 +99,96 @@ script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_m6u56"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Hey, you look like you're important! Can you give me any clues about this place?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_5r0go"]
+script = ExtResource("14_qvrtm")
+dialogueText = "You're in the hall of Gozo's mansion."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_3v4km"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I am the overseer of the hall. The other information is classified unless you give me the password."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ooj8l"]
+script = ExtResource("14_qvrtm")
+dialogueText = "A password? No other way?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_meg2n"]
+script = ExtResource("14_qvrtm")
+dialogueText = "No."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8njeh"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Can you help me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_7sgvw"]
+script = ExtResource("14_qvrtm")
+dialogueText = "No."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_2hnpp"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Pleeeeeeeeease?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_pn8uh"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Ugh... fine. Just because I know you're gonna keep pestering me if I don't. And I also don't like the new management here, the new guards are rude."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_40ubb"]
+script = ExtResource("14_qvrtm")
+dialogueText = "The table close to me is where you'll have to write down the password."
+characterTalking = 2
+cameraFocus = NodePath("../../PasswordTable")
+
+[sub_resource type="Resource" id="Resource_7g8i4"]
+script = ExtResource("14_qvrtm")
+dialogueText = "To do that, find a brush. Then search for hints around the hall; those will change if you are captured or leave the room."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_wgfdl"]
+script = ExtResource("14_qvrtm")
+dialogueText = "The password requires colors, there are some color-filled Yokai around the hall to change your brush color."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_f8wno"]
+script = ExtResource("14_qvrtm")
+dialogueText = "That is all. Also, if you manage to find the password on your own, I'll give you a key."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_q6xul"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Oooh! A key! Just what I need!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_nifuj"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I know."
+characterTalking = 2
+cameraFocus = NodePath("..")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxp2p"]
 radius = 128.25
@@ -691,10 +782,8 @@ objectsToDeleteAtQuestComplete = [NodePath("BlockerWalls")]
 [node name="PasswordNPC" parent="Quests/HallGetPassword" instance=ExtResource("3_653qg")]
 position = Vector2(-128, 2240)
 
-[node name="PasswordNPCBaseDialogue" parent="Quests/HallGetPassword/PasswordNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Hey! I want to...", "...go through that wall!", "...if you want that, give me the password, please.", "A password? No other way?", "No.", "Hm... any help at least in finding that?", "No.", "Please?", "Okay. But only because I don't like the new guards causing a ruckus here, and you seem like an intruder to them. It's gonna be fun.", "See the brush close to me? Take it...", "...find the color yokais, they'll give you their magical color...", "...and write the password on that table.", "I also see that you have a leaf with you, convenient. You can use it to reset the password progress if it's wrong.", "The password hints should be around here, be wary that it's updated constantly. If you get captured it will change by the time you get back in.", "I got it, thanks!", "Good luck in finding it, even I don't know it. I am just here for information about it.", "But if you open it, I'll give you my key, to spite those guards.", "Ohhh! Thanks! I really need keys!", "I know."])
-characterTalking = Array[int]([0, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2])
-cameraFocuses = [null, NodePath("../../BlockerWalls"), NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../../../Transformations/Brush"), NodePath("../../../../NPCs/ColorYokais/ColorYokai"), NodePath("../../PasswordTable"), NodePath(".."), NodePath(".."), null, NodePath(".."), NodePath(".."), null, NodePath("..")]
+[node name="PasswordNPCBaseDialogue" parent="Quests/HallGetPassword/PasswordNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_m6u56"), SubResource("Resource_5r0go"), SubResource("Resource_3v4km"), SubResource("Resource_ooj8l"), SubResource("Resource_meg2n"), SubResource("Resource_8njeh"), SubResource("Resource_7sgvw"), SubResource("Resource_2hnpp"), SubResource("Resource_pn8uh"), SubResource("Resource_40ubb"), SubResource("Resource_7g8i4"), SubResource("Resource_wgfdl"), SubResource("Resource_f8wno"), SubResource("Resource_q6xul"), SubResource("Resource_nifuj")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCBaseDialogue"]

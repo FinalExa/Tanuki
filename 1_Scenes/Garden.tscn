@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=236 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bh74o0ukuvim6" path="res://Level/Prefabs/bridge_tile.tscn" id="11_0c8pe"]
 [ext_resource type="PackedScene" uid="uid://cx1oi05eu5bxs" path="res://ImportantObjects/TransformationObjects/grasscutter.tscn" id="11_e1yl6"]
 [ext_resource type="PackedScene" uid="uid://tu5cq2jeajb4" path="res://Level/Prefabs/bridge_up.tscn" id="12_ua2nv"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="13_1k17c"]
 [ext_resource type="PackedScene" uid="uid://swjkv1t8hpew" path="res://NPC/old_tanuki_npc.tscn" id="13_6kems"]
 [ext_resource type="Texture2D" uid="uid://c4pbdx1gy1kh2" path="res://Level/UnlockKey/Sprites/Key-001.png" id="15_iwd6s"]
 [ext_resource type="PackedScene" uid="uid://bkk5sawajplil" path="res://ImportantObjects/TransformationObjects/axe.tscn" id="16_j6b5p"]
@@ -84,10 +85,88 @@ vertices = PackedVector2Array(2560, -2048, 2560, -2304, 3584, -2304, 3584, -2048
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -2048, 2560, -2304, 3584, -2304, 3584, -2048)])
 
+[sub_resource type="Resource" id="Resource_umyfb"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_8vht7"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 2
+itemOperation = 0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p6gpt"]
 radius = 128.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyc2t"]
+
+[sub_resource type="Resource" id="Resource_gm0wo"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Statue")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_xpvxs"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_0j1pm"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("PlayerHasReachedPoint")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_edj41"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_bc0f4"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Statue")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_y00ch"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_r12k5"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("PlayerHasReachedPoint")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_05hte"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Statue")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_4fh2q"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vb5vx"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_xah7m"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 3
+itemOperation = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nvqd"]
 radius = 128.25
@@ -101,6 +180,60 @@ size = Vector2(1280, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cn2k"]
 size = Vector2(160, 192)
 
+[sub_resource type="Resource" id="Resource_kb00u"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SavePointTutorial1")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_j2csg"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rr2i0"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tftev"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6rd3k"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("BridgeUp")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_4lbdd"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_bvmcp"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_c5e0n"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_gow2w"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SavePointTutorial1")
+itemStage = 3
+itemOperation = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_swubk"]
 radius = 128.25
 
@@ -109,6 +242,165 @@ size = Vector2(128, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xx77"]
 size = Vector2(576, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbgt"]
+size = Vector2(128, 256)
+
+[sub_resource type="Resource" id="Resource_7eorw"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey1")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_1nkhq"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SavePointTutorial2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dhmym"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_01mnp"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NerdTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_skgti"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("CoolTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tw5pv"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SwordTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_akyj2"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_sg36a"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_2252h"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_hddq5"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_4ygwv"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_xm2jd"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_e0rvm"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Enemy/Guard1/KeySprite")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_7xt6d"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey1")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o7d7c"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_wcpb4"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_chpsk"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_gi01l"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ppopk"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6bsm2"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea3")
+itemStage = 4
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_jbu33"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2")
+itemStage = 4
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ly6oe"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NerdTanukiNPC")
+itemStage = 4
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_46kjt"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("CoolTanukiNPC")
+itemStage = 4
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ththq"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SwordTanukiNPC")
+itemStage = 4
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_36fxk"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SavePointTutorial2")
+itemStage = 4
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_bw5kd"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
+itemStage = 4
+itemOperation = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns61c"]
 size = Vector2(512, 512)
@@ -130,6 +422,51 @@ radius = 128.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5n8l"]
 radius = 128.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qhpu"]
+size = Vector2(512, 512)
+
+[sub_resource type="Resource" id="Resource_03mo4"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DeadTree")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_c2lh0"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_nfpcb"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ktyuh"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DeadTree")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o8drs"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_aomkc"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kbjjn"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 2
+itemOperation = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kws2m"]
 size = Vector2(192, 128)
 
@@ -137,6 +474,36 @@ size = Vector2(192, 128)
 vertices = PackedVector2Array(1280, -1488, 1536, -1488, 1536, -1456, 1280, -1456)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -1488, 1536, -1488, 1536, -1456, 1280, -1456)])
+
+[sub_resource type="Resource" id="Resource_14tc6"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pbpo5"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rtckj"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6xpsf"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uvlrv"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpnek"]
 size = Vector2(192, 128)
@@ -146,6 +513,36 @@ vertices = PackedVector2Array(1904, -1792, 1904, -2048, 1936, -2048, 1936, -1792
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1904, -1792, 1904, -2048, 1936, -2048, 1936, -1792)])
 
+[sub_resource type="Resource" id="Resource_m6thp"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_enkxe"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_o1d2r"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_iapl1"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rda0f"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deskn"]
 size = Vector2(192, 128)
 
@@ -153,6 +550,36 @@ size = Vector2(192, 128)
 vertices = PackedVector2Array(1904, -1024, 1936, -1024, 1936, -768, 1904, -768)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1904, -1024, 1936, -1024, 1936, -768, 1904, -768)])
+
+[sub_resource type="Resource" id="Resource_53mm0"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_5lk77"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_d0bwp"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_khdtm"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_7fctr"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xmxw"]
 size = Vector2(128, 192)
@@ -162,10 +589,76 @@ vertices = PackedVector2Array(1280, -568, 1536, -568, 1536, -520, 1280, -520)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -568, 1536, -568, 1536, -520, 1280, -520)])
 
+[sub_resource type="Resource" id="Resource_s3yvt"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_25o2d"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uhhi3"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("TreeBridge")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_3mw8l"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_1uyr6"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_giokm"]
 vertices = PackedVector2Array(2928, -2048, 2960, -2048, 2960, -1792, 2928, -1792)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2928, -1792, 2960, -1792, 2960, -2048, 2928, -2048)])
+
+[sub_resource type="Resource" id="Resource_wyi27"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_13usd"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_oxdsp"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("BridgeUpSide")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_u6r35"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uu1xy"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ev1vn"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfer"]
 size = Vector2(192, 128)
@@ -175,6 +668,42 @@ vertices = PackedVector2Array(2816, 480, 3064, 480, 3064, 544, 2816, 544)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2816, 480, 3064, 480, 3064, 544, 2816, 544)])
 
+[sub_resource type="Resource" id="Resource_g61yn"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_i6ka1"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_12u4d"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("BridgeUpSide")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_xkt0h"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("MoveInteractionObject")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ckm2x"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("NavigationRegion2D")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o0376"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Bridge")
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wm6t"]
 size = Vector2(192, 128)
 
@@ -182,6 +711,78 @@ size = Vector2(192, 128)
 vertices = PackedVector2Array(2304, -1496, 2560, -1496, 2560, -1448, 2304, -1448)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2304, -1496, 2560, -1496, 2560, -1448, 2304, -1448)])
+
+[sub_resource type="Resource" id="Resource_84bgg"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_7l5vt"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_mecv6"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Acorn")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_hnejw"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea2")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_6srap"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_68s28"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("Acorn")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_op576"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_08gt4"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_8y6fc"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_dhkod"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_wtjlj"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_i1ryt"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("OldTanukiNPC")
+itemStage = 3
+itemOperation = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fn6fk"]
 radius = 128.25
@@ -194,6 +795,102 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmnto"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_8dgr8"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_qn3g5"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("HeatSourceActivator/OniDialogueArea")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uox63"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_7bvv8"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("CampfireOn")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_mysed"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniMovable")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rp863"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("HeatSourceActivator")
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_nfvjn"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("CampfireOff")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rbe4c"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("CampfireOn")
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ooqmc"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_rjc51"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniNPC")
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_u7mcd"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniMovable")
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_o52ob"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniMovable")
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_y0gtm"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("HeatSourceActivator")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_cwmik"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("HeatSourceActivator/OniDialogueArea")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_a68uw"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_1xxt7"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 4
+itemOperation = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1tay"]
 radius = 128.0
@@ -293,12 +990,6 @@ size = Vector2(256, 95.9998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xgra"]
 size = Vector2(256, 95.9998)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbgt"]
-size = Vector2(128, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qhpu"]
-size = Vector2(512, 512)
 
 [node name="Garden" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
@@ -473,13 +1164,11 @@ requiredKeys = 3
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="GardenDestroyTheBush" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="GardenDestroyTheBush" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenDestroyTheBush"
-questItemsToOperate = [NodePath("DialogueArea"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([1, 2])
-questItemsOnOffState = Array[bool]([true, false])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_umyfb"), SubResource("Resource_8vht7")])
 advanceOtherQuestsOnEnd = [NodePath("../GardenCrossTheWater")]
 objectsToDeleteAtQuestComplete = [NodePath("Bush"), NodePath("OldTanukiNPC"), NodePath("DialogueArea")]
 
@@ -516,13 +1205,11 @@ activatedByQuest = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenDestroyTheBush/DialogueArea"]
 shape = SubResource("CircleShape2D_vyc2t")
 
-[node name="GardenCrossTheWater" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="GardenCrossTheWater" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenCrossTheWater"
-questItemsToOperate = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("PlayerHasReachedPoint"), NodePath("Bridge"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("PlayerHasReachedPoint"), NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject"), NodePath("Bridge")]
-questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 2, 3, 3, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, false, false, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_gm0wo"), SubResource("Resource_xpvxs"), SubResource("Resource_0j1pm"), SubResource("Resource_edj41"), SubResource("Resource_bc0f4"), SubResource("Resource_y00ch"), SubResource("Resource_r12k5"), SubResource("Resource_05hte"), SubResource("Resource_4fh2q"), SubResource("Resource_vb5vx"), SubResource("Resource_xah7m")])
 advanceOtherQuestsOnEnd = [NodePath("../GardenLowerTheBridge")]
 objectsToDeleteAtQuestComplete = [NodePath("Statue"), NodePath("OldTanukiNPC"), NodePath("MoveInteractionObject"), NodePath("DialogueArea"), NodePath("PlayerHasReachedPoint")]
 
@@ -576,13 +1263,11 @@ position = Vector2(0, 64)
 [node name="BridgeTile2" parent="Quests/GardenCrossTheWater/Bridge" instance=ExtResource("11_0c8pe")]
 position = Vector2(0, -64)
 
-[node name="GardenLowerTheBridge" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="GardenLowerTheBridge" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerTheBridge"
-questItemsToOperate = [NodePath("../../SavePoints/SavePointTutorial1"), NodePath("OldTanukiNPC"), NodePath("Bridge"), NodePath("OldTanukiNPC"), NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("Bridge"), NodePath("OldTanukiNPC"), NodePath("../../SavePoints/SavePointTutorial1")]
-questItemsStages = Array[int]([0, 0, 0, 1, 2, 2, 2, 3, 3])
-questItemsOnOffState = Array[bool]([false, false, false, true, false, false, true, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_kb00u"), SubResource("Resource_j2csg"), SubResource("Resource_rr2i0"), SubResource("Resource_tftev"), SubResource("Resource_6rd3k"), SubResource("Resource_4lbdd"), SubResource("Resource_bvmcp"), SubResource("Resource_c5e0n"), SubResource("Resource_gow2w")])
 advanceOtherQuestsOnEnd = [NodePath("../GardenStunGuard")]
 objectsToDeleteAtQuestComplete = [NodePath("BridgeUp"), NodePath("MoveInteractionObject"), NodePath("OldTanukiNPC"), NodePath("ButtonToPush"), NodePath("DialogueArea")]
 
@@ -633,13 +1318,19 @@ questRef = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/DialogueArea"]
 shape = SubResource("RectangleShape2D_5xx77")
 
-[node name="GardenStunGuard" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="SavePointTutorial1" parent="Quests/GardenLowerTheBridge" instance=ExtResource("26_t6v3l")]
+position = Vector2(576, -1152)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenLowerTheBridge/SavePointTutorial1"]
+shape = SubResource("RectangleShape2D_6xbgt")
+
+[node name="GardenStunGuard" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenStunGuard"
-questItemsToOperate = [NodePath("../../SavePoints/SavePointTutorial2"), NodePath("OldTanukiNPC2/DialogueArea"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../Keys/UnlockKey1"), NodePath("DialogueArea"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC"), NodePath("OldTanukiNPC2"), NodePath("DialogueArea"), NodePath("OldTanukiNPC"), NodePath("../../Enemy/Guard1/KeySprite"), NodePath("../../Keys/UnlockKey1"), NodePath("OldTanukiNPC2"), NodePath("OldTanukiNPC2/DialogueArea"), NodePath("OldTanukiNPC"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2"), NodePath("NerdTanukiNPC"), NodePath("CoolTanukiNPC"), NodePath("SwordTanukiNPC"), NodePath("../../SavePoints/SavePointTutorial2"), NodePath("OldTanukiNPC2/DialogueArea")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, false, false, false, true, true, false, true, true, true, false, true, true, false, false, true, true, true, true, false])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_7eorw"), SubResource("Resource_1nkhq"), SubResource("Resource_dhmym"), SubResource("Resource_01mnp"), SubResource("Resource_skgti"), SubResource("Resource_tw5pv"), SubResource("Resource_akyj2"), SubResource("Resource_sg36a"), SubResource("Resource_2252h"), SubResource("Resource_hddq5"), SubResource("Resource_4ygwv"), SubResource("Resource_xm2jd"), SubResource("Resource_e0rvm"), SubResource("Resource_7xt6d"), SubResource("Resource_o7d7c"), SubResource("Resource_wcpb4"), SubResource("Resource_chpsk"), SubResource("Resource_gi01l"), SubResource("Resource_ppopk"), SubResource("Resource_6bsm2"), SubResource("Resource_jbu33"), SubResource("Resource_ly6oe"), SubResource("Resource_46kjt"), SubResource("Resource_ththq"), SubResource("Resource_36fxk"), SubResource("Resource_bw5kd")])
 advanceOtherQuestsOnEnd = [NodePath("../GardenChopTree1")]
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemy/Guard1/KeySprite"), NodePath("OldTanukiNPC"), NodePath("DialogueArea"), NodePath("DialogueArea2"), NodePath("DialogueArea3"), NodePath("OldTanukiNPC2")]
 
@@ -739,13 +1430,19 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SwordTanukiNPC/DialogueArea4"]
 shape = SubResource("CircleShape2D_q5n8l")
 
-[node name="GardenChopTree1" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="SavePointTutorial2" parent="Quests/GardenStunGuard" instance=ExtResource("26_t6v3l")]
+position = Vector2(1024, -2560)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SavePointTutorial2"]
+shape = SubResource("RectangleShape2D_8qhpu")
+
+[node name="GardenChopTree1" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree1"
-questItemsToOperate = [NodePath("DeadTree"), NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("DeadTree"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 0, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, true, true, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_03mo4"), SubResource("Resource_c2lh0"), SubResource("Resource_nfpcb"), SubResource("Resource_ktyuh"), SubResource("Resource_o8drs"), SubResource("Resource_aomkc"), SubResource("Resource_kbjjn")])
 objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
 
 [node name="DeadTree" parent="Quests/GardenChopTree1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]
@@ -772,13 +1469,11 @@ shape = SubResource("RectangleShape2D_kws2m")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree1"]
 navigation_polygon = SubResource("NavigationPolygon_bw6ej")
 
-[node name="GardenChopTree2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenChopTree2" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree2"
-questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_14tc6"), SubResource("Resource_pbpo5"), SubResource("Resource_rtckj"), SubResource("Resource_6xpsf"), SubResource("Resource_uvlrv")])
 objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
 
 [node name="DeadTree" parent="Quests/GardenChopTree2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]
@@ -805,13 +1500,11 @@ shape = SubResource("RectangleShape2D_kpnek")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree2"]
 navigation_polygon = SubResource("NavigationPolygon_vsx22")
 
-[node name="GardenChopTree3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenChopTree3" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree3"
-questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_m6thp"), SubResource("Resource_enkxe"), SubResource("Resource_o1d2r"), SubResource("Resource_iapl1"), SubResource("Resource_rda0f")])
 objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
 
 [node name="DeadTree" parent="Quests/GardenChopTree3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]
@@ -838,13 +1531,11 @@ shape = SubResource("RectangleShape2D_deskn")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree3"]
 navigation_polygon = SubResource("NavigationPolygon_mbk78")
 
-[node name="GardenChopTree4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenChopTree4" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree4"
-questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true, false, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_53mm0"), SubResource("Resource_5lk77"), SubResource("Resource_d0bwp"), SubResource("Resource_khdtm"), SubResource("Resource_7fctr")])
 objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
 
 [node name="DeadTree" parent="Quests/GardenChopTree4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]
@@ -876,6 +1567,7 @@ navigation_polygon = SubResource("NavigationPolygon_6t7yl")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree5"
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_s3yvt"), SubResource("Resource_25o2d"), SubResource("Resource_uhhi3"), SubResource("Resource_3mw8l"), SubResource("Resource_1uyr6")])
 questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
 questItemsStages = Array[int]([0, 0, 1, 1, 1])
 questItemsOnOffState = Array[bool]([false, false, true, false, true])
@@ -905,13 +1597,11 @@ shape = SubResource("RectangleShape2D_kpnek")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree5"]
 navigation_polygon = SubResource("NavigationPolygon_giokm")
 
-[node name="GardenLowerBridge2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenLowerBridge2" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerBridge2"
-questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUpSide"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_wyi27"), SubResource("Resource_13usd"), SubResource("Resource_oxdsp"), SubResource("Resource_u6r35"), SubResource("Resource_uu1xy"), SubResource("Resource_ev1vn")])
 objectsToDeleteAtQuestComplete = [NodePath("BridgeUpSide"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
 
 [node name="BridgeUpSide" parent="Quests/GardenLowerBridge2" instance=ExtResource("24_kec2s")]
@@ -942,13 +1632,11 @@ shape = SubResource("RectangleShape2D_vcfer")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenLowerBridge2"]
 navigation_polygon = SubResource("NavigationPolygon_w88gp")
 
-[node name="GardenLowerBridge3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenLowerBridge3" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenLowerBridge3"
-questItemsToOperate = [NodePath("Bridge"), NodePath("NavigationRegion2D"), NodePath("BridgeUpSide"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D"), NodePath("Bridge")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_g61yn"), SubResource("Resource_i6ka1"), SubResource("Resource_12u4d"), SubResource("Resource_xkt0h"), SubResource("Resource_ckm2x"), SubResource("Resource_o0376")])
 objectsToDeleteAtQuestComplete = [NodePath("BridgeUpSide"), NodePath("ButtonToPush"), NodePath("MoveInteractionObject")]
 
 [node name="BridgeUpSide" parent="Quests/GardenLowerBridge3" instance=ExtResource("24_kec2s")]
@@ -978,13 +1666,11 @@ shape = SubResource("RectangleShape2D_2wm6t")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenLowerBridge3"]
 navigation_polygon = SubResource("NavigationPolygon_c1kun")
 
-[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenSquirrelQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenSquirrelQuest"
-questItemsToOperate = [NodePath("OldTanukiNPC"), NodePath("../../Keys/UnlockKey2"), NodePath("Acorn"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("DialogueArea"), NodePath("Acorn"), NodePath("OldTanukiNPC"), NodePath("SquirrelNPC/DialogueArea2"), NodePath("SquirrelNPC/DialogueArea"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey2"), NodePath("OldTanukiNPC")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 3])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, false, true, true, false])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_84bgg"), SubResource("Resource_7l5vt"), SubResource("Resource_mecv6"), SubResource("Resource_hnejw"), SubResource("Resource_6srap"), SubResource("Resource_68s28"), SubResource("Resource_op576"), SubResource("Resource_08gt4"), SubResource("Resource_8y6fc"), SubResource("Resource_dhkod"), SubResource("Resource_wtjlj"), SubResource("Resource_i1ryt")])
 objectsToDeleteAtQuestComplete = [NodePath("OldTanukiNPC"), NodePath("Acorn"), NodePath("DialogueArea"), NodePath("ButtonToPush")]
 
 [node name="SquirrelNPC" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_7bmi5")]
@@ -992,34 +1678,34 @@ position = Vector2(1920, -2176)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="SquirrelDialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Hey you! Yes you!", "Hm?", "I saw that you got a shiny before!", "A shiny? Wha-", "I believe you call it a... key!", "Oh! Continue, I am interested...", "I have one!", "Ohh, wanna give it to me?", "Hmm, you seem like a crafty one hehe... I am hungry.", "And?", "Bring me food...", "Acorns are good! There's a tree there...", "But there are some noisy ones there... so I can't go alone.", "Bring me an acorn, and I'll give you that key!", "Okay, scaredy squirrel, I'll grab that acorn for you.", "Yay!"])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../AcornTree"), NodePath("../../DialogueGuardNode"), NodePath(".."), null, NodePath("..")]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/SquirrelDialogueArea"]
 shape = SubResource("CircleShape2D_fn6fk")
 
-[node name="DialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="SquirrelDialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here with a key.", "Oh, thank you!"])
 characterTalking = Array[int]([0, 2, 2, 0])
 cameraFocuses = [null, NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/DialogueArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/SquirrelDialogueArea2"]
 shape = SubResource("CircleShape2D_ndmof")
 
 [node name="OldTanukiNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("13_6kems")]
 position = Vector2(3456, 128)
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="OldTanukiDialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects by pressing RIGHT CLICK; you can't transform into everything.", "While you're transporting an object, if you transform or attack with your leaf you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
 characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 0])
 cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/OldTanukiNPC/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/OldTanukiNPC/OldTanukiDialogueArea"]
 shape = SubResource("CircleShape2D_ja2f5")
 
 [node name="DialogueGuardNode" type="Node2D" parent="Quests/GardenSquirrelQuest"]
@@ -1046,13 +1732,11 @@ deleteOnDone = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
 shape = SubResource("CircleShape2D_kmnto")
 
-[node name="GardenOniQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenOniQuest" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenOniQuest"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("HeatSourceActivator/DialogueArea"), NodePath("DialogueArea"), NodePath("CampfireOn"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("CampfireOff"), NodePath("CampfireOn"), NodePath("ColdOniNPC/DialogueArea"), NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("ColdOniMovable"), NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator/DialogueArea"), NodePath("DialogueArea"), NodePath("../../Keys/UnlockKey3")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, false, false, true, false, false, true, false, true, true, true, true])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_8dgr8"), SubResource("Resource_qn3g5"), SubResource("Resource_uox63"), SubResource("Resource_7bvv8"), SubResource("Resource_mysed"), SubResource("Resource_rp863"), SubResource("Resource_nfvjn"), SubResource("Resource_rbe4c"), SubResource("Resource_ooqmc"), SubResource("Resource_rjc51"), SubResource("Resource_u7mcd"), SubResource("Resource_o52ob"), SubResource("Resource_y0gtm"), SubResource("Resource_cwmik"), SubResource("Resource_a68uw"), SubResource("Resource_1xxt7")])
 objectsToDeleteAtQuestComplete = [NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("DialogueArea")]
 
 [node name="CampfireOff" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_sj75a")]
@@ -1095,13 +1779,13 @@ position = Vector2(1176, -512)
 [node name="HeatSourceActivator" parent="Quests/GardenOniQuest" instance=ExtResource("28_gtcmu")]
 position = Vector2(2888, -1536)
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="OniDialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["Do you know anything about another key around there?", "Hmmm... I think I saw a squirrel with it...", "Oh, that sounds helpful... Thank you!"])
 characterTalking = Array[int]([0, 2, 0])
 cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/OniDialogueArea"]
 shape = SubResource("CircleShape2D_7joh1")
 
 [node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
@@ -1681,21 +2365,3 @@ rotation = -1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCurrents/MoveInteractionObject15"]
 shape = SubResource("RectangleShape2D_1xgra")
-
-[node name="SavePoints" type="Node2D" parent="."]
-
-[node name="SavePointTutorial1" parent="SavePoints" instance=ExtResource("26_t6v3l")]
-position = Vector2(576, -1152)
-onEnter = true
-oneTimeSave = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePointTutorial1"]
-shape = SubResource("RectangleShape2D_6xbgt")
-
-[node name="SavePointTutorial2" parent="SavePoints" instance=ExtResource("26_t6v3l")]
-position = Vector2(1024, -2560)
-onEnter = true
-oneTimeSave = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePointTutorial2"]
-shape = SubResource("RectangleShape2D_8qhpu")
