@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=238 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -814,6 +814,12 @@ itemToOperate = NodePath("DialogueArea")
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_v4okq"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue2")
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_7bvv8"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CampfireOn")
@@ -846,9 +852,15 @@ itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_ooqmc"]
 script = ExtResource("13_1k17c")
-itemToOperate = NodePath("DialogueArea")
+itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue1")
 itemStage = 1
 itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_hubxo"]
+script = ExtResource("13_1k17c")
+itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue2")
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_rjc51"]
 script = ExtResource("13_1k17c")
@@ -1736,7 +1748,7 @@ shape = SubResource("CircleShape2D_kmnto")
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenOniQuest"
-questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_8dgr8"), SubResource("Resource_qn3g5"), SubResource("Resource_uox63"), SubResource("Resource_7bvv8"), SubResource("Resource_mysed"), SubResource("Resource_rp863"), SubResource("Resource_nfvjn"), SubResource("Resource_rbe4c"), SubResource("Resource_ooqmc"), SubResource("Resource_rjc51"), SubResource("Resource_u7mcd"), SubResource("Resource_o52ob"), SubResource("Resource_y0gtm"), SubResource("Resource_cwmik"), SubResource("Resource_a68uw"), SubResource("Resource_1xxt7")])
+questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_8dgr8"), SubResource("Resource_qn3g5"), SubResource("Resource_uox63"), SubResource("Resource_v4okq"), SubResource("Resource_7bvv8"), SubResource("Resource_mysed"), SubResource("Resource_rp863"), SubResource("Resource_nfvjn"), SubResource("Resource_rbe4c"), SubResource("Resource_ooqmc"), SubResource("Resource_hubxo"), SubResource("Resource_rjc51"), SubResource("Resource_u7mcd"), SubResource("Resource_o52ob"), SubResource("Resource_y0gtm"), SubResource("Resource_cwmik"), SubResource("Resource_a68uw"), SubResource("Resource_1xxt7")])
 objectsToDeleteAtQuestComplete = [NodePath("ColdOniNPC"), NodePath("ColdOniMovable"), NodePath("DialogueArea")]
 
 [node name="CampfireOff" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("25_sj75a")]
@@ -1752,16 +1764,16 @@ sendSignalToQuestOnDestroyed = true
 [node name="ColdOniNPC" parent="Quests/GardenOniQuest" instance=ExtResource("26_fw4lj")]
 position = Vector2(1176, -512)
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="ColdOniDialogue1" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["An oni? It doesn't seem you're all right... need help?", "So... cold... help... me...", "I don't think I can do anything right now... sorry..."])
 characterTalking = Array[int]([0, 2, 0])
 cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/ColdOniDialogue1"]
 shape = SubResource("CircleShape2D_s1tay")
 
-[node name="DialogueArea2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+[node name="ColdOniDialogue2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
 dialogueText = Array[String](["So... cold... help... me...", "Hey, I managed to lit up a bonfire in another area, can you reach it?", "No... can you bring me... there?", "Hmm... you have anything to offer?", "I... stole... a key... from the guards... before...", "Oh! Just what I need, I'm game! Let me transport you!", "Thank... you..."])
 characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2])
 cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
@@ -1770,7 +1782,7 @@ deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/DialogueArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/ColdOniDialogue2"]
 shape = SubResource("CircleShape2D_ildw7")
 
 [node name="ColdOniMovable" parent="Quests/GardenOniQuest" instance=ExtResource("28_3kbrb")]
