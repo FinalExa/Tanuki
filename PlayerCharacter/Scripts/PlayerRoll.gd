@@ -17,7 +17,7 @@ func ExtraReadyOperations():
 	playerRef = characterRef
 
 func CheckForInput():
-	if (!attackLaunched && characterRef.playerInputs.rollInput):
+	if (!attackLaunched && playerRef.playerHealth.invincibilityTimer <= 0 && characterRef.playerInputs.rollInput):
 		playerMoveObjects.DropMovableObject()
 		if (transformationChange.isTransformed): transformationChange.transformationActivation.DeactivateTransformation()
 		playerMovement.DisableMovement()

@@ -1782,11 +1782,11 @@ position = Vector2(0, 1408)
 patrolIndicators = [NodePath("../PatrolPoints/Guard3/Guard3PatrolIndicator")]
 
 [node name="Cleaner1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("56_c1b7i")]
-position = Vector2(1536, 2432)
+position = Vector2(-1536, 2432)
 patrolIndicators = [NodePath("../PatrolPoints/Cleaner1/Cleaner1PatrolIndicator")]
 
 [node name="Cleaner2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("56_c1b7i")]
-position = Vector2(-1536, 2432)
+position = Vector2(1536, 2432)
 patrolIndicators = [NodePath("../PatrolPoints/Cleaner2/Cleaner2PatrolIndicator")]
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies"]

@@ -16,4 +16,9 @@ func GetDirection():
 func NormalEffect(receivedBody: CharacterBody2D, _delta):
 	receivedBody.velocity = direction * movementDistancePerTick
 	if (receivedBody is PlayerCharacter):
-		receivedBody.playerMoveObjects.ForceDropMovableObject()
+		ExecuteOnPlayer(receivedBody)
+
+func ExecuteOnPlayer(playerRef: PlayerCharacter):
+	if (playerRef.playerRoll.attackLaunched):
+		playerRef.playerRoll.ForceEndAttack()
+	playerRef.playerMoveObjects.ForceDropMovableObject()
