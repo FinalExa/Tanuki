@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=244 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -209,6 +209,30 @@ cameraFocus = NodePath("..")
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxp2p"]
 radius = 128.25
 
+[sub_resource type="Resource" id="Resource_bu2a6"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Congratulations for getting the right password."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_os1yu"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Thanks! Any useful advice for me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_xqj4p"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Some magic walls may miss a color, if you give it to them, they'll disappear."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_p1a02"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Ohoh! Sounds useful, thanks!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_20ymm"]
 radius = 128.0
 
@@ -393,14 +417,152 @@ altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_n0yux"]
+script = ExtResource("14_qvrtm")
+dialogueText = "*sniff* *sob* *sniff*"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_3cjud"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Huh, why are you crying?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_jrd73"]
+script = ExtResource("14_qvrtm")
+dialogueText = "The... those... new guards... THEY MADE A MESS OF THE HALL!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_rlwmu"]
+script = ExtResource("14_qvrtm")
+dialogueText = "LOOK AT THE CARPET, IT'S ALL STAINED WITH THAT BROWN GOOP!"
+characterTalking = 2
+cameraFocus = NodePath("../../DirtyFloor")
+
+[sub_resource type="Resource" id="Resource_p687y"]
+script = ExtResource("14_qvrtm")
+dialogueText = "If only... If only someone could clean it..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_5hhm5"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Hey, I might clean it. What's in for me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_vkljs"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Oh! Uhm... if you clean it, I will be able to rematerialize my body somewhere around there. This brown goop really DRAINS me, and it would probably DRAIN you too..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_c85v8"]
+script = ExtResource("14_qvrtm")
+dialogueText = "...and once you rematerialize your body?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_8ofic"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I... uhm... hold a key! Help me with this and I will give you my key!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_3g0rb"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Alright, I'm in. Let's clean the carpet."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_x1y16"]
 radius = 128.0
+
+[sub_resource type="Resource" id="Resource_4eqlx"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Thanks for cleaning the carpet."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_fdmge"]
+script = ExtResource("14_qvrtm")
+dialogueText = "No problem! What's next?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_y30ka"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I managed to rematerialize by body, it should be somewhere around there... can you bring it back to me?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_45sv7"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I got ya."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tywjs"]
 radius = 128.25
 
+[sub_resource type="Resource" id="Resource_gy0ng"]
+script = ExtResource("14_qvrtm")
+dialogueText = "So... that should be everything yes?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_pe5jp"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Actually... I have a last request for you."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_02ios"]
+script = ExtResource("14_qvrtm")
+dialogueText = "*sigh* Go on."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_11hb4"]
+script = ExtResource("14_qvrtm")
+dialogueText = "My poor body... has lost all of it's color, it was of a proud yellow! Are you able to restore it in any way?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_2n0im"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I'll check."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_524vm"]
 radius = 128.0
+
+[sub_resource type="Resource" id="Resource_s173h"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Thank you for everything! I am so happy!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_rkdul"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Do you have any other useful info for me, now-happy bell?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_3a2wj"]
+script = ExtResource("14_qvrtm")
+dialogueText = "The painting in the corridor above this rooms feels so... incomplete. Like it's lacking... color, you know? I believe it's on purpose."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_bhqf5"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Hey, that sounds useful. Thank you."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8d4oj"]
 radius = 128.0
@@ -532,8 +694,92 @@ vertices = PackedVector2Array(992, 672, 992, 960, 560, 960, 800, 672, 560, 672, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5), PackedInt32Array(3, 2, 5), PackedInt32Array(3, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(992, 960, 560, 960, 560, 672, 736, 672, 736, 576, 800, 576, 800, 672, 992, 672)])
 
+[sub_resource type="Resource" id="Resource_77ovg"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Oh no a guard! I have to hide, quick!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_q3or8"]
+script = ExtResource("14_qvrtm")
+dialogueText = "It's pointless... pointless..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_pxvmr"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Huh... you okay?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_80o4r"]
+script = ExtResource("14_qvrtm")
+dialogueText = "...an intruder... it's still pointless... it's been days..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_t8q0q"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Days of what?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_iapnw"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I haven't slept... in days... because of this door..."
+characterTalking = 2
+cameraFocus = NodePath("../../DoorEvil")
+
+[sub_resource type="Resource" id="Resource_tb3gq"]
+script = ExtResource("14_qvrtm")
+dialogueText = "It keeps. Making. NOISE! I CAN'T SLEEP!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_tlw1k"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I think a door stop would be able to crush those teeth... but... no energy to find it..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_qwc7q"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Hehehe... thanks for the juicy info, insomniac guard! I see a key behind this door: I do this for you and you stay silent about this, deal?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_sax7d"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Deal... I can't take this anymore, please..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0akyk"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_yee64"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Thank you... my agony... is gone..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_vh17u"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_67cj8"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Right... bedrooms, top... Kitchen, left... Bathrooms. Watch out..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_nt03f"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I will, thank you!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h5g0j"]
 radius = 128.0
@@ -610,8 +856,44 @@ altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_gcnyh"]
+script = ExtResource("14_qvrtm")
+dialogueText = "This job to watch the key is so demanding... I'm so sleepy right now."
+characterTalking = 2
+cameraFocus = NodePath("../../../Enemies/Warden1")
+
+[sub_resource type="Resource" id="Resource_w1bmi"]
+script = ExtResource("14_qvrtm")
+dialogueText = "If that chair had a pillow... I would be VERY tempted..."
+characterTalking = 2
+cameraFocus = NodePath("../../../Enemies/Warden1")
+
+[sub_resource type="Resource" id="Resource_vshe8"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Haha... let's keep watch to the corridor, hopefully it's just another boring day without any intruder... *yawn*"
+characterTalking = 2
+cameraFocus = NodePath("../../../Enemies/Warden1")
+
+[sub_resource type="Resource" id="Resource_jva4k"]
+script = ExtResource("14_qvrtm")
+dialogueText = "This guy wants to sleep eh? Let's give him sleep! Heheheheh..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_asgj7"]
 radius = 384.083
+
+[sub_resource type="Resource" id="Resource_rju7k"]
+script = ExtResource("14_qvrtm")
+dialogueText = "ZZZ... ZZZ... *snore*"
+characterTalking = 2
+cameraFocus = NodePath("../ChairWardenNPC")
+
+[sub_resource type="Resource" id="Resource_usjgq"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Well, looks like he won't be waking up soon, hehe..."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmuxl"]
 radius = 128.25
@@ -743,6 +1025,72 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_ufxee"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Master! We meet again."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_7ene7"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Daichi, since you are here, one last detail about this mansion."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xjkh4"]
+script = ExtResource("14_qvrtm")
+dialogueText = "I'm all ears master!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_b3t0j"]
+script = ExtResource("14_qvrtm")
+dialogueText = "The door you just opened by finding the keys in this area, is used to seal a special type of key."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_hmm0e"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Special key? What about it?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_fihf4"]
+script = ExtResource("14_qvrtm")
+dialogueText = "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xtnjj"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Oh... that sounds annoy- great!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_csrrh"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_clb0w"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Hmhm, I will keep my eyes peeled!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_g6u4i"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Good luck, Daichi, once you get this area special key I will open the doors to the next areas."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xggvk"]
+script = ExtResource("14_qvrtm")
+dialogueText = "Thank you, master!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fo38d"]
 radius = 128.0
@@ -943,10 +1291,8 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCBaseDialogue"]
 shape = SubResource("CircleShape2D_sxp2p")
 
-[node name="PasswordNPCQuestCompleteDialogue" parent="Quests/HallGetPassword/PasswordNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Congratulations for getting the right password.", "Thanks! Any useful advice for me?", "Some magic walls may miss a color, if you give it to them, they'll disappear.", "Ohoh! Sounds useful, thanks!"])
-characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
+[node name="PasswordNPCQuestCompleteDialogue" parent="Quests/HallGetPassword/PasswordNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_bu2a6"), SubResource("Resource_os1yu"), SubResource("Resource_xqj4p"), SubResource("Resource_p1a02")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallGetPassword/PasswordNPC/PasswordNPCQuestCompleteDialogue"]
@@ -1047,28 +1393,22 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor"), NodePath("BellMovable"
 [node name="EntranceNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_n5xws")]
 position = Vector2(-288, 3008)
 
-[node name="EntranceNPCCleanDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["*sniff* *sob* *sniff*", "Huh, why are you crying?", "*sniff* oh... a guest... wait...", "Hm?", "You're not one of those guards! Maybe you can help me...?", "I'm kinda in a hurry here... do you know anything about keys? I'll help you in that case.", "Keys? Yes. I am tasked to protect one! But... I'm willing to ignore that if you help me.", "Go on, I'm all ears.", "*sniff* Thank you.", "*ahem* THOSE BUFOONS WHO MANAGE THINGS HERE HAVE MADE A MESS OF THE ENTRANCE, THE ENTRANCE I AM TASKED TO LOOK OUT FOR!", "See the carpet? No? Well, it's because of the brown goop.", "Touching it will deplete your energies... it won't harm you though, don't worry.", "Find something to clean it, then speak to me, I need other things to clear the entrance. I will also open the other doors here once you're done with it, as thanks.", "Okay. Will do."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath("../../DirtyFloor"), NodePath("../../DirtyFloor"), NodePath(".."), null]
+[node name="EntranceNPCCleanDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_n0yux"), SubResource("Resource_3cjud"), SubResource("Resource_jrd73"), SubResource("Resource_rlwmu"), SubResource("Resource_p687y"), SubResource("Resource_5hhm5"), SubResource("Resource_vkljs"), SubResource("Resource_c85v8"), SubResource("Resource_8ofic"), SubResource("Resource_3g0rb")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCCleanDialogue"]
 shape = SubResource("CircleShape2D_x1y16")
 
-[node name="EntranceNPCGetBackBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Thanks for cleaning the carpet.", "No problem! What's next?", "Those guards... they removed my physical body from here, it's a bell like me. Can you get it back here?", "I got ya.", "Should be in one of the rooms around here, they just trashed it like it was nothing..."])
-characterTalking = Array[int]([2, 0, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+[node name="EntranceNPCGetBackBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_4eqlx"), SubResource("Resource_fdmge"), SubResource("Resource_y30ka"), SubResource("Resource_45sv7")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCGetBackBellDialogue"]
 shape = SubResource("CircleShape2D_tywjs")
 
-[node name="EntranceNPCColorTheBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["So... that should be everything yes?", "Actually... I have a last request for you.", "*sigh* Go on.", "My poor body... has lost all of it's color, it was of a proud yellow! Are you able to restore it in any way?", "I'll check.", "Thank you! I'll give you the key if you manage to do it."])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+[node name="EntranceNPCColorTheBellDialogue" parent="Quests/HallFixEntrance/EntranceNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_gy0ng"), SubResource("Resource_pe5jp"), SubResource("Resource_02ios"), SubResource("Resource_11hb4"), SubResource("Resource_2n0im")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceNPC/EntranceNPCColorTheBellDialogue"]
@@ -1092,10 +1432,8 @@ sendSignalToQuestOnDestroyed = true
 [node name="EntranceCompletedNPC" parent="Quests/HallFixEntrance" instance=ExtResource("11_6bsyf")]
 position = Vector2(-288, 3048)
 
-[node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Thank you for everything! I am so happy!", "Do you have any other useful info for me, now-happy bell?", "The painting in the corridor above this rooms feels so... incomplete. Like it's lacking... color, you know? I believe it's on purpose.", "Hey, that sounds useful. Thank you."])
-characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
+[node name="EntranceCompletedDialogue" parent="Quests/HallFixEntrance/EntranceCompletedNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_s173h"), SubResource("Resource_rkdul"), SubResource("Resource_3a2wj"), SubResource("Resource_bhqf5")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallFixEntrance/EntranceCompletedNPC/EntranceCompletedDialogue"]
@@ -1196,21 +1534,17 @@ navigation_polygon = SubResource("NavigationPolygon_o12u4")
 [node name="SadGuardNPC" parent="Quests/HallStopTheDoor" instance=ExtResource("25_nwgbr")]
 position = Vector2(976, 504)
 
-[node name="SadGuardFirstDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="SadGuardFirstDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" instance=ExtResource("10_oxkx2")]
 position = Vector2(0, -48)
-dialogueText = Array[String](["Oh no a guard! I have to hide, quick!", "It's pointless...", "Huh?", "It's pointless... pointless...", "...you okay?", "...an intruder... it's still pointless... it's been days...", "Days of what?", "I haven't slept... in days... because of this door...", "The bedrooms are on the right of this room, my bed is close to this wall... this door... has been possessed.", "It keeps. Making. NOISE!", "I CAN'T SLEEP!", "I think a door stop would be able to crush those teeth... but... no energy to find it...", "Hehehe... thanks for the juicy info, insomniac guard! I see a key behind this door: I do this for you and you stay silent about this, deal?", "Deal... I can't take this anymore, please..."])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0, 2])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath("..")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_77ovg"), SubResource("Resource_q3or8"), SubResource("Resource_pxvmr"), SubResource("Resource_80o4r"), SubResource("Resource_t8q0q"), SubResource("Resource_iapnw"), SubResource("Resource_tb3gq"), SubResource("Resource_tlw1k"), SubResource("Resource_qwc7q"), SubResource("Resource_sax7d")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFirstDialogue"]
 shape = SubResource("CircleShape2D_0akyk")
 
-[node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="SadGuardFinalDialogue" parent="Quests/HallStopTheDoor/SadGuardNPC" instance=ExtResource("10_oxkx2")]
 position = Vector2(0, -48)
-dialogueText = Array[String](["Thank you... my agony... is gone...", "Happy to help, hehe... listen, can you give me directions? I see 3 doors there, where do they lead?", "Right... bedrooms, top... Kitchen, left... Bathrooms.", "There's a cleaner stronger than usual in the bathrooms, watch out...", "I will, thank you!"])
-characterTalking = Array[int]([2, 0, 2, 2, 0])
-cameraFocuses = [NodePath("."), null, NodePath("."), NodePath("."), null]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_yee64"), SubResource("Resource_vh17u"), SubResource("Resource_67cj8"), SubResource("Resource_nt03f")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallStopTheDoor/SadGuardNPC/SadGuardFinalDialogue"]
@@ -1237,22 +1571,18 @@ questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea"), NodePath("PillowMovable")]
 
-[node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="WardenAwakeDialogue" parent="Quests/HallMakeWardenSleep" instance=ExtResource("10_oxkx2")]
 position = Vector2(1088, 1280)
-dialogueText = Array[String](["This job to watch the key is so demanding... I'm so sleepy right now.", "Thankfully that chair doesn't have a pillow... otherwise... I would be VERY tempted...", "Haha... let's keep watch to the corridor, hopefully it's just another boring day without any intruder... *yawn*", "This guy wants to sleep eh? Let's give him sleep! Heheheheh..."])
-characterTalking = Array[int]([2, 2, 2, 0])
-cameraFocuses = [NodePath("../../../Enemies/Warden1"), NodePath("../Chair"), NodePath("../../../Enemies/Warden1"), null]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_gcnyh"), SubResource("Resource_w1bmi"), SubResource("Resource_vshe8"), SubResource("Resource_jva4k")])
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallMakeWardenSleep/WardenAwakeDialogue"]
 shape = SubResource("CircleShape2D_asgj7")
 
-[node name="WardenSleepingDialogue" parent="Quests/HallMakeWardenSleep" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
+[node name="WardenSleepingDialogue" parent="Quests/HallMakeWardenSleep" instance=ExtResource("10_oxkx2")]
 position = Vector2(1152, 1088)
-dialogueText = Array[String](["ZZZ... ZZZ... *snore*", "Well, looks like he won't be waking up soon, hehe..."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../../../Enemies/Warden1"), null]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_rju7k"), SubResource("Resource_usjgq")])
 isOnInteraction = true
 labelDefaultText = "PRESS F TO LISTEN"
 
@@ -1320,7 +1650,7 @@ y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallUltraKey"
 questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_qp45a"), SubResource("Resource_61qc8"), SubResource("Resource_cyk12"), SubResource("Resource_ub4sk"), SubResource("Resource_agg8y"), SubResource("Resource_pp3jb"), SubResource("Resource_nvi25"), SubResource("Resource_43elw"), SubResource("Resource_ykrko"), SubResource("Resource_8d8d5"), SubResource("Resource_de5gl")])
-objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor1"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor2"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor3"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor5"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoor6"), NodePath("HallUltraKeyTileMap/Enemies/Guard1"), NodePath("HallUltraKeyTileMap/Enemies/Guard2"), NodePath("HallUltraKeyTileMap/Enemies/Guard3"), NodePath("HallUltraKeyTileMap/NPCs/OldTanukiNPC")]
+objectsToDeleteAtQuestComplete = [NodePath("HallUltraKeyTileMap/NPCs/OldTanukiNPC"), NodePath("HallUltraKeyTileMap/Enemies"), NodePath("HallUltraKeyTileMap/Obstacles/ColorDoors")]
 
 [node name="HallUltraKeyTileMap" type="TileMap" parent="Quests/HallUltraKey"]
 y_sort_enabled = true
@@ -1352,22 +1682,24 @@ y_sort_enabled = true
 position = Vector2(640, -80)
 scale = Vector2(2, 1)
 
-[node name="ColorDoor1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+[node name="ColorDoors" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles"]
+
+[node name="ColorDoor1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles/ColorDoors" instance=ExtResource("23_p6qod")]
 position = Vector2(768, -512)
 rightColor = 1
 
-[node name="ColorDoor2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+[node name="ColorDoor2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles/ColorDoors" instance=ExtResource("23_p6qod")]
 position = Vector2(896, -1024)
 
-[node name="ColorDoor3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+[node name="ColorDoor3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles/ColorDoors" instance=ExtResource("23_p6qod")]
 position = Vector2(1152, -384)
 rightColor = 3
 
-[node name="ColorDoor5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+[node name="ColorDoor5" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles/ColorDoors" instance=ExtResource("23_p6qod")]
 position = Vector2(1408, -1024)
 randomizeRightColor = true
 
-[node name="ColorDoor6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles" instance=ExtResource("23_p6qod")]
+[node name="ColorDoor6" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Obstacles/ColorDoors" instance=ExtResource("23_p6qod")]
 position = Vector2(2304, -640)
 randomizeRightColor = true
 
@@ -1392,10 +1724,8 @@ colorOfYokai = 3
 [node name="OldTanukiNPC" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs" instance=ExtResource("28_jorvy")]
 position = Vector2(896, -272)
 
-[node name="DialogueArea" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("10_oxkx2")]
-dialogueText = Array[String](["Master! We meet again.", "Daichi, since you are here, one last detail about this mansion.", "I'm all ears master!", "The door you just opened by finding the keys in this area, is used to seal a special type of key.", "Special key? What about it?", "To access the area where Gozo, the master of this mansion is, you'll need to collect all of those special keys.", "Oh... that sounds annoy- great!", "Be wary Daichi, we are not in a normal room right now. This is a chaotic space created by Gozo's magic. Elements inside of this area are messy.", "Hmhm, I will keep my eyes peeled!", "Good luck, Daichi.", "Thank you, master!"])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs/OldTanukiNPC" instance=ExtResource("10_oxkx2")]
+dialogueIndexes = Array[ExtResource("14_qvrtm")]([SubResource("Resource_ufxee"), SubResource("Resource_7ene7"), SubResource("Resource_xjkh4"), SubResource("Resource_b3t0j"), SubResource("Resource_hmm0e"), SubResource("Resource_fihf4"), SubResource("Resource_xtnjj"), SubResource("Resource_csrrh"), SubResource("Resource_clb0w"), SubResource("Resource_g6u4i"), SubResource("Resource_xggvk")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/NPCs/OldTanukiNPC/DialogueArea"]
@@ -1485,61 +1815,61 @@ y_sort_enabled = true
 
 [node name="Guard1" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(1408, -1344)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard1PatrolPoint/Guard1PatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard1PatrolPoint/Guard1PatrolIndicator")]
 
 [node name="Guard2" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(2432, -896)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard2PatrolPoint/Guard2PatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard2PatrolPoint/Guard2PatrolIndicator")]
 
 [node name="Guard3" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("35_puu12")]
 position = Vector2(2048, -576)
-patrolIndicators = [NodePath("../../EnemyPatrolPoints/Guard3PatrolPoint/Guard3PatrolIndicator")]
+patrolIndicators = [NodePath("../PatrolPoints/Guard3PatrolPoint/Guard3PatrolIndicator")]
 
-[node name="EnemyPatrolPoints" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
+[node name="PatrolPoints" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies"]
 
-[node name="Guard1PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+[node name="Guard1PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints"]
 
-[node name="Guard1PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard1PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard1PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(1024, -1344)
 patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2")]
 waitActions = Array[float]([3.0, 3.0])
 lookActions = Array[int]([2, 3])
 
-[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint"]
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard1PatrolPoint"]
 position = Vector2(576, -1344)
 
-[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard1PatrolPoint"]
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard1PatrolPoint"]
 position = Vector2(1856, -1344)
 
-[node name="Guard2PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+[node name="Guard2PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints"]
 
-[node name="Guard2PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard2PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard2PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(1856, -896)
 patrolActions = Array[int]([1, 1, 2, 0, 1, 1, 2, 0])
 moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../1"), NodePath("../3")]
 waitActions = Array[float]([4.0, 4.0])
 lookActions = Array[int]([1, 3])
 
-[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard2PatrolPoint"]
 position = Vector2(1440, -896)
 
-[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+[node name="2" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard2PatrolPoint"]
 position = Vector2(1440, -544)
 
-[node name="3" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard2PatrolPoint"]
+[node name="3" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard2PatrolPoint"]
 position = Vector2(2432, -896)
 
-[node name="Guard3PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints"]
+[node name="Guard3PatrolPoint" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints"]
 
-[node name="Guard3PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard3PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
+[node name="Guard3PatrolIndicator" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard3PatrolPoint" node_paths=PackedStringArray("moveActions") instance=ExtResource("36_8gipu")]
 position = Vector2(2048, -448)
 patrolActions = Array[int]([1, 2, 0, 2, 0])
 moveActions = [NodePath("../1")]
 waitActions = Array[float]([4.0, 4.0])
 lookActions = Array[int]([1, 3])
 
-[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/EnemyPatrolPoints/Guard3PatrolPoint"]
+[node name="1" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap/Enemies/PatrolPoints/Guard3PatrolPoint"]
 position = Vector2(2048, -576)
 
 [node name="AllowedZones" type="Node2D" parent="Quests/HallUltraKey/HallUltraKeyTileMap"]
