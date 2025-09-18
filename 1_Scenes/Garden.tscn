@@ -1,4 +1,4 @@
-[gd_scene load_steps=327 format=3 uid="uid://c63d22o6leq0u"]
+[gd_scene load_steps=424 format=3 uid="uid://c63d22o6leq0u"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_oh66l"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_f5380"]
@@ -894,7 +894,7 @@ cameraFocus = NodePath("../OldTanukiNPC")
 
 [sub_resource type="Resource" id="Resource_cb1br"]
 script = ExtResource("20_uxh8o")
-dialogueText = "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide."
+dialogueText = "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide. Just remember to not move while transformed, or the guard will know that something is amiss and will start to get suspicious."
 characterTalking = 2
 cameraFocus = NodePath("../../../TransformationObjects/GardenFlower4")
 
@@ -924,26 +924,404 @@ cameraFocus = NodePath("../OldTanukiNPC")
 
 [sub_resource type="Resource" id="Resource_1fdps"]
 script = ExtResource("20_uxh8o")
-dialogueText = "Yessir"
+dialogueText = "Yessir!"
 characterTalking = 0
 cameraFocus = NodePath("")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns61c"]
 size = Vector2(512, 512)
 
+[sub_resource type="Resource" id="Resource_nfncx"]
+script = ExtResource("20_uxh8o")
+dialogueText = "QUICK YOUNG-UN, GRAB THAT KEY!"
+characterTalking = 2
+cameraFocus = NodePath("../../../Keys/UnlockKey1")
+
+[sub_resource type="Resource" id="Resource_ko5jo"]
+script = ExtResource("20_uxh8o")
+dialogueText = "GET IT AND COME HERE!"
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hf5vy"]
+
+[sub_resource type="Resource" id="Resource_ptejn"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Nice job young-un, you got a key!"
+characterTalking = 0
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_i1lip"]
+script = ExtResource("20_uxh8o")
+dialogueText = "What's that for, master?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_jribg"]
+script = ExtResource("20_uxh8o")
+dialogueText = "You see, young-un, to enter the mansion you will need to collect 3 keys, and that's one of them."
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_nll35"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Sooo... two more to go!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_jcs31"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Indeed, you have completed the review of your training, use what you learned to get the other two keys."
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_7fh2e"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Also, from what I know, inside the mansion is full of keys to find to proceed, so view this as a proper training area before venturing inside."
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_ggg1h"]
+script = ExtResource("20_uxh8o")
+dialogueText = "I am going to impress you master!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_0h2mw"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Well, good luck Daichi. If you want to review your skills, I've asked some other Tanuki to explain them to you again. They are just in the area before this one."
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_u6l0k"]
+script = ExtResource("20_uxh8o")
+dialogueText = "I shall be going now, good luck with your quest Daichi. This axe right here is the key to proceed onwards."
+characterTalking = 2
+cameraFocus = NodePath("../OldTanukiNPC2")
+
+[sub_resource type="Resource" id="Resource_hy5ru"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thanks for everything, master!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_166fq"]
 size = Vector2(512, 512)
 
+[sub_resource type="Resource" id="Resource_7dmg5"]
+script = ExtResource("20_uxh8o")
+dialogueText = "You're asking again what to do?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_mhnsr"]
+script = ExtResource("20_uxh8o")
+dialogueText = "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Enemy/Guard1")
+
+[sub_resource type="Resource" id="Resource_kfd5i"]
+script = ExtResource("20_uxh8o")
+dialogueText = "To avoid that, transform and hide, if you have done your training properly it's quite easy."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_vjo37"]
+script = ExtResource("20_uxh8o")
+dialogueText = "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide. Just remember to not move while transformed, or the guard will know that something is amiss and will start to get suspicious."
+characterTalking = 2
+cameraFocus = NodePath("../../../../TransformationObjects/GardenFlower4")
+
+[sub_resource type="Resource" id="Resource_dwjmn"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Try to avoid the guard and get to the axe I stole from the mansion, it's..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_0qd4g"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Right there. Once you reach this point, save the axe as your transformation, transform into it..."
+characterTalking = 2
+cameraFocus = NodePath("../../Axe")
+
+[sub_resource type="Resource" id="Resource_o31oo"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...AND HIT THAT GUARD!"
+characterTalking = 2
+cameraFocus = NodePath("../../../../Enemy/Guard1")
+
+[sub_resource type="Resource" id="Resource_7gmlx"]
+script = ExtResource("20_uxh8o")
+dialogueText = "I'll explain more once you have done all of this. Get working, young-un."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ajyub"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yessir!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_yk2xi"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Young-un, you seem to have forgotten the key."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_kl071"]
+script = ExtResource("20_uxh8o")
+dialogueText = "It's there, grab it, then come back here."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Keys/UnlockKey1")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7dca"]
 radius = 136.0
+
+[sub_resource type="Resource" id="Resource_g8xag"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Hello, Daichi."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_af6k2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Oh heya! Master told me that I could review with you!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_1w7y3"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Indeed. I'll explain the transformation again."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_q8n8q"]
+script = ExtResource("20_uxh8o")
+dialogueText = "There are certain objects around which you can transform into, they have a small blue flame inside it."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_5p2cd"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Get close to those objects and press SHIFT, you will save that object as a transformation. Then press E to transform into the object."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ol2df"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Once transformed you have a certain amount of energy, once the energy is exhausted, you lose the transformation and have to get it back."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_4rvgi"]
+script = ExtResource("20_uxh8o")
+dialogueText = "You cannot save the same item to replenish energy, it won't work because that item already was manifested with your transformation magic, you can only replace it with new items."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_66cnq"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Some transformation have attacks, which are used via LEFT CLICK while transformed. Attacking will consume a flat amount of energy, after the attack is done."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_y8t3p"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Certain transformations drain more over time or while attacking."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_4bw61"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Is that all?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_aaicd"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yes, if you want to listen to this again, I am here."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_hq8ts"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thank you!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4a443"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_d3ph2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "YOOOO! IT'S MY LITTLE BRO!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_onsue"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Heya, \"big bro\"!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_0i1lv"]
+script = ExtResource("20_uxh8o")
+dialogueText = "WASSUP! ARE YOU HERE FOR THE SUMMARY TO FACE OFF GUARDS?! I AM YOUR MAN THEN!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_5sn2u"]
+script = ExtResource("20_uxh8o")
+dialogueText = "WELL, I AM GONNA BE BRIEF WITH YA BRO."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_attwx"]
+script = ExtResource("20_uxh8o")
+dialogueText = "FIND A TRANSFORMATION THAT YOU FEEL LIKE YOU CAN SMACK GUARDS WITH, AND HIT THEM!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ch2yd"]
+script = ExtResource("20_uxh8o")
+dialogueText = "THEY WILL BE STUNNED FOR SOME TIME!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_7tfer"]
+script = ExtResource("20_uxh8o")
+dialogueText = "WHILE IN THE HEAT OF THE MOMENT, YOU MIGHT LOSE YOUR TRANSFORMATION! WORRY NOT!!! JUST FIND ANY CLOSE OBJECT, AND TRY TO HIDE AWAY WITH HIT, JUST DON'T BE SEEN MOVING!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_gwg8b"]
+script = ExtResource("20_uxh8o")
+dialogueText = "IF THEY SEE YOU WHILE MOVING THEY'LL KNOW SOMETHING IS WRONG, ALSO! TRY TO STAY ON THE STARRY PATH, IT MEANS IT'S THE RIGHT THING TO HIDE THERE!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_2q7g8"]
+script = ExtResource("20_uxh8o")
+dialogueText = "IF YOU HIDE AWAY FROM THE STARRY PATH ON THE GROUND, THEY WILL ALSO KNOW SOMETHING IS AMISS!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_pig38"]
+script = ExtResource("20_uxh8o")
+dialogueText = "THAT WAS EVERYTHING, GOOD LUCK LITTLE BRO!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_efm2g"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thanks, \"big bro\"..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_eas4v"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_yk334"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...my poor ears."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hya11"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_6k31v"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Oh, it's the leaf master, did master manage to recruit such an authority in leafmanship as you?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_a4qqf"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_b7qrf"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_b6dw2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_6hn0h"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Silent, are you? I suppose you are here to explain the leaf..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_cpsup"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_yh05c"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...I can attack with my leaf by pressing LEFT CLICK while not transformed..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_a4gan"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...thanks to my Tanuki senses, I can see certain areas which are \"windy with leaves\", if I hit those areas, something will happen..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_imgvb"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...and if I attack one of my foes with the leaf, it will repel them away!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_pd1c8"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...is that right?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_0b6l4"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_5l7m2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_vcu6u"]
+script = ExtResource("20_uxh8o")
+dialogueText = "*nods*"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_vaivh"]
+script = ExtResource("20_uxh8o")
+dialogueText = "...thanks, leaf master!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_67fh2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "(Weird...)"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5n8l"]
 radius = 128.0
@@ -1412,14 +1790,134 @@ altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_shb2b"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Hey you, yes you! Do you want a shiny?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_4ivwh"]
+script = ExtResource("20_uxh8o")
+dialogueText = "A... shiny?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_fwn28"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Oh yes... sorry! I think you call it... a key!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_bnksy"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Oh I'm searching for keys! Continue!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_dpac4"]
+script = ExtResource("20_uxh8o")
+dialogueText = "I will give it to you... if you feed me!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_irkqr"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Bring me an acorn from the tree there! Then I will give you the key!"
+characterTalking = 2
+cameraFocus = NodePath("../../AcornTree")
+
+[sub_resource type="Resource" id="Resource_t78u2"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Alright, will do. Just be sure to give me the key afterwards!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_d7pmj"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yes, yes! (Yay, I can finally eat!)"
+characterTalking = 2
+cameraFocus = NodePath("../../AcornTree")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fn6fk"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_iehg1"]
+script = ExtResource("20_uxh8o")
+dialogueText = "By the way, any useful info for the third key?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_6tm55"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Hmm... I think I saw an Oni around here with a key, he looked... cold."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ic5xc"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Oh, thank you!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ndmof"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_bqb64"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Master! You're back again?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ig2hp"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yes, I see that you need to deliver that acorn, young-un. So I'm here for a last lesson."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_kquus"]
+script = ExtResource("20_uxh8o")
+dialogueText = "You will have to transport certain objects; you can't transform into everything."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ulrm8"]
+script = ExtResource("20_uxh8o")
+dialogueText = "While you're transporting an object, if you transform or attack with your leaf you'll drop it in the current spot."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_lr4wt"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Also watch out for the water there, you'll lose it and have to go all the way back here to get it back."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_sgxn0"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Usually you'll need to transport them to a certain location, so get moving young-un!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_bf3ho"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yes master! Thank you."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ja2f5"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_3rr5o"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thanks for this treat! Here's your key! *nom nom nom*"
+characterTalking = 2
+cameraFocus = NodePath("../SquirrelNPC")
+
+[sub_resource type="Resource" id="Resource_rk43k"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thank you for the key!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmnto"]
 radius = 128.25
@@ -1568,14 +2066,98 @@ altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_dc0kx"]
+script = ExtResource("20_uxh8o")
+dialogueText = "An oni? It doesn't seem you're all right... need help?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_tjtvg"]
+script = ExtResource("20_uxh8o")
+dialogueText = "So... cold... help... me..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8bmn8"]
+script = ExtResource("20_uxh8o")
+dialogueText = "I don't think I can do anything right now... sorry..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1tay"]
 radius = 128.0
+
+[sub_resource type="Resource" id="Resource_1awgd"]
+script = ExtResource("20_uxh8o")
+dialogueText = "So... cold... help... me..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_gtdgp"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Hey, I managed to lit up a bonfire in another area, can you reach it?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_3dkwh"]
+script = ExtResource("20_uxh8o")
+dialogueText = "No... can you bring me... there?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_e6kqi"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Yes! I will save you cold-oni!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_xhcx3"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thanks... I will give you a key... as thanks..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_5c76n"]
+script = ExtResource("20_uxh8o")
+dialogueText = "That's wonderful! Thank you!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ildw7"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_7ixf5"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Do you know anything about another key around there?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_515mi"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Hmmm... I think I saw a squirrel with it..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_g08pi"]
+script = ExtResource("20_uxh8o")
+dialogueText = "That sounds helpful... Thank you!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7joh1"]
 radius = 128.0
+
+[sub_resource type="Resource" id="Resource_5cn7x"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Whew, thanks! Here, grab the key I promised you."
+characterTalking = 2
+cameraFocus = NodePath("../HeatSourceActivator")
+
+[sub_resource type="Resource" id="Resource_qmg35"]
+script = ExtResource("20_uxh8o")
+dialogueText = "Thanks for the key, hehe..."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcvry"]
 radius = 232.551
@@ -1792,6 +2374,7 @@ position = Vector2(1664, 64)
 position = Vector2(1664, -640)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
+z_index = -50
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegions"]
 navigation_polygon = SubResource("NavigationPolygon_hbxy1")
@@ -2007,22 +2590,18 @@ deleteOnDone = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea"]
 shape = SubResource("RectangleShape2D_ns61c")
 
-[node name="DialogueArea2" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea2" parent="Quests/GardenStunGuard" instance=ExtResource("6_3ktbq")]
 position = Vector2(-2048, 0)
-dialogueText = Array[String](["QUICK YOUNG-UN, GRAB THAT KEY!", "ONCE YOU HAVE GOT IT, COME HERE!"])
-characterTalking = Array[int]([2, 2])
-cameraFocuses = [NodePath("../../../Keys/UnlockKey1"), NodePath("../OldTanukiNPC2")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_nfncx"), SubResource("Resource_ko5jo")])
 deleteOnDone = true
 activatedByQuest = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/DialogueArea2"]
 shape = SubResource("CircleShape2D_hf5vy")
 
-[node name="DialogueArea3" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea3" parent="Quests/GardenStunGuard" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(1024, -2560)
-dialogueText = Array[String](["Nice job, you grabbed a key!", "What's that for, master?", "You see, young-un, to enter the mansion you will need to collect 3 keys, you have just gotten one.", "Sooo... two more to go!", "Indeed, you have completed the review of your training, use what you learned to get the other two keys.", "Also, from what I know, inside the mansion is full of keys to find to proceed, so view this as a proper training area before venturing inside.", "It's quite more crowded inside, after all.", "I am going to impress you master!", "Well, good luck Daichi.", "Thank you master!", "If you wanna review your skills, some of your tanuki friends are here in the area before, to explain the basics again.", "I shall be going now."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 2, 2, 0, 2, 0, 2, 2])
-cameraFocuses = [NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), null, NodePath("../OldTanukiNPC2"), NodePath("../OldTanukiNPC2")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_ptejn"), SubResource("Resource_i1lip"), SubResource("Resource_jribg"), SubResource("Resource_nll35"), SubResource("Resource_jcs31"), SubResource("Resource_7fh2e"), SubResource("Resource_ggg1h"), SubResource("Resource_0h2mw"), SubResource("Resource_u6l0k"), SubResource("Resource_hy5ru")])
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
@@ -2034,6 +2613,7 @@ shape = SubResource("RectangleShape2D_166fq")
 position = Vector2(640, -1088)
 
 [node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_7dmg5"), SubResource("Resource_mhnsr"), SubResource("Resource_kfd5i"), SubResource("Resource_vjo37"), SubResource("Resource_dwjmn"), SubResource("Resource_0qd4g"), SubResource("Resource_o31oo"), SubResource("Resource_7gmlx"), SubResource("Resource_ajyub")])
 dialogueText = Array[String](["Ok young-un, now for an harder challenge...", "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset.", "To avoid that, transform and hide, if you have done your training properly it's quite easy.", "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide.", "Try to avoid the guard and get to the axe I stole from the mansion, it's...", "Right there. Once you reach this point, save the axe as your transformation, transform into it...", "...AND HIT THAT GUARD!", "I'll explain more once you have done all of this. Get working, young-un.", "Yessir!"])
 characterTalking = Array[int]([2, 2, 2, 2, 2, 2, 2, 2, 0])
 cameraFocuses = [NodePath(".."), NodePath("../../../../Enemy/Guard1"), NodePath(".."), NodePath("../../../../TransformationObjects/GardenFlower4"), NodePath(".."), NodePath("../../Axe"), NodePath("../../../../Enemy/Guard1"), NodePath(".."), null]
@@ -2045,10 +2625,8 @@ shape = SubResource("CircleShape2D_swubk")
 [node name="OldTanukiNPC2" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(864, -2432)
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Young-un, you seem to have forgotten the key.", "It's here, grab it, then come back here."])
-characterTalking = Array[int]([2, 2])
-cameraFocuses = [NodePath(".."), NodePath("../../../../Keys/UnlockKey1")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC2" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_yk2xi"), SubResource("Resource_kl071")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC2/DialogueArea"]
@@ -2060,37 +2638,31 @@ position = Vector2(1024, -2560)
 [node name="NerdTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("17_81wbq")]
 position = Vector2(832, -192)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/NerdTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Hello, Daichi.", "Oh heya! Master told me that I could review with you!", "Indeed. I'll explain the transformation again.", "There are certain objects around which you can transform into, they have a small blue flame inside it.", "Get close to those objects and press SHIFT, you will save that object as a transformation. Then press E to transform into the object.", "Once transformed you have a certain amount of energy, once the energy is exhausted, you lose the transformation and have to get it back.", "You cannot save the same item to replenish energy, it won't work because that item already was manifested with your transformation magic, you can only replace it with new items.", "Some transformation have attacks, which are used via LEFT CLICK while transformed. Attacking will consume a flat amount of energy, after the attack is done.", "Certain transformations drain more over time or while attacking.", "Is that all?", "Yes, if you want to listen to this again, I am here.", "Thank you!"])
-characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/NerdTanukiNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_g8xag"), SubResource("Resource_af6k2"), SubResource("Resource_1w7y3"), SubResource("Resource_q8n8q"), SubResource("Resource_5p2cd"), SubResource("Resource_ol2df"), SubResource("Resource_4rvgi"), SubResource("Resource_66cnq"), SubResource("Resource_y8t3p"), SubResource("Resource_4bw61"), SubResource("Resource_aaicd"), SubResource("Resource_hq8ts")])
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/NerdTanukiNPC/DialogueArea4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/NerdTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_4a443")
 
 [node name="CoolTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("18_5oidj")]
 position = Vector2(928, -640)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/CoolTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["YOOOO! IT'S MY LITTLE BRO!", "Heya, \"big bro\"!", "WASSUP! ARE YOU HERE FOR THE SUMMARY TO FACE OFF GUARDS?! I AM YOUR MAN THEN!", "WELL, I AM GONNA BE BRIEF WITH YA BRO.", "FIND A TRANSFORMATION THAT YOU FEEL LIKE YOU CAN SMACK GUARDS WITH, AND HIT THEM!", "THEY WILL BE STUNNED FOR SOME TIME!", "WHILE IN THE HEAT OF THE MOMENT, YOU MIGHT LOSE YOUR TRANSFORMATION! WORRY NOT!!! JUST FIND ANY CLOSE OBJECT, AND TRY TO HIDE AWAY WITH HIT, JUST DON'T BE SEEN MOVING!", "IF THEY SEE YOU WHILE MOVING THEY'LL KNOW SOMETHING IS WRONG, ALSO! TRY TO STAY ON THE STARRY PATH, IT MEANS IT'S THE RIGHT THING TO HIDE THERE!", "IF YOU HIDE AWAY FROM THE STARRY PATH ON THE GROUND, THEY WILL ALSO KNOW SOMETHING IS AMISS!", "THAT WAS EVERYTHING, GOOD LUCK LITTLE BRO!", "Thanks, \"big bro\"...", "...", "...my poor ears."])
-characterTalking = Array[int]([2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null, null, null]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/CoolTanukiNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_d3ph2"), SubResource("Resource_onsue"), SubResource("Resource_0i1lv"), SubResource("Resource_5sn2u"), SubResource("Resource_attwx"), SubResource("Resource_ch2yd"), SubResource("Resource_7tfer"), SubResource("Resource_gwg8b"), SubResource("Resource_2q7g8"), SubResource("Resource_pig38"), SubResource("Resource_efm2g"), SubResource("Resource_eas4v"), SubResource("Resource_yk334")])
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/CoolTanukiNPC/DialogueArea4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/CoolTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_hya11")
 
 [node name="SwordTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("19_d0a2y")]
 position = Vector2(512, -640)
 
-[node name="DialogueArea4" parent="Quests/GardenStunGuard/SwordTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Oh, it's the leaf master, did master manage to recruit such an authority in leafmanship as you?", "...", "...", "...", "Silent, are you? I suppose you are here to explain the leaf...", "...", "...I can attack with my leaf by pressing LEFT CLICK while not transformed...", "...thanks to my Tanuki senses, I can see certain areas which are \"windy with leaves\", if I hit those areas, something will happen...", "...and if I attack one of my foes with the leaf, it will repel them away!", "...is that right?", "...", "...", "*nods*", "...thanks, leaf master!", "(What a weird guy...)"])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 0])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, null, null, null, NodePath(".."), null, NodePath(".."), null, null]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/SwordTanukiNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_6k31v"), SubResource("Resource_a4qqf"), SubResource("Resource_b7qrf"), SubResource("Resource_b6dw2"), SubResource("Resource_6hn0h"), SubResource("Resource_cpsup"), SubResource("Resource_yh05c"), SubResource("Resource_a4gan"), SubResource("Resource_imgvb"), SubResource("Resource_pd1c8"), SubResource("Resource_0b6l4"), SubResource("Resource_5l7m2"), SubResource("Resource_vcu6u"), SubResource("Resource_vaivh"), SubResource("Resource_67fh2")])
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SwordTanukiNPC/DialogueArea4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/SwordTanukiNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_q5n8l")
 
 [node name="SavePointTutorial2" parent="Quests/GardenStunGuard" instance=ExtResource("26_t6v3l")]
@@ -2341,19 +2913,15 @@ position = Vector2(1920, -2176)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="SquirrelDialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Hey you! Yes you!", "Hm?", "I saw that you got a shiny before!", "A shiny? Wha-", "I believe you call it a... key!", "Oh! Continue, I am interested...", "I have one!", "Ohh, wanna give it to me?", "Hmm, you seem like a crafty one hehe... I am hungry.", "And?", "Bring me food...", "Acorns are good! There's a tree there...", "But there are some noisy ones there... so I can't go alone.", "Bring me an acorn, and I'll give you that key!", "Okay, scaredy squirrel, I'll grab that acorn for you.", "Yay!"])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath("../../AcornTree"), NodePath("../../DialogueGuardNode"), NodePath(".."), null, NodePath("..")]
+[node name="SquirrelDialogueArea" parent="Quests/GardenSquirrelQuest/SquirrelNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_shb2b"), SubResource("Resource_4ivwh"), SubResource("Resource_fwn28"), SubResource("Resource_bnksy"), SubResource("Resource_dpac4"), SubResource("Resource_irkqr"), SubResource("Resource_t78u2"), SubResource("Resource_d7pmj")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/SquirrelDialogueArea"]
 shape = SubResource("CircleShape2D_fn6fk")
 
-[node name="SquirrelDialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["By thew way, any useful info for the third key?", "Hmm...", "I think I saw an Oni around here with a key.", "Oh, thank you!"])
-characterTalking = Array[int]([0, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath(".."), null]
+[node name="SquirrelDialogueArea2" parent="Quests/GardenSquirrelQuest/SquirrelNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_iehg1"), SubResource("Resource_6tm55"), SubResource("Resource_ic5xc")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/SquirrelNPC/SquirrelDialogueArea2"]
@@ -2362,10 +2930,8 @@ shape = SubResource("CircleShape2D_ndmof")
 [node name="OldTanukiNPC" parent="Quests/GardenSquirrelQuest" instance=ExtResource("13_6kems")]
 position = Vector2(3456, 128)
 
-[node name="OldTanukiDialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Oh master! You're back again?", "Yes, I see that you need to transport an object, young-un. So I'm here for a last lesson.", "You can grab certain objects by pressing RIGHT CLICK; you can't transform into everything.", "While you're transporting an object, if you transform or attack with your leaf you'll drop it in the current spot.", "Also watch out for the water here, you'll lose it and have to go all the way back here to get it back.", "Usually you'll need to transport them to a certain location, so get moving young-un!", "Yes master! Thank you."])
-characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), NodePath(".."), null]
+[node name="OldTanukiDialogueArea" parent="Quests/GardenSquirrelQuest/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_bqb64"), SubResource("Resource_ig2hp"), SubResource("Resource_kquus"), SubResource("Resource_ulrm8"), SubResource("Resource_lr4wt"), SubResource("Resource_sgxn0"), SubResource("Resource_bf3ho")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/OldTanukiNPC/OldTanukiDialogueArea"]
@@ -2385,11 +2951,9 @@ sendSignalToQuestOnDestroyed = true
 [node name="Acorn" parent="Quests/GardenSquirrelQuest" instance=ExtResource("27_spjub")]
 position = Vector2(3328, -64)
 
-[node name="DialogueArea" parent="Quests/GardenSquirrelQuest" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenSquirrelQuest" instance=ExtResource("6_3ktbq")]
 position = Vector2(1920, -2176)
-dialogueText = Array[String](["Thanks for this treat! Here's your key! *nom nom nom*", "No problem."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../SquirrelNPC"), null]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_3rr5o"), SubResource("Resource_rk43k")])
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenSquirrelQuest/DialogueArea"]
@@ -2415,19 +2979,15 @@ sendSignalToQuestOnDestroyed = true
 [node name="ColdOniNPC" parent="Quests/GardenOniQuest" instance=ExtResource("26_fw4lj")]
 position = Vector2(1176, -512)
 
-[node name="ColdOniDialogue1" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["An oni? It doesn't seem you're all right... need help?", "So... cold... help... me...", "I don't think I can do anything right now... sorry..."])
-characterTalking = Array[int]([0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null]
+[node name="ColdOniDialogue1" parent="Quests/GardenOniQuest/ColdOniNPC" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_dc0kx"), SubResource("Resource_tjtvg"), SubResource("Resource_8bmn8")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/ColdOniNPC/ColdOniDialogue1"]
 shape = SubResource("CircleShape2D_s1tay")
 
-[node name="ColdOniDialogue2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["So... cold... help... me...", "Hey, I managed to lit up a bonfire in another area, can you reach it?", "No... can you bring me... there?", "Hmm... you have anything to offer?", "I... stole... a key... from the guards... before...", "Oh! Just what I need, I'm game! Let me transport you!", "Thank... you..."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("..")]
+[node name="ColdOniDialogue2" parent="Quests/GardenOniQuest/ColdOniNPC" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_1awgd"), SubResource("Resource_gtdgp"), SubResource("Resource_3dkwh"), SubResource("Resource_e6kqi"), SubResource("Resource_xhcx3"), SubResource("Resource_5c76n")])
 isOnInteraction = true
 deleteOnDone = true
 advanceQuest = true
@@ -2442,20 +3002,16 @@ position = Vector2(1176, -512)
 [node name="HeatSourceActivator" parent="Quests/GardenOniQuest" instance=ExtResource("28_gtcmu")]
 position = Vector2(2888, -1536)
 
-[node name="OniDialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
-dialogueText = Array[String](["Do you know anything about another key around there?", "Hmmm... I think I saw a squirrel with it...", "Oh, that sounds helpful... Thank you!"])
-characterTalking = Array[int]([0, 2, 0])
-cameraFocuses = [null, NodePath(".."), null]
+[node name="OniDialogueArea" parent="Quests/GardenOniQuest/HeatSourceActivator" instance=ExtResource("6_3ktbq")]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_7ixf5"), SubResource("Resource_515mi"), SubResource("Resource_g08pi")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenOniQuest/HeatSourceActivator/OniDialogueArea"]
 shape = SubResource("CircleShape2D_7joh1")
 
-[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenOniQuest" node_paths=PackedStringArray("questRef") instance=ExtResource("6_3ktbq")]
 position = Vector2(2888, -1536)
-dialogueText = Array[String](["Whew, thanks! Here, grab the key I promised you.", "Thanks for the key, hehe..."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath("../HeatSourceActivator"), null]
+dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_5cn7x"), SubResource("Resource_qmg35")])
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("..")
