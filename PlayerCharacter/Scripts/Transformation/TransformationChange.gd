@@ -61,6 +61,7 @@ func _process(delta):
 	transformationActivation.CheckForDeactivateTransformation()
 	transformationActivation.TransformationActive(delta)
 	transformationAttacking.CheckForAttackInput()
+	transformationSprite.TransformationSpriteDuringTransformationOperations()
 
 func ResetUpgradeDuration():
 	upgradeDuration = false

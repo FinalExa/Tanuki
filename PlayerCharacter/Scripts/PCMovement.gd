@@ -37,9 +37,6 @@ func SelectAnimation():
 		else:
 			if (playerRef.velocity.x > 0):
 				playerRef.spriteRef.flip_h = false
-	if (playerRef.transformationChangeRef.isTransformed):
-		playerRef.spriteRef.play("hidden")
-		return
 	if (playerRef.playerInputs.inputDirection != Vector2.ZERO && movementEnabled):
 		playerRef.spriteRef.play("running")
 		return

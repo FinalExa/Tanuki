@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cjye6xpdv34of"]
+[gd_scene load_steps=52 format=3 uid="uid://cjye6xpdv34of"]
 
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerCharacter.gd" id="1_0akyq"]
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PCMovement.gd" id="1_7j0ss"]
@@ -25,10 +25,6 @@
 [ext_resource type="Script" path="res://PlayerCharacter/Scripts/PlayerMoveObjects.gd" id="22_cgx5a"]
 [ext_resource type="PackedScene" uid="uid://bthx5dpkp5buy" path="res://PlayerCharacter/transformation_change.tscn" id="23_rwuxc"]
 [ext_resource type="PackedScene" uid="uid://wnlenbg2y7b1" path="res://PlayerCharacter/player_roll.tscn" id="25_xu48g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn81u"]
-atlas = ExtResource("14_6hj2i")
-region = Rect2(0, 0, 29, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3in7f"]
 atlas = ExtResource("14_6hj2i")
@@ -124,14 +120,6 @@ region = Rect2(2816, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5la1i"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wn81u")
-}],
-"loop": true,
-"name": &"hidden",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3in7f")
@@ -355,9 +343,10 @@ rigidbodyRef = NodePath("../..")
 defaultSpeedTier = 1
 playerRef = NodePath("../..")
 
-[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerMoveObjects", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
+[node name="PlayerAttack" parent="Rotator" node_paths=PackedStringArray("playerHUD", "playerMoveObjects", "attackHitboxes", "attackSounds", "characterRef") instance=ExtResource("13_dunae")]
 playerHUD = NodePath("../../CanvasLayer/HBoxContainer/UI")
 playerMoveObjects = NodePath("../../PlayerMoveObjects")
+attackHitboxes = [null, NodePath("PlayerAttackHitbox")]
 attackSounds = [null, NodePath("../../Sounds/Attack")]
 characterRef = NodePath("../..")
 

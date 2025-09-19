@@ -2,6 +2,9 @@ class_name TransformationSprite
 extends Sprite2D
 
 @export var transformationChange: TransformationChange
+@export var baseColor: Color
+@export var transformationSpriteColorDuringMovement: Color
+@export var playerSpriteColorDuringMovement: Color
 
 var baseTextureInfo: SpriteFrames
 var baseTextureScale: Vector2
@@ -13,6 +16,16 @@ func Startup():
 	hide()
 	startRotationDegrees = global_rotation_degrees
 
+func TransformationSpriteDuringTransformationOperations():
+	if (transformationChange.isTransformed):
+		if (transformationChange.playerRef.velocity != Vector2.ZERO):
+			self.modulate = transformationSpriteColorDuringMovement
+			transformationChange.playerSprite.modulate = playerSpriteColorDuringMovement
+			transformationChange.playerSprite.show()
+			return
+		self.modulate = baseColor
+		transformationChange.playerSprite.hide()
+
 func FlipTransformationSprite():
 	if (transformationChange.playerRef.velocity.x == 0):
 		return
@@ -23,11 +36,13 @@ func FlipTransformationSprite():
 
 func ActivateTransformationSpriteOperations():
 	transformationChange.playerSprite.hide()
-	show()
+	self.show()
 
 func DeactivateTransformationSpriteOperations():
-	hide()
+	self.hide()
+	self.modulate = baseColor
 	transformationChange.playerSprite.show()
+	transformationChange.playerSprite.modulate = baseColor
 
 func KeepFixedImageRotation():
 	if (global_rotation_degrees != startRotationDegrees):

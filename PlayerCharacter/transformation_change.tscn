@@ -49,6 +49,9 @@ transformationChange = NodePath("..")
 [node name="TransformationSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("transformationChange")]
 script = ExtResource("2_rcty2")
 transformationChange = NodePath("..")
+baseColor = Color(1, 1, 1, 1)
+transformationSpriteColorDuringMovement = Color(1, 1, 1, 0.686275)
+playerSpriteColorDuringMovement = Color(1, 1, 1, 0.490196)
 
 [node name="TransformationOriginalObject" type="Node" parent="." node_paths=PackedStringArray("transformationChange")]
 script = ExtResource("2_t0h6v")
