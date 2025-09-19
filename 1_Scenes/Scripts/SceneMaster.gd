@@ -127,3 +127,4 @@ func LoadOperations():
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.playerHUD.emit_signal("has_attack", true)
+	playerRef.playerProgressionTrack.ActivateUpgrades()

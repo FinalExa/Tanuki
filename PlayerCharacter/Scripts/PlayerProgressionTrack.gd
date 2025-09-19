@@ -100,3 +100,8 @@ func RegisterQuestWithStage(questName: String, questStage: int):
 func RegisterAdvancers(questName: String, questAdvancer: int):
 	activeQuestNameForAdvancers.push_back(questName)
 	activeQuestsAdvancers.push_back(questAdvancer)
+
+func ActivateUpgrades():
+	if (obtainedUpgrades.size() > 0):
+		for i in obtainedUpgrades.size():
+			pass
