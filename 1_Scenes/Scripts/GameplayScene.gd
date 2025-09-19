@@ -19,6 +19,7 @@ enum SceneType
 @export var sceneType: SceneType
 @export var keyTypeToShow: SceneType
 @export var levelSpecialKey: SpecialUnlockKey
+@export var levelPurifiedKey: SpecialUnlockKey
 @export var levelUnlockKeys: Array[LevelUnlockKey]
 @export var levelUnlockKeyDoors: Array[LevelUnlockKeyDoor]
 
@@ -45,6 +46,8 @@ func SetKeys():
 				levelUnlockKeys[i].gameplayScene = self
 	if (levelSpecialKey != null):
 		levelSpecialKey.gameplayScene = self
+	if (levelPurifiedKey != null):
+		levelPurifiedKey.gameplayScene = self
 
 func SetQuests():
 	if (mapQuests.size() > 0):
@@ -92,6 +95,8 @@ func SetCurrentKeysForPlayer():
 					levelUnlockKeyDoors[currentUsedArray[i]].RegisterKey(currentIDArray[i])
 	if (playerRef.playerProgressionTrack.specialUnlockKeysObtained.has(sceneType) && levelSpecialKey != null):
 		levelSpecialKey.AlreadyGotThisKey()
+	if (playerRef.playerProgressionTrack.purifiedUnlockKeysObtained.has(sceneType) && levelPurifiedKey != null):
+		levelPurifiedKey.AlreadyGotThisKey()
 
 func SetPlayerSpawn(spawnPoint: Vector2):
 	if (playerRef.isTraveling):

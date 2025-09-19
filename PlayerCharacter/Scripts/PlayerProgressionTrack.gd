@@ -61,8 +61,9 @@ func RegisterSpecialKey(sceneType: GameplayScene.SceneType):
 	specialUnlockKeysObtained.push_back(sceneType)
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
-func RegisterPurifiedKey(sceneType: GameplayScene.SceneType):
+func RegisterPurifiedKey(sceneType: GameplayScene.SceneType, upgrade: TanukiUpgrades):
 	purifiedUnlockKeysObtained.push_back(sceneType)
+	obtainedUpgrades.push_back(upgrade)
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
