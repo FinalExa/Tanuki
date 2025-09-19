@@ -1,6 +1,7 @@
 class_name TransformationSounds
 extends Node
 
+@export var baseLowTime: float
 @export var transformationChange: TransformationChange
 @export var enterTransformationSound: AudioStreamPlayer
 @export var exitTransformationSound: AudioStreamPlayer
@@ -8,6 +9,7 @@ extends Node
 @export var transformationTimeLowSound: AudioStreamPlayer
 @export var transformationRemovedSound: AudioStreamPlayer
 
+var lowTimeRemaining: float
 var timeLowSoundPlayed: bool
 
 func PlayObjectSavedSound():
@@ -29,7 +31,7 @@ func PlayDeactivateTransformation():
 	timeLowSoundPlayed = false
 
 func PlayTransformationLowSound():
-	if (transformationChange.transformationTimer >= transformationChange.lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
+	if (transformationChange.transformationTimer >= lowTimeRemaining && !transformationTimeLowSound.playing && !timeLowSoundPlayed):
 		transformationTimeLowSound.play()
 		timeLowSoundPlayed = true
 

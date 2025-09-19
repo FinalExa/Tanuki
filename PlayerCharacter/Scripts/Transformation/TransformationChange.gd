@@ -16,14 +16,15 @@ signal send_transformation_active_info
 @export var transformationSounds: TransformationSounds
 @export var trasformationUndetectable: TrasformationUndetectable
 @export var transformationLock: TransformationLock
-@export var transformationDuration: float
-@export var lowTimeRemaining: float
+@export var transformationBaseDuration: float
+@export var transformationExtraDuration: float
 @export var baseCollisionShape: CollisionShape2D
 @export var playerSprite: AnimatedSprite2D
 @export var noTransformationText: String
 @export var transformationObjectSafeCoords: Vector2
 @export var transformationAttackTimerCost: float
 
+var transformationDuration: float = 0
 var currentTransformationObject: TransformationObjectData
 var currentOriginalObjectPath: String
 var currentTransformationSet: bool
@@ -37,11 +38,14 @@ var baseCollisionShapeInfo: Shape2D
 var transformationLocked: bool
 var sceneRef: Node2D
 var localAllowedItemsRef: Array[LocalAllowedItems]
+var upgradeDuration: bool
 
 func _ready():
 	InitialSetup()
 
 func InitialSetup():
+	if (transformationDuration == 0):
+		ResetUpgradeDuration()
 	baseCollisionShapeInfo = baseCollisionShape.shape
 	transformationSprite.Startup()
 	emit_signal("send_transformation_active_info", transformationTimer, transformationDuration, noTransformationText)
@@ -57,6 +61,16 @@ func _process(delta):
 	transformationActivation.CheckForDeactivateTransformation()
 	transformationActivation.TransformationActive(delta)
 	transformationAttacking.CheckForAttackInput()
+
+func ResetUpgradeDuration():
+	upgradeDuration = false
+	transformationDuration = transformationBaseDuration
+	transformationSounds.lowTimeRemaining = transformationSounds.baseLowTime
+
+func EnableUpgradeDuration():
+	upgradeDuration = true
+	transformationDuration = transformationBaseDuration + transformationExtraDuration
+	transformationSounds.lowTimeRemaining = transformationSounds.baseLowTime + transformationExtraDuration
 
 func SetNoTransformation():
 	if (currentTransformationObject != null): transformationActivation.call_deferred("DeactivateTransformation")

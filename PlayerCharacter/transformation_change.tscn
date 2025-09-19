@@ -27,8 +27,8 @@ transformationOriginalObject = NodePath("TransformationOriginalObject")
 transformationSounds = NodePath("TransformationSounds")
 trasformationUndetectable = NodePath("TrasformationUndetectable")
 transformationLock = NodePath("TransformationLock")
-transformationDuration = 20.0
-lowTimeRemaining = 17.0
+transformationBaseDuration = 20.0
+transformationExtraDuration = 10.0
 noTransformationText = "No Transformation"
 transformationObjectSafeCoords = Vector2(-100000, -100000)
 transformationAttackTimerCost = 3.0
@@ -56,6 +56,7 @@ transformationChange = NodePath("..")
 
 [node name="TransformationSounds" type="Node" parent="." node_paths=PackedStringArray("transformationChange", "enterTransformationSound", "exitTransformationSound", "objectSavedSound", "transformationTimeLowSound", "transformationRemovedSound")]
 script = ExtResource("2_s8qjy")
+baseLowTime = 17.0
 transformationChange = NodePath("..")
 enterTransformationSound = NodePath("EnterTransformation")
 exitTransformationSound = NodePath("ExitTransformation")

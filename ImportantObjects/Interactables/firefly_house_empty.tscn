@@ -13,11 +13,10 @@ neededProperties = Array[String](["Firefly"])
 destroyOnEnd = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -40)
 texture = ExtResource("2_dg1b1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dwyxa")

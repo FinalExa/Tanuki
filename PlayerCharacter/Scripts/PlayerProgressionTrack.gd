@@ -109,6 +109,7 @@ func ActivateUpgrades():
 				playerRef.playerHealth.UpgradeMaxHealth()
 				continue
 			if(obtainedUpgrades[i] == TanukiUpgrades.TRANSFORMATION_TIME):
+				playerRef.transformationChangeRef.EnableUpgradeDuration()
 				continue
 			if(obtainedUpgrades[i] == TanukiUpgrades.SHORTER_LEAF_CD):
 				continue
