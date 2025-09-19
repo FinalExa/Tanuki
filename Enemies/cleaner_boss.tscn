@@ -33,7 +33,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7381m"]
 radius = 16.0
-height = 80.0
+height = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0wd2"]
 atlas = ExtResource("11_oxecu")
@@ -195,7 +195,7 @@ position = Vector2(112, 0)
 [node name="EnemyRepelled" parent="." node_paths=PackedStringArray("enemyController") instance=ExtResource("20_od2c3")]
 enemyController = NodePath("..")
 repelledTime = 0.3
-repelledDistance = 350.0
+repelledDistance = 450.0
 repelledOffset = -90.0
 
 [node name="BehaviorTree" type="Node" parent="." node_paths=PackedStringArray("root")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=128 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="8_agnml"]
 [ext_resource type="PackedScene" uid="uid://bhev8beol8k3u" path="res://Level/UnlockKey/special_unlock_key.tscn" id="8_bxkg3"]
 [ext_resource type="PackedScene" uid="uid://b10ly0ikwygr3" path="res://Level/UnlockKey/level_unlock_key_door.tscn" id="9_du280"]
+[ext_resource type="PackedScene" uid="uid://by6vg62vru11u" path="res://Level/UnlockKey/purified_special_unlock_key.tscn" id="9_yocue"]
 [ext_resource type="Script" path="res://Level/MapQuests/Scripts/MapQuest.gd" id="10_67fd8"]
 [ext_resource type="PackedScene" uid="uid://nxs64fn68deh" path="res://ImportantObjects/Interactables/water_source.tscn" id="11_6lhvk"]
 [ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="12_8ip6f"]
@@ -50,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://b26bn2ct5upyr" path="res://Enemies/guard.tscn" id="43_2cow1"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="44_k83du"]
 [ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="44_kp8o0"]
+[ext_resource type="PackedScene" uid="uid://bnk35sq5s2f38" path="res://Level/Prefabs/wall_tile.tscn" id="45_1f0tj"]
 [ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="45_gimc5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iokbp"]
@@ -90,30 +92,40 @@ radius = 128.0
 [sub_resource type="Resource" id="Resource_r6kqn"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_kfcrv"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_465r2"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_5ctfj"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("StunArea1")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_1om32"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -123,18 +135,24 @@ size = Vector2(368, 864)
 [sub_resource type="Resource" id="Resource_iynx3"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_tq8t8"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("StunArea2")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_o6is4"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -144,18 +162,24 @@ size = Vector2(496, 480)
 [sub_resource type="Resource" id="Resource_cjmb3"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_dng5v"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("StunArea3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_j6jbb"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
@@ -165,54 +189,72 @@ size = Vector2(496, 608)
 [sub_resource type="Resource" id="Resource_v7cep"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_e4cnk"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("OldYokaiNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_a77lk"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("OldYokai")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_f64iq"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("ReachPoint/OldYokaiNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_dn0s6"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("OldYokaiNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_yyt02"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("OldYokaiNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_k4ti4"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("OldYokai")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_1b5ma"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("ReachPoint/OldYokaiNPC")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_uvx6i"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
@@ -233,30 +275,40 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_mqk2i"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_wcjea"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathroomGeneratorYokai")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_vropu"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BrokenGeneratorYokai")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
 
 [sub_resource type="Resource" id="Resource_w0rme"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathroomGeneratorYokai")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_t5qcu"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+useAltItem = false
+altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
 
@@ -290,6 +342,105 @@ size = Vector2(512, 320)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktwfu"]
 size = Vector2(256, 384)
 
+[sub_resource type="Resource" id="Resource_i7dxm"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pu8k7"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_w2k72"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("PurifiedKeyTileMap")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_kafda"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_puif6"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_vjjdx"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("WallTile")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_lx5bp"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("WallTile2")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pup74"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("PurifiedKeyTileMap")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_1bu88"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("WallTile3")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ikf67"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("WallTile4")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ywkuw"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_6jhwy"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebb0i"]
+size = Vector2(768, 480)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6nd"]
 size = Vector2(128, 256)
 
@@ -320,7 +471,7 @@ size = Vector2(512, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kynkg"]
 size = Vector2(368, 504)
 
-[node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
+[node name="Bathrooms" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelPurifiedKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("1_jstu8")
 format = 2
@@ -334,7 +485,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 917504, 131072, 1, 983039, 131072, 1, 983038, 131072, 1, 983037, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 0, -10, 131072, 1, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 65536, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5, 65525, 0, 1, 131061, 655360, 4, 196597, 655360, 5, 262131, 131072, 1, 262132, 131072, 1, 262133, 196608, 1)
+layer_1/tile_data = PackedInt32Array(-1, 131072, 1, -65536, 327680, 3, -65535, 393216, 3, -65531, 131072, 1, -65530, 65536, 65536, -65527, 131072, 1, -2, 131072, 1, -3, 131072, 1, -4, 131072, 1, -851968, 131072, 1, -786433, 131072, 1, -786434, 131072, 1, -786435, 131072, 1, -786436, 131072, 1, -786437, 131072, 1, -786438, 131072, 1, -786442, 131072, 1, -851967, 131072, 1, -851966, 131072, 1, -851965, 131072, 1, -851964, 131072, 1, -851963, 131072, 1, -851962, 65536, 0, -851961, 131072, 1, -851960, 131072, 1, -851959, 131072, 1, 6, 262144, 1, 65542, 262144, 1, 131078, 262144, 1, 196614, 262144, 1, 393222, 262144, 1, 458758, 262144, 1, 524294, 262144, 1, 655370, 262144, 1, 589834, 262144, 1, 524298, 262144, 1, 458762, 262144, 1, 393226, 262144, 1, 327690, 720896, 5, 262154, 720896, 4, 196618, 262144, 1, 131082, 262144, 1, 65546, 262144, 1, 10, 262144, 1, -65526, 262144, 1, -131062, 262144, 1, -196598, 262144, 1, -262134, 262144, 1, -327670, 262144, 1, -393206, 262144, 1, -458742, 262144, 1, -524278, 262144, 1, -589814, 262144, 1, -655350, 262144, 1, -720886, 262144, 1, -786422, 262144, 1, -851958, 262144, 1, -5, 131072, 1, -65529, 327680, 3, -65528, 393216, 3, -589815, 131072, 1, -589816, 131072, 1, -589817, 131072, 1, -589818, 65536, 0, -786426, 262144, 1, 196613, 131072, 1, 196612, 131072, 1, 262150, 720896, 4, 327686, 720896, 5, 720906, 262144, 1, 786442, 262144, 1, 851978, 262144, 1, 917514, 262144, 2, 983026, 0, 2, 917490, 0, 1, 851954, 0, 1, 786418, 0, 1, 720882, 0, 1, 655346, 0, 1, 589810, 0, 1, 524274, 0, 1, 458738, 0, 1, 393202, 0, 1, 327666, 0, 1, 262130, 0, 1, 196594, 0, 1, 131058, 0, 1, 65522, 0, 1, -14, 0, 1, -65550, 0, 1, -131086, 0, 1, -196622, 0, 1, -262158, 0, 1, -327694, 0, 1, -393230, 0, 1, -458766, 0, 1, -524302, 0, 1, -589838, 0, 1, -655374, 0, 1, -720910, 0, 1, -786444, 131072, 1, -786443, 131072, 0, -786445, 65536, 1, -786446, 0, 1, 917513, 196608, 1, 917512, 131072, 1, 917511, 131072, 1, 917510, 131072, 1, 917509, 131072, 1, 917508, 131072, 1, 917507, 131072, 1, 917506, 131072, 1, 917505, 131072, 1, 983036, 131072, 1, 983035, 131072, 1, 983034, 131072, 1, 983033, 131072, 1, 983032, 131072, 1, 983031, 131072, 1, 983030, 131072, 1, 983029, 131072, 1, 983028, 131072, 1, 983027, 65536, 1, 851974, 262144, 1, 524275, 131072, 1, 524276, 131072, 1, 524277, 131072, 1, -786439, 131072, 1, -720907, 0, 1, -655371, 0, 1, -327693, 131072, 1, -327692, 131072, 1, -327691, 196608, 1, -393227, 0, 1, -458763, 0, 1, -13, 131072, 1, -12, 131072, 1, -11, 131072, 0, -10, 131072, 1, -9, 327680, 3, -8, 393216, 3, -7, 131072, 1, -6, 131072, 1, 720902, 720896, 4, 786438, 720896, 5, 655366, 262144, 1, 589830, 262144, 1, 917494, 0, 1, 851958, 0, 1, 524278, 131072, 0, -65534, 131072, 1, -65533, 65536, 65536, 196611, 65536, 1, -65532, 131072, 1, 3, 262144, 2, 589814, 0, 1, 655350, 0, 1, 131075, 262144, 1, -262135, 131072, 1, -262136, 131072, 1, -262137, 131072, 1, -262138, 65536, 1, -327674, 262144, 1, -524282, 720896, 4, -458746, 720896, 5, -393210, 262144, 1, -720890, 720896, 4, -655354, 720896, 5, -589835, 655360, 4, -524299, 655360, 5, 720886, 655360, 4, 786422, 655360, 5, 65525, 0, 1, 131061, 655360, 4, 196597, 655360, 5, 262131, 131072, 1, 262132, 131072, 1, 262133, 196608, 1)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -347,9 +498,10 @@ playerSpawnPoint = NodePath("Teleport/PlayerSpawn")
 sceneType = 2
 keyTypeToShow = 2
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
+levelPurifiedKey = NodePath("Keys/PurifiedSpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
-levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsActivateBathtubs"), NodePath("Quests/BathroomsSetBathtub1"), NodePath("Quests/BathroomsSetBathtub2"), NodePath("Quests/BathroomsSetBathtub3"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsRepairGenerator"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey")]
+levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor"), NodePath("Keys/PurifiedLevelUnlockKeyDoor")]
+mapQuests = [NodePath("Quests/BathroomsActivatePools"), NodePath("Quests/BathroomsSaveGenerator1"), NodePath("Quests/BathroomsGenerator1Dialogue"), NodePath("Quests/BathroomsSaveGenerator2"), NodePath("Quests/BathroomsActivateBathtubs"), NodePath("Quests/BathroomsSetBathtub1"), NodePath("Quests/BathroomsSetBathtub2"), NodePath("Quests/BathroomsSetBathtub3"), NodePath("Quests/BathroomsRescueOldYokai"), NodePath("Quests/BathroomsCleanFloor"), NodePath("Quests/BathroomsRepairGenerator"), NodePath("Quests/BathroomsUltraKey"), NodePath("Quests/BathroomsGetUltraKey"), NodePath("Quests/BathroomsPurifiedKey")]
 travelingAreas = [NodePath("Teleport/TravelToHall"), null]
 travelingReceivers = [NodePath("Teleport/TravelToHall/HallReceiver"), null]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -406,12 +558,25 @@ position = Vector2(-1472, -3456)
 keyAdvancesQuest = true
 questToAdvance = NodePath("../../Quests/BathroomsGetUltraKey")
 
+[node name="PurifiedSpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("9_yocue")]
+position = Vector2(-128, 2432)
+purifiedUpgrade = 2
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/BathroomsPurifiedKey")
+
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("9_du280")]
 position = Vector2(-1024, -1600)
 sceneType = 2
 requiredKeys = 3
 advancesQuest = true
 questToAdvance = NodePath("../../Quests/BathroomsUltraKey")
+
+[node name="PurifiedLevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("9_du280")]
+position = Vector2(-128, 1856)
+sceneType = 2
+requiredKeys = 2
+advancesQuest = true
+questToAdvance = NodePath("../../Quests/BathroomsPurifiedKey")
 
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1532,13 +1697,14 @@ deleteOnDone = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/DialogueArea"]
 shape = SubResource("RectangleShape2D_ph42l")
 
-[node name="BathroomsGetUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="BathroomsGetUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsGetUltraKey"
 questItemsToOperate = [NodePath("SavePoint"), NodePath("SavePoint")]
 questItemsStages = Array[int]([0, 2])
 questItemsOnOffState = Array[bool]([false, true])
+advanceOtherQuestsOnEnd = [NodePath("../BathroomsPurifiedKey")]
 
 [node name="SavePoint" parent="Quests/BathroomsGetUltraKey" instance=ExtResource("8_agnml")]
 position = Vector2(-1472, -3456)
@@ -1547,6 +1713,55 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsGetUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_ktwfu")
+
+[node name="BathroomsPurifiedKey" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("10_67fd8")
+questName = "BathroomsPurifiedKey"
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_i7dxm"), SubResource("Resource_pu8k7"), SubResource("Resource_w2k72"), SubResource("Resource_kafda"), SubResource("Resource_puif6"), SubResource("Resource_vjjdx"), SubResource("Resource_lx5bp"), SubResource("Resource_pup74"), SubResource("Resource_1bu88"), SubResource("Resource_ikf67"), SubResource("Resource_ywkuw"), SubResource("Resource_6jhwy")])
+
+[node name="PurifiedKeyTileMap" type="TileMap" parent="Quests/BathroomsPurifiedKey"]
+y_sort_enabled = true
+tile_set = ExtResource("1_jstu8")
+format = 2
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -999
+layer_0/tile_data = PackedInt32Array(1048574, 393216, 7, 1048575, 393216, 7, 1114111, 393216, 7, 1114110, 393216, 7, 1179644, 393216, 7, 1179645, 393216, 7, 1179646, 393216, 7, 1179647, 393216, 7, 1114112, 393216, 7, 1114113, 393216, 7, 1179649, 393216, 7, 1245185, 393216, 7, 1310721, 393216, 7, 1310720, 393216, 7, 1376255, 393216, 7, 1376254, 393216, 7, 1376253, 393216, 7, 1376252, 393216, 7, 1310716, 393216, 7, 1245180, 393216, 7, 1245181, 393216, 7, 1245182, 393216, 7, 1245183, 393216, 7, 1179648, 393216, 7, 1245184, 393216, 7, 1310719, 393216, 7, 1310718, 393216, 7, 1310717, 393216, 7)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(1114109, 196608, 1, 1114108, 131072, 1, 1376252, 131072, 1, 1376253, 131072, 1, 1376254, 131072, 1, 1376255, 131072, 1, 1310720, 131072, 1, 1310721, 131072, 1, 1048576, 65536, 1, 1048577, 131072, 1, 1048573, 0, 1, 983040, 262144, 1, 983037, 131072, 65536, 917504, 65536, 65536, 1114107, 0, 1, 1179643, 0, 1, 1245179, 0, 1, 1310715, 0, 1, 1048578, 262144, 1, 1114114, 262144, 1, 1179650, 262144, 1, 1245186, 262144, 1, 1310722, 262144, 2, 1376251, 0, 2)
+layer_2/name = "Furniture"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+
+[node name="WallTile" parent="Quests/BathroomsPurifiedKey" instance=ExtResource("45_1f0tj")]
+position = Vector2(-192, 1856)
+
+[node name="WallTile2" parent="Quests/BathroomsPurifiedKey" instance=ExtResource("45_1f0tj")]
+position = Vector2(-64, 1856)
+
+[node name="WallTile3" parent="Quests/BathroomsPurifiedKey" instance=ExtResource("45_1f0tj")]
+position = Vector2(-320, 1856)
+
+[node name="WallTile4" parent="Quests/BathroomsPurifiedKey" instance=ExtResource("45_1f0tj")]
+position = Vector2(64, 1856)
+
+[node name="SavePoint" parent="Quests/BathroomsPurifiedKey" instance=ExtResource("8_agnml")]
+position = Vector2(-128, 2416)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsPurifiedKey/SavePoint"]
+shape = SubResource("RectangleShape2D_ebb0i")
 
 [node name="Teleport" type="Node2D" parent="."]
 
@@ -1558,7 +1773,6 @@ position = Vector2(1376, 640)
 sendToTravelID = 2
 sceneToLoad = "res://1_Scenes/Hall.tscn"
 removeTransformation = true
-deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/TravelToHall"]
 shape = SubResource("RectangleShape2D_5v6nd")

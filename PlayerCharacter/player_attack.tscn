@@ -22,6 +22,8 @@ animations = [{
 [node name="PlayerAttack" type="Node2D" node_paths=PackedStringArray("attackHitboxes", "attackSounds")]
 script = ExtResource("1_7s3bv")
 attackTag = "Leaf"
+baseCooldown = 120
+shortenedCooldown = 90
 attackDuration = 15
 attackCooldown = 120
 attackPhasesLaunch = Array[int]([0, 5])
