@@ -4,6 +4,9 @@ extends ExecuteAttack
 @export var playerHUD: PlayerHUD
 @export var attackTag: String
 @export var playerMoveObjects: PlayerMoveObjects
+@export var baseCooldown: int
+@export var shortenedCooldown: int
+var upgradedCooldown: bool
 
 func _process(_delta):
 	CheckForInput()
@@ -25,6 +28,14 @@ func CheckForInput():
 func FinalizeAttack():
 	characterRef.playerMovement.EnableMovement()
 	attackLaunched = false
+
+func ResetCooldownUpgrade():
+	upgradedCooldown = false
+	attackCooldown = baseCooldown
+
+func EnableCooldownUpgrade():
+	upgradedCooldown = true
+	attackCooldown = shortenedCooldown
 
 func StartCooldown():
 	attackInCooldown = true

@@ -112,6 +112,7 @@ func ActivateUpgrades():
 				playerRef.transformationChangeRef.EnableUpgradeDuration()
 				continue
 			if(obtainedUpgrades[i] == TanukiUpgrades.SHORTER_LEAF_CD):
+				playerRef.playerAttack.EnableCooldownUpgrade()
 				continue
 			if(obtainedUpgrades[i] == TanukiUpgrades.DASH_TRANSFORM):
 				playerRef.playerRoll.EnableTransformationUpgrade()

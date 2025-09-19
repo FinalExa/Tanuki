@@ -129,6 +129,7 @@ func LoadOperations():
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.playerHUD.emit_signal("has_attack", true)
+	playerRef.playerAttack.ResetCooldownUpgrade()
 	playerRef.transformationChangeRef.ResetUpgradeDuration()
 	playerRef.playerHealth.ResetMaxHealth()
 	playerRef.playerRoll.ResetUpgrades()
