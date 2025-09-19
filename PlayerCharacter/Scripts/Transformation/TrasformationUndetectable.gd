@@ -5,7 +5,6 @@ extends Node
 @export var undetectableDuration: float
 var undetectableTimer: float
 
-
 func UndetectableActivate():
 	if (!transformationChange.undetectable):
 		undetectableTimer = undetectableDuration

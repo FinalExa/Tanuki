@@ -179,13 +179,15 @@ position = Vector2(93.5, 984)
 scale = Vector2(0.867188, 0.859375)
 texture = ExtResource("9_kgvep")
 
-[node name="Hearts" type="Control" parent="." node_paths=PackedStringArray("fullHeartsArray", "emptyHeartsArray")]
+[node name="Hearts" type="Control" parent="." node_paths=PackedStringArray("fullHeartsArray", "emptyHeartsArray", "upgradeFullHeart", "upgradeEmptyHeart")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("10_0qe22")
 fullHeartsArray = [NodePath("HeartFull1"), NodePath("HeartFull2")]
 emptyHeartsArray = [NodePath("HeartEmpty1"), NodePath("HeartEmpty2")]
+upgradeFullHeart = NodePath("HeartFull3")
+upgradeEmptyHeart = NodePath("HeartEmpty3")
 
 [node name="HeartFull1" type="TextureRect" parent="Hearts"]
 layout_mode = 0

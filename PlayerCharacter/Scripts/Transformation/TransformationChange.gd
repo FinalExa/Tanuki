@@ -31,6 +31,7 @@ var currentTransformationPassive: TransformationObjectPassive
 var currentAttack: ExecuteAttack
 var isTransformed: bool
 var undetectable: bool
+var superUndetectable: bool
 var transformationTimer: float
 var baseCollisionShapeInfo: Shape2D
 var transformationLocked: bool
@@ -74,7 +75,7 @@ func UnsetLocalZone(localRef: LocalAllowedItems):
 		localAllowedItemsRef.erase(localRef)
 
 func get_if_transformed_in_right_zone():
-	if (undetectable): return 1
+	if (undetectable || superUndetectable): return 1
 	if (isTransformed):
 		if (localAllowedItemsRef != null):
 			for i in localAllowedItemsRef.size():

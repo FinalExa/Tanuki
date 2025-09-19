@@ -64,6 +64,7 @@ func SavePlayerData(file):
 	file.store_var(playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
 	file.store_var(playerRef.playerProgressionTrack.specialUnlockKeysObtained)
 	file.store_var(playerRef.playerProgressionTrack.purifiedUnlockKeysObtained)
+	file.store_var(playerRef.playerProgressionTrack.obtainedUpgrades)
 	file.store_var(playerRef.playerProgressionTrack.activeQuests)
 	file.store_var(playerRef.playerProgressionTrack.activeQuestsStages)
 	file.store_var(playerRef.playerProgressionTrack.activeQuestNameForAdvancers)
@@ -104,6 +105,7 @@ func LoadPlayerData():
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.usedUnlockKeyForDoors)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.specialUnlockKeysObtained)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.purifiedUnlockKeysObtained)
+		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.obtainedUpgrades)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuests)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestsStages)
 		ExtractArray(file.get_var(), playerRef.playerProgressionTrack.activeQuestNameForAdvancers)
@@ -127,4 +129,6 @@ func LoadOperations():
 	else:
 		playerRef.transformationChangeRef.SetNoTransformation()
 	playerRef.playerHUD.emit_signal("has_attack", true)
+	playerRef.playerHealth.ResetMaxHealth()
+	playerRef.playerRoll.ResetUpgrades()
 	playerRef.playerProgressionTrack.ActivateUpgrades()

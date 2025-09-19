@@ -68,6 +68,8 @@ animations = [{
 [node name="PlayerHealth" type="Node2D" node_paths=PackedStringArray("heartSpriteRef")]
 script = ExtResource("1_4ovwh")
 maxHealth = 2
+baseMaxHealth = 2
+upgradedMaxHealthValue = 3
 heartSpriteRef = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

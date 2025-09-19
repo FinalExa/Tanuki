@@ -3,6 +3,8 @@ extends Node2D
 
 @export var playerRef: PlayerCharacter
 @export var maxHealth: int
+@export var baseMaxHealth: int
+@export var upgradedMaxHealthValue: int
 @export var heartSpriteRef: AnimatedSprite2D
 @export var playerSprite: AnimatedSprite2D
 @export var invincibilityTime: float
@@ -40,13 +42,23 @@ func Flicker(delta):
 		if (playerSprite.visible): playerSprite.hide()
 		else: playerSprite.show()
 
-func UpdateMaxHealth(value: int):
-	maxHealth += value
-	for i in value:
-		call_deferred("SpawnSprite")
+func UpgradeMaxHealth():
+	maxHealth = upgradedMaxHealthValue
+	currentHealth += 1
+	playerRef.playerHUD.uIHearts.AddExtraHearts()
+	playerRef.playerHUD.uIHearts.Refill()
+	if (currentHealth < maxHealth):
+		playerRef.playerHUD.uIHearts.MakeHeartEmpty(currentHealth)
+
+func ResetMaxHealth():
+	maxHealth = baseMaxHealth
+	currentHealth = maxHealth
+	SetHealthToMax()
+	playerRef.playerHUD.uIHearts.RemoveExtraHearts()
 
 func SetHealthToMax():
 	currentHealth = maxHealth
+	playerRef.playerHUD.uIHearts.Refill()
 
 func ReceiveDamage(damageReceived: int):
 	if (currentHealth > 0):

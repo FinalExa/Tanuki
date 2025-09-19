@@ -8,6 +8,7 @@ var unlockKeyIDs: Array[int]
 var usedUnlockKeyForDoors: Array[int]
 var specialUnlockKeysObtained: Array[GameplayScene.SceneType]
 var purifiedUnlockKeysObtained: Array[GameplayScene.SceneType]
+var obtainedUpgrades: Array[TanukiUpgrades]
 
 var currentUnlockKeyType: GameplayScene.SceneType
 var currentIDArray: Array[int]
@@ -27,7 +28,6 @@ enum TanukiUpgrades
 	DASH_KEEP_MOVABLE
 }
 
-var obtainedUpgrades: Array[TanukiUpgrades]
 
 func ClearAll():
 	unlockKeyTypes.clear()
@@ -64,6 +64,7 @@ func RegisterSpecialKey(sceneType: GameplayScene.SceneType):
 func RegisterPurifiedKey(sceneType: GameplayScene.SceneType, upgrade: TanukiUpgrades):
 	purifiedUnlockKeysObtained.push_back(sceneType)
 	obtainedUpgrades.push_back(upgrade)
+	ActivateUpgrades()
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
@@ -104,4 +105,15 @@ func RegisterAdvancers(questName: String, questAdvancer: int):
 func ActivateUpgrades():
 	if (obtainedUpgrades.size() > 0):
 		for i in obtainedUpgrades.size():
-			pass
+			if(obtainedUpgrades[i] == TanukiUpgrades.HEALTH):
+				playerRef.playerHealth.UpgradeMaxHealth()
+				continue
+			if(obtainedUpgrades[i] == TanukiUpgrades.TRANSFORMATION_TIME):
+				continue
+			if(obtainedUpgrades[i] == TanukiUpgrades.SHORTER_LEAF_CD):
+				continue
+			if(obtainedUpgrades[i] == TanukiUpgrades.DASH_TRANSFORM):
+				playerRef.playerRoll.EnableTransformationUpgrade()
+				continue
+			if(obtainedUpgrades[i] == TanukiUpgrades.DASH_KEEP_MOVABLE):
+				playerRef.playerRoll.EnableMovableUpgrade()

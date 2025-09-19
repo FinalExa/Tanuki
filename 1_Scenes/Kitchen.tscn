@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=147 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bhi6trciqo44g" path="res://ImportantObjects/Interactables/chef_yokai.tscn" id="21_pte4f"]
 [ext_resource type="PackedScene" uid="uid://d25qn3k6u6dk6" path="res://ImportantObjects/MovableObjects/dango_movable.tscn" id="21_sonpo"]
 [ext_resource type="PackedScene" uid="uid://ps62tfdm3nbe" path="res://ImportantObjects/Interactables/lantern_rope_regulator_broken.tscn" id="21_u855c"]
+[ext_resource type="PackedScene" uid="uid://by6vg62vru11u" path="res://Level/UnlockKey/purified_special_unlock_key.tscn" id="22_ee68d"]
 [ext_resource type="Texture2D" uid="uid://tq5u6jm4kv8l" path="res://ImportantObjects/TransformationObjects/Sprites/Jknife-001.png" id="22_v4ovx"]
 [ext_resource type="PackedScene" uid="uid://bpg0dbhfi6c2h" path="res://ImportantObjects/MovableObjects/rice_movable.tscn" id="22_vp878"]
 [ext_resource type="PackedScene" uid="uid://b31wt32ylaxaw" path="res://ImportantObjects/TransformationObjects/broom.tscn" id="23_2lu15"]
@@ -70,6 +71,10 @@
 [ext_resource type="Texture2D" uid="uid://m63g54pc6n03" path="res://Level/Sprites/Salmone.png" id="49_q2map"]
 [ext_resource type="PackedScene" uid="uid://dkjgvkoqta84p" path="res://Sounds/player_in_special_room_sound_trigger.tscn" id="58_mg625"]
 [ext_resource type="PackedScene" uid="uid://bhev8beol8k3u" path="res://Level/UnlockKey/special_unlock_key.tscn" id="59_st7qe"]
+[ext_resource type="Script" path="res://Level/MapQuests/Scripts/QuestIndex.gd" id="61_hxixi"]
+[ext_resource type="PackedScene" uid="uid://bnk35sq5s2f38" path="res://Level/Prefabs/wall_tile.tscn" id="61_l0e1e"]
+[ext_resource type="PackedScene" uid="uid://bpqma02nu6fgo" path="res://Level/Prefabs/wall_tile_continued_right.tscn" id="63_d6irm"]
+[ext_resource type="PackedScene" uid="uid://carf0csgqnob0" path="res://Level/Prefabs/wall_tile_continued_left.tscn" id="64_b37j7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxsb"]
 size = Vector2(1792, 1664)
@@ -196,6 +201,129 @@ size = Vector2(384, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymr5d"]
 size = Vector2(256, 224)
 
+[sub_resource type="Resource" id="Resource_kxml6"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_i1o75"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("PurifiedTileMap")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_5yxve"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_a5cg8"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTileContinuedRight")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_tm2nw"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTileContinuedLeft")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_n5wt0"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTile")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_uwbit"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTile2")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_0yk3g"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_4tkmt"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("PurifiedTileMap")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_0okxc"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTile3")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_n7ful"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTile4")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vykmx"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTileContinuedRight")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_bh63h"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("WallTileContinuedLeft")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_rmu2q"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_nb6nt"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("SavePoint")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccyfs"]
+size = Vector2(768, 480)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lcf0"]
 size = Vector2(256, 64)
 
@@ -250,7 +378,7 @@ size = Vector2(144, 1024)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2dn"]
 size = Vector2(128, 480)
 
-[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
+[node name="Kitchen" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelPurifiedKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("40_wejvi")
 format = 2
@@ -264,7 +392,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-393234, 131072, 1, 851950, 131072, 1, 786445, 131072, 1, -458739, 131072, 1, -196595, 196608, 1, 458756, 131072, 1, 327662, 131072, 1, -196597, 131072, 1, 458759, 131072, 1, -393233, 131072, 1, -393228, 131072, 1, -393224, 131072, 1, -393222, 196608, 1, -393221, 131072, 1, -393218, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 0, 3, 786444, 131072, 1, 786443, 131072, 1, 786442, 131072, 1, 786441, 196608, 1, 786440, 131072, 1, 786439, 131072, 1, 786438, 131072, 1, 786437, 131072, 1, 786436, 131072, 1, 786435, 131072, 1, 786434, 131072, 1, 786433, 131072, 1, 786432, 131072, 1, 851967, 65536, 65536, 851963, 131072, 1, 851962, 131072, 65536, 851961, 196608, 1, 851960, 131072, 1, 851959, 131072, 1, 851958, 131072, 1, 851957, 131072, 1, 851956, 131072, 1, 851955, 131072, 1, 851954, 131072, 1, 851953, 131072, 1, 851952, 131072, 1, 851951, 131072, 1, 327663, 131072, 1, 327664, 131072, 1, 327665, 131072, 1, 327666, 131072, 1, 327671, 131072, 1, 327672, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, 458760, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458764, 131072, 1, 458765, 131072, 1, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 262144, 1, -65522, 262144, 1, -131058, 262144, 1, -196594, 262144, 1, -262130, 262144, 1, -327666, 262144, 1, -393202, 262144, 1, -458738, 262144, 1, -393235, 0, 1, -327699, 0, 1, -262163, 0, 1, -196627, 0, 1, -131091, 0, 1, -65555, 0, 1, -19, 0, 1, 65517, 0, 1, 131053, 0, 1, 196589, 0, 1, 262125, 0, 1, 327661, 0, 1, 393197, 0, 1, 458733, 0, 1, 524269, 0, 1, 589805, 0, 1, 655341, 0, 1, 720877, 0, 1, 786413, 0, 1, 786446, 262144, 2, 524275, 0, 2, 327667, 131072, 65536, 327670, 131072, 1, 327673, 131072, 0, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, -327687, 0, 1, -262151, 0, 1, -196615, 0, 1, -131079, 0, 1, -65543, 0, 1, -327681, 0, 1, -262145, 0, 1, -196609, 131072, 0, -131073, 0, 1, -65537, 0, 1, -1, 0, 1, 65535, 0, 1, 131071, 0, 2, -7, 0, 2, -393223, 131072, 65536, -393217, 131072, 0, 786425, 0, 1, 720889, 0, 1, 720905, 0, 1, 524297, 0, 2, 458761, 131072, 65536, 262137, 0, 1, 196601, 0, 1, 458751, 0, 1, 393215, 0, 1, 327679, 0, 1, 524287, 0, 2, -196596, 131072, 1, 458739, 131072, 0, 393203, 0, 1, 458738, 131072, 1, -589830, 131072, 0, -524294, 0, 1, -458758, 0, 1, -655365, 983040, 15, -655364, 983040, 15, -655363, 983040, 15, -655362, 983040, 15, 851966, 131072, 1, 851949, 0, 2, -393227, 131072, 1, -393230, 65536, 1, -393229, 65536, 1, -589837, 65536, 0, -589836, 131072, 1, -589835, 131072, 1, -589834, 131072, 1, -589833, 131072, 1, -589832, 131072, 1, -589831, 131072, 1, -524301, 262144, 1, -458765, 262144, 1, -393226, 327680, 3, -393225, 393216, 3, 917503, 262144, 1, 983039, 262144, 1, 917498, 0, 1, 983034, 0, 1, 1048570, 0, 2, 1048575, 262144, 2, 1048571, 131072, 1, 1048572, 327680, 3, 1048573, 393216, 3, 1048574, 131072, 1, -196614, 131072, 1, -196613, 131072, 1, -196612, 327680, 3, -196610, 131072, 1, -196611, 393216, 3)
+layer_1/tile_data = PackedInt32Array(-393234, 131072, 1, 851950, 131072, 1, 786445, 131072, 1, -458739, 131072, 1, -196595, 196608, 1, 458756, 131072, 1, 327662, 131072, 1, -196597, 131072, 1, 458759, 131072, 1, -393233, 131072, 1, -393228, 131072, 1, -393224, 131072, 1, -393222, 196608, 1, -393221, 131072, 1, -393218, 131072, 1, -458749, 131072, 1, -458748, 131072, 1, -458747, 131072, 1, -458746, 131072, 1, -458745, 131072, 1, -458744, 131072, 1, -458743, 131072, 1, -458742, 131072, 1, -458741, 131072, 1, -458740, 0, 3, 786444, 131072, 1, 786443, 131072, 1, 786442, 131072, 1, 786441, 196608, 1, 786440, 131072, 1, 786439, 131072, 1, 786438, 131072, 1, 786437, 131072, 1, 786436, 131072, 1, 786435, 131072, 1, 786434, 131072, 1, 786433, 131072, 1, 786432, 131072, 1, 851967, 65536, 65536, 851963, 131072, 1, 851962, 131072, 65536, 851961, 196608, 1, 851960, 131072, 1, 851959, 131072, 1, 851958, 131072, 1, 851957, 131072, 1, 851956, 131072, 1, 851955, 131072, 1, 327663, 131072, 1, 327664, 131072, 1, 327665, 131072, 1, 327666, 131072, 1, 327671, 131072, 1, 327672, 131072, 1, 458755, 131072, 1, 458754, 131072, 1, 458753, 131072, 1, 458752, 131072, 1, 458760, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458764, 131072, 1, 458765, 131072, 1, 720910, 262144, 1, 655374, 262144, 1, 589838, 262144, 1, 524302, 262144, 1, 458766, 262144, 1, 393230, 262144, 1, 327694, 262144, 1, 262158, 262144, 1, 196622, 262144, 1, 131086, 262144, 1, 65550, 262144, 1, 14, 262144, 1, -65522, 262144, 1, -131058, 262144, 1, -196594, 262144, 1, -262130, 262144, 1, -327666, 262144, 1, -393202, 262144, 1, -458738, 262144, 1, -393235, 0, 1, -327699, 0, 1, -262163, 0, 1, -196627, 0, 1, -131091, 0, 1, -65555, 0, 1, -19, 0, 1, 65517, 0, 1, 131053, 0, 1, 196589, 0, 1, 262125, 0, 1, 327661, 0, 1, 393197, 0, 1, 458733, 0, 1, 524269, 0, 1, 589805, 0, 1, 655341, 0, 1, 720877, 0, 1, 786413, 0, 1, 786446, 262144, 2, 524275, 0, 2, 327667, 131072, 65536, 327670, 131072, 1, 327673, 131072, 0, 393209, 0, 1, 458745, 0, 1, 524281, 0, 2, -327687, 0, 1, -262151, 0, 1, -196615, 0, 1, -131079, 0, 1, -65543, 0, 1, -327681, 0, 1, -262145, 0, 1, -196609, 131072, 0, -131073, 0, 1, -65537, 0, 1, -1, 0, 1, 65535, 0, 1, 131071, 0, 2, -7, 0, 2, -393223, 131072, 65536, -393217, 131072, 0, 786425, 0, 1, 720889, 0, 1, 720905, 0, 1, 524297, 0, 2, 458761, 131072, 65536, 262137, 0, 1, 196601, 0, 1, 458751, 0, 1, 393215, 0, 1, 327679, 0, 1, 524287, 0, 2, -196596, 131072, 1, 458739, 131072, 0, 393203, 0, 1, 458738, 131072, 1, -589830, 131072, 0, -524294, 0, 1, -458758, 0, 1, -655365, 983040, 15, -655364, 983040, 15, -655363, 983040, 15, -655362, 983040, 15, 851966, 131072, 1, 851949, 0, 2, -393227, 131072, 1, -393230, 65536, 1, -393229, 65536, 1, -589837, 65536, 0, -589836, 131072, 1, -589835, 131072, 1, -589834, 131072, 1, -589833, 131072, 1, -589832, 131072, 1, -589831, 131072, 1, -524301, 262144, 1, -458765, 262144, 1, -393226, 327680, 3, -393225, 393216, 3, 917503, 262144, 1, 983039, 262144, 1, 917498, 0, 1, 983034, 0, 1, 1048570, 0, 2, 1048575, 262144, 2, 1048571, 131072, 1, 1048572, 327680, 3, 1048573, 393216, 3, 1048574, 131072, 1, -196614, 131072, 1, -196613, 131072, 1, -196612, 327680, 3, -196610, 131072, 1, -196611, 393216, 3)
 layer_2/name = "Furnitures"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -277,9 +405,10 @@ playerSpawnPoint = NodePath("Teleports/PlayerSpawn")
 sceneType = 1
 keyTypeToShow = 1
 levelSpecialKey = NodePath("Keys/SpecialUnlockKey")
+levelPurifiedKey = NodePath("Keys/PurifiedSpecialUnlockKey")
 levelUnlockKeys = [NodePath("Keys/UnlockKey1"), NodePath("Keys/UnlockKey2"), NodePath("Keys/UnlockKey3"), NodePath("Keys/UnlockKey4"), NodePath("Keys/UnlockKey5")]
-levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor")]
-mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenDropLantern"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockCheese"), NodePath("Quests/KitchenUltraKey")]
+levelUnlockKeyDoors = [NodePath("Keys/LevelUnlockKeyDoor"), NodePath("Keys/PurifiedLevelUnlockKeyDoor")]
+mapQuests = [NodePath("Quests/KitchenSaveTheOni"), NodePath("Quests/KitchenStunWarden"), NodePath("Quests/KitchenDropLantern"), NodePath("Quests/KitchenHelpChef"), NodePath("Quests/KitchenObtainKnife"), NodePath("Quests/KitchenObtainTeapot"), NodePath("Quests/KitchenGrowPlant"), NodePath("Quests/KitchenClearDirtyFloor"), NodePath("Quests/KitchenClearDirtyFloor2"), NodePath("Quests/KitchenClearDirtyFloor3"), NodePath("Quests/KitchenFeedRat"), NodePath("Quests/KitchenClearDirtyFloor4"), NodePath("Quests/KitchenMeltIce"), NodePath("Quests/KitchenUnlockCheese"), NodePath("Quests/KitchenUltraKey"), NodePath("Quests/KitchenPurifiedKey")]
 travelingAreas = [NodePath("Teleports/TravelToHall"), NodePath("Teleports/TravelToDojo")]
 travelingReceivers = [NodePath("Teleports/TravelToHall/HallReceiver"), NodePath("Teleports/TravelToDojo/DojoReceiver")]
 gameplaySceneSoundtrack = NodePath("Soundtrack")
@@ -628,12 +757,24 @@ position = Vector2(1608, -512)
 position = Vector2(256, -832)
 rotation = 1.5708
 
+[node name="PurifiedSpecialUnlockKey" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("22_ee68d")]
+position = Vector2(-1920, 2176)
+keyAdvancesQuest = true
+questToAdvance = NodePath("../../Quests/KitchenPurifiedKey")
+
 [node name="LevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_4p3bg")]
 position = Vector2(-1920, -832)
 sceneType = 1
 requiredKeys = 3
 advancesQuest = true
 questToAdvance = NodePath("../../Quests/KitchenUltraKey")
+
+[node name="PurifiedLevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("3_4p3bg")]
+position = Vector2(-1920, 1600)
+sceneType = 1
+requiredKeys = 2
+advancesQuest = true
+questToAdvance = NodePath("../../Quests/KitchenPurifiedKey")
 
 [node name="SavePoints" type="Node2D" parent="."]
 
@@ -1133,13 +1274,14 @@ sendSignalToQuestOnDestroyed = true
 [node name="Cheese" parent="Quests/KitchenUnlockCheese" instance=ExtResource("37_apuor")]
 position = Vector2(-1712, -96)
 
-[node name="KitchenUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenUltraKey"
 questItemsToOperate = [NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D2"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2")]
 questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 1, 2])
 questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, true])
+advanceOtherQuestsOnEnd = [NodePath("../KitchenPurifiedKey")]
 objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoom/Enemies/GuardUK1"), NodePath("UltraKeyRoom/Enemies/GuardUK2"), NodePath("UltraKeyRoom/Enemies/GuardUK3"), NodePath("UltraKeyRoom/Enemies/GuardUK4"), NodePath("UltraKeyRoom/Enemies/Hyottoko"), NodePath("UltraKeyRoom/Enemies/Warden"), NodePath("UltraKeyRoom/Enemies/WardenAlertArea"), NodePath("UltraKeyRoom/ChallengeSubRoom2/Obstacles/Icewall"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake2"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake3"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake4")]
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/KitchenUltraKey"]
@@ -1507,6 +1649,61 @@ oneTimeSave = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/SavePoint2"]
 shape = SubResource("RectangleShape2D_ymr5d")
 
+[node name="KitchenPurifiedKey" type="Node2D" parent="Quests"]
+y_sort_enabled = true
+script = ExtResource("2_pyt2b")
+questName = "KitchenPurifiedKey"
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_kxml6"), SubResource("Resource_i1o75"), SubResource("Resource_5yxve"), SubResource("Resource_a5cg8"), SubResource("Resource_tm2nw"), SubResource("Resource_n5wt0"), SubResource("Resource_uwbit"), SubResource("Resource_0yk3g"), SubResource("Resource_4tkmt"), SubResource("Resource_0okxc"), SubResource("Resource_n7ful"), SubResource("Resource_vykmx"), SubResource("Resource_bh63h"), SubResource("Resource_rmu2q"), SubResource("Resource_nb6nt")])
+
+[node name="PurifiedTileMap" type="TileMap" parent="Quests/KitchenPurifiedKey"]
+y_sort_enabled = true
+tile_set = ExtResource("40_wejvi")
+format = 2
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -999
+layer_0/tile_data = PackedInt32Array(917488, 65536, 3, 983024, 65536, 4, 917489, 131072, 3, 983025, 131072, 4, 1048558, 65536, 3, 1114094, 65536, 4, 1048559, 131072, 3, 1114095, 131072, 4, 1048560, 65536, 3, 1114096, 65536, 4, 1048561, 131072, 3, 1114097, 131072, 4, 1048562, 65536, 3, 1114098, 65536, 4, 1048563, 131072, 3, 1114099, 131072, 4, 1179630, 65536, 3, 1245166, 65536, 4, 1179631, 131072, 3, 1245167, 131072, 4, 1179632, 65536, 3, 1245168, 65536, 4, 1179633, 131072, 3, 1245169, 131072, 4, 1179634, 65536, 3, 1245170, 65536, 4, 1179635, 131072, 3, 1245171, 131072, 4)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(917487, 0, 1, 983023, 196608, 1, 983022, 131072, 1, 983027, 131072, 1, 917490, 262144, 1, 983026, 65536, 1, 983021, 0, 1, 1048557, 0, 1, 1114093, 0, 1, 1179629, 0, 1, 983028, 262144, 1, 1048564, 262144, 1, 1114100, 262144, 1, 1179636, 262144, 1, 1245165, 0, 2, 1245172, 262144, 2, 1245166, 131072, 1, 1245167, 131072, 1, 1245168, 131072, 1, 1245169, 131072, 1, 1245170, 131072, 1, 1245171, 131072, 1)
+layer_2/name = "Furniture"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+
+[node name="WallTile" parent="Quests/KitchenPurifiedKey" instance=ExtResource("61_l0e1e")]
+position = Vector2(-1984, 1600)
+
+[node name="WallTile2" parent="Quests/KitchenPurifiedKey" instance=ExtResource("61_l0e1e")]
+position = Vector2(-1856, 1600)
+
+[node name="WallTile3" parent="Quests/KitchenPurifiedKey" instance=ExtResource("61_l0e1e")]
+position = Vector2(-2112, 1600)
+
+[node name="WallTile4" parent="Quests/KitchenPurifiedKey" instance=ExtResource("61_l0e1e")]
+position = Vector2(-1728, 1600)
+
+[node name="WallTileContinuedRight" parent="Quests/KitchenPurifiedKey" instance=ExtResource("63_d6irm")]
+position = Vector2(-2112, 1600)
+
+[node name="WallTileContinuedLeft" parent="Quests/KitchenPurifiedKey" instance=ExtResource("64_b37j7")]
+position = Vector2(-1728, 1600)
+
+[node name="SavePoint" parent="Quests/KitchenPurifiedKey" instance=ExtResource("17_h4u1o")]
+position = Vector2(-1920, 2160)
+onEnter = true
+oneTimeSave = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenPurifiedKey/SavePoint"]
+shape = SubResource("RectangleShape2D_ccyfs")
+
 [node name="Teleports" type="Node2D" parent="."]
 
 [node name="PlayerSpawn" type="Node2D" parent="Teleports"]
@@ -1521,7 +1718,6 @@ script = ExtResource("33_bs5xl")
 sendToTravelID = 1
 sceneToLoad = "res://1_Scenes/Hall.tscn"
 removeTransformation = true
-deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToHall"]
 shape = SubResource("RectangleShape2D_0lcf0")
@@ -1534,7 +1730,6 @@ position = Vector2(-384, -864)
 script = ExtResource("33_bs5xl")
 sceneToLoad = "res://1_Scenes/Dojo.tscn"
 removeTransformation = true
-deleteRoomData = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/TravelToDojo"]
 shape = SubResource("RectangleShape2D_wwppo")
