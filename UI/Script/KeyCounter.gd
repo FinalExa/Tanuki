@@ -5,6 +5,7 @@ var sceneSelectorRef: SceneSelector
 var playerProgressionRef: PlayerProgressionTrack
 @export var keysText: String
 @export var specialKeyText: String
+@export var purifiedSpecialKeyText: String
 
 func _ready():
 	sceneSelectorRef = get_tree().root.get_child(0).sceneSelector
@@ -23,5 +24,7 @@ func UpdateKeyCount():
 
 func GetSpecialKeyCount():
 	if (playerProgressionRef.specialUnlockKeysObtained.has(sceneSelectorRef.currentScene.sceneType)):
+		if (playerProgressionRef.purifiedUnlockKeysObtained.has(sceneSelectorRef.currentScene.sceneType)):
+			return str("\n", purifiedSpecialKeyText)
 		return str("\n" ,specialKeyText)
 	return ""

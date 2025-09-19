@@ -137,6 +137,7 @@ vertical_alignment = 1
 script = ExtResource("4_ia11n")
 keysText = "Keys: "
 specialKeyText = "SPECIAL KEY OBTAINED"
+purifiedSpecialKeyText = "SPECIAL KEY PURIFIED"
 
 [node name="VersionInfo" type="Label" parent="."]
 process_mode = 3

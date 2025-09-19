@@ -7,6 +7,7 @@ var unlockKeyTypes: Array[GameplayScene.SceneType]
 var unlockKeyIDs: Array[int]
 var usedUnlockKeyForDoors: Array[int]
 var specialUnlockKeysObtained: Array[GameplayScene.SceneType]
+var purifiedUnlockKeysObtained: Array[GameplayScene.SceneType]
 
 var currentUnlockKeyType: GameplayScene.SceneType
 var currentIDArray: Array[int]
@@ -16,6 +17,17 @@ var activeQuests: Array[String]
 var activeQuestsStages: Array[int]
 var activeQuestNameForAdvancers: Array[String]
 var activeQuestsAdvancers: Array[int]
+
+enum TanukiUpgrades
+{
+	HEALTH,
+	TRANSFORMATION_TIME,
+	SHORTER_LEAF_CD,
+	DASH_TRANSFORM,
+	DASH_KEEP_MOVABLE
+}
+
+var obtainedUpgrades: Array[TanukiUpgrades]
 
 func ClearAll():
 	unlockKeyTypes.clear()
@@ -47,6 +59,10 @@ func RegisterKey(id: int):
 
 func RegisterSpecialKey(sceneType: GameplayScene.SceneType):
 	specialUnlockKeysObtained.push_back(sceneType)
+	playerRef.playerHUD.keyCounter.UpdateKeyCount()
+
+func RegisterPurifiedKey(sceneType: GameplayScene.SceneType):
+	purifiedUnlockKeysObtained.push_back(sceneType)
 	playerRef.playerHUD.keyCounter.UpdateKeyCount()
 
 func AssignKeysToDoor(keyDoor: LevelUnlockKeyDoor):
