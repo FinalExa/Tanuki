@@ -2732,7 +2732,7 @@ position = Vector2(-1536, 2432)
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ob6wh"), SubResource("Resource_43qaw")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Cleaner1"]
-position = Vector2(-1536, 1920)
+position = Vector2(-1536, 2072)
 
 [node name="2" type="Node2D" parent="Enemies/PatrolPoints/Cleaner1"]
 position = Vector2(-1536, 2944)
@@ -2747,7 +2747,7 @@ patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolInde
 position = Vector2(1536, 2944)
 
 [node name="2" type="Node2D" parent="Enemies/PatrolPoints/Cleaner2"]
-position = Vector2(1536, 1920)
+position = Vector2(1536, 1984)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 
