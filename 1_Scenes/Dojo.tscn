@@ -1381,9 +1381,9 @@ advancesQuest = true
 questToAdvance = NodePath("../../Quests/DojoUltraKey")
 
 [node name="PurifiedLevelUnlockKeyDoor" parent="Keys" node_paths=PackedStringArray("questToAdvance") instance=ExtResource("5_00v31")]
-position = Vector2(0, -1728)
+position = Vector2(1792, 1600)
 sceneType = 5
-requiredKeys = 3
+requiredKeys = 2
 advancesQuest = true
 questToAdvance = NodePath("../../Quests/DojoPurifiedKey")
 
