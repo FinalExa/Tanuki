@@ -1,4 +1,4 @@
-[gd_scene load_steps=252 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=272 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -56,6 +56,8 @@
 [ext_resource type="PackedScene" uid="uid://dj8gyu4bdrdht" path="res://ImportantObjects/MovableObjects/armor_part.tscn" id="39_fw0ah"]
 [ext_resource type="PackedScene" uid="uid://bnk35sq5s2f38" path="res://Level/Prefabs/wall_tile.tscn" id="49_10e3t"]
 [ext_resource type="PackedScene" uid="uid://bfc0mgjbxpede" path="res://NPC/sword_yokai_npc.tscn" id="50_iymq2"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexLook.gd" id="53_7velj"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexWait.gd" id="54_j6m2h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
 vertices = PackedVector2Array(1056, -992, 1056, -832, 736, -832, -1504, -864, -1504, -928, 736, -992, 2528, -1632, 2528, -192, 2336, -592, 2336, -672, 1696, 160, 1696, -192, 1888, -192, 1888, 160, -1776, 656, -1584, 848, -2640, 840, -2192, 656, -1584, 400, -1776, 592, -1680, 400, 2272, -592, 1104, -1632, 2272, -672, 1104, -1584, 648, -360, 736, -360.165, 736, -192, 304, -192, 304, -480, 480, -480, 736, 1600, -736, 1600, -736, 960, 736, 960, -1056, 960, -1056, 1376, -1248, 1376, -1248, 848, -1056, 800, -1504, 848, -1504, 336, -1056, 160, -2720, 912, -1584, 912, -1584, 1040, -1504, 1040, -1504, 912, -1328, 912, -1328, 1440, -1056, 1440, -1056, 2272, -2784, 2272, -2784, 1440, -1504, 1440, -1504, 1136, -1584, 1136, -1584, 1360, -2784, 1360, -2400, 656, -2400, 400, -1904, 400, -2192, 592, -1904, 336, -2400, 336, -2400, 208, -2320, 208, -2320, 160, -1888, 160, -1888, -192, -2528, -192, -2528, -864, -2272, -864, -2272, -928, -2528, -928, -2528, -1584, -2480, -1584, -2480, -1632, -1840, -1632, -1840, -1504, -1760, -1504, -1760, -1632, -1056, -1632, -1056, -992, -736, -992, -736, -1248, -416, -1248, -416, -1312, -736, -1312, -736, -1632, -680, -1600, -680, -1632, -600, -1600, -600, -1632, -304, -1632, -352, -1312, -304, -1312, -352, -1248, -224, -1248, -224, -1632, 224, -1632, 224, -1248, 352, -1312, 304, -1312, 304, -1632, 384, -1632, 384, -1600, 480, -1600, 480, -1632, 736, -1632, 736, -1312, 416, -1312, 352, -1248, 416, -1248, 736, -1248, 1056, -1584, 1056, -192, -1760, -928, -1760, -1312, -1840, -1312, -1840, -928, -2080, -928, -2080, -864, -1840, -864, -1840, -608, -1696, -192, -1760, -608, -1760, -864, -1056, -832, -1056, -192, 736, -544, 544, -544, 544, -480, 648, -480, 480, -544, 224, -544, 224, -192, 96, -192, -224, -672, 96, 160, 736, 160, 736, 800, -680, 208, -96, 160, -736, 800, -96, -192, -224, -192, -480, -480, -304, -480, -304, -160, -736, -160, -736, -480, -544, -480, -480, -672, -544, -672, -736, -672, -736, -832, -736, 208, -680, 160, 1056, 800, 1056, 208, 1104, 208, 1104, 160, 1888, 1312, 1056, 1600, 1056, 960, 2528, 1312, 2528, 1600, -2784, 160, -2720, 352, -2480, 160, -2640, 352, -2480, 656, -1696, 160, -1680, 336)
@@ -462,13 +464,13 @@ radius = 128.0
 
 [sub_resource type="Resource" id="Resource_y5vat"]
 script = ExtResource("16_m885m")
-dialogueText = "MOTHERFUCKER!"
+dialogueText = "I FELT MY WOODEN BODY SPLINTER, IT HURTS!!!"
 characterTalking = 2
 cameraFocus = NodePath("..")
 
 [sub_resource type="Resource" id="Resource_hmcno"]
 script = ExtResource("16_m885m")
-dialogueText = "Hey, I think that word is not appropriate for this game."
+dialogueText = "Ouch."
 characterTalking = 0
 cameraFocus = NodePath("")
 
@@ -1278,6 +1280,78 @@ itemOperation = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ug4lh"]
 size = Vector2(768, 480)
 
+[sub_resource type="Resource" id="Resource_aitu0"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_7uy6m"]
+script = ExtResource("53_7velj")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_1hmab"]
+script = ExtResource("54_j6m2h")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_iw30f"]
+script = ExtResource("53_7velj")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_cuyb4"]
+script = ExtResource("54_j6m2h")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_f15un"]
+script = ExtResource("53_7velj")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_uuubn"]
+script = ExtResource("54_j6m2h")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_83had"]
+script = ExtResource("53_7velj")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_jo747"]
+script = ExtResource("54_j6m2h")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_t60hl"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_7dq8p"]
+script = ExtResource("53_7velj")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_3jb2n"]
+script = ExtResource("54_j6m2h")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_pib8q"]
+script = ExtResource("53_7velj")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_h6m0b"]
+script = ExtResource("54_j6m2h")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_urhpu"]
+script = ExtResource("53_7velj")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_ppnld"]
+script = ExtResource("54_j6m2h")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_7w7vj"]
+script = ExtResource("53_7velj")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_ifbww"]
+script = ExtResource("54_j6m2h")
+waitDuration = 2.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
 
@@ -1502,7 +1576,7 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ey8sr"), Su
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
-position = Vector2(448, 320)
+position = Vector2(512, 248)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1523,7 +1597,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_i63af")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy1/TraningDummy"]
-position = Vector2(0, -101)
+position = Vector2(0, -56)
 texture = ExtResource("14_05sjx")
 
 [node name="DojoHitTrainingDummy2" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
@@ -1534,7 +1608,7 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_ee7l1"), Su
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
-position = Vector2(-2304, -888)
+position = Vector2(-2304, -1288)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1555,7 +1629,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_x2d3y")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy2/TraningDummy"]
-position = Vector2(0, -101)
+position = Vector2(0, -56)
 texture = ExtResource("14_05sjx")
 
 [node name="DojoHitTrainingDummy3" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
@@ -1566,7 +1640,7 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_d4vck"), Su
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
-position = Vector2(1536, -640)
+position = Vector2(1344, -1480)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1587,7 +1661,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_q0s71")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy3/TraningDummy"]
-position = Vector2(0, -101)
+position = Vector2(0, -56)
 texture = ExtResource("14_05sjx")
 
 [node name="DojoHitTrainingDummy4" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
@@ -1598,7 +1672,7 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_udyei"), Su
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
-position = Vector2(-2368, 424)
+position = Vector2(-1600, 440)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1619,7 +1693,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_ybs37")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy4/TraningDummy"]
-position = Vector2(0, -101)
+position = Vector2(0, -56)
 texture = ExtResource("14_05sjx")
 
 [node name="DojoHitTrainingDummy5" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd")]
@@ -1630,7 +1704,7 @@ questIndexes = Array[ExtResource("13_yb20v")]([SubResource("Resource_6f273"), Su
 advanceOtherQuestsOnEnd = [NodePath("../DojoHitTrainingDummiesKey")]
 
 [node name="TraningDummy" parent="Quests/DojoHitTrainingDummy5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("12_wk7n5")]
-position = Vector2(2496, 1472)
+position = Vector2(2432, 1400)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
@@ -1651,7 +1725,7 @@ activatedByQuest = true
 shape = SubResource("CircleShape2D_vn33c")
 
 [node name="FeedbackSprite" type="Sprite2D" parent="Quests/DojoHitTrainingDummy5/TraningDummy"]
-position = Vector2(0, -101)
+position = Vector2(0, -56)
 texture = ExtResource("14_05sjx")
 
 [node name="DojoDefeatHyottoko" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
@@ -2116,7 +2190,7 @@ position = Vector2(-1152, 384)
 patrolIndicators = [NodePath("../PatrolPoints/Hyottoko7/Hyottoko7PatrolIndicator")]
 
 [node name="Guard1" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("15_n14hp")]
-position = Vector2(-1344, -960)
+position = Vector2(-320, -960)
 patrolIndicators = [NodePath("../PatrolPoints/Guard1/Guard1PatrolIndicator")]
 
 [node name="Guard2" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("15_n14hp")]
@@ -2226,24 +2300,15 @@ position = Vector2(-1152, 1216)
 
 [node name="Guard1" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Guard1PatrolIndicator" parent="Enemies/PatrolPoints/Guard1" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Guard1PatrolIndicator" parent="Enemies/PatrolPoints/Guard1" instance=ExtResource("12_wmoll")]
 position = Vector2(0, -960)
-patrolActions = Array[int]([1, 1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 2, 0, 2, 0, 1, 1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 2, 0, 2, 0])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../3"), NodePath("../2")]
-waitActions = Array[float]([1.0, 0.5, 1.0, 1.0, 0.5, 1.0, 1.0, 0.5, 1.0, 1.0, 0.5, 1.0])
-lookActions = Array[int]([0, 2, 1, 0, 3, 1, 0, 3, 1, 0, 2, 1])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_aitu0"), SubResource("Resource_7uy6m"), SubResource("Resource_1hmab"), SubResource("Resource_iw30f"), SubResource("Resource_cuyb4"), SubResource("Resource_f15un"), SubResource("Resource_uuubn"), SubResource("Resource_83had"), SubResource("Resource_jo747"), SubResource("Resource_t60hl"), SubResource("Resource_7dq8p"), SubResource("Resource_3jb2n"), SubResource("Resource_pib8q"), SubResource("Resource_h6m0b"), SubResource("Resource_urhpu"), SubResource("Resource_ppnld"), SubResource("Resource_7w7vj"), SubResource("Resource_ifbww")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
-position = Vector2(-1792, -960)
-
-[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
 position = Vector2(-1184, -960)
 
-[node name="3" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
 position = Vector2(1184, -960)
-
-[node name="4" type="Node2D" parent="Enemies/PatrolPoints/Guard1"]
-position = Vector2(1792, -960)
 
 [node name="Guard2" type="Node2D" parent="Enemies/PatrolPoints"]
 

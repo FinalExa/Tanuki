@@ -1629,7 +1629,7 @@ lookDirection = 0
 
 [sub_resource type="Resource" id="Resource_6tff6"]
 script = ExtResource("60_lu24h")
-waitDuration = 0.5
+waitDuration = 0.25
 
 [sub_resource type="Resource" id="Resource_6466h"]
 script = ExtResource("58_rvel4")
