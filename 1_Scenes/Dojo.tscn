@@ -1589,7 +1589,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_r1mtb")
 
 [node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy1/TraningDummy" instance=ExtResource("14_hrc4d")]
-position = Vector2(-5632, -320)
+position = Vector2(-4928, -248)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_tyxwx"), SubResource("Resource_tgbgv")])
 activatedByQuest = true
 
@@ -1621,7 +1621,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_o1qe3")
 
 [node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy2/TraningDummy" instance=ExtResource("14_hrc4d")]
-position = Vector2(-2880, 888)
+position = Vector2(-2112, 1288)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_y5vat"), SubResource("Resource_hmcno")])
 activatedByQuest = true
 
@@ -1653,7 +1653,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_vch0b")
 
 [node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy3/TraningDummy" instance=ExtResource("14_hrc4d")]
-position = Vector2(-6720, 640)
+position = Vector2(-5760, 1480)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_lxo46"), SubResource("Resource_xud6q")])
 activatedByQuest = true
 
@@ -1685,7 +1685,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_0lys7")
 
 [node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy4/TraningDummy" instance=ExtResource("14_hrc4d")]
-position = Vector2(-2816, -424)
+position = Vector2(-2816, -440)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_i7dm4"), SubResource("Resource_57xlc")])
 activatedByQuest = true
 
@@ -1717,7 +1717,7 @@ isOnInteraction = true
 shape = SubResource("CircleShape2D_7o35n")
 
 [node name="DialogueArea2" parent="Quests/DojoHitTrainingDummy5/TraningDummy" instance=ExtResource("14_hrc4d")]
-position = Vector2(-7680, -1472)
+position = Vector2(-6848, -1400)
 dialogueIndexes = Array[ExtResource("16_m885m")]([SubResource("Resource_8r7if"), SubResource("Resource_2f5v8")])
 activatedByQuest = true
 
