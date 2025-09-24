@@ -1,4 +1,4 @@
-[gd_scene load_steps=349 format=3 uid="uid://7ba1f3uht7d1"]
+[gd_scene load_steps=365 format=3 uid="uid://7ba1f3uht7d1"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_tv2f5"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="2_v7hkh"]
@@ -1611,22 +1611,54 @@ destination = NodePath("../3")
 script = ExtResource("58_rvel4")
 destination = NodePath("../1")
 
+[sub_resource type="Resource" id="Resource_myqxh"]
+script = ExtResource("59_yxdek")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_wdngs"]
+script = ExtResource("60_lu24h")
+waitDuration = 0.25
+
 [sub_resource type="Resource" id="Resource_43qaw"]
 script = ExtResource("58_rvel4")
 destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_wkei5"]
+script = ExtResource("59_yxdek")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_6tff6"]
+script = ExtResource("60_lu24h")
+waitDuration = 0.5
 
 [sub_resource type="Resource" id="Resource_6466h"]
 script = ExtResource("58_rvel4")
 destination = NodePath("../1")
 
+[sub_resource type="Resource" id="Resource_3u7k1"]
+script = ExtResource("59_yxdek")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_r2k7i"]
+script = ExtResource("60_lu24h")
+waitDuration = 0.25
+
 [sub_resource type="Resource" id="Resource_r6v3m"]
 script = ExtResource("58_rvel4")
 destination = NodePath("../2")
 
+[sub_resource type="Resource" id="Resource_8m7br"]
+script = ExtResource("59_yxdek")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_uqstb"]
+script = ExtResource("60_lu24h")
+waitDuration = 0.25
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b0ej7"]
-vertices = PackedVector2Array(-240, 3080, 480, 3136, -480, 3136, -336, 3080, 288, 2464, 480, 1600, 288, 2544, 288, 2368, 288, 2832, 224, 2832, -224, 2832, 224, 2544, -240, 2992, -480, 1600, -336, 2992, -288, 2832, -288, 2544, -304, 2464, -1760, 1232, -1760, 1056, -480, 1056, -1664, 1232, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, 992, 32, 480, 576, -992, 576, -992, 32, 992, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, -1504, 1600, 1096, 1056, 1096, 1104, 1208, 1104, 1208, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 1440, 1600, 1440, 1696, 1744, 1696, 1744, 3136, 1312, 3136, 1312, 1696, 1376, 1696, 1376, 1600, 72, 2368, 72, 2184, -72, 2184, -72, 2368, -304, 2368, -224, 2544, -1504, 1696, -1312, 1696, -1312, 3136, -1760, 3136, -1760, 1696, -1568, 1696, -1568, 1600, -1760, 1600, -1760, 1328, -1664, 1328)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 1, 6), PackedInt32Array(5, 4, 7), PackedInt32Array(8, 1, 0, 9), PackedInt32Array(10, 11, 9, 0, 12), PackedInt32Array(3, 2, 13, 14), PackedInt32Array(15, 10, 12, 14), PackedInt32Array(16, 15, 14, 13, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(20, 22, 23), PackedInt32Array(24, 25, 26, 27, 28), PackedInt32Array(26, 29, 30, 27), PackedInt32Array(27, 31, 28), PackedInt32Array(28, 32, 33), PackedInt32Array(24, 28, 33, 23), PackedInt32Array(23, 33, 34, 20), PackedInt32Array(20, 34, 35, 36, 13, 37), PackedInt32Array(36, 38, 39, 5, 13), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(47, 48, 49), PackedInt32Array(44, 47, 49), PackedInt32Array(43, 44, 49, 50), PackedInt32Array(50, 51, 52), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(56, 57, 58), PackedInt32Array(53, 56, 58, 52), PackedInt32Array(52, 58, 59, 50), PackedInt32Array(7, 60, 61, 5), PackedInt32Array(62, 63, 64, 13), PackedInt32Array(11, 10, 65), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(69, 70, 71), PackedInt32Array(66, 69, 71, 37), PackedInt32Array(37, 71, 72), PackedInt32Array(72, 73, 74, 75), PackedInt32Array(72, 75, 21, 20, 37), PackedInt32Array(5, 61, 62, 13), PackedInt32Array(40, 43, 50, 59, 5, 39), PackedInt32Array(1, 8, 6), PackedInt32Array(17, 4, 6, 11), PackedInt32Array(17, 11, 65), PackedInt32Array(17, 65, 16), PackedInt32Array(13, 64, 17)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, -480, 1056, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, -992, 576, -992, 32, 992, 32, 992, 576, 480, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1096, 1056, 1096, 1104, 1208, 1104, 1208, 1056, 1504, 1056, 1504, 1376, 1584, 1376, 1584, 1056, 1760, 1056, 1760, 1600, 1584, 1600, 1584, 1440, 1504, 1440, 1504, 1600, 1440, 1600, 1440, 1696, 1744, 1696, 1744, 3136, 1312, 3136, 1312, 1696, 1376, 1696, 1376, 1600, 480, 1600, 480, 3136, -480, 3136, -480, 1600, -1504, 1600, -1504, 1696, -1312, 1696, -1312, 3136, -1760, 3136, -1760, 1696, -1568, 1696, -1568, 1600, -1760, 1600, -1760, 1328, -1664, 1328, -1664, 1232, -1760, 1232), PackedVector2Array(-336, 2992, -240, 2992, -240, 3080, -336, 3080), PackedVector2Array(-288, 2832, -288, 2544, -224, 2544, -224, 2832), PackedVector2Array(224, 2544, 288, 2544, 288, 2832, 224, 2832), PackedVector2Array(-304, 2368, -72, 2368, -72, 2184, 72, 2184, 72, 2368, 288, 2368, 288, 2464, -304, 2464)])
+vertices = PackedVector2Array(-240, 3080, 480, 3136, -480, 3136, -336, 3080, 288, 2464, 480, 1600, 288, 2544, 288, 2368, 288, 2832, 224, 2832, -224, 2832, 224, 2544, -240, 2992, -480, 1600, -336, 2992, -288, 2832, -288, 2544, -304, 2464, -1760, 1232, -1760, 1056, -480, 1056, -1664, 1232, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, 992, 32, 480, 576, -992, 576, -992, 32, 992, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, -1504, 1600, 1096, 1056, 1096, 1104, 1232, 1104, 1232, 1376, 1312, 1376, 1312, 1056, 1760, 1056, 1760, 1600, 1568, 1600, 1568, 1696, 1744, 1696, 1744, 3136, 1312, 3136, 1312, 1696, 1504, 1696, 1504, 1600, 1312, 1440, 1312, 1600, 1232, 1440, 1232, 1600, 72, 2368, 72, 2184, -72, 2184, -72, 2368, -304, 2368, -224, 2544, -1504, 1696, -1312, 1696, -1312, 3136, -1760, 3136, -1760, 1696, -1568, 1696, -1568, 1600, -1760, 1600, -1760, 1328, -1664, 1328)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 1, 6), PackedInt32Array(5, 4, 7), PackedInt32Array(8, 1, 0, 9), PackedInt32Array(10, 11, 9, 0, 12), PackedInt32Array(3, 2, 13, 14), PackedInt32Array(15, 10, 12, 14), PackedInt32Array(16, 15, 14, 13, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(20, 22, 23), PackedInt32Array(24, 25, 26, 27, 28), PackedInt32Array(26, 29, 30, 27), PackedInt32Array(27, 31, 28), PackedInt32Array(28, 32, 33), PackedInt32Array(24, 28, 33, 23), PackedInt32Array(23, 33, 34, 20), PackedInt32Array(20, 34, 35, 36, 13, 37), PackedInt32Array(36, 38, 39, 5, 13), PackedInt32Array(39, 40, 41, 5), PackedInt32Array(42, 43, 44, 45, 46), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(50, 51, 52), PackedInt32Array(47, 50, 52, 46), PackedInt32Array(46, 52, 53), PackedInt32Array(42, 46, 53, 54), PackedInt32Array(53, 55, 54), PackedInt32Array(41, 42, 54, 56), PackedInt32Array(56, 57, 5), PackedInt32Array(7, 58, 59, 5), PackedInt32Array(60, 61, 62, 13), PackedInt32Array(11, 10, 63), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(67, 68, 69), PackedInt32Array(64, 67, 69, 37), PackedInt32Array(37, 69, 70), PackedInt32Array(70, 71, 72, 73), PackedInt32Array(70, 73, 21, 20, 37), PackedInt32Array(41, 56, 5), PackedInt32Array(13, 5, 59, 60), PackedInt32Array(1, 8, 6), PackedInt32Array(17, 4, 6, 11), PackedInt32Array(17, 11, 63), PackedInt32Array(17, 63, 16), PackedInt32Array(13, 62, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1760, 1056, -480, 1056, -480, 816, -400, 816, -400, 720, -480, 720, -480, 576, -992, 576, -992, 32, 992, 32, 992, 576, 480, 576, 480, 720, 392, 720, 392, 816, 480, 816, 480, 1056, 1096, 1056, 1096, 1104, 1232, 1104, 1232, 1376, 1312, 1376, 1312, 1056, 1760, 1056, 1760, 1600, 1568, 1600, 1568, 1696, 1744, 1696, 1744, 3136, 1312, 3136, 1312, 1696, 1504, 1696, 1504, 1600, 1312, 1600, 1312, 1440, 1232, 1440, 1232, 1600, 480, 1600, 480, 3136, -480, 3136, -480, 1600, -1504, 1600, -1504, 1696, -1312, 1696, -1312, 3136, -1760, 3136, -1760, 1696, -1568, 1696, -1568, 1600, -1760, 1600, -1760, 1328, -1664, 1328, -1664, 1232, -1760, 1232), PackedVector2Array(-336, 2992, -240, 2992, -240, 3080, -336, 3080), PackedVector2Array(-288, 2832, -288, 2544, -224, 2544, -224, 2832), PackedVector2Array(224, 2544, 288, 2544, 288, 2832, 224, 2832), PackedVector2Array(-304, 2368, -72, 2368, -72, 2184, 72, 2184, 72, 2368, 288, 2368, 288, 2464, -304, 2464)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_61bmf"]
 vertices = PackedVector2Array(-1144, 1744, -1144, 1696, -664, 1696, -664, 1744, -864, 2368, -928, 2368, -560, 1744, -560, 2368, -864, 2464, -560, 2464, -560, 3136, -1152, 3136, -1152, 3032, -1144, 2512, -1232, 3032, -1232, 2512, -1144, 2464, -928, 2464, -1232, 2368, -1232, 1744)
@@ -1659,6 +1691,30 @@ size = Vector2(128, 512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vgy"]
 size = Vector2(128, 512)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7ybt"]
+size = Vector2(128, 1504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2skt"]
+size = Vector2(128, 1504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofh0j"]
+size = Vector2(384, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqmol"]
+size = Vector2(368, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll8ou"]
+size = Vector2(128, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5amm"]
+size = Vector2(128, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtlnv"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1mro"]
+size = Vector2(128, 128)
+
 [node name="Hall" type="TileMap" node_paths=PackedStringArray("playerSpawnPoint", "levelSpecialKey", "levelPurifiedKey", "levelUnlockKeys", "levelUnlockKeyDoors", "mapQuests", "travelingAreas", "travelingReceivers", "gameplaySceneSoundtrack")]
 y_sort_enabled = true
 tile_set = ExtResource("2_v7hkh")
@@ -1673,7 +1729,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(524283, 196608, 1, 458756, 65536, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 851963, 131072, 65536, 851958, 65536, 65536, 851959, 131072, 1, 851960, 131072, 1, 786436, 65536, 65536, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 65536, 786442, 327680, 3, 786443, 393216, 3, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 786444, 65536, 1, 524274, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 458761, 131072, 1, 458764, 65536, 65536, 524300, 262144, 1, 589836, 262144, 1, 655372, 720896, 4, 720908, 720896, 5, 458760, 65536, 1, 851961, 131072, 1, 851962, 131072, 1, 917494, 262144, 1, 983030, 262144, 2, 1179638, 262144, 1, 1245174, 65536, 0, 1310710, 262144, 1, 851977, 0, 2, 1048585, 0, 1, 1114121, 0, 1, 1179657, 131072, 0, 1245193, 0, 2, 1441801, 0, 1, 917499, 0, 1, 1179643, 0, 1, 1245179, 131072, 0, 983035, 0, 1, 1245175, 131072, 1, 1245178, 131072, 1, 1245176, 327680, 3, 1245177, 393216, 3, 1179652, 65536, 0, 1572854, 262144, 1, 1507337, 0, 1, 1638391, 131072, 1, 1638392, 131072, 1, 1638393, 131072, 1, 1638394, 131072, 1, 1638395, 196608, 1, 1638396, 131072, 1, 1638397, 131072, 1, 1638398, 131072, 1, 1572865, 131072, 1, 1572866, 131072, 1, 1572867, 131072, 1, 1572868, 65536, 1, 1572869, 131072, 1, 1572870, 131072, 1, 1572871, 131072, 1, 1572872, 131072, 1, 1572873, 196608, 1, 1638390, 65536, 1, 851972, 262144, 1, 1048580, 262144, 1, 1114116, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1507332, 262144, 1, 1310715, 0, 1, 1507323, 0, 1, 1572859, 0, 1, 1376253, 0, 1, 1441789, 0, 2, 1376254, 262144, 1, 1310721, 0, 1, 1310722, 262144, 1, 1376258, 262144, 2, 1245183, 131072, 1, 1179648, 131072, 1, 1245182, 131072, 1, 1179649, 131072, 1, 1179653, 131072, 1, 1179656, 131072, 1, 1179654, 327680, 3, 1179655, 393216, 3, -2, 131072, 1, -65535, 131072, 1, 1638399, 327680, 3, 1572864, 393216, 3, 458747, 0, 1, 393211, 0, 1, 327675, 131072, 65536, 327672, 131072, 1, 327671, 0, 2, 262135, 0, 1, 65527, 0, 1, -8, 131072, 1, -9, 0, 1, -3, 131072, 1, -65534, 131072, 1, -65530, 131072, 1, -65529, 131072, 1, -65528, 262144, 1, 8, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 262151, 131072, 1, 262148, 65536, 65536, 327684, 262144, 1, 393220, 262144, 1, 327673, 131072, 1, 327674, 131072, 1, 327688, 262144, 1, 393224, 262144, 1, 1441790, 262144, 2, 1376257, 0, 2, 851953, 0, 1, 917489, 0, 1, 983025, 0, 1, 1048561, 0, 1, 1114097, 0, 1, 1179633, 0, 1, 1245169, 0, 1, 1310705, 0, 1, 1376241, 0, 1, 1441777, 0, 1, 1507313, 0, 1, 1572849, 0, 1, 1638385, 0, 2, 1638389, 131072, 1, 1638388, 131072, 1, 1638387, 131072, 1, 1638386, 131072, 1, 1572874, 131072, 1, 1572875, 131072, 1, 1572876, 131072, 1, 1572877, 196608, 1, 851981, 0, 1, 917517, 0, 1, 983053, 0, 1, 1048589, 0, 1, 1114125, 0, 1, 1179661, 0, 1, 1245197, 0, 1, 1310733, 0, 1, 1376269, 0, 1, 1441805, 0, 1, 1507341, 0, 1, 720909, 0, 1, 655373, 0, 1, 589837, 0, 1, 524301, 0, 1, 458765, 131072, 65536, 786445, 131072, 0, 851957, 131072, 1, 851954, 131072, 1, 851955, 327680, 3, 851956, 393216, 3, 1376246, 262144, 2, 458763, 131072, 1, 458762, 131072, 1, -65533, 131072, 1, -327672, 262144, 65537)
+layer_1/tile_data = PackedInt32Array(524283, 196608, 1, 458756, 65536, 1, 524279, 131072, 1, 524280, 131072, 1, 524281, 131072, 1, 524282, 131072, 1, 851963, 131072, 65536, 851958, 65536, 65536, 851959, 131072, 1, 851960, 131072, 1, 786436, 65536, 65536, 786437, 131072, 1, 786438, 131072, 1, 786439, 131072, 1, 786440, 131072, 1, 786441, 131072, 0, 786442, 131072, 1, 786443, 327680, 3, 458759, 131072, 1, 458758, 131072, 1, 458757, 131072, 1, 786444, 393216, 3, 524274, 131072, 1, 524273, 0, 1, 589809, 0, 1, 655345, 0, 1, 720881, 0, 1, 786417, 0, 1, 458761, 131072, 65536, 458764, 131072, 1, 458760, 65536, 1, 851961, 131072, 1, 851962, 131072, 1, 917494, 262144, 1, 983030, 262144, 2, 1179638, 262144, 1, 1245174, 65536, 0, 1310710, 262144, 1, 851977, 0, 2, 1048585, 0, 1, 1114121, 0, 1, 1179657, 131072, 0, 1245193, 0, 2, 1441801, 0, 1, 917499, 0, 1, 1179643, 0, 1, 1245179, 131072, 0, 983035, 0, 1, 1245175, 131072, 1, 1245178, 131072, 1, 1245176, 327680, 3, 1245177, 393216, 3, 1179652, 65536, 0, 1572854, 262144, 1, 1507337, 0, 1, 1638391, 131072, 1, 1638392, 131072, 1, 1638393, 131072, 1, 1638394, 131072, 1, 1638395, 196608, 1, 1638396, 131072, 1, 1638397, 131072, 1, 1638398, 131072, 1, 1572865, 131072, 1, 1572866, 131072, 1, 1572867, 131072, 1, 1572868, 65536, 1, 1572869, 131072, 1, 1572870, 131072, 1, 1572871, 131072, 1, 1572872, 131072, 1, 1572873, 196608, 1, 1638390, 65536, 1, 851972, 262144, 1, 1048580, 262144, 1, 1114116, 262144, 1, 1245188, 262144, 1, 1310724, 262144, 1, 1507332, 262144, 1, 1310715, 0, 1, 1507323, 0, 1, 1572859, 0, 1, 1376253, 0, 1, 1441789, 0, 2, 1376254, 262144, 1, 1310721, 0, 1, 1310722, 262144, 1, 1376258, 262144, 2, 1245183, 131072, 1, 1179648, 131072, 1, 1245182, 131072, 1, 1179649, 131072, 1, 1179653, 131072, 1, 1179656, 131072, 1, 1179654, 327680, 3, 1179655, 393216, 3, -2, 131072, 1, -65535, 131072, 1, 1638399, 327680, 3, 1572864, 393216, 3, 458747, 0, 1, 393211, 0, 1, 327675, 131072, 65536, 327672, 131072, 1, 327671, 0, 2, 262135, 0, 1, 65527, 0, 1, -8, 131072, 1, -9, 0, 1, -3, 131072, 1, -65534, 131072, 1, -65530, 131072, 1, -65529, 131072, 1, -65528, 262144, 1, 8, 262144, 1, 196616, 262144, 1, 262152, 262144, 1, 262151, 131072, 1, 262148, 65536, 65536, 327684, 262144, 1, 393220, 262144, 1, 327673, 131072, 1, 327674, 131072, 1, 327688, 262144, 1, 393224, 262144, 1, 1441790, 262144, 2, 1376257, 0, 2, 851953, 0, 1, 917489, 0, 1, 983025, 0, 1, 1048561, 0, 1, 1114097, 0, 1, 1179633, 0, 1, 1245169, 0, 1, 1310705, 0, 1, 1376241, 0, 1, 1441777, 0, 1, 1507313, 0, 1, 1572849, 0, 1, 1638385, 0, 2, 1638389, 131072, 1, 1638388, 131072, 1, 1638387, 131072, 1, 1638386, 131072, 1, 1572874, 131072, 1, 1572875, 131072, 1, 1572876, 131072, 1, 1572877, 196608, 1, 851981, 0, 1, 917517, 0, 1, 983053, 0, 1, 1048589, 0, 1, 1114125, 0, 1, 1179661, 0, 1, 1245197, 0, 1, 1310733, 0, 1, 1376269, 0, 1, 1441805, 0, 1, 1507341, 0, 1, 720909, 0, 1, 655373, 0, 1, 589837, 0, 1, 524301, 0, 1, 458765, 131072, 65536, 786445, 131072, 0, 851957, 131072, 1, 851954, 131072, 1, 851955, 327680, 3, 851956, 393216, 3, 1376246, 262144, 2, 458763, 131072, 1, 458762, 131072, 1, -65533, 131072, 1, -327672, 262144, 65537, 524297, 0, 1, 589833, 0, 1, 655369, 655360, 4, 720905, 655360, 5)
 layer_2/name = "Decorations"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -2004,7 +2060,8 @@ objectsToDeleteAtQuestComplete = [NodePath("ColorDoor"), NodePath("DoorStopMovab
 position = Vector2(1664, 1088)
 
 [node name="ColorDoor" parent="Quests/HallStopTheDoor" instance=ExtResource("23_p6qod")]
-position = Vector2(1664, 1280)
+position = Vector2(1528, 1280)
+scale = Vector2(2, 1)
 randomizeRightColor = true
 
 [node name="DoorEvil" parent="Quests/HallStopTheDoor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("22_getnd")]
@@ -2729,7 +2786,7 @@ position = Vector2(0, 512)
 
 [node name="Cleaner1PatrolIndicator" parent="Enemies/PatrolPoints/Cleaner1" instance=ExtResource("36_8gipu")]
 position = Vector2(-1536, 2432)
-patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ob6wh"), SubResource("Resource_43qaw")])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ob6wh"), SubResource("Resource_myqxh"), SubResource("Resource_wdngs"), SubResource("Resource_43qaw"), SubResource("Resource_wkei5"), SubResource("Resource_6tff6")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Cleaner1"]
 position = Vector2(-1536, 2072)
@@ -2741,7 +2798,7 @@ position = Vector2(-1536, 2944)
 
 [node name="Cleaner2PatrolIndicator" parent="Enemies/PatrolPoints/Cleaner2" instance=ExtResource("36_8gipu")]
 position = Vector2(1536, 2432)
-patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_6466h"), SubResource("Resource_r6v3m")])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_6466h"), SubResource("Resource_3u7k1"), SubResource("Resource_r2k7i"), SubResource("Resource_r6v3m"), SubResource("Resource_8m7br"), SubResource("Resource_uqstb")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Cleaner2"]
 position = Vector2(1536, 2944)
@@ -2750,6 +2807,7 @@ position = Vector2(1536, 2944)
 position = Vector2(1536, 1984)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
+z_index = -50
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="NavigationRegions"]
 navigation_polygon = SubResource("NavigationPolygon_b0ej7")
@@ -2767,18 +2825,18 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="ColorYokai" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(-1240, 2688)
+position = Vector2(-1088, 2560)
 
 [node name="ColorYokai2" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(1232, 2816)
+position = Vector2(1152, 2944)
 colorOfYokai = 1
 
 [node name="ColorYokai3" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(1232, 1920)
+position = Vector2(896, 1760)
 colorOfYokai = 2
 
 [node name="ColorYokai4" parent="NPCs/ColorYokais" instance=ExtResource("6_2boio")]
-position = Vector2(-1240, 2048)
+position = Vector2(-896, 1832)
 colorOfYokai = 3
 
 [node name="Transformations" type="Node2D" parent="."]
@@ -2984,3 +3042,199 @@ position = Vector2(0, 64)
 
 [node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems7" instance=ExtResource("48_qq1ev")]
 position = Vector2(0, 192)
+
+[node name="LocalAllowedItems8" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1728, 2416)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems8"]
+shape = SubResource("RectangleShape2D_h7ybt")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -688)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -560)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -432)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -304)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -176)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 208)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 336)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 464)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 592)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems8" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 720)
+
+[node name="LocalAllowedItems9" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1712, 2416)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems9"]
+shape = SubResource("RectangleShape2D_t2skt")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -688)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -560)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -432)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -304)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -176)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 208)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 336)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 464)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 592)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/LocalAllowedItems9" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 720)
+
+[node name="LocalAllowedItems10" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1472, 3056)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems10"]
+shape = SubResource("RectangleShape2D_ofh0j")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(-128, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(-128, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(128, -48)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems10" instance=ExtResource("48_qq1ev")]
+position = Vector2(128, 80)
+
+[node name="LocalAllowedItems11" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1464, 3056)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems11"]
+shape = SubResource("RectangleShape2D_gqmol")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(-136, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(-136, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(-8, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(120, -48)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/LocalAllowedItems11" instance=ExtResource("48_qq1ev")]
+position = Vector2(120, 80)
+
+[node name="LocalAllowedItems12" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1344, 2432)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems12"]
+shape = SubResource("RectangleShape2D_ll8ou")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems12" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -192)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems12" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems12" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems12" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 192)
+
+[node name="LocalAllowedItems13" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1344, 2304)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems13"]
+shape = SubResource("RectangleShape2D_c5amm")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems13" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -192)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems13" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/LocalAllowedItems13" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/LocalAllowedItems13" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 192)
+
+[node name="LocalAllowedItems14" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(-1344, 1792)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems14"]
+shape = SubResource("RectangleShape2D_xtlnv")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems14" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/LocalAllowedItems14" instance=ExtResource("48_qq1ev")]
+position = Vector2(0, 64)
+
+[node name="LocalAllowedItems15" parent="AllowedZones" instance=ExtResource("47_68q7c")]
+position = Vector2(1344, 1728)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/LocalAllowedItems15"]
+shape = SubResource("RectangleShape2D_u1mro")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/LocalAllowedItems15" instance=ExtResource("48_qq1ev")]
