@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://vyk0e0bu20m7"]
+
+[ext_resource type="Texture2D" uid="uid://d2dsc5yu4jxdw" path="res://ImportantObjects/Interactables/Sprites/BarrierActivator.png" id="1_1b2ma"]
+[ext_resource type="Script" path="res://ImportantObjects/Interactables/Scripts/GenericInteractable.gd" id="1_2uw1t"]
+[ext_resource type="Texture2D" uid="uid://o8ch8nijnj0" path="res://ImportantObjects/Interactables/Sprites/useLeafFeedback.png" id="3_bgid7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bxxfs"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gndbe"]
+atlas = ExtResource("1_1b2ma")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4lyx"]
+atlas = ExtResource("1_1b2ma")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvwaj"]
+atlas = ExtResource("1_1b2ma")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twpel"]
+atlas = ExtResource("1_1b2ma")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdg3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gndbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4lyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvwaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twpel")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="BarrierActivator" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_2uw1t")
+neededProperties = Array[String](["Leaf"])
+destroyOnEnd = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bxxfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.466667, 0, 1)
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_vdg3r")
+autoplay = "default"
+frame_progress = 0.806557
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bgid7")

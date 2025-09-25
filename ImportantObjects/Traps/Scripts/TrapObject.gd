@@ -4,6 +4,7 @@ extends Area2D
 @export var effectNegateProperty: String
 @export var effect: TrapObjectEffect
 @export var worksOnEnemies: Array[String]
+@export var useAlternativeStart: bool
 var objectsInArea: Array[Node2D]
 var activated: bool
 var enabled: bool
@@ -11,6 +12,10 @@ var enabled: bool
 func _ready():
 	activated = true
 	enabled = true
+	if (useAlternativeStart):
+		effect.AlternativeStartup()
+		return
+	effect.Startup()
 
 func _physics_process(delta):
 	if (enabled && activated):

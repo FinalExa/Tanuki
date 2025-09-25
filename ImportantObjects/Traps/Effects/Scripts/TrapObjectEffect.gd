@@ -3,6 +3,12 @@ extends Node2D
 
 var launchedOnEnter: bool = false
 
+func Startup():
+	pass
+
+func AlternativeStartup():
+	Startup()
+
 func NormalEffect(_receivedBody: CharacterBody2D, _delta):
 	pass
 

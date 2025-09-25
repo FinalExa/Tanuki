@@ -6,7 +6,7 @@ extends TrapObjectEffect
 @export var arrowSprite: Node2D
 var direction: Vector2
 
-func _ready():
+func Startup():
 	GetDirection()
 	arrowSprite.hide()
 

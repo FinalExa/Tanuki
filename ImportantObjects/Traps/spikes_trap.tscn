@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqtd5"]
 size = Vector2(112, 112)
 
-[node name="TrapObject" type="Area2D" node_paths=PackedStringArray("effect")]
+[node name="SpikesTrap" type="Area2D" node_paths=PackedStringArray("effect")]
 z_index = -1
 script = ExtResource("1_d35hp")
 effectNegateProperty = "Heavy"

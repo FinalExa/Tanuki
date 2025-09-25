@@ -5,7 +5,7 @@ extends TrapObjectEffect
 @export var effectSpeedTier: PCMovement.SpeedTier
 var hitboxActive: bool = false
 
-func _ready():
+func Startup():
 	DeactivateCall()
 
 func NormalEffect(receivedBody, _delta):

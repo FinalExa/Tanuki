@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2uob8hxfnt6m"]
+
+[ext_resource type="Texture2D" uid="uid://b5gwd77tv3ykg" path="res://Level/Sprites/Placeholder/Barrier.png" id="1_xmned"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga51k"]
+radius = 128.0
+
+[node name="Barrier" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ga51k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.466667, 0, 1)
+texture = ExtResource("1_xmned")

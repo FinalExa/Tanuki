@@ -8,9 +8,14 @@ var phaseTimer: float
 var damagePhase: bool
 var damagedPlayer: bool
 
-func _ready():
+func Startup():
 	phaseTimer = phaseDuration
 	spriteRef.play("SpikesIn")
+
+func AlternativeStartup():
+	phaseTimer = phaseDuration
+	spriteRef.play("SpikesOut")
+	damagePhase = true
 
 func _process(delta):
 	PhaseTimer(delta)
