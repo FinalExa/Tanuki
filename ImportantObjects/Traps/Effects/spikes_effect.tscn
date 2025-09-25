@@ -89,7 +89,7 @@ animations = [{
 [node name="SpikesEffect" type="Node2D" node_paths=PackedStringArray("spriteRef")]
 script = ExtResource("1_dvll1")
 spriteRef = NodePath("AnimatedSprite2D")
-phaseDuration = 5.0
+phaseDuration = 3.0
 spikeOutTime = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

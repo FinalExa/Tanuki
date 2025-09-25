@@ -1,4 +1,4 @@
-[gd_scene load_steps=311 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=338 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -61,6 +61,9 @@
 [ext_resource type="PackedScene" uid="uid://bfc0mgjbxpede" path="res://NPC/sword_yokai_npc.tscn" id="50_iymq2"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexLook.gd" id="53_7velj"]
 [ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexWait.gd" id="54_j6m2h"]
+[ext_resource type="PackedScene" uid="uid://csro8c0iit35j" path="res://Level/Detection/local_allowed_items.tscn" id="60_agakn"]
+[ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="60_liiw7"]
+[ext_resource type="PackedScene" uid="uid://cw5ak5ylvsclo" path="res://Level/Detection/local_allowed_items_feedback.tscn" id="61_f8jnc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_me7eb"]
 vertices = PackedVector2Array(1056, -992, 1056, -832, 736, -832, -1504, -864, -1504, -960, 736, -992, -736, 960, -1056, 960, -1120, 928, 208, 864, 288, 864, -288, 928, -208, 864, -288, 864, 976, 704, 736, 704, 480, 544, 544, 544, -1696, 928, -1696, 1376, -1760, 1184, -1760, 1008, 736, 448, 544, 448, -96, 160, 96, 160, 1696, 160, 1696, -192, 1888, -192, 1888, 160, 1696, -608, 1696, -704, 1888, -832, -2000, 928, -1952, 1008, -2000, 1376, -1952, 1184, 2336, -592, 2336, -672, 2528, -736, 2528, -192, 2208, -736, 2272, -672, 2144, -192, 2272, -592, 1568, -352, 1568, -608, -736, 800, -1120, 832, -1056, 800, 736, 1600, -736, 1600, -736, 1312, -32, 1312, -32, 1216, -208, 1216, -208, 928, -288, 1216, -976, 1216, -736, 1056, -976, 1056, -1056, 1216, -1248, 1216, -1248, 1312, -1056, 1312, -1056, 1600, -1616, 1600, -1616, 1440, -1696, 1440, -1696, 1600, -2000, 1600, -2000, 1440, -2080, 1440, -2080, 1600, -2272, 1600, -2272, 1312, -2352, 1312, -2352, 1600, -3296, 1600, -3296, 928, -2352, 928, -2352, 1248, -2272, 1248, -2272, 928, -2208, 928, -2208, 832, -2656, 832, -2656, 544, -2224, 544, -2736, 544, -2736, 832, -3296, 832, -3296, 160, -2736, 160, -2736, 480, -2656, 480, -2656, 160, -2224, 160, -1824, 544, -2144, 832, -1824, 448, -2144, 448, -2144, 160, -1888, 160, -1968, -192, -1968, 64, -2144, 64, -2144, -192, -2528, -192, -2528, -864, -2272, -864, -2272, -960, -2528, -960, -2528, -1584, -2480, -1584, -2480, -1632, -1840, -1632, -1840, -1504, -1760, -1504, -1760, -1632, -1056, -1632, -1056, -992, -736, -1088, -976, -1088, -976, -1248, -416, -1248, -416, -1344, -736, -1344, -736, -1632, -680, -1600, -680, -1632, -600, -1600, -600, -1632, -304, -1632, -352, -1344, -304, -1344, -352, -1248, -224, -1248, -224, -1632, 224, -1632, 224, -1248, 352, -1312, 304, -1312, 304, -1632, 384, -1632, 384, -1600, 480, -1600, 480, -1632, 736, -1632, 736, -1312, 416, -1312, 352, -1248, 416, -1248, 976, -1248, 976, -1088, 736, -1088, 1056, -1120, 1376, -1120, 1376, -1056, 1376, -1216, 1056, -1216, 1056, -1632, 1760, -1632, 1760, -1216, 1440, -1216, 1440, -1120, 2144, -1216, 1840, -1216, 1840, -1632, 2528, -1632, 2528, -1216, 2208, -1216, 2144, -1120, 2208, -1120, 2528, -1120, 2528, -832, 2208, -832, 2144, -832, 2144, 64, 1968, 64, 1968, -736, 2144, -736, 1456, -1056, 1456, -704, 1376, -704, 1248, -704, 1248, -608, 1488, -608, 1488, -352, 1440, -192, 1616, -192, 1616, 64, 1440, 64, 1056, -192, -1760, -960, -1760, -1312, -1840, -1312, -1840, -960, -2080, -960, -2080, -864, -1840, -864, -1840, -608, -1888, -192, -1760, -608, -1760, -864, 736, -736, 976, -736, 976, -576, 544, -576, 544, -480, 736, -480, 736, -192, 304, -192, 304, -480, 480, -480, 480, -576, 224, -576, 224, -192, 96, -192, 176, 160, 176, -96, 336, -96, 336, 160, 736, 160, -96, -192, -224, -192, -224, -576, -480, -480, -304, -480, -304, -192, -736, -192, -736, -480, -544, -480, -480, -576, -544, -576, -976, -576, -976, -736, -736, -736, -1056, -832, -1056, -192, -1440, -192, -1440, 64, -1616, 64, -1616, -192, -1696, -192, -1696, 448, -1760, 448, -1760, 544, -1696, 544, -1696, 832, -2144, 928, -2080, 928, -2080, 1376, -1616, 1376, -1616, 1312, -1312, 1312, -1440, 576, -1616, 576, -1616, 160, -1056, 160, -1056, 576, -1376, 576, -1440, 672, -1376, 672, -1056, 672, -1568, 832, -736, 704, -976, 704, -976, 544, -544, 544, -544, 448, -736, 448, -736, 208, -680, 208, -680, 160, -336, 160, -480, 448, -336, -96, -176, -96, -176, 160, -208, 448, 976, 544, 480, 448, 208, 448, -480, 544, -288, 544, 288, 544, 736, 800, 1504, 960, 1056, 800, 1056, 672, 1440, 672, 1888, 960, 1360, 416, 1360, 576, 1056, 576, 1056, 208, 1104, 208, 1104, 160, 1360, 160, 1360, 352, 1440, 416, 1440, 352, 1440, 160, 1584, 1312, 1584, 1056, 1968, 1056, 2528, 1600, 1968, 160, 2528, 160, 736, 1056, 976, 1056, 976, 1216, 288, 1216, 288, 928, 736, 960, 208, 928, 208, 1216, 32, 1216, 32, 1312, 736, 1312, 1056, 1600, 1504, 1312, 1056, 960, -736, -992, -1616, 672, -1616, 1216, -1568, 928, -1312, 1216, -736, -832)
@@ -1497,6 +1500,78 @@ waitDuration = 3.0
 script = ExtResource("27_ur1lr")
 destination = NodePath("../4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83afp"]
+size = Vector2(448, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc447"]
+size = Vector2(448, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i8ik"]
+size = Vector2(752, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc7a1"]
+size = Vector2(752, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bshs4"]
+size = Vector2(368, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxme7"]
+size = Vector2(368, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl4d0"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i77e1"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t51o0"]
+size = Vector2(224, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_681bp"]
+size = Vector2(224, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8kql"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4wn"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy5xk"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abj17"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7fcx"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvad2"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r85vk"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64etq"]
+size = Vector2(240, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qw4p"]
+size = Vector2(496, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy2g6"]
+size = Vector2(496, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcwlw"]
+size = Vector2(112, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq060"]
+size = Vector2(128, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4ljt"]
+size = Vector2(128, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4tyk"]
+size = Vector2(128, 224)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiudn"]
 size = Vector2(512, 368)
 
@@ -1610,6 +1685,7 @@ advancesQuest = true
 questToAdvance = NodePath("../../Quests/DojoPurifiedKey")
 
 [node name="NavigationRegions" type="Node2D" parent="."]
+visible = false
 z_index = -50
 y_sort_enabled = true
 
@@ -1999,7 +2075,7 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(2288, -1648)
 
 [node name="KatanaPart1" parent="Quests/DojoRepairArmor" instance=ExtResource("15_eyl2a")]
-position = Vector2(1600, 1184)
+position = Vector2(-2496, -384)
 
 [node name="KatanaPart2" parent="Quests/DojoRepairArmor" instance=ExtResource("15_eyl2a")]
 position = Vector2(-704, 704)
@@ -2589,7 +2665,7 @@ position = Vector2(-2048, 544)
 position = Vector2(1064, 192)
 
 [node name="WoodenKatana" parent="TransformationObjects" instance=ExtResource("16_q2htk")]
-position = Vector2(-640, -1624)
+position = Vector2(-2496, -832)
 
 [node name="MagicOil" parent="TransformationObjects" instance=ExtResource("23_qge8d")]
 position = Vector2(432, -1624)
@@ -2597,8 +2673,570 @@ position = Vector2(432, -1624)
 [node name="Weight" parent="TransformationObjects" instance=ExtResource("24_5px1x")]
 position = Vector2(2304, -640)
 
+[node name="Vase" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-320, -96)
+
+[node name="Vase2" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-320, 576)
+
+[node name="Vase3" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-448, 1152)
+
+[node name="Vase4" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(768, 544)
+
+[node name="Vase5" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(320, 1160)
+
+[node name="Vase6" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-2128, -64)
+
+[node name="Vase7" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-2560, 704)
+
+[node name="Vase8" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-2048, 704)
+
+[node name="Vase9" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-896, -736)
+
+[node name="Vase10" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-640, -1568)
+
+[node name="Vase11" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(-384, -352)
+
+[node name="Vase12" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(864, -1248)
+
+[node name="Vase13" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(2368, -1344)
+
+[node name="Vase14" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(1920, -1312)
+
+[node name="Vase15" parent="TransformationObjects" instance=ExtResource("60_liiw7")]
+position = Vector2(1536, -96)
+
 [node name="AllowedZones" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="VaseAllowed1" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-2464, 752)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed1"]
+shape = SubResource("RectangleShape2D_83afp")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(-128, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(128, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(128, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed1" instance=ExtResource("61_f8jnc")]
+position = Vector2(-128, 80)
+
+[node name="VaseAllowed2" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-1888, 752)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed2"]
+shape = SubResource("RectangleShape2D_yc447")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(-128, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(128, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(128, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 80)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed2" instance=ExtResource("61_f8jnc")]
+position = Vector2(-128, 80)
+
+[node name="VaseAllowed3" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-632, 1136)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed3"]
+shape = SubResource("RectangleShape2D_3i8ik")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-328, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-200, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-72, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(312, -48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(184, -48)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(56, -48)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-328, 80)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-200, 80)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(-72, 80)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(312, 80)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(184, 80)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/VaseAllowed3" instance=ExtResource("61_f8jnc")]
+position = Vector2(56, 80)
+
+[node name="VaseAllowed4" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(632, 1136)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed4"]
+shape = SubResource("RectangleShape2D_cc7a1")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-328, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-200, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-72, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(312, -48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(184, -48)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(56, -48)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-328, 80)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-200, 80)
+
+[node name="LocalAllowedItemsFeedback9" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(-72, 80)
+
+[node name="LocalAllowedItemsFeedback10" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(312, 80)
+
+[node name="LocalAllowedItemsFeedback11" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(184, 80)
+
+[node name="LocalAllowedItemsFeedback12" parent="AllowedZones/VaseAllowed4" instance=ExtResource("61_f8jnc")]
+position = Vector2(56, 80)
+
+[node name="VaseAllowed5" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(824, 624)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed5"]
+shape = SubResource("RectangleShape2D_bshs4")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(-120, -80)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(8, -80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(136, -80)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(-120, 48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(8, 48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed5" instance=ExtResource("61_f8jnc")]
+position = Vector2(136, 48)
+
+[node name="VaseAllowed6" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-824, 624)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed6"]
+shape = SubResource("RectangleShape2D_fxme7")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(-136, -80)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, -80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(120, -80)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(-136, 48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, 48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed6" instance=ExtResource("61_f8jnc")]
+position = Vector2(120, 48)
+
+[node name="VaseAllowed7" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-320, 640)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed7"]
+shape = SubResource("RectangleShape2D_nl4d0")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed7" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed7" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 64)
+
+[node name="VaseAllowed8" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(320, 640)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed8"]
+shape = SubResource("RectangleShape2D_i77e1")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed8" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed8" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 64)
+
+[node name="VaseAllowed9" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(256, 0)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed9"]
+shape = SubResource("RectangleShape2D_t51o0")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed9" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed9" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed9" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed9" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 64)
+
+[node name="VaseAllowed10" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-256, 0)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed10"]
+shape = SubResource("RectangleShape2D_681bp")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed10" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -64)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed10" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 64)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed10" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -64)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed10" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 64)
+
+[node name="VaseAllowed11" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-1528, -16)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed11"]
+shape = SubResource("RectangleShape2D_y8kql")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed11" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed11" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed11" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed11" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed12" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-2056, -16)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed12"]
+shape = SubResource("RectangleShape2D_0b4wn")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed12" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed12" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed12" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed12" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed13" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(1528, -16)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed13"]
+shape = SubResource("RectangleShape2D_dy5xk")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed13" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed13" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed13" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed13" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed14" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(2056, -16)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed14"]
+shape = SubResource("RectangleShape2D_abj17")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed14" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed14" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed14" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed14" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed15" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-888, -656)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed15"]
+shape = SubResource("RectangleShape2D_s7fcx")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed15" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed15" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed15" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed15" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed16" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-888, -1168)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed16"]
+shape = SubResource("RectangleShape2D_jvad2")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed16" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed16" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed16" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed16" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed17" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(888, -1168)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed17"]
+shape = SubResource("RectangleShape2D_r85vk")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed17" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed17" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed17" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed17" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed18" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(888, -656)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed18"]
+shape = SubResource("RectangleShape2D_64etq")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed18" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed18" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed18" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed18" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 80)
+
+[node name="VaseAllowed19" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-520, -272)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed19"]
+shape = SubResource("RectangleShape2D_5qw4p")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(-184, -48)
+
+[node name="LocalAllowedItemsFeedback2" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(-184, 80)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(-56, -48)
+
+[node name="LocalAllowedItemsFeedback4" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(-56, 80)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(72, -48)
+
+[node name="LocalAllowedItemsFeedback6" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(72, 80)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(200, -48)
+
+[node name="LocalAllowedItemsFeedback8" parent="AllowedZones/VaseAllowed19" instance=ExtResource("61_f8jnc")]
+position = Vector2(200, 80)
+
+[node name="VaseAllowed20" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(-520, -1600)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed20"]
+shape = SubResource("RectangleShape2D_wy2g6")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed20" instance=ExtResource("61_f8jnc")]
+position = Vector2(-192, 0)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed20" instance=ExtResource("61_f8jnc")]
+position = Vector2(-64, 0)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed20" instance=ExtResource("61_f8jnc")]
+position = Vector2(64, 0)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed20" instance=ExtResource("61_f8jnc")]
+position = Vector2(192, 0)
+
+[node name="VaseAllowed21" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(1864, -1424)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed21"]
+shape = SubResource("RectangleShape2D_fcwlw")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed21" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, -176)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed21" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, -48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed21" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, 80)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed21" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, 208)
+
+[node name="VaseAllowed22" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(2504, -1424)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed22"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_qq060")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed22" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, -176)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed22" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, -48)
+
+[node name="LocalAllowedItemsFeedback5" parent="AllowedZones/VaseAllowed22" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, 80)
+
+[node name="LocalAllowedItemsFeedback7" parent="AllowedZones/VaseAllowed22" instance=ExtResource("61_f8jnc")]
+position = Vector2(-8, 208)
+
+[node name="VaseAllowed23" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(1984, -1296)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed23"]
+shape = SubResource("RectangleShape2D_q4ljt")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed23" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed23" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 80)
+
+[node name="VaseAllowed24" parent="AllowedZones" instance=ExtResource("60_agakn")]
+position = Vector2(2368, -1296)
+allowedObjects = Array[String](["Vase"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllowedZones/VaseAllowed24"]
+shape = SubResource("RectangleShape2D_c4tyk")
+
+[node name="LocalAllowedItemsFeedback" parent="AllowedZones/VaseAllowed24" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, -48)
+
+[node name="LocalAllowedItemsFeedback3" parent="AllowedZones/VaseAllowed24" instance=ExtResource("61_f8jnc")]
+position = Vector2(0, 80)
 
 [node name="SavePoints" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -2611,9 +3249,6 @@ oneTimeSave = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoints/SavePoint"]
 shape = SubResource("RectangleShape2D_yiudn")
-
-[node name="MovableObjects" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="EnemyDoors" type="Node2D" parent="."]
 y_sort_enabled = true
