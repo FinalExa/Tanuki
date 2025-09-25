@@ -41,3 +41,4 @@ scale = Vector2(1.77778, 1.21739)
 texture = ExtResource("2_82t2a")
 
 [connection signal="body_entered" from="EnemyLaunchHitbox" to="EnemyLaunchHitbox" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyLaunchHitbox" to="EnemyLaunchHitbox" method="_on_body_exited"]
