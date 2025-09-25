@@ -7,7 +7,7 @@ extends Area2D
 @export var closeDuration: float = 5
 @export var secondaryAnimationTiming: float = 1
 @export var spriteRef: AnimatedSprite2D
-@export var bodyCollider: CollisionShape2D
+@export var bodyRef: StaticBody2D
 @export var directionFeedback: Sprite2D
 @export var openIdleAnimation: String
 @export var closeIdleAnimation: String
@@ -32,22 +32,24 @@ func CheckIfPlayerIsSeen():
 	if (currentStatus && playerRef != null):
 		var space_state = self.get_world_2d().direct_space_state
 		raycastResult = null
-		var query = PhysicsRayQueryParameters2D.create(self.global_position, playerRef.global_position)
-		query.exclude = [bodyCollider]
+		var query = PhysicsRayQueryParameters2D.create(playerRef.global_position, self.global_position)
 		var result = space_state.intersect_ray(query)
 		if (result && result != { }):
 			raycastResult = result.collider
 		else:
 			raycastResult = null
-		if (raycastResult == playerRef && playerRef.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
-			if (!wardenBossController.wardenCheck.currentEyes.has(self)):
-				wardenBossController.wardenCheck.currentEyes.push_back(self)
-		else:
-			if (wardenBossController.wardenCheck.currentEyes.has(self)):
-				wardenBossController.wardenCheck.currentEyes.erase(self)
+		CheckResult()
 		return
 	if (wardenBossController.wardenCheck.currentEyes.has(self)):
 		wardenBossController.wardenCheck.currentEyes.erase(self)
+
+func CheckResult():
+	if (raycastResult == bodyRef && playerRef.transformationChangeRef.get_if_transformed_in_right_zone() != 1):
+		if (!wardenBossController.wardenCheck.currentEyes.has(self)):
+			wardenBossController.wardenCheck.currentEyes.push_back(self)
+	else:
+		if (wardenBossController.wardenCheck.currentEyes.has(self)):
+			wardenBossController.wardenCheck.currentEyes.erase(self)
 
 func SwapStatus():
 	SetStatus(!currentStatus)

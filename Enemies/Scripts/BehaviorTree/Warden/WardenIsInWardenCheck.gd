@@ -1,11 +1,11 @@
 extends GuardNode
 
 @export var wardenCheck: WardenCheck
-@export var wardenDecreaseICD: float = 1.5
+@export var wardenDecreaseICD: float = 0.5
 var timer: float
 
 func Evaluate(delta):
-	if (wardenCheck.raycastResult != null && wardenCheck.raycastResult is PlayerCharacter):
+	if (wardenCheck.raycastResult != null):
 		wardenCheck.playerSpotted = CheckForPlayerCurrentHiddenStatus(wardenCheck.raycastResult)
 		if (wardenCheck.playerSpotted):
 			timer = wardenDecreaseICD

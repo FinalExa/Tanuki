@@ -11,7 +11,7 @@ func _physics_process(_delta):
 
 func EyeHasSpottedPlayer():
 	if (activated && currentEyes.size() > 0):
-		raycastResult = currentEyes[0].raycastResult
+		raycastResult = currentEyes[0].playerRef
 		return true
 	return false
 

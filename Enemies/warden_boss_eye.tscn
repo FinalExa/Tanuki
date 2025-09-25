@@ -134,12 +134,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="WardenBossEye" type="Area2D" node_paths=PackedStringArray("spriteRef", "bodyCollider")]
+[node name="WardenBossEye" type="Area2D" node_paths=PackedStringArray("spriteRef", "bodyRef")]
 script = ExtResource("1_qw6b6")
 openDuration = 10.0
 closeDuration = 3.0
 spriteRef = NodePath("AnimatedSprite2D")
-bodyCollider = NodePath("Body/CollisionShape2D")
+bodyRef = NodePath("Body")
 openIdleAnimation = "open_idle"
 closeIdleAnimation = "close_idle"
 openingAnimation = "opening"

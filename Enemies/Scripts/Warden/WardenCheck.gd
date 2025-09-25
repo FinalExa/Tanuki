@@ -13,6 +13,7 @@ extends Area2D
 @export var wardenSprite: AnimatedSprite2D
 @export var idleAnimationName: String
 @export var spottedAnimationName: String
+@export var rayPoints: Array[Node2D]
 var activated: bool
 var playerSpotted: bool
 var isInIdleAnimation: bool
@@ -41,14 +42,14 @@ func WardenCheckRaycast():
 	if (playerRef != null && activated):
 		var space_state = wardenController.get_world_2d().direct_space_state
 		raycastResult = null
-		var query = PhysicsRayQueryParameters2D.create(wardenController.global_position, playerRef.global_position)
-		query.exclude = [wardenController, wardenController.wardenCollider]
-		var result = space_state.intersect_ray(query)
-		if (result && result != { }):
-			raycastResult = result.collider
-		else:
-			raycastResult = null
-		return
+		for i in rayPoints.size():
+			var query = PhysicsRayQueryParameters2D.create(wardenController.global_position, rayPoints[i].global_position)
+			query.exclude = [wardenController, wardenController.wardenCollider]
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }):
+				if (result.collider is PlayerCharacter):
+					raycastResult = result.collider
+					return
 	raycastResult = null
 
 func UpdateLabelValue():
