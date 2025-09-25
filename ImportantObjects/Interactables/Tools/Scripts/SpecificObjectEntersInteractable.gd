@@ -3,6 +3,8 @@ extends Area2D
 
 @export var interactableToOperate: GenericInteractable
 @export var objectThatActivatesInteractable: Node2D
+@export var launchOnce: bool
+var launched: bool
 var objectIn: bool
 
 func _process(_delta):
@@ -25,6 +27,8 @@ func _on_area_exited(area):
 		objectIn = false
 
 func ExecuteEffect():
-	if (objectIn):
+	if (objectIn && interactableToOperate.visible && ((launchOnce && !launched) || (!launchOnce))):
+		if (launchOnce):
+			launched = true
 		interactableToOperate.ExecuteExtraEffect()
 		interactableToOperate.FinalState()

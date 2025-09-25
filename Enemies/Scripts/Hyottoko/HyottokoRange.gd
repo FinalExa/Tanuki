@@ -6,6 +6,7 @@ extends Area2D
 @export var baseRadius: float
 @export var extendedRadius: float
 @export var timeBeforeUnset: float
+@export var rayPoints: Array[Node2D]
 var unsetTimer: float
 var unsetTimerActive: bool
 var target: PlayerCharacter
@@ -25,14 +26,15 @@ func _physics_process(_delta):
 func RangeRaycast():
 	if (target != null && !hyottokoController.isEntranced && !hyottokoController.isStunned && !hyottokoController.isReachingPoint):
 		var space_state = hyottokoController.get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(hyottokoController.global_position, target.global_position)
-		query.exclude = [hyottokoController, collisionShape, hyottokoController.hyottokoAttack]
-		var result = space_state.intersect_ray(query)
-		if (result && result != { }):
-			if (result.collider is PlayerCharacter):
-				if (!CheckPlayerTransformationStatus(result.collider)):
-					SetSpottingPlayer()
-					return
+		for i in rayPoints.size():
+			var query = PhysicsRayQueryParameters2D.create(hyottokoController.global_position, rayPoints[i].global_position)
+			query.exclude = [hyottokoController, collisionShape, hyottokoController.hyottokoAttack]
+			var result = space_state.intersect_ray(query)
+			if (result && result != { }):
+				if (result.collider is PlayerCharacter):
+					if (!CheckPlayerTransformationStatus(result.collider)):
+						SetSpottingPlayer()
+						return
 		if (!unsetTimerActive):
 			unsetTimerActive = true
 

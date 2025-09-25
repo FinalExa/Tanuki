@@ -270,17 +270,272 @@ rotationSpeed = 5.0
 rotationWeight = 0.1
 rotationDegreesOffset = 0.5
 
-[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController", "collisionShape")]
+[node name="HyottokoRange" type="Area2D" parent="Rotator" node_paths=PackedStringArray("hyottokoController", "collisionShape", "rayPoints")]
 script = ExtResource("19_dh4i4")
 hyottokoController = NodePath("../..")
 collisionShape = NodePath("CollisionShape2D")
 baseRadius = 640.0
 extendedRadius = 896.0
 timeBeforeUnset = 5.0
+rayPoints = [NodePath("RayPoints/1"), NodePath("RayPoints/2"), NodePath("RayPoints/3"), NodePath("RayPoints/4"), NodePath("RayPoints/5"), NodePath("RayPoints/6"), NodePath("RayPoints/7"), NodePath("RayPoints/8"), NodePath("RayPoints/9"), NodePath("RayPoints/10"), NodePath("RayPoints/11"), NodePath("RayPoints/12"), NodePath("RayPoints/13"), NodePath("RayPoints/14"), NodePath("RayPoints/15"), NodePath("RayPoints/16"), NodePath("RayPoints/17"), NodePath("RayPoints/18"), NodePath("RayPoints/19"), NodePath("RayPoints/20"), NodePath("RayPoints/21"), NodePath("RayPoints/22"), NodePath("RayPoints/23"), NodePath("RayPoints/24"), NodePath("RayPoints/25"), NodePath("RayPoints/26"), NodePath("RayPoints/27"), NodePath("RayPoints/28"), NodePath("RayPoints/29"), NodePath("RayPoints/30"), NodePath("RayPoints/31"), NodePath("RayPoints/32"), NodePath("RayPoints/33"), NodePath("RayPoints/34"), NodePath("RayPoints/35"), NodePath("RayPoints/36"), NodePath("RayPoints/37"), NodePath("RayPoints/38"), NodePath("RayPoints/39"), NodePath("RayPoints/40"), NodePath("RayPoints/41"), NodePath("RayPoints/42"), NodePath("RayPoints/43"), NodePath("RayPoints/44"), NodePath("RayPoints/45"), NodePath("RayPoints/46"), NodePath("RayPoints/47"), NodePath("RayPoints/48"), NodePath("RayPoints/49"), NodePath("RayPoints/50"), NodePath("RayPoints/51"), NodePath("RayPoints/52"), NodePath("RayPoints/53"), NodePath("RayPoints/54"), NodePath("RayPoints/55"), NodePath("RayPoints/56"), NodePath("RayPoints/57"), NodePath("RayPoints/58"), NodePath("RayPoints/59"), NodePath("RayPoints/60"), NodePath("RayPoints/61"), NodePath("RayPoints/62"), NodePath("RayPoints/63"), NodePath("RayPoints/64"), NodePath("RayPoints/65"), NodePath("RayPoints/66"), NodePath("RayPoints/67"), NodePath("RayPoints/68"), NodePath("RayPoints/69"), NodePath("RayPoints/70"), NodePath("RayPoints/71"), NodePath("RayPoints/72"), NodePath("RayPoints/73"), NodePath("RayPoints/74"), NodePath("RayPoints/75"), NodePath("RayPoints/76"), NodePath("RayPoints/77"), NodePath("RayPoints/78"), NodePath("RayPoints/79"), NodePath("RayPoints/80"), NodePath("RayPoints/81"), NodePath("RayPoints/82"), NodePath("RayPoints/83"), NodePath("RayPoints/84")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator/HyottokoRange"]
 shape = SubResource("CircleShape2D_tvwmf")
 debug_color = Color(0, 0.6, 0, 0.0196078)
+
+[node name="RayPoints" type="Node2D" parent="Rotator/HyottokoRange"]
+
+[node name="1" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(0, -896)
+
+[node name="2" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(64, -888)
+
+[node name="3" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(128, -880)
+
+[node name="4" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(192, -872)
+
+[node name="5" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(256, -856)
+
+[node name="6" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(320, -832)
+
+[node name="7" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(384, -800)
+
+[node name="8" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(448, -776)
+
+[node name="9" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(512, -728)
+
+[node name="10" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(576, -680)
+
+[node name="11" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(640, -624)
+
+[node name="12" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(704, -544)
+
+[node name="13" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(768, -456)
+
+[node name="14" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(800, -384)
+
+[node name="15" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(824, -320)
+
+[node name="16" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(856, -256)
+
+[node name="17" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(872, -192)
+
+[node name="18" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(880, -128)
+
+[node name="19" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(888, -64)
+
+[node name="20" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(896, 0)
+
+[node name="21" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(888, 64)
+
+[node name="22" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(880, 128)
+
+[node name="23" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(872, 192)
+
+[node name="24" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(856, 256)
+
+[node name="25" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(832, 312)
+
+[node name="26" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(800, 384)
+
+[node name="27" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(776, 448)
+
+[node name="28" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(728, 512)
+
+[node name="29" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(680, 576)
+
+[node name="30" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(640, 624)
+
+[node name="31" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(576, 680)
+
+[node name="32" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(512, 728)
+
+[node name="33" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(448, 776)
+
+[node name="34" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(384, 800)
+
+[node name="35" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(320, 832)
+
+[node name="36" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(256, 856)
+
+[node name="37" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(192, 872)
+
+[node name="38" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(128, 880)
+
+[node name="39" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(64, 888)
+
+[node name="40" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(0, 896)
+
+[node name="41" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(672, -584)
+
+[node name="42" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(736, -496)
+
+[node name="43" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(608, -656)
+
+[node name="44" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-64, 888)
+
+[node name="45" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-128, 880)
+
+[node name="46" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-192, 872)
+
+[node name="47" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-256, 856)
+
+[node name="48" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-320, 832)
+
+[node name="49" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-384, 800)
+
+[node name="50" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-448, 776)
+
+[node name="51" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-512, 728)
+
+[node name="52" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-544, 704)
+
+[node name="53" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-576, 680)
+
+[node name="54" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-624, 640)
+
+[node name="55" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-680, 576)
+
+[node name="56" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-728, 512)
+
+[node name="57" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-776, 448)
+
+[node name="58" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-832, 320)
+
+[node name="59" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-856, 256)
+
+[node name="60" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-872, 192)
+
+[node name="61" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-880, 128)
+
+[node name="62" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-888, 64)
+
+[node name="63" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-896, 0)
+
+[node name="64" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-888, -64)
+
+[node name="65" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-880, -128)
+
+[node name="66" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-872, -192)
+
+[node name="67" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-856, -256)
+
+[node name="68" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-832, -320)
+
+[node name="69" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-808, -384)
+
+[node name="70" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-776, -448)
+
+[node name="71" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-728, -512)
+
+[node name="72" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-680, -576)
+
+[node name="73" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-624, -640)
+
+[node name="74" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-576, -680)
+
+[node name="75" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-544, -704)
+
+[node name="76" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-512, -728)
+
+[node name="77" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-456, -768)
+
+[node name="78" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-384, -800)
+
+[node name="79" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-320, -832)
+
+[node name="80" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-256, -856)
+
+[node name="81" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-192, -872)
+
+[node name="82" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-128, -880)
+
+[node name="83" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-64, -888)
+
+[node name="84" type="Node2D" parent="Rotator/HyottokoRange/RayPoints"]
+position = Vector2(-800, 384)
 
 [node name="HyottokoBossAttack" parent="Rotator" node_paths=PackedStringArray("attackSounds", "characterRef") instance=ExtResource("20_8lud5")]
 attackSounds = [null, NodePath("../../Sounds/NormalAttack")]
