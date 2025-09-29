@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=238 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -58,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://b6x2k7al8h611" path="res://ImportantObjects/Interactables/cart_revolving_door_vertical.tscn" id="48_rrc6v"]
 [ext_resource type="PackedScene" uid="uid://dkgw5veqni4aa" path="res://ImportantObjects/Interactables/cart_obstacle_right.tscn" id="49_j5sux"]
 [ext_resource type="PackedScene" uid="uid://djl8bcxc5roir" path="res://Enemies/warden.tscn" id="55_t1xas"]
+[ext_resource type="PackedScene" uid="uid://du00h8n41wpjo" path="res://ImportantObjects/TransformationObjects/wooden_katana.tscn" id="57_etjd7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q4p24"]
 vertices = PackedVector2Array(6496, -704, 6352, -704, 5072, -880, 5424, -880, 6096, -512, 5936, -512, 5680, -608, 5840, -608, 6096, -1376, 5936, -1376, 5072, -1648, 5424, -1648, 5072, -112, 5424, -112, 6496, 576, 4528, 576, 4528, 288, 6096, -1648, 6096, -2144, 6496, -2400, 4528, -2400, 5936, -2144, 4912, -112, 6496, -608, 6096, -112, 6352, -608, 6192, -608, 2224, 224, 2224, -2400, 2896, -2400, 2896, -2080, 2976, -2080, 2976, -2400, 4448, -2400, 4448, -2080, 5936, -1648, 5584, -1648, 5584, -2144, 5424, -2144, 5936, -880, 5584, -880, 5584, -1376, 5424, -1376, 6192, -704, 5840, -704, 5680, -704, 4528, -704, 4912, -880, 4528, -2016, 4912, -1376, 4448, -2016, 4448, -1728, 2976, -1728, 2976, -2016, 2976, 224, 2976, -96, 4448, -96, 4448, 224, 5936, -112, 5584, -112, 5584, -512, 4528, -608, 5424, -512, 4448, 288, 4448, 576, 2976, 576, 2976, 288, 2896, 288, 2896, 576, 2224, 576, 2224, 288, 2144, 288, 2144, 576, 1824, 576, 1760, -96, 1824, -96, 1824, 672, 2144, 672, 2144, 1344, 1440, 1344, 1440, 672, 1760, 672, 1760, 576, 1056, 672, 1360, 672, 1360, 1344, 672, 1344, 672, 672, 992, 672, 1056, 576, 992, 576, 288, 672, 592, 672, 592, 1344, -96, 1344, -96, 672, 224, 672, 288, 576, 224, 576, -96, 576, -96, -96, 224, -96, 288, -96, 224, -192, -96, -192, -96, -864, 592, -864, 592, -192, 288, -192, 992, -96, 1056, -96, 992, -192, 672, -192, 672, -864, 1360, -864, 1360, -192, 1056, -192, 1760, -192, 1440, -192, 1440, -864, 2144, -864, 2144, -192, 1824, -192, 2144, -96, 2144, 224, 2896, 224, 6096, -880, 5072, -1376, 4528, -2080, 4912, -1648, 4912, -512, 4528, 224, 5072, -512, 2896, -2016, 5072, -2144, 4912, -2144)
@@ -486,6 +487,12 @@ size = Vector2(768, 480)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de42p"]
 size = Vector2(2304, 2272)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uufm"]
+size = Vector2(2544, 3040)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjd3b"]
+size = Vector2(2288, 3040)
+
 [sub_resource type="Resource" id="Resource_ma0bs"]
 script = ExtResource("13_rroll")
 destination = NodePath("../1")
@@ -510,53 +517,49 @@ destination = NodePath("../4")
 script = ExtResource("13_rroll")
 destination = NodePath("../3")
 
-[sub_resource type="Resource" id="Resource_wdylw"]
+[sub_resource type="Resource" id="Resource_oabc5"]
 script = ExtResource("13_rroll")
 destination = NodePath("../1")
 
-[sub_resource type="Resource" id="Resource_8p1ll"]
-script = ExtResource("38_sgp8m")
-lookDirection = 3
-
-[sub_resource type="Resource" id="Resource_itr4a"]
-script = ExtResource("18_iutuc")
-waitDuration = 1.0
-
-[sub_resource type="Resource" id="Resource_ouomv"]
+[sub_resource type="Resource" id="Resource_1t0jk"]
 script = ExtResource("13_rroll")
 destination = NodePath("../2")
 
-[sub_resource type="Resource" id="Resource_w3pwy"]
-script = ExtResource("38_sgp8m")
-lookDirection = 1
-
-[sub_resource type="Resource" id="Resource_o2uul"]
-script = ExtResource("18_iutuc")
-waitDuration = 1.0
-
-[sub_resource type="Resource" id="Resource_qd1v3"]
+[sub_resource type="Resource" id="Resource_erhk0"]
 script = ExtResource("13_rroll")
 destination = NodePath("../3")
 
-[sub_resource type="Resource" id="Resource_gvf72"]
-script = ExtResource("38_sgp8m")
-lookDirection = 2
-
-[sub_resource type="Resource" id="Resource_3l4cs"]
-script = ExtResource("18_iutuc")
-waitDuration = 1.0
-
-[sub_resource type="Resource" id="Resource_124tw"]
+[sub_resource type="Resource" id="Resource_lkbwn"]
 script = ExtResource("13_rroll")
 destination = NodePath("../4")
 
-[sub_resource type="Resource" id="Resource_56jre"]
-script = ExtResource("38_sgp8m")
-lookDirection = 0
+[sub_resource type="Resource" id="Resource_q8wsi"]
+script = ExtResource("13_rroll")
+destination = NodePath("../5")
 
-[sub_resource type="Resource" id="Resource_t526n"]
-script = ExtResource("18_iutuc")
-waitDuration = 1.0
+[sub_resource type="Resource" id="Resource_n43nr"]
+script = ExtResource("13_rroll")
+destination = NodePath("../6")
+
+[sub_resource type="Resource" id="Resource_kvssh"]
+script = ExtResource("13_rroll")
+destination = NodePath("../7")
+
+[sub_resource type="Resource" id="Resource_2wddv"]
+script = ExtResource("13_rroll")
+destination = NodePath("../5")
+
+[sub_resource type="Resource" id="Resource_onedu"]
+script = ExtResource("13_rroll")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_wohk6"]
+script = ExtResource("13_rroll")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_5ftcc"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
 
 [sub_resource type="Resource" id="Resource_20qft"]
 script = ExtResource("13_rroll")
@@ -674,6 +677,118 @@ lookDirection = 1
 script = ExtResource("18_iutuc")
 waitDuration = 3.0
 
+[sub_resource type="Resource" id="Resource_wsij2"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_a5r6f"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_et0bd"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_0vf8p"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_hii7o"]
+script = ExtResource("38_sgp8m")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_38elw"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_idt8b"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_oeiun"]
+script = ExtResource("38_sgp8m")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_qr0ys"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_ht3nx"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_rd4lf"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_4rbg1"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_n6cbl"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_4qkom"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_iakkf"]
+script = ExtResource("18_iutuc")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_qvkd8"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_8oagt"]
+script = ExtResource("38_sgp8m")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_m4uy5"]
+script = ExtResource("18_iutuc")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_5sbu3"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_p0xbb"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_t1o0x"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_repo3"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_4gqek"]
+script = ExtResource("13_rroll")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_1x7oq"]
+script = ExtResource("13_rroll")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_5iwvb"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_248qb"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_irifh"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_gaojd"]
+script = ExtResource("13_rroll")
+destination = NodePath("../2")
+
 [sub_resource type="Resource" id="Resource_r7kjx"]
 script = ExtResource("13_rroll")
 destination = NodePath("../1")
@@ -709,6 +824,98 @@ lookDirection = 1
 [sub_resource type="Resource" id="Resource_4n65o"]
 script = ExtResource("18_iutuc")
 waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_ytm7h"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_fafk2"]
+script = ExtResource("38_sgp8m")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_5idab"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_jt16q"]
+script = ExtResource("38_sgp8m")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_8waug"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_f2mb3"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_7tfke"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_ry58k"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_3mrc6"]
+script = ExtResource("38_sgp8m")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_8hcn0"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_te5pu"]
+script = ExtResource("38_sgp8m")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_2vcgy"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_hys7g"]
+script = ExtResource("38_sgp8m")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_sogq2"]
+script = ExtResource("18_iutuc")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_h5v7i"]
+script = ExtResource("13_rroll")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_psfax"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_lb5fh"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_m04xh"]
+script = ExtResource("38_sgp8m")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_pwmpq"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_cmaiu"]
+script = ExtResource("38_sgp8m")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_fv4ym"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
+
+[sub_resource type="Resource" id="Resource_ypsnt"]
+script = ExtResource("38_sgp8m")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_uc4gd"]
+script = ExtResource("18_iutuc")
+waitDuration = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ehwp"]
 size = Vector2(256, 512)
@@ -1850,7 +2057,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_dpmq2")
 
 [node name="GuardKeychain" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
-position = Vector2(5760, -1088)
+position = Vector2(5504, -1512)
 patrolIndicators = [NodePath("../PatrolIndicators/GuardKeychain/GuardKeychainPatrolIndicator")]
 
 [node name="Keychain" type="Sprite2D" parent="Enemies/GuardKeychain" node_paths=PackedStringArray("objectParent", "objectSpawnPosition")]
@@ -1880,16 +2087,71 @@ patrolIndicators = [NodePath("../PatrolIndicators/Guard3/Guard3PatrolIndicator")
 position = Vector2(256, 768)
 patrolIndicators = [NodePath("../PatrolIndicators/Guard4/Guard4PatrolIndicator")]
 
+[node name="Guard5" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(2816, -384)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard5/Guard5PatrolIndicator")]
+
+[node name="Guard6" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(2304, -1024)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard6/Guard6PatrolIndicator")]
+
+[node name="Guard7" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(2816, -1664)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard7/Guard7PatrolIndicator")]
+
+[node name="Guard8" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(4736, -1440)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard8/Guard8PatrolIndicator")]
+
+[node name="Guard9" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(5632, 384)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard9/Guard9PatrolIndicator")]
+
+[node name="Guard10" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(5504, -576)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard10/Guard10PatrolIndicator")]
+
+[node name="Guard11" parent="Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("13_rjfmk")]
+position = Vector2(5504, -832)
+patrolIndicators = [NodePath("../PatrolIndicators/Guard11/Guard11PatrolIndicator")]
+
 [node name="Warden1" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("55_t1xas")]
 position = Vector2(1792, 128)
-wardenAlertArea = NodePath("../WardenAlertArea")
+wardenAlertArea = NodePath("../Warden1AlertArea")
 patrolIndicators = [NodePath("../PatrolIndicators/Warden1/Warden1PatrolIndicator")]
 
-[node name="WardenAlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
+[node name="Warden2" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("55_t1xas")]
+position = Vector2(5248, -1152)
+wardenAlertArea = NodePath("../Warden2AlertArea")
+patrolIndicators = [NodePath("../PatrolIndicators/Warden2/Warden2PatrolIndicator")]
+
+[node name="Warden3" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("55_t1xas")]
+position = Vector2(3968, 256)
+wardenAlertArea = NodePath("../Warden3-4AlertArea")
+patrolIndicators = [NodePath("../PatrolIndicators/Warden3/Warden3PatrolIndicator")]
+
+[node name="Warden4" parent="Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("55_t1xas")]
+position = Vector2(3712, -2176)
+wardenAlertArea = NodePath("../Warden3-4AlertArea")
+patrolIndicators = [NodePath("../PatrolIndicators/Warden4/Warden4PatrolIndicator")]
+
+[node name="Warden1AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(1024, 240)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/WardenAlertArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Warden1AlertArea"]
 shape = SubResource("RectangleShape2D_de42p")
+
+[node name="Warden2AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
+position = Vector2(5768, -912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Warden2AlertArea"]
+shape = SubResource("RectangleShape2D_0uufm")
+
+[node name="Warden3-4AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
+position = Vector2(3336, -912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Warden3-4AlertArea"]
+shape = SubResource("RectangleShape2D_fjd3b")
 
 [node name="PatrolIndicators" type="Node2D" parent="Enemies"]
 
@@ -1903,31 +2165,40 @@ patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolInde
 position = Vector2(2560, 256)
 
 [node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner1"]
-position = Vector2(3968, 256)
+position = Vector2(3520, 256)
 
 [node name="3" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner1"]
 position = Vector2(2560, -2048)
 
 [node name="4" type="Node2D" parent="Enemies/PatrolIndicators/Cleaner1"]
-position = Vector2(3968, -2048)
+position = Vector2(3520, -2048)
 
 [node name="GuardKeychain" type="Node2D" parent="Enemies/PatrolIndicators"]
 
 [node name="GuardKeychainPatrolIndicator" parent="Enemies/PatrolIndicators/GuardKeychain" instance=ExtResource("12_dhu8k")]
 position = Vector2(5760, -1088)
-patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_wdylw"), SubResource("Resource_8p1ll"), SubResource("Resource_itr4a"), SubResource("Resource_ouomv"), SubResource("Resource_w3pwy"), SubResource("Resource_o2uul"), SubResource("Resource_qd1v3"), SubResource("Resource_gvf72"), SubResource("Resource_3l4cs"), SubResource("Resource_124tw"), SubResource("Resource_56jre"), SubResource("Resource_t526n")])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_oabc5"), SubResource("Resource_1t0jk"), SubResource("Resource_erhk0"), SubResource("Resource_lkbwn"), SubResource("Resource_q8wsi"), SubResource("Resource_n43nr"), SubResource("Resource_kvssh"), SubResource("Resource_2wddv"), SubResource("Resource_onedu"), SubResource("Resource_wohk6"), SubResource("Resource_5ftcc")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
-position = Vector2(5760, -1440)
+position = Vector2(5504, -1512)
 
 [node name="2" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
-position = Vector2(6272, -1440)
+position = Vector2(4736, -1536)
 
 [node name="3" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
-position = Vector2(6272, -832)
+position = Vector2(4736, -2048)
 
 [node name="4" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
-position = Vector2(5760, -832)
+position = Vector2(2688, -2048)
+
+[node name="5" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
+position = Vector2(2688, 256)
+
+[node name="6" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
+position = Vector2(640, 256)
+
+[node name="7" type="Node2D" parent="Enemies/PatrolIndicators/GuardKeychain"]
+position = Vector2(3712, 256)
 
 [node name="Guard1" type="Node2D" parent="Enemies/PatrolIndicators"]
 
@@ -1986,6 +2257,96 @@ position = Vector2(256, 1280)
 [node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard4"]
 position = Vector2(256, -768)
 
+[node name="Guard5" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard5PatrolIndicator" parent="Enemies/PatrolIndicators/Guard5" instance=ExtResource("12_dhu8k")]
+position = Vector2(2560, -384)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_wsij2"), SubResource("Resource_a5r6f"), SubResource("Resource_et0bd"), SubResource("Resource_0vf8p"), SubResource("Resource_hii7o"), SubResource("Resource_38elw")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard5"]
+position = Vector2(2816, -384)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard5"]
+position = Vector2(2304, -384)
+
+[node name="Guard6" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard6PatrolIndicator" parent="Enemies/PatrolIndicators/Guard6" instance=ExtResource("12_dhu8k")]
+position = Vector2(2560, -1024)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_idt8b"), SubResource("Resource_oeiun"), SubResource("Resource_qr0ys"), SubResource("Resource_ht3nx"), SubResource("Resource_rd4lf"), SubResource("Resource_4rbg1")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard6"]
+position = Vector2(2304, -1024)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard6"]
+position = Vector2(2816, -1024)
+
+[node name="Guard7" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard7PatrolIndicator" parent="Enemies/PatrolIndicators/Guard7" instance=ExtResource("12_dhu8k")]
+position = Vector2(2560, -1664)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_n6cbl"), SubResource("Resource_4qkom"), SubResource("Resource_iakkf"), SubResource("Resource_qvkd8"), SubResource("Resource_8oagt"), SubResource("Resource_m4uy5")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard7"]
+position = Vector2(2816, -1664)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard7"]
+position = Vector2(2304, -1664)
+
+[node name="Guard8" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard8PatrolIndicator" parent="Enemies/PatrolIndicators/Guard8" instance=ExtResource("12_dhu8k")]
+position = Vector2(5504, -1440)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_5sbu3"), SubResource("Resource_p0xbb")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard8"]
+position = Vector2(4736, -1440)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard8"]
+position = Vector2(6272, -1440)
+
+[node name="Guard9" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard9PatrolIndicator" parent="Enemies/PatrolIndicators/Guard9" instance=ExtResource("12_dhu8k")]
+position = Vector2(5632, 192)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_t1o0x"), SubResource("Resource_repo3"), SubResource("Resource_4gqek"), SubResource("Resource_1x7oq")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard9"]
+position = Vector2(5248, 384)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard9"]
+position = Vector2(5248, 0)
+
+[node name="3" type="Node2D" parent="Enemies/PatrolIndicators/Guard9"]
+position = Vector2(6016, 0)
+
+[node name="4" type="Node2D" parent="Enemies/PatrolIndicators/Guard9"]
+position = Vector2(6016, 384)
+
+[node name="Guard10" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard10PatrolIndicator" parent="Enemies/PatrolIndicators/Guard10" instance=ExtResource("12_dhu8k")]
+position = Vector2(5504, -576)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_5iwvb"), SubResource("Resource_248qb")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard10"]
+position = Vector2(6016, -576)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard10"]
+position = Vector2(4992, -576)
+
+[node name="Guard11" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Guard11PatrolIndicator" parent="Enemies/PatrolIndicators/Guard11" instance=ExtResource("12_dhu8k")]
+position = Vector2(5504, -832)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_irifh"), SubResource("Resource_gaojd")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Guard11"]
+position = Vector2(4992, -832)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolIndicators/Guard11"]
+position = Vector2(6016, -832)
+
 [node name="Warden1" type="Node2D" parent="Enemies/PatrolIndicators"]
 
 [node name="Warden1PatrolIndicator" parent="Enemies/PatrolIndicators/Warden1" instance=ExtResource("12_dhu8k")]
@@ -1994,6 +2355,33 @@ patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolInde
 
 [node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Warden1"]
 position = Vector2(1792, 128)
+
+[node name="Warden2" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Warden2PatrolIndicator" parent="Enemies/PatrolIndicators/Warden2" instance=ExtResource("12_dhu8k")]
+position = Vector2(5248, -1152)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ytm7h"), SubResource("Resource_fafk2"), SubResource("Resource_5idab"), SubResource("Resource_jt16q"), SubResource("Resource_8waug")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Warden2"]
+position = Vector2(5248, -1152)
+
+[node name="Warden3" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Warden3PatrolIndicator" parent="Enemies/PatrolIndicators/Warden3" instance=ExtResource("12_dhu8k")]
+position = Vector2(3968, 256)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_f2mb3"), SubResource("Resource_7tfke"), SubResource("Resource_ry58k"), SubResource("Resource_3mrc6"), SubResource("Resource_8hcn0"), SubResource("Resource_te5pu"), SubResource("Resource_2vcgy"), SubResource("Resource_hys7g"), SubResource("Resource_sogq2")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Warden3"]
+position = Vector2(3968, 256)
+
+[node name="Warden4" type="Node2D" parent="Enemies/PatrolIndicators"]
+
+[node name="Warden4PatrolIndicator" parent="Enemies/PatrolIndicators/Warden4" instance=ExtResource("12_dhu8k")]
+position = Vector2(3712, -2176)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_h5v7i"), SubResource("Resource_psfax"), SubResource("Resource_lb5fh"), SubResource("Resource_m04xh"), SubResource("Resource_pwmpq"), SubResource("Resource_cmaiu"), SubResource("Resource_fv4ym"), SubResource("Resource_ypsnt"), SubResource("Resource_uc4gd")])
+
+[node name="1" type="Node2D" parent="Enemies/PatrolIndicators/Warden4"]
+position = Vector2(3712, -2176)
 
 [node name="Saves" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -2044,6 +2432,10 @@ position = Vector2(2160, 1024)
 position = Vector2(1280, -64)
 
 [node name="Vase" parent="Transformations/FireflyObjectContainerVase" instance=ExtResource("15_xudx6")]
+
+[node name="FireflyObjectContainerKatana" parent="Transformations" instance=ExtResource("14_ugxoi")]
+
+[node name="WoodenKatana" parent="Transformations/FireflyObjectContainerKatana" instance=ExtResource("57_etjd7")]
 
 [node name="GongMace" parent="Transformations" instance=ExtResource("36_254a5")]
 position = Vector2(6944, -640)
@@ -2134,7 +2526,7 @@ availableDirections = Array[bool]([true, false, true, false])
 
 [node name="CasketMixer" type="Node2D" parent="." node_paths=PackedStringArray("objectsToRandomizePosition", "positions")]
 script = ExtResource("37_ei2jk")
-objectsToRandomizePosition = [NodePath("../Quests/BLOpenCasket1/CasketContainer")]
+objectsToRandomizePosition = [NodePath("../Quests/BLOpenCasket1/CasketContainer"), NodePath("../Transformations/FireflyObjectContainerKatana")]
 positions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
 
 [node name="1" type="Node2D" parent="CasketMixer"]
