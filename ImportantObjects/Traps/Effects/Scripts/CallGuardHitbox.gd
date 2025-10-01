@@ -29,7 +29,7 @@ func GuardLaunchAlert(guardRef: GuardController):
 		if (guardRef.isInPatrol):
 			guardRef.enemyPatrol.stop_patrol()
 		if (guardRef.isChecking):
-			guardRef.guardCheck.stop_guardCheck()
+			guardRef.guardCheck.StopCheck()
 		if (guardRef.isInResearch):
 			guardRef.guardResearch.StopResearch()
 		guardRef.guardAlert.start_alert(targetObject)

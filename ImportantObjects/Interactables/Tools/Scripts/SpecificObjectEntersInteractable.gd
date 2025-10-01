@@ -27,7 +27,7 @@ func _on_area_exited(area):
 		objectIn = false
 
 func ExecuteEffect():
-	if (objectIn && interactableToOperate.visible && ((launchOnce && !launched) || (!launchOnce))):
+	if (interactableToOperate != null && objectThatActivatesInteractable != null && objectIn && interactableToOperate.visible && ((launchOnce && !launched) || (!launchOnce))):
 		if (launchOnce):
 			launched = true
 		interactableToOperate.ExecuteExtraEffect()
