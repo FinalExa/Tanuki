@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=214 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -483,12 +483,6 @@ itemOperation = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3rw"]
 size = Vector2(768, 480)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3d3s"]
-size = Vector2(2288, 3040)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8qpb"]
-size = Vector2(2288, 3040)
 
 [sub_resource type="Resource" id="Resource_ma0bs"]
 script = ExtResource("13_rroll")
@@ -2029,16 +2023,16 @@ patrolIndicators = [NodePath("../PatrolIndicators/Warden4/Warden4PatrolIndicator
 [node name="Warden3AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(3336, -912)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Warden3AlertArea"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemies/Warden3AlertArea"]
 visible = false
-shape = SubResource("RectangleShape2D_m3d3s")
+polygon = PackedVector2Array(-1144, -1520, 3192, -1520, 3192, 240, 1160, 240, 1160, -784, -408, -784, -408, 1520, -1144, 1520)
 
 [node name="Warden4AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(3336, -912)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Warden4AlertArea"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemies/Warden4AlertArea"]
 visible = false
-shape = SubResource("RectangleShape2D_x8qpb")
+polygon = PackedVector2Array(-1144, -1520, -408, -1520, -408, 784, 1160, 784, 1160, 272, 3192, 272, 3192, 1520, -1144, 1520)
 
 [node name="PatrolIndicators" type="Node2D" parent="Enemies"]
 

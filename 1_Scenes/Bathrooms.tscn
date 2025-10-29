@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=148 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://uueuynaswt7r" path="res://ImportantObjects/MovableObjects/metal_rod_movable.tscn" id="17_dnihd"]
 [ext_resource type="PackedScene" uid="uid://ct3xjudtmgwwd" path="res://Level/Prefabs/bathtub_hot.tscn" id="17_se3l3"]
 [ext_resource type="PackedScene" uid="uid://b2bsr66d307mn" path="res://ImportantObjects/PuzzleObjects/HeatSourceActivator.tscn" id="18_ff0db"]
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueIndex.gd" id="18_qfqbg"]
+[ext_resource type="PackedScene" uid="uid://dwvljd6nfrrb8" path="res://NPC/old_man_npc.tscn" id="19_bb3y4"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="19_cvryn"]
 [ext_resource type="PackedScene" uid="uid://cr1jhbadh652j" path="res://ImportantObjects/PuzzleObjects/stun_area.tscn" id="19_vm5a5"]
 [ext_resource type="Texture2D" uid="uid://dy3tbybe3dtj3" path="res://Level/Sprites/Smoke.png" id="20_cvt8r"]
@@ -97,6 +99,14 @@ altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_0w7c3"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("DialogueArea1")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
 [sub_resource type="Resource" id="Resource_kfcrv"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
@@ -105,6 +115,38 @@ altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_c0j8i"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("../BathroomsSetBathtub1/OldManNPC/DialogueArea2")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 3
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_g60cw"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("DialogueArea1")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 3
+itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_hogay"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks for helping me and my friends getting warm water, little Tanuki."
+characterTalking = 2
+cameraFocus = NodePath("../../BathroomsSetBathtub1/Bathtub1/OldManNPC")
+
+[sub_resource type="Resource" id="Resource_3bdws"]
+script = ExtResource("18_qfqbg")
+dialogueText = "No problem! Thanks for the key, hehe!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyn3e"]
+radius = 144.0
+height = 384.0
+
 [sub_resource type="Resource" id="Resource_465r2"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("BathtubHot")
@@ -112,6 +154,30 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_qjvcu"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldManNPC/DialogueArea2")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_vu760"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldManNPC/DialogueArea1")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_thnpi"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("OldManNPC/DialogueArea2")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 1
 
 [sub_resource type="Resource" id="Resource_5ctfj"]
 script = ExtResource("16_yv3nw")
@@ -128,6 +194,58 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_xw7hk"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hmm... who do we have there... a little Tanuki I see..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8cl7q"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Oh, hello old man! Enjoying the bath?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_20sku"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hmm... not quite. I think that the temperature could be a little warmer, can you bring me a hot object? I'll use it to warm the water."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_d3ra6"]
+script = ExtResource("18_qfqbg")
+dialogueText = "What's in for me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_r5ccr"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hmm... I do have a sort of key here, in the bathtub, found it before. Say, warm this bathtub and the other two for my friends and I'll give you the key, deal?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_npa1y"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Okay, deal!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45fpe"]
+radius = 144.0
+height = 384.0
+
+[sub_resource type="Resource" id="Resource_6nw8y"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks, little Tanuki! The water is all warm now. Please warm the other bathtubs in the other rooms and I'll give you your key."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_pugd3"]
+script = ExtResource("18_qfqbg")
+dialogueText = "On it."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ueebr"]
 size = Vector2(368, 864)
@@ -721,15 +839,46 @@ shape = SubResource("CircleShape2D_jm5or")
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsActivateBathtubs"
-questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_r6kqn"), SubResource("Resource_kfcrv")])
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_r6kqn"), SubResource("Resource_0w7c3"), SubResource("Resource_kfcrv"), SubResource("Resource_c0j8i"), SubResource("Resource_g60cw")])
+
+[node name="DialogueArea1" parent="Quests/BathroomsActivateBathtubs" instance=ExtResource("12_8ip6f")]
+position = Vector2(-1536, -1520)
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_hogay"), SubResource("Resource_3bdws")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsActivateBathtubs/DialogueArea1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fyn3e")
 
 [node name="BathroomsSetBathtub1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsSetBathtub1"
-questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_465r2"), SubResource("Resource_5ctfj"), SubResource("Resource_1om32")])
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_465r2"), SubResource("Resource_qjvcu"), SubResource("Resource_vu760"), SubResource("Resource_thnpi"), SubResource("Resource_5ctfj"), SubResource("Resource_1om32")])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
 objectsToDeleteAtQuestComplete = [NodePath("Bathtub1")]
+
+[node name="OldManNPC" parent="Quests/BathroomsSetBathtub1" instance=ExtResource("19_bb3y4")]
+z_index = 2
+position = Vector2(-1424, -1520)
+
+[node name="DialogueArea1" parent="Quests/BathroomsSetBathtub1/OldManNPC" instance=ExtResource("12_8ip6f")]
+position = Vector2(-112, 0)
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_xw7hk"), SubResource("Resource_8cl7q"), SubResource("Resource_20sku"), SubResource("Resource_d3ra6"), SubResource("Resource_r5ccr"), SubResource("Resource_npa1y")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSetBathtub1/OldManNPC/DialogueArea1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_45fpe")
+
+[node name="DialogueArea2" parent="Quests/BathroomsSetBathtub1/OldManNPC" instance=ExtResource("12_8ip6f")]
+position = Vector2(-112, 0)
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_6nw8y"), SubResource("Resource_pugd3")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSetBathtub1/OldManNPC/DialogueArea2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_45fpe")
 
 [node name="Bathtub1" parent="Quests/BathroomsSetBathtub1" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
 position = Vector2(-1536, -1440)
@@ -740,6 +889,7 @@ sendSignalToQuestOnDestroyed = true
 position = Vector2(-1536, -1440)
 
 [node name="StunArea1" parent="Quests/BathroomsSetBathtub1" node_paths=PackedStringArray("collisionShapeRef") instance=ExtResource("19_vm5a5")]
+visible = false
 position = Vector2(-1480, -1104)
 collisionShapeRef = NodePath("CollisionShape2D")
 
@@ -844,6 +994,10 @@ questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_iynx3"), Su
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
 objectsToDeleteAtQuestComplete = [NodePath("Bathtub2")]
 
+[node name="OldManNPC" parent="Quests/BathroomsSetBathtub2" instance=ExtResource("19_bb3y4")]
+z_index = 2
+position = Vector2(1256, -1560)
+
 [node name="Bathtub2" parent="Quests/BathroomsSetBathtub2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
 position = Vector2(1152, -1448)
 questToSendProgressSignal = NodePath("..")
@@ -926,6 +1080,10 @@ questName = "BathroomsSetBathtub3"
 questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_cjmb3"), SubResource("Resource_dng5v"), SubResource("Resource_j6jbb")])
 advanceOtherQuestsOnEnd = [NodePath("../BathroomsActivateBathtubs")]
 objectsToDeleteAtQuestComplete = [NodePath("Bathtub3")]
+
+[node name="OldManNPC" parent="Quests/BathroomsSetBathtub3" instance=ExtResource("19_bb3y4")]
+z_index = 2
+position = Vector2(1256, -1048)
 
 [node name="Bathtub3" parent="Quests/BathroomsSetBathtub3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("16_ly3oc")]
 position = Vector2(1152, -936)
@@ -2045,6 +2203,7 @@ position = Vector2(-832, 1544)
 position = Vector2(-832, 1024)
 
 [node name="AllowedZones" type="Node2D" parent="."]
+visible = false
 
 [node name="LocalAllowedItems" parent="AllowedZones" instance=ExtResource("44_kp8o0")]
 position = Vector2(1032, 960)
