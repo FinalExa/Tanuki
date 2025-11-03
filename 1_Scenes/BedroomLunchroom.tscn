@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=3 uid="uid://cm3a8pfj0xq20"]
+[gd_scene load_steps=272 format=3 uid="uid://cm3a8pfj0xq20"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_5saqn"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_bhyi6"]
@@ -24,9 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://b8pxm44ns52d4" path="res://ImportantObjects/Interactables/firefly_house_empty.tscn" id="13_wqyij"]
 [ext_resource type="PackedScene" uid="uid://bfddo5b6m5g6f" path="res://ImportantObjects/Interactables/Supplementary/firefly_object_container.tscn" id="14_ugxoi"]
 [ext_resource type="Texture2D" uid="uid://mgpxpaa2m6gq" path="res://ImportantObjects/MovableObjects/Sprites/Keychain.png" id="14_y2aac"]
+[ext_resource type="PackedScene" uid="uid://b5fp16tkl44ys" path="res://Dialogue/dialogue_area.tscn" id="15_0pysq"]
 [ext_resource type="Script" path="res://Enemies/Scripts/SpawnOnEnemyStun.gd" id="15_1x8js"]
 [ext_resource type="PackedScene" uid="uid://caby6rujvduxj" path="res://NPC/trip_wire_helper_npc.tscn" id="15_ua82q"]
 [ext_resource type="PackedScene" uid="uid://c2ugywobfjyne" path="res://ImportantObjects/TransformationObjects/vase.tscn" id="15_xudx6"]
+[ext_resource type="Script" path="res://Dialogue/Scripts/DialogueIndex.gd" id="16_37frn"]
 [ext_resource type="PackedScene" uid="uid://dvkb1wrtepasr" path="res://ImportantObjects/Interactables/Supplementary/food_cart.tscn" id="16_d8ry3"]
 [ext_resource type="PackedScene" uid="uid://uxvh02t1uir1" path="res://ImportantObjects/MovableObjects/trip_wire_part.tscn" id="16_nnmdc"]
 [ext_resource type="PackedScene" uid="uid://bdw02gipoyngk" path="res://ImportantObjects/Interactables/trip_wire_to_build.tscn" id="17_fgwqi"]
@@ -76,6 +78,30 @@ altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_6d5n8"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("FireflyHouseFull/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_5m4j8"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("FireflyHouseFull/DialogueAreaStart")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 5
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_n74qb"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("FireflyHouseFull/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 5
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_aoqrj"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
@@ -83,6 +109,96 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 5
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_0i1lj"]
+script = ExtResource("16_37frn")
+dialogueText = "O' Wandering Tanuki..."
+characterTalking = 2
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_m2nai"]
+script = ExtResource("16_37frn")
+dialogueText = "Wait... who's talking to me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_xg14q"]
+script = ExtResource("16_37frn")
+dialogueText = "We are here."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_oh74c"]
+script = ExtResource("16_37frn")
+dialogueText = "Oh... hello?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_8cjqo"]
+script = ExtResource("16_37frn")
+dialogueText = "We know of your search of keys. We want to offer help in exchange for a favor."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_bovtl"]
+script = ExtResource("16_37frn")
+dialogueText = "Go on! I'm aaaaaall ears!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_hry0y"]
+script = ExtResource("16_37frn")
+dialogueText = "Become a Green Candle, get close to us, one of us will join you."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Transformations/GreenCandle")
+
+[sub_resource type="Resource" id="Resource_l48os"]
+script = ExtResource("16_37frn")
+dialogueText = "Bring one of us to another of our empty houses, like this one, the little one will fill it. There's five in total to be filled, once you do that you'll have your key, it will be right here in front of us."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_bi0tn"]
+script = ExtResource("16_37frn")
+dialogueText = "Thanks! Since we are at it, any advice about this place?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_je1hb"]
+script = ExtResource("16_37frn")
+dialogueText = "Having one of us close will help you reveal objects we have altered here."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_hja7m"]
+script = ExtResource("16_37frn")
+dialogueText = "For example, if you bring one of us close to that vase, it will become a physical object again. The opposite happens if you find physical objects blocking your path that have our aura."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Transformations/FireflyObjectContainerVase")
+
+[sub_resource type="Resource" id="Resource_btsky"]
+script = ExtResource("16_37frn")
+dialogueText = "That's helpful... thanks!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cu7uc"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_h3txx"]
+script = ExtResource("16_37frn")
+dialogueText = "Thanks for helping us."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_s6ifa"]
+script = ExtResource("16_37frn")
+dialogueText = "It was no biggie, thanks for the key!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxtdj"]
+radius = 128.25
 
 [sub_resource type="Resource" id="Resource_k65yd"]
 script = ExtResource("12_qrwt2")
@@ -116,9 +232,26 @@ altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_ysm0w"]
+script = ExtResource("16_37frn")
+dialogueText = "Even if I manage to somehow materialize this casket... I think I'll need a key to open it... a different key from usual, hm... maybe a guard has it?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywjvk"]
+radius = 128.0
+
 [sub_resource type="Resource" id="Resource_bffje"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_bus0h"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("TripWireHelperNPC/DialogueAreaEnd")
 useAltItem = false
 altItemToOperate = 0
 itemStage = 0
@@ -140,6 +273,22 @@ altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
 
+[sub_resource type="Resource" id="Resource_4ys3i"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("TripWireHelperNPC/DialogueAreaStart")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_i41xx"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("TripWireHelperNPC/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 2
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_lwqiv"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
@@ -147,6 +296,72 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_7eit4"]
+script = ExtResource("16_37frn")
+dialogueText = "BLEHEHEHEH! I WANNA PRANK THAT STUPID CLEANER, SHE KEEPS ON ANNOYING ME!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_lqt7c"]
+script = ExtResource("16_37frn")
+dialogueText = "Hey, I want in too. It's always fun."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_i588r"]
+script = ExtResource("16_37frn")
+dialogueText = "OHOHOH! AN ACCOMPLICE! PERFECT!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_e0hsp"]
+script = ExtResource("16_37frn")
+dialogueText = "LISTEN UP PARTNER, THERE'S 3 TRIPWIRE COMPONENTS IN THIS AREA, BRING THEM CLOSE TO ME AND I'LL BUILD THE TRAP FOR YOU."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xq472"]
+script = ExtResource("16_37frn")
+dialogueText = "BUT WATCH OUT: ONCE THE COMPONENTS HAVE BEEN CURSED BY THOSE NASTY FIREFLIES TO BE NOT MATERIAL, BRING ONE OF THEM CLOSE FOR THE TRAP TO ACTIVATE, AND LET'S WAIT FOR THE STUPID CLEANER TO TRIP ON IT!!!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_82yc8"]
+script = ExtResource("16_37frn")
+dialogueText = "Deal. I'm on it."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8mlm"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_ngny0"]
+script = ExtResource("16_37frn")
+dialogueText = "BLEHEHEEHAHAHAHAH! THAT WAS FUNNY!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_6w4fp"]
+script = ExtResource("16_37frn")
+dialogueText = "Hey, partner. Can I keep the key?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ng754"]
+script = ExtResource("16_37frn")
+dialogueText = "YES, YES, I DON'T EVEN KNOW WHAT A \"KEY\" IS ANYWAYS BLEHEHEAHAHAHA!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8qiu3"]
+script = ExtResource("16_37frn")
+dialogueText = "...what a weirdo."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubuhi"]
+radius = 128.25
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nelbd"]
 radius = 64.0
@@ -184,6 +399,30 @@ altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_n01s7"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("LunchroomTableBroken/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_nxb2n"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("LunchroomTableBroken/DialogueAreaStart")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_pyyd8"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("LunchroomTableBroken/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_ujyff"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey4")
@@ -191,6 +430,36 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_3g3do"]
+script = ExtResource("16_37frn")
+dialogueText = "That table has a key on it!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_knniv"]
+script = ExtResource("16_37frn")
+dialogueText = "...in the most conveniently broken point of the table... how wonderful!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_4oqw1"]
+script = ExtResource("16_37frn")
+dialogueText = "Now Daichi, think of a way to break the table... maybe if I could launch something high speed at it, it would break?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cx31n"]
+radius = 160.2
+
+[sub_resource type="Resource" id="Resource_74lco"]
+script = ExtResource("16_37frn")
+dialogueText = "Hah, who would haHah, that food cart is pretty powerful. Anyways, that key is mine now! Hehehehehe!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drxsl"]
+radius = 128.0
 
 [sub_resource type="Resource" id="Resource_0m6e1"]
 script = ExtResource("12_qrwt2")
@@ -213,6 +482,30 @@ altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
 
+[sub_resource type="Resource" id="Resource_dm0c4"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("Gong/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 0
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_25h7d"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("Gong/DialogueAreaStart")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 0
+
+[sub_resource type="Resource" id="Resource_ieaf7"]
+script = ExtResource("12_qrwt2")
+itemToOperate = NodePath("Gong/DialogueAreaEnd")
+useAltItem = false
+altItemToOperate = 0
+itemStage = 1
+itemOperation = 1
+
 [sub_resource type="Resource" id="Resource_gdghm"]
 script = ExtResource("12_qrwt2")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
@@ -220,6 +513,24 @@ useAltItem = false
 altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+
+[sub_resource type="Resource" id="Resource_loskn"]
+script = ExtResource("16_37frn")
+dialogueText = "I don't really want to be clichè but... I wanna hit this with a gong mace! Is there one nearby?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rit4"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_pmd6a"]
+script = ExtResource("16_37frn")
+dialogueText = "Hah, I knew it. It had a secret key."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5nty"]
+radius = 128.25
 
 [sub_resource type="Resource" id="Resource_ajfdv"]
 script = ExtResource("12_qrwt2")
@@ -343,6 +654,27 @@ waitDuration = 1.0
 vertices = PackedVector2Array(2384, -7840, 2384, -7616, 1888, -7616, 1696, -7648, 1696, -7744, 432, -4320, 432, -4512, 1504, -4704, 2896, -4704, 2896, -3776, 2144, -3776, 944, -4000, 3424, -5536, 2896, -5536, 2976, -5728, 3424, -6240, 3424, -2592, 2896, -2592, 2976, -2784, 3424, -3680, 1888, -6624, 1312, -7392, 1504, -7648, 1312, -7744, 1504, -7744, 2976, -6048, 2784, -6240, 2896, -6048, 2976, -3240, 2896, -5728, 2896, -2784, -96, -2496, 608, -5440, 608, -4800, -96, -5216, -96, -6048, 224, -5984, 944, -3552, 2144, -3040, 1696, -3136, 848, -4000, 56, -4208, 352, -4320, 1312, -4800, 688, -4800, 688, -5344, 1696, -5344, -96, -4800, -96, -5024, -176, -5216, -176, -5024, -608, -6240, -176, -4800, -608, -4800, -176, -6048, -96, -6240, -96, -6368, 224, -6368, 304, -5984, 304, -6368, 544, -6368, 1888, -6336, 1696, -5440, 544, -7104, -96, -7104, -96, -7520, 32, -7520, 32, -7616, -96, -7616, -96, -8032, 592, -8032, 592, -7616, 224, -7616, 224, -7520, 672, -7520, 1232, -7392, 672, -8032, 2896, -8032, 2896, -7824, 2832, -7824, 2464, -7840, 2832, -7744, 2896, -7744, 2896, -7616, 2784, -7616, 2784, -7520, 2896, -7520, 2896, -6720, 2784, -6720, 2784, -6624, 2592, -6624, 2592, -6720, 2464, -7208, 2592, -7520, 2464, -6720, 2384, -7208, 2384, -6720, 1968, -6720, 1968, -7520, 2592, -7616, 2464, -7616, 992, -7648, 1096, -7648, 1096, -7624, 1208, -7624, 1208, -7648, 1232, -7648, 2896, -6624, 2896, -6336, 2784, -6336, 2592, -6336, 2896, -4800, 1968, -4800, 1968, -6240, 2592, -6240, 1696, -3040, 1120, -3136, 848, -3552, 1120, -3072, 1096, -3072, 1208, -2992, 1208, -3040, 2224, -3040, 2224, -3680, 2696, -3680, 2696, -3632, 2808, -3632, 2808, -3680, 2896, -3680, 2896, -3424, 2976, -3424, 2976, -3680, 2896, -3240, 2896, -2496, -96, -4320, -56, -4320, -56, -4208, 56, -4320, 160, -4320, 160, -4416, -96, -4416, -96, -4704, 352, -4512, 1096, -2992, 992, -7744, 1312, -4704, 1504, -4800, 1888, -4800)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(3, 2, 20, 21, 22), PackedInt32Array(22, 21, 23, 24), PackedInt32Array(15, 14, 25), PackedInt32Array(26, 15, 25, 27), PackedInt32Array(19, 18, 28), PackedInt32Array(29, 14, 13), PackedInt32Array(30, 18, 17, 31), PackedInt32Array(32, 33, 34, 35, 36), PackedInt32Array(37, 11, 10, 38, 39), PackedInt32Array(5, 11, 40, 41, 42), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(33, 47, 48), PackedInt32Array(34, 33, 48, 49), PackedInt32Array(49, 48, 50, 51), PackedInt32Array(50, 52, 53, 51), PackedInt32Array(54, 49, 51), PackedInt32Array(54, 51, 55, 35), PackedInt32Array(55, 56, 57, 36), PackedInt32Array(35, 55, 36), PackedInt32Array(32, 36, 58), PackedInt32Array(32, 58, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(67, 68, 69, 70), PackedInt32Array(70, 71, 72), PackedInt32Array(67, 70, 72, 66), PackedInt32Array(66, 72, 73), PackedInt32Array(63, 66, 73), PackedInt32Array(63, 73, 74, 75), PackedInt32Array(76, 77, 78, 79, 80), PackedInt32Array(81, 82, 83, 84), PackedInt32Array(85, 86, 87, 88), PackedInt32Array(88, 89, 90, 91), PackedInt32Array(85, 88, 91, 92, 93), PackedInt32Array(91, 94, 92), PackedInt32Array(95, 96, 97, 98), PackedInt32Array(95, 98, 93, 92), PackedInt32Array(84, 85, 93, 99), PackedInt32Array(81, 99, 100, 80, 79), PackedInt32Array(101, 102, 103), PackedInt32Array(104, 105, 106, 75), PackedInt32Array(89, 107, 108, 109), PackedInt32Array(90, 89, 109, 110), PackedInt32Array(13, 111, 112, 113, 114), PackedInt32Array(29, 13, 114), PackedInt32Array(27, 29, 114, 26), PackedInt32Array(109, 26, 114, 110), PackedInt32Array(20, 90, 110, 61, 60), PackedInt32Array(38, 115, 39), PackedInt32Array(37, 39, 116, 117), PackedInt32Array(116, 118, 119, 41, 117), PackedInt32Array(120, 121, 115), PackedInt32Array(122, 123, 124, 125), PackedInt32Array(126, 127, 128, 129), PackedInt32Array(130, 131, 19), PackedInt32Array(130, 19, 28), PackedInt32Array(129, 130, 28, 132), PackedInt32Array(17, 133, 31), PackedInt32Array(31, 134, 135, 136), PackedInt32Array(41, 137, 138), PackedInt32Array(139, 140, 141, 142), PackedInt32Array(143, 31, 136, 41, 119), PackedInt32Array(103, 104, 75), PackedInt32Array(81, 84, 99), PackedInt32Array(76, 80, 0), PackedInt32Array(76, 0, 4, 24), PackedInt32Array(76, 24, 23), PackedInt32Array(76, 23, 144), PackedInt32Array(74, 76, 144, 101), PackedInt32Array(122, 125, 126, 129, 132), PackedInt32Array(122, 132, 30), PackedInt32Array(122, 30, 31, 38), PackedInt32Array(115, 38, 31, 120), PackedInt32Array(143, 120, 31), PackedInt32Array(40, 117, 41), PackedInt32Array(42, 41, 138, 142), PackedInt32Array(142, 138, 139), PackedInt32Array(142, 141, 145, 6), PackedInt32Array(7, 6, 145), PackedInt32Array(7, 145, 43, 146), PackedInt32Array(146, 43, 46), PackedInt32Array(147, 146, 46), PackedInt32Array(61, 147, 46, 62), PackedInt32Array(21, 20, 60, 63, 75), PackedInt32Array(75, 74, 101, 103)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-96, -4704, 1312, -4704, 1312, -4800, 688, -4800, 688, -5344, 1696, -5344, 1696, -5440, 608, -5440, 608, -4800, -96, -4800, -96, -5024, -176, -5024, -176, -4800, -608, -4800, -608, -6240, -96, -6240, -96, -6368, 224, -6368, 224, -5984, 304, -5984, 304, -6368, 544, -6368, 544, -7104, -96, -7104, -96, -7520, 32, -7520, 32, -7616, -96, -7616, -96, -8032, 592, -8032, 592, -7616, 224, -7616, 224, -7520, 672, -7520, 672, -8032, 2896, -8032, 2896, -7824, 2832, -7824, 2832, -7744, 2896, -7744, 2896, -7616, 2784, -7616, 2784, -7520, 2896, -7520, 2896, -6720, 2784, -6720, 2784, -6624, 2896, -6624, 2896, -6336, 2784, -6336, 2784, -6240, 3424, -6240, 3424, -5536, 2896, -5536, 2896, -4800, 1968, -4800, 1968, -6240, 2592, -6240, 2592, -6336, 1888, -6336, 1888, -4800, 1504, -4800, 1504, -4704, 2896, -4704, 2896, -3776, 2144, -3776, 2144, -3040, 2224, -3040, 2224, -3680, 2696, -3680, 2696, -3632, 2808, -3632, 2808, -3680, 2896, -3680, 2896, -3424, 2976, -3424, 2976, -3680, 3424, -3680, 3424, -2592, 2896, -2592, 2896, -2496, -96, -2496, -96, -4320, -56, -4320, -56, -4208, 56, -4208, 56, -4320, 160, -4320, 160, -4416, -96, -4416), PackedVector2Array(352, -4320, 352, -4512, 432, -4512, 432, -4320), PackedVector2Array(1120, -3136, 1696, -3136, 1696, -3040, 1208, -3040, 1208, -2992, 1096, -2992, 1096, -3072, 1120, -3072), PackedVector2Array(848, -4000, 944, -4000, 944, -3552, 848, -3552), PackedVector2Array(2896, -3240, 2976, -3240, 2976, -2784, 2896, -2784), PackedVector2Array(-176, -5216, -176, -6048, -96, -6048, -96, -5216), PackedVector2Array(2896, -5728, 2896, -6048, 2976, -6048, 2976, -5728), PackedVector2Array(1888, -7616, 2384, -7616, 2384, -7840, 2464, -7840, 2464, -7616, 2592, -7616, 2592, -7520, 1968, -7520, 1968, -6720, 2384, -6720, 2384, -7208, 2464, -7208, 2464, -6720, 2592, -6720, 2592, -6624, 1888, -6624), PackedVector2Array(992, -7648, 992, -7744, 1312, -7744, 1312, -7392, 1232, -7392, 1232, -7648, 1208, -7648, 1208, -7624, 1096, -7624, 1096, -7648), PackedVector2Array(1504, -7648, 1504, -7744, 1696, -7744, 1696, -7648)])
+
+[sub_resource type="Resource" id="Resource_lu5ee"]
+script = ExtResource("16_37frn")
+dialogueText = "I have heard a sliding sound, I assume it's the door south-east from here. I must stay vigilant, the precious Master Key belongs to Gozo and must be protected at all costs!"
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyRoomTileMap/Enemies/WardenBoss")
+
+[sub_resource type="Resource" id="Resource_ddke2"]
+script = ExtResource("16_37frn")
+dialogueText = "Who's this overly talkative guy and why does he annoy me so much just with his speech? Bah..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ka6aw"]
+script = ExtResource("16_37frn")
+dialogueText = "Anyways, let's hit him with that food cart and let's get this over quickly."
+characterTalking = 0
+cameraFocus = NodePath("../UltraKeyRoomTileMap/FoodCart")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clibq"]
+size = Vector2(512, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1bfj"]
 size = Vector2(512, 352)
@@ -841,7 +1173,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(262160, 131072, 1, 262159, 131072, 1, 262158, 393216, 3, 262157, 327680, 3, 262156, 131072, 1, 262155, 131072, 1, 262154, 131072, 65536, 262153, 131072, 1, 262152, 393216, 3, 262151, 327680, 3, 262150, 131072, 1, 262149, 131072, 1, 262148, 131072, 65536, 262147, 131072, 1, 262146, 393216, 3, 262145, 327680, 3, 262144, 131072, 1, 327679, 131072, 1, 720895, 131072, 1, 655360, 131072, 1, 655361, 131072, 1, 655362, 131072, 1, 655363, 131072, 1, 655364, 196608, 1, 655365, 131072, 1, 655366, 131072, 1, 655367, 131072, 1, 655368, 131072, 1, 655369, 131072, 1, 655370, 196608, 1, 655371, 131072, 1, 655372, 131072, 1, 655373, 131072, 1, 655374, 131072, 1, 655375, 131072, 1, 655376, 131072, 1, 262161, 65536, 0, 327697, 262144, 1, 393233, 262144, 1, 458769, 262144, 1, 524305, 262144, 1, 589841, 262144, 1, 655358, 0, 1, 589822, 0, 1, 524286, 0, 1, 458750, 0, 1, 393214, 0, 1, 327678, 0, 1, 720894, 0, 2, 655377, 262144, 2, 262142, 0, 1, 65534, 0, 1, -2, 0, 1, -65538, 0, 1, -131074, 0, 1, -196610, 0, 1, -262146, 0, 1, -327682, 0, 1, 262162, 131072, 1, 262163, 131072, 1, 262164, 131072, 1, 262165, 131072, 1, 262166, 196608, 1, 262167, 131072, 1, 262168, 131072, 1, 262169, 131072, 1, 262170, 131072, 1, 262171, 131072, 1, 262172, 131072, 1, 262173, 131072, 1, 262174, 131072, 1, 262175, 131072, 1, 262176, 131072, 1, 262177, 131072, 1, 262178, 131072, 1, 262179, 65536, 1, 262180, 131072, 1, 262181, 131072, 1, 262182, 131072, 1, 262183, 131072, 1, 262184, 131072, 1, 262185, 131072, 1, 262186, 131072, 1, 262187, 131072, 1, 262188, 131072, 1, 262189, 131072, 1, 262190, 131072, 1, 262191, 131072, 1, -524278, 131072, 0, -524279, 131072, 1, -524280, 131072, 1, -524281, 131072, 1, -524282, 131072, 1, -524283, 131072, 1, -524284, 131072, 65536, -524285, 131072, 1, -524286, 131072, 1, -524287, 131072, 1, -524288, 131072, 1, -458753, 131072, 1, -458754, 0, 1, -393218, 0, 1, -1310674, 131072, 1, -1310675, 131072, 1, -1310676, 131072, 1, -1310677, 131072, 1, -1310678, 131072, 1, -1310679, 131072, 1, -1310680, 131072, 1, -1310681, 131072, 1, -1310682, 131072, 1, -1310683, 131072, 1, -1310684, 131072, 1, -1310685, 65536, 65536, -1310686, 131072, 1, -1310687, 131072, 1, -1310688, 131072, 1, -1310689, 131072, 1, -1310690, 131072, 1, -1310691, 131072, 1, -1310692, 131072, 1, -1310693, 131072, 1, -1310694, 131072, 1, -1310695, 131072, 1, -1310696, 131072, 1, -1310697, 131072, 1, -1310702, 131072, 1, -1310703, 65536, 65536, -1310673, 131072, 1, -1310699, 131072, 1, -1310698, 131072, 0, -65537, 131072, 1, -131072, 131072, 1, -131071, 327680, 3, -131070, 393216, 3, -131069, 131072, 1, -131068, 196608, 1, -131067, 131072, 1, -131066, 131072, 1, -131065, 327680, 3, -131064, 393216, 3, -131063, 131072, 1, -131062, 196608, 1, -131061, 131072, 1, -131060, 131072, 1, -131059, 327680, 3, -131058, 393216, 3, -131057, 131072, 1, -131056, 131072, 1, -131055, 262144, 1, -196591, 262144, 1, -262127, 262144, 1, -327663, 262144, 1, -393199, 262144, 1, -458735, 262144, 1, -524271, 262144, 1, -589807, 262144, 1, -655343, 262144, 1, -720879, 262144, 1, -786415, 262144, 1, -851951, 262144, 1, -917487, 262144, 1, -983023, 262144, 1, -1048559, 262144, 1, -1114095, 262144, 1, -1179631, 262144, 1, -1245167, 262144, 1, -65519, 262144, 1, 17, 262144, 1, 196625, 262144, 1, 131070, 655360, 4, 196606, 655360, 5, 65553, 720896, 4, 131089, 720896, 5, 196630, 0, 1, 131094, 655360, 5, 65558, 655360, 4, 22, 0, 1, -65514, 0, 1, -131050, 0, 1, -196586, 0, 1, -262122, 0, 1, -327658, 0, 1, -393194, 0, 1, -458730, 0, 1, -524266, 0, 1, -589802, 0, 1, -655338, 0, 1, -720874, 0, 1, -786410, 0, 1, -851946, 0, 1, -917482, 0, 1, -983018, 0, 1, -1048554, 655360, 5, -1114090, 655360, 4, -1179626, 0, 1, -1245162, 0, 1, -917481, 131072, 1, -917480, 131072, 1, -917479, 131072, 1, -917478, 131072, 1, -917477, 131072, 1, -917476, 131072, 1, -917475, 131072, 1, -917474, 131072, 1, -917473, 131072, 1, -917472, 131072, 1, -917471, 131072, 1, -917470, 131072, 1, -131049, 131072, 1, -131048, 131072, 1, -131047, 131072, 1, -131041, 131072, 1, -131046, 131072, 1, -131040, 131072, 1, -131039, 131072, 1, -131038, 131072, 1, -917469, 262144, 1, -851933, 262144, 1, -786397, 262144, 1, -720861, 262144, 1, -655325, 262144, 1, -589789, 262144, 1, -524253, 262144, 1, -458717, 262144, 1, -393181, 65536, 0, -327645, 262144, 1, -262109, 262144, 1, -196573, 262144, 1, -131037, 262144, 1, -65501, 262144, 1, 35, 262144, 1, 65571, 720896, 4, 131107, 720896, 5, 196643, 262144, 1, -983005, 262144, 1, -1048541, 720896, 5, -1114077, 720896, 4, -1179613, 262144, 1, -1245149, 262144, 1, 327684, 0, 1, 393220, 0, 1, 458756, 0, 1, 524292, 0, 1, 589828, 0, 1, 327690, 0, 1, 393226, 0, 1, 458762, 0, 1, 524298, 0, 1, 589834, 0, 1, -458742, 0, 1, -393206, 0, 1, -327670, 0, 1, -262134, 0, 1, -196598, 0, 1, -458748, 0, 1, -393212, 0, 1, -327676, 0, 1, -262140, 0, 1, -196604, 0, 1, -524277, 131072, 1, -524276, 131072, 1, -524275, 131072, 1, -524274, 131072, 1, -524273, 131072, 1, -524272, 131072, 1, -720845, 262144, 1, -1310672, 131072, 1, -1310671, 131072, 1, -1310670, 131072, 1, -1310669, 262144, 1, -1245133, 262144, 1, -1179597, 262144, 1, -1114061, 262144, 1, -1048525, 262144, 1, -982989, 262144, 1, -589773, 262144, 1, -524237, 262144, 1, -458701, 262144, 1, -393165, 65536, 0, -327629, 262144, 2, 65587, 262144, 1, 131123, 65536, 0, 196659, 262144, 1, 262195, 262144, 2, 262192, 131072, 1, 262193, 131072, 1, 262194, 131072, 1, -393178, 131072, 1, -393177, 131072, 1, -393176, 131072, 1, -393175, 131072, 1, -393174, 131072, 1, -393173, 131072, 1, -393170, 131072, 1, -393169, 131072, 1, -393166, 131072, 1, -393172, 262144, 2, -393168, 262144, 2, -393171, 0, 2, -393167, 0, 2, -393164, 131072, 1, -393163, 131072, 1, -393162, 131072, 1, -393161, 262144, 1, -327625, 262144, 1, -262089, 262144, 1, -196553, 262144, 1, -131017, 262144, 1, -917453, 262144, 1, -655309, 262144, 1, -851917, 262144, 1, -786381, 262144, 1, 131124, 131072, 1, 131125, 131072, 1, 131126, 131072, 1, 131127, 262144, 2, -65481, 262144, 1, 55, 262144, 1, 65591, 262144, 1, -131021, 262144, 1)
+layer_1/tile_data = PackedInt32Array(262160, 131072, 1, 262159, 131072, 1, 262158, 393216, 3, 262157, 327680, 3, 262156, 131072, 1, 262155, 131072, 1, 262154, 131072, 65536, 262153, 131072, 1, 262152, 393216, 3, 262151, 327680, 3, 262150, 131072, 1, 262149, 131072, 1, 262148, 131072, 65536, 262147, 131072, 1, 262146, 393216, 3, 262145, 327680, 3, 262144, 131072, 1, 327679, 131072, 1, 720895, 131072, 1, 655360, 131072, 1, 655361, 131072, 1, 655362, 131072, 1, 655363, 131072, 1, 655364, 196608, 1, 655365, 131072, 1, 655366, 131072, 1, 655367, 131072, 1, 655368, 131072, 1, 655369, 131072, 1, 655370, 196608, 1, 655371, 131072, 1, 655372, 131072, 1, 655373, 131072, 1, 655374, 131072, 1, 655375, 131072, 1, 655376, 131072, 1, 262161, 65536, 0, 327697, 262144, 1, 393233, 262144, 1, 458769, 262144, 1, 524305, 262144, 1, 589841, 262144, 1, 655358, 0, 1, 589822, 0, 1, 524286, 0, 1, 458750, 0, 1, 393214, 0, 1, 327678, 0, 1, 720894, 0, 2, 655377, 262144, 2, 262142, 0, 1, 65534, 0, 1, -2, 0, 1, -65538, 0, 1, -131074, 0, 1, -196610, 0, 1, -262146, 0, 1, -327682, 0, 1, 262162, 131072, 1, 262163, 131072, 1, 262164, 131072, 1, 262165, 131072, 1, 262166, 196608, 1, 262167, 131072, 1, 262168, 131072, 1, 262169, 131072, 1, 262170, 131072, 1, 262171, 131072, 1, 262172, 131072, 1, 262173, 131072, 1, 262174, 131072, 1, 262175, 131072, 1, 262176, 131072, 1, 262177, 131072, 1, 262178, 131072, 1, 262179, 65536, 1, 262180, 131072, 1, 262181, 131072, 1, 262182, 131072, 1, 262183, 131072, 1, 262184, 131072, 1, 262185, 131072, 1, 262186, 131072, 1, 262187, 131072, 1, 262188, 131072, 1, 262189, 131072, 1, 262190, 131072, 1, 262191, 131072, 1, -524278, 131072, 0, -524279, 131072, 1, -524280, 131072, 1, -524281, 131072, 1, -524282, 131072, 1, -524283, 131072, 1, -524284, 131072, 65536, -524285, 131072, 1, -524286, 131072, 1, -524287, 131072, 1, -524288, 131072, 1, -458753, 131072, 1, -458754, 0, 1, -393218, 0, 1, -1310674, 131072, 1, -1310675, 131072, 1, -1310676, 131072, 1, -1310677, 131072, 1, -1310678, 131072, 1, -1310679, 131072, 1, -1310680, 131072, 1, -1310681, 131072, 1, -1310682, 131072, 1, -1310683, 131072, 1, -1310684, 131072, 1, -1310685, 65536, 65536, -1310686, 131072, 1, -1310687, 131072, 1, -1310688, 131072, 1, -1310689, 131072, 1, -1310690, 131072, 1, -1310691, 131072, 1, -1310692, 131072, 1, -1310693, 131072, 1, -1310694, 131072, 1, -1310695, 131072, 1, -1310696, 131072, 1, -1310697, 131072, 1, -1310702, 131072, 1, -1310703, 65536, 65536, -1310673, 131072, 1, -1310699, 131072, 1, -1310698, 131072, 0, -65537, 131072, 1, -131072, 131072, 1, -131071, 327680, 3, -131070, 393216, 3, -131069, 131072, 1, -131068, 196608, 1, -131067, 131072, 1, -131066, 131072, 1, -131065, 327680, 3, -131064, 393216, 3, -131063, 131072, 1, -131062, 196608, 1, -131061, 131072, 1, -131060, 131072, 1, -131059, 327680, 3, -131058, 393216, 3, -131057, 131072, 1, -131056, 131072, 1, -131055, 262144, 1, -196591, 262144, 1, -262127, 262144, 1, -327663, 262144, 1, -393199, 262144, 1, -458735, 262144, 1, -524271, 262144, 1, -589807, 262144, 1, -655343, 262144, 1, -720879, 262144, 1, -786415, 262144, 1, -851951, 262144, 1, -917487, 262144, 1, -983023, 262144, 1, -1048559, 262144, 1, -1114095, 262144, 1, -1179631, 262144, 1, -1245167, 262144, 1, -65519, 262144, 1, 17, 262144, 1, 196625, 262144, 1, 131070, 655360, 4, 196606, 655360, 5, 65553, 720896, 4, 131089, 720896, 5, 196630, 0, 1, 131094, 655360, 5, 65558, 655360, 4, 22, 0, 1, -65514, 0, 1, -131050, 0, 1, -196586, 0, 1, -262122, 0, 1, -327658, 0, 1, -393194, 0, 1, -458730, 0, 1, -524266, 0, 1, -589802, 0, 1, -655338, 0, 1, -720874, 0, 1, -786410, 0, 1, -851946, 0, 1, -917482, 0, 1, -983018, 0, 1, -1048554, 655360, 5, -1114090, 655360, 4, -1179626, 0, 1, -1245162, 0, 1, -917481, 131072, 1, -917480, 131072, 1, -917479, 131072, 1, -917478, 131072, 1, -917477, 131072, 1, -917476, 131072, 1, -917475, 131072, 1, -917474, 131072, 1, -917473, 131072, 1, -917472, 131072, 1, -917471, 131072, 1, -917470, 131072, 1, -131049, 131072, 1, -131048, 131072, 1, -131047, 131072, 1, -131041, 131072, 1, -131046, 131072, 1, -131040, 131072, 1, -131039, 131072, 1, -131038, 131072, 1, -917469, 262144, 1, -851933, 262144, 1, -786397, 262144, 1, -720861, 262144, 1, -655325, 262144, 1, -589789, 262144, 1, -524253, 262144, 1, -458717, 262144, 1, -393181, 65536, 0, -327645, 262144, 1, -262109, 262144, 1, -196573, 262144, 1, -131037, 262144, 1, -65501, 262144, 1, 35, 262144, 1, 65571, 720896, 4, 131107, 720896, 5, 196643, 262144, 1, -983005, 262144, 1, -1048541, 720896, 5, -1114077, 720896, 4, -1179613, 262144, 1, -1245149, 262144, 1, 327684, 0, 1, 393220, 0, 1, 458756, 0, 1, 524292, 0, 1, 589828, 0, 1, 327690, 0, 1, 393226, 0, 1, 458762, 0, 1, 524298, 0, 1, 589834, 0, 1, -458742, 0, 1, -393206, 0, 1, -327670, 0, 1, -262134, 0, 1, -196598, 0, 1, -458748, 0, 1, -393212, 0, 1, -327676, 0, 1, -262140, 0, 1, -196604, 0, 1, -524277, 131072, 1, -524276, 131072, 1, -524275, 131072, 1, -524274, 131072, 1, -524273, 131072, 1, -524272, 131072, 1, -720845, 262144, 1, -1310672, 131072, 1, -1310671, 131072, 1, -1310670, 131072, 1, -1310669, 262144, 1, -1245133, 262144, 1, -1179597, 262144, 1, -1114061, 262144, 1, -1048525, 262144, 1, -982989, 262144, 1, -589773, 262144, 1, -524237, 262144, 1, -458701, 262144, 1, -393165, 65536, 0, -327629, 262144, 2, 65587, 262144, 1, 131123, 65536, 0, 196659, 262144, 1, 262195, 262144, 2, 262192, 131072, 1, 262193, 131072, 1, 262194, 131072, 1, -393178, 131072, 1, -393177, 131072, 1, -393176, 131072, 1, -393175, 131072, 1, -393174, 131072, 1, -393173, 131072, 1, -393170, 131072, 1, -393169, 131072, 1, -393166, 131072, 1, -393164, 131072, 1, -393163, 131072, 1, -393162, 131072, 1, -393161, 262144, 1, -327625, 262144, 1, -262089, 262144, 1, -196553, 262144, 1, -131017, 262144, 1, -917453, 262144, 1, -655309, 262144, 1, -851917, 262144, 1, -786381, 262144, 1, 131124, 131072, 1, 131125, 131072, 1, 131126, 131072, 1, 131127, 262144, 2, -65481, 262144, 1, 55, 262144, 1, 65591, 262144, 1, -131021, 262144, 1)
 layer_2/name = "Furniture"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -948,7 +1280,24 @@ y_sort_enabled = true
 [node name="BLRefillFireflyHouses" type="Node2D" parent="Quests"]
 script = ExtResource("11_d2wd2")
 questName = "BLRefillFireflyHouses"
-questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_cq0tf"), SubResource("Resource_aoqrj")])
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_cq0tf"), SubResource("Resource_6d5n8"), SubResource("Resource_5m4j8"), SubResource("Resource_n74qb"), SubResource("Resource_aoqrj")])
+
+[node name="FireflyHouseFull" parent="Quests/BLRefillFireflyHouses" instance=ExtResource("13_vo8w2")]
+position = Vector2(0, -640)
+
+[node name="DialogueAreaStart" parent="Quests/BLRefillFireflyHouses/FireflyHouseFull" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_0i1lj"), SubResource("Resource_m2nai"), SubResource("Resource_xg14q"), SubResource("Resource_oh74c"), SubResource("Resource_8cjqo"), SubResource("Resource_bovtl"), SubResource("Resource_hry0y"), SubResource("Resource_l48os"), SubResource("Resource_bi0tn"), SubResource("Resource_je1hb"), SubResource("Resource_hja7m"), SubResource("Resource_btsky")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLRefillFireflyHouses/FireflyHouseFull/DialogueAreaStart"]
+shape = SubResource("CircleShape2D_cu7uc")
+
+[node name="DialogueAreaEnd" parent="Quests/BLRefillFireflyHouses/FireflyHouseFull" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_h3txx"), SubResource("Resource_s6ifa")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLRefillFireflyHouses/FireflyHouseFull/DialogueAreaEnd"]
+shape = SubResource("CircleShape2D_oxtdj")
 
 [node name="BLEmptyFireflyHouse1" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
@@ -1041,22 +1390,45 @@ objectsToDeleteAtQuestComplete = [NodePath("CasketContainer/FireflyObjectContain
 
 [node name="UnlockKey2" parent="Quests/BLOpenCasket1/CasketContainer" instance=ExtResource("7_xxpi2")]
 
-[node name="FireflyObjectContainer" parent="Quests/BLOpenCasket1/CasketContainer" instance=ExtResource("14_ugxoi")]
+[node name="FireflyObjectContainer" parent="Quests/BLOpenCasket1/CasketContainer" node_paths=PackedStringArray("excludeArray") instance=ExtResource("14_ugxoi")]
+excludeArray = [NodePath("CollisionShape2D"), NodePath("AnimatedSprite2D"), NodePath("DialogueArea"), NodePath("DialogueArea/CollisionShape2D")]
 
 [node name="Casket" parent="Quests/BLOpenCasket1/CasketContainer/FireflyObjectContainer" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("29_gu1wb")]
 position = Vector2(0, 16)
 questToSendProgressSignal = NodePath("../../..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="DialogueArea" parent="Quests/BLOpenCasket1/CasketContainer/FireflyObjectContainer" instance=ExtResource("15_0pysq")]
+position = Vector2(0, 16)
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_ysm0w")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLOpenCasket1/CasketContainer/FireflyObjectContainer/DialogueArea"]
+shape = SubResource("CircleShape2D_ywjvk")
+
 [node name="BLTripCleaner" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("11_d2wd2")
 questName = "BLTripCleaner"
-questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_bffje"), SubResource("Resource_ith2p"), SubResource("Resource_dpew5"), SubResource("Resource_lwqiv")])
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_bffje"), SubResource("Resource_bus0h"), SubResource("Resource_ith2p"), SubResource("Resource_dpew5"), SubResource("Resource_4ys3i"), SubResource("Resource_i41xx"), SubResource("Resource_lwqiv")])
 objectsToDeleteAtQuestComplete = [NodePath("TripwirePart1"), NodePath("TripwirePart2"), NodePath("TripwirePart3"), NodePath("TripwireToBuild"), NodePath("../../Enemies/Cleaner1"), NodePath("FireflyObjectContainer")]
 
 [node name="TripWireHelperNPC" parent="Quests/BLTripCleaner" instance=ExtResource("15_ua82q")]
 position = Vector2(3264, 128)
+
+[node name="DialogueAreaStart" parent="Quests/BLTripCleaner/TripWireHelperNPC" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_7eit4"), SubResource("Resource_lqt7c"), SubResource("Resource_i588r"), SubResource("Resource_e0hsp"), SubResource("Resource_xq472"), SubResource("Resource_82yc8")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLTripCleaner/TripWireHelperNPC/DialogueAreaStart"]
+shape = SubResource("CircleShape2D_g8mlm")
+
+[node name="DialogueAreaEnd" parent="Quests/BLTripCleaner/TripWireHelperNPC" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_ngny0"), SubResource("Resource_6w4fp"), SubResource("Resource_ng754"), SubResource("Resource_8qiu3")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLTripCleaner/TripWireHelperNPC/DialogueAreaEnd"]
+shape = SubResource("CircleShape2D_ubuhi")
 
 [node name="TripwirePart1" parent="Quests/BLTripCleaner" instance=ExtResource("16_nnmdc")]
 position = Vector2(-64, 896)
@@ -1156,7 +1528,7 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("11_d2wd2")
 questName = "BLDestroyTable"
-questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_cjh4h"), SubResource("Resource_ujyff")])
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_cjh4h"), SubResource("Resource_n01s7"), SubResource("Resource_nxb2n"), SubResource("Resource_pyyd8"), SubResource("Resource_ujyff")])
 objectsToDeleteAtQuestComplete = [NodePath("LunchroomTableBroken")]
 
 [node name="LunchroomTableBroken" parent="Quests/BLDestroyTable" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("30_sajnv")]
@@ -1166,6 +1538,20 @@ sendSignalToQuestOnDestroyed = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Quests/BLDestroyTable/LunchroomTableBroken"]
 texture = ExtResource("12_dpmq2")
+
+[node name="DialogueAreaStart" parent="Quests/BLDestroyTable/LunchroomTableBroken" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_3g3do"), SubResource("Resource_knniv"), SubResource("Resource_4oqw1")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLDestroyTable/LunchroomTableBroken/DialogueAreaStart"]
+shape = SubResource("CircleShape2D_cx31n")
+
+[node name="DialogueAreaEnd" parent="Quests/BLDestroyTable/LunchroomTableBroken" instance=ExtResource("15_0pysq")]
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_74lco")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLDestroyTable/LunchroomTableBroken/DialogueAreaEnd"]
+shape = SubResource("CircleShape2D_drxsl")
 
 [node name="BLDestroyCrackedWallVertical" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 script = ExtResource("11_d2wd2")
@@ -1184,7 +1570,7 @@ navigation_polygon = SubResource("NavigationPolygon_71du1")
 [node name="BLHitGong" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 script = ExtResource("11_d2wd2")
 questName = "BLDestroyCrackedWall"
-questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_7psvu"), SubResource("Resource_gdghm")])
+questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_7psvu"), SubResource("Resource_dm0c4"), SubResource("Resource_25h7d"), SubResource("Resource_ieaf7"), SubResource("Resource_gdghm")])
 objectsToDeleteAtQuestComplete = [NodePath("../BLDestroyCrackedWallVertical/CrackedWallVertical")]
 
 [node name="Gong" parent="Quests/BLHitGong" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("32_jah22")]
@@ -1192,13 +1578,29 @@ position = Vector2(5504, -2368)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="DialogueAreaStart" parent="Quests/BLHitGong/Gong" instance=ExtResource("15_0pysq")]
+position = Vector2(0, -32)
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_loskn")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLHitGong/Gong/DialogueAreaStart"]
+shape = SubResource("CircleShape2D_7rit4")
+
+[node name="DialogueAreaEnd" parent="Quests/BLHitGong/Gong" instance=ExtResource("15_0pysq")]
+position = Vector2(0, -32)
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_pmd6a")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLHitGong/Gong/DialogueAreaEnd"]
+shape = SubResource("CircleShape2D_w5nty")
+
 [node name="BLUltraKeyRoom" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("11_d2wd2")
 questName = "BLUltraKeyRoom"
 questIndexes = Array[ExtResource("12_qrwt2")]([SubResource("Resource_ajfdv"), SubResource("Resource_ugoe4"), SubResource("Resource_hwoig"), SubResource("Resource_2ylic"), SubResource("Resource_d10sd")])
 advanceOtherQuestsOnEnd = [NodePath("../BLGetUltraKey")]
-objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Enemies/Eyes"), NodePath("UltraKeyRoomTileMap/Enemies/WardenBoss"), NodePath("UltraKeyRoomTileMap/Enemies/WardenAlertArea"), NodePath("UltraKeyRoomTileMap/Enemies/WardenAlertArea2"), NodePath("UltraKeyRoomTileMap/Room1/CartPuzzle/Obstacles/CrackedWallHorizontal"), NodePath("UltraKeyRoomTileMap/Room1/CartPuzzle/Obstacles"), NodePath("UltraKeyRoomTileMap/Room2/CartPuzzle/Obstacles"), NodePath("UltraKeyRoomTileMap/FoodCart")]
+objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Enemies/Eyes"), NodePath("UltraKeyRoomTileMap/Enemies/WardenBoss"), NodePath("UltraKeyRoomTileMap/Enemies/WardenAlertArea"), NodePath("UltraKeyRoomTileMap/Enemies/WardenAlertArea2"), NodePath("UltraKeyRoomTileMap/Room1/CartPuzzle/Obstacles/CrackedWallHorizontal"), NodePath("UltraKeyRoomTileMap/Room1/CartPuzzle/Obstacles"), NodePath("UltraKeyRoomTileMap/Room2/CartPuzzle/Obstacles"), NodePath("UltraKeyRoomTileMap/FoodCart"), NodePath("DialogueArea")]
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/BLUltraKeyRoom"]
 y_sort_enabled = true
@@ -1872,6 +2274,14 @@ position = Vector2(384, -6368)
 [node name="FireflyHouseFull5" parent="Quests/BLUltraKeyRoom/UltraKeyRoomTileMap/Room2/FireflySpots" instance=ExtResource("13_vo8w2")]
 position = Vector2(1152, -7664)
 
+[node name="DialogueArea" parent="Quests/BLUltraKeyRoom" instance=ExtResource("15_0pysq")]
+position = Vector2(2560, -2640)
+dialogueIndexes = Array[ExtResource("16_37frn")]([SubResource("Resource_lu5ee"), SubResource("Resource_ddke2"), SubResource("Resource_ka6aw")])
+deleteOnDone = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BLUltraKeyRoom/DialogueArea"]
+shape = SubResource("RectangleShape2D_clibq")
+
 [node name="SavePoint" parent="Quests/BLUltraKeyRoom" instance=ExtResource("11_iugyx")]
 position = Vector2(2560, -2640)
 onEnter = true
@@ -2024,14 +2434,12 @@ patrolIndicators = [NodePath("../PatrolIndicators/Warden4/Warden4PatrolIndicator
 position = Vector2(3336, -912)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemies/Warden3AlertArea"]
-visible = false
 polygon = PackedVector2Array(-1144, -1520, 3192, -1520, 3192, 240, 1160, 240, 1160, -784, -408, -784, -408, 1520, -1144, 1520)
 
 [node name="Warden4AlertArea" parent="Enemies" instance=ExtResource("37_v73xs")]
 position = Vector2(3336, -912)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemies/Warden4AlertArea"]
-visible = false
 polygon = PackedVector2Array(-1144, -1520, -408, -1520, -408, 784, 1160, 784, 1160, 272, 3192, 272, 3192, 1520, -1144, 1520)
 
 [node name="PatrolIndicators" type="Node2D" parent="Enemies"]
@@ -2239,9 +2647,6 @@ shape = SubResource("RectangleShape2D_5ehwp")
 
 [node name="FireflyPuzzle" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="FireflyHouseFull" parent="FireflyPuzzle" instance=ExtResource("13_vo8w2")]
-position = Vector2(0, -640)
 
 [node name="FireflyHouseFull2" parent="FireflyPuzzle" instance=ExtResource("13_vo8w2")]
 position = Vector2(3200, -2304)
