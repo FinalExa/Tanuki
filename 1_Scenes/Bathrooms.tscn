@@ -1,4 +1,4 @@
-[gd_scene load_steps=221 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=292 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -65,9 +65,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1248, -1504, -32, -1504, -32, -1312, 48, -1312, 48, -1504, 736, -1504, 736, -1304, 816, -1304, 816, -1504, 1248, -1504, 1248, -1152, 1128, -1152, 1128, -1056, 816, -1056, 816, -1248, 736, -1248, 736, -920, 816, -920, 816, -992, 1248, -992, 1248, -704, 1152, -704, 1152, -576, 1248, -576, 1248, -416, 816, -416, 816, -864, 736, -864, 736, -352, 1248, -352, 1248, -64, 1056, -64, 1056, -16, 992, -16, 992, -64, 288, -64, 288, 0, 224, 0, 224, -64, 48, -64, 48, -1248, -32, -1248, -32, -832, -992, -832, -992, -736, -32, -736, -32, -64, -216, -64, -216, -496, -192, -496, -192, -656, -352, -656, -352, -632, -576, -632, -576, -656, -736, -656, -736, -496, -576, -496, -576, -520, -352, -520, -352, -496, -328, -496, -328, -64, -992, -64, -992, 0, -1056, 0, -1056, -64, -1248, -64, -1248, -352, -1328, -352, -1328, -64, -1632, -64, -1632, -736, -1328, -736, -1328, -408, -1248, -408, -1248, -736, -1056, -736, -1056, -832, -1248, -832, -1248, -1248, -1328, -1248, -1328, -1096, -1408, -1096, -1408, -1000, -1328, -1000, -1328, -832, -1632, -832, -1632, -848, -1552, -848, -1552, -944, -1632, -944, -1632, -1440, -1376, -1440, -1376, -1504, -1328, -1504, -1328, -1312, -1248, -1312), PackedVector2Array(-1528, -544, -1528, -464, -1448, -464, -1448, -544), PackedVector2Array(112, -240, 112, -352, 272, -352, 272, -240), PackedVector2Array(368, -496, 368, -608, 528, -608, 528, -496), PackedVector2Array(496, -1136, 496, -1256, 656, -1256, 656, -1136)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_n4xe7"]
-vertices = PackedVector2Array(-1120, 1088, -1632, 1088, -1632, 808, -1120, 848, -1120, 808, -928, 848, -624, 1056, -928, 808, -624, 808, -584, 1056, -584, 1136, -608, 1136, -608, 1296, -584, 1296, -584, 1856, -1632, 1856, -1120, 1568, -1632, 1680, -1592, 1680, -1592, 1600, -1632, 1600, -1632, 1568, -1528, 1232, -1296, 1232, -1200, 1312, -1200, 1392, -1280, 1392, -1600, 1376, -1280, 1472, -1632, 1472, -1600, 1440, -1632, 1440, -1632, 1376, -1632, 1232, -1528, 1184, -1296, 1184, -1200, 1232, -1200, 1248, -1120, 1312, -1120, 1248, -1248, 232, -1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 160, -224, 160, -224, 32, 224, 32, 352, 224, 352, 288, 224, 0, 288, 0, 288, 32, 352, 32, 432, 224, 432, 96, 528, 96, 632, 368, 528, 368, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 480, 528, 480, 432, 368, 432, 288, 352, 544, 736, 544, 736, 1856, -472, 1856, -48, 1056, -472, 1296, -448, 1296, -448, 1136, -472, 1136, -472, 1056, -48, 480, -224, 480, -224, 352, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1552, 696, -1552, 640, -1248, 544, -1632, 640, -1632, 544, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 232, -1328, 128, -1248, 280)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5, 6), PackedInt32Array(5, 7, 8, 6), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(15, 17, 18), PackedInt32Array(19, 20, 21, 16), PackedInt32Array(22, 23, 24, 25, 26, 27), PackedInt32Array(26, 28, 29, 30), PackedInt32Array(29, 31, 30), PackedInt32Array(26, 30, 27), PackedInt32Array(27, 32, 33, 22), PackedInt32Array(22, 34, 35, 23), PackedInt32Array(23, 36, 37), PackedInt32Array(24, 23, 37, 38), PackedInt32Array(38, 37, 39, 12), PackedInt32Array(18, 19, 16), PackedInt32Array(39, 0, 6, 11, 12), PackedInt32Array(16, 38, 12), PackedInt32Array(16, 15, 18), PackedInt32Array(40, 41, 42), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(45, 46, 47), PackedInt32Array(48, 49, 50, 51, 52), PackedInt32Array(50, 53, 54, 55), PackedInt32Array(55, 56, 51), PackedInt32Array(57, 58, 59, 60, 61), PackedInt32Array(59, 62, 63, 64, 60), PackedInt32Array(64, 65, 66, 60), PackedInt32Array(60, 67, 68, 61), PackedInt32Array(61, 69, 70), PackedInt32Array(57, 61, 70), PackedInt32Array(51, 57, 70, 52), PackedInt32Array(71, 72, 73, 74, 75), PackedInt32Array(74, 76, 77), PackedInt32Array(78, 79, 80, 75), PackedInt32Array(81, 82, 83), PackedInt32Array(84, 85, 86, 45), PackedInt32Array(86, 87, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(93, 95, 96, 94), PackedInt32Array(97, 98, 99, 100, 101), PackedInt32Array(101, 102, 103, 104), PackedInt32Array(97, 101, 104, 105), PackedInt32Array(104, 106, 105), PackedInt32Array(107, 97, 105, 40), PackedInt32Array(77, 78, 75), PackedInt32Array(50, 55, 51), PackedInt32Array(48, 52, 71, 81, 83, 47), PackedInt32Array(74, 77, 75), PackedInt32Array(71, 75, 81), PackedInt32Array(47, 83, 84, 45), PackedInt32Array(45, 86, 89, 90, 94, 107, 42), PackedInt32Array(40, 42, 107)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1120, 1248, -1120, 1088, -1632, 1088, -1632, 808, -1120, 808, -1120, 848, -928, 848, -928, 808, -624, 808, -624, 1056, -584, 1056, -584, 1136, -608, 1136, -608, 1296, -584, 1296, -584, 1856, -1632, 1856, -1632, 1680, -1592, 1680, -1592, 1600, -1632, 1600, -1632, 1568, -1120, 1568, -1120, 1312, -1200, 1312, -1200, 1392, -1280, 1392, -1280, 1472, -1632, 1472, -1632, 1440, -1600, 1440, -1600, 1376, -1632, 1376, -1632, 1232, -1528, 1232, -1528, 1184, -1296, 1184, -1296, 1232, -1200, 1232, -1200, 1248), PackedVector2Array(-1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 160, -224, 160, -224, 32, 224, 32, 224, 0, 288, 0, 288, 32, 352, 32, 352, 224, 432, 224, 432, 96, 528, 96, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 368, 632, 480, 528, 480, 528, 368, 432, 368, 432, 288, 352, 288, 352, 544, 736, 544, 736, 1856, -472, 1856, -472, 1296, -448, 1296, -448, 1136, -472, 1136, -472, 1056, -48, 1056, -48, 480, -224, 480, -224, 352, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1552, 696, -1552, 640, -1632, 640, -1632, 544, -1248, 544, -1248, 280, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 128, -1328, 232, -1248, 232)])
+vertices = PackedVector2Array(-1120, 1088, -1632, 1088, -1632, 808, -1120, 848, -1120, 808, -928, 848, -624, 1056, -928, 808, -624, 808, -584, 1056, -584, 1136, -608, 1136, -608, 1296, -584, 1296, -584, 1856, -1632, 1856, -1120, 1568, -1632, 1680, -1592, 1680, -1592, 1600, -1632, 1600, -1632, 1568, -1528, 1232, -1296, 1232, -1200, 1312, -1200, 1392, -1280, 1392, -1600, 1376, -1280, 1472, -1632, 1472, -1600, 1440, -1632, 1440, -1632, 1376, -1632, 1232, -1528, 1184, -1296, 1184, -1200, 1232, -1200, 1248, -1120, 1312, -1120, 1248, -1248, 232, -1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 160, -224, 160, -224, 32, 224, 32, 352, 224, 352, 288, 224, 0, 288, 0, 288, 32, 352, 32, 432, 224, 432, 96, 528, 96, 632, 368, 528, 368, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 480, 528, 480, 432, 368, 432, 288, 352, 544, 736, 544, 736, 1856, -472, 1856, -48, 1056, -472, 1296, -448, 1296, -448, 1136, -472, 1136, -472, 1056, -48, 480, -224, 480, -224, 352, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1632, 696, -1632, 544, -1248, 544, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 232, -1328, 128, -1248, 280)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5, 6), PackedInt32Array(5, 7, 8, 6), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(15, 17, 18), PackedInt32Array(19, 20, 21, 16), PackedInt32Array(22, 23, 24, 25, 26, 27), PackedInt32Array(26, 28, 29, 30), PackedInt32Array(29, 31, 30), PackedInt32Array(26, 30, 27), PackedInt32Array(27, 32, 33, 22), PackedInt32Array(22, 34, 35, 23), PackedInt32Array(23, 36, 37), PackedInt32Array(24, 23, 37, 38), PackedInt32Array(38, 37, 39, 12), PackedInt32Array(18, 19, 16), PackedInt32Array(39, 0, 6, 11, 12), PackedInt32Array(16, 38, 12), PackedInt32Array(16, 15, 18), PackedInt32Array(40, 41, 42), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(45, 46, 47), PackedInt32Array(48, 49, 50, 51, 52), PackedInt32Array(50, 53, 54, 55), PackedInt32Array(55, 56, 51), PackedInt32Array(57, 58, 59, 60, 61), PackedInt32Array(59, 62, 63, 64, 60), PackedInt32Array(64, 65, 66, 60), PackedInt32Array(60, 67, 68, 61), PackedInt32Array(61, 69, 70), PackedInt32Array(57, 61, 70), PackedInt32Array(51, 57, 70, 52), PackedInt32Array(71, 72, 73, 74, 75), PackedInt32Array(74, 76, 77), PackedInt32Array(78, 79, 80, 75), PackedInt32Array(81, 82, 83), PackedInt32Array(84, 85, 86, 45), PackedInt32Array(86, 87, 88, 89), PackedInt32Array(90, 91, 92, 93, 94), PackedInt32Array(95, 96, 97, 98, 99), PackedInt32Array(99, 100, 101, 102), PackedInt32Array(95, 99, 102, 103), PackedInt32Array(102, 104, 103), PackedInt32Array(105, 95, 103, 40), PackedInt32Array(77, 78, 75), PackedInt32Array(50, 55, 51), PackedInt32Array(48, 52, 71, 81, 83, 47), PackedInt32Array(74, 77, 75), PackedInt32Array(71, 75, 81), PackedInt32Array(47, 83, 84, 45), PackedInt32Array(45, 86, 89, 90, 94, 105, 42), PackedInt32Array(40, 42, 105)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1120, 1248, -1120, 1088, -1632, 1088, -1632, 808, -1120, 808, -1120, 848, -928, 848, -928, 808, -624, 808, -624, 1056, -584, 1056, -584, 1136, -608, 1136, -608, 1296, -584, 1296, -584, 1856, -1632, 1856, -1632, 1680, -1592, 1680, -1592, 1600, -1632, 1600, -1632, 1568, -1120, 1568, -1120, 1312, -1200, 1312, -1200, 1392, -1280, 1392, -1280, 1472, -1632, 1472, -1632, 1440, -1600, 1440, -1600, 1376, -1632, 1376, -1632, 1232, -1528, 1232, -1528, 1184, -1296, 1184, -1296, 1232, -1200, 1232, -1200, 1248), PackedVector2Array(-1248, 32, -1056, 32, -1056, 0, -992, 0, -992, 32, -320, 32, -320, 160, -224, 160, -224, 32, 224, 32, 224, 0, 288, 0, 288, 32, 352, 32, 352, 224, 432, 224, 432, 96, 528, 96, 528, 32, 640, 32, 640, 88, 736, 88, 736, 368, 632, 368, 632, 480, 528, 480, 528, 368, 432, 368, 432, 288, 352, 288, 352, 544, 736, 544, 736, 1856, -472, 1856, -472, 1296, -448, 1296, -448, 1136, -472, 1136, -472, 1056, -48, 1056, -48, 480, -224, 480, -224, 352, -320, 352, -320, 480, -624, 480, -624, 696, -928, 696, -928, 656, -1120, 656, -1120, 696, -1632, 696, -1632, 544, -1248, 544, -1248, 280, -1328, 280, -1328, 480, -1632, 480, -1632, 128, -1528, 128, -1528, 32, -1432, 32, -1432, 128, -1328, 128, -1328, 232, -1248, 232)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_46unh"]
 vertices = PackedVector2Array(1248, 96, 1256, 1776, 1136, 1776, 1144, 96, 816, 1120, 816, 96, 920, 96, 920, 32, 992, 32, 992, -16, 1056, -16, 1056, 32, 896, 1776, 816, 1184, 1144, 32, 1136, 1888, 896, 1888, 816, 1776, 736, 1184, 736, 1120)
@@ -122,6 +122,18 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_4yryy"]
+script = ExtResource("18_qfqbg")
+dialogueText = "You did it! You filled all of us with hot water again, thank you!"
+characterTalking = 2
+cameraFocus = NodePath("../../BathroomsSaveGenerator1/BathroomGeneratorYokai")
+
+[sub_resource type="Resource" id="Resource_mjghl"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I managed to shoot out the key, it's right here."
+characterTalking = 2
+cameraFocus = NodePath("../../../Keys/UnlockKey1")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_b04x4"]
 
 [sub_resource type="Resource" id="Resource_3u2fe"]
@@ -156,11 +168,143 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_jl6gc"]
+script = ExtResource("18_qfqbg")
+dialogueText = "So... empty..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_p2x5y"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hey you! You have a key I see, can you give it to me?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_xergv"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I can't... even if I want to..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_cyh4f"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Why?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_6rdqc"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I need to be refilled with hot water... I used to produce hot water for the bathrooms, but they turned me off..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_r8rej"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I can help you with that if you give me your key."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_q1goq"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I would be saved... Can I bother you to help also my brother..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_pw0ni"]
+script = ExtResource("18_qfqbg")
+dialogueText = "...before I give you the key?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_snl48"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I am in a hurry... but okay, if those are your conditions fine."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_slmiq"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_5cpjx"]
+script = ExtResource("18_qfqbg")
+dialogueText = "So, how do I fill you with water?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_5ph05"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Oh, right... You'll need to get water to me through these bamboo canals that are connected to me, find a water source..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_qmspt"]
+script = ExtResource("18_qfqbg")
+dialogueText = "...like that one, which is always full of water..."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Puzzle/WaterSources/WaterSource1")
+
+[sub_resource type="Resource" id="Resource_oovlp"]
+script = ExtResource("18_qfqbg")
+dialogueText = "...hit it with something mechanical and it will pour water into the canals nearby for a limited time, filling all water sources connected..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_f4bsv"]
+script = ExtResource("18_qfqbg")
+dialogueText = "...keep hitting filled water sources until you reach me or one of my brothers, we are able to produce water ourselves, filling all the canals close to us."
+characterTalking = 2
+cameraFocus = NodePath("../../../../Puzzle/WaterSources/WaterSource2")
+
+[sub_resource type="Resource" id="Resource_qfp6d"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I forgot how to heat us up... try asking my brother, he loves that part."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_hiwkr"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Okay, will do!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_gn53k"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks for saving me! I sense my brother is still out of service, please save him!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_32r5j"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Will do."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yd2w3"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_dwki7"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks again for saving me and my brother!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xpj6f"]
+script = ExtResource("18_qfqbg")
+dialogueText = "No problem."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_n7s8j"]
+script = ExtResource("18_qfqbg")
+dialogueText = "As an extra advice, I'll tell you a trick! The staff here barely notices the soap on the ground, they keep falling on it. If you find soap it might prove useful to you!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_u5gwi"]
+script = ExtResource("18_qfqbg")
+dialogueText = "That sounds VERY useful actually, thank you sad generator!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ga7d"]
 radius = 128.0
@@ -205,11 +349,47 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_4jx4j"]
+script = ExtResource("18_qfqbg")
+dialogueText = "If only someone managed to fill me with water... AND bring me one of these metallic rods all heated up! Only then...! I will be full power again!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_mgs31"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hah, sounds useful."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jjrb"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_cafke"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks for saving me! I sense my brother is still out of service, please save him!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_44q2l"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Will do."
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik03u"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_o1svd"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks again for saving me and my brother!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_nedib"]
+script = ExtResource("18_qfqbg")
+dialogueText = "No problem."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jm5or"]
 radius = 128.0
@@ -499,8 +679,56 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_26c4j"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Whew thanks lad, I was afraid I was going to drown."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8uvjy"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Why were you trapped in the pool?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_yi13l"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Well, I got in that pool because I peeked in the special room... and there was a strange sort of... cleaning lady, the very powerful type, lad."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_168ig"]
+script = ExtResource("18_qfqbg")
+dialogueText = "That's... useful, considering I need to go in there, thanks old yokai!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mi2j"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_s4wxn"]
+script = ExtResource("18_qfqbg")
+dialogueText = "PLEASE HELP ME I'M DROWNING!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_xiire"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I'M BURNING, THE WATER IS TOO HOT! GET ME TO THE CHANGING ROOM, I SAW A VERY NICE BLUE TOWEL ON THE GROUND IN THERE..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_0lhi0"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I'LL GIVE ANYBODY THAT HELPS ME THIS COOL KEY I FOUND, PLEASEEEEEE!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_lefu0"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Huh? OH! Don't worry old guy, I'm coming! Keep the key strapped on you, eh!"
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aubck"]
 radius = 512.0
@@ -553,17 +781,91 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_twume"]
+script = ExtResource("18_qfqbg")
+dialogueText = "This pause was well deserved."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_n26tp"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Do you cleaning ladies around here have pauses?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_hsl2m"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Yeah... \"pauses\"... hm, now that I think about it you've seen me slacking... I'm going to be in trouble."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_n51xy"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hey hey, I'll stay silent if you give me something in return you know?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_tw8ok"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hmmm... what about a key?"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_7reux"]
+script = ExtResource("18_qfqbg")
+dialogueText = "That's exactly what I am looking for!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_bd6vk"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Then let's make a deal: do my job for me, clean the brown goop around here and I'll give it to you."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_8b6wk"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Okay, deal."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_dihw6"]
+script = ExtResource("18_qfqbg")
+dialogueText = "There should be 7 of them around here, once you'll clean all of them, I'll give you your key."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjbie"]
 radius = 128.0
 
+[sub_resource type="Resource" id="Resource_xe5q0"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hey, nice job, now I can enjoy my pause."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs1pc"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_kjya7"]
+script = ExtResource("18_qfqbg")
+dialogueText = "I think there's no more brown goop left... maybe I should talk with that cleaner in pause."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0c5cn"]
 
 [sub_resource type="Resource" id="Resource_mqk2i"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_oco5u"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathroomGeneratorYokai/DialogueArea2")
 itemStage = 0
 itemOperation = 0
 useAltItem = false
@@ -593,6 +895,22 @@ itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
 
+[sub_resource type="Resource" id="Resource_04ipq"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathroomGeneratorYokai/DialogueArea")
+itemStage = 2
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ag146"]
+script = ExtResource("16_yv3nw")
+itemToOperate = NodePath("BathroomGeneratorYokai/DialogueArea2")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
 [sub_resource type="Resource" id="Resource_t5qcu"]
 script = ExtResource("16_yv3nw")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
@@ -600,6 +918,57 @@ itemStage = 2
 itemOperation = 1
 useAltItem = false
 altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_1yf1y"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks for repairing me... If I manage to get hot water in me again I'll be able to shoot out the key for you!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_2rxlx"]
+script = ExtResource("18_qfqbg")
+dialogueText = "*sigh* Alright, alright, I'll do it."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jk2wy"]
+radius = 128.996
+
+[sub_resource type="Resource" id="Resource_rtjhn"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Thanks for saving me! I hope you liked that key!"
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_mi602"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Indeed."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15dvl"]
+radius = 128.25
+
+[sub_resource type="Resource" id="Resource_1bnwc"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Repair... me... my parts should be around there..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="Resource" id="Resource_ql4ih"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Gimme that key and I'll repair you!"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_crglg"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Sure..."
+characterTalking = 2
+cameraFocus = NodePath("..")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_741ll"]
+radius = 128.25
 
 [sub_resource type="Resource" id="Resource_jpxqf"]
 script = ExtResource("16_yv3nw")
@@ -760,6 +1129,60 @@ size = Vector2(256, 1024)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ygcl"]
 size = Vector2(512, 320)
+
+[sub_resource type="Resource" id="Resource_8gekw"]
+script = ExtResource("18_qfqbg")
+dialogueText = "This area feels different... hm, what's that...?"
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_gkkbx"]
+script = ExtResource("18_qfqbg")
+dialogueText = "That cleaning lady... looks dangerous..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_d0lje"]
+script = ExtResource("18_qfqbg")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss")
+
+[sub_resource type="Resource" id="Resource_7vm0x"]
+script = ExtResource("18_qfqbg")
+dialogueText = "It feels like she's the \"master\" of this place, I have to defeat her to proceed."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ninhj"]
+script = ExtResource("18_qfqbg")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss")
+
+[sub_resource type="Resource" id="Resource_uog3j"]
+script = ExtResource("18_qfqbg")
+dialogueText = "Hmmmm... I see a pool there..."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_w2ner"]
+script = ExtResource("18_qfqbg")
+dialogueText = "It should be possible to fill it, make the water hot aaaaand throw her in! Even though I feel like she won't get launched easily, I'll need to make her slip then throw her."
+characterTalking = 0
+cameraFocus = NodePath("")
+
+[sub_resource type="Resource" id="Resource_2vhu1"]
+script = ExtResource("18_qfqbg")
+dialogueText = "..."
+characterTalking = 2
+cameraFocus = NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss")
+
+[sub_resource type="Resource" id="Resource_rfxrr"]
+script = ExtResource("18_qfqbg")
+dialogueText = "It's on, cleaning lady."
+characterTalking = 0
+cameraFocus = NodePath("")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ph42l"]
 size = Vector2(512, 320)
@@ -1150,11 +1573,9 @@ questName = "BathroomsActivatePools"
 questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_kivm1"), SubResource("Resource_avrnq"), SubResource("Resource_w26sh"), SubResource("Resource_buccv"), SubResource("Resource_48wor"), SubResource("Resource_s8r7w")])
 objectsToDeleteAtQuestComplete = [NodePath("../BathroomsSaveGenerator1/BathroomGeneratorYokai/KeySprite")]
 
-[node name="DialogueArea" parent="Quests/BathroomsActivatePools" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+[node name="DialogueArea" parent="Quests/BathroomsActivatePools" instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
-dialogueText = Array[String](["You did it! You filled all of us with hot water again, thank you!", "I managed to shoot out the key, it's right here."])
-characterTalking = Array[int]([2, 2])
-cameraFocuses = [NodePath("../../BathroomsSaveGenerator1/BathroomGeneratorYokai"), NodePath("../../../Keys/UnlockKey1")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_4yryy"), SubResource("Resource_mjghl")])
 deleteOnDone = true
 activatedByQuest = true
 
@@ -1182,10 +1603,8 @@ waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway2"), NodePath
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["So... empty...", "Hey you! You have a key I see, can you give it to me?", "I can't... even if I want to...", "Why?", "I need to be refilled with hot water... I used to produce hot water for the bathrooms, but they turned me off...", "I can help you with that if you give me your key.", "I would be saved... Can I bother you to help also my brother...", "...before I give you the key?", "I am in a hurry... but okay, if those are your conditions fine.", "Thanks... I am too tired to explain how to do it... ask my two brothers...", "Will do."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0, 2, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("questRef") instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_jl6gc"), SubResource("Resource_p2x5y"), SubResource("Resource_xergv"), SubResource("Resource_cyh4f"), SubResource("Resource_6rdqc"), SubResource("Resource_r8rej"), SubResource("Resource_q1goq"), SubResource("Resource_pw0ni"), SubResource("Resource_snl48")])
 isOnInteraction = true
 deleteOnDone = true
 advanceQuest = true
@@ -1194,28 +1613,22 @@ questRef = NodePath("../../../BathroomsGenerator1Dialogue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea"]
 shape = SubResource("CircleShape2D_slmiq")
 
-[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["So, how do I fill you with water again?", "Oh... right.", "See those? Those are water sources.", "This one in particular is always filled with water, if you hit a filled water source with something mechanical...", "...it will fill any waterways it's connected to, for a limited amount of time.", "If water from a waterway reaches me, I'll become able to produce water again...", "...and permanently fill any waterways close to me.", "Remember that after a while the water sources will stop providing water to the waterways.", "Thanks for the explanation, I'll try."])
-characterTalking = Array[int]([0, 2, 2, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [null, NodePath(".."), NodePath("../../../../Puzzle/WaterSources/WaterSource1"), NodePath("../../../../Puzzle/WaterSources/WaterSource1"), NodePath("../../../../Puzzle/Waterways/Waterway1"), NodePath(".."), NodePath(".."), NodePath(".."), null]
+[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_5cpjx"), SubResource("Resource_5ph05"), SubResource("Resource_qmspt"), SubResource("Resource_oovlp"), SubResource("Resource_f4bsv"), SubResource("Resource_qfp6d"), SubResource("Resource_hiwkr")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea2"]
 shape = SubResource("CircleShape2D_slmiq")
 
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks for saving me! I sense my brother is still ill, please save him!", "Will do."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
+[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_gn53k"), SubResource("Resource_32r5j")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea3"]
 shape = SubResource("CircleShape2D_yd2w3")
 
-[node name="DialogueArea4" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem.", "As an extra advice, I'll tell you a trick! The guards and cleaners here HATE to step on soap. You should try it, it's funny when I see it!", "That sounds VERY useful actually, thank you sad generator!"])
-characterTalking = Array[int]([2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea4" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_dwki7"), SubResource("Resource_xpj6f"), SubResource("Resource_n7s8j"), SubResource("Resource_u5gwi")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator1/BathroomGeneratorYokai/DialogueArea4"]
@@ -1246,28 +1659,22 @@ waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway6")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Hot... water...", "Hello there, can I help you...?", "Yes please... if you manage to fill me with water... I'll need to become heated again...", "How do I do that?", "Give me a metallic object that has been heated, only after I got filled with water... please...", "I'll search for it!"])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_4jx4j"), SubResource("Resource_mgs31")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea"]
 shape = SubResource("CircleShape2D_2jjrb")
 
-[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks for saving me! I sense my brother is still ill, please save him!", "Will do."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
+[node name="DialogueArea2" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_cafke"), SubResource("Resource_44q2l")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea2"]
 shape = SubResource("CircleShape2D_ik03u")
 
-[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Thanks again for saving me and my brothers!", "No problem."])
-characterTalking = Array[int]([2, 0])
-cameraFocuses = [NodePath(".."), null]
+[node name="DialogueArea3" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_o1svd"), SubResource("Resource_nedib")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsSaveGenerator2/BathroomGeneratorYokai2/DialogueArea3"]
@@ -1617,10 +2024,8 @@ sendSignalToQuestOnDestroyed = true
 [node name="OldYokaiNPC" parent="Quests/BathroomsRescueOldYokai/ReachPoint" instance=ExtResource("23_1ik6l")]
 position = Vector2(0, -104)
 
-[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/ReachPoint/OldYokaiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Whew thanks, I was afraid I was going to drown.", "Why were you trapped in the pool?", "Well, I got in that pool because I peeked in the special room...", "Tell me more about it.", "There's a sort of... strange cleaner in here, I got captured and sent into the sewer system, emerged from the pool... you saved my life.", "That's useful info, thanks old guy!"])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/ReachPoint/OldYokaiNPC" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_26c4j"), SubResource("Resource_8uvjy"), SubResource("Resource_yi13l"), SubResource("Resource_168ig")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRescueOldYokai/ReachPoint/OldYokaiNPC/DialogueArea"]
@@ -1629,11 +2034,9 @@ shape = SubResource("CircleShape2D_2mi2j")
 [node name="OldYokaiNPC" parent="Quests/BathroomsRescueOldYokai" instance=ExtResource("23_1ik6l")]
 position = Vector2(-568, 928)
 
-[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/OldYokaiNPC" node_paths=PackedStringArray("cameraFocuses", "questRef") instance=ExtResource("12_8ip6f")]
+[node name="DialogueArea" parent="Quests/BathroomsRescueOldYokai/OldYokaiNPC" node_paths=PackedStringArray("questRef") instance=ExtResource("12_8ip6f")]
 position = Vector2(24, 64)
-dialogueText = Array[String](["PLEASE HELP ME I'M DROWNING!", "Huh? OH! Don't worry old guy, I'm coming!", "I'M BURNING, THE WATER IS TOO HOT!", "PLEASE BRING ME TO THE BLUE CARPET IN THE CHANGING ROOM!"])
-characterTalking = Array[int]([2, 0, 2, 2])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), NodePath("../../ReachPoint")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_s4wxn"), SubResource("Resource_xiire"), SubResource("Resource_0lhi0"), SubResource("Resource_lefu0")])
 deleteOnDone = true
 advanceQuest = true
 questRef = NodePath("../..")
@@ -1655,29 +2058,23 @@ objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor1"), NodePath("DirtyFloor2
 [node name="CleanerNPC" parent="Quests/BathroomsCleanFloor" instance=ExtResource("25_hmgvd")]
 position = Vector2(-1480, 64)
 
-[node name="DialogueArea" parent="Quests/BathroomsCleanFloor/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Oh no a cleaner! I don't want to be hit!", "Naaaaah, I am in pause. No worries.", "You cleaners have pauses?", "Yeah... \"pauses\"... hm, now that I think about it you've seen me slacking... I'm going to be in trouble.", "Hey hey, I'll stay silent if you give me something in return you know?", "Hmmm... what about a key?", "That's exactly what I am looking for!", "Then let's make a deal: do my job for me, clean the brown goop around here and I'll give it to you.", "Okay, deal.", "There should be 7 of them around here, once you'll clean all of them, I'll give you your key."])
-characterTalking = Array[int]([0, 2, 0, 2, 0, 2, 0, 2, 0, 2])
-cameraFocuses = [null, NodePath(".."), null, NodePath(".."), null, NodePath(".."), null, NodePath("../../DirtyFloor1"), null, NodePath("..")]
+[node name="DialogueArea" parent="Quests/BathroomsCleanFloor/CleanerNPC" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_twume"), SubResource("Resource_n26tp"), SubResource("Resource_hsl2m"), SubResource("Resource_n51xy"), SubResource("Resource_tw8ok"), SubResource("Resource_7reux"), SubResource("Resource_bd6vk"), SubResource("Resource_8b6wk"), SubResource("Resource_dihw6")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsCleanFloor/CleanerNPC/DialogueArea"]
 shape = SubResource("CircleShape2D_qjbie")
 
-[node name="DialogueArea2" parent="Quests/BathroomsCleanFloor/CleanerNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
-dialogueText = Array[String](["Hey, nice job, now I can enjoy my pause.", "Say, why don't you have the usual cleaning towel all of your fellow cleaners have?", "It's part of the reason I am in \"pause\"... I ehm... lost it.", "You lost it? How?", "I tripped on that grate in the room above... and it fell down... riiiiiight into the sewers...", "Huh... so towels can fall down that grate... interesting hehe..."])
-characterTalking = Array[int]([2, 0, 2, 0, 2, 0])
-cameraFocuses = [NodePath(".."), null, NodePath(".."), null, NodePath(".."), null]
+[node name="DialogueArea2" parent="Quests/BathroomsCleanFloor/CleanerNPC" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_xe5q0")])
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsCleanFloor/CleanerNPC/DialogueArea2"]
 shape = SubResource("CircleShape2D_xs1pc")
 
-[node name="DialogueArea" parent="Quests/BathroomsCleanFloor" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+[node name="DialogueArea" parent="Quests/BathroomsCleanFloor" instance=ExtResource("12_8ip6f")]
 position = Vector2(-5632, 0)
-dialogueText = Array[String](["I think there's no more brown goop left... maybe I should talk with that cleaner in pause."])
-characterTalking = Array[int]([0])
-cameraFocuses = [null]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_kjya7")])
 deleteOnDone = true
 activatedByQuest = true
 
@@ -1723,7 +2120,7 @@ sendSignalToQuestOnDestroyed = true
 y_sort_enabled = true
 script = ExtResource("10_67fd8")
 questName = "BathroomsRepairGenerator"
-questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_mqk2i"), SubResource("Resource_wcjea"), SubResource("Resource_vropu"), SubResource("Resource_w0rme"), SubResource("Resource_t5qcu")])
+questIndexes = Array[ExtResource("16_yv3nw")]([SubResource("Resource_mqk2i"), SubResource("Resource_oco5u"), SubResource("Resource_wcjea"), SubResource("Resource_vropu"), SubResource("Resource_w0rme"), SubResource("Resource_04ipq"), SubResource("Resource_ag146"), SubResource("Resource_t5qcu")])
 objectsToFinalizeAtQuestComplete = [NodePath("BathroomGeneratorYokai")]
 objectsToDeleteAtQuestComplete = [NodePath("PositionRandomizer"), NodePath("GeneratorPart1"), NodePath("GeneratorPart2"), NodePath("GeneratorPart3"), NodePath("KeySprite")]
 
@@ -1733,10 +2130,31 @@ waterwaysToActivate = [NodePath("../../../Puzzle/Waterways/Waterway5")]
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
+[node name="DialogueArea" parent="Quests/BathroomsRepairGenerator/BathroomGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_1yf1y"), SubResource("Resource_2rxlx")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairGenerator/BathroomGeneratorYokai/DialogueArea"]
+shape = SubResource("CircleShape2D_jk2wy")
+
+[node name="DialogueArea2" parent="Quests/BathroomsRepairGenerator/BathroomGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_rtjhn"), SubResource("Resource_mi602")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairGenerator/BathroomGeneratorYokai/DialogueArea2"]
+shape = SubResource("CircleShape2D_15dvl")
+
 [node name="BrokenGeneratorYokai" parent="Quests/BathroomsRepairGenerator" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_kojik")]
 position = Vector2(-1624, 776)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
+
+[node name="DialogueArea" parent="Quests/BathroomsRepairGenerator/BrokenGeneratorYokai" instance=ExtResource("12_8ip6f")]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_1bnwc"), SubResource("Resource_ql4ih"), SubResource("Resource_crglg")])
+isOnInteraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsRepairGenerator/BrokenGeneratorYokai/DialogueArea"]
+shape = SubResource("CircleShape2D_741ll")
 
 [node name="KeySprite" type="Sprite2D" parent="Quests/BathroomsRepairGenerator"]
 position = Vector2(-1624, 632)
@@ -2267,11 +2685,9 @@ oneTimeSave = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/SavePoint"]
 shape = SubResource("RectangleShape2D_0ygcl")
 
-[node name="DialogueArea" parent="Quests/BathroomsUltraKey" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("12_8ip6f")]
+[node name="DialogueArea" parent="Quests/BathroomsUltraKey" instance=ExtResource("12_8ip6f")]
 position = Vector2(-1024, -1760)
-dialogueText = Array[String](["This area feels different...", "Oh!", "That cleaner... looks dangerous...", "...", "It feels like she's the \"master\" of this place, I'll have to defeat her.", "...", "Hmmmm...", "...", "Oh! I see an empty pool behind her... I should try throwing her in boiling hot water with my leaf!", "...", "Let's try."])
-characterTalking = Array[int]([0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0])
-cameraFocuses = [null, null, NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss"), NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss"), null, NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss"), null, NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss"), NodePath("../UltraKeyRoomTileMap/Room1Puzzle/WaterwayPool"), NodePath("../UltraKeyRoomTileMap/Enemies/CleanerBoss"), null]
+dialogueIndexes = Array[ExtResource("18_qfqbg")]([SubResource("Resource_8gekw"), SubResource("Resource_gkkbx"), SubResource("Resource_d0lje"), SubResource("Resource_7vm0x"), SubResource("Resource_ninhj"), SubResource("Resource_uog3j"), SubResource("Resource_w2ner"), SubResource("Resource_2vhu1"), SubResource("Resource_rfxrr")])
 deleteOnDone = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/BathroomsUltraKey/DialogueArea"]
