@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=244 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -14,7 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://cpe2gxy1qj316" path="res://Enemies/warden_alert_area.tscn" id="6_bbdub"]
 [ext_resource type="PackedScene" uid="uid://b58p4qwcqetqi" path="res://Level/Prefabs/door.tscn" id="10_exgx1"]
 [ext_resource type="PackedScene" uid="uid://dyhjdqek46dow" path="res://Level/Prefabs/door_open_close_hitbox.tscn" id="11_dilb4"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexMove.gd" id="14_ouugk"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexLook.gd" id="15_6ef2t"]
 [ext_resource type="PackedScene" uid="uid://bgato2gssm4xh" path="res://ImportantObjects/TransformationObjects/teapot.tscn" id="15_wdsu2"]
+[ext_resource type="Script" path="res://Enemies/PatrolIndicator/Scripts/PatrolIndexWait.gd" id="16_f3qwa"]
 [ext_resource type="PackedScene" uid="uid://y6defetggqrl" path="res://Level/SavePoints/save_point.tscn" id="17_h4u1o"]
 [ext_resource type="PackedScene" uid="uid://dcd8adv84c82b" path="res://ImportantObjects/TransformationObjects/knife.tscn" id="17_pif6t"]
 [ext_resource type="PackedScene" uid="uid://bhbgi66vo6rt" path="res://ImportantObjects/Interactables/button_to_push.tscn" id="17_wlcap"]
@@ -78,6 +81,382 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxsb"]
 size = Vector2(1792, 1664)
+
+[sub_resource type="Resource" id="Resource_d2ojg"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_wj2u5"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_pemnn"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_xsmuw"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_ssim4"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_w6l6v"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_1v4re"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_ihvqc"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_lwkqw"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_y6wc0"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_e2g14"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_bn5yf"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_04aoo"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_c2tib"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_tos8h"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_xwl7x"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_0cjdq"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_rcrr6"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_hl50i"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_jqdre"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_kaq8k"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_dw743"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_f5bjn"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_0s1a1"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_pdyou"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_4mmxt"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_fyipr"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_sfwj6"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_qods8"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_2ha2q"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_mjdhc"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_ieokq"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_m2cu5"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_ai4mg"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_ekh5w"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_yjjwm"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_y7q5u"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_6wrbh"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_3qvna"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_nve5y"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_joxea"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_qu266"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_6mg10"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_45sw8"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_xom3s"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_8cn55"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_lrvew"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_iaxm2"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_rqjc0"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_xs1pt"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_hwsy4"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_osxiw"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_fr4hs"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_63chd"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_exdpb"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_xwebc"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_o2gwg"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_tl7h4"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_mvn32"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_isshg"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_aia0w"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_cfcpt"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_6kwlo"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_a7pqr"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_v0nxl"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_g00kq"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_q30e2"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_37bj5"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_d23ak"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_ccjhu"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_gpjip"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_msahn"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_482kk"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_5w8y5"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_pmo6y"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_1r5yw"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_urh4a"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_qc1ar"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.75
+
+[sub_resource type="Resource" id="Resource_aa6d0"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_23if7"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_osdas"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.5
+
+[sub_resource type="Resource" id="Resource_e14yr"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_8ypaa"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.5
+
+[sub_resource type="Resource" id="Resource_1hgon"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_6dptw"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.5
+
+[sub_resource type="Resource" id="Resource_uxe8e"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_sep73"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_0fau8"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_a4n7w"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_ciicn"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_1umah"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_6tyw8"]
+script = ExtResource("14_ouugk")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_bbjs1"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_hauf8"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3csj0"]
 radius = 128.0
@@ -204,122 +583,122 @@ size = Vector2(256, 224)
 [sub_resource type="Resource" id="Resource_kxml6"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_i1o75"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("PurifiedTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5yxve"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_a5cg8"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTileContinuedRight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tm2nw"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTileContinuedLeft")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_n5wt0"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTile")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uwbit"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTile2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_0yk3g"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_4tkmt"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("PurifiedTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_0okxc"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTile3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_n7ful"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTile4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vykmx"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTileContinuedRight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bh63h"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("WallTileContinuedLeft")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rmu2q"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nb6nt"]
 script = ExtResource("61_hxixi")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccyfs"]
 size = Vector2(768, 480)
@@ -480,113 +859,94 @@ patrolIndicators = [NodePath("../PatrolPoints/CleanStorageRoomOnly/PatrolCleanOn
 [node name="FoodStorageRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolFoodStorageRoom" parent="Enemies/PatrolPoints/FoodStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolFoodStorageRoom" parent="Enemies/PatrolPoints/FoodStorageRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(-1528, -608)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../1")]
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-lookActions = Array[int]([0, 3, 1, 2])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_d2ojg"), SubResource("Resource_wj2u5"), SubResource("Resource_pemnn"), SubResource("Resource_xsmuw"), SubResource("Resource_ssim4"), SubResource("Resource_w6l6v"), SubResource("Resource_1v4re"), SubResource("Resource_ihvqc"), SubResource("Resource_lwkqw"), SubResource("Resource_y6wc0"), SubResource("Resource_e2g14"), SubResource("Resource_bn5yf")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
-position = Vector2(-1216, -1088)
-
-[node name="2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1216, -232)
 
-[node name="3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1920, -232)
 
-[node name="4" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
 position = Vector2(-1920, -1088)
+
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoom"]
+position = Vector2(-1216, -1088)
 
 [node name="FoodStorageShelfRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="FoodStorageShelf" parent="Enemies/PatrolPoints/FoodStorageShelfRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="FoodStorageShelf" parent="Enemies/PatrolPoints/FoodStorageShelfRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(-1304, -128)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../A2"), NodePath("../A3"), NodePath("../A2"), NodePath("../A1")]
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-lookActions = Array[int]([2, 2, 2, 2])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_04aoo"), SubResource("Resource_c2tib"), SubResource("Resource_tos8h"), SubResource("Resource_xwl7x"), SubResource("Resource_0cjdq"), SubResource("Resource_rcrr6"), SubResource("Resource_hl50i"), SubResource("Resource_jqdre"), SubResource("Resource_kaq8k"), SubResource("Resource_dw743"), SubResource("Resource_f5bjn"), SubResource("Resource_0s1a1")])
 
-[node name="A1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
-position = Vector2(-1328, 176)
-
-[node name="A2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
 position = Vector2(-1328, -64)
 
-[node name="A3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
 position = Vector2(-1328, -320)
+
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageShelfRoom"]
+position = Vector2(-1328, 176)
 
 [node name="KitchenWardenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenWardenRoom" parent="Enemies/PatrolPoints/KitchenWardenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenWardenRoom" parent="Enemies/PatrolPoints/KitchenWardenRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(1344, -360)
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 0])
-moveActions = [NodePath("../13")]
-waitActions = Array[float]([4.0, 4.0, 4.0, 4.0])
-lookActions = Array[int]([2, 0, 2, 1])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_pdyou"), SubResource("Resource_4mmxt"), SubResource("Resource_fyipr"), SubResource("Resource_sfwj6"), SubResource("Resource_qods8"), SubResource("Resource_2ha2q"), SubResource("Resource_mjdhc"), SubResource("Resource_ieokq"), SubResource("Resource_m2cu5")])
 
-[node name="13" type="Node2D" parent="Enemies/PatrolPoints/KitchenWardenRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/KitchenWardenRoom"]
 position = Vector2(1280, -128)
 
 [node name="CleanStorageRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolCleanRoomToCorridor" parent="Enemies/PatrolPoints/CleanStorageRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCleanRoomToCorridor" parent="Enemies/PatrolPoints/CleanStorageRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(-944, 648)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../15"), NodePath("../14")]
-waitActions = Array[float]([1.0, 1.0])
-lookActions = Array[int]([2, 3])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_ai4mg"), SubResource("Resource_ekh5w"), SubResource("Resource_yjjwm"), SubResource("Resource_y7q5u"), SubResource("Resource_6wrbh"), SubResource("Resource_3qvna")])
 
-[node name="14" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
-position = Vector2(-640, 672)
-
-[node name="15" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
 position = Vector2(944, 672)
+
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoom"]
+position = Vector2(-640, 672)
 
 [node name="KitchenHyottokoRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenHyottokoRoom" parent="Enemies/PatrolPoints/KitchenHyottokoRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenHyottokoRoom" parent="Enemies/PatrolPoints/KitchenHyottokoRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(456, -240)
-patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0])
-moveActions = [NodePath("../19"), NodePath("../20"), NodePath("../21"), NodePath("../22")]
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_nve5y"), SubResource("Resource_joxea"), SubResource("Resource_qu266"), SubResource("Resource_6mg10"), SubResource("Resource_45sw8"), SubResource("Resource_xom3s"), SubResource("Resource_8cn55"), SubResource("Resource_lrvew")])
 
-[node name="19" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(256, 256)
 
-[node name="20" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(640, 256)
 
-[node name="21" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(640, -760)
 
-[node name="22" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/KitchenHyottokoRoom"]
 position = Vector2(256, -760)
 
 [node name="KitchenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolKitchenRoom" parent="Enemies/PatrolPoints/KitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolKitchenRoom" parent="Enemies/PatrolPoints/KitchenRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(768, 0)
-patrolActions = Array[int]([1, 2, 0])
-moveActions = [NodePath("../21")]
-waitActions = Array[float]([1.0])
-lookActions = Array[int]([0])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_iaxm2"), SubResource("Resource_rqjc0"), SubResource("Resource_xs1pt")])
 
-[node name="21" type="Node2D" parent="Enemies/PatrolPoints/KitchenRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/KitchenRoom"]
 position = Vector2(688, -904)
 
 [node name="CorridorCleanerRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(0, 512)
 
-[node name="PatrolCleanerRoom" parent="Enemies/PatrolPoints/CorridorCleanerRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
-patrolActions = Array[int]([1, 0, 1, 0])
-moveActions = [NodePath("../1"), NodePath("../2")]
-waitActions = Array[float]([1.0, 1.0])
+[node name="PatrolCleanerRoom" parent="Enemies/PatrolPoints/CorridorCleanerRoom" instance=ExtResource("20_fuftr")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_hwsy4"), SubResource("Resource_osxiw"), SubResource("Resource_fr4hs"), SubResource("Resource_63chd")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/CorridorCleanerRoom"]
 position = Vector2(-384, 832)
@@ -596,56 +956,47 @@ position = Vector2(-384, -640)
 
 [node name="FoodStorageRoomToKitchenRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolFoodStorageRoomToKitchenRoom" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolFoodStorageRoomToKitchenRoom" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(-368, 256)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../33"), NodePath("../34")]
-waitActions = Array[float]([1.0, 1.0])
-lookActions = Array[int]([3, 2])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_exdpb"), SubResource("Resource_xwebc"), SubResource("Resource_o2gwg"), SubResource("Resource_tl7h4"), SubResource("Resource_mvn32"), SubResource("Resource_isshg")])
 
-[node name="33" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
 position = Vector2(-1160, 136)
 
-[node name="34" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/FoodStorageRoomToKitchenRoom"]
 position = Vector2(216, 384)
 
 [node name="CorridorRoom" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolCorridorRoom" parent="Enemies/PatrolPoints/CorridorRoom" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCorridorRoom" parent="Enemies/PatrolPoints/CorridorRoom" instance=ExtResource("20_fuftr")]
 position = Vector2(-384, 832)
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../35"), NodePath("../36"), NodePath("../37"), NodePath("../38"), NodePath("../37"), NodePath("../36")]
-waitActions = Array[float]([0.75, 0.75, 0.75, 0.75, 0.75, 0.75])
-lookActions = Array[int]([0, 2, 3, 2, 3, 2])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_aia0w"), SubResource("Resource_cfcpt"), SubResource("Resource_6kwlo"), SubResource("Resource_a7pqr"), SubResource("Resource_v0nxl"), SubResource("Resource_g00kq"), SubResource("Resource_q30e2"), SubResource("Resource_37bj5"), SubResource("Resource_d23ak"), SubResource("Resource_ccjhu"), SubResource("Resource_gpjip"), SubResource("Resource_msahn"), SubResource("Resource_482kk"), SubResource("Resource_5w8y5"), SubResource("Resource_pmo6y"), SubResource("Resource_1r5yw"), SubResource("Resource_urh4a"), SubResource("Resource_qc1ar")])
 
-[node name="35" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(768, 1216)
 
-[node name="36" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 1216)
 
-[node name="37" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 384)
 
-[node name="38" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
+[node name="4" type="Node2D" parent="Enemies/PatrolPoints/CorridorRoom"]
 position = Vector2(-512, 128)
 
 [node name="CleanStorageRoomOnly" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="PatrolCleanOnlyStorageRoom" parent="Enemies/PatrolPoints/CleanStorageRoomOnly" node_paths=PackedStringArray("moveActions") instance=ExtResource("20_fuftr")]
+[node name="PatrolCleanOnlyStorageRoom" parent="Enemies/PatrolPoints/CleanStorageRoomOnly" instance=ExtResource("20_fuftr")]
 position = Vector2(-1376, 1280)
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../37"), NodePath("../38"), NodePath("../39"), NodePath("../38")]
-waitActions = Array[float]([1.5, 1.5, 1.5, 1.0, 1.0, 1.0])
-lookActions = Array[int]([0, 2, 1, 3, 1, 0])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_aa6d0"), SubResource("Resource_23if7"), SubResource("Resource_osdas"), SubResource("Resource_e14yr"), SubResource("Resource_8ypaa"), SubResource("Resource_1hgon"), SubResource("Resource_6dptw"), SubResource("Resource_uxe8e"), SubResource("Resource_sep73"), SubResource("Resource_0fau8"), SubResource("Resource_a4n7w"), SubResource("Resource_ciicn"), SubResource("Resource_1umah"), SubResource("Resource_6tyw8"), SubResource("Resource_bbjs1"), SubResource("Resource_hauf8")])
 
-[node name="37" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
+[node name="1" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1920, 1152)
 
-[node name="38" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
+[node name="2" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1024, 1152)
 
-[node name="39" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
+[node name="3" type="Node2D" parent="Enemies/PatrolPoints/CleanStorageRoomOnly"]
 position = Vector2(-1024, 832)
 
 [node name="Rooms" type="Node2D" parent="."]

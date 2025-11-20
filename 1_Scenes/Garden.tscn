@@ -260,18 +260,18 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2560, -2048, 2560, -230
 [sub_resource type="Resource" id="Resource_umyfb"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8vht7"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ctoba"]
 script = ExtResource("20_uxh8o")
@@ -341,90 +341,90 @@ cameraFocus = NodePath("../OldTanukiNPC")
 [sub_resource type="Resource" id="Resource_gm0wo"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Statue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_xpvxs"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_0j1pm"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("PlayerHasReachedPoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_edj41"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bc0f4"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Statue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_y00ch"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_r12k5"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("PlayerHasReachedPoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_05hte"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Statue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_4fh2q"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vb5vx"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_xah7m"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5qbfx"]
 script = ExtResource("20_uxh8o")
@@ -513,74 +513,74 @@ size = Vector2(160, 192)
 [sub_resource type="Resource" id="Resource_kb00u"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SavePointTutorial1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_j2csg"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rr2i0"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tftev"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6rd3k"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("BridgeUp")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_4lbdd"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bvmcp"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_c5e0n"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_gow2w"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SavePointTutorial1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_iwk86"]
 script = ExtResource("20_uxh8o")
@@ -669,210 +669,210 @@ size = Vector2(128, 256)
 [sub_resource type="Resource" id="Resource_7eorw"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_1nkhq"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SavePointTutorial2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dhmym"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_01mnp"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NerdTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_skgti"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CoolTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tw5pv"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SwordTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_akyj2"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_sg36a"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_2252h"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hddq5"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_4ygwv"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_xm2jd"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_e0rvm"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Enemy/Guard1/KeySprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_7xt6d"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o7d7c"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_wcpb4"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_chpsk"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_gi01l"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ppopk"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6bsm2"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_jbu33"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ly6oe"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NerdTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_46kjt"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CoolTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ththq"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SwordTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_36fxk"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SavePointTutorial2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bw5kd"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC2/DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_l738r"]
 script = ExtResource("20_uxh8o")
@@ -1332,58 +1332,58 @@ size = Vector2(512, 512)
 [sub_resource type="Resource" id="Resource_03mo4"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DeadTree")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_c2lh0"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nfpcb"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ktyuh"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DeadTree")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o8drs"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_aomkc"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_kbjjn"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kws2m"]
 size = Vector2(192, 128)
@@ -1396,42 +1396,42 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -1488, 1536, -148
 [sub_resource type="Resource" id="Resource_14tc6"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_pbpo5"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rtckj"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6xpsf"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uvlrv"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpnek"]
 size = Vector2(192, 128)
@@ -1444,42 +1444,42 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1904, -1792, 1904, -204
 [sub_resource type="Resource" id="Resource_m6thp"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_enkxe"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o1d2r"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_iapl1"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rda0f"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deskn"]
 size = Vector2(192, 128)
@@ -1492,42 +1492,42 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1904, -1024, 1936, -102
 [sub_resource type="Resource" id="Resource_53mm0"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5lk77"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_d0bwp"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_khdtm"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_7fctr"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xmxw"]
 size = Vector2(128, 192)
@@ -1540,42 +1540,42 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1280, -568, 1536, -568,
 [sub_resource type="Resource" id="Resource_s3yvt"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_25o2d"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uhhi3"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("TreeBridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_3mw8l"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_1uyr6"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_giokm"]
 vertices = PackedVector2Array(2928, -2048, 2960, -2048, 2960, -1792, 2928, -1792)
@@ -1585,50 +1585,50 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2928, -1792, 2960, -179
 [sub_resource type="Resource" id="Resource_wyi27"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_13usd"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_oxdsp"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("BridgeUpSide")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_u6r35"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uu1xy"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ev1vn"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfer"]
 size = Vector2(192, 128)
@@ -1641,50 +1641,50 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2816, 480, 3064, 480, 3
 [sub_resource type="Resource" id="Resource_g61yn"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_i6ka1"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_12u4d"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("BridgeUpSide")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_xkt0h"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("MoveInteractionObject")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ckm2x"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o0376"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Bridge")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wm6t"]
 size = Vector2(192, 128)
@@ -1697,98 +1697,98 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2304, -1496, 2560, -149
 [sub_resource type="Resource" id="Resource_84bgg"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_7l5vt"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_mecv6"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Acorn")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hnejw"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6srap"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_68s28"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("Acorn")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_op576"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_08gt4"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8y6fc"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("SquirrelNPC/SquirrelDialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dhkod"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_wtjlj"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_i1ryt"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("OldTanukiNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_shb2b"]
 script = ExtResource("20_uxh8o")
@@ -1925,146 +1925,146 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_8dgr8"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qn3g5"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("HeatSourceActivator/OniDialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uox63"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_v4okq"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_7bvv8"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CampfireOn")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_mysed"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniMovable")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rp863"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("HeatSourceActivator")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nfvjn"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CampfireOff")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rbe4c"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("CampfireOn")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ooqmc"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hubxo"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniNPC/ColdOniDialogue2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rjc51"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_u7mcd"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniMovable")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o52ob"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("ColdOniMovable")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_y0gtm"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("HeatSourceActivator")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cwmik"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("HeatSourceActivator/OniDialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_a68uw"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("DialogueArea")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_1xxt7"]
 script = ExtResource("13_1k17c")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dc0kx"]
 script = ExtResource("20_uxh8o")
@@ -2353,13 +2353,9 @@ position = Vector2(2688, -192)
 
 [node name="Guard3" type="Node2D" parent="Enemy/PatrolPoints"]
 
-[node name="Guard3PatrolIndicator" parent="Enemy/PatrolPoints/Guard3" node_paths=PackedStringArray("moveActions") instance=ExtResource("3_atmlk")]
+[node name="Guard3PatrolIndicator" parent="Enemy/PatrolPoints/Guard3" instance=ExtResource("3_atmlk")]
 position = Vector2(1984, -64)
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_161ek"), SubResource("Resource_rvkew"), SubResource("Resource_yu8e8"), SubResource("Resource_r40ux"), SubResource("Resource_k5ms3"), SubResource("Resource_tmnyf"), SubResource("Resource_4i280"), SubResource("Resource_2g363"), SubResource("Resource_sqmpn"), SubResource("Resource_2s75q"), SubResource("Resource_ioijj"), SubResource("Resource_bybsy")])
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4")]
-waitActions = Array[float]([1.0, 1.0, 1.0, 1.0])
-lookActions = Array[int]([2, 0, 3, 1])
 
 [node name="1" type="Node2D" parent="Enemy/PatrolPoints/Guard3"]
 position = Vector2(2688, -640)

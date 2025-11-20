@@ -1,4 +1,4 @@
-[gd_scene load_steps=333 format=3 uid="uid://xaw077e0a2jc"]
+[gd_scene load_steps=343 format=3 uid="uid://xaw077e0a2jc"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_a4rcj"]
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_wqlac"]
@@ -76,26 +76,26 @@ size = Vector2(256, 64)
 [sub_resource type="Resource" id="Resource_n0c05"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SwordYokaiNPC/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_m6bbw"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SwordYokaiNPC/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_xi3iv"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SwordYokaiNPC/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6qxg5"]
 script = ExtResource("16_m885m")
@@ -238,162 +238,162 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_q0p80"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_2fb5w"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_3itbs"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_q22e4"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_63orr"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_kto0a"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_fsdhb"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy1/TraningDummy/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ppu1t"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy2/TraningDummy/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uhvh5"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy3/TraningDummy/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_trdao"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy4/TraningDummy/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o47xq"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../DojoHitTrainingDummy5/TraningDummy/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_52tit"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ro8jg"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_e2plp"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_4dp21"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 4
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_pbeuo"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Feedbacks/LanternFeedback5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 5
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tel2b"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 5
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ey8sr"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hbpq7"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_snhh1"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ppl0l"]
 script = ExtResource("16_m885m")
@@ -427,26 +427,26 @@ cameraFocus = NodePath("")
 [sub_resource type="Resource" id="Resource_ee7l1"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_pfmuk"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rul8d"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5hmx6"]
 script = ExtResource("16_m885m")
@@ -480,26 +480,26 @@ cameraFocus = NodePath("")
 [sub_resource type="Resource" id="Resource_d4vck"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nethm"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_sna1y"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_3u5h7"]
 script = ExtResource("16_m885m")
@@ -533,26 +533,26 @@ cameraFocus = NodePath("")
 [sub_resource type="Resource" id="Resource_udyei"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_11ltm"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bwdlv"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_re54w"]
 script = ExtResource("16_m885m")
@@ -586,26 +586,26 @@ cameraFocus = NodePath("")
 [sub_resource type="Resource" id="Resource_6f273"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_pevrs"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/FeedbackSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_3vbuy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("TraningDummy/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_jf1si"]
 script = ExtResource("16_m885m")
@@ -639,10 +639,10 @@ cameraFocus = NodePath("")
 [sub_resource type="Resource" id="Resource_ulk50"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Barrier")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dnmhn"]
 script = ExtResource("16_m885m")
@@ -662,90 +662,90 @@ radius = 200.16
 [sub_resource type="Resource" id="Resource_gqqtd"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hvq1m"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("CrackedGroundOpen")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_lc6gd"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("CrackedGroundCovered")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_remnq"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DefeatedHyottokoNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_3jdx5"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_m3xvx"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("CrackedGroundOpen")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rnf26"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("CrackedGroundCovered")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_07j8d"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DefeatedHyottokoNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_urlr4"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qaa5u"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_j8ioy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qc4cq"]
 script = ExtResource("16_m885m")
@@ -786,90 +786,90 @@ radius = 96.0
 [sub_resource type="Resource" id="Resource_uu4yf"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_q78cs"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("KatanaStandFull")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_kud4j"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Katana")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_q53dw"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tn0tl"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("KatanaStandEmpty")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o5nbp"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("KatanaStandFull")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_0x5ab"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("KatanaStandFull")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_idq6n"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("Katana")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_536nn"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ruy2q"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("ArmorYokaiNPC/DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_e0omr"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_hexg3"]
 script = ExtResource("16_m885m")
@@ -946,138 +946,138 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_d4asy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_fh3b4"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_v8pec"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ohqgy"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/CrackedGroundOpenBossfight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6s6q4"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vgnrl"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_djlob"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ccj6f"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8i53x"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_u26w0"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_15pb1"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8txm8"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/CrackedGroundOpenBossfight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qp7lf"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_usod5"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("UltraKeyTileMap/Puzzle/HyottokoBossNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_1kyjo"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6jpmi"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("DialogueArea3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rswxe"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_67u4n"]
 script = ExtResource("27_ur1lr")
@@ -1192,18 +1192,18 @@ size = Vector2(512, 224)
 [sub_resource type="Resource" id="Resource_ytedo"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nj3us"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msrk8"]
 size = Vector2(384, 256)
@@ -1211,101 +1211,141 @@ size = Vector2(384, 256)
 [sub_resource type="Resource" id="Resource_eyhwl"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cyi0l"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("PurifiedKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_oyvxi"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_whpd7"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dqxtk"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/PurifiedLevelUnlockKeyDoor")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_exa2w"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("WallTile1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tsk0p"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("WallTile2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tcr0d"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("PurifiedKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_1b02l"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("WallTile3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6e5k0"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("WallTile4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ajh6h"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_la7x5"]
 script = ExtResource("13_yb20v")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ug4lh"]
 size = Vector2(768, 480)
+
+[sub_resource type="Resource" id="Resource_bbo56"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_srlv1"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_vkmwg"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_wq1wr"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_byaim"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_wmy8f"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_5u15n"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_bm0yb"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_3sjiy"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_jdng7"]
+script = ExtResource("27_ur1lr")
+destination = NodePath("../2")
 
 [sub_resource type="Resource" id="Resource_c3qay"]
 script = ExtResource("27_ur1lr")
@@ -2447,10 +2487,9 @@ y_sort_enabled = true
 
 [node name="Hyottoko1" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Hyottoko1PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko1" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Hyottoko1PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko1" instance=ExtResource("12_wmoll")]
 position = Vector2(0, 384)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_bbo56"), SubResource("Resource_srlv1")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Hyottoko1"]
 position = Vector2(432, 384)
@@ -2460,10 +2499,9 @@ position = Vector2(-432, 384)
 
 [node name="Hyottoko2" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Hyottoko2PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko2" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Hyottoko2PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko2" instance=ExtResource("12_wmoll")]
 position = Vector2(0, -1152)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_vkmwg"), SubResource("Resource_wq1wr")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Hyottoko2"]
 position = Vector2(-640, -1152)
@@ -2473,10 +2511,9 @@ position = Vector2(640, -1152)
 
 [node name="Hyottoko3" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Hyottoko3PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko3" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Hyottoko3PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko3" instance=ExtResource("12_wmoll")]
 position = Vector2(-1792, -1408)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_byaim"), SubResource("Resource_wmy8f")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Hyottoko3"]
 position = Vector2(-1280, -1408)
@@ -2486,10 +2523,9 @@ position = Vector2(-2304, -1408)
 
 [node name="Hyottoko4" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Hyottoko4PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko4" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Hyottoko4PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko4" instance=ExtResource("12_wmoll")]
 position = Vector2(2240, -384)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_5u15n"), SubResource("Resource_bm0yb")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Hyottoko4"]
 position = Vector2(2496, -384)
@@ -2499,10 +2535,9 @@ position = Vector2(1992, -384)
 
 [node name="Hyottoko5" type="Node2D" parent="Enemies/PatrolPoints"]
 
-[node name="Hyottoko5PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko5" node_paths=PackedStringArray("moveActions") instance=ExtResource("12_wmoll")]
+[node name="Hyottoko5PatrolIndicator" parent="Enemies/PatrolPoints/Hyottoko5" instance=ExtResource("12_wmoll")]
 position = Vector2(1408, -1408)
-patrolActions = Array[int]([1, 1])
-moveActions = [NodePath("../1"), NodePath("../2")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_3sjiy"), SubResource("Resource_jdng7")])
 
 [node name="1" type="Node2D" parent="Enemies/PatrolPoints/Hyottoko5"]
 position = Vector2(1664, -1408)
