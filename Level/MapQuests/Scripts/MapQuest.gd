@@ -4,9 +4,6 @@ extends Node2D
 var gameplayScene: GameplayScene
 @export var questName: String
 @export var questIndexes: Array[QuestIndex]
-@export var questItemsToOperate: Array[Node2D]
-@export var questItemsStages: Array[int]
-@export var questItemsOnOffState: Array[bool]
 @export var questAltItems: Array[Node2D]
 @export var questStageAdvancers: Array[Node2D]
 @export var advanceOtherQuestsOnEnd: Array[MapQuest]
@@ -25,9 +22,7 @@ enum ItemOperation
 
 func SetLastStage():
 	if (questIndexes.size() > 0):
-		lastStage = questIndexes[questItemsStages.size() - 1].itemStage + 1
-	else:
-		lastStage = questItemsStages[questItemsStages.size() - 1] + 1
+		lastStage = questIndexes[questIndexes.size() - 1].itemStage + 1
 
 func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 	SaveQuestStatus(save)
@@ -35,13 +30,6 @@ func ExecuteCurrentStage(save: bool, forcedAdvance: bool):
 		if (questIndexes.size() > 0):
 			for i in questIndexes.size():
 				if (CurrentStageOperations(forcedAdvance, GetCurrentQuestItem(questIndexes[i]), questIndexes[i].itemStage, questIndexes[i].itemOperation)):
-					continue
-				break
-		else:
-			for i in questItemsStages.size():
-				if (questItemsToOperate[i] == null):
-					continue
-				if (CurrentStageOperationsOld(forcedAdvance, questItemsToOperate[i], questItemsStages[i], questItemsOnOffState[i])):
 					continue
 				break
 		SaveQuestStatus(save)
