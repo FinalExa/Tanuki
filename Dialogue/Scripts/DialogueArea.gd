@@ -3,9 +3,6 @@ extends Area2D
 
 @export var dialogueExecutingICD: float
 @export var dialogueIndexes: Array[DialogueIndex]
-@export var dialogueText: Array[String]
-@export var characterTalking: Array[DialogueUI.DialogueCharacters]
-@export var cameraFocuses: Array[Node2D]
 @export var isOnInteraction: bool
 @export var interactionLabel: Label
 @export var dialogueIcon: AnimatedSprite2D
@@ -65,10 +62,6 @@ func StartDialogue(playerRef: PlayerCharacter):
 		playerRef.playerHUD.dialogueUI.StartNewDialogueWithIndex(dialogueIndexes, self)
 		dialogueExecuting = true
 		return
-	if (dialogueText.size() == characterTalking.size() && dialogueText.size() == cameraFocuses.size() && dialogueText.size() > 0):
-		playerRef.playerHUD.ForcePause()
-		playerRef.playerHUD.dialogueUI.StartNewDialogue(dialogueText, characterTalking, cameraFocuses, self)
-		dialogueExecuting = true
 
 func DialogueDone():
 	if (advanceQuest && questRef != null):

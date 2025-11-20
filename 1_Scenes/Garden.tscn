@@ -2608,11 +2608,8 @@ shape = SubResource("RectangleShape2D_166fq")
 [node name="OldTanukiNPC" parent="Quests/GardenStunGuard" instance=ExtResource("13_6kems")]
 position = Vector2(640, -1088)
 
-[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("6_3ktbq")]
+[node name="DialogueArea" parent="Quests/GardenStunGuard/OldTanukiNPC" instance=ExtResource("6_3ktbq")]
 dialogueIndexes = Array[ExtResource("20_uxh8o")]([SubResource("Resource_7dmg5"), SubResource("Resource_mhnsr"), SubResource("Resource_kfd5i"), SubResource("Resource_vjo37"), SubResource("Resource_dwjmn"), SubResource("Resource_0qd4g"), SubResource("Resource_o31oo"), SubResource("Resource_7gmlx"), SubResource("Resource_ajyub")])
-dialogueText = Array[String](["Ok young-un, now for an harder challenge...", "See that guard? It will try to capture you, if you are captured you are kicked out of the room, and your progress will be reset.", "To avoid that, transform and hide, if you have done your training properly it's quite easy.", "See that? Obtain that transformation, and once transformed you will see a shiny path where you can safely hide.", "Try to avoid the guard and get to the axe I stole from the mansion, it's...", "Right there. Once you reach this point, save the axe as your transformation, transform into it...", "...AND HIT THAT GUARD!", "I'll explain more once you have done all of this. Get working, young-un.", "Yessir!"])
-characterTalking = Array[int]([2, 2, 2, 2, 2, 2, 2, 2, 0])
-cameraFocuses = [NodePath(".."), NodePath("../../../../Enemy/Guard1"), NodePath(".."), NodePath("../../../../TransformationObjects/GardenFlower4"), NodePath(".."), NodePath("../../Axe"), NodePath("../../../../Enemy/Guard1"), NodePath(".."), null]
 isOnInteraction = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/GardenStunGuard/OldTanukiNPC/DialogueArea"]
