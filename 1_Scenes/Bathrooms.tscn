@@ -1,4 +1,4 @@
-[gd_scene load_steps=292 format=3 uid="uid://dokhs6c20jqs3"]
+[gd_scene load_steps=310 format=3 uid="uid://dokhs6c20jqs3"]
 
 [ext_resource type="TileSet" uid="uid://t3trhbsyfrfg" path="res://Level/Tileset/levels_tileset.tres" id="1_jstu8"]
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="2_4g2cg"]
@@ -1120,6 +1120,78 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1056, -1600, -992, -16
 vertices = PackedVector2Array(-672, -2752, -608, -2752, -608, -2656, -672, -2656)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-672, -2752, -608, -2752, -608, -2656, -672, -2656)])
+
+[sub_resource type="Resource" id="Resource_rs10y"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_f0is3"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_oshxe"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_lhbqh"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_iq5dq"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../1")
+
+[sub_resource type="Resource" id="Resource_r4sqy"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_n7706"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../3")
+
+[sub_resource type="Resource" id="Resource_m1oib"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_s7f8h"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../5")
+
+[sub_resource type="Resource" id="Resource_2gnvf"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../6")
+
+[sub_resource type="Resource" id="Resource_eg5iu"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../2")
+
+[sub_resource type="Resource" id="Resource_oedjr"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../7")
+
+[sub_resource type="Resource" id="Resource_ryyfi"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../8")
+
+[sub_resource type="Resource" id="Resource_x2t4r"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../5")
+
+[sub_resource type="Resource" id="Resource_f04aq"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../4")
+
+[sub_resource type="Resource" id="Resource_tmjn0"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../9")
+
+[sub_resource type="Resource" id="Resource_8j86f"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../7")
+
+[sub_resource type="Resource" id="Resource_g637d"]
+script = ExtResource("53_l3p8d")
+destination = NodePath("../1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_astmm"]
 size = Vector2(256, 768)
@@ -2268,26 +2340,24 @@ questToSendProgressSignal = NodePath("../../..")
 
 [node name="CleanerBoss1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators"]
 
-[node name="CleanerBossPatrolIndicator1" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
+[node name="CleanerBossPatrolIndicator1" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1" instance=ExtResource("28_pv3og")]
 position = Vector2(-640, -2176)
-patrolActions = Array[int]([1, 1, 1, 1])
-moveActions = [NodePath("../2"), NodePath("../1"), NodePath("../2"), NodePath("../3")]
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_rs10y"), SubResource("Resource_f0is3"), SubResource("Resource_oshxe"), SubResource("Resource_lhbqh")])
 
 [node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
-position = Vector2(-1216, -2496)
+position = Vector2(-384, -2496)
 
 [node name="2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
-position = Vector2(-384, -2496)
+position = Vector2(-1216, -2496)
 
 [node name="3" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss1"]
 position = Vector2(-384, -1856)
 
 [node name="CleanerBoss2" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators"]
 
-[node name="CleanerBoss2PatrolIndicator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2" node_paths=PackedStringArray("moveActions") instance=ExtResource("28_pv3og")]
-position = Vector2(-640, -3456)
-patrolActions = Array[int]([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-moveActions = [NodePath("../1"), NodePath("../2"), NodePath("../3"), NodePath("../4"), NodePath("../5"), NodePath("../6"), NodePath("../2"), NodePath("../7"), NodePath("../8"), NodePath("../5"), NodePath("../4"), NodePath("../9"), NodePath("../7")]
+[node name="CleanerBoss2PatrolIndicator" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2" instance=ExtResource("28_pv3og")]
+position = Vector2(-640, -3424)
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_iq5dq"), SubResource("Resource_r4sqy"), SubResource("Resource_n7706"), SubResource("Resource_m1oib"), SubResource("Resource_s7f8h"), SubResource("Resource_2gnvf"), SubResource("Resource_eg5iu"), SubResource("Resource_oedjr"), SubResource("Resource_ryyfi"), SubResource("Resource_x2t4r"), SubResource("Resource_f04aq"), SubResource("Resource_tmjn0"), SubResource("Resource_8j86f"), SubResource("Resource_g637d")])
 
 [node name="1" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
 position = Vector2(-640, -3424)
@@ -2305,7 +2375,7 @@ position = Vector2(-640, -4064)
 position = Vector2(-640, -2816)
 
 [node name="6" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
-position = Vector2(-1344, -2816)
+position = Vector2(-1408, -2816)
 
 [node name="7" type="Node2D" parent="Quests/BathroomsUltraKey/UltraKeyRoomTileMap/PatrolIndicators/CleanerBoss2"]
 position = Vector2(64, -3424)

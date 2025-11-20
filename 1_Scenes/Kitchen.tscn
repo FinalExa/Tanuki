@@ -1,4 +1,4 @@
-[gd_scene load_steps=244 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=294 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -563,6 +563,206 @@ radius = 128.996
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgqa1"]
 size = Vector2(1520, 1280)
+
+[sub_resource type="Resource" id="Resource_hjvtq"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_y8l0u"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_qo4pp"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_ru04b"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_q21ac"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_xoscb"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_2f3ve"]
+script = ExtResource("14_ouugk")
+destination = NodePath("3")
+
+[sub_resource type="Resource" id="Resource_gr0km"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_87t4u"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_l3851"]
+script = ExtResource("14_ouugk")
+destination = NodePath("4")
+
+[sub_resource type="Resource" id="Resource_hnp5f"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_ddkir"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_aed8y"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_ck0oj"]
+script = ExtResource("14_ouugk")
+destination = NodePath("3")
+
+[sub_resource type="Resource" id="Resource_mknuy"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_4pfic"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_nw8d0"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_u6cto"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.5
+
+[sub_resource type="Resource" id="Resource_aiysv"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_w5gig"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_1t3jn"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_a4wmt"]
+script = ExtResource("16_f3qwa")
+waitDuration = 1.0
+
+[sub_resource type="Resource" id="Resource_8lvqn"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_ow8kp"]
+script = ExtResource("16_f3qwa")
+waitDuration = 0.5
+
+[sub_resource type="Resource" id="Resource_x83fj"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_37i6q"]
+script = ExtResource("15_6ef2t")
+lookDirection = 0
+
+[sub_resource type="Resource" id="Resource_uw4vl"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_43fyo"]
+script = ExtResource("15_6ef2t")
+lookDirection = 3
+
+[sub_resource type="Resource" id="Resource_rm8uf"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_1lbdx"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_ypopg"]
+script = ExtResource("15_6ef2t")
+lookDirection = 1
+
+[sub_resource type="Resource" id="Resource_hjoes"]
+script = ExtResource("16_f3qwa")
+waitDuration = 2.0
+
+[sub_resource type="Resource" id="Resource_ampuo"]
+script = ExtResource("15_6ef2t")
+lookDirection = 2
+
+[sub_resource type="Resource" id="Resource_e44vt"]
+script = ExtResource("16_f3qwa")
+waitDuration = 4.0
+
+[sub_resource type="Resource" id="Resource_5kvqn"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_y6s7l"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_5rh5r"]
+script = ExtResource("14_ouugk")
+destination = NodePath("3")
+
+[sub_resource type="Resource" id="Resource_2u4dh"]
+script = ExtResource("14_ouugk")
+destination = NodePath("4")
+
+[sub_resource type="Resource" id="Resource_rgben"]
+script = ExtResource("14_ouugk")
+destination = NodePath("5")
+
+[sub_resource type="Resource" id="Resource_3rf5h"]
+script = ExtResource("14_ouugk")
+destination = NodePath("6")
+
+[sub_resource type="Resource" id="Resource_ygx6c"]
+script = ExtResource("14_ouugk")
+destination = NodePath("7")
+
+[sub_resource type="Resource" id="Resource_2w6k8"]
+script = ExtResource("14_ouugk")
+destination = NodePath("8")
+
+[sub_resource type="Resource" id="Resource_602jl"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_ou2lm"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_i4pct"]
+script = ExtResource("14_ouugk")
+destination = NodePath("3")
+
+[sub_resource type="Resource" id="Resource_urlj0"]
+script = ExtResource("14_ouugk")
+destination = NodePath("4")
+
+[sub_resource type="Resource" id="Resource_cje5g"]
+script = ExtResource("14_ouugk")
+destination = NodePath("1")
+
+[sub_resource type="Resource" id="Resource_mrsnd"]
+script = ExtResource("14_ouugk")
+destination = NodePath("2")
+
+[sub_resource type="Resource" id="Resource_fwa7g"]
+script = ExtResource("14_ouugk")
+destination = NodePath("3")
+
+[sub_resource type="Resource" id="Resource_ygmf2"]
+script = ExtResource("14_ouugk")
+destination = NodePath("4")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ah5uq"]
 vertices = PackedVector2Array(-2672, -352, -2832, -352, -3064, -368, -3064, -528, -2704, -496, -2592, -448, -1824, -1384, -1824, -1104, -1904, -1104, -2032, -1136, -2032, -1280, -1904, -1384, -2544, -496, -2352, -448, -1824, -1480, -1904, -1480, -1904, -1520, -1824, -1760, -2352, -352, -2352, 576, -2448, 432, -2512, 288, -2512, -32, -1904, -1664, -2264, -1760, -2192, -1664, -2264, -1688, -2352, -736, -2544, -640, -2592, -736, -2704, -640, -2592, -224, -2672, -240, -2320, -1280, -2544, -1392, -2544, -1536, -2192, -1520, -3568, -496, -3568, -640, -3344, -528, -3344, -368, -3808, -736, -2784, -736, -2720, 96, -2720, 288, -2848, 496, -3056, 272, -3056, 168, -2832, -240, -2512, -224, -2512, -352, -2592, -32, -2592, 96, -2448, 576, -2544, 432, -2544, 496, -2848, 576, -3808, 576, -3344, 272, -3808, -224, -3752, -224, -3752, -152, -3672, -152, -3672, -224, -3632, -224, -3632, 32, -3600, 32, -3600, 144, -3440, 0, -3552, 0, -3552, -320, -2704, -1152, -2704, -1008, -2784, -832, -2944, -832, -2944, -960, -2928, -1208, -2832, -1392, -3040, -960, -3040, -1208, -2928, -1408, -3016, -1408, -3016, -1520, -2928, -1520, -2928, -1664, -3040, -1664, -3040, -1760, -2344, -1760, -2344, -1688, -2832, -1536, -1904, -1008, -2592, -832, -2544, -1008, -2320, -1136, -2544, -1152, -1824, -1008, -1824, -832, -3344, 168, -3440, 144, -3728, -640, -3808, -320, -3728, -496)
@@ -1806,28 +2006,28 @@ y_sort_enabled = true
 
 [node name="GuardUK1" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-2880, -1600)
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR1_1")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR1_1")]
 
 [node name="GuardUK2" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-2376, -1040)
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR1_2")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR1_2")]
 
 [node name="GuardUK3" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-3520, -448)
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR2_3")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_3")]
 
 [node name="GuardUK4" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-3008, 320)
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR2_4")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_4")]
 
 [node name="Hyottoko" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
 position = Vector2(-2432, -128)
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR2_2")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_2")]
 
 [node name="Warden" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("20_w5iot")]
 position = Vector2(-3456, -128)
 wardenAlertArea = NodePath("../WardenAlertArea")
-patrolIndicators = [NodePath("../../PatrolIndicators/PatrolIndicatorSR2_1")]
+patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_1")]
 
 [node name="WardenAlertArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" instance=ExtResource("6_bbdub")]
 position = Vector2(-3080, -128)
@@ -1835,141 +2035,111 @@ position = Vector2(-3080, -128)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/WardenAlertArea"]
 shape = SubResource("RectangleShape2D_wgqa1")
 
-[node name="PatrolIndicators" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+[node name="PatrolIndicators" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies"]
 
-[node name="PatrolIndicatorSR1_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR1_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-2688, -1472)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
-moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0])
-lookActions = Array[int]([1, 2, 0, 3])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_hjvtq"), SubResource("Resource_y8l0u"), SubResource("Resource_qo4pp"), SubResource("Resource_ru04b"), SubResource("Resource_q21ac"), SubResource("Resource_xoscb"), SubResource("Resource_2f3ve"), SubResource("Resource_gr0km"), SubResource("Resource_87t4u"), SubResource("Resource_l3851"), SubResource("Resource_hnp5f"), SubResource("Resource_ddkir")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(-192, -128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(192, -128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(192, 128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(-192, 128)
 
-[node name="PatrolIndicatorSR1_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR1_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-2176, -1216)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 2, 0, 1, 2, 0, 2, 0, 1, 2, 0, 1, 2, 0, 2, 0])
-moveActions = [NodePath("1"), NodePath("4"), NodePath("1"), NodePath("2")]
-waitActions = Array[float]([2.0, 0.5, 2.0, 2.0, 0.5, 2.0])
-lookActions = Array[int]([1, 0, 2, 0, 2, 0])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_aed8y"), SubResource("Resource_ck0oj"), SubResource("Resource_mknuy"), SubResource("Resource_4pfic"), SubResource("Resource_nw8d0"), SubResource("Resource_u6cto"), SubResource("Resource_aiysv"), SubResource("Resource_w5gig"), SubResource("Resource_1t3jn"), SubResource("Resource_a4wmt"), SubResource("Resource_8lvqn"), SubResource("Resource_ow8kp")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(-192, -128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(-192, 128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(192, -128)
 
-[node name="PatrolIndicatorSR2_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR2_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-3072, -128)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 2, 0, 2, 0, 2, 0, 2, 1, 2, 0, 2, 0, 2, 0, 2])
-moveActions = [NodePath("1"), NodePath("2")]
-waitActions = Array[float]([2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
-lookActions = Array[int]([3, 0, 1, 3, 2, 1, 0, 2])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_x83fj"), SubResource("Resource_37i6q"), SubResource("Resource_uw4vl"), SubResource("Resource_43fyo"), SubResource("Resource_rm8uf"), SubResource("Resource_1lbdx"), SubResource("Resource_ypopg"), SubResource("Resource_hjoes"), SubResource("Resource_ampuo"), SubResource("Resource_e44vt")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_1"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
 position = Vector2(-384, 0)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_1"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
 position = Vector2(384, 0)
 
-[node name="PatrolIndicatorSR2_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR2_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-2528, -128)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0])
-moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("8"), NodePath("9"), NodePath("10"), NodePath("11"), NodePath("10"), NodePath("9"), NodePath("12"), NodePath("13")]
-waitActions = Array[float]([1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_5kvqn"), SubResource("Resource_y6s7l"), SubResource("Resource_5rh5r"), SubResource("Resource_2u4dh"), SubResource("Resource_rgben"), SubResource("Resource_3rf5h"), SubResource("Resource_ygx6c"), SubResource("Resource_2w6k8")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(96, 0)
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(96, 544)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-96, 0)
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(-864, 544)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(-864, -480)
+
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(-224, -480)
+
+[node name="5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(-224, -320)
+
+[node name="6" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-96, -320)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-480, -320)
+[node name="7" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(-96, 0)
 
-[node name="5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-480, -512)
+[node name="8" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+position = Vector2(96, 0)
 
-[node name="6" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-864, -512)
-
-[node name="7" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-864, -192)
-
-[node name="8" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-352, -192)
-
-[node name="9" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-352, 576)
-
-[node name="10" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-992, 576)
-
-[node name="11" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-992, 320)
-
-[node name="12" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(-352, 480)
-
-[node name="13" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_2"]
-position = Vector2(96, 480)
-
-[node name="PatrolIndicatorSR2_3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR2_3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-3648, -576)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 2, 1, 2, 1, 2, 1, 2])
-moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
-lookActions = Array[int]([2, 0, 3, 1])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_602jl"), SubResource("Resource_ou2lm"), SubResource("Resource_i4pct"), SubResource("Resource_urlj0")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(128, 128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(-128, 128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(-128, -128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(128, -128)
 
-[node name="PatrolIndicatorSR2_4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators" node_paths=PackedStringArray("moveActions")]
+[node name="PatrolIndicatorSR2_4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
 position = Vector2(-3200, 192)
 script = ExtResource("30_hgddd")
-patrolActions = Array[int]([1, 2, 1, 2, 1, 2, 1, 2])
-moveActions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
-lookActions = Array[int]([0, 2, 1, 3])
+patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_cje5g"), SubResource("Resource_mrsnd"), SubResource("Resource_fwa7g"), SubResource("Resource_ygmf2")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(192, 128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(192, -128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(-192, -128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(-192, 128)
 
 [node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/KitchenUltraKey/UltraKeyRoom" instance=ExtResource("58_mg625")]
