@@ -2794,14 +2794,11 @@ shape = SubResource("RectangleShape2D_1xmxw")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/GardenChopTree4"]
 navigation_polygon = SubResource("NavigationPolygon_6t7yl")
 
-[node name="GardenChopTree5" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="GardenChopTree5" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("3_14yeu")
 questName = "GardenChopTree5"
 questIndexes = Array[ExtResource("13_1k17c")]([SubResource("Resource_s3yvt"), SubResource("Resource_25o2d"), SubResource("Resource_uhhi3"), SubResource("Resource_3mw8l"), SubResource("Resource_1uyr6")])
-questItemsToOperate = [NodePath("TreeBridge"), NodePath("NavigationRegion2D"), NodePath("TreeBridge"), NodePath("MoveInteractionObject"), NodePath("NavigationRegion2D")]
-questItemsStages = Array[int]([0, 0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true, false, true])
 objectsToDeleteAtQuestComplete = [NodePath("DeadTree"), NodePath("MoveInteractionObject")]
 
 [node name="DeadTree" parent="Quests/GardenChopTree5" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("20_nnh47")]

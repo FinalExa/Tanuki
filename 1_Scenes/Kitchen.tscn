@@ -1,4 +1,4 @@
-[gd_scene load_steps=294 format=3 uid="uid://d4hsk72bqemll"]
+[gd_scene load_steps=355 format=3 uid="uid://d4hsk72bqemll"]
 
 [ext_resource type="Script" path="res://1_Scenes/Scripts/GameplayScene.gd" id="1_fluk2"]
 [ext_resource type="PackedScene" uid="uid://b3mwvo6g7bhkr" path="res://Level/UnlockKey/unlock_key.tscn" id="2_8niet"]
@@ -497,6 +497,54 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1184, -736, -1184, -83
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ls7b"]
 size = Vector2(512, 384)
 
+[sub_resource type="Resource" id="Resource_hft46"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("HeatSourceActivator")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_i0vhd"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("HeatSourceActivator2")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_7ag6t"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("HeatSourceActivator")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_j62yd"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("OniFreedDialogue1")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_6ex6o"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("HeatSourceActivator2")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_m0mti"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("OniFreedDialogue2")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mq0me"]
 radius = 88.3629
 
@@ -513,11 +561,187 @@ radius = 156.051
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_in7kl"]
 
+[sub_resource type="Resource" id="Resource_km34u"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_g7hjm"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey2")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5etf"]
 radius = 160.2
 
+[sub_resource type="Resource" id="Resource_xhquh"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("LanternRopeRegulator")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_wq4yh"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("ButtonToPush")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_u57rh"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("LanternWithWarden")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_adbag"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("LanternRopeRegulatorBroken")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_jpk6t"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("DialogueArea")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ytw7m"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("LanternRopeRegulator")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_m3qbk"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("ButtonToPush")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_k55ws"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("FloatingLantern")
+itemStage = 2
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_8xbn1"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("LanternWithWarden")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_c8evs"]
 radius = 128.25
+
+[sub_resource type="Resource" id="Resource_1jlr1"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_3pa5g"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("ChefYokai")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ye3k3"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("MidDialogue")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_dnxh6"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("EndDialogue")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ptuf3"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("ChefYokaiTrapped")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_oxu1x"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("ChefYokai")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_mdivl"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("StartDialogue")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_u5wbt"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("MidDialogue")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_emq4a"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("MidDialogue")
+itemStage = 2
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_pp7or"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("EndDialogue")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_yra6u"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey3")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yhwf"]
 radius = 128.0
@@ -527,6 +751,86 @@ radius = 128.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7msn"]
 radius = 128.0
+
+[sub_resource type="Resource" id="Resource_csas2"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Knife")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_hqqvh"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("KnifeSprite")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_6iaqt"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Knife")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_r7s05"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Teapot")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_qv5tp"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Table3/TeapotSprite")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_bclhn"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Teapot")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_hwysq"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("VaseGrown")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_hatxc"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("VaseEmpty")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_xofus"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("VaseGrown")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_s61q4"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("BlockerFirstStage")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru0sm"]
 size = Vector2(384, 128)
@@ -540,6 +844,94 @@ size = Vector2(128, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nke8x"]
 size = Vector2(256, 48)
 
+[sub_resource type="Resource" id="Resource_o0o03"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("DirtyFloor")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_34iu7"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("DirtyFloor2")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_srtcf"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("DirtyFloor3")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_1ro73"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("DirtyFloor4")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_brptk"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey4")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_46jef"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("RatDialogue2")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_hbq2h"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("RatDialogue3")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_u7yff"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("RatDialogue1")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_goq0s"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("RatDialogue2")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_qobj1"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/UnlockKey4")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_igjcn"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("RatDialogue3")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ihbc"]
 radius = 128.0
 
@@ -548,6 +940,102 @@ radius = 200.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8u4p"]
 radius = 200.003
+
+[sub_resource type="Resource" id="Resource_3lk7r"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Icewall")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_h0u53"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Icewall2")
+itemStage = 1
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_1a2fv"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Cheese")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_l2i1j"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("Cheese")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_u8a0x"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_572yb"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("SavePoint2")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ibple"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("UltraKeyRoomTileMap")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_18ijp"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("NavigationRegion2D2")
+itemStage = 0
+itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_8iiv1"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("UltraKeyRoomTileMap")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_43y3c"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("NavigationRegion2D2")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_vmwlc"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
+itemStage = 1
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
+
+[sub_resource type="Resource" id="Resource_ap6xy"]
+script = ExtResource("61_hxixi")
+itemToOperate = NodePath("SavePoint2")
+itemStage = 2
+itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnri"]
 size = Vector2(128, 384)
@@ -1341,14 +1829,12 @@ shape = SubResource("RectangleShape2D_2ls7b")
 [node name="Quests" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "questStageAdvancers")]
+[node name="KitchenSaveTheOni" type="Node2D" parent="Quests" node_paths=PackedStringArray("questStageAdvancers")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenSaveTheOni"
-questItemsToOperate = [NodePath("HeatSourceActivator"), NodePath("HeatSourceActivator/OniStationaryDialogue1"), NodePath("HeatSourceActivator2"), NodePath("HeatSourceActivator2/OniStationaryDialogue2"), NodePath("HeatSourceActivator"), NodePath("OniFreedDialogue1"), NodePath("HeatSourceActivator/OniStationaryDialogue1"), NodePath("HeatSourceActivator2"), NodePath("OniFreedDialogue2"), NodePath("HeatSourceActivator2/OniStationaryDialogue2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true, true, true, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_hft46"), SubResource("Resource_i0vhd"), SubResource("Resource_7ag6t"), SubResource("Resource_j62yd"), SubResource("Resource_6ex6o"), SubResource("Resource_m0mti")])
 questStageAdvancers = [NodePath("Furnace"), NodePath("Furnace2")]
 
 [node name="HeatSourceActivator" parent="Quests/KitchenSaveTheOni" instance=ExtResource("3_fj7m5")]
@@ -1431,13 +1917,11 @@ activatedByQuest = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenSaveTheOni/OniFreedDialogue2"]
 shape = SubResource("CircleShape2D_in7kl")
 
-[node name="KitchenStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenStunWarden" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenStunWarden"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey2"), NodePath("../../Keys/UnlockKey2")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_km34u"), SubResource("Resource_g7hjm")])
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/KeySprite"), NodePath("Kitchen2Dialogue")]
 
 [node name="Kitchen2Dialogue" parent="Quests/KitchenStunWarden" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
@@ -1451,13 +1935,11 @@ labelDefaultText = "PRESS F TO LISTEN"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenStunWarden/Kitchen2Dialogue"]
 shape = SubResource("CircleShape2D_w5etf")
 
-[node name="KitchenDropLantern" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenDropLantern" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenDropLantern"
-questItemsToOperate = [NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("LanternWithWarden"), NodePath("LanternRopeRegulatorBroken"), NodePath("DialogueArea"), NodePath("LanternRopeRegulator"), NodePath("ButtonToPush"), NodePath("FloatingLantern"), NodePath("LanternWithWarden")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 1, 1, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, false, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_xhquh"), SubResource("Resource_wq4yh"), SubResource("Resource_u57rh"), SubResource("Resource_adbag"), SubResource("Resource_jpk6t"), SubResource("Resource_ytw7m"), SubResource("Resource_m3qbk"), SubResource("Resource_k55ws"), SubResource("Resource_8xbn1")])
 advanceOtherQuestsOnEnd = [NodePath("../KitchenStunWarden")]
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush"), NodePath("../../Enemies/WardenC1"), NodePath("../../Enemies/WardenAlertArea")]
 
@@ -1493,13 +1975,11 @@ sendSignalToQuestOnDestroyed = true
 [node name="LanternWithWarden" parent="Quests/KitchenDropLantern" instance=ExtResource("24_ribs3")]
 position = Vector2(1280, 408)
 
-[node name="KitchenHelpChef" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToFinalizeAtQuestComplete")]
+[node name="KitchenHelpChef" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToFinalizeAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenHelpChef"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey3"), NodePath("ChefYokai"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("ChefYokaiTrapped"), NodePath("ChefYokai"), NodePath("StartDialogue"), NodePath("MidDialogue"), NodePath("MidDialogue"), NodePath("EndDialogue"), NodePath("../../Keys/UnlockKey3")]
-questItemsStages = Array[int]([0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, false, true, false, true, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_1jlr1"), SubResource("Resource_3pa5g"), SubResource("Resource_ye3k3"), SubResource("Resource_dnxh6"), SubResource("Resource_ptuf3"), SubResource("Resource_oxu1x"), SubResource("Resource_mdivl"), SubResource("Resource_u5wbt"), SubResource("Resource_emq4a"), SubResource("Resource_pp7or"), SubResource("Resource_yra6u")])
 objectsToFinalizeAtQuestComplete = [NodePath("ChefYokai")]
 
 [node name="StartDialogue" parent="Quests/KitchenHelpChef" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
@@ -1554,14 +2034,12 @@ position = Vector2(1600, 800)
 [node name="Salmon" parent="Quests/KitchenHelpChef" instance=ExtResource("23_dja3c")]
 position = Vector2(-1624, 952)
 
-[node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenObtainKnife" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainKnife"
-questItemsToOperate = [NodePath("Knife"), NodePath("KnifeSprite"), NodePath("Knife")]
-questItemsStages = Array[int]([0, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_csas2"), SubResource("Resource_hqqvh"), SubResource("Resource_6iaqt")])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Knife" parent="Quests/KitchenObtainKnife" instance=ExtResource("17_pif6t")]
@@ -1577,14 +2055,12 @@ position = Vector2(1128, 100)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenObtainTeapot" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenObtainTeapot" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenObtainTeapot"
-questItemsToOperate = [NodePath("Teapot"), NodePath("Teapot"), NodePath("Table3/TeapotSprite")]
-questItemsStages = Array[int]([0, 1, 1])
-questItemsOnOffState = Array[bool]([false, true, false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_r7s05"), SubResource("Resource_qv5tp"), SubResource("Resource_bclhn")])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="Teapot" parent="Quests/KitchenObtainTeapot" instance=ExtResource("15_wdsu2")]
@@ -1622,14 +2098,12 @@ texture = ExtResource("44_67je7")
 position = Vector2(0, -96)
 texture = ExtResource("28_2wt41")
 
-[node name="KitchenGrowPlant" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate")]
+[node name="KitchenGrowPlant" type="Node2D" parent="Quests"]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenGrowPlant"
-questItemsToOperate = [NodePath("VaseGrown"), NodePath("VaseEmpty"), NodePath("VaseGrown"), NodePath("BlockerFirstStage")]
-questItemsStages = Array[int]([0, 1, 1, 1])
-questItemsOnOffState = Array[bool]([false, false, true, false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_hwysq"), SubResource("Resource_hatxc"), SubResource("Resource_xofus"), SubResource("Resource_s61q4")])
 
 [node name="VaseEmpty" parent="Quests/KitchenGrowPlant" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_h26va")]
 position = Vector2(840, -1160)
@@ -1676,14 +2150,12 @@ position = Vector2(1024, -1304)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenGrowPlant/BlockerSecondStage3"]
 shape = SubResource("RectangleShape2D_nke8x")
 
-[node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenClearDirtyFloor" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor"
-questItemsToOperate = [NodePath("DirtyFloor")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_o0o03")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/KitchenClearDirtyFloor" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
@@ -1692,14 +2164,12 @@ scale = Vector2(2, 4)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenClearDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenClearDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor2"
-questItemsToOperate = [NodePath("DirtyFloor2")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_34iu7")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor2")]
 
 [node name="DirtyFloor2" parent="Quests/KitchenClearDirtyFloor2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
@@ -1708,14 +2178,12 @@ scale = Vector2(4, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenClearDirtyFloor3" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenClearDirtyFloor3" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor3"
-questItemsToOperate = [NodePath("DirtyFloor3")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_srtcf")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor3")]
 
 [node name="DirtyFloor3" parent="Quests/KitchenClearDirtyFloor3" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
@@ -1724,14 +2192,12 @@ scale = Vector2(2, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenClearDirtyFloor4" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenClearDirtyFloor4" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenClearDirtyFloor4"
-questItemsToOperate = [NodePath("DirtyFloor4")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_1ro73")])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor4")]
 
 [node name="DirtyFloor4" parent="Quests/KitchenClearDirtyFloor4" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("24_m2b64")]
@@ -1740,14 +2206,12 @@ scale = Vector2(1, 2.8)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenFeedRat" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 position = Vector2(-768, 512)
 script = ExtResource("2_pyt2b")
 questName = "KitchenFeedRat"
-questItemsToOperate = [NodePath("../../Keys/UnlockKey4"), NodePath("RatDialogue2"), NodePath("RatDialogue3"), NodePath("RatDialogue1"), NodePath("RatDialogue2"), NodePath("../../Keys/UnlockKey4"), NodePath("RatDialogue3")]
-questItemsStages = Array[int]([0, 0, 0, 1, 1, 2, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, true, true, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_brptk"), SubResource("Resource_46jef"), SubResource("Resource_hbq2h"), SubResource("Resource_u7yff"), SubResource("Resource_goq0s"), SubResource("Resource_qobj1"), SubResource("Resource_igjcn")])
 objectsToDeleteAtQuestComplete = [NodePath("RatDialogue1"), NodePath("RatDialogue2")]
 
 [node name="Rat" parent="Quests/KitchenFeedRat" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("26_acuu4")]
@@ -1787,13 +2251,11 @@ isOnInteraction = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenFeedRat/RatDialogue3"]
 shape = SubResource("CircleShape2D_e8u4p")
 
-[node name="KitchenMeltIce" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenMeltIce" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenMeltIce"
-questItemsToOperate = [NodePath("Icewall"), NodePath("Icewall2")]
-questItemsStages = Array[int]([1, 1])
-questItemsOnOffState = Array[bool]([false, false])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_3lk7r"), SubResource("Resource_h0u53")])
 objectsToDeleteAtQuestComplete = [NodePath("Icewall"), NodePath("Icewall2")]
 
 [node name="Icewall" parent="Quests/KitchenMeltIce" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("19_qojnu")]
@@ -1808,13 +2270,11 @@ scale = Vector2(0.5, 1)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="KitchenUnlockCheese" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenUnlockCheese" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenUnlockRiceBowl"
-questItemsToOperate = [NodePath("Cheese"), NodePath("Cheese")]
-questItemsStages = Array[int]([0, 1])
-questItemsOnOffState = Array[bool]([false, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_1a2fv"), SubResource("Resource_l2i1j")])
 objectsToDeleteAtQuestComplete = [NodePath("ButtonToPush")]
 
 [node name="ButtonToPush" parent="Quests/KitchenUnlockCheese" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("17_wlcap")]
@@ -1825,15 +2285,13 @@ sendSignalToQuestOnDestroyed = true
 [node name="Cheese" parent="Quests/KitchenUnlockCheese" instance=ExtResource("37_apuor")]
 position = Vector2(-1712, -96)
 
-[node name="KitchenUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
+[node name="KitchenUltraKey" type="Node2D" parent="Quests" node_paths=PackedStringArray("advanceOtherQuestsOnEnd", "objectsToDeleteAtQuestComplete")]
 y_sort_enabled = true
 script = ExtResource("2_pyt2b")
 questName = "KitchenUltraKey"
-questItemsToOperate = [NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D2"), NodePath("UltraKeyRoomTileMap"), NodePath("UltraKeyRoom"), NodePath("NavigationRegion2D2"), NodePath("../../Keys/SpecialUnlockKey"), NodePath("SavePoint2")]
-questItemsStages = Array[int]([0, 0, 0, 0, 0, 1, 1, 1, 1, 2])
-questItemsOnOffState = Array[bool]([false, false, false, false, false, true, true, true, true, true])
+questIndexes = Array[ExtResource("61_hxixi")]([SubResource("Resource_u8a0x"), SubResource("Resource_572yb"), SubResource("Resource_ibple"), SubResource("Resource_18ijp"), SubResource("Resource_8iiv1"), SubResource("Resource_43y3c"), SubResource("Resource_vmwlc"), SubResource("Resource_ap6xy")])
 advanceOtherQuestsOnEnd = [NodePath("../KitchenPurifiedKey")]
-objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoom/Enemies/GuardUK1"), NodePath("UltraKeyRoom/Enemies/GuardUK2"), NodePath("UltraKeyRoom/Enemies/GuardUK3"), NodePath("UltraKeyRoom/Enemies/GuardUK4"), NodePath("UltraKeyRoom/Enemies/Hyottoko"), NodePath("UltraKeyRoom/Enemies/Warden"), NodePath("UltraKeyRoom/Enemies/WardenAlertArea"), NodePath("UltraKeyRoom/ChallengeSubRoom2/Obstacles/Icewall"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake2"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake3"), NodePath("UltraKeyRoom/ChallengeSubRoom1/Obstacles/FurnaceFake4")]
+objectsToDeleteAtQuestComplete = [NodePath("UltraKeyRoomTileMap/Enemies"), NodePath("UltraKeyRoomTileMap/ChallengeSubRoom2/Obstacles/Icewall"), NodePath("UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles/FurnaceFake"), NodePath("UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles/FurnaceFake2"), NodePath("UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles/FurnaceFake3"), NodePath("UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles/FurnaceFake4")]
 
 [node name="UltraKeyRoomTileMap" type="TileMap" parent="Quests/KitchenUltraKey"]
 y_sort_enabled = true
@@ -1858,294 +2316,291 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-589842, 262144, 3, -589841, 262144, 3, -720918, 262144, 3, -720917, 262144, 3, -786449, 262144, 3, -786448, 262144, 3, -786456, 262144, 3, -655384, 262144, 3, -524309, 262144, 3, -262170, 327680, 0, -196634, 327680, 1, -262169, 393216, 0, -196633, 393216, 1, 131046, 262144, 4, 131047, 393216, 4, -131094, 458752, 4, 65508, 262144, 3, -262165, 262144, 3, -262173, 262144, 3)
 
-[node name="UltraKeyRoom" type="Node2D" parent="Quests/KitchenUltraKey"]
+[node name="ChallengeSubRoom1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
-[node name="ChallengeSubRoom1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+[node name="TransformationObjects" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1"]
 y_sort_enabled = true
 
-[node name="TransformationObjects" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1"]
-y_sort_enabled = true
-
-[node name="Vase" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("46_jhbof")]
+[node name="Vase" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-3008, -1256)
 
-[node name="Vase2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("46_jhbof")]
+[node name="Vase2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("46_jhbof")]
 position = Vector2(-3008, -872)
 
-[node name="Vase3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
+[node name="Vase3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
 position = Vector2(-1840, -1432)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Vase4" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
+[node name="Vase4" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" node_paths=PackedStringArray("transformedCollider", "transformedTexture") instance=ExtResource("46_jhbof")]
 position = Vector2(-1840, -1056)
 transformedCollider = NodePath("../Vase/CollisionShape2D")
 transformedTexture = NodePath("../Vase/Sprite2D")
 
-[node name="Broom" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("23_2lu15")]
+[node name="Broom" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("23_2lu15")]
 position = Vector2(-3048, -1472)
 
-[node name="Hammer" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("26_3pbsd")]
+[node name="Hammer" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/TransformationObjects" instance=ExtResource("26_3pbsd")]
 position = Vector2(-2304, -1728)
 
-[node name="Obstacles" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1"]
+[node name="Obstacles" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1"]
 y_sort_enabled = true
 
-[node name="DirtyFloor" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
+[node name="DirtyFloor" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-2880, -1088)
 scale = Vector2(3, 1)
 
-[node name="DirtyFloor2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
+[node name="DirtyFloor2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-1856, -1728)
 
-[node name="DirtyFloor3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
+[node name="DirtyFloor3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("24_m2b64")]
 position = Vector2(-2624, -1664)
 rotation = 1.5708
 scale = Vector2(2.5, 1)
 
-[node name="FurnaceFake" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
+[node name="FurnaceFake" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
 position = Vector2(-2752, -832)
 
-[node name="FurnaceFake2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
+[node name="FurnaceFake2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
 position = Vector2(-2624, -832)
 
-[node name="FurnaceFake3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
+[node name="FurnaceFake3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
 position = Vector2(-2752, -912)
 
-[node name="FurnaceFake4" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
+[node name="FurnaceFake4" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("19_sfcgv")]
 position = Vector2(-2624, -920)
 
-[node name="DirtyFloorUnremoveable" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/Obstacles" instance=ExtResource("31_0gh3t")]
+[node name="DirtyFloorUnremoveable" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/Obstacles" instance=ExtResource("31_0gh3t")]
 position = Vector2(-1920, -832)
 scale = Vector2(2, 1)
 
-[node name="AllowedZones" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1"]
+[node name="AllowedZones" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1"]
 
-[node name="LocalAllowedItems" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
+[node name="LocalAllowedItems" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-3008, -1088)
 allowedObjects = Array[String](["Vase"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems"]
 shape = SubResource("RectangleShape2D_dqnri")
 
-[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
 position = Vector2(0, -128)
 
-[node name="LocalAllowedItemsFeedback2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
 
-[node name="LocalAllowedItemsFeedback3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems" instance=ExtResource("48_5utxs")]
 position = Vector2(0, 128)
 
-[node name="LocalAllowedItems2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
+[node name="LocalAllowedItems2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-1856, -1256)
 allowedObjects = Array[String](["Vase"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2"]
 shape = SubResource("RectangleShape2D_r4nbq")
 
-[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
 position = Vector2(0, -192)
 
-[node name="LocalAllowedItemsFeedback2" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
 position = Vector2(0, -64)
 
-[node name="LocalAllowedItemsFeedback3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
 position = Vector2(0, 64)
 
-[node name="LocalAllowedItemsFeedback4" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback4" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems2" instance=ExtResource("48_5utxs")]
 position = Vector2(0, 192)
 
-[node name="LocalAllowedItems3" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
+[node name="LocalAllowedItems3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones" instance=ExtResource("45_bnhoq")]
 position = Vector2(-3008, -1472)
 allowedObjects = Array[String](["Broom"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems3"]
 shape = SubResource("RectangleShape2D_yhsfx")
 
-[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom1/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_5utxs")]
+[node name="LocalAllowedItemsFeedback" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom1/AllowedZones/LocalAllowedItems3" instance=ExtResource("48_5utxs")]
 
-[node name="ChallengeSubRoom2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+[node name="ChallengeSubRoom2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
-[node name="Obstacles" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2"]
+[node name="Obstacles" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2"]
 y_sort_enabled = true
 
-[node name="Icewall" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Obstacles" instance=ExtResource("19_qojnu")]
+[node name="Icewall" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/Obstacles" instance=ExtResource("19_qojnu")]
 position = Vector2(-2688, 576)
 destroyOnEnd = true
 
-[node name="DirtyFloorUnremoveable" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Obstacles" instance=ExtResource("31_0gh3t")]
+[node name="DirtyFloorUnremoveable" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/Obstacles" instance=ExtResource("31_0gh3t")]
 position = Vector2(-2680, -832)
 scale = Vector2(2, 1)
 
-[node name="TransformationObjects" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2"]
+[node name="TransformationObjects" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2"]
 y_sort_enabled = true
 
-[node name="Teapot" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/TransformationObjects" instance=ExtResource("15_wdsu2")]
+[node name="Teapot" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/TransformationObjects" instance=ExtResource("15_wdsu2")]
 position = Vector2(-3712, -192)
 
-[node name="Helpers" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2"]
+[node name="Helpers" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2"]
 y_sort_enabled = true
 
-[node name="HeatSourceActivator" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers" instance=ExtResource("3_fj7m5")]
+[node name="HeatSourceActivator" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/Helpers" instance=ExtResource("3_fj7m5")]
 position = Vector2(-2496, 480)
 activated = true
 
-[node name="DialogueArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
+[node name="DialogueArea" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/Helpers/HeatSourceActivator" node_paths=PackedStringArray("cameraFocuses") instance=ExtResource("26_b0qex")]
 dialogueText = Array[String](["Oh, an oni!", "AS fhasd bfi -sdfsd9u8 iìia0i0if0adsfm cjz9'^?!BrfouikjaSB", "...ooooookay..."])
 characterTalking = Array[int]([0, 2, 0])
 cameraFocuses = [null, NodePath(".."), null]
 isOnInteraction = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/ChallengeSubRoom2/Helpers/HeatSourceActivator/DialogueArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/ChallengeSubRoom2/Helpers/HeatSourceActivator/DialogueArea"]
 shape = SubResource("CircleShape2D_fqjea")
 
-[node name="Enemies" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom"]
+[node name="Enemies" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap"]
 y_sort_enabled = true
 
-[node name="GuardUK1" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+[node name="GuardUK1" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-2880, -1600)
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR1_1")]
 
-[node name="GuardUK2" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+[node name="GuardUK2" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-2376, -1040)
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR1_2")]
 
-[node name="GuardUK3" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+[node name="GuardUK3" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-3520, -448)
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_3")]
 
-[node name="GuardUK4" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
+[node name="GuardUK4" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("19_j74hm")]
 position = Vector2(-3008, 320)
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_4")]
 
-[node name="Hyottoko" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
+[node name="Hyottoko" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("patrolIndicators") instance=ExtResource("21_64tra")]
 position = Vector2(-2432, -128)
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_2")]
 
-[node name="Warden" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("20_w5iot")]
+[node name="Warden" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" node_paths=PackedStringArray("wardenAlertArea", "patrolIndicators") instance=ExtResource("20_w5iot")]
 position = Vector2(-3456, -128)
 wardenAlertArea = NodePath("../WardenAlertArea")
 patrolIndicators = [NodePath("../PatrolIndicators/PatrolIndicatorSR2_1")]
 
-[node name="WardenAlertArea" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies" instance=ExtResource("6_bbdub")]
+[node name="WardenAlertArea" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies" instance=ExtResource("6_bbdub")]
 position = Vector2(-3080, -128)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/WardenAlertArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/WardenAlertArea"]
 shape = SubResource("RectangleShape2D_wgqa1")
 
-[node name="PatrolIndicators" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies"]
+[node name="PatrolIndicators" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies"]
 
-[node name="PatrolIndicatorSR1_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR1_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-2688, -1472)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_hjvtq"), SubResource("Resource_y8l0u"), SubResource("Resource_qo4pp"), SubResource("Resource_ru04b"), SubResource("Resource_q21ac"), SubResource("Resource_xoscb"), SubResource("Resource_2f3ve"), SubResource("Resource_gr0km"), SubResource("Resource_87t4u"), SubResource("Resource_l3851"), SubResource("Resource_hnp5f"), SubResource("Resource_ddkir")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(-192, -128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(192, -128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(192, 128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_1"]
 position = Vector2(-192, 128)
 
-[node name="PatrolIndicatorSR1_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR1_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-2176, -1216)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_aed8y"), SubResource("Resource_ck0oj"), SubResource("Resource_mknuy"), SubResource("Resource_4pfic"), SubResource("Resource_nw8d0"), SubResource("Resource_u6cto"), SubResource("Resource_aiysv"), SubResource("Resource_w5gig"), SubResource("Resource_1t3jn"), SubResource("Resource_a4wmt"), SubResource("Resource_8lvqn"), SubResource("Resource_ow8kp")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(-192, -128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(-192, 128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR1_2"]
 position = Vector2(192, -128)
 
-[node name="PatrolIndicatorSR2_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR2_1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-3072, -128)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_x83fj"), SubResource("Resource_37i6q"), SubResource("Resource_uw4vl"), SubResource("Resource_43fyo"), SubResource("Resource_rm8uf"), SubResource("Resource_1lbdx"), SubResource("Resource_ypopg"), SubResource("Resource_hjoes"), SubResource("Resource_ampuo"), SubResource("Resource_e44vt")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
 position = Vector2(-384, 0)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_1"]
 position = Vector2(384, 0)
 
-[node name="PatrolIndicatorSR2_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR2_2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-2528, -128)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_5kvqn"), SubResource("Resource_y6s7l"), SubResource("Resource_5rh5r"), SubResource("Resource_2u4dh"), SubResource("Resource_rgben"), SubResource("Resource_3rf5h"), SubResource("Resource_ygx6c"), SubResource("Resource_2w6k8")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(96, 544)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-864, 544)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-864, -480)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-224, -480)
 
-[node name="5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="5" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-224, -320)
 
-[node name="6" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="6" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-96, -320)
 
-[node name="7" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="7" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(-96, 0)
 
-[node name="8" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
+[node name="8" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_2"]
 position = Vector2(96, 0)
 
-[node name="PatrolIndicatorSR2_3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR2_3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-3648, -576)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_602jl"), SubResource("Resource_ou2lm"), SubResource("Resource_i4pct"), SubResource("Resource_urlj0")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(128, 128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(-128, 128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(-128, -128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_3"]
 position = Vector2(128, -128)
 
-[node name="PatrolIndicatorSR2_4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators"]
+[node name="PatrolIndicatorSR2_4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators"]
 position = Vector2(-3200, 192)
 script = ExtResource("30_hgddd")
 patrolIndexes = Array[Resource("res://Enemies/PatrolIndicator/Scripts/PatrolIndex.gd")]([SubResource("Resource_cje5g"), SubResource("Resource_mrsnd"), SubResource("Resource_fwa7g"), SubResource("Resource_ygmf2")])
 
-[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="1" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(192, 128)
 
-[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="2" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(192, -128)
 
-[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="3" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(-192, -128)
 
-[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
+[node name="4" type="Node2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/Enemies/PatrolIndicators/PatrolIndicatorSR2_4"]
 position = Vector2(-192, 128)
 
-[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/KitchenUltraKey/UltraKeyRoom" instance=ExtResource("58_mg625")]
+[node name="PlayerInSpecialRoomSoundTrigger" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap" instance=ExtResource("58_mg625")]
 position = Vector2(-3072, -512)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/KitchenUltraKey/UltraKeyRoom/PlayerInSpecialRoomSoundTrigger"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quests/KitchenUltraKey/UltraKeyRoomTileMap/PlayerInSpecialRoomSoundTrigger"]
 polygon = PackedVector2Array(-768, -256, -768, 1120, 256, 1120, 256, 1376, 512, 1376, 512, 1120, 752, 1120, 752, -288, 1280, -288, 1280, -1280, 0, -1280, 0, -256)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Quests/KitchenUltraKey"]

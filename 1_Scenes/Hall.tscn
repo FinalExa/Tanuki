@@ -68,58 +68,58 @@
 [sub_resource type="Resource" id="Resource_bt8ap"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_r0kio"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6vjpl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5ye4b"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCBaseDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tnajp"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PasswordNPC/PasswordNPCQuestCompleteDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_be1ex"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_2nbqj"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey1")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_m6u56"]
 script = ExtResource("14_qvrtm")
@@ -249,178 +249,178 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1312, 2720, -1312, 291
 [sub_resource type="Resource" id="Resource_1l4vy"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5fivf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_n85p6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_swc0a"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vreho"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8n5xi"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceCompletedNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_r1fwf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6yi6o"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("")
-useAltItem = true
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = true
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_k3o2k"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ocujm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCCleanDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8kxar"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qctw6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("")
-useAltItem = true
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = true
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_uck52"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cy8o8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTable")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8aeis"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("")
-useAltItem = true
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = true
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vyw6l"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_jkaep"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCGetBackBellDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dlet2"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC/EntranceNPCColorTheBellDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ajqj2"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("BellTableWithUncoloredBell")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qcr42"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_v80x3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("EntranceCompletedNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_mwfe5"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_n0yux"]
 script = ExtResource("14_qvrtm")
@@ -580,66 +580,66 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-560, 2016, -480, 2016,
 [sub_resource type="Resource" id="Resource_8pcma"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_jynrm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PaintingComplete")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_baoxj"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("RoomAStructure")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_2ki8v"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_2ywd3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PaintingComplete")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_awv7f"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("RoomAStructure")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_bqww8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_655e3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a11ha"]
 vertices = PackedVector2Array(-1504, 800, -1312, 800, -1312, 1056, -1504, 1056)
@@ -649,50 +649,50 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1504, 1056, -1312, 105
 [sub_resource type="Resource" id="Resource_b2r8o"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_0s4ju"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_kjbwf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_o4hf3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DoorEvil")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_w1jq1"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFirstDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_evah7"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SadGuardNPC/SadGuardFinalDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o12u4"]
 vertices = PackedVector2Array(992, 672, 992, 960, 560, 960, 800, 672, 560, 672, 736, 672, 736, 576, 800, 576)
@@ -792,74 +792,74 @@ radius = 128.0
 [sub_resource type="Resource" id="Resource_5eng3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_s63aq"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("KeySprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_u2mt6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/UnlockKey5")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_umrq6"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("ChairWardenNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_yvfxw"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenSleepingDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cw068"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Chair")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_276pm"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("ChairWardenNPC")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8oqwl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenAwakeDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8fm7r"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WardenSleepingDialogue")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_gcnyh"]
 script = ExtResource("14_qvrtm")
@@ -906,130 +906,130 @@ radius = 128.25
 [sub_resource type="Resource" id="Resource_2ttpn"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DirtyFloor")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_v0163"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("DirtyFloor")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_aux4q"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WoodenKatana")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cvs7x"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("KatanaSprite")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ycpq3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WoodenKatana")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qp45a"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("HallUltraKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_61qc8"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_cyk12"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ub4sk"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_agg8y"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_pp3jb"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("HallUltraKeyTileMap")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_nvi25"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_43elw"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("NavigationRegion2D")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ykrko"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/SpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_8d8d5"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_de5gl"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("Doors")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_ufxee"]
 script = ExtResource("14_qvrtm")
@@ -1205,130 +1205,130 @@ size = Vector2(624, 480)
 [sub_resource type="Resource" id="Resource_ldkin"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_f68my"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_qo06a"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTileInterruptLeft")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_6iylh"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTileInterruptRight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_i66qy"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/LevelUnlockKeyDoorExtra")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_faqlf"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PurifiedKeyRoom")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 0
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_fqas7"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTile")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_a50th"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTile2")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_yatru"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/LevelUnlockKeyDoorExtra")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 1
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_rk8hd"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("PurifiedKeyRoom")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_yojq1"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTileInterruptLeft")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_tldpy"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTileInterruptRight")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_vffx3"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTile3")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_trs5h"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("WallTile4")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 0
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_5bh4q"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("../../Keys/PurifiedSpecialUnlockKey")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 2
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="Resource" id="Resource_dot1l"]
 script = ExtResource("11_0376i")
 itemToOperate = NodePath("SavePoint")
-useAltItem = false
-altItemToOperate = 0
 itemStage = 3
 itemOperation = 1
+useAltItem = false
+altItemToOperate = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5sfq"]
 size = Vector2(768, 480)
@@ -2108,7 +2108,6 @@ y_sort_enabled = true
 script = ExtResource("3_2xstp")
 questName = "HallMakeWardenSleep"
 questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_umrq6"), SubResource("Resource_yvfxw"), SubResource("Resource_cw068"), SubResource("Resource_276pm"), SubResource("Resource_8oqwl"), SubResource("Resource_8fm7r")])
-questItemsOnOffState = Array[bool]([false, false, false, true, false, true])
 advanceOtherQuestsOnEnd = [NodePath("../HallStunWarden")]
 objectsToDeleteAtQuestComplete = [NodePath("../../Enemies/Warden1"), NodePath("../../Enemies/Warden1AlertArea"), NodePath("PillowMovable")]
 
@@ -2153,13 +2152,10 @@ scale = Vector2(1, 2)
 questToSendProgressSignal = NodePath("..")
 sendSignalToQuestOnDestroyed = true
 
-[node name="HallCleanDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("questItemsToOperate", "objectsToDeleteAtQuestComplete")]
+[node name="HallCleanDirtyFloor2" type="Node2D" parent="Quests" node_paths=PackedStringArray("objectsToDeleteAtQuestComplete")]
 script = ExtResource("3_2xstp")
 questName = "HallCleanDirtyFloor2"
 questIndexes = Array[ExtResource("11_0376i")]([SubResource("Resource_v0163")])
-questItemsToOperate = [NodePath("DirtyFloor")]
-questItemsStages = Array[int]([1])
-questItemsOnOffState = Array[bool]([false])
 objectsToDeleteAtQuestComplete = [NodePath("DirtyFloor")]
 
 [node name="DirtyFloor" parent="Quests/HallCleanDirtyFloor2" node_paths=PackedStringArray("questToSendProgressSignal") instance=ExtResource("9_wwcrv")]
