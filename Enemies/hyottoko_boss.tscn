@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://doty0qjp6fjju" path="res://Enemies/Sprites/Hyottoko_Boss.png" id="9_ptm78"]
 [ext_resource type="Texture2D" uid="uid://do6kl8t7bho8a" path="res://Enemies/Sprites/Hyottoko_Boss_Trapped.png" id="10_55v5c"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovement.gd" id="10_jcxqr"]
+[ext_resource type="Texture2D" uid="uid://cg6lpby164ysb" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Legs.png" id="11_dtv46"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyMovementSounds.gd" id="11_tendj"]
-[ext_resource type="Texture2D" uid="uid://dw7hmls1uir6" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Head.png" id="11_vlfy2"]
 [ext_resource type="Script" path="res://Enemies/Scripts/EnemyPatrol.gd" id="12_1171r"]
 [ext_resource type="Texture2D" uid="uid://dpfcel8touhnh" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Body.png" id="12_n8i33"]
 [ext_resource type="Script" path="res://Level/AllPurpose/Scripts/FollowHorizontalFlipOf.gd" id="12_y1ow1"]
@@ -76,6 +76,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw21b"]
+atlas = ExtResource("11_dtv46")
+region = Rect2(0, 0, 136, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivjaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw21b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5quwe"]
 atlas = ExtResource("12_n8i33")
 region = Rect2(0, 0, 136, 180)
@@ -86,22 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5quwe")
 }],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pp8nu"]
-atlas = ExtResource("11_vlfy2")
-region = Rect2(0, 0, 136, 180)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ivjaj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pp8nu")
-}],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -121,7 +121,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ar0p4")
 newSpeed = 300.0
-armorPieces = [NodePath("ArmorBody"), NodePath("ArmorHead")]
+armorPieces = [NodePath("ArmorHead"), NodePath("ArmorBody"), NodePath("ArmorLegs")]
 hyottokoRange = NodePath("Rotator/HyottokoRange")
 hyottokoPushDistanceFromPlayer = 250.0
 hyottokoReachPoint = NodePath("HyottokoReachPoint")
@@ -192,17 +192,27 @@ position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_d6h4v")
 animation = &"idle"
 
-[node name="ArmorBody" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
-visible = false
-position = Vector2(0, -88)
-sprite_frames = SubResource("SpriteFrames_v4ygt")
-script = ExtResource("12_y1ow1")
-objectToFollow = NodePath("../AnimatedSprite2D")
-
 [node name="ArmorHead" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
 visible = false
 position = Vector2(0, -88)
 sprite_frames = SubResource("SpriteFrames_ivjaj")
+autoplay = "default"
+script = ExtResource("12_y1ow1")
+objectToFollow = NodePath("../AnimatedSprite2D")
+
+[node name="ArmorBody" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_v4ygt")
+autoplay = "default"
+script = ExtResource("12_y1ow1")
+objectToFollow = NodePath("../AnimatedSprite2D")
+
+[node name="ArmorLegs" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("objectToFollow")]
+visible = false
+position = Vector2(0, -88)
+sprite_frames = SubResource("SpriteFrames_ivjaj")
+autoplay = "default"
 script = ExtResource("12_y1ow1")
 objectToFollow = NodePath("../AnimatedSprite2D")
 

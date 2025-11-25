@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj8gyu4bdrdht"]
+[gd_scene load_steps=9 format=3 uid="uid://dj8gyu4bdrdht"]
 
 [ext_resource type="Script" path="res://ImportantObjects/MovableObjects/Scripts/BrokenPartMovable.gd" id="1_j3o18"]
 [ext_resource type="Texture2D" uid="uid://dpfcel8touhnh" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Body.png" id="2_hpw71"]
 [ext_resource type="Texture2D" uid="uid://dw7hmls1uir6" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Head.png" id="3_ase0g"]
+[ext_resource type="Texture2D" uid="uid://cg6lpby164ysb" path="res://ImportantObjects/MovableObjects/Sprites/Armor_Piece_Legs.png" id="4_121wy"]
 [ext_resource type="PackedScene" uid="uid://jlf7pus0ncsj" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_far.tscn" id="4_xwfcp"]
 [ext_resource type="PackedScene" uid="uid://cblibxls07rup" path="res://ImportantObjects/MovableObjects/Feedback/movable_feedback_close.tscn" id="5_idqqm"]
 [ext_resource type="PackedScene" uid="uid://bs6e166srhqn4" path="res://ImportantObjects/MovableObjects/Feedback/movable_label.tscn" id="6_j4r5g"]
@@ -12,7 +13,7 @@ radius = 16.0
 
 [node name="ArmorPart" type="Area2D" node_paths=PackedStringArray("partSprites", "movableFeedbackFar", "movableFeedbackClose", "movableLabel")]
 script = ExtResource("1_j3o18")
-partSprites = [NodePath("Part1"), NodePath("Part2")]
+partSprites = [NodePath("Part1"), NodePath("Part2"), NodePath("Part3")]
 movableObjectName = "Armor Part"
 movableObjectProperties = Array[String](["ArmorPart"])
 movableFeedbackFar = NodePath("MovableFeedbackFar")
@@ -24,12 +25,17 @@ shape = SubResource("CircleShape2D_482on")
 
 [node name="Part1" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_hpw71")
+position = Vector2(-8, 48)
+texture = ExtResource("3_ase0g")
 
 [node name="Part2" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-8, 48)
-texture = ExtResource("3_ase0g")
+texture = ExtResource("2_hpw71")
+
+[node name="Part3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, -56)
+texture = ExtResource("4_121wy")
 
 [node name="MovableFeedbackFar" parent="." instance=ExtResource("4_xwfcp")]
 position = Vector2(0, -40)

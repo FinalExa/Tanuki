@@ -2286,7 +2286,7 @@ pointToTeleport = NodePath("../TeleportPoint")
 
 [node name="ObjectPositionRandomizer" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap" node_paths=PackedStringArray("objectsToRandomizePosition", "positions")]
 script = ExtResource("34_kaanr")
-objectsToRandomizePosition = [NodePath("../Transformations/Weight"), NodePath("../MovableObjects/ArmorPart1"), NodePath("../MovableObjects/ArmortPart2")]
+objectsToRandomizePosition = [NodePath("../Transformations/Weight"), NodePath("../MovableObjects/ArmorPart1"), NodePath("../MovableObjects/ArmortPart2"), NodePath("../MovableObjects/ArmortPart3")]
 positions = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4")]
 
 [node name="1" type="Node2D" parent="Quests/DojoUltraKey/UltraKeyTileMap/ObjectPositionRandomizer"]
@@ -2327,6 +2327,10 @@ position = Vector2(-1408, -2688)
 [node name="ArmortPart2" parent="Quests/DojoUltraKey/UltraKeyTileMap/MovableObjects" instance=ExtResource("39_fw0ah")]
 position = Vector2(-1408, -2688)
 partID = 1
+
+[node name="ArmortPart3" parent="Quests/DojoUltraKey/UltraKeyTileMap/MovableObjects" instance=ExtResource("39_fw0ah")]
+position = Vector2(-1408, -2688)
+partID = 2
 
 [node name="DialogueArea1" parent="Quests/DojoUltraKey" instance=ExtResource("14_hrc4d")]
 position = Vector2(0, -1808)
